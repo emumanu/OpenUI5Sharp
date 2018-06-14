@@ -1,0 +1,1227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:n8="sap.ui.layout" xmlns:n0="sap.ui.core" elementFormDefault="qualified" targetNamespace="sap.ui.layout" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="sap.ui.core" />
+  <xs:element name="BlockLayout" substitutionGroup="n0:Control" type="n8:_BlockLayoutType">
+    <xs:annotation>
+      <xs:documentation>The BlockLayout is used to display several objects in a section-based manner. &lt;h3&gt;Overview&lt;/h3&gt; The BlockLayout uses horizontal and vertical subdivisions, and full-width banners to display a set of elements. By placing pictorial and textual elements side-by-side in different blocks, you can establish a visual connection between blocks and between similar elements. &lt;h3&gt;Structure&lt;/h3&gt; The BlockLayout comes in five predefined types for background colors: &lt;ul&gt; &lt;li&gt;Layout only (default) - a layout scheme and no background colors&lt;/li&gt; &lt;li&gt;Bright - a layout scheme with bright colors&lt;/li&gt; &lt;li&gt;Accent - a layout scheme with four pre-defined color sets&lt;/li&gt; &lt;li&gt;Dashboard - a layout scheme with additional borders and no background colors&lt;/li&gt; &lt;li&gt;Mixed - a layout scheme with a mix of light and dark colors&lt;/li&gt; &lt;/ul&gt; Background colors are attached directly to the blocks of the layout.
+
+Special full-width sections of the BlockLayout allow horizontal scrolling through a set of blocks.
+
+&lt;b&gt;Note:&lt;/b&gt; With version 1.48 colors can be set for each individual {@link sap.ui.layout.BlockLayoutCell cell}. There are 10 pre-defined color sets, each with 4 different shades. The main colors of the sets can be changed in Theme Designer. To change the background of a particular cell, set &lt;code&gt;backgroundColorSet&lt;/code&gt; (main color) and &lt;code&gt;backgroundColorShade&lt;/code&gt; (shade).
+
+&lt;h3&gt;Usage&lt;/h3&gt; &lt;h4&gt;When to use&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;You want to create a catalogue-like page with sections of blocks.&lt;/li&gt; &lt;li&gt;The BlockLayout is intended for developing administrative tools and applications.&lt;/li&gt; &lt;/ul&gt; &lt;h4&gt;When not to use&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;You want to display properties or features of one content item. Use a {@link sap.uxap.ObjectPageLayout object page} or {@link sap.f.DynamicPage dynamic page} instead.&lt;/li&gt; &lt;/ul&gt; &lt;h3&gt;Responsive Behavior&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;The breakpoints of the block layout react to the width of the control itself and not to the actual screen size.&lt;/li&gt; &lt;li&gt; On small screens all blocks will wrap to a single scrollable column&lt;/li&gt; &lt;/ul&gt;</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_BlockLayoutType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n8:BlockLayoutRow" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>The Rows to be included in the content of the control</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n8:BlockLayoutRow" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="background" type="n8:_BlockBackgroundTypeType">
+          <xs:annotation>
+            <xs:documentation>Determines the background used for the Layout</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="keepFontSize" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Keeps the font-size of the contents as is, independent from the screen size.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="content" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BlockLayoutCell" substitutionGroup="n0:Control" type="n8:_BlockLayoutCellType">
+    <xs:annotation>
+      <xs:documentation>The BlockLayoutCell is used as an aggregation of the BlockLayoutRow. It contains Controls. The BlockLayoutCell should be used only as aggregation of the BlockLayoutRow.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_BlockLayoutCellType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>The content to be included inside the cell</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="title" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Defines the title of the cell</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="titleAlignment" type="n0:_HorizontalAlignType">
+          <xs:annotation>
+            <xs:documentation>Defines the alignment of the cell title</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="titleLevel" type="n0:_TitleLevelType">
+          <xs:annotation>
+            <xs:documentation>Defines the aria level of the title This information is e.g. used by assistive technologies like screenreaders to create a hierarchical site map for faster navigation.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Defines the width of the cell. Depending on the context of the cell - whether it's in scrollable, or non scrollable row, this property is interpreted in two different ways. If the cell is placed inside a scrollable row - this property defines the width of the cell in percentages. If no value is provided - the default is 40%. If the cell is placed inside a non scrollable row - this property defines the grow factor of the cell compared to the whole row. &lt;b&gt;For example:&lt;/b&gt; If you have 2 cells, each with width of 1, this means that they should be of equal size, and they need to fill the whole row. This results in 50% width for each cell. If you have 2 cells, one with width of 1, the other with width of 3, this means that the whole row width is 4, so the first cell will have a width of 25%, the second - 75%. According to the visual guidelines, it is suggested that you only use 25%, 50%, 75% or 100% cells in you applications. For example, 12,5% width is not desirable (1 cell with width 1, and another with width 7)</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="backgroundColorSet" type="n8:_BlockLayoutCellColorSetType">
+          <xs:annotation>
+            <xs:documentation>The Background color set from which the background color will be selected. By using background colors from the predefined sets your colors could later be customized from the Theme Designer. &lt;b&gt;Note:&lt;/b&gt; backgroundColorSet should be used only in combination with backgroundColorShade.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="backgroundColorShade" type="n8:_BlockLayoutCellColorShadeType">
+          <xs:annotation>
+            <xs:documentation>The index of the background color in the color set from which the color will be selected. By using background colors from the predefined sets your colors could later be customized from the Theme Designer. &lt;b&gt;Note:&lt;/b&gt; backgroundColorShade should be used only in combination with backgroundColorSet.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="content" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BlockLayoutCellData" substitutionGroup="n0:LayoutData" type="n8:_BlockLayoutCellDataType">
+    <xs:annotation>
+      <xs:documentation>Holds layout data for the BlockLayoutCells contents.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_BlockLayoutCellDataType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_LayoutDataType">
+        <xs:attribute name="sSize" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Sets the width of the cell for S size of the BlockLayout.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="mSize" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Sets the width of the cell for M size of the BlockLayout.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="lSize" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Sets the width of the cell for L size of the BlockLayout.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="xlSize" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Sets the width of the cell for XL size of the BlockLayout.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BlockLayoutRow" substitutionGroup="n0:Control" type="n8:_BlockLayoutRowType">
+    <xs:annotation>
+      <xs:documentation>The BlockLayoutRow is used as an aggregation to the BlockLayout. It aggregates Block Layout cells. The BlockLayoutRow has 2 rendering modes - scrollable and non scrollable.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_BlockLayoutRowType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n8:BlockLayoutCell" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>The content cells to be included in the row.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n8:BlockLayoutCell" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="scrollable" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Sets the rendering mode of the BlockLayoutRow to scrollable. In scrollable mode, the cells get aligned side by side, with horizontal scroll bar for the row.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="rowColorSet" type="n8:_BlockRowColorSetsType">
+          <xs:annotation>
+            <xs:documentation>Defines background type for that row. There might be several rows with the same type</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="content" type="xs:string" />
+        <xs:attribute name="accentCells" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Cells that would be accented. *Note:* This association has visual impact only for BlockLayouts with background types "Mixed" and "Accent".
+
+Mixed: In this type, areas of 25% (on desktop) can have a dark background color. Per section one area can be dark. Accent: Every section can contain multiple gray blocks, which are used alternately, beginning with the bright one</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DynamicSideContent" substitutionGroup="n0:Control" type="n8:_DynamicSideContentType">
+    <xs:annotation>
+      <xs:documentation>Layout control that allows additional (side) content to be displayed dynamically.
+
+&lt;h3&gt;Overview&lt;/h3&gt;
+
+&lt;code&gt;DynamicSideContent&lt;/code&gt; is a layout control that allows additional content to be displayed in a way that flexibly adapts to different screen sizes. The side content appears in a container next to or directly below the main content (it doesn't overlay). When the side content is triggered, the main content becomes narrower (if appearing side-by-side). The side content contains a separate scrollbar when appearing next to the main content.
+
+&lt;h3&gt;Usage&lt;/h3&gt;
+
+&lt;i&gt;When to use?&lt;/i&gt;
+
+Use this control if you want to display relevant information that is not critical for users to complete a task. Users should have access to all the key functions and critical information in the app even if they do not see the side content. This is important because on smaller screen sizes it may be difficult to display the side content in a way that is easily accessible for the user.
+
+&lt;i&gt;When not to use?&lt;/i&gt;
+
+Don't use it if you want to display navigation or critical information that prevents users from completing a task when they have no access to the side content.
+
+&lt;h3&gt;Responsive Behavior&lt;/h3&gt;
+
+Screen width &gt; 1440 px
+
+&lt;ul&gt;&lt;li&gt;Main vs. side content ratio is 75 vs. 25 percent (with a minimum of 320px each).&lt;/li&gt; &lt;li&gt;If the application defines a trigger, the side content can be hidden.&lt;/li&gt;&lt;/ul&gt;
+
+Screen width &lt;= 1440 px and &gt; 720px
+
+&lt;ul&gt;&lt;li&gt;Main vs. side content ratio is 66.666 vs. 33.333 percent (with a minimum of 320px each). If the side content width falls below 320 px, it automatically slides under the main content, unless the app development team specifies that it should disappear.&lt;/li&gt;&lt;/ul&gt;
+
+Screen width &lt;= 720 px (for example on a mobile device)
+
+&lt;ul&gt;&lt;li&gt;In this case, the side content automatically disappears from the screen (unless specified to stay under the content) and can be triggered from a pre-set trigger (specified within the app). When the side content is triggered, it replaces the main content. We recommend that you always place the trigger for the side content in the same location, such as in the app footer.&lt;/li&gt;&lt;/ul&gt;
+
+A special case, allows for comparison mode between the main and side content. In this case, the screen is split into 50:50 percent for main vs. side content. The responsive behavior of the equal split is the same as in the standard view - the side content disappears on screen widths of less than 720 px and can only be viewed by triggering it.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_DynamicSideContentType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="mainContent">
+            <xs:annotation>
+              <xs:documentation>Main content controls.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="sideContent">
+            <xs:annotation>
+              <xs:documentation>Side content controls.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="showSideContent" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the side content is visible or hidden.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showMainContent" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the main content is visible or hidden.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="sideContentVisibility" type="n8:_SideContentVisibilityType">
+          <xs:annotation>
+            <xs:documentation>Determines on which breakpoints the side content is visible.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="sideContentFallDown" type="n8:_SideContentFallDownType">
+          <xs:annotation>
+            <xs:documentation>Determines on which breakpoints the side content falls down below the main content.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="equalSplit" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Defines whether the control is in equal split mode. In this mode, the side and the main content take 50:50 percent of the container on all screen sizes except for phone, where the main and side contents are switching visibility using the toggle method.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="containerQuery" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set to TRUE, then not the media Query (device screen size) but the size of the container, surrounding the control, defines the current range.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="sideContentPosition" type="n8:_SideContentPositionType">
+          <xs:annotation>
+            <xs:documentation>Determines whether the side content is on the left or on the right side of the main content.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="mainContent" type="xs:string" />
+        <xs:attribute name="sideContent" type="xs:string" />
+        <xs:attribute name="breakpointChanged" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fires when the current breakpoint has been changed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FixFlex" substitutionGroup="n0:Control" type="n8:_FixFlexType">
+    <xs:annotation>
+      <xs:documentation>A layout container with a fixed and a flexible part. &lt;h3&gt;Overview&lt;/h3&gt; The FixFlex control builds the container for a layout with a fixed and a flexible part. The flexible container adapts its size to the fix container. &lt;h4&gt;Guidelines:&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;The fix container can hold any number of controls, while the flexible container can hold only one&lt;/li&gt; &lt;li&gt;In order for the FixFlex to stretch properly, the parent element, in which the control is placed, needs to have a specified height or needs to have an absolute position.&lt;/li&gt; &lt;li&gt;Avoid nesting FixFlex in other flexbox-based layout controls ({@link sap.ui.layout.FixFlex FixFlex}, {@link sap.m.FlexBox FlexBox}, Hbox, Vbox). Otherwise, contents may be not accessible or multiple scrollbars can appear.&lt;/li&gt; &lt;/ul&gt; &lt;h3&gt;Structure&lt;/h3&gt; The behavior of the FixFlex is controlled by the following properties: &lt;ul&gt; &lt;li&gt;&lt;code&gt;fixContentSize&lt;/code&gt; - The width/height of the fix part of the control&lt;/li&gt; &lt;li&gt;&lt;code&gt;fixFirst&lt;/code&gt; - The ordering of the fix and flex part&lt;/li&gt; &lt;li&gt;&lt;code&gt;minFlexSize&lt;/code&gt; - Scrolling inside the flex part, if its contents are large&lt;/li&gt; &lt;li&gt;&lt;code&gt;vertical&lt;/code&gt; - Alignment of the FixFlex control&lt;/li&gt; &lt;/ul&gt; &lt;h3&gt;Responsive Behavior&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;If the child control of the flex or the fix container has width/height bigger than the container itself, the child control will be cropped in the view.&lt;/li&gt; &lt;li&gt;If minFlexSize is set, then a scrollbar is shown in the flexible part, depending on the &lt;code&gt;vertical&lt;/code&gt; property.&lt;/li&gt; &lt;/ul&gt;</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FixFlexType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="fixContent">
+            <xs:annotation>
+              <xs:documentation>Controls in the fixed part of the layout.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="flexContent">
+            <xs:annotation>
+              <xs:documentation>Control in the stretching part of the layout.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="vertical" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines the direction of the layout of child elements. True for vertical and false for horizontal layout.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="fixFirst" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the fixed-size area should be on the beginning/top ( if the value is "true") or end/bottom ( if the value is "false").</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="fixContentSize" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Determines the height (if the vertical property is "true") or the width (if the vertical property is "false") of the fixed area. If left at the default value "auto", the fixed-size area will be as large as its content. In this case the content cannot use percentage sizes.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="minFlexSize" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Enables scrolling inside the flexible part. The given size is calculated in "px". If the child control in the flexible part is larger than the available flexible size on the screen and if the available size for the flexible part is smaller or equal to the minFlexSize value, the scroll will be for the entire FixFlex control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="fixContent" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Grid" substitutionGroup="n0:Control" type="n8:_GridType">
+    <xs:annotation>
+      <xs:documentation>The &lt;code&gt;Grid&lt;/code&gt; control is a layout which positions its child controls in a 12 column flow layout. Its children can be specified to take on a variable amount of columns depending on available screen size. With this control it is possible to achieve flexible layouts and line-breaks for extra large-, large-, medium- and small-sized screens, such as large desktop, desktop, tablet, and mobile. The &lt;code&gt;Grid&lt;/code&gt; control's width can be percentage- or pixel-based and the spacing between its columns can be set to various predefined values.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_GridType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>Controls that are placed into Grid layout.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Optional. Width of the Grid. If not specified, then 100%.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="vSpacing" type="xs:float">
+          <xs:annotation>
+            <xs:documentation>Optional. Vertical spacing between the rows in the Grid. In rem, allowed values are 0, 0.5, 1 and 2.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="hSpacing" type="xs:float">
+          <xs:annotation>
+            <xs:documentation>Optional. Horizontal spacing between the content in the Grid. In rem, allowed values are 0, 0.5 , 1 or 2.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="position" type="n8:_GridPositionType">
+          <xs:annotation>
+            <xs:documentation>Optional. Position of the Grid in the window or surrounding container. Possible values are "Center", "Left" and "Right".</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="defaultSpan" type="n8:_GridSpanType">
+          <xs:annotation>
+            <xs:documentation>Optional. A string type that represents Grid's default span values for large, medium and small screens for the whole Grid. Allowed values are separated by space Letters L, M or S followed by number of columns from 1 to 12 that the container has to take, for example: "L2 M4 S6", "M12", "s10" or "l4 m4". Note that the parameters has to be provided in the order large medium small.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="defaultIndent" type="n8:_GridIndentType">
+          <xs:annotation>
+            <xs:documentation>Optional. Defines default for the whole Grid numbers of empty columns before the current span begins. It can be defined for large, medium and small screens. Allowed values are separated by space Letters L, M or S followed by number of columns from 0 to 11 that the container has to take, for example: "L2 M4 S6", "M11", "s10" or "l4 m4". Note that the parameters has to be provided in the order large medium small.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="containerQuery" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If true then not the media Query ( device screen size), but the size of the container surrounding the grid defines the current range (large, medium or small).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="content" type="xs:string" />
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / IDs that label this control (see WAI-ARIA attribute &lt;code&gt;aria-labelledby&lt;/code&gt;).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GridData" substitutionGroup="n0:LayoutData" type="n8:_GridDataType">
+    <xs:annotation>
+      <xs:documentation>Grid layout data
+
+&lt;b&gt;Note:&lt;/b&gt; When &lt;code&gt;GridData&lt;/code&gt; is used for controls inside a form the property &lt;code&gt;linebreak&lt;/code&gt; has to be set to &lt;code&gt;true&lt;/code&gt; when the next form element has to be displayed on a new line. This is needed because otherwise the &lt;code&gt;GridData&lt;/code&gt; overrides the layout provided by the &lt;code&gt;Form&lt;/code&gt;.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_GridDataType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_LayoutDataType">
+        <xs:attribute name="span" type="n8:_GridSpanType">
+          <xs:annotation>
+            <xs:documentation>A string type that represents Grid's span values for large, medium and small screens. Allowed values are separated by space Letters L, M or S followed by number of columns from 1 to 12 that the container has to take, for example: "L2 M4 S6", "M12", "s10" or "l4 m4". Note that the parameters has to be provided in the order large medium small.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="spanXL" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Optional. Defines a span value for extra large screens. This value overwrites the value for extra large screens defined in the parameter "span".</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="spanL" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Optional. Defines a span value for large screens. This value overwrites the value for large screens defined in the parameter "span".</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="spanM" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Optional. Defines a span value for medium size screens. This value overwrites the value for medium screens defined in the parameter "span".</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="spanS" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Optional. Defines a span value for small screens. This value overwrites the value for small screens defined in the parameter "span".</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="indent" type="n8:_GridIndentType">
+          <xs:annotation>
+            <xs:documentation>A string type that represents Grid's span values for large, medium and small screens. Allowed values are separated by space Letters L, M or S followed by number of columns from 1 to 12 that the container has to take, for example: "L2 M4 S6", "M12", "s10" or "l4 m4". Note that the parameters has to be provided in the order large medium small.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="indentXL" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Optional. Defines a span value for extra large screens. This value overwrites the value for extra large screens defined in the parameter "indent".</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="indentL" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Optional. Defines a span value for large screens. This value overwrites the value for large screens defined in the parameter "indent".</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="indentM" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Optional. Defines a span value for medium size screens. This value overwrites the value for medium screens defined in the parameter "indent".</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="indentS" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Optional. Defines a span value for small screens. This value overwrites the value for small screens defined in the parameter "indent".</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="visibleXL" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Defines if this Control is visible on XL - extra Large screens.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="visibleL" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Defines if this Control is visible on Large screens.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="visibleM" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Defines if this Control is visible on Medium size screens.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="visibleS" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Defines if this Control is visible on small screens.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="moveBackwards" type="n8:_GridIndentType">
+          <xs:annotation>
+            <xs:documentation>Optional. Moves a cell backwards so many columns as specified.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="moveForward" type="n8:_GridIndentType">
+          <xs:annotation>
+            <xs:documentation>Optional. Moves a cell forwards so many columns as specified.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="linebreak" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Optional. If this property is set to true, the control on all-size screens causes a line break within the Grid and becomes the first within the next line.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="linebreakXL" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Optional. If this property is set to true, the control on extra large screens causes a line break within the Grid and becomes the first within the next line.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="linebreakL" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Optional. If this property is set to true, the control on large screens causes a line break within the Grid and becomes the first within the next line.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="linebreakM" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Optional. If this property is set to true, the control on medium sized screens causes a line break within the Grid and becomes the first within the next line.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="linebreakS" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Optional. If this property is set to true, the control on small screens causes a line break within the Grid and becomes the first within the next line.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="spanLarge" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Deprecated. Defines a span value for large screens. This value overwrites the value for large screens defined in the parameter "span".</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="spanMedium" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Deprecated. Defines a span value for medium size screens. This value overwrites the value for medium screens defined in the parameter "span".</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="spanSmall" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Deprecated. Defines a span value for small screens. This value overwrites the value for small screens defined in the parameter "span".</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="indentLarge" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Deprecated. Defines a span value for large screens. This value overwrites the value for large screens defined in the parameter "indent".</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="indentMedium" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Deprecated. Defines a span value for medium size screens. This value overwrites the value for medium screens defined in the parameter "indent".</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="indentSmall" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Deprecated. Defines a span value for small screens. This value overwrites the value for small screens defined in the parameter "indent".</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="visibleOnLarge" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Deprecated. Defines if this Control is visible on Large screens.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="visibleOnMedium" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Deprecated. Defines if this Control is visible on Medium size screens.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="visibleOnSmall" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Deprecated. Defines if this Control is visible on small screens.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="HorizontalLayout" substitutionGroup="n0:Control" type="n8:_HorizontalLayoutType">
+    <xs:annotation>
+      <xs:documentation>A layout that provides support for horizontal alignment of controls</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_HorizontalLayoutType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>The controls inside this layout</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="allowWrapping" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies whether the content inside the Layout shall be line-wrapped in the case that there is less horizontal space available than required.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="content" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PaneContainer" substitutionGroup="n0:Element" type="n8:_PaneContainerType">
+    <xs:annotation>
+      <xs:documentation>PaneContainer is an abstraction of Splitter.
+
+Could be used as an aggregation of ResponsiveSplitter or other PaneContainers.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_PaneContainerType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Element" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="panes">
+            <xs:annotation>
+              <xs:documentation>The Pane that will be shown when there is no suitable pane for ResponsiveSplitter's current width.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Element" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="orientation" type="n0:_OrientationType">
+          <xs:annotation>
+            <xs:documentation>The orientation of the Splitter</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="panes" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponsiveFlowLayout" substitutionGroup="n0:Control" type="n8:_ResponsiveFlowLayoutType">
+    <xs:annotation>
+      <xs:documentation>This is a layout where several controls can be added. These controls are blown up to fit in an entire row. If the window resizes, the controls are moved between the rows and resized again.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ResponsiveFlowLayoutType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>Added content that should be positioned. Every content item should have a ResponsiveFlowLayoutData attached, or otherwise, the default values are used.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="responsive" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set to false, all added controls will keep their width, or otherwise, the controls will be stretched to the possible width of a row.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="content" type="xs:string" />
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / IDs that label this control (see WAI-ARIA attribute &lt;code&gt;aria-labelledby&lt;/code&gt;).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponsiveFlowLayoutData" substitutionGroup="n0:LayoutData" type="n8:_ResponsiveFlowLayoutDataType">
+    <xs:annotation>
+      <xs:documentation>This is a LayoutData element that can be added to a control if this control is used within a ResponsiveFlowLayout.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ResponsiveFlowLayoutDataType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_LayoutDataType">
+        <xs:attribute name="minWidth" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Defines the minimal size in px of a ResponsiveFlowLayout element. The element will be shrunk down to this value.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="weight" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Defines the weight of the element, that influences the resulting width. If there are several elements within a row of the ResponsiveFlowLayout, each element could have another weight. The bigger the weight of a single element, the wider it will be stretched, i.e. a bigger weight results in a larger width.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="linebreak" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If this property is set, the control in which the LayoutData is added, will always cause a line break within the ResponsiveFlowLayout.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="margin" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Prevents any margin of the element if set to false.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="linebreakable" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Shows if an element can be wrapped into a new row. If this value is set to false, the min-width will be set to 0 and the wrapping is up to the previous element.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponsiveSplitter" substitutionGroup="n0:Control" type="n8:_ResponsiveSplitterType">
+    <xs:annotation>
+      <xs:documentation>A responsive splitter which divides the application into several areas. &lt;h3&gt;Overview&lt;/h3&gt; The responsive splitter layout structures complex applications into defined areas. These areas may be resizable and are either distributed across one or multiple screen areas, some of which may also be off-canvas.
+
+The control is intended for developing administrative tools and applications. &lt;h3&gt;Structure&lt;/h3&gt; The responsive splitter holds the following hierarchy of containers and controls: &lt;ul&gt; &lt;li&gt;{@link sap.ui.layout.PaneContainer Pane Container} - holds one or more Split Panes and determines the pane orientation. The pane which is stored in &lt;code&gt;rootPaneContainer&lt;/code&gt; holds all other pane containers and split panes.&lt;/li&gt; &lt;li&gt;{@link sap.ui.layout.SplitPane Split Pane} - independent containers that may interact with one another. Each pane can hold only one control.&lt;/li&gt; &lt;/ul&gt; &lt;h3&gt;Usage&lt;/h3&gt; &lt;h4&gt;When to use&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;The application has to display several areas side by side that must be resizable.&lt;/li&gt; &lt;li&gt;The application must work on a range of different devices in a responsive manner.&lt;/li&gt; &lt;/ul&gt; &lt;h3&gt;Responsive Behavior&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;As soon as views are in the off-canvas mode, the pagination bar at the bottom of the application allows the user to switch between them.&lt;/li&gt; &lt;li&gt;On touch-enabled devices, the splitters show explicit handles with larger touch areas.&lt;/li&gt; &lt;li&gt;Double-clicking on a splitter will collapse or expand it back to its original position.&lt;/li&gt; &lt;/ul&gt;
+
+&lt;b&gt;Note:&lt;/b&gt; We don't recommend dynamically inserting/removing panes into/from the PaneContainer since this might lead to inconsistent layout. If it is necessary, you need to ensure the sum of all sizes of the SplitPanes doesn't exceed the width of the PaneContainer.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ResponsiveSplitterType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n8:PaneContainer" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="rootPaneContainer">
+            <xs:annotation>
+              <xs:documentation>The root PaneContainer of the ResponsiveSplitter</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n8:PaneContainer" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>The width of the control</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>The height of the control</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="defaultPane" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The default pane that will remain always visible If no defaultPane is specified, the ResponsiveSplitter sets the first SplitPane that is added to a PaneContainer in it as a default.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SplitPane" substitutionGroup="n0:Element" type="n8:_SplitPaneType">
+    <xs:annotation>
+      <xs:documentation>SplitPane is a container of a single control in a responsive splitter. Could be used as an aggregation of a {@link sap.ui.layout.PaneContainer PaneContainer}.
+
+The behavior of the Split Panes is handled by the following properties: &lt;ul&gt; &lt;li&gt;&lt;code&gt;requiredParentWidth&lt;/code&gt; - determines the minimum width of the parent container (in pixels). When it is reached, the pane will be hidden from the screen.&lt;/li&gt; &lt;li&gt;&lt;code&gt;demandPane&lt;/code&gt; - determines if the pane is reachable via the pagination bar after it has been hidden from the screen.&lt;/li&gt; &lt;/ul</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_SplitPaneType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>Content of the SplitPane</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="demandPane" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the pane will be moved to the pagination</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="requiredParentWidth" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Determines the minimum width of the ResponsiveSplitter(in pixels). When it is reached the pane will be hidden from the screen.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Splitter" substitutionGroup="n0:Control" type="n8:_SplitterType">
+    <xs:annotation>
+      <xs:documentation>A layout that contains several content areas. The content that is added to the splitter should contain LayoutData of the type SplitterLayoutData that defines its size and size contraints.
+
+By adding or changing SplitterLayoutData to the controls that make up the content areas, the size can be changed programatically. Additionally the contents can be made non-resizable individually and a minimal size (in px) can be set.
+
+The orientation of the splitter can be set to horizontal (default) or vertical. All content areas of the splitter will be arranged in that way. In order to split vertically and horizontally at the same time, Splitters need to be nested.
+
+The splitter bars can be focused to enable resizing of the content areas via keyboard. The contents size can be manipulated when the splitter bar is focused and Shift-Left/Down/Right/Up are pressed. When Shift-Home/End are pressed, the contents are set their minimum or maximum size (keep in mind though, that resizing an auto-size content-area next to another auto-size one might lead to the effect that the former does not take its maximum size but only the maximum size before recalculating auto sizes).
+
+The splitter bars used for resizing the contents by the user can be set to different widths (or heights in vertical mode) and the splitter will automatically resize the other contents accordingly. In case the splitter bar is resized after the splitter has rendered, a manual resize has to be triggered by invoking triggerResize() on the Splitter.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_SplitterType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="contentAreas">
+            <xs:annotation>
+              <xs:documentation>The content areas to be split. The control will show n-1 splitter bars between n controls in this aggregation.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="orientation" type="n0:_OrientationType">
+          <xs:annotation>
+            <xs:documentation>Whether to split the contents horizontally (default) or vertically.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>The width of the control</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>The height of the control</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="contentAreas" type="xs:string" />
+        <xs:attribute name="resize" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when contents are resized.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SplitterLayoutData" substitutionGroup="n0:LayoutData" type="n8:_SplitterLayoutDataType">
+    <xs:annotation>
+      <xs:documentation>Holds layout data for the splitter contents. Allowed size values are numeric values ending in "px" and "%" and the special case "auto". (The CSS value "auto" is used internally to recalculate the size of the content dynamically and is not directly set as style property.)</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_SplitterLayoutDataType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_LayoutDataType">
+        <xs:attribute name="resizable" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the control in the splitter can be resized or not.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="size" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Sets the size of the splitter content.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="minSize" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Sets the minimum size of the splitter content in px.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="VerticalLayout" substitutionGroup="n0:Control" type="n8:_VerticalLayoutType">
+    <xs:annotation>
+      <xs:documentation>In this layout the content controls are rendered one below the other.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_VerticalLayoutType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>Content controls within the layout.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Width of the &lt;code&gt;VerticalLayout&lt;/code&gt;. If no width is set, the width of the content is used. If the content of the layout has a larger width than the layout, it is cut off. There is no scrolling inside the layout.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If not enabled, all controls inside are not enabled automatically.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="content" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="_GridIndentType">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="_GridSpanType">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="_BackgroundDesignType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Solid">
+        <xs:annotation>
+          <xs:documentation>A solid background color dependent on the theme.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Translucent">
+        <xs:annotation>
+          <xs:documentation>A translucent background depending on the opacity value of the theme.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Transparent">
+        <xs:annotation>
+          <xs:documentation>Transparent background.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_BlockBackgroundTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Accent">
+        <xs:annotation>
+          <xs:documentation>Background with pre-defined accent colors</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Dashboard">
+        <xs:annotation>
+          <xs:documentation>For applications that want to make use of e.g. charts in the Blocks, this layout type has spacings around the Blocks</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Default">
+        <xs:annotation>
+          <xs:documentation>Background is transparent</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Light">
+        <xs:annotation>
+          <xs:documentation>Background is with predefined light colors</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Mixed">
+        <xs:annotation>
+          <xs:documentation>Background with bright and dark background colors</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_BlockLayoutCellColorSetType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ColorSet1">
+        <xs:annotation>
+          <xs:documentation>Color Set 1</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ColorSet10">
+        <xs:annotation>
+          <xs:documentation>Color Set 10</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ColorSet11">
+        <xs:annotation>
+          <xs:documentation>Color Set 11</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ColorSet2">
+        <xs:annotation>
+          <xs:documentation>Color Set 2</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ColorSet3">
+        <xs:annotation>
+          <xs:documentation>Color Set 3</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ColorSet4">
+        <xs:annotation>
+          <xs:documentation>Color Set 4</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ColorSet5">
+        <xs:annotation>
+          <xs:documentation>Color Set 5</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ColorSet6">
+        <xs:annotation>
+          <xs:documentation>Color Set 6</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ColorSet7">
+        <xs:annotation>
+          <xs:documentation>Color Set 7</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ColorSet8">
+        <xs:annotation>
+          <xs:documentation>Color Set 8</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ColorSet9">
+        <xs:annotation>
+          <xs:documentation>Color Set 9</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_BlockLayoutCellColorShadeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ShadeA">
+        <xs:annotation>
+          <xs:documentation>Shade A</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ShadeB">
+        <xs:annotation>
+          <xs:documentation>Shade B</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ShadeC">
+        <xs:annotation>
+          <xs:documentation>Shade C</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ShadeD">
+        <xs:annotation>
+          <xs:documentation>Shade D</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_BlockRowColorSetsType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ColorSet1">
+        <xs:annotation>
+          <xs:documentation>sap.ui.layout.BlockBackgroundType.Default: N/A sap.ui.layout.BlockBackgroundType.Light: Color Set 1 sap.ui.layout.BlockBackgroundType.Mixed: Color Set 1 sap.ui.layout.BlockBackgroundType.Accent: Color Set 1 sap.ui.layout.BlockBackgroundType.Dashboard: N/A</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ColorSet2">
+        <xs:annotation>
+          <xs:documentation>sap.ui.layout.BlockBackgroundType.Default: N/A sap.ui.layout.BlockBackgroundType.Light: Color Set 2 sap.ui.layout.BlockBackgroundType.Mixed: Color Set 2 sap.ui.layout.BlockBackgroundType.Accent: Color Set 2 sap.ui.layout.BlockBackgroundType.Dashboard: N/A</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ColorSet3">
+        <xs:annotation>
+          <xs:documentation>sap.ui.layout.BlockBackgroundType.Default: N/A sap.ui.layout.BlockBackgroundType.Light: Color Set 1 sap.ui.layout.BlockBackgroundType.Mixed: Color Set 1 sap.ui.layout.BlockBackgroundType.Accent: Color Set 3 sap.ui.layout.BlockBackgroundType.Dashboard: N/A</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ColorSet4">
+        <xs:annotation>
+          <xs:documentation>sap.ui.layout.BlockBackgroundType.Default: N/A sap.ui.layout.BlockBackgroundType.Light: Color Set 2 sap.ui.layout.BlockBackgroundType.Mixed: Color Set 2 sap.ui.layout.BlockBackgroundType.Accent: Color Set 4 sap.ui.layout.BlockBackgroundType.Dashboard: N/A</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_GridPositionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Center">
+        <xs:annotation>
+          <xs:documentation>Grid is centered on the screen.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Left">
+        <xs:annotation>
+          <xs:documentation>Grid is aligned left.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Right">
+        <xs:annotation>
+          <xs:documentation>Grid is aligned to the right.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_SideContentFallDownType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BelowL">
+        <xs:annotation>
+          <xs:documentation>Side content falls down on breakpoints below L</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BelowM">
+        <xs:annotation>
+          <xs:documentation>Side content falls down on breakpoints below M</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BelowXL">
+        <xs:annotation>
+          <xs:documentation>Side content falls down on breakpoints below XL</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="OnMinimumWidth">
+        <xs:annotation>
+          <xs:documentation>Side content falls down on breakpoint M and the minimum width for the side content</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_SideContentPositionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Begin">
+        <xs:annotation>
+          <xs:documentation>The side content is on the left side of the main container in left-to-right mode and on the right side in right-to-left mode.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="End">
+        <xs:annotation>
+          <xs:documentation>The side content is on the right side of the main container in left-to-right mode and on the left side in right-to-left mode.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_SideContentVisibilityType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AlwaysShow">
+        <xs:annotation>
+          <xs:documentation>Show the side content on any breakpoint</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NeverShow">
+        <xs:annotation>
+          <xs:documentation>Don't show the side content on any breakpoints</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ShowAboveL">
+        <xs:annotation>
+          <xs:documentation>Show the side content on XL breakpoint</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ShowAboveM">
+        <xs:annotation>
+          <xs:documentation>Show the side content on L and XL breakpoints</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ShowAboveS">
+        <xs:annotation>
+          <xs:documentation>Show the side content on M, L and XL breakpoints</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

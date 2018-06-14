@@ -1,0 +1,3907 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Retyped.dom</name>
+    </assembly>
+    <members>
+        <member name="T:Retyped.dom.Account">
+            DOM APIs
+        </member>
+        <member name="P:Retyped.dom.AudioListener.dopplerFactor">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.AudioListener.speedOfSound">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.AudioListener.setOrientation(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.AudioListener.setPosition(System.Double,System.Double,System.Double)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.AudioListener.setVelocity(System.Double,System.Double,System.Double)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.CSSStyleSheet.cssText">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.CSSStyleSheet.id">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.CSSStyleSheet.imports">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.CSSStyleSheet.isAlternate">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.CSSStyleSheet.isPrefAlternate">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.CSSStyleSheet.owningElement">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.CSSStyleSheet.pages">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.CSSStyleSheet.readOnly">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.CSSStyleSheet.addImport(System.String)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.CSSStyleSheet.addImport(System.String,System.Double)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.CSSStyleSheet.addPageRule(System.String,System.String)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.CSSStyleSheet.addPageRule(System.String,System.String,System.Double)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.CSSStyleSheet.removeImport(System.Double)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.CloseEvent.initCloseEvent(System.String,System.Boolean,System.Boolean,System.Boolean,System.Double,System.String)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.URL">
+            <summary>
+            Sets or gets the URL for the current document.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.URLUnencoded">
+            <summary>
+            Gets the URL for the document, stripped of any character encoding.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.activeElement">
+            <summary>
+            Gets the object that has the focus when the parent document has focus.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.alinkColor">
+            <summary>
+            Sets or gets the color of all active links in the document.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.all">
+            <summary>
+            Returns a reference to the collection of elements contained by the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.anchors">
+            <summary>
+            Retrieves a collection of all a objects that have a name and/or id property. Objects in this collection are in HTML source order.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.applets">
+            <summary>
+            Retrieves a collection of all applet objects in the document.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.bgColor">
+            <summary>
+            Deprecated. Sets or retrieves a value that indicates the background color behind the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.body">
+            <summary>
+            Specifies the beginning and end of the document body.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.charset">
+            <summary>
+            Gets or sets the character set used to encode the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.compatMode">
+            <summary>
+            Gets a value that indicates whether standards-compliant mode is switched on for the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.designMode">
+            <summary>
+            Sets or gets a value that indicates whether the document can be edited.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.dir">
+            <summary>
+            Sets or retrieves a value that indicates the reading order of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.doctype">
+            <summary>
+            Gets an object representing the document type declaration associated with the current document.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.documentElement">
+            <summary>
+            Gets a reference to the root node of the document.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.domain">
+            <summary>
+            Sets or gets the security domain of the document.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.embeds">
+            <summary>
+            Retrieves a collection of all embed objects in the document.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.fgColor">
+            <summary>
+            Sets or gets the foreground (text) color of the document.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.forms">
+            <summary>
+            Retrieves a collection, in source order, of all form objects in the document.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.images">
+            <summary>
+            Retrieves a collection, in source order, of img objects in the document.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.implementation">
+            <summary>
+            Gets the implementation object of the current document.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.inputEncoding">
+            <summary>
+            Returns the character encoding used to create the webpage that is loaded into the document object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.lastModified">
+            <summary>
+            Gets the date that the page was last modified, if the page supplies one.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.linkColor">
+            <summary>
+            Sets or gets the color of the document links.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.links">
+            <summary>
+            Retrieves a collection of all a objects that specify the href property and all area objects in the document.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.location">
+            <summary>
+            Contains information about the current URL.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.onabort">
+            <summary>
+            Fires when the user aborts the download.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onactivate">
+            <summary>
+            Fires when the object is set as the active element.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onbeforeactivate">
+            <summary>
+            Fires immediately before the object is set as the active element.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onbeforedeactivate">
+            <summary>
+            Fires immediately before the activeElement is changed from the current object to another object in the parent document.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onblur">
+            <summary>
+            Fires when the object loses the input focus.
+            </summary>
+            <param name = "ev">The focus event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.oncanplay">
+            <summary>
+            Occurs when playback is possible, but would require further buffering.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onchange">
+            <summary>
+            Fires when the contents of the object or selection have changed.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onclick">
+            <summary>
+            Fires when the user clicks the left mouse button on the object
+            </summary>
+            <param name = "ev">The mouse event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.oncontextmenu">
+            <summary>
+            Fires when the user clicks the right mouse button in the client area, opening the context menu.
+            </summary>
+            <param name = "ev">The mouse event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.ondblclick">
+            <summary>
+            Fires when the user double-clicks the object.
+            </summary>
+            <param name = "ev">The mouse event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.ondeactivate">
+            <summary>
+            Fires when the activeElement is changed from the current object to another object in the parent document.
+            </summary>
+            <param name = "ev">The UI Event</param>
+        </member>
+        <member name="P:Retyped.dom.Document.ondrag">
+            <summary>
+            Fires on the source object continuously during a drag operation.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.ondragend">
+            <summary>
+            Fires on the source object when the user releases the mouse at the close of a drag operation.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.ondragenter">
+            <summary>
+            Fires on the target element when the user drags the object to a valid drop target.
+            </summary>
+            <param name = "ev">The drag event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.ondragleave">
+            <summary>
+            Fires on the target object when the user moves the mouse out of a valid drop target during a drag operation.
+            </summary>
+            <param name = "ev">The drag event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.ondragover">
+            <summary>
+            Fires on the target element continuously while the user drags the object over a valid drop target.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.ondragstart">
+            <summary>
+            Fires on the source object when the user starts to drag a text selection or selected object.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.ondurationchange">
+            <summary>
+            Occurs when the duration attribute is updated.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onemptied">
+            <summary>
+            Occurs when the media element is reset to its initial state.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onended">
+            <summary>
+            Occurs when the end of playback is reached.
+            </summary>
+            <param name = "ev">The event</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onerror">
+            <summary>
+            Fires when an error occurs during object loading.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onfocus">
+            <summary>
+            Fires when the object receives focus.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onkeydown">
+            <summary>
+            Fires when the user presses a key.
+            </summary>
+            <param name = "ev">The keyboard event</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onkeypress">
+            <summary>
+            Fires when the user presses an alphanumeric key.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onkeyup">
+            <summary>
+            Fires when the user releases a key.
+            </summary>
+            <param name = "ev">The keyboard event</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onload">
+            <summary>
+            Fires immediately after the browser loads the object.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onloadeddata">
+            <summary>
+            Occurs when media data is loaded at the current playback position.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onloadedmetadata">
+            <summary>
+            Occurs when the duration and dimensions of the media have been determined.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onloadstart">
+            <summary>
+            Occurs when Internet Explorer begins looking for media data.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onmousedown">
+            <summary>
+            Fires when the user clicks the object with either mouse button.
+            </summary>
+            <param name = "ev">The mouse event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onmousemove">
+            <summary>
+            Fires when the user moves the mouse over the object.
+            </summary>
+            <param name = "ev">The mouse event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onmouseout">
+            <summary>
+            Fires when the user moves the mouse pointer outside the boundaries of the object.
+            </summary>
+            <param name = "ev">The mouse event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onmouseover">
+            <summary>
+            Fires when the user moves the mouse pointer into the object.
+            </summary>
+            <param name = "ev">The mouse event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onmouseup">
+            <summary>
+            Fires when the user releases a mouse button while the mouse is over the object.
+            </summary>
+            <param name = "ev">The mouse event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onmousewheel">
+            <summary>
+            Fires when the wheel button is rotated.
+            </summary>
+            <param name = "ev">The mouse event</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onmssitemodejumplistitemremoved">
+            <summary>
+            Occurs when an item is removed from a Jump List of a webpage running in Site Mode.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onmsthumbnailclick">
+            <summary>
+            Occurs when a user clicks a button in a Thumbnail Toolbar of a webpage running in Site Mode.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onpause">
+            <summary>
+            Occurs when playback is paused.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onplay">
+            <summary>
+            Occurs when the play method is requested.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onplaying">
+            <summary>
+            Occurs when the audio or video has started playing.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onprogress">
+            <summary>
+            Occurs to indicate progress while downloading media data.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onratechange">
+            <summary>
+            Occurs when the playback rate is increased or decreased.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onreadystatechange">
+            <summary>
+            Fires when the state of the object has changed.
+            </summary>
+            <param name = "ev">The event</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onreset">
+            <summary>
+            Fires when the user resets a form.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onscroll">
+            <summary>
+            Fires when the user repositions the scroll box in the scroll bar on the object.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onseeked">
+            <summary>
+            Occurs when the seek operation ends.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onseeking">
+            <summary>
+            Occurs when the current playback position is moved.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onselect">
+            <summary>
+            Fires when the current selection changes.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onselectionchange">
+            <summary>
+            Fires when the selection state of a document changes.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onstalled">
+            <summary>
+            Occurs when the download has stopped.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onstop">
+            <summary>
+            Fires when the user clicks the Stop button or leaves the Web page.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onsuspend">
+            <summary>
+            Occurs if the load operation has been intentionally halted.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.ontimeupdate">
+            <summary>
+            Occurs to indicate the current playback position.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onvolumechange">
+            <summary>
+            Occurs when the volume is changed, or playback is muted or unmuted.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.onwaiting">
+            <summary>
+            Occurs when playback stops because the next frame of a video resource is not available.
+            </summary>
+            <param name = "ev">The event.</param>
+        </member>
+        <member name="P:Retyped.dom.Document.readyState">
+            <summary>
+            Retrieves a value that indicates the current state of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.referrer">
+            <summary>
+            Gets the URL of the location that referred the user to the current page.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.rootElement">
+            <summary>
+            Gets the root svg element in the document hierarchy.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.scripts">
+            <summary>
+            Retrieves a collection of all script objects in the document.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.styleSheets">
+            <summary>
+            Retrieves a collection of styleSheet objects representing the style sheets that correspond to each instance of a link or style object in the document.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.title">
+            <summary>
+            Contains the title of the document.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.vlinkColor">
+            <summary>
+            Sets or gets the color of the links that the user has visited.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Document.xmlVersion">
+            <summary>
+            Gets or sets the version attribute specified in the declaration of an XML document.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.Document.close">
+            <summary>
+            Closes an output stream and forces the sent data to display.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.Document.createAttribute(System.String)">
+            <summary>
+            Creates an attribute object with a specified name.
+            </summary>
+            <param name = "name">String that sets the attribute object's name.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.createComment(System.String)">
+            <summary>
+            Creates a comment object with the specified data.
+            </summary>
+            <param name = "data">Sets the comment object's data.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.createDocumentFragment">
+            <summary>
+            Creates a new document.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.Document.createElement``1(``0)">
+            <summary>
+            Creates an instance of the element for the specified tag.
+            </summary>
+            <param name = "tagName">The name of an element.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.createElement``1(``0,Retyped.dom.ElementCreationOptions)">
+            <summary>
+            Creates an instance of the element for the specified tag.
+            </summary>
+            <param name = "tagName">The name of an element.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.createElement(System.String)">
+            <summary>
+            Creates an instance of the element for the specified tag.
+            </summary>
+            <param name = "tagName">The name of an element.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.createElement(System.String,Retyped.dom.ElementCreationOptions)">
+            <summary>
+            Creates an instance of the element for the specified tag.
+            </summary>
+            <param name = "tagName">The name of an element.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.createNodeIterator(Retyped.dom.Node)">
+            <summary>
+            Creates a NodeIterator object that you can use to traverse filtered lists of nodes or elements in a document.
+            </summary>
+            <param name = "root">The root element or node to start traversing on.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.createNodeIterator(Retyped.dom.Node,System.UInt32)">
+            <summary>
+            Creates a NodeIterator object that you can use to traverse filtered lists of nodes or elements in a document.
+            </summary>
+            <param name = "root">The root element or node to start traversing on.</param>
+            <param name = "whatToShow">The type of nodes or elements to appear in the node list</param>
+        </member>
+        <member name="M:Retyped.dom.Document.createNodeIterator(Retyped.dom.Node,System.UInt32,Retyped.dom.NodeFilter)">
+            <summary>
+            Creates a NodeIterator object that you can use to traverse filtered lists of nodes or elements in a document.
+            </summary>
+            <param name = "root">The root element or node to start traversing on.</param>
+            <param name = "whatToShow">The type of nodes or elements to appear in the node list</param>
+            <param name = "filter">A custom NodeFilter function to use. For more information, see filter. Use null for no filter.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.createNodeIterator(Retyped.dom.Node,System.UInt32,Retyped.dom.NodeFilter,System.Boolean)">
+            <summary>
+            Creates a NodeIterator object that you can use to traverse filtered lists of nodes or elements in a document.
+            </summary>
+            <param name = "root">The root element or node to start traversing on.</param>
+            <param name = "whatToShow">The type of nodes or elements to appear in the node list</param>
+            <param name = "filter">A custom NodeFilter function to use. For more information, see filter. Use null for no filter.</param>
+            <param name = "entityReferenceExpansion">A flag that specifies whether entity reference nodes are expanded.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.createRange">
+            <summary>
+            Returns an empty range object that has both of its boundary points positioned at the beginning of the document.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.Document.createTextNode(System.String)">
+            <summary>
+            Creates a text string from the specified value.
+            </summary>
+            <param name = "data">String that specifies the nodeValue property of the text node.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.createTreeWalker(Retyped.dom.Node)">
+            <summary>
+            Creates a TreeWalker object that you can use to traverse filtered lists of nodes or elements in a document.
+            </summary>
+            <param name = "root">The root element or node to start traversing on.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.createTreeWalker(Retyped.dom.Node,System.UInt32)">
+            <summary>
+            Creates a TreeWalker object that you can use to traverse filtered lists of nodes or elements in a document.
+            </summary>
+            <param name = "root">The root element or node to start traversing on.</param>
+            <param name = "whatToShow">The type of nodes or elements to appear in the node list. For more information, see whatToShow.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.createTreeWalker(Retyped.dom.Node,System.UInt32,Retyped.dom.NodeFilter)">
+            <summary>
+            Creates a TreeWalker object that you can use to traverse filtered lists of nodes or elements in a document.
+            </summary>
+            <param name = "root">The root element or node to start traversing on.</param>
+            <param name = "whatToShow">The type of nodes or elements to appear in the node list. For more information, see whatToShow.</param>
+            <param name = "filter">A custom NodeFilter function to use.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.createTreeWalker(Retyped.dom.Node,System.UInt32,Retyped.dom.NodeFilter,System.Boolean)">
+            <summary>
+            Creates a TreeWalker object that you can use to traverse filtered lists of nodes or elements in a document.
+            </summary>
+            <param name = "root">The root element or node to start traversing on.</param>
+            <param name = "whatToShow">The type of nodes or elements to appear in the node list. For more information, see whatToShow.</param>
+            <param name = "filter">A custom NodeFilter function to use.</param>
+            <param name = "entityReferenceExpansion">A flag that specifies whether entity reference nodes are expanded.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.elementFromPoint(System.Double,System.Double)">
+            <summary>
+            Returns the element for the specified x coordinate and the specified y coordinate.
+            </summary>
+            <param name = "x">The x-offset</param>
+            <param name = "y">The y-offset</param>
+        </member>
+        <member name="M:Retyped.dom.Document.execCommand(System.String)">
+            <summary>
+            Executes a command on the current document, current selection, or the given range.
+            </summary>
+            <param name = "commandId">String that specifies the command to execute. This command can be any of the command identifiers that can be executed in script.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.execCommand(System.String,System.Boolean)">
+            <summary>
+            Executes a command on the current document, current selection, or the given range.
+            </summary>
+            <param name = "commandId">String that specifies the command to execute. This command can be any of the command identifiers that can be executed in script.</param>
+            <param name = "showUI">Display the user interface, defaults to false.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.execCommand(System.String,System.Boolean,System.Object)">
+            <summary>
+            Executes a command on the current document, current selection, or the given range.
+            </summary>
+            <param name = "commandId">String that specifies the command to execute. This command can be any of the command identifiers that can be executed in script.</param>
+            <param name = "showUI">Display the user interface, defaults to false.</param>
+            <param name = "value">Value to assign.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.execCommandShowHelp(System.String)">
+            <summary>
+            Displays help information for the given command identifier.
+            </summary>
+            <param name = "commandId">Displays help information for the given command identifier.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.focus">
+            <summary>
+            Causes the element to receive the focus and executes the code specified by the onfocus event.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.Document.getElementById(System.String)">
+            <summary>
+            Returns a reference to the first object with the specified value of the ID or NAME attribute.
+            </summary>
+            <param name = "elementId">String that specifies the ID value. Case-insensitive.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.getElementsByName(System.String)">
+            <summary>
+            Gets a collection of objects based on the value of the NAME or ID attribute.
+            </summary>
+            <param name = "elementName">Gets a collection of objects based on the value of the NAME or ID attribute.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.getElementsByTagName``1(``0)">
+            <summary>
+            Retrieves a collection of objects based on the specified element name.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.Document.getElementsByTagName2``1(``0)">
+            <summary>
+            Retrieves a collection of objects based on the specified element name.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.Document.getElementsByTagName(System.String)">
+            <summary>
+            Retrieves a collection of objects based on the specified element name.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.Document.getSelection">
+            <summary>
+            Returns an object representing the current selection of the document that is loaded into the object displaying a webpage.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.Document.hasFocus">
+            <summary>
+            Gets a value indicating whether the object currently has focus.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.Document.open">
+            <summary>
+            Opens a new window and loads a document specified by a given URL. Also, opens a new window that uses the url parameter and the name parameter to collect the output of the write method and the writeln method.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.Document.open(System.String)">
+            <summary>
+            Opens a new window and loads a document specified by a given URL. Also, opens a new window that uses the url parameter and the name parameter to collect the output of the write method and the writeln method.
+            </summary>
+            <param name = "url">Specifies a MIME type for the document.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.open(System.String,System.String)">
+            <summary>
+            Opens a new window and loads a document specified by a given URL. Also, opens a new window that uses the url parameter and the name parameter to collect the output of the write method and the writeln method.
+            </summary>
+            <param name = "url">Specifies a MIME type for the document.</param>
+            <param name = "name">Specifies the name of the window. This name is used as the value for the TARGET attribute on a form or an anchor element.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.open(System.String,System.String,System.String)">
+            <summary>
+            Opens a new window and loads a document specified by a given URL. Also, opens a new window that uses the url parameter and the name parameter to collect the output of the write method and the writeln method.
+            </summary>
+            <param name = "url">Specifies a MIME type for the document.</param>
+            <param name = "name">Specifies the name of the window. This name is used as the value for the TARGET attribute on a form or an anchor element.</param>
+            <param name = "features">Contains a list of items separated by commas. Each item consists of an option and a value, separated by an equals sign (for example, "fullscreen=yes, toolbar=yes"). The following values are supported.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.open(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Opens a new window and loads a document specified by a given URL. Also, opens a new window that uses the url parameter and the name parameter to collect the output of the write method and the writeln method.
+            </summary>
+            <param name = "url">Specifies a MIME type for the document.</param>
+            <param name = "name">Specifies the name of the window. This name is used as the value for the TARGET attribute on a form or an anchor element.</param>
+            <param name = "features">Contains a list of items separated by commas. Each item consists of an option and a value, separated by an equals sign (for example, "fullscreen=yes, toolbar=yes"). The following values are supported.</param>
+            <param name = "replace">Specifies whether the existing entry for the document is replaced in the history list.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.queryCommandEnabled(System.String)">
+            <summary>
+            Returns a Boolean value that indicates whether a specified command can be successfully executed using execCommand, given the current state of the document.
+            </summary>
+            <param name = "commandId">Specifies a command identifier.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.queryCommandIndeterm(System.String)">
+            <summary>
+            Returns a Boolean value that indicates whether the specified command is in the indeterminate state.
+            </summary>
+            <param name = "commandId">String that specifies a command identifier.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.queryCommandState(System.String)">
+            <summary>
+            Returns a Boolean value that indicates the current state of the command.
+            </summary>
+            <param name = "commandId">String that specifies a command identifier.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.queryCommandSupported(System.String)">
+            <summary>
+            Returns a Boolean value that indicates whether the current command is supported on the current range.
+            </summary>
+            <param name = "commandId">Specifies a command identifier.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.queryCommandText(System.String)">
+            <summary>
+            Retrieves the string associated with a command.
+            </summary>
+            <param name = "commandId">String that contains the identifier of a command. This can be any command identifier given in the list of Command Identifiers.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.queryCommandValue(System.String)">
+            <summary>
+            Returns the current value of the document, range, or current selection for the given command.
+            </summary>
+            <param name = "commandId">String that specifies a command identifier.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.write(System.String[])">
+            <summary>
+            Writes one or more HTML expressions to a document in the specified window.
+            </summary>
+            <param name = "content">Specifies the text and HTML tags to write.</param>
+        </member>
+        <member name="M:Retyped.dom.Document.writeln(System.String[])">
+            <summary>
+            Writes one or more HTML expressions, followed by a carriage return, to a document in the specified window.
+            </summary>
+            <param name = "content">The text and HTML tags to write.</param>
+        </member>
+        <member name="P:Retyped.dom.File.lastModifiedDate">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLAnchorElement.charset">
+            <summary>
+            Sets or retrieves the character set used to encode the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLAnchorElement.coords">
+            <summary>
+            Sets or retrieves the coordinates of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLAnchorElement.hreflang">
+            <summary>
+            Sets or retrieves the language code of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLAnchorElement.name">
+            <summary>
+            Sets or retrieves the shape of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLAnchorElement.rel">
+            <summary>
+            Sets or retrieves the relationship between the object and the destination of the link.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLAnchorElement.rev">
+            <summary>
+            Sets or retrieves the relationship between the object and the destination of the link.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLAnchorElement.shape">
+            <summary>
+            Sets or retrieves the shape of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLAnchorElement.target">
+            <summary>
+            Sets or retrieves the window or frame at which to target content.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLAnchorElement.text">
+            <summary>
+            Retrieves or sets the text of the object as a string.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLAppletElement.align">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLAppletElement.alt">
+            <summary>
+            Sets or retrieves a text alternative to the graphic.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLAppletElement.archive">
+            <summary>
+            Sets or retrieves a character string that can be used to implement your own archive functionality for the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLAppletElement.code">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLAppletElement.codeBase">
+            <summary>
+            Sets or retrieves the URL of the component.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLAppletElement.height">
+            <summary>
+            Sets or retrieves the height of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLAppletElement.hspace">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLAppletElement.name">
+            <summary>
+            Sets or retrieves the shape of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLAppletElement.object">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLAppletElement.vspace">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLAppletElement.width">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLAreaElement.alt">
+            <summary>
+            Sets or retrieves a text alternative to the graphic.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLAreaElement.coords">
+            <summary>
+            Sets or retrieves the coordinates of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLAreaElement.noHref">
+            <summary>
+            Sets or gets whether clicks in this region cause action.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLAreaElement.shape">
+            <summary>
+            Sets or retrieves the shape of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLAreaElement.target">
+            <summary>
+            Sets or retrieves the window or frame at which to target content.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLAreasCollection.length">
+            <summary>
+            Sets or retrieves the number of objects in a collection.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLAreasCollection.item(System.UInt32)">
+            <summary>
+            Retrieves an object from various collections.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLBRElement.clear">
+            <summary>
+            Sets or retrieves the side on which floating objects are not to be positioned when any IHTMLBlockElement is inserted into the document.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLBaseElement.href">
+            <summary>
+            Gets or sets the baseline URL on which relative links are based.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLBaseElement.target">
+            <summary>
+            Sets or retrieves the window or frame at which to target content.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLBaseFontElement.face">
+            <summary>
+            Sets or retrieves the current typeface family.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLBaseFontElement.size">
+            <summary>
+            Sets or retrieves the font size of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLBodyElement.aLink">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLBodyElement.background">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLBodyElement.bgColor">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLBodyElement.link">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLBodyElement.noWrap">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLBodyElement.text">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLBodyElement.vLink">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLButtonElement.autofocus">
+            <summary>
+            Provides a way to direct a user to a specific field when a document loads. This can provide both direction and convenience for a user, reducing the need to click or tab to a field when a page opens. This attribute is true when present on an element, and false when missing.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLButtonElement.form">
+            <summary>
+            Retrieves a reference to the form that the object is embedded in.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLButtonElement.formAction">
+            <summary>
+            Overrides the action attribute (where the data on a form is sent) on the parent form element.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLButtonElement.formEnctype">
+            <summary>
+            Used to override the encoding (formEnctype attribute) specified on the form element.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLButtonElement.formMethod">
+            <summary>
+            Overrides the submit method attribute previously specified on a form element.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLButtonElement.formNoValidate">
+            <summary>
+            Overrides any validation or required attributes on a form or form elements to allow it to be submitted without validation. This can be used to create a "save draft"-type submit option.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLButtonElement.formTarget">
+            <summary>
+            Overrides the target attribute on a form element.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLButtonElement.name">
+            <summary>
+            Sets or retrieves the name of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLButtonElement.type">
+            <summary>
+            Gets the classification and default behavior of the button.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLButtonElement.validationMessage">
+            <summary>
+            Returns the error message that would be displayed if the user submits the form, or an empty string if no error message. It also triggers the standard error message, such as "this is a required field". The result is that the user sees validation messages without actually submitting.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLButtonElement.validity">
+            <summary>
+            Returns a  ValidityState object that represents the validity states of an element.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLButtonElement.value">
+            <summary>
+            Sets or retrieves the default or selected value of the control.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLButtonElement.willValidate">
+            <summary>
+            Returns whether an element will successfully validate based on forms validation rules and constraints.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLButtonElement.checkValidity">
+            <summary>
+            Returns whether a form will validate when it is submitted, without having to submit it.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLButtonElement.setCustomValidity(System.String)">
+            <summary>
+            Sets a custom error message that is displayed when a form is submitted.
+            </summary>
+            <param name = "error">Sets a custom error message that is displayed when a form is submitted.</param>
+        </member>
+        <member name="P:Retyped.dom.HTMLCanvasElement.height">
+            <summary>
+            Gets or sets the height of a canvas element on a document.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLCanvasElement.width">
+            <summary>
+            Gets or sets the width of a canvas element on a document.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLCanvasElement.getContext(Retyped.dom.Literals.Types._2d)">
+            <summary>
+            Returns an object that provides methods and properties for drawing and manipulating images and graphics on a canvas element in a document. A context object includes information about colors, line widths, fonts, and other graphic parameters that can be drawn on a canvas.
+            </summary>
+            <param name = "contextId">The identifier (ID) of the type of canvas to create. Internet Explorer 9 and Internet Explorer 10 support only a 2-D context using canvas.getContext("2d"); IE11 Preview also supports 3-D or WebGL context using canvas.getContext("experimental-webgl");</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLCanvasElement.getContext(Retyped.dom.Literals.Types._2d,Retyped.dom.Canvas2DContextAttributes)">
+            <summary>
+            Returns an object that provides methods and properties for drawing and manipulating images and graphics on a canvas element in a document. A context object includes information about colors, line widths, fonts, and other graphic parameters that can be drawn on a canvas.
+            </summary>
+            <param name = "contextId">The identifier (ID) of the type of canvas to create. Internet Explorer 9 and Internet Explorer 10 support only a 2-D context using canvas.getContext("2d"); IE11 Preview also supports 3-D or WebGL context using canvas.getContext("experimental-webgl");</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLCanvasElement.getContext(Retyped.dom.Literals.Options.contextId)">
+            <summary>
+            Returns an object that provides methods and properties for drawing and manipulating images and graphics on a canvas element in a document. A context object includes information about colors, line widths, fonts, and other graphic parameters that can be drawn on a canvas.
+            </summary>
+            <param name = "contextId">The identifier (ID) of the type of canvas to create. Internet Explorer 9 and Internet Explorer 10 support only a 2-D context using canvas.getContext("2d"); IE11 Preview also supports 3-D or WebGL context using canvas.getContext("experimental-webgl");</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLCanvasElement.getContext(Retyped.dom.Literals.Options.contextId,Retyped.dom.WebGLContextAttributes)">
+            <summary>
+            Returns an object that provides methods and properties for drawing and manipulating images and graphics on a canvas element in a document. A context object includes information about colors, line widths, fonts, and other graphic parameters that can be drawn on a canvas.
+            </summary>
+            <param name = "contextId">The identifier (ID) of the type of canvas to create. Internet Explorer 9 and Internet Explorer 10 support only a 2-D context using canvas.getContext("2d"); IE11 Preview also supports 3-D or WebGL context using canvas.getContext("experimental-webgl");</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLCanvasElement.getContext(System.String)">
+            <summary>
+            Returns an object that provides methods and properties for drawing and manipulating images and graphics on a canvas element in a document. A context object includes information about colors, line widths, fonts, and other graphic parameters that can be drawn on a canvas.
+            </summary>
+            <param name = "contextId">The identifier (ID) of the type of canvas to create. Internet Explorer 9 and Internet Explorer 10 support only a 2-D context using canvas.getContext("2d"); IE11 Preview also supports 3-D or WebGL context using canvas.getContext("experimental-webgl");</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLCanvasElement.getContext(System.String,System.Object)">
+            <summary>
+            Returns an object that provides methods and properties for drawing and manipulating images and graphics on a canvas element in a document. A context object includes information about colors, line widths, fonts, and other graphic parameters that can be drawn on a canvas.
+            </summary>
+            <param name = "contextId">The identifier (ID) of the type of canvas to create. Internet Explorer 9 and Internet Explorer 10 support only a 2-D context using canvas.getContext("2d"); IE11 Preview also supports 3-D or WebGL context using canvas.getContext("experimental-webgl");</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLCanvasElement.msToBlob">
+            <summary>
+            Returns a blob object encoded as a Portable Network Graphics (PNG) format from a canvas image or drawing.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLCanvasElement.toDataURL">
+            <summary>
+            Returns the content of the current canvas as an image that you can use as a source for another canvas or an HTML element.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLCanvasElement.toDataURL(System.String,System.Object[])">
+            <summary>
+            Returns the content of the current canvas as an image that you can use as a source for another canvas or an HTML element.
+            </summary>
+            <param name = "type">The standard MIME type for the image format to return. If you do not specify this parameter, the default value is a PNG format image.</param>
+        </member>
+        <member name="P:Retyped.dom.HTMLCollectionBase.length">
+            <summary>
+            Sets or retrieves the number of objects in a collection.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLCollectionBase.item(System.UInt32)">
+            <summary>
+            Retrieves an object from various collections.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLCollection.namedItem(System.String)">
+            <summary>
+            Retrieves a select object or an object from an options collection.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLCollection.length">
+            <summary>
+            Sets or retrieves the number of objects in a collection.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLCollection.item(System.UInt32)">
+            <summary>
+            Retrieves an object from various collections.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLDListElement.compact">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLDivElement.align">
+            <summary>
+            Sets or retrieves how the object is aligned with adjacent text.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLDivElement.noWrap">
+            <summary>
+            Sets or retrieves whether the browser automatically performs wordwrap.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLEmbedElement.height">
+            <summary>
+            Sets or retrieves the height of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLEmbedElement.msPlayToDisabled">
+            <summary>
+            Gets or sets whether the DLNA PlayTo device is available.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLEmbedElement.msPlayToPreferredSourceUri">
+            <summary>
+            Gets or sets the path to the preferred media source. This enables the Play To target device to stream the media content, which can be DRM protected, from a different location, such as a cloud media server.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLEmbedElement.msPlayToPrimary">
+            <summary>
+            Gets or sets the primary DLNA PlayTo device.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLEmbedElement.msPlayToSource">
+            <summary>
+            Gets the source associated with the media element for use by the PlayToManager.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLEmbedElement.name">
+            <summary>
+            Sets or retrieves the name of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLEmbedElement.palette">
+            <summary>
+            Retrieves the palette used for the embedded document.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLEmbedElement.pluginspage">
+            <summary>
+            Retrieves the URL of the plug-in used to view an embedded document.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLEmbedElement.src">
+            <summary>
+            Sets or retrieves a URL to be loaded by the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLEmbedElement.units">
+            <summary>
+            Sets or retrieves the height and width units of the embed object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLEmbedElement.width">
+            <summary>
+            Sets or retrieves the width of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFieldSetElement.align">
+            <summary>
+            Sets or retrieves how the object is aligned with adjacent text.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFieldSetElement.form">
+            <summary>
+            Retrieves a reference to the form that the object is embedded in.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFieldSetElement.validationMessage">
+            <summary>
+            Returns the error message that would be displayed if the user submits the form, or an empty string if no error message. It also triggers the standard error message, such as "this is a required field". The result is that the user sees validation messages without actually submitting.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFieldSetElement.validity">
+            <summary>
+            Returns a  ValidityState object that represents the validity states of an element.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFieldSetElement.willValidate">
+            <summary>
+            Returns whether an element will successfully validate based on forms validation rules and constraints.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLFieldSetElement.checkValidity">
+            <summary>
+            Returns whether a form will validate when it is submitted, without having to submit it.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLFieldSetElement.setCustomValidity(System.String)">
+            <summary>
+            Sets a custom error message that is displayed when a form is submitted.
+            </summary>
+            <param name = "error">Sets a custom error message that is displayed when a form is submitted.</param>
+        </member>
+        <member name="P:Retyped.dom.HTMLFontElement.face">
+            <summary>
+            Sets or retrieves the current typeface family.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFormControlsCollection.length">
+            <summary>
+            Sets or retrieves the number of objects in a collection.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLFormControlsCollection.item(System.UInt32)">
+            <summary>
+            Retrieves an object from various collections.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFormElement.acceptCharset">
+            <summary>
+            Sets or retrieves a list of character encodings for input data that must be accepted by the server processing the form.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFormElement.action">
+            <summary>
+            Sets or retrieves the URL to which the form content is sent for processing.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFormElement.autocomplete">
+            <summary>
+            Specifies whether autocomplete is applied to an editable text field.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFormElement.elements">
+            <summary>
+            Retrieves a collection, in source order, of all controls in a given form.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFormElement.encoding">
+            <summary>
+            Sets or retrieves the MIME encoding for the form.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFormElement.enctype">
+            <summary>
+            Sets or retrieves the encoding type for the form.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFormElement.length">
+            <summary>
+            Sets or retrieves the number of objects in a collection.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFormElement.method">
+            <summary>
+            Sets or retrieves how to send the form data to the server.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFormElement.name">
+            <summary>
+            Sets or retrieves the name of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFormElement.noValidate">
+            <summary>
+            Designates a form that is not validated when submitted.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFormElement.target">
+            <summary>
+            Sets or retrieves the window or frame at which to target content.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLFormElement.checkValidity">
+            <summary>
+            Returns whether a form will validate when it is submitted, without having to submit it.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLFormElement.item">
+            <summary>
+            Retrieves a form object or an object from an elements collection.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLFormElement.item(System.Object)">
+            <summary>
+            Retrieves a form object or an object from an elements collection.
+            </summary>
+            <param name = "name">Variant of type Number or String that specifies the object or collection to retrieve. If this parameter is a Number, it is the zero-based index of the object. If this parameter is a string, all objects with matching name or id properties are retrieved, and a collection is returned if more than one match is made.</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLFormElement.item(System.Object,System.Object)">
+            <summary>
+            Retrieves a form object or an object from an elements collection.
+            </summary>
+            <param name = "name">Variant of type Number or String that specifies the object or collection to retrieve. If this parameter is a Number, it is the zero-based index of the object. If this parameter is a string, all objects with matching name or id properties are retrieved, and a collection is returned if more than one match is made.</param>
+            <param name = "index">Variant of type Number that specifies the zero-based index of the object to retrieve when a collection is returned.</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLFormElement.namedItem(System.String)">
+            <summary>
+            Retrieves a form object or an object from an elements collection.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLFormElement.reset">
+            <summary>
+            Fires when the user resets a form.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLFormElement.submit">
+            <summary>
+            Fires when a FORM is about to be submitted.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFrameElement.border">
+            <summary>
+            Specifies the properties of a border drawn around an object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFrameElement.borderColor">
+            <summary>
+            Sets or retrieves the border color of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFrameElement.contentDocument">
+            <summary>
+            Retrieves the document object of the page or frame.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFrameElement.contentWindow">
+            <summary>
+            Retrieves the object of the specified.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFrameElement.frameBorder">
+            <summary>
+            Sets or retrieves whether to display a border for the frame.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFrameElement.frameSpacing">
+            <summary>
+            Sets or retrieves the amount of additional space between the frames.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFrameElement.height">
+            <summary>
+            Sets or retrieves the height of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFrameElement.longDesc">
+            <summary>
+            Sets or retrieves a URI to a long description of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFrameElement.marginHeight">
+            <summary>
+            Sets or retrieves the top and bottom margin heights before displaying the text in a frame.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFrameElement.marginWidth">
+            <summary>
+            Sets or retrieves the left and right margin widths before displaying the text in a frame.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFrameElement.name">
+            <summary>
+            Sets or retrieves the frame name.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFrameElement.noResize">
+            <summary>
+            Sets or retrieves whether the user can resize the frame.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFrameElement.scrolling">
+            <summary>
+            Sets or retrieves whether the frame can be scrolled.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFrameElement.src">
+            <summary>
+            Sets or retrieves a URL to be loaded by the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFrameElement.width">
+            <summary>
+            Sets or retrieves the width of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFrameSetElement.cols">
+            <summary>
+            Sets or retrieves the frame widths of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLFrameSetElement.rows">
+            <summary>
+            Sets or retrieves the frame heights of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLHRElement.align">
+            <summary>
+            Sets or retrieves how the object is aligned with adjacent text.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLHRElement.noShade">
+            <summary>
+            Sets or retrieves whether the horizontal rule is drawn with 3-D shading.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLHRElement.width">
+            <summary>
+            Sets or retrieves the width of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLHeadElement.profile">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLHeadingElement.align">
+            <summary>
+            Sets or retrieves a value that indicates the table alignment.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLHtmlElement.version">
+            <summary>
+            Sets or retrieves the DTD version that governs the current document.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLIFrameElement.align">
+            <summary>
+            Sets or retrieves how the object is aligned with adjacent text.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLIFrameElement.contentDocument">
+            <summary>
+            Retrieves the document object of the page or frame.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLIFrameElement.contentWindow">
+            <summary>
+            Retrieves the object of the specified.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLIFrameElement.frameBorder">
+            <summary>
+            Sets or retrieves whether to display a border for the frame.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLIFrameElement.height">
+            <summary>
+            Sets or retrieves the height of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLIFrameElement.longDesc">
+            <summary>
+            Sets or retrieves a URI to a long description of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLIFrameElement.marginHeight">
+            <summary>
+            Sets or retrieves the top and bottom margin heights before displaying the text in a frame.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLIFrameElement.marginWidth">
+            <summary>
+            Sets or retrieves the left and right margin widths before displaying the text in a frame.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLIFrameElement.name">
+            <summary>
+            Sets or retrieves the frame name.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLIFrameElement.scrolling">
+            <summary>
+            Sets or retrieves whether the frame can be scrolled.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLIFrameElement.src">
+            <summary>
+            Sets or retrieves a URL to be loaded by the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLIFrameElement.srcdoc">
+            <summary>
+            Sets or retrives the content of the page that is to contain.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLIFrameElement.width">
+            <summary>
+            Sets or retrieves the width of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLImageElement.align">
+            <summary>
+            Sets or retrieves how the object is aligned with adjacent text.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLImageElement.alt">
+            <summary>
+            Sets or retrieves a text alternative to the graphic.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLImageElement.border">
+            <summary>
+            Specifies the properties of a border drawn around an object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLImageElement.complete">
+            <summary>
+            Retrieves whether the object is fully loaded.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLImageElement.height">
+            <summary>
+            Sets or retrieves the height of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLImageElement.hspace">
+            <summary>
+            Sets or retrieves the width of the border to draw around the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLImageElement.isMap">
+            <summary>
+            Sets or retrieves whether the image is a server-side image map.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLImageElement.longDesc">
+            <summary>
+            Sets or retrieves a Uniform Resource Identifier (URI) to a long description of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLImageElement.lowsrc">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLImageElement.msPlayToDisabled">
+            <summary>
+            Gets or sets whether the DLNA PlayTo device is available.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLImageElement.msPlayToPrimary">
+            <summary>
+            Gets or sets the primary DLNA PlayTo device.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLImageElement.msPlayToSource">
+            <summary>
+            Gets the source associated with the media element for use by the PlayToManager.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLImageElement.name">
+            <summary>
+            Sets or retrieves the name of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLImageElement.naturalHeight">
+            <summary>
+            The original height of the image resource before sizing.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLImageElement.naturalWidth">
+            <summary>
+            The original width of the image resource before sizing.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLImageElement.src">
+            <summary>
+            The address or URL of the a media resource that is to be considered.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLImageElement.useMap">
+            <summary>
+            Sets or retrieves the URL, often with a bookmark extension (#name), to use as a client-side image map.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLImageElement.vspace">
+            <summary>
+            Sets or retrieves the vertical margin for the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLImageElement.width">
+            <summary>
+            Sets or retrieves the width of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.accept">
+            <summary>
+            Sets or retrieves a comma-separated list of content types.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.align">
+            <summary>
+            Sets or retrieves how the object is aligned with adjacent text.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.alt">
+            <summary>
+            Sets or retrieves a text alternative to the graphic.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.autocomplete">
+            <summary>
+            Specifies whether autocomplete is applied to an editable text field.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.autofocus">
+            <summary>
+            Provides a way to direct a user to a specific field when a document loads. This can provide both direction and convenience for a user, reducing the need to click or tab to a field when a page opens. This attribute is true when present on an element, and false when missing.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.checked">
+            <summary>
+            Sets or retrieves the state of the check box or radio button.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.defaultChecked">
+            <summary>
+            Sets or retrieves the state of the check box or radio button.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.defaultValue">
+            <summary>
+            Sets or retrieves the initial contents of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.files">
+            <summary>
+            Returns a FileList object on a file type input object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.form">
+            <summary>
+            Retrieves a reference to the form that the object is embedded in.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.formAction">
+            <summary>
+            Overrides the action attribute (where the data on a form is sent) on the parent form element.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.formEnctype">
+            <summary>
+            Used to override the encoding (formEnctype attribute) specified on the form element.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.formMethod">
+            <summary>
+            Overrides the submit method attribute previously specified on a form element.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.formNoValidate">
+            <summary>
+            Overrides any validation or required attributes on a form or form elements to allow it to be submitted without validation. This can be used to create a "save draft"-type submit option.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.formTarget">
+            <summary>
+            Overrides the target attribute on a form element.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.height">
+            <summary>
+            Sets or retrieves the height of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.list">
+            <summary>
+            Specifies the ID of a pre-defined datalist of options for an input element.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.max">
+            <summary>
+            Defines the maximum acceptable value for an input element with type="number".When used with the min and step attributes, lets you control the range and increment (such as only even numbers) that the user can enter into an input field.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.maxLength">
+            <summary>
+            Sets or retrieves the maximum number of characters that the user can enter in a text control.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.min">
+            <summary>
+            Defines the minimum acceptable value for an input element with type="number". When used with the max and step attributes, lets you control the range and increment (such as even numbers only) that the user can enter into an input field.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.multiple">
+            <summary>
+            Sets or retrieves the Boolean value indicating whether multiple items can be selected from a list.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.name">
+            <summary>
+            Sets or retrieves the name of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.pattern">
+            <summary>
+            Gets or sets a string containing a regular expression that the user's input must match.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.placeholder">
+            <summary>
+            Gets or sets a text string that is displayed in an input field as a hint or prompt to users as the format or type of information they need to enter.The text appears in an input field until the user puts focus on the field.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.required">
+            <summary>
+            When present, marks an element that can't be submitted without a value.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.selectionEnd">
+            <summary>
+            Gets or sets the end position or offset of a text selection.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.selectionStart">
+            <summary>
+            Gets or sets the starting position or offset of a text selection.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.src">
+            <summary>
+            The address or URL of the a media resource that is to be considered.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.step">
+            <summary>
+            Defines an increment or jump between values that you want to allow the user to enter. When used with the max and min attributes, lets you control the range and increment (for example, allow only even numbers) that the user can enter into an input field.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.type">
+            <summary>
+            Returns the content type of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.useMap">
+            <summary>
+            Sets or retrieves the URL, often with a bookmark extension (#name), to use as a client-side image map.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.validationMessage">
+            <summary>
+            Returns the error message that would be displayed if the user submits the form, or an empty string if no error message. It also triggers the standard error message, such as "this is a required field". The result is that the user sees validation messages without actually submitting.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.validity">
+            <summary>
+            Returns a  ValidityState object that represents the validity states of an element.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.value">
+            <summary>
+            Returns the value of the data at the cursor's current position.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.valueAsNumber">
+            <summary>
+            Returns the input field value as a number.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.width">
+            <summary>
+            Sets or retrieves the width of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLInputElement.willValidate">
+            <summary>
+            Returns whether an element will successfully validate based on forms validation rules and constraints.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLInputElement.checkValidity">
+            <summary>
+            Returns whether a form will validate when it is submitted, without having to submit it.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLInputElement.select">
+            <summary>
+            Makes the selection equal to the current object.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLInputElement.setCustomValidity(System.String)">
+            <summary>
+            Sets a custom error message that is displayed when a form is submitted.
+            </summary>
+            <param name = "error">Sets a custom error message that is displayed when a form is submitted.</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLInputElement.setSelectionRange(System.UInt32,System.UInt32)">
+            <summary>
+            Sets the start and end positions of a selection in a text field.
+            </summary>
+            <param name = "start">The offset into the text field for the start of the selection.</param>
+            <param name = "end">The offset into the text field for the end of the selection.</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLInputElement.setSelectionRange(System.UInt32,System.UInt32,Retyped.dom.Literals.Options.direction2)">
+            <summary>
+            Sets the start and end positions of a selection in a text field.
+            </summary>
+            <param name = "start">The offset into the text field for the start of the selection.</param>
+            <param name = "end">The offset into the text field for the end of the selection.</param>
+            <param name = "direction">The direction in which the selection is performed.</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLInputElement.stepDown">
+            <summary>
+            Decrements a range input control's value by the value given by the Step attribute. If the optional parameter is used, it will decrement the input control's step value multiplied by the parameter's value.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLInputElement.stepDown(System.Int32)">
+            <summary>
+            Decrements a range input control's value by the value given by the Step attribute. If the optional parameter is used, it will decrement the input control's step value multiplied by the parameter's value.
+            </summary>
+            <param name = "n">Value to decrement the value by.</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLInputElement.stepUp">
+            <summary>
+            Increments a range input control's value by the value given by the Step attribute. If the optional parameter is used, will increment the input control's value by that value.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLInputElement.stepUp(System.Int32)">
+            <summary>
+            Increments a range input control's value by the value given by the Step attribute. If the optional parameter is used, will increment the input control's value by that value.
+            </summary>
+            <param name = "n">Value to increment the value by.</param>
+        </member>
+        <member name="P:Retyped.dom.HTMLLIElement.type">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLLIElement.value">
+            <summary>
+            Sets or retrieves the value of a list item.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLLabelElement.form">
+            <summary>
+            Retrieves a reference to the form that the object is embedded in.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLLabelElement.htmlFor">
+            <summary>
+            Sets or retrieves the object to which the given label object is assigned.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLLegendElement.align">
+            <summary>
+            Retrieves a reference to the form that the object is embedded in.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLLegendElement.form">
+            <summary>
+            Retrieves a reference to the form that the object is embedded in.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLLinkElement.charset">
+            <summary>
+            Sets or retrieves the character set used to encode the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLLinkElement.disabled">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLLinkElement.href">
+            <summary>
+            Sets or retrieves a destination URL or an anchor point.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLLinkElement.hreflang">
+            <summary>
+            Sets or retrieves the language code of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLLinkElement.media">
+            <summary>
+            Sets or retrieves the media type.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLLinkElement.rel">
+            <summary>
+            Sets or retrieves the relationship between the object and the destination of the link.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLLinkElement.rev">
+            <summary>
+            Sets or retrieves the relationship between the object and the destination of the link.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLLinkElement.target">
+            <summary>
+            Sets or retrieves the window or frame at which to target content.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLLinkElement.type">
+            <summary>
+            Sets or retrieves the MIME type of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMapElement.areas">
+            <summary>
+            Retrieves a collection of the area objects defined for the given map object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMapElement.name">
+            <summary>
+            Sets or retrieves the name of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMarqueeElement.behavior">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMarqueeElement.bgColor">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMarqueeElement.direction">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMarqueeElement.height">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMarqueeElement.hspace">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMarqueeElement.loop">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMarqueeElement.onbounce">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMarqueeElement.onfinish">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMarqueeElement.onstart">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMarqueeElement.scrollAmount">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMarqueeElement.scrollDelay">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMarqueeElement.trueSpeed">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMarqueeElement.vspace">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMarqueeElement.width">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLMarqueeElement.start">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLMarqueeElement.stop">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.audioTracks">
+            <summary>
+            Returns an AudioTrackList object with the audio tracks for a given video element.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.autoplay">
+            <summary>
+            Gets or sets a value that indicates whether to start playing the media automatically.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.buffered">
+            <summary>
+            Gets a collection of buffered time ranges.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.controls">
+            <summary>
+            Gets or sets a flag that indicates whether the client provides a set of controls for the media (in case the developer does not include controls for the player).
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.currentSrc">
+            <summary>
+            Gets the address or URL of the current media resource that is selected by IHTMLMediaElement.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.currentTime">
+            <summary>
+            Gets or sets the current playback position, in seconds.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.defaultPlaybackRate">
+            <summary>
+            Gets or sets the default playback rate when the user is not using fast forward or reverse for a video or audio resource.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.duration">
+            <summary>
+            Returns the duration in seconds of the current media resource. A NaN value is returned if duration is not available, or Infinity if the media resource is streaming.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.ended">
+            <summary>
+            Gets information about whether the playback has ended or not.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.error">
+            <summary>
+            Returns an object representing the current error state of the audio or video element.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.loop">
+            <summary>
+            Gets or sets a flag to specify whether playback should restart after it completes.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.msAudioCategory">
+            <summary>
+            Specifies the purpose of the audio or video media, such as background audio or alerts.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.msAudioDeviceType">
+            <summary>
+            Specifies the output device id that the audio will be sent to.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.msKeys">
+            <summary>
+            Gets the MSMediaKeys object, which is used for decrypting media data, that is associated with this media element.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.msPlayToDisabled">
+            <summary>
+            Gets or sets whether the DLNA PlayTo device is available.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.msPlayToPreferredSourceUri">
+            <summary>
+            Gets or sets the path to the preferred media source. This enables the Play To target device to stream the media content, which can be DRM protected, from a different location, such as a cloud media server.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.msPlayToPrimary">
+            <summary>
+            Gets or sets the primary DLNA PlayTo device.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.msPlayToSource">
+            <summary>
+            Gets the source associated with the media element for use by the PlayToManager.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.msRealTime">
+            <summary>
+            Specifies whether or not to enable low-latency playback on the media element.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.muted">
+            <summary>
+            Gets or sets a flag that indicates whether the audio (either audio or the audio track on video media) is muted.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.networkState">
+            <summary>
+            Gets the current network activity for the element.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.onmsneedkey">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.paused">
+            <summary>
+            Gets a flag that specifies whether playback is paused.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.playbackRate">
+            <summary>
+            Gets or sets the current rate of speed for the media resource to play. This speed is expressed as a multiple of the normal speed of the media resource.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.played">
+            <summary>
+            Gets TimeRanges for the current media resource that has been played.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.preload">
+            <summary>
+            Gets or sets the current playback position, in seconds.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.seekable">
+            <summary>
+            Returns a TimeRanges object that represents the ranges of the current media resource that can be seeked.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.seeking">
+            <summary>
+            Gets a flag that indicates whether the the client is currently moving to a new playback position in the media resource.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.src">
+            <summary>
+            The address or URL of the a media resource that is to be considered.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMediaElement.volume">
+            <summary>
+            Gets or sets the volume level for audio portions of the media element.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLMediaElement.canPlayType(System.String)">
+            <summary>
+            Returns a string that specifies whether the client can play a given media resource type.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLMediaElement.load">
+            <summary>
+            Resets the audio or video object and loads a new media resource.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLMediaElement.msClearEffects">
+            <summary>
+            Clears all effects from the media pipeline.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLMediaElement.msInsertAudioEffect(System.String,System.Boolean)">
+            <summary>
+            Inserts the specified audio effect into media pipeline.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLMediaElement.msInsertAudioEffect(System.String,System.Boolean,System.Object)">
+            <summary>
+            Inserts the specified audio effect into media pipeline.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLMediaElement.msSetMediaKeys(Retyped.dom.MSMediaKeys)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLMediaElement.msSetMediaProtectionManager">
+            <summary>
+            Specifies the media protection manager for a given media pipeline.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLMediaElement.msSetMediaProtectionManager(System.Object)">
+            <summary>
+            Specifies the media protection manager for a given media pipeline.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLMediaElement.pause">
+            <summary>
+            Pauses the current playback and sets paused to TRUE. This can be used to test whether the media is playing or paused. You can also use the pause or play events to tell whether the media is playing or not.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLMediaElement.play">
+            <summary>
+            Loads and starts playback of a media resource.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMenuElement.compact">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMetaElement.charset">
+            <summary>
+            Sets or retrieves the character set used to encode the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMetaElement.content">
+            <summary>
+            Gets or sets meta-information to associate with httpEquiv or name.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMetaElement.httpEquiv">
+            <summary>
+            Gets or sets information used to bind the value of a content attribute of a meta element to an HTTP response header.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMetaElement.name">
+            <summary>
+            Sets or retrieves the value specified in the content attribute of the meta object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMetaElement.scheme">
+            <summary>
+            Sets or retrieves a scheme to be used in interpreting the value of a property specified for the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLMetaElement.url">
+            <summary>
+            Sets or retrieves the URL property that will be loaded after the specified time has elapsed.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLModElement.cite">
+            <summary>
+            Sets or retrieves reference information about the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLModElement.dateTime">
+            <summary>
+            Sets or retrieves the date and time of a modification to the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLOListElement.compact">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLOListElement.start">
+            <summary>
+            The starting number.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLObjectElement.BaseHref">
+            <summary>
+            Retrieves a string of the URL where the object tag can be found. This is often the href of the document that the object is in, or the value set by a base element.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLObjectElement.align">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLObjectElement.archive">
+            <summary>
+            Sets or retrieves a character string that can be used to implement your own archive functionality for the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLObjectElement.border">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLObjectElement.code">
+            <summary>
+            Sets or retrieves the URL of the file containing the compiled Java class.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLObjectElement.codeBase">
+            <summary>
+            Sets or retrieves the URL of the component.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLObjectElement.codeType">
+            <summary>
+            Sets or retrieves the Internet media type for the code associated with the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLObjectElement.contentDocument">
+            <summary>
+            Retrieves the document object of the page or frame.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLObjectElement.data">
+            <summary>
+            Sets or retrieves the URL that references the data of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLObjectElement.declare">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLObjectElement.form">
+            <summary>
+            Retrieves a reference to the form that the object is embedded in.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLObjectElement.height">
+            <summary>
+            Sets or retrieves the height of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLObjectElement.hspace">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLObjectElement.msPlayToDisabled">
+            <summary>
+            Gets or sets whether the DLNA PlayTo device is available.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLObjectElement.msPlayToPreferredSourceUri">
+            <summary>
+            Gets or sets the path to the preferred media source. This enables the Play To target device to stream the media content, which can be DRM protected, from a different location, such as a cloud media server.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLObjectElement.msPlayToPrimary">
+            <summary>
+            Gets or sets the primary DLNA PlayTo device.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLObjectElement.msPlayToSource">
+            <summary>
+            Gets the source associated with the media element for use by the PlayToManager.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLObjectElement.name">
+            <summary>
+            Sets or retrieves the name of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLObjectElement.standby">
+            <summary>
+            Sets or retrieves a message to be displayed while an object is loading.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLObjectElement.type">
+            <summary>
+            Sets or retrieves the MIME type of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLObjectElement.useMap">
+            <summary>
+            Sets or retrieves the URL, often with a bookmark extension (#name), to use as a client-side image map.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLObjectElement.validationMessage">
+            <summary>
+            Returns the error message that would be displayed if the user submits the form, or an empty string if no error message. It also triggers the standard error message, such as "this is a required field". The result is that the user sees validation messages without actually submitting.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLObjectElement.validity">
+            <summary>
+            Returns a  ValidityState object that represents the validity states of an element.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLObjectElement.vspace">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLObjectElement.width">
+            <summary>
+            Sets or retrieves the width of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLObjectElement.willValidate">
+            <summary>
+            Returns whether an element will successfully validate based on forms validation rules and constraints.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLObjectElement.checkValidity">
+            <summary>
+            Returns whether a form will validate when it is submitted, without having to submit it.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLObjectElement.setCustomValidity(System.String)">
+            <summary>
+            Sets a custom error message that is displayed when a form is submitted.
+            </summary>
+            <param name = "error">Sets a custom error message that is displayed when a form is submitted.</param>
+        </member>
+        <member name="P:Retyped.dom.HTMLOptGroupElement.form">
+            <summary>
+            Retrieves a reference to the form that the object is embedded in.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLOptGroupElement.label">
+            <summary>
+            Sets or retrieves a value that you can use to implement your own label functionality for the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLOptionElement.defaultSelected">
+            <summary>
+            Sets or retrieves the status of an option.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLOptionElement.form">
+            <summary>
+            Retrieves a reference to the form that the object is embedded in.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLOptionElement.index">
+            <summary>
+            Sets or retrieves the ordinal position of an option in a list box.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLOptionElement.label">
+            <summary>
+            Sets or retrieves a value that you can use to implement your own label functionality for the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLOptionElement.selected">
+            <summary>
+            Sets or retrieves whether the option in the list box is the default item.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLOptionElement.text">
+            <summary>
+            Sets or retrieves the text string specified by the option tag.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLOptionElement.value">
+            <summary>
+            Sets or retrieves the value which is returned to the server when the form control is submitted.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLOptionsCollection.length">
+            <summary>
+            Sets or retrieves the number of objects in a collection.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLOptionsCollection.item(System.UInt32)">
+            <summary>
+            Retrieves an object from various collections.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLParagraphElement.align">
+            <summary>
+            Sets or retrieves how the object is aligned with adjacent text.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLParamElement.name">
+            <summary>
+            Sets or retrieves the name of an input parameter for an element.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLParamElement.type">
+            <summary>
+            Sets or retrieves the content type of the resource designated by the value attribute.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLParamElement.value">
+            <summary>
+            Sets or retrieves the value of an input parameter for an element.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLParamElement.valueType">
+            <summary>
+            Sets or retrieves the data type of the value attribute.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLPreElement.width">
+            <summary>
+            Sets or gets a value that you can use to implement your own width functionality for the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLProgressElement.form">
+            <summary>
+            Retrieves a reference to the form that the object is embedded in.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLProgressElement.max">
+            <summary>
+            Defines the maximum, or "done" value for a progress element.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLProgressElement.position">
+            <summary>
+            Returns the quotient of value/max when the value attribute is set (determinate progress bar), or -1 when the value attribute is missing (indeterminate progress bar).
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLProgressElement.value">
+            <summary>
+            Sets or gets the current value of a progress element. The value must be a non-negative number between 0 and the max value.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLQuoteElement.cite">
+            <summary>
+            Sets or retrieves reference information about the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLScriptElement.charset">
+            <summary>
+            Sets or retrieves the character set used to encode the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLScriptElement.defer">
+            <summary>
+            Sets or retrieves the status of the script.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLScriptElement.event">
+            <summary>
+            Sets or retrieves the event for which the script is written.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLScriptElement.htmlFor">
+            <summary>
+            Sets or retrieves the object that is bound to the event script.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLScriptElement.src">
+            <summary>
+            Retrieves the URL to an external file that contains the source code or data.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLScriptElement.text">
+            <summary>
+            Retrieves or sets the text of the object as a string.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLScriptElement.type">
+            <summary>
+            Sets or retrieves the MIME type for the associated scripting engine.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLSelectElement.autofocus">
+            <summary>
+            Provides a way to direct a user to a specific field when a document loads. This can provide both direction and convenience for a user, reducing the need to click or tab to a field when a page opens. This attribute is true when present on an element, and false when missing.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLSelectElement.form">
+            <summary>
+            Retrieves a reference to the form that the object is embedded in.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLSelectElement.length">
+            <summary>
+            Sets or retrieves the number of objects in a collection.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLSelectElement.multiple">
+            <summary>
+            Sets or retrieves the Boolean value indicating whether multiple items can be selected from a list.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLSelectElement.name">
+            <summary>
+            Sets or retrieves the name of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLSelectElement.required">
+            <summary>
+            When present, marks an element that can't be submitted without a value.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLSelectElement.selectedIndex">
+            <summary>
+            Sets or retrieves the index of the selected option in a select object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLSelectElement.size">
+            <summary>
+            Sets or retrieves the number of rows in the list box.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLSelectElement.type">
+            <summary>
+            Retrieves the type of select control based on the value of the MULTIPLE attribute.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLSelectElement.validationMessage">
+            <summary>
+            Returns the error message that would be displayed if the user submits the form, or an empty string if no error message. It also triggers the standard error message, such as "this is a required field". The result is that the user sees validation messages without actually submitting.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLSelectElement.validity">
+            <summary>
+            Returns a  ValidityState object that represents the validity states of an element.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLSelectElement.value">
+            <summary>
+            Sets or retrieves the value which is returned to the server when the form control is submitted.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLSelectElement.willValidate">
+            <summary>
+            Returns whether an element will successfully validate based on forms validation rules and constraints.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLSelectElement.add(Bridge.Union{Retyped.dom.HTMLOptionElement,Retyped.dom.HTMLOptGroupElement})">
+            <summary>
+            Adds an element to the areas, controlRange, or options collection.
+            </summary>
+            <param name = "element">Variant of type Number that specifies the index position in the collection where the element is placed. If no value is given, the method places the element at the end of the collection.</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLSelectElement.add(Retyped.dom.HTMLOptionElement)">
+            <summary>
+            Adds an element to the areas, controlRange, or options collection.
+            </summary>
+            <param name = "element">Variant of type Number that specifies the index position in the collection where the element is placed. If no value is given, the method places the element at the end of the collection.</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLSelectElement.add(Retyped.dom.HTMLOptGroupElement)">
+            <summary>
+            Adds an element to the areas, controlRange, or options collection.
+            </summary>
+            <param name = "element">Variant of type Number that specifies the index position in the collection where the element is placed. If no value is given, the method places the element at the end of the collection.</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLSelectElement.add(Bridge.Union{Retyped.dom.HTMLOptionElement,Retyped.dom.HTMLOptGroupElement},Bridge.Union{Retyped.dom.HTMLElement,System.Double,Retyped.Primitive.Null})">
+            <summary>
+            Adds an element to the areas, controlRange, or options collection.
+            </summary>
+            <param name = "element">Variant of type Number that specifies the index position in the collection where the element is placed. If no value is given, the method places the element at the end of the collection.</param>
+            <param name = "before">Variant of type Object that specifies an element to insert before, or null to append the object to the collection.</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLSelectElement.add(Retyped.dom.HTMLOptionElement,Retyped.dom.HTMLElement)">
+            <summary>
+            Adds an element to the areas, controlRange, or options collection.
+            </summary>
+            <param name = "element">Variant of type Number that specifies the index position in the collection where the element is placed. If no value is given, the method places the element at the end of the collection.</param>
+            <param name = "before">Variant of type Object that specifies an element to insert before, or null to append the object to the collection.</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLSelectElement.add(Retyped.dom.HTMLOptionElement,System.Double)">
+            <summary>
+            Adds an element to the areas, controlRange, or options collection.
+            </summary>
+            <param name = "element">Variant of type Number that specifies the index position in the collection where the element is placed. If no value is given, the method places the element at the end of the collection.</param>
+            <param name = "before">Variant of type Object that specifies an element to insert before, or null to append the object to the collection.</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLSelectElement.add(Retyped.dom.HTMLOptionElement,Retyped.Primitive.Null)">
+            <summary>
+            Adds an element to the areas, controlRange, or options collection.
+            </summary>
+            <param name = "element">Variant of type Number that specifies the index position in the collection where the element is placed. If no value is given, the method places the element at the end of the collection.</param>
+            <param name = "before">Variant of type Object that specifies an element to insert before, or null to append the object to the collection.</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLSelectElement.add(Retyped.dom.HTMLOptGroupElement,Retyped.dom.HTMLElement)">
+            <summary>
+            Adds an element to the areas, controlRange, or options collection.
+            </summary>
+            <param name = "element">Variant of type Number that specifies the index position in the collection where the element is placed. If no value is given, the method places the element at the end of the collection.</param>
+            <param name = "before">Variant of type Object that specifies an element to insert before, or null to append the object to the collection.</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLSelectElement.add(Retyped.dom.HTMLOptGroupElement,System.Double)">
+            <summary>
+            Adds an element to the areas, controlRange, or options collection.
+            </summary>
+            <param name = "element">Variant of type Number that specifies the index position in the collection where the element is placed. If no value is given, the method places the element at the end of the collection.</param>
+            <param name = "before">Variant of type Object that specifies an element to insert before, or null to append the object to the collection.</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLSelectElement.add(Retyped.dom.HTMLOptGroupElement,Retyped.Primitive.Null)">
+            <summary>
+            Adds an element to the areas, controlRange, or options collection.
+            </summary>
+            <param name = "element">Variant of type Number that specifies the index position in the collection where the element is placed. If no value is given, the method places the element at the end of the collection.</param>
+            <param name = "before">Variant of type Object that specifies an element to insert before, or null to append the object to the collection.</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLSelectElement.checkValidity">
+            <summary>
+            Returns whether a form will validate when it is submitted, without having to submit it.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLSelectElement.item">
+            <summary>
+            Retrieves a select object or an object from an options collection.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLSelectElement.item(System.Object)">
+            <summary>
+            Retrieves a select object or an object from an options collection.
+            </summary>
+            <param name = "name">Variant of type Number or String that specifies the object or collection to retrieve. If this parameter is an integer, it is the zero-based index of the object. If this parameter is a string, all objects with matching name or id properties are retrieved, and a collection is returned if more than one match is made.</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLSelectElement.item(System.Object,System.Object)">
+            <summary>
+            Retrieves a select object or an object from an options collection.
+            </summary>
+            <param name = "name">Variant of type Number or String that specifies the object or collection to retrieve. If this parameter is an integer, it is the zero-based index of the object. If this parameter is a string, all objects with matching name or id properties are retrieved, and a collection is returned if more than one match is made.</param>
+            <param name = "index">Variant of type Number that specifies the zero-based index of the object to retrieve when a collection is returned.</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLSelectElement.namedItem(System.String)">
+            <summary>
+            Retrieves a select object or an object from an options collection.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLSelectElement.remove">
+            <summary>
+            Removes an element from the collection.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLSelectElement.remove(System.Int32)">
+            <summary>
+            Removes an element from the collection.
+            </summary>
+            <param name = "index">Number that specifies the zero-based index of the element to remove from the collection.</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLSelectElement.setCustomValidity(System.String)">
+            <summary>
+            Sets a custom error message that is displayed when a form is submitted.
+            </summary>
+            <param name = "error">Sets a custom error message that is displayed when a form is submitted.</param>
+        </member>
+        <member name="P:Retyped.dom.HTMLSourceElement.media">
+            <summary>
+            Gets or sets the intended media type of the media source.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLSourceElement.msKeySystem">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLSourceElement.src">
+            <summary>
+            The address or URL of the a media resource that is to be considered.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLSourceElement.type">
+            <summary>
+            Gets or sets the MIME type of a media resource.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLStyleElement.disabled">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLStyleElement.media">
+            <summary>
+            Sets or retrieves the media type.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLStyleElement.type">
+            <summary>
+            Retrieves the CSS language in which the style sheet is written.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableCaptionElement.align">
+            <summary>
+            Sets or retrieves the alignment of the caption or legend.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableCellElement.abbr">
+            <summary>
+            Sets or retrieves abbreviated text for the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableCellElement.align">
+            <summary>
+            Sets or retrieves how the object is aligned with adjacent text.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableCellElement.axis">
+            <summary>
+            Sets or retrieves a comma-delimited list of conceptual categories associated with the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableCellElement.bgColor">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableCellElement.cellIndex">
+            <summary>
+            Retrieves the position of the object in the cells collection of a row.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableCellElement.ch">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableCellElement.chOff">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableCellElement.colSpan">
+            <summary>
+            Sets or retrieves the number columns in the table that the object should span.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableCellElement.headers">
+            <summary>
+            Sets or retrieves a list of header cells that provide information for the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableCellElement.height">
+            <summary>
+            Sets or retrieves the height of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableCellElement.noWrap">
+            <summary>
+            Sets or retrieves whether the browser automatically performs wordwrap.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableCellElement.rowSpan">
+            <summary>
+            Sets or retrieves how many rows in a table the cell should span.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableCellElement.scope">
+            <summary>
+            Sets or retrieves the group of cells in a table to which the object's information applies.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableCellElement.vAlign">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableCellElement.width">
+            <summary>
+            Sets or retrieves the width of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableColElement.align">
+            <summary>
+            Sets or retrieves the alignment of the object relative to the display or table.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableColElement.ch">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableColElement.chOff">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableColElement.span">
+            <summary>
+            Sets or retrieves the number of columns in the group.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableColElement.vAlign">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableColElement.width">
+            <summary>
+            Sets or retrieves the width of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableElement.align">
+            <summary>
+            Sets or retrieves a value that indicates the table alignment.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableElement.bgColor">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableElement.border">
+            <summary>
+            Sets or retrieves the width of the border to draw around the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableElement.caption">
+            <summary>
+            Retrieves the caption object of a table.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableElement.cellPadding">
+            <summary>
+            Sets or retrieves the amount of space between the border of the cell and the content of the cell.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableElement.cellSpacing">
+            <summary>
+            Sets or retrieves the amount of space between cells in a table.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableElement.frame">
+            <summary>
+            Sets or retrieves the way the border frame around the table is displayed.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableElement.rows">
+            <summary>
+            Sets or retrieves the number of horizontal rows contained in the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableElement.rules">
+            <summary>
+            Sets or retrieves which dividing lines (inner borders) are displayed.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableElement.summary">
+            <summary>
+            Sets or retrieves a description and/or structure of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableElement.tBodies">
+            <summary>
+            Retrieves a collection of all tBody objects in the table. Objects in this collection are in source order.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableElement.tFoot">
+            <summary>
+            Retrieves the tFoot object of the table.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableElement.tHead">
+            <summary>
+            Retrieves the tHead object of the table.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableElement.width">
+            <summary>
+            Sets or retrieves the width of the object.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLTableElement.createCaption">
+            <summary>
+            Creates an empty caption element in the table.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLTableElement.createTBody">
+            <summary>
+            Creates an empty tBody element in the table.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLTableElement.createTFoot">
+            <summary>
+            Creates an empty tFoot element in the table.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLTableElement.createTHead">
+            <summary>
+            Returns the tHead element object if successful, or null otherwise.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLTableElement.deleteCaption">
+            <summary>
+            Deletes the caption element and its contents from the table.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLTableElement.deleteRow">
+            <summary>
+            Removes the specified row (tr) from the element and from the rows collection.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLTableElement.deleteRow(System.Int32)">
+            <summary>
+            Removes the specified row (tr) from the element and from the rows collection.
+            </summary>
+            <param name = "index">Number that specifies the zero-based position in the rows collection of the row to remove.</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLTableElement.deleteTFoot">
+            <summary>
+            Deletes the tFoot element and its contents from the table.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLTableElement.deleteTHead">
+            <summary>
+            Deletes the tHead element and its contents from the table.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLTableElement.insertRow">
+            <summary>
+            Creates a new row (tr) in the table, and adds the row to the rows collection.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLTableElement.insertRow(System.Int32)">
+            <summary>
+            Creates a new row (tr) in the table, and adds the row to the rows collection.
+            </summary>
+            <param name = "index">Number that specifies where to insert the row in the rows collection. The default value is -1, which appends the new row to the end of the rows collection.</param>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableRowElement.align">
+            <summary>
+            Sets or retrieves how the object is aligned with adjacent text.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableRowElement.bgColor">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableRowElement.cells">
+            <summary>
+            Retrieves a collection of all cells in the table row.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableRowElement.ch">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableRowElement.chOff">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableRowElement.rowIndex">
+            <summary>
+            Retrieves the position of the object in the rows collection for the table.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableRowElement.sectionRowIndex">
+            <summary>
+            Retrieves the position of the object in the collection.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableRowElement.vAlign">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLTableRowElement.deleteCell">
+            <summary>
+            Removes the specified cell from the table row, as well as from the cells collection.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLTableRowElement.deleteCell(System.Int32)">
+            <summary>
+            Removes the specified cell from the table row, as well as from the cells collection.
+            </summary>
+            <param name = "index">Number that specifies the zero-based position of the cell to remove from the table row. If no value is provided, the last cell in the cells collection is deleted.</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLTableRowElement.insertCell">
+            <summary>
+            Creates a new cell in the table row, and adds the cell to the cells collection.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLTableRowElement.insertCell(System.Int32)">
+            <summary>
+            Creates a new cell in the table row, and adds the cell to the cells collection.
+            </summary>
+            <param name = "index">Number that specifies where to insert the cell in the tr. The default value is -1, which appends the new cell to the end of the cells collection.</param>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableSectionElement.align">
+            <summary>
+            Sets or retrieves a value that indicates the table alignment.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableSectionElement.ch">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableSectionElement.chOff">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableSectionElement.rows">
+            <summary>
+            Sets or retrieves the number of horizontal rows contained in the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTableSectionElement.vAlign">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLTableSectionElement.deleteRow">
+            <summary>
+            Removes the specified row (tr) from the element and from the rows collection.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLTableSectionElement.deleteRow(System.Int32)">
+            <summary>
+            Removes the specified row (tr) from the element and from the rows collection.
+            </summary>
+            <param name = "index">Number that specifies the zero-based position in the rows collection of the row to remove.</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLTableSectionElement.insertRow">
+            <summary>
+            Creates a new row (tr) in the table, and adds the row to the rows collection.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLTableSectionElement.insertRow(System.Int32)">
+            <summary>
+            Creates a new row (tr) in the table, and adds the row to the rows collection.
+            </summary>
+            <param name = "index">Number that specifies where to insert the row in the rows collection. The default value is -1, which appends the new row to the end of the rows collection.</param>
+        </member>
+        <member name="P:Retyped.dom.HTMLTextAreaElement.autofocus">
+            <summary>
+            Provides a way to direct a user to a specific field when a document loads. This can provide both direction and convenience for a user, reducing the need to click or tab to a field when a page opens. This attribute is true when present on an element, and false when missing.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTextAreaElement.cols">
+            <summary>
+            Sets or retrieves the width of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTextAreaElement.defaultValue">
+            <summary>
+            Sets or retrieves the initial contents of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTextAreaElement.form">
+            <summary>
+            Retrieves a reference to the form that the object is embedded in.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTextAreaElement.maxLength">
+            <summary>
+            Sets or retrieves the maximum number of characters that the user can enter in a text control.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTextAreaElement.name">
+            <summary>
+            Sets or retrieves the name of the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTextAreaElement.placeholder">
+            <summary>
+            Gets or sets a text string that is displayed in an input field as a hint or prompt to users as the format or type of information they need to enter.The text appears in an input field until the user puts focus on the field.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTextAreaElement.readOnly">
+            <summary>
+            Sets or retrieves the value indicated whether the content of the object is read-only.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTextAreaElement.required">
+            <summary>
+            When present, marks an element that can't be submitted without a value.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTextAreaElement.rows">
+            <summary>
+            Sets or retrieves the number of horizontal rows contained in the object.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTextAreaElement.selectionEnd">
+            <summary>
+            Gets or sets the end position or offset of a text selection.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTextAreaElement.selectionStart">
+            <summary>
+            Gets or sets the starting position or offset of a text selection.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTextAreaElement.type">
+            <summary>
+            Retrieves the type of control.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTextAreaElement.validationMessage">
+            <summary>
+            Returns the error message that would be displayed if the user submits the form, or an empty string if no error message. It also triggers the standard error message, such as "this is a required field". The result is that the user sees validation messages without actually submitting.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTextAreaElement.validity">
+            <summary>
+            Returns a  ValidityState object that represents the validity states of an element.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTextAreaElement.value">
+            <summary>
+            Retrieves or sets the text in the entry field of the textArea element.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTextAreaElement.willValidate">
+            <summary>
+            Returns whether an element will successfully validate based on forms validation rules and constraints.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLTextAreaElement.wrap">
+            <summary>
+            Sets or retrieves how to handle wordwrapping in the object.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLTextAreaElement.checkValidity">
+            <summary>
+            Returns whether a form will validate when it is submitted, without having to submit it.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLTextAreaElement.select">
+            <summary>
+            Highlights the input area of a form element.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.HTMLTextAreaElement.setCustomValidity(System.String)">
+            <summary>
+            Sets a custom error message that is displayed when a form is submitted.
+            </summary>
+            <param name = "error">Sets a custom error message that is displayed when a form is submitted.</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLTextAreaElement.setSelectionRange(System.UInt32,System.UInt32)">
+            <summary>
+            Sets the start and end positions of a selection in a text field.
+            </summary>
+            <param name = "start">The offset into the text field for the start of the selection.</param>
+            <param name = "end">The offset into the text field for the end of the selection.</param>
+        </member>
+        <member name="M:Retyped.dom.HTMLTextAreaElement.setSelectionRange(System.UInt32,System.UInt32,Retyped.dom.Literals.Options.direction3)">
+            <summary>
+            Sets the start and end positions of a selection in a text field.
+            </summary>
+            <param name = "start">The offset into the text field for the start of the selection.</param>
+            <param name = "end">The offset into the text field for the end of the selection.</param>
+            <param name = "direction">The direction in which the selection is performed.</param>
+        </member>
+        <member name="P:Retyped.dom.HTMLTitleElement.text">
+            <summary>
+            Retrieves or sets the text of the object as a string.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLUListElement.compact">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLUListElement.type">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLVideoElement.height">
+            <summary>
+            Gets or sets the height of the video element.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLVideoElement.poster">
+            <summary>
+            Gets or sets a URL of an image to display, for example, like a movie poster. This can be a still frame from the video, or another image if no video data is available.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLVideoElement.videoHeight">
+            <summary>
+            Gets the intrinsic height of a video in CSS pixels, or zero if the dimensions are not known.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLVideoElement.videoWidth">
+            <summary>
+            Gets the intrinsic width of a video in CSS pixels, or zero if the dimensions are not known.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.HTMLVideoElement.width">
+            <summary>
+            Gets or sets the width of the video element.
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.KeyboardEvent.char">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.KeyboardEvent.charCode">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.KeyboardEvent.keyCode">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.KeyboardEvent.which">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.KeyboardEvent.initKeyboardEvent(System.String,System.Boolean,System.Boolean,Retyped.dom.Window,System.String,System.Double,System.String,System.Boolean,System.String)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.MouseEvent.fromElement">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.MouseEvent.toElement">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.MouseEvent.which">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.NodeIterator.expandEntityReferences">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.PannerNode.setOrientation(System.Double,System.Double,System.Double)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.PannerNode.setPosition(System.Double,System.Double,System.Double)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.PannerNode.setVelocity(System.Double,System.Double,System.Double)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Performance.navigation">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Performance.timing">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.Performance.getMarks">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.Performance.getMarks(System.String)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.Performance.getMeasures">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.Performance.getMeasures(System.String)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.PerformanceNavigationTiming.connectEnd">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.PerformanceNavigationTiming.connectStart">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.PerformanceNavigationTiming.domLoading">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.PerformanceNavigationTiming.domainLookupEnd">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.PerformanceNavigationTiming.domainLookupStart">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.PerformanceNavigationTiming.fetchStart">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.PerformanceNavigationTiming.navigationStart">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.PerformanceNavigationTiming.redirectEnd">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.PerformanceNavigationTiming.redirectStart">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.PerformanceNavigationTiming.requestStart">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.PerformanceNavigationTiming.responseEnd">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.PerformanceNavigationTiming.responseStart">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.SVGElement.xmlbase">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.SVGElementInstanceList.length">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGElementInstanceList.item(System.Double)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.SVGFilterElement.filterResX">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.SVGFilterElement.filterResY">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGFilterElement.setFilterRes(System.Double,System.Double)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.SVGGraphicsElement.farthestViewportElement">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.SVGGraphicsElement.nearestViewportElement">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGGraphicsElement.getTransformToElement(Retyped.dom.SVGElement)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.SVGGraphicsElement.requiredFeatures">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGGraphicsElement.hasExtension(System.String)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.SVGMaskElement.requiredFeatures">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGMaskElement.hasExtension(System.String)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.SVGPathElement.pathSegList">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGPathElement.createSVGPathSegArcAbs(System.Double,System.Double,System.Double,System.Double,System.Double,System.Boolean,System.Boolean)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGPathElement.createSVGPathSegArcRel(System.Double,System.Double,System.Double,System.Double,System.Double,System.Boolean,System.Boolean)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGPathElement.createSVGPathSegClosePath">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGPathElement.createSVGPathSegCurvetoCubicAbs(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGPathElement.createSVGPathSegCurvetoCubicRel(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGPathElement.createSVGPathSegCurvetoCubicSmoothAbs(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGPathElement.createSVGPathSegCurvetoCubicSmoothRel(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGPathElement.createSVGPathSegCurvetoQuadraticAbs(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGPathElement.createSVGPathSegCurvetoQuadraticRel(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGPathElement.createSVGPathSegCurvetoQuadraticSmoothAbs(System.Double,System.Double)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGPathElement.createSVGPathSegCurvetoQuadraticSmoothRel(System.Double,System.Double)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGPathElement.createSVGPathSegLinetoAbs(System.Double,System.Double)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGPathElement.createSVGPathSegLinetoHorizontalAbs(System.Double)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGPathElement.createSVGPathSegLinetoHorizontalRel(System.Double)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGPathElement.createSVGPathSegLinetoRel(System.Double,System.Double)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGPathElement.createSVGPathSegLinetoVerticalAbs(System.Double)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGPathElement.createSVGPathSegLinetoVerticalRel(System.Double)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGPathElement.createSVGPathSegMovetoAbs(System.Double,System.Double)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGPathElement.createSVGPathSegMovetoRel(System.Double,System.Double)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGPathElement.getPathSegAtLength(System.Double)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.SVGPatternElement.requiredFeatures">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGPatternElement.hasExtension(System.String)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.SVGSVGElement.contentScriptType">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.SVGSVGElement.contentStyleType">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.SVGSVGElement.pixelUnitToMillimeterX">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.SVGSVGElement.pixelUnitToMillimeterY">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.SVGSVGElement.screenPixelToMillimeterX">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.SVGSVGElement.screenPixelToMillimeterY">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.SVGSVGElement.viewport">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGSVGElement.forceRedraw">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGSVGElement.getCurrentTime">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGSVGElement.pauseAnimations">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGSVGElement.setCurrentTime(System.Double)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGSVGElement.suspendRedraw(System.UInt32)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGSVGElement.unpauseAnimations">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGSVGElement.unsuspendRedraw(System.UInt32)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGSVGElement.unsuspendRedrawAll">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.SVGTests.Interface.requiredFeatures">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGTests.Interface.hasExtension(System.String)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.SVGTests.requiredFeatures">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.SVGTests.hasExtension(System.String)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.SVGViewElement.viewTarget">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.Screen.bufferDepth">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.ScriptProcessorNode.bufferSize">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.ScriptProcessorNode.onaudioprocess">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.TouchEvent.which">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.TreeWalker.expandEntityReferences">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.URLSearchParams.append(System.String,System.String)">
+            <summary>
+            Appends a specified key/value pair as a new search parameter.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.URLSearchParams.delete(System.String)">
+            <summary>
+            Deletes the given search parameter, and its associated value, from the list of all search parameters.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.URLSearchParams.get(System.String)">
+            <summary>
+            Returns the first value associated to the given search parameter.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.URLSearchParams.getAll(System.String)">
+            <summary>
+            Returns all the values association with a given search parameter.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.URLSearchParams.has(System.String)">
+            <summary>
+            Returns a Boolean indicating if such a search parameter exists.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.URLSearchParams.set(System.String,System.String)">
+            <summary>
+            Sets the value associated to a given search parameter to the given value. If there were several values, delete the others.
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.VRDisplay.getPose">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="P:Retyped.dom.VREyeParameters.fieldOfView">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.Worker.postMessage(System.Object)">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="M:Retyped.dom.Worker.postMessage(System.Object,System.Object[])">
+            <summary>
+            @deprecated
+            </summary>
+        </member>
+        <member name="T:Retyped.dom.ElementTagNameMap">
+            <summary>
+            @deprecated Directly use HTMLElementTagNameMap or SVGElementTagNameMap as appropriate, instead.
+            </summary>
+        </member>
+    </members>
+</doc>

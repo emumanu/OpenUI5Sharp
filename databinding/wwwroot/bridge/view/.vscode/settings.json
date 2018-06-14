@@ -1,0 +1,26 @@
+{
+    "xmlLang.javaHome": "D:\\Program Files\\Java\\jdk1.8.0_171",
+    
+    "xmlLang.xmlAssociations": [
+      {
+        "fileNamePattern": "**/*.+(view|fragment).xml",
+        "systemId": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\GenOpenUI5Wrapper\\XSDSchemas\\sap.ui.core.xsd"
+      },
+      {
+        "fileNamePattern": "**/*.+(view|fragment).xml",
+        "systemId": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\GenOpenUI5Wrapper\\XSDSchemas\\sap.ui.core.mvc.xsd"
+      },
+      {
+        "fileNamePattern": "**/*.+(view|fragment).xml",
+        "systemId": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\GenOpenUI5Wrapper\\XSDSchemas\\sap.ui.layout.xsd" 
+      },
+      {
+        "fileNamePattern": "**/*.+(view|fragment).xml",
+        "systemId": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\GenOpenUI5Wrapper\\XSDSchemas\\sap.m.xsd" 
+      },
+      {
+        "fileNamePattern": "**/*.+(view|fragment).xml",
+        "systemId": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\GenOpenUI5Wrapper\\XSDSchemas\\sap.ui.unified.xsd" 
+      }
+    ]
+  }

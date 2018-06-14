@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:n2="sap.ui.core.mvc" xmlns:n0="sap.ui.core" elementFormDefault="qualified" targetNamespace="sap.ui.core.mvc" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="sap.ui.core" />
+  <xs:element name="HTMLView" substitutionGroup="n2:View" type="n2:_HTMLViewType">
+    <xs:annotation>
+      <xs:documentation>A view defined/constructed by declarative HTML.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_HTMLViewType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n2:_ViewType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="JSONView" substitutionGroup="n2:View" type="n2:_JSONViewType">
+    <xs:annotation>
+      <xs:documentation>A View defined using JSON.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_JSONViewType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n2:_ViewType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="JSView" substitutionGroup="n2:View" type="n2:_JSViewType">
+    <xs:annotation>
+      <xs:documentation>A View defined/constructed by JavaScript code.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_JSViewType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n2:_ViewType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TemplateView" substitutionGroup="n2:View" type="n2:_TemplateViewType">
+    <xs:annotation>
+      <xs:documentation>A view defined in a template.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_TemplateViewType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n2:_ViewType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="View" substitutionGroup="n0:Control" type="n2:_ViewType">
+    <xs:annotation>
+      <xs:documentation>A base class for Views.
+
+Introduces the relationship to a Controller, some basic visual appearance settings like width and height, and provides lifecycle events.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ViewType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>Child Controls of the view</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="controllerName" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Name of the controller class to use for this view. If given, it overrides the same information in the view definition (XML, HTML).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="preprocessors" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Preprocessors that the view can use before constructing the view.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="resourceBundleName" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>(module) Name of a resource bundle that should be loaded for this view</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="resourceBundleUrl" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>URL of a resource bundle that should be loaded for this view</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="resourceBundleLocale" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Locale that should be used to load a resource bundle for this view</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="resourceBundleAlias" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Model name under which the resource bundle should be stored.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="type" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Type of the view</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="viewContent" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>A view definition</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="viewData" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Additional configuration data that should be given to the view at construction time and which will be available early, even before model data or other constructor settings are applied.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="async" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines initialization mode of the view</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>The width</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>The height</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="viewName" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Name of the View</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="displayBlock" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Whether the CSS display should be set to "block". Set this to "true" if the default display "inline-block" causes a vertical scrollbar with Views that are set to 100% height. Do not set this to "true" if you want to display other content in the same HTML parent on either side of the View (setting to "true" may push that other content to the next/previous line).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="content" type="xs:string" />
+        <xs:attribute name="afterInit" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired when the View has parsed the UI description and instantiated the contained controls (/control tree).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="beforeExit" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired when the view has received the request to destroy itself, but before it has destroyed anything.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="afterRendering" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired when the View has been (re-)rendered and its HTML is present in the DOM.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="beforeRendering" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired before this View is re-rendered. Use to unbind event handlers from HTML elements etc.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="XMLView" substitutionGroup="n2:View" type="n2:_XMLViewType">
+    <xs:annotation>
+      <xs:documentation>A View defined using (P)XML and HTML markup.
+
+&lt;strong&gt;Note:&lt;/strong&gt;&lt;br&gt; Be aware that modifications of the content aggregation of this control are not supported due to technical reasons. This includes calls to all content modifying methods like &lt;code&gt;addContent&gt;&lt;/code&gt; etc., but also the implicit removal of controls contained by the content aggregation. For example the destruction of a Control via the &lt;code&gt; destroy&lt;/code&gt; method. All functions can be called but may not work properly or lead to unexpected side effects.
+
+&lt;strong&gt;Note:&lt;/strong&gt;&lt;br&gt; On root level, you can only define content for the default aggregation, e.g. without adding the &lt;code&gt;&amp;lt;content&amp;gt;&lt;/code&gt; tag. If you want to specify content for another aggregation of a view like &lt;code&gt;dependents&lt;/code&gt;, place it in a child control's dependents aggregation or add it by using {@link sap.ui.core.mvc.XMLView#addDependent}.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_XMLViewType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n2:_ViewType">
+        <xs:attribute name="cache" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Configuration for the XMLView caching.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="_ViewTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="HTML">
+        <xs:annotation>
+          <xs:documentation>HTML view</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="JS">
+        <xs:annotation>
+          <xs:documentation>JS View</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="JSON">
+        <xs:annotation>
+          <xs:documentation>JSON View</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Template">
+        <xs:annotation>
+          <xs:documentation>Template View</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="XML">
+        <xs:annotation>
+          <xs:documentation>XML view</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

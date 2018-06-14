@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:n1="sap.ui.core.dnd" xmlns:n0="sap.ui.core" elementFormDefault="qualified" targetNamespace="sap.ui.core.dnd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="sap.ui.core" />
+  <xs:element name="DragDropBase" substitutionGroup="n0:Element" type="n1:_DragDropBaseType">
+    <xs:annotation>
+      <xs:documentation>Provides the base class for all drag-and-drop configurations. This feature enables a native HTML5 drag-and-drop API for the controls, therefore it is limited to browser support. &lt;h3&gt;Limitations&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;There is no mobile device that supports drag and drop.&lt;/li&gt; &lt;li&gt;There is no accessible alternative for drag and drop. Applications which use the drag-and-drop functionality must provide an accessible alternative UI (for example, action buttons or menus) to perform the same operations.&lt;/li&gt; &lt;li&gt;A custom dragging ghost element is not possible in Internet Explorer.&lt;/li&gt; &lt;li&gt;Transparency of the drag ghost element and the cursor during drag-and-drop operations depends on the browser implementation.&lt;/li&gt; &lt;li&gt;Internet Explorer does only support plain text MIME type for the DataTransfer Object.&lt;/li&gt; &lt;li&gt;Constraining a drag position is not possible, therefore there is no snap-to-grid or snap-to-element feature possible.&lt;/li&gt; &lt;li&gt;For controls which do not provide an aggregation &lt;code&gt;dragDropConfig&lt;/code&gt; drag and drop might not work correctly if they are configured as target via {@link sap.ui.core.dnd.DragDropInfo}.&lt;/li&gt; &lt;/ul&gt;</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_DragDropBaseType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:attribute name="groupName" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Defines the name of the group to which this object belongs. If &lt;code&gt;groupName&lt;/code&gt; is specified, then this object will only interacts with other drag-and-drop objects within the same group.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Indicates whether this configuration is active or not.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DragDropInfo" substitutionGroup="n1:DropInfo" type="n1:_DragDropInfoType">
+    <xs:annotation>
+      <xs:documentation>Provides the configuration for drag-and-drop operations.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_DragDropInfoType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n1:_DropInfoType">
+        <xs:attribute name="sourceAggregation" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The name of the aggregation from which all children can be dragged. If undefined, the control itself can be dragged.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="targetElement" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The target element for this drag and drop action. If undefined, the control with this drag and drop configuration itself is the target. Leaving this empty, but defining source and target aggregation, allows you to reorder the children within a control, for example.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="dragStart" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This event is fired when the user starts dragging an element.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="dragEnd" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This event is fired when a drag operation is being ended.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DragInfo" substitutionGroup="n1:DragDropBase" type="n1:_DragInfoType">
+    <xs:annotation>
+      <xs:documentation>Provides the configuration for drag operations.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_DragInfoType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n1:_DragDropBaseType">
+        <xs:attribute name="sourceAggregation" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The name of the aggregation from which all children can be dragged. If undefined, the control itself can be dragged.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="dragStart" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This event is fired when the user starts dragging an element.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="dragEnd" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This event is fired when a drag operation is being ended.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DropInfo" substitutionGroup="n1:DragDropBase" type="n1:_DropInfoType">
+    <xs:annotation>
+      <xs:documentation>Provides the configuration for drop operations.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_DropInfoType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n1:_DragDropBaseType">
+        <xs:attribute name="targetAggregation" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The aggregation name in the drop target control which is the target of this drag-and-drop action. If undefined, the entire control is the target. This can be handy if the target control does not have any aggregations or if the drop position within the target does not matter.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="dropEffect" type="n1:_DropEffectType">
+          <xs:annotation>
+            <xs:documentation>Defines the visual drop effect.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="dropPosition" type="n1:_DropPositionType">
+          <xs:annotation>
+            <xs:documentation>Defines the position for the drop action, visualized by a rectangle.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="dropLayout" type="n1:_DropLayoutType">
+          <xs:annotation>
+            <xs:documentation>Defines the layout of the droppable controls if &lt;code&gt;dropPosition&lt;/code&gt; is set to &lt;code&gt;Between&lt;/code&gt; or &lt;code&gt;OnOrBetween&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="dragEnter" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This event is fired when a dragged element enters a drop target.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="dragOver" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This event is fired when an element is being dragged over a valid drop target.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="drop" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This event is fired when an element is dropped on a valid drop target, as specified by the drag-and-drop info.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="_DropEffectType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Copy">
+        <xs:annotation>
+          <xs:documentation>A copy of the source item is made at the new location.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Link">
+        <xs:annotation>
+          <xs:documentation>A link is established to the source at the new location.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Move">
+        <xs:annotation>
+          <xs:documentation>An item is moved to a new location.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="None">
+        <xs:annotation>
+          <xs:documentation>The item cannot be dropped.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_DropLayoutType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Horizontal">
+        <xs:annotation>
+          <xs:documentation>Droppable controls are arranged horizontally.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Vertical">
+        <xs:annotation>
+          <xs:documentation>Droppable controls are arranged vertically.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_DropPositionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Between">
+        <xs:annotation>
+          <xs:documentation>Drop between the controls.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="On">
+        <xs:annotation>
+          <xs:documentation>Drop on the control.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="OnOrBetween">
+        <xs:annotation>
+          <xs:documentation>Drop on the control or between the controls.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

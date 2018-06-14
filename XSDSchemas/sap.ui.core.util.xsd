@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:n5="sap.ui.core.util" xmlns:n0="sap.ui.core" elementFormDefault="qualified" targetNamespace="sap.ui.core.util" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="sap.ui.core" />
+  <xs:element name="Export" substitutionGroup="n0:Control" type="n5:_ExportType">
+    <xs:annotation>
+      <xs:documentation>Export provides the possibility to generate a list of data in a specific format / type, e.g. CSV to use it in other programs / applications.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ExportType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="exportType">
+            <xs:annotation>
+              <xs:documentation>Type that generates the content.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n5:ExportType" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="columns">
+            <xs:annotation>
+              <xs:documentation>Columns for the Export.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n5:ExportColumn" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="rows">
+            <xs:annotation>
+              <xs:documentation>Rows of the Export.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n5:ExportRow" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="columns" type="xs:string" />
+        <xs:attribute name="rows" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ExportCell" substitutionGroup="n0:Element" type="n5:_ExportCellType">
+    <xs:annotation>
+      <xs:documentation>Contains content that can be used to export data. Used in {@link sap.ui.core.util.ExportColumn ExportColumn} / {@link sap.ui.core.util.Export Export}.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ExportCellType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:attribute name="content" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Cell content.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

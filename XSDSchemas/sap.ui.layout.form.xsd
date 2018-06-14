@@ -1,0 +1,882 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:n9="sap.ui.layout.form" xmlns:n0="sap.ui.core" xmlns:n8="sap.ui.layout" elementFormDefault="qualified" targetNamespace="sap.ui.layout.form" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="sap.ui.core" />
+  <xs:import namespace="sap.ui.layout" />
+  <xs:element name="ColumnContainerData" substitutionGroup="n0:LayoutData" type="n9:_ColumnContainerDataType">
+    <xs:annotation>
+      <xs:documentation>The &lt;code&gt;ColumnLayout&lt;/code&gt;-specific layout data for the &lt;code&gt;FormContainer&lt;/code&gt; element.
+
+Depending on its size, the &lt;code&gt;Form&lt;/code&gt; control is divided into 1, 2, 3 or 4 columns by the &lt;code&gt;ColumnLayout&lt;/code&gt; control. Using &lt;code&gt;ColumnContainerData&lt;/code&gt;, the size of the &lt;code&gt;FormContainer&lt;/code&gt; element can be influenced.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ColumnContainerDataType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_LayoutDataType">
+        <xs:attribute name="columnsXL" type="n9:_ColumnsXLType">
+          <xs:annotation>
+            <xs:documentation>Number of columns the &lt;code&gt;FormContainer&lt;/code&gt; element uses if the &lt;code&gt;Form&lt;/code&gt; control has extra-large size.
+
+The number of columns for extra-large size must not be smaller than the number of columns for large size.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="columnsL" type="n9:_ColumnsLType">
+          <xs:annotation>
+            <xs:documentation>Number of columns the &lt;code&gt;FormContainer&lt;/code&gt; element uses if the &lt;code&gt;Form&lt;/code&gt; control has large size.
+
+The number of columns for large size must not be smaller than the number of columns for medium size.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="columnsM" type="n9:_ColumnsMType">
+          <xs:annotation>
+            <xs:documentation>Number of columns the &lt;code&gt;FormContainer&lt;/code&gt; element uses if the &lt;code&gt;Form&lt;/code&gt; control has medium size.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ColumnElementData" substitutionGroup="n0:LayoutData" type="n9:_ColumnElementDataType">
+    <xs:annotation>
+      <xs:documentation>The &lt;code&gt;ColumnLayout&lt;/code&gt;-specific layout data for the &lt;code&gt;FormElement&lt;/code&gt; content fields.
+
+One &lt;code&gt;FormElement&lt;/code&gt; element contains 12 cells and has two sizes, small and large. Using &lt;code&gt;ColumnElementData&lt;/code&gt;, the default calculation of the cells used for a field or label can be overwritten.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ColumnElementDataType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_LayoutDataType">
+        <xs:attribute name="cellsLarge" type="n9:_ColumnCellsType">
+          <xs:annotation>
+            <xs:documentation>Number of cells used by a field if the &lt;code&gt;FormElement&lt;/code&gt; element is large. The label is then beside the fields per default.
+
+If set to &lt;code&gt;12&lt;/code&gt;, the full size of the &lt;code&gt;FormElement&lt;/code&gt; element is used.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="cellsSmall" type="n9:_ColumnCellsType">
+          <xs:annotation>
+            <xs:documentation>Number of cells used by a field if the &lt;code&gt;FormElement&lt;/code&gt; element is small. The label is then above the fields per default.
+
+If set to &lt;code&gt;12&lt;/code&gt;, the full size of the &lt;code&gt;FormElement&lt;/code&gt; is used.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ColumnLayout" substitutionGroup="n9:FormLayout" type="n9:_ColumnLayoutType">
+    <xs:annotation>
+      <xs:documentation>The &lt;code&gt;ColumnLayout&lt;/code&gt; control renders a &lt;code&gt;Form&lt;/code&gt; control in a column-based responsive way. Depending on its size, the &lt;code&gt;Form&lt;/code&gt; control is divided into one or more columns. (XL - max. 4 columns, L - max. 3 columns, M - max. 2 columns and S - 1 column.)
+
+The &lt;code&gt;FormContainer&lt;/code&gt; elements are spread out to the columns depending on the number of &lt;code&gt;FormContainer&lt;/code&gt; elements and their size. For example, if there are 4 columns and 2 &lt;code&gt;FormContainer&lt;/code&gt; elements, each &lt;code&gt;FormContainer&lt;/code&gt; element will use 2 columns. If there are 3 columns and 2 &lt;code&gt;FormContainer&lt;/code&gt; elements, the larger one will use 2 columns, the smaller one 1 column. The size of a &lt;code&gt;FormContainer&lt;/code&gt; element will be determined based on the number of visible &lt;code&gt;FormElement&lt;/code&gt; elements assigned to it. If there are more &lt;code&gt;FormContainer&lt;/code&gt; elements than columns, every &lt;code&gt;FormContainer&lt;/code&gt; element uses only one column. So the last row of the &lt;code&gt;Form&lt;/code&gt; control will not be fully used.
+
+The default size of the &lt;code&gt;FormContainer&lt;/code&gt; element can be overwritten by using &lt;code&gt;ColumnContainerData&lt;/code&gt; as &lt;code&gt;LayoutData&lt;/code&gt;. If one &lt;code&gt;FormContainer&lt;/code&gt; element has &lt;code&gt;ColumnContainerData&lt;/code&gt; set, the size calculation of the other &lt;code&gt;FormContainer&lt;/code&gt; elements might not lead to the expected result. In this case, use &lt;code&gt;ColumnContainerData&lt;/code&gt; also for the other &lt;code&gt;FormContainer&lt;/code&gt; elements.
+
+The &lt;code&gt;FormElement&lt;/code&gt; elements are spread out to the columns of a &lt;code&gt;FormContainer&lt;/code&gt; element arranged in a newspaper-like order. The position of the labels and fields depends on the size of the used column. If there is enough space, the labels are beside the fields, otherwise above the fields.
+
+The default size of a content control of a &lt;code&gt;FormElement&lt;/code&gt; element can be overwritten using &lt;code&gt;ColumnElementData&lt;/code&gt; as &lt;code&gt;LayoutData&lt;/code&gt;. If one control assigned to a &lt;code&gt;FormElement&lt;/code&gt; element has &lt;code&gt;ColumnElementData&lt;/code&gt; set, the size calculation of the other controls assigned to the &lt;code&gt;FormElement&lt;/code&gt; element might not lead to the expected result. In this case, use &lt;code&gt;ColumnElementData&lt;/code&gt; for the other controls, assigned to the &lt;code&gt;FormElement&lt;/code&gt; element, too.
+
+The placement of the &lt;code&gt;FormElement&lt;/code&gt; elements is made by the browser &lt;code&gt;column-count&lt;/code&gt; logic. So this can be different in different browsers and lead in some cases to other results than might be expected.
+
+&lt;b&gt;Note:&lt;/b&gt; This control cannot be used stand-alone, it just renders a &lt;code&gt;Form&lt;/code&gt; control, so it must be assigned to a &lt;code&gt;Form&lt;/code&gt; control using the &lt;code&gt;layout&lt;/code&gt; aggregation.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ColumnLayoutType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n9:_FormLayoutType">
+        <xs:attribute name="columnsXL" type="n9:_ColumnsXLType">
+          <xs:annotation>
+            <xs:documentation>Number of columns for extra-large size.
+
+The number of columns for extra-large size must not be smaller than the number of columns for large size.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="columnsL" type="n9:_ColumnsLType">
+          <xs:annotation>
+            <xs:documentation>Number of columns for large size.
+
+The number of columns for large size must not be smaller than the number of columns for medium size.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="columnsM" type="n9:_ColumnsMType">
+          <xs:annotation>
+            <xs:documentation>Number of columns for medium size.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="labelCellsLarge" type="n9:_ColumnCellsType">
+          <xs:annotation>
+            <xs:documentation>Defines how many cells a label uses if the column is large.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="emptyCellsLarge" type="n9:_EmptyCellsType">
+          <xs:annotation>
+            <xs:documentation>Defines how many cells are empty at the end of a row. This could be used to keep the fields small on large screens.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Form" substitutionGroup="n0:Control" type="n9:_FormType">
+    <xs:annotation>
+      <xs:documentation>A &lt;code&gt;Form&lt;/code&gt; control arranges labels and fields (like input fields) into groups and rows. There are different ways to visualize forms for different screen sizes.
+
+A &lt;code&gt;Form&lt;/code&gt; is structured into &lt;code&gt;FormContainers&lt;/code&gt;. Each &lt;code&gt;FormContainer&lt;/code&gt; consists of &lt;code&gt;FormElements&lt;/code&gt;. The &lt;code&gt;FormElements&lt;/code&gt; consists of a label and the form fields. A &lt;code&gt;Form&lt;/code&gt; doesn't render its content by itself. The rendering is done by the assigned &lt;code&gt;FormLayout&lt;/code&gt;. This is so that the rendering can be adopted to new UI requirements without changing the &lt;code&gt;Form&lt;/code&gt; itself.
+
+For the content of a &lt;code&gt;Form&lt;/code&gt;, &lt;code&gt;VariantLayoutData&lt;/code&gt; are supported to allow simple switching of the &lt;code&gt;FormLayout&lt;/code&gt;. &lt;code&gt;LayoutData&lt;/code&gt; on the content can be used to overwrite the default layout of the &lt;code&gt;Form&lt;/code&gt;.
+
+The &lt;code&gt;Form&lt;/code&gt; (and its sub-controls) automatically add label and field assignment to enable screen reader support. It also adds keyboard support to navigate between the fields and groups inside the form.
+
+&lt;b&gt;Warning:&lt;/b&gt; Do not put any layout or other container controls into the &lt;code&gt;FormElement&lt;/code&gt;. Views are also not supported. This could damage the visual layout, keyboard support and screen-reader support.
+
+If editable controls are used as content, the &lt;code&gt;editable&lt;/code&gt; property must be set to &lt;code&gt;true&lt;/code&gt;, otherwise to &lt;code&gt;false&lt;/code&gt;. If the &lt;code&gt;editable&lt;/code&gt; property is set incorrectly, there will be visual issues like wrong label alignment or wrong spacing between the controls.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FormType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n9:FormContainer" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="formContainers">
+            <xs:annotation>
+              <xs:documentation>Containers with the content of the form. A &lt;code&gt;FormContainer&lt;/code&gt; represents a group inside the &lt;code&gt;Form&lt;/code&gt;.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n9:FormContainer" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="title">
+            <xs:annotation>
+              <xs:documentation>Title of the &lt;code&gt;Form&lt;/code&gt;. Can either be a &lt;code&gt;Title&lt;/code&gt; element or a string. If a &lt;code&gt;Title&lt;/code&gt; element it used, the style of the title can be set.
+
+&lt;b&gt;Note:&lt;/b&gt; If a &lt;code&gt;Toolbar&lt;/code&gt; is used, the &lt;code&gt;Title&lt;/code&gt; is ignored.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Title" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="toolbar">
+            <xs:annotation>
+              <xs:documentation>Toolbar of the &lt;code&gt;Form&lt;/code&gt;.
+
+&lt;b&gt;Note:&lt;/b&gt; If a &lt;code&gt;Toolbar&lt;/code&gt; is used, the &lt;code&gt;Title&lt;/code&gt; is ignored. If a title is needed inside the &lt;code&gt;Toolbar&lt;/code&gt; it must be added at content to the &lt;code&gt;Toolbar&lt;/code&gt;. In this case add the &lt;code&gt;Title&lt;/code&gt; to the &lt;code&gt;ariaLabelledBy&lt;/code&gt; association.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="layout">
+            <xs:annotation>
+              <xs:documentation>Layout of the &lt;code&gt;Form&lt;/code&gt;. The assigned &lt;code&gt;Layout&lt;/code&gt; renders the &lt;code&gt;Form&lt;/code&gt;. We recommend using the &lt;code&gt;ResponsiveGridLayout&lt;/code&gt; for rendering a &lt;code&gt;Form&lt;/code&gt;, as its responsiveness allows the available space to be used in the best way possible.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n9:FormLayout" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Width of the &lt;code&gt;Form&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="editable" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Applies a device-specific and theme-specific line height and label alignment to the form rows if the form has editable content. If set, all (not only the editable) rows of the form will get the line height of editable fields.
+
+The labels inside the form will be rendered by default in the according mode.
+
+&lt;b&gt;Note:&lt;/b&gt; The setting of this property does not change the content of the form. For example, &lt;code&gt;Input&lt;/code&gt; controls in a form with &lt;code&gt;editable&lt;/code&gt; set to false are still editable.
+
+&lt;b&gt;Warning:&lt;/b&gt; If this property is set wrong this could lead to visual issues, the labels are fields could be misaligned, the labels could be rendered in the wrong mode, the spacing between the single controls could be wrong and control, not fitting to the mode, could be rendered incorrect.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="formContainers" type="xs:string" />
+        <xs:attribute name="title" type="xs:string" />
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / IDs that label this control (see WAI-ARIA attribute &lt;code&gt;aria-labelledby&lt;/code&gt;).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FormContainer" substitutionGroup="n0:Element" type="n9:_FormContainerType">
+    <xs:annotation>
+      <xs:documentation>A &lt;code&gt;FormContainer&lt;/code&gt; represents a group inside a &lt;code&gt;Form&lt;/code&gt;. It consists of &lt;code&gt;FormElements&lt;/code&gt;. The rendering of the &lt;code&gt;FormContainer&lt;/code&gt; is done by the &lt;code&gt;FormLayout&lt;/code&gt; assigned to the &lt;code&gt;Form&lt;/code&gt;.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FormContainerType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n9:FormElement" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="formElements">
+            <xs:annotation>
+              <xs:documentation>The &lt;code&gt;FormElements&lt;/code&gt; contain the content (labels and fields) of the &lt;code&gt;FormContainers&lt;/code&gt;.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n9:FormElement" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="title">
+            <xs:annotation>
+              <xs:documentation>Title of the &lt;code&gt;FormContainer&lt;/code&gt;. Can either be a &lt;code&gt;Title&lt;/code&gt; element or a string. If a &lt;code&gt;Title&lt;/code&gt; element is used, the style of the title can be set.
+
+&lt;b&gt;Note:&lt;/b&gt; If a &lt;code&gt;Toolbar&lt;/code&gt; is used, the &lt;code&gt;Title&lt;/code&gt; is ignored.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Title" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="toolbar">
+            <xs:annotation>
+              <xs:documentation>Toolbar of the &lt;code&gt;FormContainer&lt;/code&gt;.
+
+&lt;b&gt;Note:&lt;/b&gt; If a &lt;code&gt;Toolbar&lt;/code&gt; is used, the &lt;code&gt;Title&lt;/code&gt; is ignored. If a title is needed inside the &lt;code&gt;Toolbar&lt;/code&gt; it must be added at content to the &lt;code&gt;Toolbar&lt;/code&gt;. In this case add the &lt;code&gt;Title&lt;/code&gt; to the &lt;code&gt;ariaLabelledBy&lt;/code&gt; association.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="expanded" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Container is expanded.
+
+&lt;b&gt;Note:&lt;/b&gt; This property only works if &lt;code&gt;expandable&lt;/code&gt; is set to &lt;code&gt;true&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="expandable" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Defines if the &lt;code&gt;FormContainer&lt;/code&gt; is expandable.
+
+&lt;b&gt;Note:&lt;/b&gt; The expander icon will only be shown if a &lt;code&gt;title&lt;/code&gt; is set for the &lt;code&gt;FormContainer&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="visible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set to &lt;code&gt;false&lt;/code&gt;, the &lt;code&gt;FormContainer&lt;/code&gt; is not rendered.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="formElements" type="xs:string" />
+        <xs:attribute name="title" type="xs:string" />
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / IDs that label this control (see WAI-ARIA attribute &lt;code&gt;aria-labelledby&lt;/code&gt;).
+
+&lt;b&gt;Note:&lt;/b&gt; This attribute is only rendered if the &lt;code&gt;FormContainer&lt;/code&gt; has it's own DOM representation in the used &lt;code&gt;FormLayout&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FormElement" substitutionGroup="n0:Element" type="n9:_FormElementType">
+    <xs:annotation>
+      <xs:documentation>A &lt;code&gt;FormElement&lt;/code&gt; represents a row in a &lt;code&gt;FormContainer&lt;/code&gt;. A &lt;code&gt;FormElement&lt;/code&gt; is a combination of one label and different controls associated to this label.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FormElementType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="label">
+            <xs:annotation>
+              <xs:documentation>Label of the fields. Can either be a &lt;code&gt;Label&lt;/code&gt; control or a string. If a &lt;code&gt;Label&lt;/code&gt; control is used, the properties of the &lt;code&gt;Label&lt;/code&gt; can be set. If no assignment between &lt;code&gt;Label&lt;/code&gt; and the fields is set via (&lt;code&gt;labelFor&lt;/code&gt; property of the &lt;code&gt;Label&lt;/code&gt;), it will be done automatically by the &lt;code&gt;FormElement&lt;/code&gt;. In this case the &lt;code&gt;Label&lt;/code&gt; is assigned to the fields of the &lt;code&gt;FormElement&lt;/code&gt;.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="fields">
+            <xs:annotation>
+              <xs:documentation>Form controls that belong together to be displayed in one row of a &lt;code&gt;Form&lt;/code&gt;.
+
+&lt;b&gt;Warning:&lt;/b&gt; Do not put any layout or other container controls in here. This could damage the visual layout, keyboard support and screen-reader support. Only form controls are allowed. Views are also not supported. Allowed controls implement the interface &lt;code&gt;sap.ui.core.IFormContent&lt;/code&gt;.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="visible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set to &lt;code&gt;false&lt;/code&gt;, the &lt;code&gt;FormElement&lt;/code&gt; is not rendered.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="label" type="xs:string" />
+        <xs:attribute name="fields" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FormLayout" substitutionGroup="n0:Control" type="n9:_FormLayoutType">
+    <xs:annotation>
+      <xs:documentation>Base layout to render a &lt;code&gt;Form&lt;/code&gt;. Other layouts to render a &lt;code&gt;Form&lt;/code&gt; must inherit from this one.
+
+&lt;b&gt;Note:&lt;/b&gt; This control must not be used to render a &lt;code&gt;Form&lt;/code&gt; in productive applications as it does not fulfill any design guidelines and usability standards.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FormLayoutType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="backgroundDesign" type="n8:_BackgroundDesignType">
+          <xs:annotation>
+            <xs:documentation>Specifies the background color of the &lt;code&gt;Form&lt;/code&gt; content.
+
+&lt;b&gt;Note:&lt;/b&gt; The visualization of the different options depends on the theme used.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GridContainerData" substitutionGroup="n0:LayoutData" type="n9:_GridContainerDataType">
+    <xs:annotation>
+      <xs:documentation>The &lt;code&gt;GridLayout&lt;/code&gt;-specific layout data for &lt;code&gt;FormContainers&lt;/code&gt;.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_GridContainerDataType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_LayoutDataType">
+        <xs:attribute name="halfGrid" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set, the container takes half the width of the &lt;code&gt;Form&lt;/code&gt; (8 cells), if not it takes the full width (16 cells). If the &lt;code&gt;GridLayout&lt;/code&gt; is set to &lt;code&gt;singleColumn&lt;/code&gt;, the full width of the grid is only 8 cells. So containers are rendered only once per row.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GridElementData" substitutionGroup="n0:LayoutData" type="n9:_GridElementDataType">
+    <xs:annotation>
+      <xs:documentation>The &lt;code&gt;GridLayout&lt;/code&gt;-specific layout data for &lt;code&gt;FormElement&lt;/code&gt; fields.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_GridElementDataType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_LayoutDataType">
+        <xs:attribute name="hCells" type="n9:_GridElementCellsType">
+          <xs:annotation>
+            <xs:documentation>Number of cells in horizontal direction.
+
+If set to &lt;code&gt;auto&lt;/code&gt;, the size is determined by the number of fields and the available cells. For labels the auto size is 3 cells.
+
+If set to &lt;code&gt;full&lt;/code&gt;, only one field is allowed within the &lt;code&gt;FormElement&lt;/code&gt;. It gets the full width of the row and the label is displayed above.
+
+&lt;b&gt;Note:&lt;/b&gt; For labels, the full size setting has no effect.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="vCells" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Number of cells in vertical direction.
+
+&lt;b&gt;Note:&lt;/b&gt; This property has no effect on labels.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GridLayout" substitutionGroup="n9:FormLayout" type="n9:_GridLayoutType">
+    <xs:annotation>
+      <xs:documentation>This &lt;code&gt;FormLayout&lt;/code&gt; renders a &lt;code&gt;Form&lt;/code&gt; using an HTML-table based grid. This can be a 16 column grid or an 8 column grid. The grid is stable, so the alignment of the fields is the same for all screen sizes or widths of the &lt;code&gt;Form&lt;/code&gt;. Only the width of the single grid columns depends on the available width.
+
+To adjust the appearance inside the &lt;code&gt;GridLayout&lt;/code&gt;, you can use &lt;code&gt;GridContainerData&lt;/code&gt; for &lt;code&gt;FormContainers&lt;/code&gt; and &lt;code&gt;GridElementData&lt;/code&gt; for content fields.
+
+&lt;b&gt;Note:&lt;/b&gt; If content fields have a &lt;code&gt;width&lt;/code&gt; property this will be ignored, as the width of the controls is set by the grid cells.
+
+This control cannot be used stand-alone, it just renders a &lt;code&gt;Form&lt;/code&gt;, so it must be assigned to a &lt;code&gt;Form&lt;/code&gt; using the &lt;code&gt;layout&lt;/code&gt; aggregation.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_GridLayoutType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n9:_FormLayoutType">
+        <xs:attribute name="singleColumn" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set, the grid renders only one &lt;code&gt;FormContainer&lt;/code&gt; per column. That means one &lt;code&gt;FormContainer&lt;/code&gt; is below the other. The whole grid has 8 cells per row.
+
+If not set, &lt;code&gt;FormContainer&lt;/code&gt; can use the full width of the grid or two &lt;code&gt;FormContainers&lt;/code&gt; can be placed beside each other. In this case the whole grid has 16 cells per row.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponsiveGridLayout" substitutionGroup="n9:FormLayout" type="n9:_ResponsiveGridLayoutType">
+    <xs:annotation>
+      <xs:documentation>The &lt;code&gt;ResponsiveGridLayout&lt;/code&gt; control renders a &lt;code&gt;Form&lt;/code&gt; using a responsive grid. Internally the &lt;code&gt;Grid&lt;/code&gt; control is used for rendering. Using this layout, the &lt;code&gt;Form&lt;/code&gt; is rendered in a responsive way. Depending on the available space, the &lt;code&gt;FormContainers&lt;/code&gt; are rendered in one or different columns and the labels are rendered in the same row as the fields or above the fields. This behavior can be influenced by the properties of this layout control.
+
+On the &lt;code&gt;FormContainers&lt;/code&gt;, labels and content fields, &lt;code&gt;GridData&lt;/code&gt; can be used to change the default rendering. &lt;code&gt;GridData&lt;/code&gt; is not supported for &lt;code&gt;FormElements&lt;/code&gt;.
+
+&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;GridData&lt;/code&gt; is used, this may result in a much more complex layout than the default one. This means that in some cases, the calculation for the other content may not bring the expected result. In such cases, &lt;code&gt;GridData&lt;/code&gt; should be used for all content controls to disable the default behavior.
+
+This control cannot be used stand-alone, it just renders a &lt;code&gt;Form&lt;/code&gt;, so it must be assigned to a &lt;code&gt;Form&lt;/code&gt; using the &lt;code&gt;layout&lt;/code&gt; aggregation.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ResponsiveGridLayoutType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n9:_FormLayoutType">
+        <xs:attribute name="labelSpanXL" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Default span for labels in extra large size.
+
+&lt;b&gt;Note:&lt;/b&gt; If the default value -1 is not overwritten with the meaningful one then the &lt;code&gt;labelSpanL&lt;/code&gt; value is used.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="labelSpanL" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Default span for labels in large size.
+
+&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;adjustLabelSpanThis&lt;/code&gt; is set, this property is only used if more than 1 &lt;code&gt;FormContainer&lt;/code&gt; is in one line. If only 1 &lt;code&gt;FormContainer&lt;/code&gt; is in the line, then the &lt;code&gt;labelSpanM&lt;/code&gt; value is used.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="labelSpanM" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Default span for labels in medium size.
+
+&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;adjustLabelSpanThis&lt;/code&gt; is set this property is used for full-size &lt;code&gt;FormContainers&lt;/code&gt;. If more than one &lt;code&gt;FormContainer&lt;/code&gt; is in one line, &lt;code&gt;labelSpanL&lt;/code&gt; is used.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="labelSpanS" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Default span for labels in small size.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="adjustLabelSpan" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set, the usage of &lt;code&gt;labelSpanL&lt;/code&gt; and &lt;code&gt;labelSpanM&lt;/code&gt; are dependent on the number of &lt;code&gt;FormContainers&lt;/code&gt; in one row. If only one &lt;code&gt;FormContainer&lt;/code&gt; is displayed in one row, &lt;code&gt;labelSpanM&lt;/code&gt; is used to define the size of the label. This is the same for medium and large &lt;code&gt;Forms&lt;/code&gt;. This is done to align the labels on forms where full-size &lt;code&gt;FormContainers&lt;/code&gt; and multiple-column rows are used in the same &lt;code&gt;Form&lt;/code&gt; (because every &lt;code&gt;FormContainer&lt;/code&gt; has its own &lt;code&gt;Grid&lt;/code&gt; inside).
+
+If not set, the usage of &lt;code&gt;labelSpanL&lt;/code&gt; and &lt;code&gt;labelSpanM&lt;/code&gt; are dependent on the &lt;code&gt;Form&lt;/code&gt; size. The number of &lt;code&gt;FormContainers&lt;/code&gt; doesn't matter in this case.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="emptySpanXL" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Number of grid cells that are empty at the end of each line on extra large size.
+
+&lt;b&gt;Note:&lt;/b&gt; If the default value -1 is not overwritten with the meaningful one then the &lt;code&gt;emptySpanL&lt;/code&gt; value is used.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="emptySpanL" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Number of grid cells that are empty at the end of each line on large size.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="emptySpanM" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Number of grid cells that are empty at the end of each line on medium size.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="emptySpanS" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Number of grid cells that are empty at the end of each line on small size.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="columnsXL" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Number of columns for extra large size.
+
+The number of columns for extra large size must not be smaller than the number of columns for large size. &lt;b&gt;Note:&lt;/b&gt; If the default value -1 is not overwritten with the meaningful one then the &lt;code&gt;columnsL&lt;/code&gt; value is used (from the backward compatibility reasons).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="columnsL" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Number of columns for large size.
+
+The number of columns for large size must not be smaller than the number of columns for medium size.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="columnsM" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Number of columns for medium size.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="singleContainerFullSize" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If the &lt;code&gt;Form&lt;/code&gt; contains only one single &lt;code&gt;FormContainer&lt;/code&gt; and this property is set, the &lt;code&gt;FormContainer&lt;/code&gt; is displayed using the full size of the &lt;code&gt;Form&lt;/code&gt;. In this case the properties &lt;code&gt;columnsXL&lt;/code&gt;, &lt;code&gt;columnsL&lt;/code&gt; and &lt;code&gt;columnsM&lt;/code&gt; are ignored.
+
+In all other cases the &lt;code&gt;FormContainer&lt;/code&gt; is displayed in the size of one column.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="breakpointXL" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Breakpoint (in pixel) between large size and extra large (XL) size.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="breakpointL" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Breakpoint (in pixel) between Medium size and Large size.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="breakpointM" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Breakpoint (in pixel) between Small size and Medium size.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponsiveLayout" substitutionGroup="n9:FormLayout" type="n9:_ResponsiveLayoutType">
+    <xs:annotation>
+      <xs:documentation>The &lt;code&gt;ResponsiveLayout&lt;/code&gt; renders a &lt;code&gt;Form&lt;/code&gt; with a responsive layout. Internally the &lt;code&gt;ResponsiveFlowLayout&lt;/code&gt; is used. The responsiveness of this layout tries to best use the available space. This means that the order of the &lt;code&gt;FormContainers&lt;/code&gt;, labels and fields depends on the available space.
+
+On the &lt;code&gt;FormContainers&lt;/code&gt;, &lt;code&gt;FormElements&lt;/code&gt;, labels and content fields, &lt;code&gt;ResponsiveFlowLayoutData&lt;/code&gt; can be used to change the default rendering.
+
+We suggest using the &lt;code&gt;ResponsiveGridLayout&lt;/code&gt; instead of this layout because this is easier to consume and brings more stable responsive output.
+
+&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;ResponsiveFlowLayoutData&lt;/code&gt; are used this may result in a much more complex layout than the default one. This means that in some cases, the calculation for the other content may not bring the expected result. In such cases, &lt;code&gt;ResponsiveFlowLayoutData&lt;/code&gt; should be used for all content controls to disable the default behavior.
+
+This control cannot be used stand-alone, it just renders a &lt;code&gt;Form&lt;/code&gt;, so it must be assigned to a &lt;code&gt;Form&lt;/code&gt; using the &lt;code&gt;layout&lt;/code&gt; aggregation.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ResponsiveLayoutType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n9:_FormLayoutType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SimpleForm" substitutionGroup="n0:Control" type="n9:_SimpleFormType">
+    <xs:annotation>
+      <xs:documentation>The &lt;code&gt;SimpleForm&lt;/code&gt; provides an easy-to-use API to create simple forms. Inside a &lt;code&gt;SimpleForm&lt;/code&gt;, a &lt;code&gt;Form&lt;/code&gt; control is created along with its &lt;code&gt;FormContainers&lt;/code&gt; and &lt;code&gt;FormElements&lt;/code&gt;, but the complexity in the API is removed. &lt;ul&gt; &lt;li&gt;A new &lt;code&gt;Title&lt;/code&gt; or &lt;code&gt;Toolbar&lt;/code&gt; starts a new group (&lt;code&gt;FormContainer&lt;/code&gt;) in the form.&lt;/li&gt; &lt;li&gt;A new &lt;code&gt;Label&lt;/code&gt; starts a new row (&lt;code&gt;FormElement&lt;/code&gt;) in the form.&lt;/li&gt; &lt;li&gt;All other controls will be assigned to the row (&lt;code&gt;FormElement&lt;/code&gt;) that started with the last label.&lt;/li&gt; &lt;/ul&gt; Use &lt;code&gt;LayoutData&lt;/code&gt; to influence the layout for special cases in the Input/Display controls.
+
+&lt;b&gt;Note:&lt;/b&gt; If a more complex form is needed, use &lt;code&gt;Form&lt;/code&gt; instead.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_SimpleFormType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Element" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>The content of the form is structured in the following way: &lt;ul&gt; &lt;li&gt;Add a &lt;code&gt;Title&lt;/code&gt; or &lt;code&gt;Toolbar&lt;/code&gt; control to start a new group (&lt;code&gt;FormContainer&lt;/code&gt;).&lt;/li&gt; &lt;li&gt;Add a &lt;code&gt;Label&lt;/code&gt; control to start a new row (&lt;code&gt;FormElement&lt;/code&gt;).&lt;/li&gt; &lt;li&gt;Add controls as input fields, text fields or other as needed.&lt;/li&gt; &lt;li&gt;Use &lt;code&gt;LayoutData&lt;/code&gt; to influence the layout for special cases in the single controls. For example, if a &lt;code&gt;ResponsiveLayout&lt;/code&gt; is used as a layout, the form content is weighted using weight 3 for the labels and weight 5 for the fields part. By default the label column is 192 pixels wide. If your input controls should influence their width, you can add &lt;code&gt;sap.ui.layout.ResponsiveFlowLayoutData&lt;/code&gt; to them via &lt;code&gt;setLayoutData&lt;/code&gt; method. Ensure that the sum of the weights in the &lt;code&gt;ResponsiveFlowLayoutData&lt;/code&gt; is not more than 5, as this is the total width of the input control part of each form row.&lt;/li&gt; &lt;/ul&gt; Example for a row where the &lt;code&gt;Input&lt;/code&gt; weight 4 and the second &lt;code&gt;Input&lt;/code&gt; weight 1 (using &lt;code&gt;ResponsiveLayout&lt;/code&gt;): &lt;pre&gt;
+new sap.m.Label({text:"Label"});
+new sap.m.Input({value:"Weight 4", layoutData: new sap.ui.layout.ResponsiveFlowLayoutData({weight:4})}),
+new sap.m.Input({value:"Weight 1", layoutData: new sap.ui.layout.ResponsiveFlowLayoutData({weight:1})}),
+&lt;/pre&gt;
+
+For example, if a &lt;code&gt;ResponsiveGridLayout&lt;/code&gt; is used as a layout, there are 12 cells in one row. Depending on the screen size the labels use the defined &lt;code&gt;labelSpan&lt;/code&gt;. The remaining cells are used for the fields (and &lt;code&gt;emptySpan&lt;/code&gt; if defined). The available cells are distributed to all fields in the row. If one field should use a fixed number of cells you can add &lt;code&gt;sap.ui.layout.GridData&lt;/code&gt; to them via &lt;code&gt;setLayoutData&lt;/code&gt; method. If there are additional fields in the row they will get the remaining cells. &lt;/ul&gt; Example for a row with two &lt;code&gt;Input&lt;/code&gt; controls where one uses four cells on small screens, one cell on medium screens and 2 cells on larger screens (using &lt;code&gt;ResponsiveGridLayout&lt;/code&gt;): &lt;pre&gt;
+new sap.m.Label({text:"Label"});
+new sap.m.Input({value:"auto size"}),
+new sap.m.Input({value:"fix size", layoutData: new sap.ui.layout.GridData({span: "XL1 L1 M2 S4"})}),
+&lt;/pre&gt;
+
+&lt;b&gt;Warning:&lt;/b&gt; Do not put any layout or other container controls in here. This could damage the visual layout, keyboard support and screen-reader support. Only labels, titles, toolbars and form controls are allowed. Views are also not supported. Allowed form controls implement the interface &lt;code&gt;sap.ui.core.IFormContent&lt;/code&gt;.
+
+If editable controls are used as content, the &lt;code&gt;editable&lt;/code&gt; property must be set to &lt;code&gt;true&lt;/code&gt;, otherwise to &lt;code&gt;false&lt;/code&gt;. If the &lt;code&gt;editable&lt;/code&gt; property is set incorrectly, there will be visual issues like wrong label alignment or wrong spacing between the controls.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Element" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="title">
+            <xs:annotation>
+              <xs:documentation>Title element of the &lt;code&gt;SimpleForm&lt;/code&gt;. Can either be a &lt;code&gt;Title&lt;/code&gt; element, or a string.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Title" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="toolbar">
+            <xs:annotation>
+              <xs:documentation>Toolbar of the &lt;code&gt;SimpleForm&lt;/code&gt;.
+
+&lt;b&gt;Note:&lt;/b&gt; If a &lt;code&gt;Toolbar&lt;/code&gt; is used, the &lt;code&gt;Title&lt;/code&gt; is ignored. If a title is needed inside the &lt;code&gt;Toolbar&lt;/code&gt; it must be added at content to the &lt;code&gt;Toolbar&lt;/code&gt;. In this case add the &lt;code&gt;Title&lt;/code&gt; to the &lt;code&gt;ariaLabelledBy&lt;/code&gt; association.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="maxContainerCols" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>The maximum amount of groups (&lt;code&gt;FormContainers&lt;/code&gt;) per row that is used before a new row is started.
+
+&lt;b&gt;Note:&lt;/b&gt; If a &lt;code&gt;ResponsiveGridLayout&lt;/code&gt; is used as a &lt;code&gt;layout&lt;/code&gt;, this property is not used. Please use the properties &lt;code&gt;ColumnsL&lt;/code&gt; and &lt;code&gt;ColumnsM&lt;/code&gt; in this case.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="minWidth" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>The overall minimum width in pixels that is used for the &lt;code&gt;SimpleForm&lt;/code&gt;.
+
+If the available width is below the given &lt;code&gt;minWidth&lt;/code&gt; the &lt;code&gt;SimpleForm&lt;/code&gt; will create a new row for the next group (&lt;code&gt;FormContainer&lt;/code&gt;). The default value is -1, meaning that inner groups (&lt;code&gt;FormContainers&lt;/code&gt;) will be stacked until &lt;code&gt;maxContainerCols&lt;/code&gt; is reached, irrespective of whether a &lt;code&gt;width&lt;/code&gt; is reached or the available parents width is reached.
+
+&lt;b&gt;Note:&lt;/b&gt; This property is only used if a &lt;code&gt;ResponsiveLayout&lt;/code&gt; is used as a layout.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Width of the form.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="editable" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Applies a device-specific and theme-specific line height and label alignment to the form rows if the form has editable content. If set, all (not only the editable) rows of the form will get the line height of editable fields.
+
+The labels inside the form will be rendered by default in the according mode.
+
+&lt;b&gt;Note:&lt;/b&gt; The setting of this property does not change the content of the form. For example, &lt;code&gt;Input&lt;/code&gt; controls in a form with &lt;code&gt;editable&lt;/code&gt; set to false are still editable.
+
+&lt;b&gt;Warning:&lt;/b&gt; If this property is set wrong this could lead to visual issues, the labels are fields could be misaligned, the labels could be rendered in the wrong mode, the spacing between the single controls could be wrong and control, not fitting to the mode, could be rendered incorrect.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="labelMinWidth" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Specifies the min-width in pixels of the label in all form rows.
+
+&lt;b&gt;Note:&lt;/b&gt; This property is only used if a &lt;code&gt;ResponsiveLayout&lt;/code&gt; is used as a layout.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="layout" type="n9:_SimpleFormLayoutType">
+          <xs:annotation>
+            <xs:documentation>The &lt;code&gt;FormLayout&lt;/code&gt; that is used to render the &lt;code&gt;SimpleForm&lt;/code&gt;.
+
+We recommend using the &lt;code&gt;ResponsiveGridLayout&lt;/code&gt; for rendering a &lt;code&gt;SimpleForm&lt;/code&gt;, as its responsiveness uses the space available in the best way possible.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="labelSpanXL" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Default span for labels in extra large size.
+
+&lt;b&gt;Note:&lt;/b&gt; This property is only used if a &lt;code&gt;ResponsiveGridLayout&lt;/code&gt; is used as a layout. If the default value -1 is not overwritten with the meaningful one then the &lt;code&gt;labelSpanL&lt;/code&gt; value is used (from the backward compatibility reasons).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="labelSpanL" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Default span for labels in large size.
+
+&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;adjustLabelSpanThis&lt;/code&gt; is set, this property is only used if more than 1 &lt;code&gt;FormContainer&lt;/code&gt; is in one line. If only 1 &lt;code&gt;FormContainer&lt;/code&gt; is in the line, then the &lt;code&gt;labelSpanM&lt;/code&gt; value is used.
+
+&lt;b&gt;Note:&lt;/b&gt; This property is only used if &lt;code&gt;ResponsiveGridLayout&lt;/code&gt; or &lt;code&gt;ColumnLayout&lt;/code&gt; is used as a layout. If a &lt;code&gt;ColumnLayout&lt;/code&gt; is used, this property defines the label size for large columns.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="labelSpanM" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Default span for labels in medium size.
+
+&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;adjustLabelSpanThis&lt;/code&gt; is set, this property is used for full-size &lt;code&gt;FormContainers&lt;/code&gt;. If more than one &lt;code&gt;FormContainer&lt;/code&gt; is in one line, &lt;code&gt;labelSpanL&lt;/code&gt; is used.
+
+&lt;b&gt;Note:&lt;/b&gt; This property is only used if a &lt;code&gt;ResponsiveGridLayout&lt;/code&gt; is used as a layout.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="labelSpanS" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Default span for labels in small size.
+
+&lt;b&gt;Note:&lt;/b&gt; This property is only used if a &lt;code&gt;ResponsiveGridLayout&lt;/code&gt; is used as a layout.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="adjustLabelSpan" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set, the usage of &lt;code&gt;labelSpanL&lt;/code&gt; and &lt;code&gt;labelSpanM&lt;/code&gt; are dependent on the number of &lt;code&gt;FormContainers&lt;/code&gt; in one row. If only one &lt;code&gt;FormContainer&lt;/code&gt; is displayed in one row, &lt;code&gt;labelSpanM&lt;/code&gt; is used to define the size of the label. This is the same for medium and large &lt;code&gt;Forms&lt;/code&gt;. This is done to align the labels on forms where full-size &lt;code&gt;FormContainers&lt;/code&gt; and multiple-column rows are used in the same &lt;code&gt;Form&lt;/code&gt; (because every &lt;code&gt;FormContainer&lt;/code&gt; has its own grid inside).
+
+If not set, the usage of &lt;code&gt;labelSpanL&lt;/code&gt; and &lt;code&gt;labelSpanM&lt;/code&gt; are dependent on the &lt;code&gt;Form&lt;/code&gt; size. The number of &lt;code&gt;FormContainers&lt;/code&gt; doesn't matter in this case.
+
+&lt;b&gt;Note:&lt;/b&gt; This property is only used if a &lt;code&gt;ResponsiveGridLayout&lt;/code&gt; is used as a layout.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="emptySpanXL" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Number of grid cells that are empty at the end of each line on extra large size.
+
+&lt;b&gt;Note:&lt;/b&gt; This property is only used if a &lt;code&gt;ResponsiveGridLayout&lt;/code&gt; is used as a layout. If the default value -1 is not overwritten with the meaningful one then the &lt;code&gt;emptySpanL&lt;/code&gt; value is used (from the backward compatibility reasons).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="emptySpanL" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Number of grid cells that are empty at the end of each line on large size.
+
+&lt;b&gt;Note:&lt;/b&gt; This property is only used if a &lt;code&gt;ResponsiveGridLayout&lt;/code&gt; or a &lt;code&gt;ColumnLayout&lt;/code&gt; is used as a layout. If a &lt;code&gt;ColumnLayout&lt;/code&gt; is used, this property defines the empty cells for large columns.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="emptySpanM" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Number of grid cells that are empty at the end of each line on medium size.
+
+&lt;b&gt;Note:&lt;/b&gt; This property is only used if a &lt;code&gt;ResponsiveGridLayout&lt;/code&gt; is used as a layout.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="emptySpanS" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Number of grid cells that are empty at the end of each line on small size.
+
+&lt;b&gt;Note:&lt;/b&gt; This property is only used if a &lt;code&gt;ResponsiveGridLayout&lt;/code&gt; is used as a layout.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="columnsXL" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Form columns for extra large size. The number of columns for extra large size must not be smaller than the number of columns for large size.
+
+&lt;b&gt;Note:&lt;/b&gt; This property is only used if a &lt;code&gt;ResponsiveGridLayout&lt;/code&gt; or a &lt;code&gt;ColumnLayout&lt;/code&gt; is used as a layout. If the default value -1 is not overwritten with the meaningful one then the &lt;code&gt;columnsL&lt;/code&gt; value is used (from the backward compatibility reasons).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="columnsL" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Form columns for large size. The number of columns for large size must not be smaller than the number of columns for medium size.
+
+&lt;b&gt;Note:&lt;/b&gt; This property is only used if a &lt;code&gt;ResponsiveGridLayout&lt;/code&gt; or a &lt;code&gt;ColumnLayout&lt;/code&gt; is used as a layout.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="columnsM" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Form columns for medium size.
+
+&lt;b&gt;Note:&lt;/b&gt; This property is only used if a &lt;code&gt;ResponsiveGridLayout&lt;/code&gt; or a &lt;code&gt;ColumnLayout&lt;/code&gt; is used as a layout.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="singleContainerFullSize" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If the &lt;code&gt;Form&lt;/code&gt; contains only one single &lt;code&gt;FormContainer&lt;/code&gt; and this property is set, the &lt;code&gt;FormContainer&lt;/code&gt; is displayed using the full size of the &lt;code&gt;Form&lt;/code&gt;. In this case the properties &lt;code&gt;columnsL&lt;/code&gt; and &lt;code&gt;columnsM&lt;/code&gt; are ignored.
+
+In all other cases the &lt;code&gt;FormContainer&lt;/code&gt; is displayed in the size of one column.
+
+&lt;b&gt;Note:&lt;/b&gt; This property is only used if a &lt;code&gt;ResponsiveGridLayout&lt;/code&gt; is used as a layout.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="breakpointXL" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Breakpoint between Medium size and Large size.
+
+&lt;b&gt;Note:&lt;/b&gt; This property is only used if a &lt;code&gt;ResponsiveGridLayout&lt;/code&gt; is used as a layout.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="breakpointL" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Breakpoint between Medium size and Large size.
+
+&lt;b&gt;Note:&lt;/b&gt; This property is only used if a &lt;code&gt;ResponsiveGridLayout&lt;/code&gt; is used as a layout.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="breakpointM" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Breakpoint between Small size and Medium size.
+
+&lt;b&gt;Note:&lt;/b&gt; This property is only used if a &lt;code&gt;ResponsiveGridLayout&lt;/code&gt; is used as a layout.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="backgroundDesign" type="n8:_BackgroundDesignType">
+          <xs:annotation>
+            <xs:documentation>Specifies the background color of the &lt;code&gt;SimpleForm&lt;/code&gt; content.
+
+The visualization of the different options depends on the used theme.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="content" type="xs:string" />
+        <xs:attribute name="title" type="xs:string" />
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / IDs which label this control (see WAI-ARIA attribute &lt;code&gt;aria-labelledby&lt;/code&gt;).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="_ColumnCellsType">
+    <xs:restriction base="xs:int" />
+  </xs:simpleType>
+  <xs:simpleType name="_ColumnsLType">
+    <xs:restriction base="xs:int" />
+  </xs:simpleType>
+  <xs:simpleType name="_ColumnsMType">
+    <xs:restriction base="xs:int" />
+  </xs:simpleType>
+  <xs:simpleType name="_ColumnsXLType">
+    <xs:restriction base="xs:int" />
+  </xs:simpleType>
+  <xs:simpleType name="_EmptyCellsType">
+    <xs:restriction base="xs:int" />
+  </xs:simpleType>
+  <xs:simpleType name="_GridElementCellsType">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="_SimpleFormLayoutType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ColumnLayout">
+        <xs:annotation>
+          <xs:documentation>Uses the &lt;code&gt;ColumnLayout&lt;/code&gt; layout to render the &lt;code&gt;SimpleForm&lt;/code&gt; control</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="GridLayout">
+        <xs:annotation>
+          <xs:documentation>Uses the &lt;code&gt;GridLayout&lt;/code&gt; layout to render the &lt;code&gt;SimpleForm&lt;/code&gt; control</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ResponsiveGridLayout">
+        <xs:annotation>
+          <xs:documentation>Uses the &lt;code&gt;ResponsiveGridLayout&lt;/code&gt; layout to render the &lt;code&gt;SimpleForm&lt;/code&gt; control</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ResponsiveLayout">
+        <xs:annotation>
+          <xs:documentation>Uses the &lt;code&gt;ResponsiveLayout&lt;/code&gt; layout to render the &lt;code&gt;SimpleForm&lt;/code&gt; control</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

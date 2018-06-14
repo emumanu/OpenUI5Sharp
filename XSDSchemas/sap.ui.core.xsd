@@ -1,0 +1,1618 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:n0="sap.ui.core" elementFormDefault="qualified" targetNamespace="sap.ui.core" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="FragmentDefinition">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="n0:Control" />
+        <xs:element ref="n0:Fragment" />
+        <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="_FragmentType0">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="id" type="n0:_IDType" />
+        <xs:attribute name="fragmentName" type="xs:string" />
+        <xs:attribute name="type" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="Fragment">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:restriction base="n0:_FragmentType0">
+          <xs:enumeration value="" />
+          <xs:whiteSpace value="collapse" />
+        </xs:restriction>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ComponentContainer" substitutionGroup="n0:Control" type="n0:_ComponentContainerType">
+    <xs:annotation>
+      <xs:documentation>Container that embeds a UIComponent in a control tree.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ComponentContainerType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="name" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Component name, the package where the component is contained. This property can only be applied initially.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="url" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>The URL of the component. This property can only be applied initially.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="async" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Flag whether the component should be created sync (default) or async. The default will be async when initially the property &lt;code&gt;manifest&lt;/code&gt; is set to a truthy value and for the property &lt;code&gt;async&lt;/code&gt; no value has been specified. This property can only be applied initially.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="handleValidation" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Enable/disable validation handling by MessageManager for this component. The resulting Messages will be propagated to the controls. This property can only be applied initially.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="settings" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The settings object passed to the component when created. This property can only be applied initially.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="propagateModel" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Defines whether binding information is propagated to the component.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Container width in CSS size</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Container height in CSS size</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="lifecycle" type="n0:_ComponentLifecycleType">
+          <xs:annotation>
+            <xs:documentation>Lifecycle behavior for the Component associated by the &lt;code&gt;ComponentContainer&lt;/code&gt;. The default behavior is &lt;code&gt;Legacy&lt;/code&gt;. This means that the &lt;code&gt;ComponentContainer&lt;/code&gt; takes care that the Component is destroyed when the &lt;code&gt;ComponentContainer&lt;/code&gt; is destroyed, but it is &lt;b&gt;not&lt;/b&gt; destroyed when a new Component is associated. If you use the &lt;code&gt;usage&lt;/code&gt; property to create the Component, the default behavior is &lt;code&gt;Container&lt;/code&gt;. This means that the Component is destroyed when the &lt;code&gt;ComponentContainer&lt;/code&gt; is destroyed or a new Component is associated. This property must only be applied before a component instance is created.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="autoPrefixId" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Flag, whether to auto-prefix the ID of the nested Component or not. If this property is set to true the ID of the Component will be prefixed with the ID of the ComponentContainer followed by a single dash. This property can only be applied initially.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="usage" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The component usage. If the ComponentContainer is used inside a Component, this Component can define a usage which will be used for creating the Component. This property can only be applied initially.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="manifest" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Controls when and from where to load the manifest for the Component. When set to any truthy value, the manifest will be loaded asynchronously by default and evaluated before the Component controller, if it is set to a falsy value other than &lt;code&gt;undefined&lt;/code&gt;, the manifest will be loaded after the controller. A non-empty string value will be interpreted as the URL location from where to load the manifest. A non-null object value will be interpreted as manifest content. This property can only be applied initially.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="component" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The component displayed in this ComponentContainer.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="componentCreated" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired when the component instance has been created by the ComponentContainer.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Control" substitutionGroup="n0:Element" type="n0:_ControlType">
+    <xs:annotation>
+      <xs:documentation>Base Class for Controls.
+
+Controls provide the following features: &lt;ul&gt; &lt;li&gt;&lt;b&gt;Rendering&lt;/b&gt;: the &lt;code&gt;RenderManager&lt;/code&gt; only expects instances of class &lt;code&gt;Control&lt;/code&gt; in its {@link sap.ui.core.RenderManager#renderControl renderControl} method. By convention, each control class has an associated static class that takes care of rendering the control (its 'Renderer').&lt;/li&gt; &lt;li&gt;&lt;b&gt;show / hide&lt;/b&gt;: a control can be hidden, although it is still part of the control tree, see property {@link #getVisible visible}&lt;/li&gt; &lt;li&gt;&lt;b&gt;local busy indicator&lt;/b&gt;: marks a control visually as 'busy', see properties {@link #getBusy busy} and {@link #getBusyIndicatorDelay busyIndicatorDelay}&lt;/li&gt; &lt;li&gt;&lt;b&gt;field groups&lt;/b&gt;: by assigning the same group ID to a set of editable controls, they form a group which can be validated together. See property {@link #getFieldGroupIds fieldGroupIds} and event {@link #event:validateFieldGroup validateFieldGroup}. The term &lt;i&gt;field&lt;/i&gt; was chosen as most often this feature will be used to group editable fields in a form.&lt;/li&gt; &lt;li&gt;&lt;b&gt;custom style classes&lt;/b&gt;: all controls allow to add custom CSS classes to their rendered DOM without modifying their renderer code. See methods {@link #addStyleClass addStyleClass}, {@link #removeStyleClass removeStyleClass}, {@link #toggleStyleClass toggleStyleClass} and {@link #hasStyleClass hasStyleClass}.&lt;/br&gt; The necessary implementation is encapsulated in {@link sap.ui.core.CustomStyleClassSupport CustomStyleClassSupport} and can be applied to selected element classes as well.&lt;/li&gt; &lt;li&gt;&lt;b&gt;browser events&lt;/b&gt;: by calling the methods {@link #attachBrowserEvent attachBrowserEvent} and {@link #detachBrowserEvent detachBrowserEvent}, consumers can let the control class take care of registering / de-registering a given set of event listeners to the control's root DOM node. The framework will adapt the registration whenever the DOM node changes (e.g. before or after rendering or when the control is destroyed).&lt;/li&gt; &lt;/ul&gt;
+
+See section "{@link topic:91f1703b6f4d1014b6dd926db0e91070 Developing OpenUI5/SAPUI5 Controls}" in the documentation for an introduction to control development.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ControlType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:attribute name="blocked" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Whether the control is currently in blocked state.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="busy" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Whether the control is currently in busy state.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="busyIndicatorDelay" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>The delay in milliseconds, after which the busy indicator will show up for this control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="busyIndicatorSize" type="n0:_BusyIndicatorSizeType">
+          <xs:annotation>
+            <xs:documentation>The size of the BusyIndicator. For controls with a width smaller 3rem a &lt;code&gt;sap.ui.core.BusyIndicatorSize.Small&lt;/code&gt; should be used. If the size could vary in width and the width could get smaller than 3rem, the &lt;code&gt;sap.ui.core.BusyIndicatorSize.Auto&lt;/code&gt; option could be used. The default is set to &lt;code&gt;sap.ui.core.BusyIndicatorSize.Medium&lt;/code&gt; For a full screen BusyIndicator use &lt;code&gt;sap.ui.core.BusyIndicatorSize.Large&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="visible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Whether the control should be visible on the screen.
+
+If set to false, a placeholder will be rendered to mark the location of the invisible control in the DOM of the current page. The placeholder will be hidden and have zero dimensions (&lt;code&gt;display: none&lt;/code&gt;).
+
+See {@link sap.ui.core.RenderManager#writeInvisiblePlaceholderData RenderManager#writeInvisiblePlaceholderData} for details.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="fieldGroupIds" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The IDs of a logical field group that this control belongs to.
+
+All fields in a logical field group should share the same &lt;code&gt;fieldGroupId&lt;/code&gt;. Once a logical field group is left, the &lt;code&gt;validateFieldGroup&lt;/code&gt; event is raised.
+
+See {@link sap.ui.core.Control#attachValidateFieldGroup}.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="validateFieldGroup" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired if a logical field group defined by &lt;code&gt;fieldGroupIds&lt;/code&gt; of a control was left or the user explicitly pressed a key combination that triggers validation.
+
+Listen to this event to validate data of the controls belonging to a field group. See {@link sap.ui.core.Control#setFieldGroupIds}.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CustomData" substitutionGroup="n0:Element" type="n0:_CustomDataType">
+    <xs:annotation>
+      <xs:documentation>Contains a single key/value pair of custom data attached to an Element. See method data().</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_CustomDataType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:attribute name="key" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The key of the data in this CustomData object. When the data is just stored, it can be any string, but when it is to be written to HTML (writeToDom == true) then it must also be a valid HTML attribute name (it must conform to the sap.ui.core.ID type and may contain no colon) to avoid collisions, it also may not start with "sap-ui". When written to HTML, the key is prefixed with "data-". If any restriction is violated, a warning will be logged and nothing will be written to the DOM.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="value" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The data stored in this CustomData object. When the data is just stored, it can be any JS type, but when it is to be written to HTML (writeToDom == true) then it must be a string. If this restriction is violated, a warning will be logged and nothing will be written to the DOM.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="writeToDom" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set to "true" and the value is of type "string" and the key conforms to the documented restrictions, this custom data is written to the HTML root element of the control as a "data-*" attribute. If the key is "abc" and the value is "cde", the HTML will look as follows: &amp;lt;SomeTag ... data-abc="cde" ... &amp;gt; Thus the application can provide stable attributes by data binding which can be used for styling or identification purposes. ATTENTION: use carefully to not create huge attributes or a large number of them.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Element" type="n0:_ElementType">
+    <xs:annotation>
+      <xs:documentation>Base Class for Elements.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ElementType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="tooltip">
+        <xs:annotation>
+          <xs:documentation>The tooltip that should be shown for this Element.
+
+Can either be an instance of a TooltipBase subclass or a simple string.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:choice minOccurs="0">
+              <xs:element ref="n0:TooltipBase" />
+              <xs:element ref="n0:Fragment" />
+            </xs:choice>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="customData">
+        <xs:annotation>
+          <xs:documentation>Custom Data, a data structure like a map containing arbitrary key value pairs.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+              <xs:element ref="n0:CustomData" />
+              <xs:element ref="n0:Fragment" />
+            </xs:choice>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="layoutData">
+        <xs:annotation>
+          <xs:documentation>Defines the layout constraints for this control when it is used inside a Layout. LayoutData classes are typed classes and must match the embedding Layout. See VariantLayoutData for aggregating multiple alternative LayoutData instances to a single Element.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:choice minOccurs="0">
+              <xs:element ref="n0:LayoutData" />
+              <xs:element ref="n0:Fragment" />
+            </xs:choice>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="dependents">
+        <xs:annotation>
+          <xs:documentation>Dependents are not rendered, but their databinding context and lifecycle are bound to the aggregating Element.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+              <xs:element ref="n0:Element" />
+              <xs:element ref="n0:Fragment" />
+            </xs:choice>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="n0:_IDType">
+      <xs:annotation>
+        <xs:documentation>The unique identifier within a page, either configured or automatically generated.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="tooltip" type="xs:string" />
+    <xs:attribute name="customData" type="xs:string" />
+    <xs:attribute name="dependents" type="xs:string" />
+  </xs:complexType>
+  <xs:element name="HTML" substitutionGroup="n0:Control" type="n0:_HTMLType">
+    <xs:annotation>
+      <xs:documentation>Embeds standard HTML in an SAPUI5 control tree.
+
+Security Hint: By default, the HTML content (property 'content') is not sanitized and therefore open to XSS attacks. Applications that want to show user defined input in an HTML control, should either sanitize the content on their own or activate automatic sanitizing through the {@link #setSanitizeContent sanitizeContent} property.
+
+Although this control inherits the &lt;code&gt;tooltip&lt;/code&gt; aggregation/property and the &lt;code&gt;hasStyleClass&lt;/code&gt;, &lt;code&gt;addStyleClass&lt;/code&gt;, &lt;code&gt;removeStyleClass&lt;/code&gt; and &lt;code&gt;toggleStyleClass&lt;/code&gt; methods from its base class, it doesn't support them. Instead, the defined HTML content can contain a tooltip (title attribute) or custom CSS classes.
+
+For further hints about usage restrictions for this control, see also the documentation of the &lt;code&gt;content&lt;/code&gt; property.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_HTMLType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="content" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>HTML content to be displayed, defined as a string.
+
+The content is converted to DOM nodes with a call to &lt;code&gt;new jQuery(content)&lt;/code&gt;, so any restrictions for the jQuery constructor apply to the content of the HTML control as well.
+
+Some of these restrictions (there might be others!) are: &lt;ul&gt; &lt;li&gt;the content must be enclosed in tags, pure text is not supported. &lt;/li&gt; &lt;li&gt;if the content contains script tags, they will be executed but they will not appear in the resulting DOM tree. When the contained code tries to find the corresponding script tag, it will fail.&lt;/li&gt; &lt;/ul&gt;
+
+Please consider to consult the jQuery documentation as well.
+
+The HTML control currently doesn't prevent the usage of multiple root nodes in its DOM content (e.g. &lt;code&gt;setContent("&amp;lt;div/&gt;&amp;lt;div/&gt;")&lt;/code&gt;), but this is not a guaranteed feature. The accepted content might be restricted to single root nodes in future versions. To notify applications about this fact, a warning is written in the log when multiple root nodes are used.
+
+When changing the content dynamically, ensure that the ID of the root node remains the same as the HTML control's ID. Otherwise it cannot be guaranteed that certain lifecycle events take place.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="preferDOM" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Whether existing DOM content is preferred over the given content string.
+
+There are two scenarios where this flag is relevant (when set to true): &lt;ul&gt; &lt;li&gt;for the initial rendering: when an HTML control is added to a UIArea for the first time and if the root node of that UIArea contained DOM content with the same id as the HTML control, then that content will be used for rendering instead of any specified string content&lt;/li&gt; &lt;li&gt;any follow-up rendering: when an HTML control is rendered for the second or any later time and the preferDOM flag is set, then the DOM from the first rendering is preserved and not replaced by the string content&lt;/li&gt; &lt;/ul&gt;
+
+As preserving the existing DOM is the most common use case of the HTML control, the default value is true.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="sanitizeContent" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Whether to run the HTML sanitizer once the content (HTML markup) is applied or not.
+
+To configure allowed URLs please use the whitelist API via jQuery.sap.addUrlWhitelist.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="afterRendering" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired after the HTML control has been rendered. Allows to manipulate the resulting DOM.
+
+When the control doesn't have string content and no preserved DOM existed for this control, then this event will fire, but there won't be a DOM node for this control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Icon" substitutionGroup="n0:Control" type="n0:_IconType">
+    <xs:annotation>
+      <xs:documentation>Icon uses embedded font instead of pixel image. Comparing to image, Icon is easily scalable, color can be altered live and various effects can be added using css.
+
+A set of built in Icons is available and they can be fetched by calling sap.ui.core.IconPool.getIconURI and set this value to the src property on the Icon.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_IconType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="src" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>This property should be set by the return value of calling sap.ui.core.IconPool.getIconURI with an Icon name parameter and an optional collection parameter which is required when using application extended Icons. A list of standard FontIcon is available here.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="size" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Since Icon uses font, this property will be applied to the css font-size property on the rendered DOM element.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="color" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The color of the Icon. If color is not defined here, the Icon inherits the color from its DOM parent.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="hoverColor" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This color is shown when icon is hovered. This property has no visual effect when run on mobile device.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="activeColor" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This color is shown when icon is pressed/activated by the user.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>This is the width of the DOM element which contains the Icon. Setting this property doesn't affect the size of the font. If you want to make the font bigger, increase the size property.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>This is the height of the DOM element which contains the Icon. Setting this property doesn't affect the size of the font. If you want to make the font bigger, increase the size property.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="backgroundColor" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Background color of the Icon in normal state.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="hoverBackgroundColor" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Background color for Icon in hover state. This property has no visual effect when run on mobile device.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="activeBackgroundColor" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Background color for Icon in active state.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="decorative" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>A decorative icon is included for design reasons. Accessibility tools will ignore decorative icons. Tab stop isn't affected by this property anymore and it's now controlled by the existence of press event handler and the noTabStop property.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="useIconTooltip" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Decides whether a default Icon tooltip should be used if no tooltip is set.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="alt" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This defines the alternative text which is used for outputting the aria-label attribute on the DOM.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="noTabStop" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Defines whether the tab stop of icon is controlled by the existence of press event handler. When it's set to false, Icon control has tab stop when press event handler is attached. If it's set to true, Icon control never has tab stop no matter whether press event handler exists or not.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="press" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This event is fired when icon is pressed/activated by the user. When a handler is attached to this event, the Icon gets tab stop. If you want to disable this behavior, set the noTabStop property to true.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InvisibleText" substitutionGroup="n0:Control" type="n0:_InvisibleTextType">
+    <xs:annotation>
+      <xs:documentation>An InvisibleText is used to bring hidden texts to the UI for screen reader support. The hidden text can e.g. be referenced in the ariaLabelledBy or ariaDescribedBy associations of other controls.
+
+The inherited properties busy, busyIndicatorDelay and visible and the aggregation tooltip is not supported by this control.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_InvisibleTextType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The text of the InvisibleText.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Item" substitutionGroup="n0:Element" type="n0:_ItemType">
+    <xs:annotation>
+      <xs:documentation>A control base type.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ItemType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The text to be displayed for the item.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Enabled items can be selected.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="textDirection" type="n0:_TextDirectionType">
+          <xs:annotation>
+            <xs:documentation>Options are RTL and LTR. Alternatively, an item can inherit its text direction from its parent control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="key" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Can be used as input for subsequent actions.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LayoutData" substitutionGroup="n0:Element" type="n0:_LayoutDataType">
+    <xs:annotation>
+      <xs:documentation>A layout data base type.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_LayoutDataType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListItem" substitutionGroup="n0:Item" type="n0:_ListItemType">
+    <xs:annotation>
+      <xs:documentation>An item that is used in lists or list-similar controls such as DropdownBox, for example. The element foresees the usage of additional texts displayed in a second column.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ListItemType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ItemType">
+        <xs:attribute name="icon" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The icon belonging to this list item instance. This can be a URI to an image or an icon font URI.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="additionalText" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Some additional text of type string, optionally to be displayed along with this item.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LocalBusyIndicator" substitutionGroup="n0:Control" type="n0:_LocalBusyIndicatorType">
+    <xs:annotation>
+      <xs:documentation>The LocalBusyIndicator is a special version of the BusyIndicator. This one doesn't block the whole screen - it just blocks the corresponding control and puts a local animation over the control. To use the functionality of this control the corresponding control needs to be enabled via the 'LocalBusyIndicatorSupport' accordingly to the ListBox control (see the init-function of the ListBox).</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_LocalBusyIndicatorType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>This property is the width of the control that has to be covered. With this width the position of the animation can be properly set.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>This property is the height of the control that has to be covered. With this height the position of the animation can be properly set.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Message" substitutionGroup="n0:Element" type="n0:_MessageType">
+    <xs:annotation>
+      <xs:documentation>This element used to provide messages. Rendering must be done within the control that uses this kind of element.
+
+Its default level is none.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_MessageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Message text</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="timestamp" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Message's timestamp. It is just a simple String that will be used without any transformation. So the application that uses messages needs to format the timestamp to its own needs.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="icon" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>A possible icon URI of the message</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="level" type="n0:_MessageTypeType">
+          <xs:annotation>
+            <xs:documentation>Setting the message's level.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="readOnly" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the message should be read only. This helps the application to handle a message a different way if the application differentiates between read-only and common messages.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ScrollBar" substitutionGroup="n0:Control" type="n0:_ScrollBarType">
+    <xs:annotation>
+      <xs:documentation>The ScrollBar control can be used for virtual scrolling of a certain area. This means: to simulate a very large scrollable area when technically the area is small and the control takes care of displaying the respective part only. E.g. a Table control can take care of only rendering the currently visible rows and use this ScrollBar control to make the user think he actually scrolls through a long list.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ScrollBarType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="vertical" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Orientation. Defines if the Scrollbar is vertical or horizontal.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="scrollPosition" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Scroll position in steps or pixels.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="size" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Size of the Scrollbar (in pixels).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="contentSize" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Size of the scrollable content (in pixels).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="steps" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Number of steps to scroll. Used if the size of the content is not known as the data is loaded dynamically.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="scroll" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Scroll event.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SeparatorItem" substitutionGroup="n0:Item" type="n0:_SeparatorItemType">
+    <xs:annotation>
+      <xs:documentation>An item that provides a visual separation. It borrows all its methods from the classes sap.ui.core.Item, sap.ui.core.Element, sap.ui.base.EventProvider, and sap.ui.base.Object.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_SeparatorItemType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ItemType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Title" substitutionGroup="n0:Element" type="n0:_TitleType">
+    <xs:annotation>
+      <xs:documentation>Represents a title element that can be used for aggregation with other controls</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_TitleType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Defines the title text</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="icon" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>Defines the URL for icon display</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="level" type="n0:_TitleLevelType">
+          <xs:annotation>
+            <xs:documentation>Defines the level of the title. If set to auto the level of the title is chosen by the control rendering the title.
+
+Currently not all controls using the Title.control supporting this property.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="emphasized" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set the title is displayed emphasized. This feature is nor supported by all controls using the Title.control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TooltipBase" substitutionGroup="n0:Control" type="n0:_TooltipBaseType">
+    <xs:annotation>
+      <xs:documentation>Abstract class that can be extended in order to implement any extended tooltip. For example, RichTooltip Control is based on it. It provides the opening/closing behavior and the main "text" property.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_TooltipBaseType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The text that is shown in the tooltip that extends the TooltipBase class, for example in RichTooltip.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="openDuration" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Optional. Open Duration in milliseconds.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="closeDuration" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Optional. Close Duration in milliseconds.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="myPosition" type="n0:_DockType">
+          <xs:annotation>
+            <xs:documentation>Optional. My position defines which position on the extended tooltip being positioned to align with the target control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="atPosition" type="n0:_DockType">
+          <xs:annotation>
+            <xs:documentation>Optional. At position defines which position on the target control to align the positioned tooltip.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="offset" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Optional. Offset adds these left-top values to the calculated position. Example: "10 3".</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="collision" type="n0:_CollisionType">
+          <xs:annotation>
+            <xs:documentation>Optional. Collision - when the positioned element overflows the window in some direction, move it to an alternative position.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="openDelay" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Opening delay of the tooltip in milliseconds</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="closeDelay" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Closing delay of the tooltip in milliseconds</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="closed" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This event is fired when the Tooltip has been closed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="VariantLayoutData" substitutionGroup="n0:LayoutData" type="n0:_VariantLayoutDataType">
+    <xs:annotation>
+      <xs:documentation>Allows to add multiple LayoutData to one control in case that an easy switch of layouts (e.g. in a Form) is needed.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_VariantLayoutDataType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_LayoutDataType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="multipleLayoutData">
+            <xs:annotation>
+              <xs:documentation>Allows multiple LayoutData.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:LayoutData" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="multipleLayoutData" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="XMLComposite" substitutionGroup="n0:Control" type="n0:_XMLCompositeType">
+    <xs:annotation>
+      <xs:documentation>Base Class for XMLComposite controls.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_XMLCompositeType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>The width</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>The height</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="displayBlock" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Whether the CSS display should be set to "block".</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="_AbsoluteCSSSizeType">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="_CollisionType">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="_CSSColorType">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="_CSSSizeType">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="_CSSSizeShortHandType">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="_DockType">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="_IDType">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="_PercentageType">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="_URIType">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="_AccessibleLandmarkRoleType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Banner">
+        <xs:annotation>
+          <xs:documentation>Represents the ARIA role &lt;code&gt;banner&lt;/code&gt;.
+
+A banner usually appears at the top of the page and typically spans the full width.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Complementary">
+        <xs:annotation>
+          <xs:documentation>Represents the ARIA role &lt;code&gt;complementary&lt;/code&gt;.
+
+A section of the page, designed to be complementary to the main content at a similar level in the DOM hierarchy.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Main">
+        <xs:annotation>
+          <xs:documentation>Represents the ARIA role &lt;code&gt;main&lt;/code&gt;.
+
+The main content of a page.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Navigation">
+        <xs:annotation>
+          <xs:documentation>Represents the ARIA role &lt;code&gt;navigation&lt;/code&gt;.
+
+A region that contains a collection of items and objects that, as a whole, combine to create a navigation facility.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="None">
+        <xs:annotation>
+          <xs:documentation>No explicit role is applicable.
+
+The interpretation of this value depends on the control / element which defines a property with this type. Normally this value means that no accessible landmark should be written.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Region">
+        <xs:annotation>
+          <xs:documentation>Represents the ARIA role &lt;code&gt;region&lt;/code&gt;.
+
+A section of a page, that is important enough to be included in a page summary or table of contents.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Search">
+        <xs:annotation>
+          <xs:documentation>Represents the ARIA role &lt;code&gt;search&lt;/code&gt;.
+
+A region that contains a collection of items and objects that, as a whole, combine to create a search facility.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_AccessibleRoleType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Alert">
+        <xs:annotation>
+          <xs:documentation>A message with an alert or error information.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="AlertDialog">
+        <xs:annotation>
+          <xs:documentation>A separate window with an alert or error information.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Application">
+        <xs:annotation>
+          <xs:documentation>A software unit executing a set of tasks for the user.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Banner">
+        <xs:annotation>
+          <xs:documentation>Usually defined as the advertisement at the top of a web page. The banner content typically contains the site or company logo, or other key advertisements.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Button">
+        <xs:annotation>
+          <xs:documentation>Allows user-triggered actions.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Checkbox">
+        <xs:annotation>
+          <xs:documentation>A control that has three possible values: true, false, mixed.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ColumnHeader">
+        <xs:annotation>
+          <xs:documentation>A table cell containing header information for a column.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Combobox">
+        <xs:annotation>
+          <xs:documentation>Allows selecting an item from a list, or to enter data directly in the input field.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ContentInfo">
+        <xs:annotation>
+          <xs:documentation>Information about the content on the page. Examples are footnotes, copyrights, or links to privacy statements.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Definition">
+        <xs:annotation>
+          <xs:documentation>The content of the associated element represents a definition. If there is a definition element within the content, this one represents the term being defined.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Description">
+        <xs:annotation>
+          <xs:documentation>Descriptive content for a page element.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Dialog">
+        <xs:annotation>
+          <xs:documentation>A small window that is designed to interrupt the current application processing in order to inform the user and to get some response.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Directory">
+        <xs:annotation>
+          <xs:documentation>A list of references to members of a single group.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Document">
+        <xs:annotation>
+          <xs:documentation>Content that contains related information, such as a book.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Grid">
+        <xs:annotation>
+          <xs:documentation>Contains cells of tabular data arranged in rows and columns, for example in a table.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="GridCell">
+        <xs:annotation>
+          <xs:documentation>A table cell in a grid where the cells can be active, editable, and selectable. Cells may have functional relationships to controls, for example.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Group">
+        <xs:annotation>
+          <xs:documentation>A section of user interface objects.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Heading">
+        <xs:annotation>
+          <xs:documentation>A heading for a section of the page.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Img">
+        <xs:annotation>
+          <xs:documentation>A container for a collection of elements that form an image.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Link">
+        <xs:annotation>
+          <xs:documentation>An interactive reference to a resource.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="List">
+        <xs:annotation>
+          <xs:documentation>A container for non-interactive list items which are the children of the list.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Listbox">
+        <xs:annotation>
+          <xs:documentation>A widget that allows the user to select one or more items from a list. The items within the list are static and can contain images.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ListItem">
+        <xs:annotation>
+          <xs:documentation>A single item in a list.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Log">
+        <xs:annotation>
+          <xs:documentation>An area where new information is added, or old information disappears. Information types are chat logs, messaging, or error logs, for example. The log contains a sequence: New information is always added to the end of the log.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Main">
+        <xs:annotation>
+          <xs:documentation>Defines the main content of a document.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Marquee">
+        <xs:annotation>
+          <xs:documentation>Is used to scroll text across the page.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Menu">
+        <xs:annotation>
+          <xs:documentation>Offers a list of choices to the user.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Menubar">
+        <xs:annotation>
+          <xs:documentation>A container for menu items where each item may activate a submenu.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MenuItem">
+        <xs:annotation>
+          <xs:documentation>A child in a menu.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MenuItemCheckbox">
+        <xs:annotation>
+          <xs:documentation>A checkable menu item (tri-state).</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MenuItemRadio">
+        <xs:annotation>
+          <xs:documentation>A menu item which is part of a group of menuitemradio roles.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Navigation">
+        <xs:annotation>
+          <xs:documentation>A collection of links suitable for use when navigating the document or related documents.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Note">
+        <xs:annotation>
+          <xs:documentation>The content is parenthetic or ancillary to the main content of the resource.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Option">
+        <xs:annotation>
+          <xs:documentation>A selectable item in a list represented by a select.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Presentation">
+        <xs:annotation>
+          <xs:documentation>An element whose role is presentational does not need to be mapped to the accessibility API.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ProgressBar">
+        <xs:annotation>
+          <xs:documentation>Shows the execution progress in applications providing functions that take a long time.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Radio">
+        <xs:annotation>
+          <xs:documentation>An option in single-select list. Only one radio control in a radiogroup can be selected at the same time.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="RadioGroup">
+        <xs:annotation>
+          <xs:documentation>A group of radio controls.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Region">
+        <xs:annotation>
+          <xs:documentation>A large section on the web page.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Row">
+        <xs:annotation>
+          <xs:documentation>A row of table cells.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="RowHeader">
+        <xs:annotation>
+          <xs:documentation>A table cell containing header information for a row.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Search">
+        <xs:annotation>
+          <xs:documentation>A search section of a web document. In many cases, this is a form used to submit search requests about the site, or a more general Internet wide search service.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Secondary">
+        <xs:annotation>
+          <xs:documentation>A unique section of the document. In the case of a portal, this may include time display, weather forecast, or stock price.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SeeAlso">
+        <xs:annotation>
+          <xs:documentation>Indicates that the element contains content that is related to the main content of the page.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Separator">
+        <xs:annotation>
+          <xs:documentation>A line or bar that separates sections of content.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Slider">
+        <xs:annotation>
+          <xs:documentation>A user input where the user selects an input in a given range. This form of range expects an analogous keyboard interface.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SpinButton">
+        <xs:annotation>
+          <xs:documentation>Allows users to select a value from a list of given entries where exactly one value is displayed at runtime, and the other ones can be displayed by scrolling using the arrow up and arrow down key.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Status">
+        <xs:annotation>
+          <xs:documentation>A container for processing advisory information.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Tab">
+        <xs:annotation>
+          <xs:documentation>A header for a tab panel.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Tablist">
+        <xs:annotation>
+          <xs:documentation>A list of tabs which are references to tab panels.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Tabpanel">
+        <xs:annotation>
+          <xs:documentation>A container for the resources associated with a tab.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Textbox">
+        <xs:annotation>
+          <xs:documentation>Inputs that allow free-form text as their value.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Timer">
+        <xs:annotation>
+          <xs:documentation>A numerical counter which indicates an amount of elapsed time from a start point, or of the time remaining until a certain end point.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Toolbar">
+        <xs:annotation>
+          <xs:documentation>A collection of commonly used functions represented in compact visual form.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Tooltip">
+        <xs:annotation>
+          <xs:documentation>A popup that displays a description for an element when the user passes over or rests on that element. Supplement to the normal tooltip processing of the user agent.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Tree">
+        <xs:annotation>
+          <xs:documentation>A form of a list (tree) having groups (subtrees) inside groups (subtrees), where the sub trees can be collapsed and expanded.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TreeGrid">
+        <xs:annotation>
+          <xs:documentation>A grid whose rows are expandable and collapsable in the same manner as the ones of trees.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TreeItem">
+        <xs:annotation>
+          <xs:documentation>A tree node</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_BarColorType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CRITICAL">
+        <xs:annotation>
+          <xs:documentation>Color: yellow (#faf2b0)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NEGATIVE">
+        <xs:annotation>
+          <xs:documentation>Color: red (#ff9a90)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NEUTRAL">
+        <xs:annotation>
+          <xs:documentation>Color: blue (#b8d0e8)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="POSITIVE">
+        <xs:annotation>
+          <xs:documentation>Color: green (#b5e7a8)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_BusyIndicatorSizeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Auto">
+        <xs:annotation>
+          <xs:documentation>Type: automatic size detection</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Large">
+        <xs:annotation>
+          <xs:documentation>Type: Large size</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Medium">
+        <xs:annotation>
+          <xs:documentation>Type: Medium size</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Small">
+        <xs:annotation>
+          <xs:documentation>Type: small size</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_CalendarTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Gregorian">
+        <xs:annotation>
+          <xs:documentation>The Gregorian calendar</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Islamic">
+        <xs:annotation>
+          <xs:documentation>The Islamic calendar</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Japanese">
+        <xs:annotation>
+          <xs:documentation>The Japanese emperor calendar</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Persian">
+        <xs:annotation>
+          <xs:documentation>The Persian Jalali calendar</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_ComponentLifecycleType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Application">
+        <xs:annotation>
+          <xs:documentation>Application managed lifecycle means that the Application takes care to destroy the Components associated with the ComponentContainer.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Container">
+        <xs:annotation>
+          <xs:documentation>Container managed lifecycle means that the ComponentContainer takes care to destroy the Components associated with the ComponentContainer once the ComponentContainer is destroyed or a new Component is associated.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Legacy">
+        <xs:annotation>
+          <xs:documentation>Legacy lifecycle means that the ComponentContainer takes care to destroy the Component which is associated with the ComponentContainer once the ComponentContainer is destroyed but not when a new Component is associated.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_DesignType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Monospace">
+        <xs:annotation>
+          <xs:documentation>Mono space font</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Standard">
+        <xs:annotation>
+          <xs:documentation>Standard font</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_HorizontalAlignType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Begin">
+        <xs:annotation>
+          <xs:documentation>Locale-specific positioning at the beginning of the line</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Center">
+        <xs:annotation>
+          <xs:documentation>Centered alignment of text</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="End">
+        <xs:annotation>
+          <xs:documentation>Locale-specific positioning at the end of the line</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Left">
+        <xs:annotation>
+          <xs:documentation>Hard option for left alignment</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Right">
+        <xs:annotation>
+          <xs:documentation>Hard option for right alignment</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_IconColorType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Critical">
+        <xs:annotation>
+          <xs:documentation>Critical color</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Default">
+        <xs:annotation>
+          <xs:documentation>Default color (brand color)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Negative">
+        <xs:annotation>
+          <xs:documentation>Negative color</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Neutral">
+        <xs:annotation>
+          <xs:documentation>Neutral color.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Positive">
+        <xs:annotation>
+          <xs:documentation>Positive color</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_ImeModeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Active">
+        <xs:annotation>
+          <xs:documentation>IME is used for entering characters.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Auto">
+        <xs:annotation>
+          <xs:documentation>The value is automatically computed by the user agent.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Disabled">
+        <xs:annotation>
+          <xs:documentation>IME is disabled.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Inactive">
+        <xs:annotation>
+          <xs:documentation>IME is not used for entering characters.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_MessageTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Error">
+        <xs:annotation>
+          <xs:documentation>Message is an error</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Information">
+        <xs:annotation>
+          <xs:documentation>Message should be just an information</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="None">
+        <xs:annotation>
+          <xs:documentation>Message has no specific level</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Success">
+        <xs:annotation>
+          <xs:documentation>Message is a success message</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Warning">
+        <xs:annotation>
+          <xs:documentation>Message is a warning</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_OpenStateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CLOSED">
+        <xs:annotation>
+          <xs:documentation>Closed and currently not changing states.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="CLOSING">
+        <xs:annotation>
+          <xs:documentation>Still open, but in the process of going to the CLOSED state.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="OPEN">
+        <xs:annotation>
+          <xs:documentation>Open and currently not changing states.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="OPENING">
+        <xs:annotation>
+          <xs:documentation>Already left the CLOSED state, is not OPEN yet, but in the process of getting OPEN.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_OrientationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Horizontal">
+        <xs:annotation>
+          <xs:documentation>Arrange Horizontally</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Vertical">
+        <xs:annotation>
+          <xs:documentation>Arrange Vertically</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_PriorityType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="High">
+        <xs:annotation>
+          <xs:documentation>High priority</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Low">
+        <xs:annotation>
+          <xs:documentation>Low priority</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Medium">
+        <xs:annotation>
+          <xs:documentation>Medium priority</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="None">
+        <xs:annotation>
+          <xs:documentation>Default, none priority</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_ScrollBarActionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Drag">
+        <xs:annotation>
+          <xs:documentation>Scrolling done by dragging the scroll bar's paint thumb</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MouseWheel">
+        <xs:annotation>
+          <xs:documentation>Scrolling done by mouse wheel</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Page">
+        <xs:annotation>
+          <xs:documentation>Range scrolling caused by clicking track area or using page up or page down key.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Step">
+        <xs:annotation>
+          <xs:documentation>Single step scrolling caused by clicking an arrow button or arrow key.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_ScrollingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Auto">
+        <xs:annotation>
+          <xs:documentation>A scroll bar is shown if the content requires more space than the given space (rectangle) provides.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Hidden">
+        <xs:annotation>
+          <xs:documentation>No scroll bar is shown, and the content stays in the given rectangle.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="None">
+        <xs:annotation>
+          <xs:documentation>No scroll bar provided even if the content is larger than the available space.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Scroll">
+        <xs:annotation>
+          <xs:documentation>A scroll bar is always shown even if the space is large enough for the current content.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_TextAlignType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Begin">
+        <xs:annotation>
+          <xs:documentation>Locale-specific positioning at the beginning of the line.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Center">
+        <xs:annotation>
+          <xs:documentation>Centered text alignment.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="End">
+        <xs:annotation>
+          <xs:documentation>Locale-specific positioning at the end of the line.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Initial">
+        <xs:annotation>
+          <xs:documentation>Sets no text align, so the browser default is used.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Left">
+        <xs:annotation>
+          <xs:documentation>Hard option for left alignment.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Right">
+        <xs:annotation>
+          <xs:documentation>Hard option for right alignment.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_TextDirectionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Inherit">
+        <xs:annotation>
+          <xs:documentation>Inherits the direction from its parent control/container.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LTR">
+        <xs:annotation>
+          <xs:documentation>Specifies left-to-right text direction.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="RTL">
+        <xs:annotation>
+          <xs:documentation>Specifies right-to-left text direction.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_TitleLevelType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Auto">
+        <xs:annotation>
+          <xs:documentation>The level of the title is choosen by the control rendering the title.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="H1">
+        <xs:annotation>
+          <xs:documentation>The Title is of level 1.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="H2">
+        <xs:annotation>
+          <xs:documentation>The Title is of level 2</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="H3">
+        <xs:annotation>
+          <xs:documentation>The Title is of level 3</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="H4">
+        <xs:annotation>
+          <xs:documentation>The Title is of level 4</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="H5">
+        <xs:annotation>
+          <xs:documentation>The Title is of level 5</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="H6">
+        <xs:annotation>
+          <xs:documentation>The Title is of level 6</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_ValueStateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Error">
+        <xs:annotation>
+          <xs:documentation>State is not valid.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="None">
+        <xs:annotation>
+          <xs:documentation>State is not specified.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Success">
+        <xs:annotation>
+          <xs:documentation>State is valid.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Warning">
+        <xs:annotation>
+          <xs:documentation>State is valid but with a warning.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_VerticalAlignType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Bottom">
+        <xs:annotation>
+          <xs:documentation>Content is aligned at the bottom.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Inherit">
+        <xs:annotation>
+          <xs:documentation>Content respect the parent's vertical alignment.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Middle">
+        <xs:annotation>
+          <xs:documentation>Content is centered vertically .</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Top">
+        <xs:annotation>
+          <xs:documentation>Content is aligned at the top.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_WrappingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Hard">
+        <xs:annotation>
+          <xs:documentation>Inserts actual line breaks in the text at the wrap point.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="None">
+        <xs:annotation>
+          <xs:documentation>The standard browser behavior is considered for wrapping.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Off">
+        <xs:annotation>
+          <xs:documentation>Wrapping shall not be allowed.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Soft">
+        <xs:annotation>
+          <xs:documentation>The text is actually on the same line but displayed within several lines.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

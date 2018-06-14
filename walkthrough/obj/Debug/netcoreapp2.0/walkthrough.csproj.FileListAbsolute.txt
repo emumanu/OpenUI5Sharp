@@ -1,0 +1,11 @@
+D:\Manu\Documents\Visual Studio 2017\Projects\OpenUI5Sharp\ddd\OpenUI5Sharp\walkthrough\bin\Debug\netcoreapp2.0\walkthrough.deps.json
+D:\Manu\Documents\Visual Studio 2017\Projects\OpenUI5Sharp\ddd\OpenUI5Sharp\walkthrough\bin\Debug\netcoreapp2.0\walkthrough.runtimeconfig.json
+D:\Manu\Documents\Visual Studio 2017\Projects\OpenUI5Sharp\ddd\OpenUI5Sharp\walkthrough\bin\Debug\netcoreapp2.0\walkthrough.runtimeconfig.dev.json
+D:\Manu\Documents\Visual Studio 2017\Projects\OpenUI5Sharp\ddd\OpenUI5Sharp\walkthrough\bin\Debug\netcoreapp2.0\walkthrough.dll
+D:\Manu\Documents\Visual Studio 2017\Projects\OpenUI5Sharp\ddd\OpenUI5Sharp\walkthrough\bin\Debug\netcoreapp2.0\walkthrough.pdb
+D:\Manu\Documents\Visual Studio 2017\Projects\OpenUI5Sharp\ddd\OpenUI5Sharp\walkthrough\obj\Debug\netcoreapp2.0\walkthrough.csprojAssemblyReference.cache
+D:\Manu\Documents\Visual Studio 2017\Projects\OpenUI5Sharp\ddd\OpenUI5Sharp\walkthrough\obj\Debug\netcoreapp2.0\walkthrough.csproj.CoreCompileInputs.cache
+D:\Manu\Documents\Visual Studio 2017\Projects\OpenUI5Sharp\ddd\OpenUI5Sharp\walkthrough\obj\Debug\netcoreapp2.0\walkthrough.AssemblyInfoInputs.cache
+D:\Manu\Documents\Visual Studio 2017\Projects\OpenUI5Sharp\ddd\OpenUI5Sharp\walkthrough\obj\Debug\netcoreapp2.0\walkthrough.AssemblyInfo.cs
+D:\Manu\Documents\Visual Studio 2017\Projects\OpenUI5Sharp\ddd\OpenUI5Sharp\walkthrough\obj\Debug\netcoreapp2.0\walkthrough.dll
+D:\Manu\Documents\Visual Studio 2017\Projects\OpenUI5Sharp\ddd\OpenUI5Sharp\walkthrough\obj\Debug\netcoreapp2.0\walkthrough.pdb

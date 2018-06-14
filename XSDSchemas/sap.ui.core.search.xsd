@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:n3="sap.ui.core.search" xmlns:n0="sap.ui.core" elementFormDefault="qualified" targetNamespace="sap.ui.core.search" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="sap.ui.core" />
+  <xs:element name="OpenSearchProvider" substitutionGroup="n3:SearchProvider" type="n3:_OpenSearchProviderType">
+    <xs:annotation>
+      <xs:documentation>A SearchProvider which uses the OpenSearch protocol (either JSON or XML).</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_OpenSearchProviderType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n3:_SearchProviderType">
+        <xs:attribute name="suggestUrl" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>The URL for suggestions of the search provider. As placeholder for the concrete search queries '{searchTerms}' must be used. For cross domain requests maybe a proxy must be used.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="suggestType" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The type of data which is provided by the given suggestUrl: either 'json' or 'xml'.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SearchProvider" substitutionGroup="n0:Element" type="n3:_SearchProviderType">
+    <xs:annotation>
+      <xs:documentation>Abstract base class for all SearchProviders which can be e.g. attached to a SearchField. Do not create instances of this class, but use a concrete sub class instead.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_SearchProviderType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:attribute name="icon" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Icon of the Search Provider</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

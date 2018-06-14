@@ -1,0 +1,150 @@
+﻿using System;
+using Bridge;
+using Retyped;
+using System.Collections.Generic;
+
+namespace OpenUI5Sharp
+{
+	public static partial class sap
+	{
+		public static partial class m
+		{
+			/// <summary>
+			/// The <code>sap.m.ActionListItem</code> can be used like a <code>button</code> to fire actions when pressed. <b>Note:</b> The inherited <code>selected</code> property of the <code>sap.m.ListItemBase</code> is not supported.
+			/// </summary>
+			[External]
+			[Namespace(false)]
+			public partial class ActionListItem : sap.m.ListItemBase
+			{
+				#region Settings
+
+				/// <summary>
+				/// Settings class to create the object
+				/// </summary>
+				[External]
+				[ObjectLiteral]
+				public partial class Settings : sap.m.ListItemBase.Settings
+				{
+					/// <summary>
+					/// Defines the text that appears in the control.
+					/// </summary>
+					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> text;
+
+				}
+
+				#endregion
+
+				#region Constructor
+
+				/// <summary>
+				/// Constructor for a new ActionListItem.
+				/// 
+				/// Accepts an object literal <code>mSettings</code> that defines initial property values, aggregated and associated objects as well as event handlers. See {@link sap.ui.base.ManagedObject#constructor} for a general description of the syntax of the settings object.
+				/// </summary>
+				/// <param name="sId">Id for the new control, generated automatically if no id is given</param>
+				/// <param name="mSettings">Initial settings for the new control</param>
+				public extern ActionListItem(string sId, sap.m.ActionListItem.Settings mSettings);
+
+				/// <summary>
+				/// Constructor for a new ActionListItem.
+				/// 
+				/// Accepts an object literal <code>mSettings</code> that defines initial property values, aggregated and associated objects as well as event handlers. See {@link sap.ui.base.ManagedObject#constructor} for a general description of the syntax of the settings object.
+				/// </summary>
+				/// <param name="sId">Id for the new control, generated automatically if no id is given</param>
+				public extern ActionListItem(string sId);
+
+				/// <summary>
+				/// Constructor for a new ActionListItem.
+				/// 
+				/// Accepts an object literal <code>mSettings</code> that defines initial property values, aggregated and associated objects as well as event handlers. See {@link sap.ui.base.ManagedObject#constructor} for a general description of the syntax of the settings object.
+				/// </summary>
+				public extern ActionListItem();
+
+				/// <summary>
+				/// Constructor for a new ActionListItem.
+				/// 
+				/// Accepts an object literal <code>mSettings</code> that defines initial property values, aggregated and associated objects as well as event handlers. See {@link sap.ui.base.ManagedObject#constructor} for a general description of the syntax of the settings object.
+				/// </summary>
+				/// <param name="mSettings">Initial settings for the new control</param>
+				public extern ActionListItem(sap.m.ActionListItem.Settings mSettings);
+
+				#endregion
+
+				#region Methods
+
+				#region Methods for Property text
+
+				/// <summary>
+				/// Gets current value of property {@link #getText text}.
+				/// 
+				/// Defines the text that appears in the control.
+				/// </summary>
+				/// <returns>Value of property <code>text</code></returns>
+				public extern virtual string getText();
+
+				/// <summary>
+				/// Sets a new value for property {@link #getText text}.
+				/// 
+				/// Defines the text that appears in the control.
+				/// 
+				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
+				/// </summary>
+				/// <param name="sText">New value for property <code>text</code></param>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.ActionListItem setText(string sText);
+
+				#endregion
+
+				#region Other methods
+
+				/// <summary>
+				/// Creates a new subclass of class sap.m.ActionListItem with name <code>sClassName</code> and enriches it with the information contained in <code>oClassInfo</code>.
+				/// 
+				/// <code>oClassInfo</code> might contain the same kind of information as described in {@link sap.m.ListItemBase.extend}.
+				/// </summary>
+				/// <param name="sClassName">Name of the class being created</param>
+				/// <param name="oClassInfo">Object literal with information about the class</param>
+				/// <param name="FNMetaImpl">Constructor function for the metadata object; if not given, it defaults to <code>sap.ui.core.ElementMetadata</code></param>
+				/// <returns>Created class / constructor function</returns>
+				public extern static object extend(string sClassName, object oClassInfo, object FNMetaImpl);
+
+				/// <summary>
+				/// Creates a new subclass of class sap.m.ActionListItem with name <code>sClassName</code> and enriches it with the information contained in <code>oClassInfo</code>.
+				/// 
+				/// <code>oClassInfo</code> might contain the same kind of information as described in {@link sap.m.ListItemBase.extend}.
+				/// </summary>
+				/// <param name="sClassName">Name of the class being created</param>
+				/// <param name="oClassInfo">Object literal with information about the class</param>
+				/// <returns>Created class / constructor function</returns>
+				public extern static object extend(string sClassName, object oClassInfo);
+
+				/// <summary>
+				/// Creates a new subclass of class sap.m.ActionListItem with name <code>sClassName</code> and enriches it with the information contained in <code>oClassInfo</code>.
+				/// 
+				/// <code>oClassInfo</code> might contain the same kind of information as described in {@link sap.m.ListItemBase.extend}.
+				/// </summary>
+				/// <param name="sClassName">Name of the class being created</param>
+				/// <returns>Created class / constructor function</returns>
+				public extern static object extend(string sClassName);
+
+				/// <summary>
+				/// Returns a metadata object for class sap.m.ActionListItem.
+				/// </summary>
+				/// <returns>Metadata object describing this class</returns>
+				public extern static sap.ui.@base.Metadata getMetadata();
+
+				/// <summary>
+				/// Determines item specific mode
+				/// 
+				/// ActionListItems are not selectable because they are command controls (like Button or Link) so triggering the associated command, rather than selection is appropriate to happen upon user action on these items. By overwriting isSelectable (inherited from ListItemBase) we exclude the item from processing specific to selectable list-items.
+				/// </summary>
+				public extern virtual void getMode();
+
+				#endregion
+
+				#endregion
+
+			}
+		}
+	}
+}

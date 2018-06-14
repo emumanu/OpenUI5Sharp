@@ -1,0 +1,1380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:n7="sap.m.semantic" xmlns:n6="sap.m" xmlns:n0="sap.ui.core" elementFormDefault="qualified" targetNamespace="sap.m.semantic" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="sap.m" />
+  <xs:import namespace="sap.ui.core" />
+  <xs:element name="AddAction" substitutionGroup="n7:SemanticButton" type="n7:_AddActionType">
+    <xs:annotation>
+      <xs:documentation>An AddAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.
+
+See {@link sap.m.semantic.MasterPage#addAction}, {@link sap.m.semantic.FullscreenPage#addAction}, {@link sap.m.semantic.DetailPage#addAction}</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_AddActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CancelAction" substitutionGroup="n7:SemanticButton" type="n7:_CancelActionType">
+    <xs:annotation>
+      <xs:documentation>A CancelAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_CancelActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteAction" substitutionGroup="n7:SemanticButton" type="n7:_DeleteActionType">
+    <xs:annotation>
+      <xs:documentation>A DeleteAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_DeleteActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DetailPage" substitutionGroup="n7:ShareMenuPage" type="n7:_DetailPageType">
+    <xs:annotation>
+      <xs:documentation>A DetailPage is a {@link sap.m.semantic.ShareMenuPage} that supports semantic content of the following types:
+
+&lt;ul&gt; &lt;li&gt;{@link sap.m.semantic.AddAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.MainAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.PositiveAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.NegativeAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.ForwardAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.EditAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.SaveAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.DeleteAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.CancelAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.FlagAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.FavoriteAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.OpenInAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.DiscussInJamAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.ShareInJamAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.SendEmailAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.SendMessageAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.PrintAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.MessagesIndicator}&lt;/li&gt; &lt;li&gt;{@link sap.m.DraftIndicator}&lt;/li&gt; &lt;/ul&gt;</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_DetailPageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_ShareMenuPageType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="addAction">
+            <xs:annotation>
+              <xs:documentation>Add action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:AddAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="mainAction">
+            <xs:annotation>
+              <xs:documentation>Main action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:MainAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="positiveAction">
+            <xs:annotation>
+              <xs:documentation>Positive action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:PositiveAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="negativeAction">
+            <xs:annotation>
+              <xs:documentation>Negative action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:NegativeAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="forwardAction">
+            <xs:annotation>
+              <xs:documentation>Negative action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:ForwardAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="editAction">
+            <xs:annotation>
+              <xs:documentation>Edit action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:EditAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="saveAction">
+            <xs:annotation>
+              <xs:documentation>Save action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:SaveAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="deleteAction">
+            <xs:annotation>
+              <xs:documentation>Delete action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:DeleteAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="cancelAction">
+            <xs:annotation>
+              <xs:documentation>Cancel action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:CancelAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="flagAction">
+            <xs:annotation>
+              <xs:documentation>Flag action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:FlagAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="favoriteAction">
+            <xs:annotation>
+              <xs:documentation>Favorite action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:FavoriteAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="openInAction">
+            <xs:annotation>
+              <xs:documentation>OpenIn action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:OpenInAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="discussInJamAction">
+            <xs:annotation>
+              <xs:documentation>DiscussInJam action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:DiscussInJamAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="shareInJamAction">
+            <xs:annotation>
+              <xs:documentation>ShareInJam action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:ShareInJamAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="sendEmailAction">
+            <xs:annotation>
+              <xs:documentation>SendEmail action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:SendEmailAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="sendMessageAction">
+            <xs:annotation>
+              <xs:documentation>SendMessage action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:SendMessageAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="printAction">
+            <xs:annotation>
+              <xs:documentation>Print action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:PrintAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="messagesIndicator">
+            <xs:annotation>
+              <xs:documentation>MessagesIndicator</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:MessagesIndicator" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="saveAsTileAction">
+            <xs:annotation>
+              <xs:documentation>SaveAsTile button</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n6:Button" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="pagingAction">
+            <xs:annotation>
+              <xs:documentation>Paging action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n6:PagingButton" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="draftIndicator">
+            <xs:annotation>
+              <xs:documentation>DraftIndicator</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n6:DraftIndicator" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DiscussInJamAction" substitutionGroup="n7:SemanticButton" type="n7:_DiscussInJamActionType">
+    <xs:annotation>
+      <xs:documentation>A DiscussInJamAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_DiscussInJamActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EditAction" substitutionGroup="n7:SemanticButton" type="n7:_EditActionType">
+    <xs:annotation>
+      <xs:documentation>An EditAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_EditActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FavoriteAction" substitutionGroup="n7:SemanticToggleButton" type="n7:_FavoriteActionType">
+    <xs:annotation>
+      <xs:documentation>A FavoriteAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FavoriteActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticToggleButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FilterAction" substitutionGroup="n7:SemanticButton" type="n7:_FilterActionType">
+    <xs:annotation>
+      <xs:documentation>A FilterAction is a {@link sap.m.Button} control enhanced with styling according to the semantics of a common "Filter" action.
+
+A FilterAction cannot be used independently but only as aggregation content of a {@link sap.m.semantic.SemanticPage}.
+
+Your app should listen to the &lt;code&gt;press&lt;/code&gt; event of {@link sap.m.semantic.FilterAction} in order to trigger the display of the filtering options.
+
+If your filtering options are a simple list of items and require single choice only, then you can consider using a {@link sap.m.semantic.FilterSelect} instead.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FilterActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FilterSelect" substitutionGroup="n7:SemanticSelect" type="n7:_FilterSelectType">
+    <xs:annotation>
+      <xs:documentation>A FilterSelect is a {@link sap.m.Select} control enhanced with styling according to the semantics of a common "Filter" acton.
+
+A FilterSelect cannot be used independently but only as aggregation content of a {@link sap.m.semantic.SemanticPage}.
+
+The filtering options should be added to the &lt;code&gt;items&lt;/code&gt; aggregation of {@link sap.m.semantic.FilterSelect} and will be displayed as a pop-up list with support for single-item selection. If this simple popup list is not sufficient for your use case, you can implement your own custom dialog by using {@link sap.m.semantic.FilterAction} to trigger the dialog opening.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FilterSelectType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticSelectType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FlagAction" substitutionGroup="n7:SemanticToggleButton" type="n7:_FlagActionType">
+    <xs:annotation>
+      <xs:documentation>A FlagAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FlagActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticToggleButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ForwardAction" substitutionGroup="n7:SemanticButton" type="n7:_ForwardActionType">
+    <xs:annotation>
+      <xs:documentation>A ForwardAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ForwardActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FullscreenPage" substitutionGroup="n7:ShareMenuPage" type="n7:_FullscreenPageType">
+    <xs:annotation>
+      <xs:documentation>A FullscreenPage is a {@link sap.m.semantic.ShareMenuPage} that supports semantic content of the following types:
+
+&lt;ul&gt; &lt;li&gt;{@link sap.m.semantic.AddAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.MainAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.PositiveAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.NegativeAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.ForwardAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.EditAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.SaveAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.DeleteAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.CancelAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.FlagAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.FavoriteAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.OpenInAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.DiscussInJamAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.ShareInJamAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.SendEmailAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.SendMessageAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.PrintAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.MessagesIndicator}&lt;/li&gt; &lt;li&gt;{@link sap.m.DraftIndicator}&lt;/li&gt; &lt;/ul&gt;</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FullscreenPageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_ShareMenuPageType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="addAction">
+            <xs:annotation>
+              <xs:documentation>Add action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:AddAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="mainAction">
+            <xs:annotation>
+              <xs:documentation>Main action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:MainAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="positiveAction">
+            <xs:annotation>
+              <xs:documentation>Positive action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:PositiveAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="negativeAction">
+            <xs:annotation>
+              <xs:documentation>Negative action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:NegativeAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="forwardAction">
+            <xs:annotation>
+              <xs:documentation>Negative action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:ForwardAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="editAction">
+            <xs:annotation>
+              <xs:documentation>Edit action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:EditAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="saveAction">
+            <xs:annotation>
+              <xs:documentation>Save action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:SaveAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="deleteAction">
+            <xs:annotation>
+              <xs:documentation>Delete action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:DeleteAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="cancelAction">
+            <xs:annotation>
+              <xs:documentation>Cancel action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:CancelAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="flagAction">
+            <xs:annotation>
+              <xs:documentation>Flag action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:FlagAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="favoriteAction">
+            <xs:annotation>
+              <xs:documentation>Favorite action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:FavoriteAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="openInAction">
+            <xs:annotation>
+              <xs:documentation>OpenIn action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:OpenInAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="discussInJamAction">
+            <xs:annotation>
+              <xs:documentation>DiscussInJam action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:DiscussInJamAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="shareInJamAction">
+            <xs:annotation>
+              <xs:documentation>ShareInJam action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:ShareInJamAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="sendEmailAction">
+            <xs:annotation>
+              <xs:documentation>SendEmail action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:SendEmailAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="sendMessageAction">
+            <xs:annotation>
+              <xs:documentation>SendMessage action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:SendMessageAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="printAction">
+            <xs:annotation>
+              <xs:documentation>Print action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:PrintAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="messagesIndicator">
+            <xs:annotation>
+              <xs:documentation>MessagesIndicator</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:MessagesIndicator" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="saveAsTileAction">
+            <xs:annotation>
+              <xs:documentation>SaveAsTile button</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n6:Button" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="pagingAction">
+            <xs:annotation>
+              <xs:documentation>Paging action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n6:PagingButton" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="draftIndicator">
+            <xs:annotation>
+              <xs:documentation>DraftIndicator</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n6:DraftIndicator" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GroupAction" substitutionGroup="n7:SemanticButton" type="n7:_GroupActionType">
+    <xs:annotation>
+      <xs:documentation>A GroupAction is a {@link sap.m.Button} control enhanced with styling according to the semantics of a common "Group" action.
+
+A GroupAction cannot be used independently but only as aggregation content of a {@link sap.m.semantic.SemanticPage}.
+
+Your app should listen to the &lt;code&gt;press&lt;/code&gt; event of {@link sap.m.semantic.GroupAction} in order to trigger the display of the grouping options.
+
+If your grouping options are a simple list of items and require single choice only, then you can consider using a {@link sap.m.semantic.GroupSelect} instead.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_GroupActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GroupSelect" substitutionGroup="n7:SemanticSelect" type="n7:_GroupSelectType">
+    <xs:annotation>
+      <xs:documentation>A GroupSelect is a {@link sap.m.Select} control enhanced with styling according to the semantics of a common "Group" acton.
+
+A GroupSelect cannot be used independently but only as aggregation content of a {@link sap.m.semantic.SemanticPage}.
+
+The grouping options should be added to the &lt;code&gt;items&lt;/code&gt; aggregation of {@link sap.m.semantic.GroupSelect} and will be displayed as a pop-up list with support for single-item selection. If this simple popup list is not sufficient for your use case, you can implement your own custom dialog by using {@link sap.m.semantic.GroupAction} to trigger the dialog opening.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_GroupSelectType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticSelectType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MainAction" substitutionGroup="n7:SemanticButton" type="n7:_MainActionType">
+    <xs:annotation>
+      <xs:documentation>A MainAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_MainActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticButtonType">
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Button text</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MasterPage" substitutionGroup="n7:SemanticPage" type="n7:_MasterPageType">
+    <xs:annotation>
+      <xs:documentation>A MasterPage is a {@link sap.m.semantic.SemanticPage} that supports semantic content of the following types:
+
+&lt;ul&gt; &lt;li&gt;{@link sap.m.semantic.AddAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.MainAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.PositiveAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.NegativeAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.ForwardAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.EditAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.SaveAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.DeleteAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.CancelAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.MultiSelectAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.FlagAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.FavoriteAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.SortAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.SortSelect}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.FilterAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.FilterSelect}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.GroupAction}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.GroupSelect}&lt;/li&gt; &lt;li&gt;{@link sap.m.semantic.MessagesIndicator}&lt;/li&gt; &lt;/ul&gt;</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_MasterPageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticPageType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="addAction">
+            <xs:annotation>
+              <xs:documentation>Add action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:AddAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="mainAction">
+            <xs:annotation>
+              <xs:documentation>Main action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:MainAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="positiveAction">
+            <xs:annotation>
+              <xs:documentation>Positive action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:PositiveAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="negativeAction">
+            <xs:annotation>
+              <xs:documentation>Negative action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:NegativeAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="multiSelectAction">
+            <xs:annotation>
+              <xs:documentation>MultiSelect action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:MultiSelectAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="forwardAction">
+            <xs:annotation>
+              <xs:documentation>Forward action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:ForwardAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="editAction">
+            <xs:annotation>
+              <xs:documentation>Edit action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:EditAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="saveAction">
+            <xs:annotation>
+              <xs:documentation>Save action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:SaveAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="deleteAction">
+            <xs:annotation>
+              <xs:documentation>Delete action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:DeleteAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="cancelAction">
+            <xs:annotation>
+              <xs:documentation>Cancel action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:CancelAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="sort">
+            <xs:annotation>
+              <xs:documentation>Sort action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="filter">
+            <xs:annotation>
+              <xs:documentation>Filter action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="group">
+            <xs:annotation>
+              <xs:documentation>Group action</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="messagesIndicator">
+            <xs:annotation>
+              <xs:documentation>MessagesIndicator</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n7:MessagesIndicator" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MessagesIndicator" substitutionGroup="n7:SemanticButton" type="n7:_MessagesIndicatorType">
+    <xs:annotation>
+      <xs:documentation>A MessagesIndicator button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_MessagesIndicatorType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MultiSelectAction" substitutionGroup="n7:SemanticToggleButton" type="n7:_MultiSelectActionType">
+    <xs:annotation>
+      <xs:documentation>A MultiSelectAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_MultiSelectActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticToggleButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="NegativeAction" substitutionGroup="n7:SemanticButton" type="n7:_NegativeActionType">
+    <xs:annotation>
+      <xs:documentation>A NegativeAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_NegativeActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticButtonType">
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Button text</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OpenInAction" substitutionGroup="n7:SemanticButton" type="n7:_OpenInActionType">
+    <xs:annotation>
+      <xs:documentation>An OpenInAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_OpenInActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PositiveAction" substitutionGroup="n7:SemanticButton" type="n7:_PositiveActionType">
+    <xs:annotation>
+      <xs:documentation>A PositiveAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_PositiveActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticButtonType">
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Button text</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PrintAction" substitutionGroup="n7:SemanticButton" type="n7:_PrintActionType">
+    <xs:annotation>
+      <xs:documentation>A PrintAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_PrintActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SaveAction" substitutionGroup="n7:SemanticButton" type="n7:_SaveActionType">
+    <xs:annotation>
+      <xs:documentation>A SaveAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_SaveActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SemanticButton" substitutionGroup="n7:SemanticControl" type="n7:_SemanticButtonType">
+    <xs:annotation>
+      <xs:documentation>A semantic button is either a {@link sap.m.Button} or {@link sap.m.semantic.SemanticOverflowToolbarButton} , eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_SemanticButtonType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticControlType">
+        <xs:attribute name="enabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>See {@link sap.m.Button#enabled}</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="press" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>See {@link sap.m.Button#press}</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SemanticControl" substitutionGroup="n0:Element" type="n7:_SemanticControlType">
+    <xs:annotation>
+      <xs:documentation>A semantic control is an abstraction for either a {@link sap.m.semantic.SemanticButton} or {@link sap.m.semantic.SemanticSelect} , eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_SemanticControlType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:attribute name="visible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>See {@link sap.ui.core.Control#visible}</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SemanticPage" substitutionGroup="n0:Control" type="n7:_SemanticPageType">
+    <xs:annotation>
+      <xs:documentation>An enhanced {@link sap.m.Page}, that can contain controls with semantic meaning, see {@link sap.m.semantic.SemanticControl}.
+
+&lt;b&gt;Note:&lt;/b&gt; This control implements the SAP Fiori 1.0 design guidelines. For SAP Fiori 2.0, see the {@link sap.f.semantic.SemanticPage}.
+
+&lt;h3&gt;Overview&lt;/h3&gt;
+
+The main functionality of the &lt;code&gt;SemanticPage&lt;/code&gt; is to predefine the placement, behavior and styles of the page elements.
+
+Content specified in the semantic aggregations will be automatically positioned in dedicated sections of the footer or the header of the page.
+
+&lt;h3&gt;Structure&lt;/h3&gt;
+
+The semantics of the content are the following: &lt;ul&gt; &lt;li&gt;Visual properties (for example, &lt;code&gt;AddAction&lt;/code&gt; will be styled as an icon button)&lt;/li&gt; &lt;li&gt;Position in the page (UX guidelines specify that some buttons should be in the header only, while others are in the footer or the "share" menu, so we do the correct positioning)&lt;/li&gt; &lt;li&gt;Sequence order (UX guidelines define a specific sequence order of semantic controls with respect to each other)&lt;/li&gt; &lt;li&gt;Default localized tooltip for icon-only buttons&lt;/li&gt; &lt;li&gt;Overflow behavior (UX guidelines define which buttons are allowed to go to the overflow of the toolbar when the screen gets narrower). For icon buttons, we ensure that the text label of the button appears when the button is in overflow, as specified by UX.&lt;/li&gt; &lt;li&gt;Screen reader support (invisible text for reading the semantic type)&lt;/li&gt; &lt;/ul&gt;
+
+In addition to the predefined semantic controls, the &lt;code&gt;SemanticPage&lt;/code&gt; can host also custom app controls. It preserves most of the API of the {@link sap.m.Page} for specifying page content.
+
+&lt;h3&gt;Usage&lt;/h3&gt;
+
+The app developer only has to specify the action type, and the required styling and positioning are automatically added.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_SemanticPageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="subHeader">
+            <xs:annotation>
+              <xs:documentation>See {@link sap.m.Page#subHeader}</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>See {@link sap.m.Page#content}</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="customHeaderContent">
+            <xs:annotation>
+              <xs:documentation>Custom header buttons</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n6:Button" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="customFooterContent">
+            <xs:annotation>
+              <xs:documentation>Custom footer buttons</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n6:Button" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="landmarkInfo">
+            <xs:annotation>
+              <xs:documentation>Accessible landmark settings to be applied to the containers of the &lt;code&gt;sap.m.Page&lt;/code&gt; control.
+
+If not set, no landmarks will be written.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n6:PageAccessibleLandmarkInfo" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="title" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>See {@link sap.m.Page#title}</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="titleLevel" type="n0:_TitleLevelType">
+          <xs:annotation>
+            <xs:documentation>See {@link sap.m.Page#titleLevel}</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showNavButton" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>See {@link sap.m.Page#showNavButton}</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showSubHeader" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>See {@link sap.m.Page#showSubHeader}</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enableScrolling" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>See {@link sap.m.Page#enableScrolling}</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showFooter" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Hides or shows the page footer</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="floatingFooter" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the floating footer behavior is enabled. If set to &lt;code&gt;true&lt;/code&gt;, the content is visible when it's underneath the footer.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="semanticRuleSet" type="n7:_SemanticRuleSetTypeType">
+          <xs:annotation>
+            <xs:documentation>Declares the type of semantic ruleset that will govern the styling and positioning of semantic content.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="backgroundDesign" type="n6:_PageBackgroundDesignType">
+          <xs:annotation>
+            <xs:documentation>Determines the backgound color of the page. For more information, see {@link sap.m.Page#backgroundDesign}.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="content" type="xs:string" />
+        <xs:attribute name="customHeaderContent" type="xs:string" />
+        <xs:attribute name="customFooterContent" type="xs:string" />
+        <xs:attribute name="navButtonPress" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>See {@link sap.m.Page#navButtonPress}</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SemanticSelect" substitutionGroup="n7:SemanticControl" type="n7:_SemanticSelectType">
+    <xs:annotation>
+      <xs:documentation>A semantic select is a {@link sap.m.Select} eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_SemanticSelectType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Item" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="items">
+            <xs:annotation>
+              <xs:documentation>See {@link sap.m.Select#getItems}</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Item" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="enabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>See {@link sap.m.Select#getEnabled}</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="selectedKey" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>See {@link sap.m.Select#getSelectedKey}</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="items" type="xs:string" />
+        <xs:attribute name="selectedItem" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>See {@link sap.m.Select#getSelectedItem}</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="change" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>See {@link sap.m.Select#event:change}</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SemanticToggleButton" substitutionGroup="n7:SemanticButton" type="n7:_SemanticToggleButtonType">
+    <xs:annotation>
+      <xs:documentation>A SemanticToggleButton is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_SemanticToggleButtonType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticButtonType">
+        <xs:attribute name="pressed" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>The property is “true” when the control is toggled. The default state of this property is "false".</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SendEmailAction" substitutionGroup="n7:SemanticButton" type="n7:_SendEmailActionType">
+    <xs:annotation>
+      <xs:documentation>A SendEmailAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_SendEmailActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SendMessageAction" substitutionGroup="n7:SemanticButton" type="n7:_SendMessageActionType">
+    <xs:annotation>
+      <xs:documentation>A SendMessageAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_SendMessageActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ShareInJamAction" substitutionGroup="n7:SemanticButton" type="n7:_ShareInJamActionType">
+    <xs:annotation>
+      <xs:documentation>A ShareInJamAction button has default semantic-specific properties and is eligible for aggregation content of a {@link sap.m.semantic.SemanticPage}.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ShareInJamActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ShareMenuPage" substitutionGroup="n7:SemanticPage" type="n7:_ShareMenuPageType">
+    <xs:annotation>
+      <xs:documentation>A ShareMenuPage is a {@link sap.m.semantic.SemanticPage} with support for "share" menu in the footer.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ShareMenuPageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticPageType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="customShareMenuContent">
+            <xs:annotation>
+              <xs:documentation>Custom share menu buttons</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n6:Button" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="customShareMenuContent" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SortAction" substitutionGroup="n7:SemanticButton" type="n7:_SortActionType">
+    <xs:annotation>
+      <xs:documentation>A SortAction is a {@link sap.m.Button} control enhanced with styling according to the semantics of a common "Sort" action.
+
+A SortAction cannot be used independently but only as aggregation content of a {@link sap.m.semantic.SemanticPage}.
+
+Your app should listen to the &lt;code&gt;press&lt;/code&gt; event of {@link sap.m.semantic.SortAction} in order to trigger the display of the sorting options.
+
+If your sorting options are a simple list of items and require single choice only, then you can consider using a {@link sap.m.semantic.SortSelect} instead.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_SortActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SortSelect" substitutionGroup="n7:SemanticSelect" type="n7:_SortSelectType">
+    <xs:annotation>
+      <xs:documentation>A SortSelect is a {@link sap.m.Select} control enhanced with styling according to the semantics of a common "Sort" acton.
+
+A SortSelect cannot be used independently but only as aggregation content of a {@link sap.m.semantic.SemanticPage}.
+
+The sorting options should be added to the &lt;code&gt;items&lt;/code&gt; aggregation of {@link sap.m.semantic.SortSelect} and will be displayed as a pop-up list with support for single-item selection. If this simple popup list is not sufficient for your use case, you can implement your own custom dialog by using {@link sap.m.semantic.SortAction} to trigger the dialog opening.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_SortSelectType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n7:_SemanticSelectType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="_SemanticRuleSetTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Classic">
+        <xs:annotation>
+          <xs:documentation>The default ruleset type, for which the Share Menu is always in the footer of the page.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Optimized">
+        <xs:annotation>
+          <xs:documentation>Offers an optimized user experience, with displaying the Share Menu in the header, rather than the footer, for Fullscreen mode.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,747 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2263F8A4-7C55-47FB-B6D3-7E293B3D3EB7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OpenUI5Sharp</RootNamespace>
+    <AssemblyName>OpenUI5Sharp</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <LangVersion>7</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>true</NoStdLib>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bridge, Version=17.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bridge.Core.17.1.1\lib\net40\Bridge.dll</HintPath>
+    </Reference>
+    <Reference Include="Retyped.Core, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Retyped.Core.1.6.6733\lib\net40\Retyped.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Retyped.dom, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Retyped.dom.2.8.6733\lib\net40\Retyped.dom.dll</HintPath>
+    </Reference>
+    <Reference Include="Retyped.es2015.collection, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Retyped.es2015.collection.2.8.6733\lib\net40\Retyped.es2015.collection.dll</HintPath>
+    </Reference>
+    <Reference Include="Retyped.es2015.core, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Retyped.es2015.core.2.8.6733\lib\net40\Retyped.es2015.core.dll</HintPath>
+    </Reference>
+    <Reference Include="Retyped.es2015.iterable, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Retyped.es2015.iterable.2.8.6733\lib\net40\Retyped.es2015.iterable.dll</HintPath>
+    </Reference>
+    <Reference Include="Retyped.es2015.symbol, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Retyped.es2015.symbol.2.8.6733\lib\net40\Retyped.es2015.symbol.dll</HintPath>
+    </Reference>
+    <Reference Include="Retyped.es5, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Retyped.es5.2.8.6733\lib\net40\Retyped.es5.dll</HintPath>
+    </Reference>
+    <Reference Include="Retyped.jquery, Version=3.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Retyped.jquery.3.3.6733\lib\net40\Retyped.jquery.dll</HintPath>
+    </Reference>
+    <Reference Include="Retyped.qunit, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Retyped.qunit.2.5.6733\lib\net40\Retyped.qunit.dll</HintPath>
+    </Reference>
+    <Reference Include="Retyped.sinon, Version=4.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Retyped.sinon.4.3.6733\lib\net40\Retyped.sinon.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Additions\Extensions\ExpressionEvaluator.cs" />
+    <Compile Include="Additions\Extensions\metadataExtensions.cs" />
+    <Compile Include="Additions\Extensions\sapuibaseExtensions.cs" />
+    <Compile Include="Additions\Extensions\sapuimodelExtensions.cs" />
+    <Compile Include="Additions\ExternalsUI5.cs" />
+    <Compile Include="Additions\map.cs" />
+    <Compile Include="Additions\Metadata\metadata.cs" />
+    <Compile Include="Additions\jquerysaputilAdditions.cs" />
+    <Compile Include="Additions\sapuimodelAdditions.cs" />
+    <Compile Include="Additions\sapuicoreroutingAdditions.cs" />
+    <Compile Include="Additions\sapuitestOpaOpa5.cs" />
+    <Compile Include="Additions\sapuibaseAdditions.cs" />
+    <Compile Include="Additions\sapuicoremvcAdditions.cs" />
+    <Compile Include="Additions\sapuicoreAdditions.cs" />
+    <Compile Include="Additions\sapuicoretestOpaConfig.cs" />
+    <Compile Include="Additions\Tests\BaseIntegrationStep.cs" />
+    <Compile Include="Additions\Tests\BaseUnitTest.cs" />
+    <Compile Include="Additions\Tests\Globals.cs" />
+    <Compile Include="Additions\Globals.cs" />
+    <Compile Include="CornerCases\sapuicoreDock.cs" />
+    <Compile Include="CornerCases\sapuicorePopupDock.cs" />
+    <Compile Include="Additions\Glue.cs" />
+    <Compile Include="jQuery.cs" />
+    <Compile Include="jQuery\device.cs" />
+    <Compile Include="jQuery\device\is.cs" />
+    <Compile Include="jQuery\Event.cs" />
+    <Compile Include="jQuery\os.cs" />
+    <Compile Include="jQuery\sap.cs" />
+    <Compile Include="jQuery\sap\act.cs" />
+    <Compile Include="jQuery\sap\ControlEvents.cs" />
+    <Compile Include="jQuery\sap\history.cs" />
+    <Compile Include="jQuery\sap\interaction.cs" />
+    <Compile Include="jQuery\sap\log.cs" />
+    <Compile Include="jQuery\sap\log\Logger.cs" />
+    <Compile Include="jQuery\sap\measure.cs" />
+    <Compile Include="jQuery\sap\PseudoEvents.cs" />
+    <Compile Include="jQuery\sap\storage.cs" />
+    <Compile Include="jQuery\sap\util\Properties.cs" />
+    <Compile Include="jQuery\sap\util\ResourceBundle.cs" />
+    <Compile Include="jQuery\sap\util\UriParameters.cs" />
+    <Compile Include="jQuery\sap\Version.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sap.cs" />
+    <Compile Include="sap\m.cs" />
+    <Compile Include="sap\m\ActionListItem.cs" />
+    <Compile Include="sap\m\ActionSelect.cs" />
+    <Compile Include="sap\m\ActionSheet.cs" />
+    <Compile Include="sap\m\App.cs" />
+    <Compile Include="sap\m\BackgroundHelper.cs" />
+    <Compile Include="sap\m\Bar.cs" />
+    <Compile Include="sap\m\Breadcrumbs.cs" />
+    <Compile Include="sap\m\BusyDialog.cs" />
+    <Compile Include="sap\m\BusyIndicator.cs" />
+    <Compile Include="sap\m\Button.cs" />
+    <Compile Include="sap\m\Carousel.cs" />
+    <Compile Include="sap\m\CheckBox.cs" />
+    <Compile Include="sap\m\ColorPalette.cs" />
+    <Compile Include="sap\m\ColorPalettePopover.cs" />
+    <Compile Include="sap\m\Column.cs" />
+    <Compile Include="sap\m\ColumnListItem.cs" />
+    <Compile Include="sap\m\ComboBox.cs" />
+    <Compile Include="sap\m\ComboBoxBase.cs" />
+    <Compile Include="sap\m\ComboBoxTextField.cs" />
+    <Compile Include="sap\m\CustomListItem.cs" />
+    <Compile Include="sap\m\CustomTile.cs" />
+    <Compile Include="sap\m\CustomTreeItem.cs" />
+    <Compile Include="sap\m\DatePicker.cs" />
+    <Compile Include="sap\m\DateRangeSelection.cs" />
+    <Compile Include="sap\m\DateTimeField.cs" />
+    <Compile Include="sap\m\DateTimeInput.cs" />
+    <Compile Include="sap\m\DateTimePicker.cs" />
+    <Compile Include="sap\m\Dialog.cs" />
+    <Compile Include="sap\m\DisplayListItem.cs" />
+    <Compile Include="sap\m\DraftIndicator.cs" />
+    <Compile Include="sap\m\FacetFilter.cs" />
+    <Compile Include="sap\m\FacetFilterItem.cs" />
+    <Compile Include="sap\m\FacetFilterList.cs" />
+    <Compile Include="sap\m\FeedContent.cs" />
+    <Compile Include="sap\m\FeedInput.cs" />
+    <Compile Include="sap\m\FeedListItem.cs" />
+    <Compile Include="sap\m\FeedListItemAction.cs" />
+    <Compile Include="sap\m\FlexBox.cs" />
+    <Compile Include="sap\m\FlexItemData.cs" />
+    <Compile Include="sap\m\FormattedText.cs" />
+    <Compile Include="sap\m\GenericTile.cs" />
+    <Compile Include="sap\m\GroupHeaderListItem.cs" />
+    <Compile Include="sap\m\GrowingEnablement.cs" />
+    <Compile Include="sap\m\GrowingList.cs" />
+    <Compile Include="sap\m\HBox.cs" />
+    <Compile Include="sap\m\HeaderContainer.cs" />
+    <Compile Include="sap\m\IBarInPageEnabler.cs" />
+    <Compile Include="sap\m\IconTabBar.cs" />
+    <Compile Include="sap\m\IconTabFilter.cs" />
+    <Compile Include="sap\m\IconTabHeader.cs" />
+    <Compile Include="sap\m\IconTabSeparator.cs" />
+    <Compile Include="sap\m\Image.cs" />
+    <Compile Include="sap\m\ImageContent.cs" />
+    <Compile Include="sap\m\ImageHelper.cs" />
+    <Compile Include="sap\m\Input.cs" />
+    <Compile Include="sap\m\InputBase.cs" />
+    <Compile Include="sap\m\InputListItem.cs" />
+    <Compile Include="sap\m\InputODataSuggestProvider.cs" />
+    <Compile Include="sap\m\Label.cs" />
+    <Compile Include="sap\m\LightBox.cs" />
+    <Compile Include="sap\m\LightBoxItem.cs" />
+    <Compile Include="sap\m\Link.cs" />
+    <Compile Include="sap\m\List.cs" />
+    <Compile Include="sap\m\ListBase.cs" />
+    <Compile Include="sap\m\ListItemBase.cs" />
+    <Compile Include="sap\m\MaskInput.cs" />
+    <Compile Include="sap\m\MaskInputRule.cs" />
+    <Compile Include="sap\m\Menu.cs" />
+    <Compile Include="sap\m\MenuButton.cs" />
+    <Compile Include="sap\m\MenuItem.cs" />
+    <Compile Include="sap\m\MessageBox.cs" />
+    <Compile Include="sap\m\MessageItem.cs" />
+    <Compile Include="sap\m\MessagePage.cs" />
+    <Compile Include="sap\m\MessagePopover.cs" />
+    <Compile Include="sap\m\MessagePopoverItem.cs" />
+    <Compile Include="sap\m\MessageStrip.cs" />
+    <Compile Include="sap\m\MessageToast.cs" />
+    <Compile Include="sap\m\MessageView.cs" />
+    <Compile Include="sap\m\MultiComboBox.cs" />
+    <Compile Include="sap\m\MultiInput.cs" />
+    <Compile Include="sap\m\NavContainer.cs" />
+    <Compile Include="sap\m\NewsContent.cs" />
+    <Compile Include="sap\m\NotificationListBase.cs" />
+    <Compile Include="sap\m\NotificationListGroup.cs" />
+    <Compile Include="sap\m\NotificationListItem.cs" />
+    <Compile Include="sap\m\NumericContent.cs" />
+    <Compile Include="sap\m\ObjectAttribute.cs" />
+    <Compile Include="sap\m\ObjectHeader.cs" />
+    <Compile Include="sap\m\ObjectIdentifier.cs" />
+    <Compile Include="sap\m\ObjectListItem.cs" />
+    <Compile Include="sap\m\ObjectMarker.cs" />
+    <Compile Include="sap\m\ObjectNumber.cs" />
+    <Compile Include="sap\m\ObjectStatus.cs" />
+    <Compile Include="sap\m\OverflowToolbar.cs" />
+    <Compile Include="sap\m\OverflowToolbarButton.cs" />
+    <Compile Include="sap\m\OverflowToolbarLayoutData.cs" />
+    <Compile Include="sap\m\OverflowToolbarToggleButton.cs" />
+    <Compile Include="sap\m\P13nColumnsItem.cs" />
+    <Compile Include="sap\m\P13nColumnsPanel.cs" />
+    <Compile Include="sap\m\P13nConditionPanel.cs" />
+    <Compile Include="sap\m\P13nDialog.cs" />
+    <Compile Include="sap\m\P13nDimMeasureItem.cs" />
+    <Compile Include="sap\m\P13nDimMeasurePanel.cs" />
+    <Compile Include="sap\m\P13nFilterItem.cs" />
+    <Compile Include="sap\m\P13nFilterPanel.cs" />
+    <Compile Include="sap\m\P13nGroupItem.cs" />
+    <Compile Include="sap\m\P13nGroupPanel.cs" />
+    <Compile Include="sap\m\P13nItem.cs" />
+    <Compile Include="sap\m\P13nPanel.cs" />
+    <Compile Include="sap\m\P13nSortItem.cs" />
+    <Compile Include="sap\m\P13nSortPanel.cs" />
+    <Compile Include="sap\m\Page.cs" />
+    <Compile Include="sap\m\PageAccessibleLandmarkInfo.cs" />
+    <Compile Include="sap\m\PagingButton.cs" />
+    <Compile Include="sap\m\Panel.cs" />
+    <Compile Include="sap\m\PDFViewer.cs" />
+    <Compile Include="sap\m\PlanningCalendar.cs" />
+    <Compile Include="sap\m\PlanningCalendarLegend.cs" />
+    <Compile Include="sap\m\PlanningCalendarRow.cs" />
+    <Compile Include="sap\m\PlanningCalendarView.cs" />
+    <Compile Include="sap\m\Popover.cs" />
+    <Compile Include="sap\m\PopupHelper.cs" />
+    <Compile Include="sap\m\ProgressIndicator.cs" />
+    <Compile Include="sap\m\PullToRefresh.cs" />
+    <Compile Include="sap\m\QuickView.cs" />
+    <Compile Include="sap\m\QuickViewBase.cs" />
+    <Compile Include="sap\m\QuickViewCard.cs" />
+    <Compile Include="sap\m\QuickViewGroup.cs" />
+    <Compile Include="sap\m\QuickViewGroupElement.cs" />
+    <Compile Include="sap\m\QuickViewPage.cs" />
+    <Compile Include="sap\m\RadioButton.cs" />
+    <Compile Include="sap\m\RadioButtonGroup.cs" />
+    <Compile Include="sap\m\RangeSlider.cs" />
+    <Compile Include="sap\m\RatingIndicator.cs" />
+    <Compile Include="sap\m\ResponsivePopover.cs" />
+    <Compile Include="sap\m\ResponsiveScale.cs" />
+    <Compile Include="sap\m\routing\RouteMatchedHandler.cs" />
+    <Compile Include="sap\m\routing\Router.cs" />
+    <Compile Include="sap\m\routing\TargetHandler.cs" />
+    <Compile Include="sap\m\routing\Targets.cs" />
+    <Compile Include="sap\m\ScrollContainer.cs" />
+    <Compile Include="sap\m\SearchField.cs" />
+    <Compile Include="sap\m\SegmentedButton.cs" />
+    <Compile Include="sap\m\SegmentedButtonItem.cs" />
+    <Compile Include="sap\m\Select.cs" />
+    <Compile Include="sap\m\SelectDialog.cs" />
+    <Compile Include="sap\m\SelectionDetails.cs" />
+    <Compile Include="sap\m\SelectionDetailsFacade.cs" />
+    <Compile Include="sap\m\SelectionDetailsItem.cs" />
+    <Compile Include="sap\m\SelectionDetailsItemFacade.cs" />
+    <Compile Include="sap\m\SelectionDetailsItemLine.cs" />
+    <Compile Include="sap\m\SelectList.cs" />
+    <Compile Include="sap\m\semantic\AddAction.cs" />
+    <Compile Include="sap\m\semantic\CancelAction.cs" />
+    <Compile Include="sap\m\semantic\DeleteAction.cs" />
+    <Compile Include="sap\m\semantic\DetailPage.cs" />
+    <Compile Include="sap\m\semantic\DiscussInJamAction.cs" />
+    <Compile Include="sap\m\semantic\EditAction.cs" />
+    <Compile Include="sap\m\semantic\FavoriteAction.cs" />
+    <Compile Include="sap\m\semantic\FilterAction.cs" />
+    <Compile Include="sap\m\semantic\FilterSelect.cs" />
+    <Compile Include="sap\m\semantic\FlagAction.cs" />
+    <Compile Include="sap\m\semantic\ForwardAction.cs" />
+    <Compile Include="sap\m\semantic\FullscreenPage.cs" />
+    <Compile Include="sap\m\semantic\GroupAction.cs" />
+    <Compile Include="sap\m\semantic\GroupSelect.cs" />
+    <Compile Include="sap\m\semantic\IFilter.cs" />
+    <Compile Include="sap\m\semantic\IGroup.cs" />
+    <Compile Include="sap\m\semantic\ISort.cs" />
+    <Compile Include="sap\m\semantic\MainAction.cs" />
+    <Compile Include="sap\m\semantic\MasterPage.cs" />
+    <Compile Include="sap\m\semantic\MessagesIndicator.cs" />
+    <Compile Include="sap\m\semantic\MultiSelectAction.cs" />
+    <Compile Include="sap\m\semantic\NegativeAction.cs" />
+    <Compile Include="sap\m\semantic\OpenInAction.cs" />
+    <Compile Include="sap\m\semantic\PositiveAction.cs" />
+    <Compile Include="sap\m\semantic\PrintAction.cs" />
+    <Compile Include="sap\m\semantic\SaveAction.cs" />
+    <Compile Include="sap\m\semantic\SemanticButton.cs" />
+    <Compile Include="sap\m\semantic\SemanticControl.cs" />
+    <Compile Include="sap\m\semantic\SemanticPage.cs" />
+    <Compile Include="sap\m\semantic\SemanticRuleSetType.cs" />
+    <Compile Include="sap\m\semantic\SemanticSelect.cs" />
+    <Compile Include="sap\m\semantic\SemanticToggleButton.cs" />
+    <Compile Include="sap\m\semantic\SendEmailAction.cs" />
+    <Compile Include="sap\m\semantic\SendMessageAction.cs" />
+    <Compile Include="sap\m\semantic\ShareInJamAction.cs" />
+    <Compile Include="sap\m\semantic\ShareMenuPage.cs" />
+    <Compile Include="sap\m\semantic\SortAction.cs" />
+    <Compile Include="sap\m\semantic\SortSelect.cs" />
+    <Compile Include="sap\m\Shell.cs" />
+    <Compile Include="sap\m\Slider.cs" />
+    <Compile Include="sap\m\SliderTooltipBase.cs" />
+    <Compile Include="sap\m\SlideTile.cs" />
+    <Compile Include="sap\m\SplitApp.cs" />
+    <Compile Include="sap\m\SplitContainer.cs" />
+    <Compile Include="sap\m\StandardListItem.cs" />
+    <Compile Include="sap\m\StandardTile.cs" />
+    <Compile Include="sap\m\StandardTreeItem.cs" />
+    <Compile Include="sap\m\StepInput.cs" />
+    <Compile Include="sap\m\SuggestionItem.cs" />
+    <Compile Include="sap\m\Switch.cs" />
+    <Compile Include="sap\m\TabContainer.cs" />
+    <Compile Include="sap\m\TabContainerItem.cs" />
+    <Compile Include="sap\m\Table.cs" />
+    <Compile Include="sap\m\TablePersoController.cs" />
+    <Compile Include="sap\m\TablePersoDialog.cs" />
+    <Compile Include="sap\m\TablePersoProvider.cs" />
+    <Compile Include="sap\m\TableSelectDialog.cs" />
+    <Compile Include="sap\m\Text.cs" />
+    <Compile Include="sap\m\TextArea.cs" />
+    <Compile Include="sap\m\Tile.cs" />
+    <Compile Include="sap\m\TileContainer.cs" />
+    <Compile Include="sap\m\TileContent.cs" />
+    <Compile Include="sap\m\TimePicker.cs" />
+    <Compile Include="sap\m\TimePickerSliders.cs" />
+    <Compile Include="sap\m\Title.cs" />
+    <Compile Include="sap\m\ToggleButton.cs" />
+    <Compile Include="sap\m\Token.cs" />
+    <Compile Include="sap\m\Tokenizer.cs" />
+    <Compile Include="sap\m\Toolbar.cs" />
+    <Compile Include="sap\m\ToolbarLayoutData.cs" />
+    <Compile Include="sap\m\ToolbarSeparator.cs" />
+    <Compile Include="sap\m\ToolbarSpacer.cs" />
+    <Compile Include="sap\m\touch.cs" />
+    <Compile Include="sap\m\Tree.cs" />
+    <Compile Include="sap\m\TreeItemBase.cs" />
+    <Compile Include="sap\m\UploadCollection.cs" />
+    <Compile Include="sap\m\UploadCollectionItem.cs" />
+    <Compile Include="sap\m\UploadCollectionParameter.cs" />
+    <Compile Include="sap\m\UploadCollectionToolbarPlaceholder.cs" />
+    <Compile Include="sap\m\URLHelper.cs" />
+    <Compile Include="sap\m\ValueCSSColor.cs" />
+    <Compile Include="sap\m\VBox.cs" />
+    <Compile Include="sap\m\ViewSettingsCustomItem.cs" />
+    <Compile Include="sap\m\ViewSettingsCustomTab.cs" />
+    <Compile Include="sap\m\ViewSettingsDialog.cs" />
+    <Compile Include="sap\m\ViewSettingsFilterItem.cs" />
+    <Compile Include="sap\m\ViewSettingsItem.cs" />
+    <Compile Include="sap\m\Wizard.cs" />
+    <Compile Include="sap\m\WizardStep.cs" />
+    <Compile Include="sap\ui.cs" />
+    <Compile Include="sap\ui\app\Application.cs" />
+    <Compile Include="sap\ui\app\MockServer.cs" />
+    <Compile Include="sap\ui\base.cs" />
+    <Compile Include="sap\ui\base\DataType.cs" />
+    <Compile Include="sap\ui\base\Event.cs" />
+    <Compile Include="sap\ui\base\EventProvider.cs" />
+    <Compile Include="sap\ui\base\Interface.cs" />
+    <Compile Include="sap\ui\base\ManagedObject.cs" />
+    <Compile Include="sap\ui\base\ManagedObjectMetadata.cs" />
+    <Compile Include="sap\ui\base\Metadata.cs" />
+    <Compile Include="sap\ui\base\Object.cs" />
+    <Compile Include="sap\ui\base\ObjectPool.cs" />
+    <Compile Include="sap\ui\core.cs" />
+    <Compile Include="sap\ui\core\AbsoluteCSSSize.cs" />
+    <Compile Include="sap\ui\core\AppCacheBuster.cs" />
+    <Compile Include="sap\ui\core\BusyIndicator.cs" />
+    <Compile Include="sap\ui\core\BusyIndicatorUtils.cs" />
+    <Compile Include="sap\ui\core\Collision.cs" />
+    <Compile Include="sap\ui\core\Component.cs" />
+    <Compile Include="sap\ui\core\ComponentContainer.cs" />
+    <Compile Include="sap\ui\core\ComponentMetadata.cs" />
+    <Compile Include="sap\ui\core\Configuration.cs" />
+    <Compile Include="sap\ui\core\Configuration\FormatSettings.cs" />
+    <Compile Include="sap\ui\core\Control.cs" />
+    <Compile Include="sap\ui\core\Core.cs" />
+    <Compile Include="sap\ui\core\CSSColor.cs" />
+    <Compile Include="sap\ui\core\CSSSize.cs" />
+    <Compile Include="sap\ui\core\CSSSizeShortHand.cs" />
+    <Compile Include="sap\ui\core\CustomData.cs" />
+    <Compile Include="sap\ui\core\DeclarativeSupport.cs" />
+    <Compile Include="sap\ui\core\delegate.cs" />
+    <Compile Include="sap\ui\core\delegate\ItemNavigation.cs" />
+    <Compile Include="sap\ui\core\delegate\ScrollEnablement.cs" />
+    <Compile Include="sap\ui\core\dnd\DragDropBase.cs" />
+    <Compile Include="sap\ui\core\dnd\DragDropInfo.cs" />
+    <Compile Include="sap\ui\core\dnd\DragInfo.cs" />
+    <Compile Include="sap\ui\core\dnd\DragSession.cs" />
+    <Compile Include="sap\ui\core\dnd\DropEffect.cs" />
+    <Compile Include="sap\ui\core\dnd\DropInfo.cs" />
+    <Compile Include="sap\ui\core\dnd\DropLayout.cs" />
+    <Compile Include="sap\ui\core\dnd\DropPosition.cs" />
+    <Compile Include="sap\ui\core\dnd\IDragInfo.cs" />
+    <Compile Include="sap\ui\core\dnd\IDropInfo.cs" />
+    <Compile Include="sap\ui\core\Element.cs" />
+    <Compile Include="sap\ui\core\EnabledPropagator.cs" />
+    <Compile Include="sap\ui\core\EventBus.cs" />
+    <Compile Include="sap\ui\core\format.cs" />
+    <Compile Include="sap\ui\core\format\DateFormat.cs" />
+    <Compile Include="sap\ui\core\format\FileSizeFormat.cs" />
+    <Compile Include="sap\ui\core\format\ListFormat.cs" />
+    <Compile Include="sap\ui\core\format\NumberFormat.cs" />
+    <Compile Include="sap\ui\core\Fragment.cs" />
+    <Compile Include="sap\ui\core\History.cs" />
+    <Compile Include="sap\ui\core\HTML.cs" />
+    <Compile Include="sap\ui\core\Icon.cs" />
+    <Compile Include="sap\ui\core\IconPool.cs" />
+    <Compile Include="sap\ui\core\ID.cs" />
+    <Compile Include="sap\ui\core\IntervalTrigger.cs" />
+    <Compile Include="sap\ui\core\InvisibleText.cs" />
+    <Compile Include="sap\ui\core\Item.cs" />
+    <Compile Include="sap\ui\core\LabelEnablement.cs" />
+    <Compile Include="sap\ui\core\LayoutData.cs" />
+    <Compile Include="sap\ui\core\ListItem.cs" />
+    <Compile Include="sap\ui\core\LocalBusyIndicator.cs" />
+    <Compile Include="sap\ui\core\Locale.cs" />
+    <Compile Include="sap\ui\core\LocaleData.cs" />
+    <Compile Include="sap\ui\core\Manifest.cs" />
+    <Compile Include="sap\ui\core\Message.cs" />
+    <Compile Include="sap\ui\core\message\ControlMessageProcessor.cs" />
+    <Compile Include="sap\ui\core\message\Message.cs" />
+    <Compile Include="sap\ui\core\message\MessageManager.cs" />
+    <Compile Include="sap\ui\core\message\MessageParser.cs" />
+    <Compile Include="sap\ui\core\message\MessageProcessor.cs" />
+    <Compile Include="sap\ui\core\mvc.cs" />
+    <Compile Include="sap\ui\core\mvc\Controller.cs" />
+    <Compile Include="sap\ui\core\mvc\HTMLView.cs" />
+    <Compile Include="sap\ui\core\mvc\JSONView.cs" />
+    <Compile Include="sap\ui\core\mvc\JSView.cs" />
+    <Compile Include="sap\ui\core\mvc\TemplateView.cs" />
+    <Compile Include="sap\ui\core\mvc\View.cs" />
+    <Compile Include="sap\ui\core\mvc\XMLView.cs" />
+    <Compile Include="sap\ui\core\Percentage.cs" />
+    <Compile Include="sap\ui\core\Popup.cs" />
+    <Compile Include="sap\ui\core\Renderer.cs" />
+    <Compile Include="sap\ui\core\RenderManager.cs" />
+    <Compile Include="sap\ui\core\ResizeHandler.cs" />
+    <Compile Include="sap\ui\core\routing\HashChanger.cs" />
+    <Compile Include="sap\ui\core\routing\History.cs" />
+    <Compile Include="sap\ui\core\routing\HistoryDirection.cs" />
+    <Compile Include="sap\ui\core\routing\Route.cs" />
+    <Compile Include="sap\ui\core\routing\Router.cs" />
+    <Compile Include="sap\ui\core\routing\Target.cs" />
+    <Compile Include="sap\ui\core\routing\Targets.cs" />
+    <Compile Include="sap\ui\core\routing\Views.cs" />
+    <Compile Include="sap\ui\core\ScrollBar.cs" />
+    <Compile Include="sap\ui\core\search\OpenSearchProvider.cs" />
+    <Compile Include="sap\ui\core\search\SearchProvider.cs" />
+    <Compile Include="sap\ui\core\SeparatorItem.cs" />
+    <Compile Include="sap\ui\core\theming.cs" />
+    <Compile Include="sap\ui\core\theming\Parameters.cs" />
+    <Compile Include="sap\ui\core\Title.cs" />
+    <Compile Include="sap\ui\core\tmpl\DOMAttribute.cs" />
+    <Compile Include="sap\ui\core\tmpl\DOMElement.cs" />
+    <Compile Include="sap\ui\core\tmpl\HandlebarsTemplate.cs" />
+    <Compile Include="sap\ui\core\tmpl\Template.cs" />
+    <Compile Include="sap\ui\core\tmpl\TemplateControl.cs" />
+    <Compile Include="sap\ui\core\TooltipBase.cs" />
+    <Compile Include="sap\ui\core\UIArea.cs" />
+    <Compile Include="sap\ui\core\UIComponent.cs" />
+    <Compile Include="sap\ui\core\URI.cs" />
+    <Compile Include="sap\ui\core\util\Export.cs" />
+    <Compile Include="sap\ui\core\util\ExportCell.cs" />
+    <Compile Include="sap\ui\core\util\ExportColumn.cs" />
+    <Compile Include="sap\ui\core\util\ExportRow.cs" />
+    <Compile Include="sap\ui\core\util\ExportType.cs" />
+    <Compile Include="sap\ui\core\util\ExportTypeCSV.cs" />
+    <Compile Include="sap\ui\core\util\File.cs" />
+    <Compile Include="sap\ui\core\util\MockServer.cs" />
+    <Compile Include="sap\ui\core\util\XMLPreprocessor.cs" />
+    <Compile Include="sap\ui\core\ValueStateSupport.cs" />
+    <Compile Include="sap\ui\core\VariantLayoutData.cs" />
+    <Compile Include="sap\ui\core\ws\ReadyState.cs" />
+    <Compile Include="sap\ui\core\ws\SapPcpWebSocket.cs" />
+    <Compile Include="sap\ui\core\ws\WebSocket.cs" />
+    <Compile Include="sap\ui\core\XMLComposite.cs" />
+    <Compile Include="sap\ui\Device.cs" />
+    <Compile Include="sap\ui\Device\browser.cs" />
+    <Compile Include="sap\ui\Device\browser\BROWSER.cs" />
+    <Compile Include="sap\ui\Device\media.cs" />
+    <Compile Include="sap\ui\Device\media\RANGESETS.cs" />
+    <Compile Include="sap\ui\Device\orientation.cs" />
+    <Compile Include="sap\ui\Device\os.cs" />
+    <Compile Include="sap\ui\Device\os\OS.cs" />
+    <Compile Include="sap\ui\Device\resize.cs" />
+    <Compile Include="sap\ui\Device\support.cs" />
+    <Compile Include="sap\ui\Device\system.cs" />
+    <Compile Include="sap\ui\layout.cs" />
+    <Compile Include="sap\ui\layout\BlockLayout.cs" />
+    <Compile Include="sap\ui\layout\BlockLayoutCell.cs" />
+    <Compile Include="sap\ui\layout\BlockLayoutCellData.cs" />
+    <Compile Include="sap\ui\layout\BlockLayoutRow.cs" />
+    <Compile Include="sap\ui\layout\DynamicSideContent.cs" />
+    <Compile Include="sap\ui\layout\FixFlex.cs" />
+    <Compile Include="sap\ui\layout\form\ColumnCells.cs" />
+    <Compile Include="sap\ui\layout\form\ColumnContainerData.cs" />
+    <Compile Include="sap\ui\layout\form\ColumnElementData.cs" />
+    <Compile Include="sap\ui\layout\form\ColumnLayout.cs" />
+    <Compile Include="sap\ui\layout\form\ColumnsL.cs" />
+    <Compile Include="sap\ui\layout\form\ColumnsM.cs" />
+    <Compile Include="sap\ui\layout\form\ColumnsXL.cs" />
+    <Compile Include="sap\ui\layout\form\EmptyCells.cs" />
+    <Compile Include="sap\ui\layout\form\Form.cs" />
+    <Compile Include="sap\ui\layout\form\FormContainer.cs" />
+    <Compile Include="sap\ui\layout\form\FormElement.cs" />
+    <Compile Include="sap\ui\layout\form\FormLayout.cs" />
+    <Compile Include="sap\ui\layout\form\GridContainerData.cs" />
+    <Compile Include="sap\ui\layout\form\GridElementCells.cs" />
+    <Compile Include="sap\ui\layout\form\GridElementData.cs" />
+    <Compile Include="sap\ui\layout\form\GridLayout.cs" />
+    <Compile Include="sap\ui\layout\form\ResponsiveGridLayout.cs" />
+    <Compile Include="sap\ui\layout\form\ResponsiveLayout.cs" />
+    <Compile Include="sap\ui\layout\form\SimpleForm.cs" />
+    <Compile Include="sap\ui\layout\form\SimpleFormLayout.cs" />
+    <Compile Include="sap\ui\layout\Grid.cs" />
+    <Compile Include="sap\ui\layout\GridData.cs" />
+    <Compile Include="sap\ui\layout\GridIndent.cs" />
+    <Compile Include="sap\ui\layout\GridSpan.cs" />
+    <Compile Include="sap\ui\layout\HorizontalLayout.cs" />
+    <Compile Include="sap\ui\layout\PaneContainer.cs" />
+    <Compile Include="sap\ui\layout\ResponsiveFlowLayout.cs" />
+    <Compile Include="sap\ui\layout\ResponsiveFlowLayoutData.cs" />
+    <Compile Include="sap\ui\layout\ResponsiveSplitter.cs" />
+    <Compile Include="sap\ui\layout\SplitPane.cs" />
+    <Compile Include="sap\ui\layout\Splitter.cs" />
+    <Compile Include="sap\ui\layout\SplitterLayoutData.cs" />
+    <Compile Include="sap\ui\layout\VerticalLayout.cs" />
+    <Compile Include="sap\ui\model.cs" />
+    <Compile Include="sap\ui\model\analytics.cs" />
+    <Compile Include="sap\ui\model\analytics\AnalyticalBinding.cs" />
+    <Compile Include="sap\ui\model\analytics\AnalyticalTreeBindingAdapter.cs" />
+    <Compile Include="sap\ui\model\analytics\BatchResponseCollector.cs" />
+    <Compile Include="sap\ui\model\analytics\odata4analytics.cs" />
+    <Compile Include="sap\ui\model\analytics\odata4analytics\Dimension.cs" />
+    <Compile Include="sap\ui\model\analytics\odata4analytics\DimensionAttribute.cs" />
+    <Compile Include="sap\ui\model\analytics\odata4analytics\DimensionMemberSetRequest.cs" />
+    <Compile Include="sap\ui\model\analytics\odata4analytics\EntitySet.cs" />
+    <Compile Include="sap\ui\model\analytics\odata4analytics\EntityType.cs" />
+    <Compile Include="sap\ui\model\analytics\odata4analytics\FilterExpression.cs" />
+    <Compile Include="sap\ui\model\analytics\odata4analytics\Measure.cs" />
+    <Compile Include="sap\ui\model\analytics\odata4analytics\Model.cs" />
+    <Compile Include="sap\ui\model\analytics\odata4analytics\Model\ReferenceByModel.cs" />
+    <Compile Include="sap\ui\model\analytics\odata4analytics\Model\ReferenceByURI.cs" />
+    <Compile Include="sap\ui\model\analytics\odata4analytics\Model\ReferenceWithWorkaround.cs" />
+    <Compile Include="sap\ui\model\analytics\odata4analytics\Parameter.cs" />
+    <Compile Include="sap\ui\model\analytics\odata4analytics\Parameterization.cs" />
+    <Compile Include="sap\ui\model\analytics\odata4analytics\ParameterizationRequest.cs" />
+    <Compile Include="sap\ui\model\analytics\odata4analytics\ParameterValueSetRequest.cs" />
+    <Compile Include="sap\ui\model\analytics\odata4analytics\QueryResult.cs" />
+    <Compile Include="sap\ui\model\analytics\odata4analytics\QueryResultRequest.cs" />
+    <Compile Include="sap\ui\model\analytics\odata4analytics\RecursiveHierarchy.cs" />
+    <Compile Include="sap\ui\model\analytics\odata4analytics\SortExpression.cs" />
+    <Compile Include="sap\ui\model\Binding.cs" />
+    <Compile Include="sap\ui\model\ClientContextBinding.cs" />
+    <Compile Include="sap\ui\model\ClientListBinding.cs" />
+    <Compile Include="sap\ui\model\ClientModel.cs" />
+    <Compile Include="sap\ui\model\ClientPropertyBinding.cs" />
+    <Compile Include="sap\ui\model\ClientTreeBinding.cs" />
+    <Compile Include="sap\ui\model\ClientTreeBindingAdapter.cs" />
+    <Compile Include="sap\ui\model\CompositeBinding.cs" />
+    <Compile Include="sap\ui\model\CompositeDataState.cs" />
+    <Compile Include="sap\ui\model\CompositeType.cs" />
+    <Compile Include="sap\ui\model\Context.cs" />
+    <Compile Include="sap\ui\model\ContextBinding.cs" />
+    <Compile Include="sap\ui\model\control.cs" />
+    <Compile Include="sap\ui\model\DataState.cs" />
+    <Compile Include="sap\ui\model\Filter.cs" />
+    <Compile Include="sap\ui\model\FormatException.cs" />
+    <Compile Include="sap\ui\model\json.cs" />
+    <Compile Include="sap\ui\model\json\JSONListBinding.cs" />
+    <Compile Include="sap\ui\model\json\JSONModel.cs" />
+    <Compile Include="sap\ui\model\json\JSONPropertyBinding.cs" />
+    <Compile Include="sap\ui\model\json\JSONTreeBinding.cs" />
+    <Compile Include="sap\ui\model\ListBinding.cs" />
+    <Compile Include="sap\ui\model\message.cs" />
+    <Compile Include="sap\ui\model\message\MessageModel.cs" />
+    <Compile Include="sap\ui\model\MetaModel.cs" />
+    <Compile Include="sap\ui\model\Model.cs" />
+    <Compile Include="sap\ui\model\odata.cs" />
+    <Compile Include="sap\ui\model\odata\AnnotationHelper.cs" />
+    <Compile Include="sap\ui\model\odata\Filter.cs" />
+    <Compile Include="sap\ui\model\odata\ODataAnnotations.cs" />
+    <Compile Include="sap\ui\model\odata\ODataContextBinding.cs" />
+    <Compile Include="sap\ui\model\odata\ODataListBinding.cs" />
+    <Compile Include="sap\ui\model\odata\ODataMessageParser.cs" />
+    <Compile Include="sap\ui\model\odata\ODataMetadata.cs" />
+    <Compile Include="sap\ui\model\odata\ODataMetaModel.cs" />
+    <Compile Include="sap\ui\model\odata\ODataModel.cs" />
+    <Compile Include="sap\ui\model\odata\ODataPropertyBinding.cs" />
+    <Compile Include="sap\ui\model\odata\ODataUtils.cs" />
+    <Compile Include="sap\ui\model\odata\type.cs" />
+    <Compile Include="sap\ui\model\odata\type\Boolean.cs" />
+    <Compile Include="sap\ui\model\odata\type\Byte.cs" />
+    <Compile Include="sap\ui\model\odata\type\Date.cs" />
+    <Compile Include="sap\ui\model\odata\type\DateTime.cs" />
+    <Compile Include="sap\ui\model\odata\type\DateTimeBase.cs" />
+    <Compile Include="sap\ui\model\odata\type\DateTimeOffset.cs" />
+    <Compile Include="sap\ui\model\odata\type\Decimal.cs" />
+    <Compile Include="sap\ui\model\odata\type\Double.cs" />
+    <Compile Include="sap\ui\model\odata\type\Guid.cs" />
+    <Compile Include="sap\ui\model\odata\type\Int.cs" />
+    <Compile Include="sap\ui\model\odata\type\Int16.cs" />
+    <Compile Include="sap\ui\model\odata\type\Int32.cs" />
+    <Compile Include="sap\ui\model\odata\type\Int64.cs" />
+    <Compile Include="sap\ui\model\odata\type\ODataType.cs" />
+    <Compile Include="sap\ui\model\odata\type\Raw.cs" />
+    <Compile Include="sap\ui\model\odata\type\SByte.cs" />
+    <Compile Include="sap\ui\model\odata\type\Single.cs" />
+    <Compile Include="sap\ui\model\odata\type\Stream.cs" />
+    <Compile Include="sap\ui\model\odata\type\String.cs" />
+    <Compile Include="sap\ui\model\odata\type\Time.cs" />
+    <Compile Include="sap\ui\model\odata\type\TimeOfDay.cs" />
+    <Compile Include="sap\ui\model\odata\v2.cs" />
+    <Compile Include="sap\ui\model\odata\v2\ODataAnnotations.cs" />
+    <Compile Include="sap\ui\model\odata\v2\ODataAnnotations\errorParameters.cs" />
+    <Compile Include="sap\ui\model\odata\v2\ODataAnnotations\failedParameters.cs" />
+    <Compile Include="sap\ui\model\odata\v2\ODataAnnotations\loadedParameters.cs" />
+    <Compile Include="sap\ui\model\odata\v2\ODataAnnotations\Source.cs" />
+    <Compile Include="sap\ui\model\odata\v2\ODataAnnotations\successParameters.cs" />
+    <Compile Include="sap\ui\model\odata\v2\ODataContextBinding.cs" />
+    <Compile Include="sap\ui\model\odata\v2\ODataListBinding.cs" />
+    <Compile Include="sap\ui\model\odata\v2\ODataModel.cs" />
+    <Compile Include="sap\ui\model\odata\v2\ODataTreeBinding.cs" />
+    <Compile Include="sap\ui\model\odata\v4.cs" />
+    <Compile Include="sap\ui\model\odata\v4\AnnotationHelper.cs" />
+    <Compile Include="sap\ui\model\odata\v4\Context.cs" />
+    <Compile Include="sap\ui\model\odata\v4\ODataContextBinding.cs" />
+    <Compile Include="sap\ui\model\odata\v4\ODataListBinding.cs" />
+    <Compile Include="sap\ui\model\odata\v4\ODataMetaModel.cs" />
+    <Compile Include="sap\ui\model\odata\v4\ODataModel.cs" />
+    <Compile Include="sap\ui\model\odata\v4\ODataPropertyBinding.cs" />
+    <Compile Include="sap\ui\model\odata\v4\ODataUtils.cs" />
+    <Compile Include="sap\ui\model\ParseException.cs" />
+    <Compile Include="sap\ui\model\PropertyBinding.cs" />
+    <Compile Include="sap\ui\model\resource.cs" />
+    <Compile Include="sap\ui\model\resource\ResourceModel.cs" />
+    <Compile Include="sap\ui\model\SelectionModel.cs" />
+    <Compile Include="sap\ui\model\SimpleType.cs" />
+    <Compile Include="sap\ui\model\Sorter.cs" />
+    <Compile Include="sap\ui\model\TreeBinding.cs" />
+    <Compile Include="sap\ui\model\TreeBindingAdapter.cs" />
+    <Compile Include="sap\ui\model\TreeBindingCompatibilityAdapter.cs" />
+    <Compile Include="sap\ui\model\TreeBindingUtils.cs" />
+    <Compile Include="sap\ui\model\Type.cs" />
+    <Compile Include="sap\ui\model\type\Boolean.cs" />
+    <Compile Include="sap\ui\model\type\Currency.cs" />
+    <Compile Include="sap\ui\model\type\Date.cs" />
+    <Compile Include="sap\ui\model\type\DateInterval.cs" />
+    <Compile Include="sap\ui\model\type\DateTime.cs" />
+    <Compile Include="sap\ui\model\type\DateTimeInterval.cs" />
+    <Compile Include="sap\ui\model\type\FileSize.cs" />
+    <Compile Include="sap\ui\model\type\Float.cs" />
+    <Compile Include="sap\ui\model\type\Integer.cs" />
+    <Compile Include="sap\ui\model\type\String.cs" />
+    <Compile Include="sap\ui\model\type\Time.cs" />
+    <Compile Include="sap\ui\model\type\TimeInterval.cs" />
+    <Compile Include="sap\ui\model\type\Unit.cs" />
+    <Compile Include="sap\ui\model\ValidateException.cs" />
+    <Compile Include="sap\ui\model\xml.cs" />
+    <Compile Include="sap\ui\model\xml\XMLModel.cs" />
+    <Compile Include="sap\ui\model\xml\XMLTreeBinding.cs" />
+    <Compile Include="sap\ui\test\actions\Action.cs" />
+    <Compile Include="sap\ui\test\actions\EnterText.cs" />
+    <Compile Include="sap\ui\test\actions\Press.cs" />
+    <Compile Include="sap\ui\test\gherkin\dataTableUtils.cs" />
+    <Compile Include="sap\ui\test\gherkin\dataTableUtils\normalization.cs" />
+    <Compile Include="sap\ui\test\gherkin\opa5TestHarness.cs" />
+    <Compile Include="sap\ui\test\gherkin\qUnitTestHarness.cs" />
+    <Compile Include="sap\ui\test\gherkin\StepDefinitions.cs" />
+    <Compile Include="sap\ui\test\matchers\AggregationContainsPropertyEqual.cs" />
+    <Compile Include="sap\ui\test\matchers\AggregationEmpty.cs" />
+    <Compile Include="sap\ui\test\matchers\AggregationFilled.cs" />
+    <Compile Include="sap\ui\test\matchers\AggregationLengthEquals.cs" />
+    <Compile Include="sap\ui\test\matchers\Ancestor.cs" />
+    <Compile Include="sap\ui\test\matchers\BindingPath.cs" />
+    <Compile Include="sap\ui\test\matchers\I18NText.cs" />
+    <Compile Include="sap\ui\test\matchers\Interactable.cs" />
+    <Compile Include="sap\ui\test\matchers\LabelFor.cs" />
+    <Compile Include="sap\ui\test\matchers\Matcher.cs" />
+    <Compile Include="sap\ui\test\matchers\Properties.cs" />
+    <Compile Include="sap\ui\test\matchers\PropertyStrictEquals.cs" />
+    <Compile Include="sap\ui\test\Opa.cs" />
+    <Compile Include="sap\ui\test\Opa5.cs" />
+    <Compile Include="sap\ui\test\OpaExtension.cs" />
+    <Compile Include="sap\ui\test\OpaPlugin.cs" />
+    <Compile Include="sap\ui\test\PageObjectFactory.cs" />
+    <Compile Include="sap\ui\unified.cs" />
+    <Compile Include="sap\ui\unified\Calendar.cs" />
+    <Compile Include="sap\ui\unified\CalendarAppointment.cs" />
+    <Compile Include="sap\ui\unified\CalendarDateInterval.cs" />
+    <Compile Include="sap\ui\unified\CalendarLegend.cs" />
+    <Compile Include="sap\ui\unified\CalendarLegendItem.cs" />
+    <Compile Include="sap\ui\unified\CalendarMonthInterval.cs" />
+    <Compile Include="sap\ui\unified\CalendarRow.cs" />
+    <Compile Include="sap\ui\unified\CalendarTimeInterval.cs" />
+    <Compile Include="sap\ui\unified\calendar\CalendarUtils.cs" />
+    <Compile Include="sap\ui\unified\calendar\DatesRow.cs" />
+    <Compile Include="sap\ui\unified\calendar\Header.cs" />
+    <Compile Include="sap\ui\unified\calendar\Month.cs" />
+    <Compile Include="sap\ui\unified\calendar\MonthPicker.cs" />
+    <Compile Include="sap\ui\unified\calendar\MonthsRow.cs" />
+    <Compile Include="sap\ui\unified\calendar\TimesRow.cs" />
+    <Compile Include="sap\ui\unified\calendar\YearPicker.cs" />
+    <Compile Include="sap\ui\unified\ColorPicker.cs" />
+    <Compile Include="sap\ui\unified\ContentSwitcher.cs" />
+    <Compile Include="sap\ui\unified\Currency.cs" />
+    <Compile Include="sap\ui\unified\DateRange.cs" />
+    <Compile Include="sap\ui\unified\DateTypeRange.cs" />
+    <Compile Include="sap\ui\unified\FileUploader.cs" />
+    <Compile Include="sap\ui\unified\FileUploaderParameter.cs" />
+    <Compile Include="sap\ui\unified\FileUploaderXHRSettings.cs" />
+    <Compile Include="sap\ui\unified\Menu.cs" />
+    <Compile Include="sap\ui\unified\MenuItem.cs" />
+    <Compile Include="sap\ui\unified\MenuItemBase.cs" />
+    <Compile Include="sap\ui\unified\MenuTextFieldItem.cs" />
+    <Compile Include="sap\ui\unified\Shell.cs" />
+    <Compile Include="sap\ui\unified\ShellHeadItem.cs" />
+    <Compile Include="sap\ui\unified\ShellHeadUserItem.cs" />
+    <Compile Include="sap\ui\unified\ShellLayout.cs" />
+    <Compile Include="sap\ui\unified\ShellOverlay.cs" />
+    <Compile Include="sap\ui\unified\SplitContainer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bridge.json" />
+    <None Include="Modelscd.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="sap\ui\core\Popup\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Bridge.Min.17.1.1\build\Bridge.Min.targets" Condition="Exists('..\packages\Bridge.Min.17.1.1\build\Bridge.Min.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Bridge.Min.17.1.1\build\Bridge.Min.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Bridge.Min.17.1.1\build\Bridge.Min.targets'))" />
+  </Target>
+</Project>

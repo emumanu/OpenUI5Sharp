@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:n4="sap.ui.core.tmpl" xmlns:n0="sap.ui.core" elementFormDefault="qualified" targetNamespace="sap.ui.core.tmpl" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="sap.ui.core" />
+  <xs:element name="DOMAttribute" substitutionGroup="n0:Element" type="n4:_DOMAttributeType">
+    <xs:annotation>
+      <xs:documentation>Represents a DOM attribute of a DOM element.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_DOMAttributeType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:attribute name="name" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Name of the DOM attribute</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="value" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Value of the DOM attribute</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DOMElement" substitutionGroup="n0:Control" type="n4:_DOMElementType">
+    <xs:annotation>
+      <xs:documentation>Represents a DOM element. It allows to use databinding for the properties and nested DOM attributes.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_DOMElementType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n4:DOMAttribute" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="attributes">
+            <xs:annotation>
+              <xs:documentation>DOM attributes which are rendered as part of the DOM element and bindable</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n4:DOMAttribute" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="elements">
+            <xs:annotation>
+              <xs:documentation>Nested DOM elements to support nested bindable structures</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n4:DOMElement" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The text content of the DOM element</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="tag" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The HTML-tag of the DOM element which contains the text</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="attributes" type="xs:string" />
+        <xs:attribute name="elements" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TemplateControl" substitutionGroup="n0:Control" type="n4:_TemplateControlType">
+    <xs:annotation>
+      <xs:documentation>This is the base class for all template controls. Template controls are declared based on templates.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_TemplateControlType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="context" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The context is a data object. It can be used for default template expressions. A change of the context object leads to a re-rendering whereas a change of a nested property of the context object doesn't. By default the context is an empty object.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="template" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The template on which the template control is based on.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="afterRendering" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired when the Template Control has been (re-)rendered and its HTML is present in the DOM.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="beforeRendering" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired before this Template Control is re-rendered. Use to unbind event handlers from HTML elements etc.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

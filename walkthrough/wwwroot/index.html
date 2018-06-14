@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>OpenUI5Tests</title>
+
+    <script id="sap-ui-bootstrap" src="https://openui5.hana.ondemand.com/1.54.6/resources/sap-ui-core.js"
+            data-sap-ui-theme="sap_belize"
+            data-sap-ui-libs="sap.m"
+            data-sap-ui-compatVersion="edge"
+            data-sap-ui-preload="async"
+            data-sap-ui-resourceroots='{
+                "sap.ui.demo.walkthrough": "/bridge"
+            }'>
+    </script>
+</head>
+<body id="content" class="sapUiBody sapUiSizeCompact" style="height: 100vh">
+    <script src="/bridge.js"></script>
+    <script src="/bridge.meta.js"></script>
+    <script src="/bridge/openui5sharp.js"></script>
+    <script>
+        sap.ui.getCore().attachInit(function () {
+            new sap.m.Shell({
+                app: new sap.ui.core.ComponentContainer({
+                    name: "sap.ui.demo.walkthrough",
+                    settings: {
+                        id: "walkthrough"
+                    }
+                })
+            }).placeAt("content");
+        });
+    </script>
+</body>
+</html>

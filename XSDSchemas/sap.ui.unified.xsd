@@ -1,0 +1,2013 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:n10="sap.ui.unified" xmlns:n0="sap.ui.core" elementFormDefault="qualified" targetNamespace="sap.ui.unified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="sap.ui.core" />
+  <xs:element name="Calendar" substitutionGroup="n0:Control" type="n10:_CalendarType">
+    <xs:annotation>
+      <xs:documentation>Basic Calendar. This calendar is used for DatePickers</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_CalendarType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="selectedDates">
+            <xs:annotation>
+              <xs:documentation>Dates or date ranges for selected dates.
+
+To set a single date (instead of a range), set only the &lt;code&gt;startDate&lt;/code&gt; property of the {@link sap.ui.unified.DateRange} class.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n10:DateRange" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="specialDates">
+            <xs:annotation>
+              <xs:documentation>Dates or date ranges with type, to visualize special days in the &lt;code&gt;Calendar&lt;/code&gt;. If one day is assigned to more than one Type, only the first one will be used.
+
+To set a single date (instead of a range), set only the &lt;code&gt;startDate&lt;/code&gt; property of the {@link sap.ui.unified.DateRange} class.
+
+&lt;b&gt;Note:&lt;/b&gt; Keep in mind that the &lt;code&gt;NonWorking&lt;/code&gt; type is for marking specific dates or date ranges as non-working, where if you need a weekly-reccuring non-working days (weekend), you should use the &lt;code&gt;nonWorkingDays&lt;/code&gt; property. Both the non-working days (from property) and dates (from aggregation) are visualized the same.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n10:DateTypeRange" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="disabledDates">
+            <xs:annotation>
+              <xs:documentation>Dates or date ranges for disabled dates.
+
+To set a single date (instead of a range), set only the &lt;code&gt;startDate&lt;/code&gt; property of the {@link sap.ui.unified.DateRange} class.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n10:DateRange" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="intervalSelection" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set, interval selection is allowed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="singleSelection" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set, only a single date or interval, if intervalSelection is enabled, can be selected</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="months" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Determines the number of months displayed.
+
+As of version 1.50, the duplicated dates are not displayed if there are multiple months.
+
+&lt;b&gt;Note:&lt;/b&gt; On phones, only one month is displayed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="firstDayOfWeek" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>If set, the first day of the displayed week is this day. Valid values are 0 to 6. If not a valid value is set, the default of the used locale is used.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="nonWorkingDays" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>If set, the provided weekdays are displayed as non-working days. Valid values inside the array are 0 to 6. If not set, the weekend defined in the locale settings is displayed as non-working days.
+
+&lt;b&gt;Note:&lt;/b&gt; Keep in mind that this property sets only weekly-recurring days as non-working. If you need specific dates or dates ranges, such as national holidays, use the &lt;code&gt;specialDates&lt;/code&gt; aggregation to set them. Both the non-working days (from property) and dates (from aggregation) are visualized the same.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="primaryCalendarType" type="n0:_CalendarTypeType">
+          <xs:annotation>
+            <xs:documentation>If set, the calendar type is used for display. If not set, the calendar type of the global configuration is used.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="secondaryCalendarType" type="n0:_CalendarTypeType">
+          <xs:annotation>
+            <xs:documentation>If set, the days are also displayed in this calendar type If not set, the dates are only displayed in the primary calendar type</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Width of Calendar
+
+&lt;b&gt;Note:&lt;/b&gt; There is a theme depending minimum width, so the calendar can not be set smaller.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="minDate" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Minimum date that can be shown and selected in the Calendar. This must be a JavaScript date object.
+
+&lt;b&gt;Note:&lt;/b&gt; if the date is inside of a month the complete month is displayed, but dates outside the valid range can not be selected.
+
+&lt;b&gt;Note:&lt;/b&gt; If the &lt;code&gt;minDate&lt;/code&gt; is set to be after the &lt;code&gt;maxDate&lt;/code&gt;, the &lt;code&gt;maxDate&lt;/code&gt; is set to the end of the month of the &lt;code&gt;minDate&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="maxDate" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Maximum date that can be shown and selected in the Calendar. This must be a JavaScript date object.
+
+&lt;b&gt;Note:&lt;/b&gt; if the date is inside of a month the complete month is displayed, but dates outside the valid range can not be selected.
+
+&lt;b&gt;Note:&lt;/b&gt; If the &lt;code&gt;maxDate&lt;/code&gt; is set to be before the &lt;code&gt;minDate&lt;/code&gt;, the &lt;code&gt;minDate&lt;/code&gt; is set to the begin of the month of the &lt;code&gt;maxDate&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showWeekNumbers" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the week numbers in the months are displayed.
+
+&lt;b&gt;Note:&lt;/b&gt; For Islamic calendars, the week numbers are not displayed regardless of what is set to this property.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="selectedDates" type="xs:string" />
+        <xs:attribute name="specialDates" type="xs:string" />
+        <xs:attribute name="disabledDates" type="xs:string" />
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="legend" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to the &lt;code&gt;CalendarLegend&lt;/code&gt; explaining the colors of the &lt;code&gt;specialDates&lt;/code&gt;.
+
+&lt;b&gt;Note&lt;/b&gt; The legend does not have to be rendered but must exist, and all required types must be assigned.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="select" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Date selection changed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="cancel" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Date selection was cancelled</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="startDateChange" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>&lt;code&gt;startDate&lt;/code&gt; was changed while navigation in &lt;code&gt;Calendar&lt;/code&gt;
+
+Use &lt;code&gt;getStartDate&lt;/code&gt; function to determine the current start date</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CalendarAppointment" substitutionGroup="n10:DateTypeRange" type="n10:_CalendarAppointmentType">
+    <xs:annotation>
+      <xs:documentation>An appointment for use in a &lt;code&gt;PlanningCalendar&lt;/code&gt; or similar. The rendering must be done in the Row collecting the appointments. (Because there are different visualizations possible.)
+
+Applications could inherit from this element to add own fields.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_CalendarAppointmentType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n10:_DateTypeRangeType">
+        <xs:attribute name="title" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Title of the appointment.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Text of the appointment.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="icon" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>Icon of the Appointment. (e.g. picture of the person)
+
+URI of an image or an icon registered in sap.ui.core.IconPool.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="tentative" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Indicates if the icon is tentative.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="selected" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Indicates if the icon is selected.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="key" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Can be used as identifier of the appointment</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="color" type="n0:_CSSColorType">
+          <xs:annotation>
+            <xs:documentation>Overrides the color derived from the &lt;code&gt;type&lt;/code&gt; property. This property will work only with full hex color with pound symbol, e.g.: #FF0000.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CalendarDateInterval" substitutionGroup="n10:Calendar" type="n10:_CalendarDateIntervalType">
+    <xs:annotation>
+      <xs:documentation>Calendar with dates displayed in one line.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_CalendarDateIntervalType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n10:_CalendarType">
+        <xs:attribute name="startDate" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Start date of the Interval</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="days" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>number of days displayed on phones the maximum rendered number of days is 8.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showDayNamesLine" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set the day names are shown in a separate line. If not set the day names are shown inside the single days.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="pickerPopup" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set, the month- and yearPicker opens on a popup</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CalendarLegend" substitutionGroup="n0:Control" type="n10:_CalendarLegendType">
+    <xs:annotation>
+      <xs:documentation>A legend for the Calendar Control. Displays special dates colors with their corresponding description. The aggregation specialDates can be set herefor.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_CalendarLegendType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="items">
+            <xs:annotation>
+              <xs:documentation>Items to be displayed.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n10:CalendarLegendItem" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="standardItems" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Determines the standard items related to the calendar days, such as, today, selected, working and non-working. Values must be one of &lt;code&gt;sap.ui.unified.StandardCalendarLegendItem&lt;/code&gt;. Note: for versions 1.50 and 1.52, this property was defined in the the subclass &lt;code&gt;sap.m.PlanningCalendarLegend&lt;/code&gt;</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="columnWidth" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Defines the width of the created columns in which the items are arranged.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="items" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CalendarLegendItem" substitutionGroup="n0:Element" type="n10:_CalendarLegendItemType">
+    <xs:annotation>
+      <xs:documentation>Item to be displayed in a CalendarLegend.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_CalendarLegendItemType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Text to be displayed for the item.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="type" type="n10:_CalendarDayTypeType">
+          <xs:annotation>
+            <xs:documentation>Type of the item. If not set the type is automatically determined from the order of the items in the CalendarLegend.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="color" type="n0:_CSSColorType">
+          <xs:annotation>
+            <xs:documentation>Overrides the color derived from the &lt;code&gt;type&lt;/code&gt; property.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CalendarMonthInterval" substitutionGroup="n0:Control" type="n10:_CalendarMonthIntervalType">
+    <xs:annotation>
+      <xs:documentation>Calendar with granularity of months displayed in one line.
+
+&lt;b&gt;Note:&lt;/b&gt; JavaScript Date objects are used to set and return the months, mark them as selected or as a special type. But the date part of the Date object is not used. If a Date object is returned the date will be set to the 1st of the corresponding month.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_CalendarMonthIntervalType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="selectedDates">
+            <xs:annotation>
+              <xs:documentation>Date ranges for selected dates of the &lt;code&gt;CalendarMonthInterval&lt;/code&gt;.
+
+If &lt;code&gt;singleSelection&lt;/code&gt; is set, only the first entry is used.
+
+&lt;b&gt;Note:&lt;/b&gt; Even if only one day is selected, the whole corresponding month is selected.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n10:DateRange" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="specialDates">
+            <xs:annotation>
+              <xs:documentation>Date ranges with type to visualize special months in the &lt;code&gt;CalendarMonthInterval&lt;/code&gt;. If one day is assigned to more than one type, only the first one will be used.
+
+&lt;b&gt;Note:&lt;/b&gt; Even if only one day is set as a special day, the whole corresponding month is displayed in this way.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n10:DateTypeRange" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Width of the &lt;code&gt;CalendarMonthInterval&lt;/code&gt;. The width of the single months depends on this width.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="startDate" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Start date of the Interval as JavaScript Date object. The month of this Date will be the first month in the displayed row.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="intervalSelection" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set, interval selection is allowed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="singleSelection" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set, only a single date or interval, if &lt;code&gt;intervalSelection&lt;/code&gt; is enabled, can be selected
+
+&lt;b&gt;Note:&lt;/b&gt; Selection of multiple intervals is not supported in the current version.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="months" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Number of months displayed
+
+&lt;b&gt;Note:&lt;/b&gt; On phones, the maximum number of months displayed in the row is always 6.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="pickerPopup" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set, the yearPicker opens on a popup</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="minDate" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Minimum date that can be shown and selected in the Calendar. This must be a JavaScript date object.
+
+&lt;b&gt;Note:&lt;/b&gt; If the &lt;code&gt;minDate&lt;/code&gt; is set to be after the &lt;code&gt;maxDate&lt;/code&gt;, the &lt;code&gt;maxDate&lt;/code&gt; is set to the end of the month of the &lt;code&gt;minDate&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="maxDate" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Maximum date that can be shown and selected in the Calendar. This must be a JavaScript date object.
+
+&lt;b&gt;Note:&lt;/b&gt; If the &lt;code&gt;maxDate&lt;/code&gt; is set to be before the &lt;code&gt;minDate&lt;/code&gt;, the &lt;code&gt;minDate&lt;/code&gt; is set to the begin of the month of the &lt;code&gt;maxDate&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="selectedDates" type="xs:string" />
+        <xs:attribute name="specialDates" type="xs:string" />
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / IDs which label this control (see WAI-ARIA attribute aria-labelledby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="legend" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to the &lt;code&gt;CalendarLegend&lt;/code&gt; explaining the colors of the &lt;code&gt;specialDates&lt;/code&gt;.
+
+&lt;b&gt;Note&lt;/b&gt; The legend does not have to be rendered but must exist, and all required types must be assigned.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="select" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Month selection changed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="cancel" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Month selection was cancelled</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="startDateChange" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>&lt;code&gt;startDate&lt;/code&gt; was changed while navigation in &lt;code&gt;CalendarMonthInterval&lt;/code&gt;</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CalendarRow" substitutionGroup="n0:Control" type="n10:_CalendarRowType">
+    <xs:annotation>
+      <xs:documentation>A calendar row with a header and appointments. The Appointments will be placed in the defined interval.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_CalendarRowType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="appointments">
+            <xs:annotation>
+              <xs:documentation>Appointments to be displayed in the row. Appointments outside the visible time frame are not rendered.
+
+&lt;b&gt;Note:&lt;/b&gt; For performance reasons, only appointments in the visible time range or nearby should be assigned.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n10:CalendarAppointment" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="intervalHeaders">
+            <xs:annotation>
+              <xs:documentation>Appointments to be displayed in the top of the intervals. The &lt;code&gt;intervalHeaders&lt;/code&gt; are used to visualize public holidays and similar things.
+
+Appointments outside the visible time frame are not rendered.
+
+The &lt;code&gt;intervalHeaders&lt;/code&gt; always fill whole intervals. If they are shorter than one interval, they are not displayed.
+
+&lt;b&gt;Note:&lt;/b&gt; For performance reasons, only appointments in the visible time range or nearby should be assigned.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n10:CalendarAppointment" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="startDate" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Start date, as JavaScript Date object, of the row. As default, the current date is used.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="intervals" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Number of displayed intervals. The size of the intervals is defined with &lt;code&gt;intervalType&lt;/code&gt;</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="intervalType" type="n10:_CalendarIntervalTypeType">
+          <xs:annotation>
+            <xs:documentation>Type of the intervals of the row. The default is one hour.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showSubIntervals" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set, subintervals are shown.
+
+If the interval type is &lt;code&gt;Hour&lt;/code&gt;, quarter hours are shown.
+
+If the interval type is &lt;code&gt;Day&lt;/code&gt;, hours are shown.
+
+If the interval type is &lt;code&gt;Month&lt;/code&gt;, days are shown.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showIntervalHeaders" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set, interval headers are shown like specified in &lt;code&gt;showEmptyIntervalHeaders&lt;/code&gt;.
+
+If not set, no interval headers are shown even if &lt;code&gt;intervalHeaders&lt;/code&gt; are assigned.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showEmptyIntervalHeaders" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set, interval headers are shown even if no &lt;code&gt;intervalHeaders&lt;/code&gt; are assigned to the visible time frame.
+
+If not set, no interval headers are shown if no &lt;code&gt;intervalHeaders&lt;/code&gt; are assigned.
+
+&lt;b&gt;Note:&lt;/b&gt; This property is only used if &lt;code&gt;showIntervalHeaders&lt;/code&gt; is set to true.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="nonWorkingDays" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>If set, the provided weekdays are displayed as non-working days. Valid values inside the array are 0 to 6. (Other values will just be ignored.)
+
+If not set, the weekend defined in the locale settings is displayed as non-working days.
+
+&lt;b&gt;Note:&lt;/b&gt; The non working days are only visualized if &lt;code&gt;intervalType&lt;/code&gt; is set to day.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="nonWorkingHours" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>If set, the provided hours are displayed as non-working hours. Valid values inside the array are 0 to 23. (Other values will just be ignored.)
+
+&lt;b&gt;Note:&lt;/b&gt; The non working hours are only visualized if &lt;code&gt;intervalType&lt;/code&gt; is set to hour.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Width of the row</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Height of the row</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="checkResize" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set, the &lt;code&gt;CalendarRow&lt;/code&gt; checks for resize by itself.
+
+If a lot of &lt;code&gt;CalendarRow&lt;/code&gt; controls are used in one container control (like &lt;code&gt;PlanningCalendar&lt;/code&gt;). the resize checks should be done only by this container control. Then the container control should call &lt;code&gt;handleResize&lt;/code&gt; of the &lt;code&gt;CalendarRow&lt;/code&gt; if a resize happens.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="updateCurrentTime" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set the &lt;code&gt;CalendarRow&lt;/code&gt; triggers a periodic update to visualize the current time.
+
+If a lot of &lt;code&gt;CalendarRow&lt;/code&gt; controls are used in one container control (like &lt;code&gt;PlanningCalendar&lt;/code&gt;) the periodic update should be triggered only by this container control. Then the container control should call &lt;code&gt;updateCurrentTimeVisualization&lt;/code&gt; of the &lt;code&gt;CalendarRow&lt;/code&gt; to update the visualization.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="groupAppointmentsMode" type="n10:_GroupAppointmentsModeType">
+          <xs:annotation>
+            <xs:documentation>Defines the mode in which the overlapping appointments are displayed.
+
+&lt;b&gt;Note:&lt;/b&gt; This property takes effect, only if the &lt;code&gt;intervalType&lt;/code&gt; of the current calendar view is set to &lt;code&gt;sap.ui.unified.CalendarIntervalType.Month&lt;/code&gt;. On phone devices this property is ignored, and the default value is applied.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="appointmentsReducedHeight" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set the appointments without text (only title) are rendered with a smaller height.
+
+&lt;b&gt;Note:&lt;/b&gt; On phone devices this property is ignored, appointments are always rendered in full height to allow touching.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="appointmentsVisualization" type="n10:_CalendarAppointmentVisualizationType">
+          <xs:annotation>
+            <xs:documentation>Defines the visualization of the &lt;code&gt;CalendarAppoinment&lt;/code&gt;
+
+&lt;b&gt;Note:&lt;/b&gt; The real visualization depends on the used theme.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="appointments" type="xs:string" />
+        <xs:attribute name="intervalHeaders" type="xs:string" />
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / IDs which label this control (see WAI-ARIA attribute aria-labelledby).
+
+&lt;b&gt;Note&lt;/b&gt; These labels are also assigned to the appointments.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="legend" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to the &lt;code&gt;CalendarLegend&lt;/code&gt; explaining the colors of the &lt;code&gt;Appointments&lt;/code&gt;.
+
+&lt;b&gt;Note&lt;/b&gt; The legend does not have to be rendered but must exist, and all required types must be assigned.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="select" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired if an appointment was selected</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="startDateChange" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>&lt;code&gt;startDate&lt;/code&gt; was changed while navigating in &lt;code&gt;CalendarRow&lt;/code&gt;</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="leaveRow" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The &lt;code&gt;CalendarRow&lt;/code&gt; should be left while navigating. (Arrow up or arrow down.) The caller should determine the next control to be focused</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="intervalSelect" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired if an interval was selected</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CalendarTimeInterval" substitutionGroup="n0:Control" type="n10:_CalendarTimeIntervalType">
+    <xs:annotation>
+      <xs:documentation>Calendar with granularity of time items displayed in one line.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_CalendarTimeIntervalType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="selectedDates">
+            <xs:annotation>
+              <xs:documentation>Date ranges for selected items of the &lt;code&gt;CalendarTimeInterval&lt;/code&gt;.
+
+If &lt;code&gt;singleSelection&lt;/code&gt; is set, only the first entry is used.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n10:DateRange" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="specialDates">
+            <xs:annotation>
+              <xs:documentation>Date ranges with type to visualize special items in the &lt;code&gt;CalendarTimeInterval&lt;/code&gt;. If one interval is assigned to more than one type, only the first one will be used.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n10:DateTypeRange" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Width of the &lt;code&gt;CalendarTimeInterval&lt;/code&gt;. The width of the single months depends on this width.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="startDate" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Start date of the Interval as JavaScript Date object. The time interval corresponding to this Date and &lt;code&gt;items&lt;/code&gt; and &lt;code&gt;intervalMinutes&lt;/code&gt; will be the first time in the displayed row.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="intervalSelection" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set, interval selection is allowed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="singleSelection" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set, only a single date or interval, if &lt;code&gt;intervalSelection&lt;/code&gt; is enabled, can be selected
+
+&lt;b&gt;Note:&lt;/b&gt; Selection of multiple intervals is not supported in the current version.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="items" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Number of time items displayed. Default is 12.
+
+&lt;b&gt;Note:&lt;/b&gt; On phones, the maximum number of items displayed in the row is always 6.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="intervalMinutes" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Size of on time interval in minutes, default is 60 minutes.
+
+&lt;b&gt;Note:&lt;/b&gt; the start of the interval calculation is always on the corresponding date at 00:00.
+
+An interval longer than 720 minutes is not allowed. Please use the &lt;code&gt;CalendarDateInterval&lt;/code&gt; instead.
+
+A day must be divisible by this interval size. One interval must not include more than one day.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="pickerPopup" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set, the day-, month- and yearPicker opens on a popup</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="minDate" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Minimum date that can be shown and selected in the Calendar. This must be a JavaScript date object.
+
+&lt;b&gt;Note:&lt;/b&gt; If the &lt;code&gt;minDate&lt;/code&gt; is set to be after the &lt;code&gt;maxDate&lt;/code&gt;, the &lt;code&gt;maxDate&lt;/code&gt; is set to the end of the month of the &lt;code&gt;minDate&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="maxDate" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Maximum date that can be shown and selected in the Calendar. This must be a JavaScript date object.
+
+&lt;b&gt;Note:&lt;/b&gt; If the &lt;code&gt;maxDate&lt;/code&gt; is set to be before the &lt;code&gt;minDate&lt;/code&gt;, the &lt;code&gt;minDate&lt;/code&gt; is set to the begin of the month of the &lt;code&gt;maxDate&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="selectedDates" type="xs:string" />
+        <xs:attribute name="specialDates" type="xs:string" />
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / IDs which label this control (see WAI-ARIA attribute aria-labelledby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="legend" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to the &lt;code&gt;CalendarLegend&lt;/code&gt; explaining the colors of the &lt;code&gt;specialDates&lt;/code&gt;.
+
+&lt;b&gt;Note&lt;/b&gt; The legend does not have to be rendered but must exist, and all required types must be assigned.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="select" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Time selection changed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="cancel" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Time selection was cancelled</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="startDateChange" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>&lt;code&gt;startDate&lt;/code&gt; was changed while navigation in &lt;code&gt;CalendarTimeInterval&lt;/code&gt;</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ColorPicker" substitutionGroup="n0:Control" type="n10:_ColorPickerType">
+    <xs:annotation>
+      <xs:documentation>Enables the user to select a color. The color can be defined using HEX, RGB, or HSV values or a CSS color name.
+
+&lt;b&gt;Note:&lt;/b&gt; Keep in mind that this control needs either &lt;code&gt;sap.m&lt;/code&gt; or &lt;code&gt;sap.ui.commons&lt;/code&gt; library to be loaded in order to work as it depends on controls available in one or the other library.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ColorPickerType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="colorString" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Determines the input parameter that can be a string of type HEX, RGB, HSV, or a CSS color name: &lt;ul&gt; &lt;li&gt;HEX - #FFFFFF&lt;/li&gt; &lt;li&gt;RGB - rgb(255,255,255)&lt;/li&gt; &lt;li&gt;HSV - hsv(360,100,100)&lt;/li&gt; &lt;li&gt;CSS - red&lt;/li&gt; &lt;/ul&gt; &lt;b&gt;Note:&lt;/b&gt; The output parameter is an RGB string of the current color.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="mode" type="n10:_ColorPickerModeType">
+          <xs:annotation>
+            <xs:documentation>Determines the color mode of the &lt;code&gt;ColorPicker&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="change" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired when the value is changed by user action.
+
+&lt;b&gt;Note:&lt;/b&gt; When the user action is mouse dragging, the &lt;code&gt;change&lt;/code&gt; event fires on the mouseup event.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="liveChange" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired when the value is changed during the mouse move.
+
+&lt;b&gt;Note:&lt;/b&gt; When the user action is mouse move, the &lt;code&gt;liveChange&lt;/code&gt; event is fired during the mousedown event.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ContentSwitcher" substitutionGroup="n0:Control" type="n10:_ContentSwitcherType">
+    <xs:annotation>
+      <xs:documentation>Switches between two control areas and animates it via CSS transitions</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ContentSwitcherType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="content1">
+            <xs:annotation>
+              <xs:documentation>The controls that should be shown in the first content</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="content2">
+            <xs:annotation>
+              <xs:documentation>The controls that should be shown in the second content</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="animation" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Set the used animation when changing content. This just sets a CSS-class named "sapUiUnifiedACSwitcherAnimation" + this value on the root element of the control. The animation has to be implemented in CSS. This also enables applications to implement their own animations via CSS by reacting to the parent class. See the types sap.ui.unified.ContentSwitcherAnimation for default implementations.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="activeContent" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>The number of the currently active content (1 or 2).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="content1" type="xs:string" />
+        <xs:attribute name="content2" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Currency" substitutionGroup="n0:Control" type="n10:_CurrencyType">
+    <xs:annotation>
+      <xs:documentation>A text view which displays currency values and aligns them at the decimal point.
+
+&lt;h3&gt;Overview&lt;/h3&gt;
+
+The currency control consists of an amount, which is formatted automatically according to the user’s locale (using delimiter symbols for the decimal point and thousand separators) and to the currency set for this specific number (number of decimal places).
+
+The currency is expressed as a three-letter code.
+
+&lt;h3&gt;Usage&lt;/h3&gt;
+
+&lt;i&gt;When to use&lt;/i&gt; &lt;ul&gt; &lt;li&gt;To display amounts with different currencies in a vertical layout, such as in a table, list, or form, and it is important that the user is able to compare the amounts.&lt;/li&gt; &lt;/ul&gt;
+
+&lt;i&gt;When not to use&lt;/i&gt; &lt;ul&gt; &lt;li&gt;To display amounts with the same currency in a table. Use the {@link sap.m.ObjectNumber} instead.&lt;/li&gt; &lt;li&gt;to display a number with a unit of measurement that is not a currency. Use the {@link sap.m.ObjectNumber} instead.&lt;/li&gt; &lt;li&gt;To display an amount in a structure other than a list, table, or form.&lt;/li&gt; &lt;/ul&gt;
+
+&lt;h3&gt;Responsive behavior&lt;/h3&gt;
+
+The control supports amounts smaller than 100 trillion, which still fit on a phone screen in portrait mode. For larger amounts, the unit of measurement wraps to the next line, which makes it difficult to compare the amounts.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_CurrencyType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="value" type="xs:float">
+          <xs:annotation>
+            <xs:documentation>Determines the currency value.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="stringValue" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Determines the currency value as a string.
+
+String value is useful if you want to store really big values. If there are more than 21 digits before the decimal point or if the number starts with “0.” followed by more than five zeros, it is represented in exponential form. In these cases use the &lt;code&gt;stringValue&lt;/code&gt; property to keep the number in decimal format.
+
+&lt;b&gt;Note:&lt;/b&gt; If set, it will take precedence over the &lt;code&gt;value&lt;/code&gt; property.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="currency" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Determines the displayed currency code (ISO 4217).
+
+&lt;b&gt;Note:&lt;/b&gt; If a * character is set instead of currency code, only the character itself will be rendered, ignoring the &lt;code&gt;value&lt;/code&gt; property.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="maxPrecision" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Defines the space that is available for the precision of the various currencies.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="useSymbol" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Displays the currency symbol instead of the ISO currency code.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DateRange" substitutionGroup="n0:Element" type="n10:_DateRangeType">
+    <xs:annotation>
+      <xs:documentation>Date range for use in DatePicker</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_DateRangeType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:attribute name="startDate" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Start date for a date range. This must be a JavaScript date object.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="endDate" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>End date for a date range. If empty only a single date is presented by this DateRange element. This must be a JavaScript date object.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DateTypeRange" substitutionGroup="n10:DateRange" type="n10:_DateTypeRangeType">
+    <xs:annotation>
+      <xs:documentation>Date range with calendar day type information. Used to visualize special days in the Calendar.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_DateTypeRangeType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n10:_DateRangeType">
+        <xs:attribute name="type" type="n10:_CalendarDayTypeType">
+          <xs:annotation>
+            <xs:documentation>Type of the date range.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FileUploader" substitutionGroup="n0:Control" type="n10:_FileUploaderType">
+    <xs:annotation>
+      <xs:documentation>The framework generates an input field and a button with text "Browse ...". The API supports features such as on change uploads (the upload starts immediately after a file has been selected), file uploads with explicit calls, adjustable control sizes, text display after uploads, or tooltips containing complete file paths.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FileUploaderType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="parameters">
+            <xs:annotation>
+              <xs:documentation>The parameters for the FileUploader which are rendered as a hidden inputfield.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n10:FileUploaderParameter" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="headerParameters">
+            <xs:annotation>
+              <xs:documentation>The header parameters for the FileUploader which are only submitted with XHR requests. Header parameters are not supported by Internet Explorer 9.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n10:FileUploaderParameter" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="xhrSettings">
+            <xs:annotation>
+              <xs:documentation>Settings for the &lt;code&gt;XMLHttpRequest&lt;/code&gt; object. &lt;b&gt;Note:&lt;/b&gt; This aggregation is only used when the &lt;code&gt;sendXHR&lt;/code&gt; property is set to &lt;code&gt;true&lt;/code&gt;.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n10:FileUploaderXHRSettings" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="value" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Value of the path for file upload.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Disabled controls have different colors, depending on customer settings.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="uploadUrl" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>Used when URL address is on a remote server.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="name" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Unique control name for identification on the server side after sending data to the server.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Specifies the displayed control width.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="uploadOnChange" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set to "true", the upload immediately starts after file selection. With the default setting, the upload needs to be explicitly triggered.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="additionalData" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Additional data that is sent to the back end service. Data will be transmitted as value of a hidden input where the name is derived from the name property with suffix -data.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="sameFilenameAllowed" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If the FileUploader is configured to upload the file directly after the file is selected it is not allowed to upload a file with the same name again. If a user should be allowed to upload a file with the same name again this parameter has to be "true". A typical use case would be if the files have different paths.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="buttonText" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The Button text can be overwritten using this property.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="fileType" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The chosen files will be checked against an array of file types. If at least one file does not fit the file type restriction the upload is prevented. Example: ["jpg", "png", "bmp"].</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="multiple" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Allows multiple files to be chosen and uploaded from the same folder. This property is not supported by Internet Explorer 9.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="maximumFileSize" type="xs:float">
+          <xs:annotation>
+            <xs:documentation>A file size limit in megabytes which prevents the upload if at least one file exceeds it. This property is not supported by Internet Explorer 9.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="mimeType" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The chosen files will be checked against an array of mime types. If at least one file does not fit the mime type restriction the upload is prevented. This property is not supported by Internet Explorer 9. Example: mimeType ["image/png", "image/jpeg"].</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="sendXHR" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set to "true", the request will be sent as XHR request instead of a form submit. This property is not supported by Internet Explorer 9.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="placeholder" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Placeholder for the text field.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="style" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Style of the button. "Transparent, "Accept", "Reject", or "Emphasized" is allowed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="buttonOnly" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set to "true", the FileUploader will be rendered as Button only, without showing the InputField.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="useMultipart" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set to "false", the request will be sent as file only request instead of a multipart/form-data request. Only one file could be uploaded using this type of request. Required for sending such a request is to set the property "sendXHR" to "true". This property is not supported by Internet Explorer 9.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="maximumFilenameLength" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>The maximum length of a filename which the FileUploader will accept. If the maximum filename length is exceeded, the corresponding Event 'filenameLengthExceed' is fired.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="valueState" type="n0:_ValueStateType">
+          <xs:annotation>
+            <xs:documentation>Visualizes warnings or errors related to the text field. Possible values: Warning, Error, Success, None.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="valueStateText" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Custom text for the value state message pop-up.
+
+&lt;b&gt;Note:&lt;/b&gt; If not specified, a default text, based on the value state type, will be used instead.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="icon" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>Icon to be displayed as graphical element within the button. This can be a URI to an image or an icon font URI.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="iconHovered" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>Icon to be displayed as graphical element within the button when it is hovered (only if also a base icon was specified). If not specified the base icon is used. If an icon font icon is used, this property is ignored.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="iconSelected" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>Icon to be displayed as graphical element within the button when it is selected (only if also a base icon was specified). If not specified the base or hovered icon is used. If an icon font icon is used, this property is ignored.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="iconFirst" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set to true (default), the display sequence is 1. icon 2. control text.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="iconOnly" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set to true, the button is displayed without any text.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="parameters" type="xs:string" />
+        <xs:attribute name="headerParameters" type="xs:string" />
+        <xs:attribute name="change" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the value of the file path has been changed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="uploadComplete" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired as soon as the upload request is completed (either successful or unsuccessful). To see if the upload request was successful, check the 'state' parameter for a value 2xx. The uploads actual progress can be retrieved via the 'uploadProgress' Event. However this covers only the client side of the Upload process and does not give any success status from the server.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="typeMissmatch" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the type of a file does not match the mimeType or fileType property.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="fileSizeExceed" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the size of a file is above the maximumFileSize property. This event is not supported by Internet Explorer 9 (same restriction as for the property maximumFileSize).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="fileAllowed" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the file is allowed for upload on client side.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="uploadProgress" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired after the upload has started and before the upload is completed and contains progress information related to the running upload. Depending on file size, band width and used browser the event is fired once or multiple times. This is event is only supported with property sendXHR set to true, i.e. the event is not supported in Internet Explorer 9.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="uploadAborted" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired after the current upload has been aborted. This is event is only supported with property sendXHR set to true, i.e. the event is not supported in Internet Explorer 9.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="filenameLengthExceed" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired, if the filename of a chosen file is longer than the value specified with the maximumFilenameLength property.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="uploadStart" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired before an upload is started.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FileUploaderParameter" substitutionGroup="n0:Element" type="n10:_FileUploaderParameterType">
+    <xs:annotation>
+      <xs:documentation>Represents a parameter for the FileUploader which is rendered as a hidden inputfield.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FileUploaderParameterType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:attribute name="name" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The name of the hidden inputfield.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="value" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The value of the hidden inputfield.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FileUploaderXHRSettings" substitutionGroup="n0:Element" type="n10:_FileUploaderXHRSettingsType">
+    <xs:annotation>
+      <xs:documentation>Properties for the &lt;code&gt;XMLHttpRequest&lt;/code&gt; object used for file uploads.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FileUploaderXHRSettingsType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:attribute name="withCredentials" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines the value of the &lt;code&gt;XMLHttpRequest.withCredentials&lt;/code&gt; property</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Menu" substitutionGroup="n0:Control" type="n10:_MenuType">
+    <xs:annotation>
+      <xs:documentation>A menu is an interactive element which provides a choice of different actions to the user. These actions (items) can also be organized in submenus. Like other dialog-like controls, the menu is not rendered within the control hierarchy. Instead it can be opened at a specified position via a function call.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_MenuType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n10:MenuItemBase" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="items">
+            <xs:annotation>
+              <xs:documentation>The available actions to be displayed as items of the menu.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n10:MenuItemBase" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="enabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>When a menu is disabled none of its items can be selected by the user. The enabled property of an item (@link sap.ui.unified.MenuItemBase#getEnabled) has no effect when the menu of the item is disabled.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaDescription" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Accessible label / description of the menu for assistive technologies like screenreaders.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="maxVisibleItems" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>The maximum number of items which are displayed before an overflow mechanism takes effect. A value smaller than 1 means an infinite number of visible items. The overall height of the menu is limited by the height of the screen. If the maximum possible height is reached, an overflow takes effect, even if the maximum number of visible items is not yet reached.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="pageSize" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>The keyboard can be used to navigate through the items of a menu. Beside the arrow keys for single steps and the &lt;i&gt;Home&lt;/i&gt; / &lt;i&gt;End&lt;/i&gt; keys for jumping to the first / last item, the &lt;i&gt;Page Up&lt;/i&gt; / &lt;i&gt;Page Down&lt;/i&gt; keys can be used to jump an arbitrary number of items up or down. This number can be defined via the &lt;code&gt;pageSize&lt;/code&gt; property. For values smaller than 1, paging behaves in a similar way to when using the &lt;i&gt;Home&lt;/i&gt; / &lt;i&gt;End&lt;/i&gt; keys. If the value equals 1, the paging behavior is similar to that of the arrow keys.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="items" type="xs:string" />
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Reference to accessible labels (ids of existing DOM elements or controls) for assistive technologies like screenreaders.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="itemSelect" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired on the root menu of a menu hierarchy whenever a user selects an item within the menu or within one of its direct or indirect submenus. &lt;b&gt;Note:&lt;/b&gt; There is also a select event available for each single menu item. This event and the event of the menu items are redundant.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MenuItem" substitutionGroup="n10:MenuItemBase" type="n10:_MenuItemType">
+    <xs:annotation>
+      <xs:documentation>Standard item to be used inside a menu. A menu item represents an action which can be selected by the user in the menu or it can provide a submenu to organize the actions hierarchically.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_MenuItemType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n10:_MenuItemBaseType">
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Defines the text which should be displayed on the item.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="icon" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>Defines the icon of the {@link sap.ui.core.IconPool sap.ui.core.IconPool} or an image which should be displayed on the item.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MenuItemBase" substitutionGroup="n0:Element" type="n10:_MenuItemBaseType">
+    <xs:annotation>
+      <xs:documentation>Abstract base class for menu item which provides common properties and events for all concrete item implementations.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_MenuItemBaseType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n10:Menu" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="submenu">
+            <xs:annotation>
+              <xs:documentation>An optional submenu of the item which is opened when the item is selected by the user.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n10:Menu" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="enabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>When an item is disabled the item can not be selected by the user. The enabled property of the item has no effect when the menu of the item is disabled ({@link sap.ui.unified.Menu#getEnabled Menu#getEnabled}).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="visible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Invisible items do not appear in the menu.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="startsSection" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Defines whether a visual separator should be rendered before the item. &lt;b&gt;Note:&lt;/b&gt; If an item is invisible also the separator of this item is not shown.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="select" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired when the item is selected by the user. &lt;b&gt;Note:&lt;/b&gt; The event is also available for items which have a submenu. In general, applications must not handle event in this case because the user selection opens the sub menu.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MenuTextFieldItem" substitutionGroup="n10:MenuItemBase" type="n10:_MenuTextFieldItemType">
+    <xs:annotation>
+      <xs:documentation>Special menu item which contains a label and a text field. This menu item is e.g. helpful for filter implementations. The aggregation &lt;code&gt;submenu&lt;/code&gt; (inherited from parent class) is not supported for this type of menu item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_MenuTextFieldItemType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n10:_MenuItemBaseType">
+        <xs:attribute name="label" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Defines the label of the text field of the item.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="icon" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>Defines the icon of the {@link sap.ui.core.IconPool sap.ui.core.IconPool} or an image which should be displayed on the item.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="value" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Defines the value of the text field of the item.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="valueState" type="n0:_ValueStateType">
+          <xs:annotation>
+            <xs:documentation>Defines the value state of the text field of the item. This allows you to visualize e.g. warnings or errors.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Shell" substitutionGroup="n10:ShellLayout" type="n10:_ShellType">
+    <xs:annotation>
+      <xs:documentation>The shell control is meant as root control (full-screen) of an application. It was build as root control of the Fiori Launchpad application and provides the basic capabilities for this purpose. Do not use this control within applications which run inside the Fiori Lauchpad and do not use it for other scenarios than the root control usecase.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ShellType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n10:_ShellLayoutType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="curtainContent">
+            <xs:annotation>
+              <xs:documentation>The content to appear in the curtain area.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="curtainPaneContent">
+            <xs:annotation>
+              <xs:documentation>The content to appear in the pane area of the curtain.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="headItems">
+            <xs:annotation>
+              <xs:documentation>The buttons shown in the begin (left in left-to-right case) of the Shell header. Currently max. 3 visible buttons are supported. If a custom header is set this aggregation has no effect.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n10:ShellHeadItem" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="headEndItems">
+            <xs:annotation>
+              <xs:documentation>The buttons shown in the end (right in left-to-right case) of the Shell header. Currently max. 3 visible buttons are supported (when user is set only 1). If a custom header is set this aggregation has no effect.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n10:ShellHeadItem" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="search">
+            <xs:annotation>
+              <xs:documentation>Experimental (This aggregation might change in future!): The search control which should be displayed in the shell header. If a custom header is set this aggregation has no effect.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="user">
+            <xs:annotation>
+              <xs:documentation>The user item which is rendered in the shell header beside the items. If a custom header is set this aggregation has no effect.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n10:ShellHeadUserItem" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="icon" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>The application icon. If a custom header is set this property has no effect.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showCurtain" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Shows / Hides the curtain.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showCurtainPane" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Shows / Hides the side pane on the curtain.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="searchVisible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set to false, the search area (aggregation 'search') is hidden. If a custom header is set this property has no effect.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="curtainContent" type="xs:string" />
+        <xs:attribute name="curtainPaneContent" type="xs:string" />
+        <xs:attribute name="headItems" type="xs:string" />
+        <xs:attribute name="headEndItems" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ShellHeadItem" substitutionGroup="n0:Element" type="n10:_ShellHeadItemType">
+    <xs:annotation>
+      <xs:documentation>Header Action item of the Shell.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ShellHeadItemType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:attribute name="startsSection" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set to true, a divider is displayed before the item.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showSeparator" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set to true, a separator is displayed after the item.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="selected" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Defines the toggle state in case the item represents a toggle button (see also property &lt;code&gt;toggleEnabled&lt;/code&gt;).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="toggleEnabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set to true, the item represents a toggle button. The &lt;code&gt;selected&lt;/code&gt; property can the be used to define the toggle state. Otherwise the item is displayed as action button. In this case the &lt;code&gt;selected&lt;/code&gt; property is ignored.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showMarker" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set to true, a theme dependent marker is shown on the item.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="icon" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>The icon of the item, either defined in the sap.ui.core.IconPool or a URI to a custom image. An icon must be set.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="visible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Invisible items are not shown on the UI.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="press" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the user presses the item.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ShellHeadUserItem" substitutionGroup="n0:Element" type="n10:_ShellHeadUserItemType">
+    <xs:annotation>
+      <xs:documentation>User Header Action Item of the Shell.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ShellHeadUserItemType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:attribute name="username" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The name of the user.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showPopupIndicator" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>The user item is intended to be used for user settings. Normally these settings are done via a Menu or Dialog. If this property is set to true an indicator for such a popup mechanismn is shown in the item.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="image" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>An image of the user, normally a URI to an image but also an icon from the sap.ui.core.IconPool is possible.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="press" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the user presses the button.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ShellLayout" substitutionGroup="n0:Control" type="n10:_ShellLayoutType">
+    <xs:annotation>
+      <xs:documentation>The shell layout is the base for the shell control which is meant as root control (full-screen) of an application. It was build as root control of the Fiori Launchpad application and provides the basic capabilities for this purpose. Do not use this control within applications which run inside the Fiori Lauchpad and do not use it for other scenarios than the root control usecase.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ShellLayoutType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>The content to appear in the main canvas.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="paneContent">
+            <xs:annotation>
+              <xs:documentation>The content to appear in the pane area.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="header">
+            <xs:annotation>
+              <xs:documentation>The control to appear in the header area.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="showPane" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Shows / Hides the side pane.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="headerHiding" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Whether the header can be hidden (manually or automatically). This feature is only available when touch events are supported.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="headerVisible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set to false, no header (and no items, search, ...) is shown.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="content" type="xs:string" />
+        <xs:attribute name="paneContent" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ShellOverlay" substitutionGroup="n0:Control" type="n10:_ShellOverlayType">
+    <xs:annotation>
+      <xs:documentation>ShellOverlay to be opened in front of an sap.ui.unified.Shell</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ShellOverlayType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>The content to appear in the overlay.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="search">
+            <xs:annotation>
+              <xs:documentation>Experimental (This aggregation might change in future!): The search control which should be displayed in the overlay header.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="content" type="xs:string" />
+        <xs:attribute name="shell" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Reference to the sap.ui.unified.Shell or sap.ui.unified.ShellLayout control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="closed" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired when the overlay was closed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SplitContainer" substitutionGroup="n0:Control" type="n10:_SplitContainerType">
+    <xs:annotation>
+      <xs:documentation>Provides a main content and a secondary content area</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_SplitContainerType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>The content to appear in the main area.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="secondaryContent">
+            <xs:annotation>
+              <xs:documentation>The content to appear in the secondary area.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="showSecondaryContent" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Shows / Hides the secondary area.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="secondaryContentSize" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>The width if the secondary content. The height is always 100%.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="secondaryContentWidth" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Do not use. Use secondaryContentSize instead.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="orientation" type="n0:_OrientationType">
+          <xs:annotation>
+            <xs:documentation>Whether to show the secondary content on the left ("Horizontal", default) or on the top ("Vertical").</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="content" type="xs:string" />
+        <xs:attribute name="secondaryContent" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="_CalendarAppointmentVisualizationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Filled">
+        <xs:annotation>
+          <xs:documentation>Visualization with fill color depending on the used theme.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Standard">
+        <xs:annotation>
+          <xs:documentation>Standard visualization with no fill color.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_CalendarDayTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None">
+        <xs:annotation>
+          <xs:documentation>No special type is used.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NonWorking">
+        <xs:annotation>
+          <xs:documentation>Non-working dates.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Type01">
+        <xs:annotation>
+          <xs:documentation>The semantic meaning must be defined by the app. It can be displayed in a legend.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Type02">
+        <xs:annotation>
+          <xs:documentation>The semantic meaning must be defined by the app. It can be displayed in a legend.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Type03">
+        <xs:annotation>
+          <xs:documentation>The semantic meaning must be defined by the app. It can be displayed in a legend.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Type04">
+        <xs:annotation>
+          <xs:documentation>The semantic meaning must be defined by the app. It can be displayed in a legend.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Type05">
+        <xs:annotation>
+          <xs:documentation>The semantic meaning must be defined by the app. It can be displayed in a legend.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Type06">
+        <xs:annotation>
+          <xs:documentation>The semantic meaning must be defined by the app. It can be displayed in a legend.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Type07">
+        <xs:annotation>
+          <xs:documentation>The semantic meaning must be defined by the app. It can be displayed in a legend.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Type08">
+        <xs:annotation>
+          <xs:documentation>The semantic meaning must be defined by the app. It can be displayed in a legend.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Type09">
+        <xs:annotation>
+          <xs:documentation>The semantic meaning must be defined by the app. It can be displayed in a legend.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Type10">
+        <xs:annotation>
+          <xs:documentation>The semantic meaning must be defined by the app. It can be displayed in a legend.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Type11">
+        <xs:annotation>
+          <xs:documentation>The semantic meaning must be defined by the app. It can be displayed in a legend.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Type12">
+        <xs:annotation>
+          <xs:documentation>The semantic meaning must be defined by the app. It can be displayed in a legend.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Type13">
+        <xs:annotation>
+          <xs:documentation>The semantic meaning must be defined by the app. It can be displayed in a legend.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Type14">
+        <xs:annotation>
+          <xs:documentation>The semantic meaning must be defined by the app. It can be displayed in a legend.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Type15">
+        <xs:annotation>
+          <xs:documentation>The semantic meaning must be defined by the app. It can be displayed in a legend.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Type16">
+        <xs:annotation>
+          <xs:documentation>The semantic meaning must be defined by the app. It can be displayed in a legend.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Type17">
+        <xs:annotation>
+          <xs:documentation>The semantic meaning must be defined by the app. It can be displayed in a legend.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Type18">
+        <xs:annotation>
+          <xs:documentation>The semantic meaning must be defined by the app. It can be displayed in a legend.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Type19">
+        <xs:annotation>
+          <xs:documentation>The semantic meaning must be defined by the app. It can be displayed in a legend.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Type20">
+        <xs:annotation>
+          <xs:documentation>The semantic meaning must be defined by the app. It can be displayed in a legend.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_CalendarIntervalTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Day">
+        <xs:annotation>
+          <xs:documentation>Intervals have the size of one day.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Hour">
+        <xs:annotation>
+          <xs:documentation>Intervals have the size of one hour.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Month">
+        <xs:annotation>
+          <xs:documentation>Intervals have the size of one month.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_ColorPickerModeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="HSL">
+        <xs:annotation>
+          <xs:documentation>Color picker works with HSL values.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="HSV">
+        <xs:annotation>
+          <xs:documentation>Color picker works with HSV values.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_ContentSwitcherAnimationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Fade">
+        <xs:annotation>
+          <xs:documentation>Content is faded (opacity change).</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="None">
+        <xs:annotation>
+          <xs:documentation>No animation. Content is switched instantly.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Rotate">
+        <xs:annotation>
+          <xs:documentation>The new content rotates in. (Just like one of those old newspaper-animations.)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SlideOver">
+        <xs:annotation>
+          <xs:documentation>The new content slides in from the left while the old content slides out to the left at the same time.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SlideRight">
+        <xs:annotation>
+          <xs:documentation>The new slides in from the left (to the right).</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ZoomIn">
+        <xs:annotation>
+          <xs:documentation>The new content is "zoomed in" from the center and grows to fill the full content area.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ZoomOut">
+        <xs:annotation>
+          <xs:documentation>The old content is "zoomed out", i.e. shrinks to a point at the center of the content area.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_GroupAppointmentsModeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Collapsed">
+        <xs:annotation>
+          <xs:documentation>Overlapping appointments are displayed as a collapsed group appointment.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Expanded">
+        <xs:annotation>
+          <xs:documentation>Overlapping appointments are displayed individually (expanded from a group).</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_StandardCalendarLegendItemType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NonWorkingDay">
+        <xs:annotation>
+          <xs:documentation>Type used for visualization of the non-working days.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Selected">
+        <xs:annotation>
+          <xs:documentation>Type used for visualization of the currently selected day.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Today">
+        <xs:annotation>
+          <xs:documentation>Type used for visualization of the current date.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="WorkingDay">
+        <xs:annotation>
+          <xs:documentation>Type used for visualization of the regular work days.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
