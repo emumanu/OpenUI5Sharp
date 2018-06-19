@@ -13,7 +13,7 @@ OpenUI5 is quite large. At the moment, the converted libraries are:
   - sap.ui.layout
   - sap.ui.unified
 
-The rest of the libraries will be converted as time permits.
+The rest of the libraries are being converted and will be uploaded soon.
 
 The following tutorials from the [documentation](https://openui5.hana.ondemand.com/#/topic/8b49fc198bf04b2d9800fc37fecbb218) are fully working and have been included as a reference on how to use OpenUI5Sharp:
   - Walkthrough (including unit and integration testing)
@@ -25,7 +25,7 @@ Bridge.net does not support OpenUI5 module loading so currently we have to use a
 
 ## XSD Schemas
 
-For some unknown reasons, SAP does **not** produces valid XSD schemas to have intellisense when editing XML views in Visual Studio. As it is really painful to work without valid XSD schemas, you can find my non official XSD schemas that work properly with Visual Studio 2017 in the folder XSDSchemas. However, as OpenUI5 is a very complex and powerful library, a custom Visual Studio plugin will be needed to unleash all the power of OpenUI5Sharp (binding expressions support, non sequencial schema elements, method generation, etc.) but I don't have the time to do it.
+SAP does **not** produces valid XSD schemas to have intellisense when editing XML views in Visual Studio or other editors that support XSD schemas. As it is really painful to work without valid XSD schemas, you can find my non official XSD schemas that work properly with Visual Studio 2017 in the folder XSDSchemas. However, keep in mind that OpenUI5 aggregations and associations **do not** work with a namespace different than the parent object making XML views that validate against the XSD schema not working. This "feature" of OpenUI5 can be fixed with a couple of lines in the XMLTemplateProcessor but they don't want to. It is outrageous, as you are left without any intellisense support, or using the XSD for intellisense and then removing the namespaces. A custom Visual Studio plugin will be needed to handle it properly (and also for things like binding expressions support, non sequencial schema elements, method generation, etc) but that is out of the scope of this project.
 
 ## Examples
 
