@@ -218,12 +218,12 @@ Also notice that event parameters are generated automatically from the class `Ra
 
 2018/06/15 - v1.0.0 - Initial version
 2018/10/09 - v1.1.0 - Beta version. 
-    What's new in this release:
-    - Added support for the rest of OpenUI5 libraries.
-    - Renamed the parent namespace to UI5 in case some day SAPUI5Sharp gets released.
-    - Added Shop Administration Tool demo application.
-    - A lot of minor fixes and API improvements.
-    - Improved unit and integration test support.
+What's new in this release:
+- Added support for the rest of OpenUI5 libraries.
+- Renamed the parent namespace to UI5 in case some day SAPUI5Sharp gets released.
+- Added Shop Administration Tool demo application.
+- A lot of minor fixes and API improvements.
+- Improved unit and integration test support.
 
 ## Contact
 
