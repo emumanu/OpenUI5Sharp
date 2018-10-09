@@ -1,13 +1,13 @@
 ﻿using System;
 using Bridge;
 
-namespace OpenUI5Sharp
+namespace UI5.Tests
 {
     /// <summary>
     /// Global variables and functions
     /// </summary>
     [External]
-    public static partial class Globals
+    public static partial class TestsGlobals
     {
         /// <summary>
         /// QUnit test adapter for opa.js has the same signature as a test of QUnit.

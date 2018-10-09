@@ -25,6 +25,6 @@ Bridge.assembly("WalkthroughClientScripts", function ($asm, globals) {
 });
 
 sap.ui.define(System.Array.init(["sap/ui/core/util/MockServer"], System.String), function () {
-    var newObj = Glue.CreateRawClassObject(WalkthroughClientScripts.Tests.MockServer);
+    var newObj = UI5.Glue.CreateRawClassObject(WalkthroughClientScripts.Tests.MockServer);
     return newObj;
 });

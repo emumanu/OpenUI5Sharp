@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.DraftIndicator")]
 			public abstract partial class DraftIndicator : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,12 +29,12 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// State of the indicator. Could be "Saving", "Saved" and "Clear".
 					/// </summary>
-					public Union<sap.m.DraftIndicatorState, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> state;
+					public Union<sap.m.DraftIndicatorState, string, sap.ui.@base.ManagedObject.BindPropertyInfo> state;
 
 					/// <summary>
 					/// Minimum time in milliseconds for showing the draft indicator
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> minDisplayTime;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> minDisplayTime;
 
 				}
 

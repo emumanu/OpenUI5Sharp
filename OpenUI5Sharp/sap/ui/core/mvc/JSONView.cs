@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.mvc.JSONView")]
 					public partial class JSONView : sap.ui.core.mvc.View
 					{
 						#region Settings
@@ -29,6 +30,34 @@ namespace OpenUI5Sharp
 						[ObjectLiteral]
 						public partial class Settings : sap.ui.core.mvc.View.Settings
 						{
+						}
+
+						#endregion
+
+						#region Typed Parameters
+
+						/// <summary>
+						/// Parameter to be used as Object Literal
+						/// </summary>
+						[External]
+						[ObjectLiteral]
+						public partial class CreateOptions
+						{
+							/// <summary>
+							/// Specifies an ID for the View instance. If no ID is given, an ID will be generated.
+							/// </summary>
+							public string id;
+
+							/// <summary>
+							/// The view name that corresponds to a JSON module that can be loaded via the module system (viewName + suffix ".view.json").
+							/// </summary>
+							public string viewName;
+
+							/// <summary>
+							/// view definition as a JSON string or an object literal
+							/// </summary>
+							public Union<string, object> definition;
+
 						}
 
 						#endregion
@@ -71,6 +100,13 @@ namespace OpenUI5Sharp
 						#endregion
 
 						#region Methods
+
+						/// <summary>
+						/// Creates a JSON view of the given configuration.
+						/// </summary>
+						/// <param name="mOptions">A map containing the view configuration options.</param>
+						/// <returns>a Promise which resolves with the created JSONView instance.</returns>
+						public extern static jquery.JQueryPromise<object> create(Map mOptions);
 
 						/// <summary>
 						/// Creates a new subclass of class sap.ui.core.mvc.JSONView with name <code>sClassName</code> and enriches it with the information contained in <code>oClassInfo</code>.

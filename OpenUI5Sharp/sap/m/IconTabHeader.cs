@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.IconTabHeader")]
 			public partial class IconTabHeader : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,53 +29,55 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines whether the current selection is visualized.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showSelection;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showSelection;
 
 					/// <summary>
 					/// Key of the selected item.
 					/// 
 					/// If the key has no corresponding aggregated item, no changes will apply. If duplicate keys exists the first item matching, the key is used.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedKey;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> selectedKey;
 
 					/// <summary>
 					/// Specifies whether the control is rendered.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visible;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visible;
 
 					/// <summary>
 					/// Specifies the header mode. <b>Note:</b> The Inline mode works only if no icons are set.
 					/// </summary>
-					public Union<sap.m.IconTabHeaderMode, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> mode;
+					public Union<sap.m.IconTabHeaderMode, string, sap.ui.@base.ManagedObject.BindPropertyInfo> mode;
 
 					/// <summary>
 					/// Specifies if the overflow select list is displayed.
 					/// 
 					/// The overflow select list represents a list, where all tab filters are displayed, so the user can select specific tab filter easier.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showOverflowSelectList;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showOverflowSelectList;
 
 					/// <summary>
 					/// Specifies the background color of the header.
 					/// 
 					/// Depending on the theme, you can change the state of the background color to "Solid", "Translucent", or "Transparent". Default is "Solid".
 					/// </summary>
-					public Union<sap.m.BackgroundDesign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> backgroundDesign;
+					public Union<sap.m.BackgroundDesign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundDesign;
 
 					/// <summary>
 					/// Specifies whether tab reordering is enabled. Relevant only for desktop devices. The {@link sap.m.IconTabSeparator sap.m.IconTabSeparator} cannot be dragged and dropped Items can be moved around {@link sap.m.IconTabSeparator sap.m.IconTabSeparator}
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enableTabReordering;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enableTabReordering;
+
+					/// <summary>
+					/// Specifies the visual density mode of the tabs.
+					/// 
+					/// The values that can be applied are <code>Cozy</code>, <code>Compact</code> and <code>Inherit</code>. <code>Cozy</code> and <code>Compact</code> render the control in one of these modes independent of the global density settings. The <code>Inherit</code> value follows the global density settings which are applied. For compatibility reasons, the default value is <code>Cozy</code>.
+					/// </summary>
+					public Union<sap.m.IconTabDensityMode, string, sap.ui.@base.ManagedObject.BindPropertyInfo> tabDensityMode;
 
 					/// <summary>
 					/// The items displayed in the IconTabHeader.
 					/// </summary>
-					public Union<sap.m.IconTab[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
-
-					/// <summary>
-					/// Defines the drag-and-drop configuration via {@link sap.ui.core.dnd.DragDropInfo} This configuration is set internally by the control FOR INTERNAL USE ONLY
-					/// </summary>
-					public Union<sap.ui.core.dnd.DragDropBase[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> dragDropConfig;
+					public Union<sap.m.IconTab[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
 
 					/// <summary>
 					/// Fires when an item is selected.
@@ -161,8 +164,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>true</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.15.0. Regarding to changes of this control this property is not needed anymore.")]
 				/// <returns>Value of property <code>showSelection</code></returns>
+				[Obsolete("Deprecated since 1.15.0. Regarding to changes of this control this property is not needed anymore.")]
 				public extern virtual bool getShowSelection();
 
 				/// <summary>
@@ -174,9 +177,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>true</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.15.0. Regarding to changes of this control this property is not needed anymore.")]
 				/// <param name="bShowSelection">New value for property <code>showSelection</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.15.0. Regarding to changes of this control this property is not needed anymore.")]
 				public extern virtual sap.m.IconTabHeader setShowSelection(bool bShowSelection);
 
 				#endregion
@@ -345,6 +348,37 @@ namespace OpenUI5Sharp
 
 				#endregion
 
+				#region Methods for Property tabDensityMode
+
+				/// <summary>
+				/// Gets current value of property {@link #getTabDensityMode tabDensityMode}.
+				/// 
+				/// Specifies the visual density mode of the tabs.
+				/// 
+				/// The values that can be applied are <code>Cozy</code>, <code>Compact</code> and <code>Inherit</code>. <code>Cozy</code> and <code>Compact</code> render the control in one of these modes independent of the global density settings. The <code>Inherit</code> value follows the global density settings which are applied. For compatibility reasons, the default value is <code>Cozy</code>.
+				/// 
+				/// Default value is <code>Cozy</code>.
+				/// </summary>
+				/// <returns>Value of property <code>tabDensityMode</code></returns>
+				public extern virtual sap.m.IconTabDensityMode getTabDensityMode();
+
+				/// <summary>
+				/// Sets a new value for property {@link #getTabDensityMode tabDensityMode}.
+				/// 
+				/// Specifies the visual density mode of the tabs.
+				/// 
+				/// The values that can be applied are <code>Cozy</code>, <code>Compact</code> and <code>Inherit</code>. <code>Cozy</code> and <code>Compact</code> render the control in one of these modes independent of the global density settings. The <code>Inherit</code> value follows the global density settings which are applied. For compatibility reasons, the default value is <code>Cozy</code>.
+				/// 
+				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
+				/// 
+				/// Default value is <code>Cozy</code>.
+				/// </summary>
+				/// <param name="sTabDensityMode">New value for property <code>tabDensityMode</code></param>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.IconTabHeader setTabDensityMode(sap.m.IconTabDensityMode sTabDensityMode);
+
+				#endregion
+
 				#region Methods for Aggregation items
 
 				/// <summary>
@@ -397,61 +431,6 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <returns>An array of the removed elements (might be empty)</returns>
 				public extern virtual sap.m.IconTab[] removeAllItems();
-
-				#endregion
-
-				#region Methods for Aggregation dragDropConfig
-
-				/// <summary>
-				/// Gets content of aggregation {@link #getDragDropConfig dragDropConfig}.
-				/// 
-				/// Defines the drag-and-drop configuration via {@link sap.ui.core.dnd.DragDropInfo} This configuration is set internally by the control FOR INTERNAL USE ONLY
-				/// </summary>
-				/// <returns></returns>
-				public extern virtual sap.ui.core.dnd.DragDropBase[] getDragDropConfig();
-
-				/// <summary>
-				/// Destroys all the dragDropConfig in the aggregation {@link #getDragDropConfig dragDropConfig}.
-				/// </summary>
-				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.IconTabHeader destroyDragDropConfig();
-
-				/// <summary>
-				/// Inserts a dragDropConfig into the aggregation {@link #getDragDropConfig dragDropConfig}.
-				/// </summary>
-				/// <param name="oDragDropConfig">The dragDropConfig to insert; if empty, nothing is inserted</param>
-				/// <param name="iIndex">The <code>0</code>-based index the dragDropConfig should be inserted at; for a negative value of <code>iIndex</code>, the dragDropConfig is inserted at position 0; for a value greater than the current size of the aggregation, the dragDropConfig is inserted at the last position</param>
-				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.IconTabHeader insertDragDropConfig(sap.ui.core.dnd.DragDropBase oDragDropConfig, int iIndex);
-
-				/// <summary>
-				/// Adds some dragDropConfig to the aggregation {@link #getDragDropConfig dragDropConfig}.
-				/// </summary>
-				/// <param name="oDragDropConfig">The dragDropConfig to add; if empty, nothing is inserted</param>
-				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.IconTabHeader addDragDropConfig(sap.ui.core.dnd.DragDropBase oDragDropConfig);
-
-				/// <summary>
-				/// Removes a dragDropConfig from the aggregation {@link #getDragDropConfig dragDropConfig}.
-				/// </summary>
-				/// <param name="vDragDropConfig">The dragDropConfig to remove or its index or id</param>
-				/// <returns>The removed dragDropConfig or <code>null</code></returns>
-				public extern virtual sap.ui.core.dnd.DragDropBase removeDragDropConfig(Union<int, string, sap.ui.core.dnd.DragDropBase> vDragDropConfig);
-
-				/// <summary>
-				/// Checks for the provided <code>sap.ui.core.dnd.DragDropBase</code> in the aggregation {@link #getDragDropConfig dragDropConfig}. and returns its index if found or -1 otherwise.
-				/// </summary>
-				/// <param name="oDragDropConfig">The dragDropConfig whose index is looked for</param>
-				/// <returns>The index of the provided control in the aggregation if found, or -1 otherwise</returns>
-				public extern virtual int indexOfDragDropConfig(sap.ui.core.dnd.DragDropBase oDragDropConfig);
-
-				/// <summary>
-				/// Removes all the controls from the aggregation {@link #getDragDropConfig dragDropConfig}.
-				/// 
-				/// Additionally, it unregisters them from the hosting UIArea.
-				/// </summary>
-				/// <returns>An array of the removed elements (might be empty)</returns>
-				public extern virtual sap.ui.core.dnd.DragDropBase[] removeAllDragDropConfig();
 
 				#endregion
 

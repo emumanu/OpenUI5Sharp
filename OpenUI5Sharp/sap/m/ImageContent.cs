@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.ImageContent")]
 			public partial class ImageContent : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,12 +29,12 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// The image to be displayed as a graphical element within the imageContent. This can be an image or an icon from the icon font.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> src;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> src;
 
 					/// <summary>
 					/// Description of image. This text is used to provide ScreenReader information.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> description;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> description;
 
 					/// <summary>
 					/// The event is triggered when the image content is pressed.

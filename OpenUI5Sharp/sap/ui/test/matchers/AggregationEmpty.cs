@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.test.matchers.AggregationEmpty")]
 					public partial class AggregationEmpty : sap.ui.test.matchers.Matcher
 					{
 						#region Settings
@@ -32,7 +33,7 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// The name of the aggregation that is used for matching.
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> name;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> name;
 
 						}
 

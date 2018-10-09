@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -18,6 +18,8 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.tmpl.DOMAttribute")]
+					[Obsolete("Deprecated since 1.56.")]
 					public partial class DOMAttribute : sap.ui.core.Element
 					{
 						#region Settings
@@ -32,12 +34,12 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// Name of the DOM attribute
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> name;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> name;
 
 							/// <summary>
 							/// Value of the DOM attribute
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> value;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> value;
 
 						}
 

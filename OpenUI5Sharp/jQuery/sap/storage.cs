@@ -3,9 +3,9 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
-	public partial class jQuery
+	public abstract partial class jQuery
 	{
 		public static partial class sap
 		{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("jQuery.sap.storage")]
 			public static partial class storage
 			{
 				#region Methods
@@ -86,20 +87,21 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("jQuery.sap.storage.Type")]
 				public enum Type
 				{
-						/// <summary>
-						/// Indicates usage of the browser's globalStorage feature
-						/// </summary>
-						global,
-						/// <summary>
-						/// Indicates usage of the browser's localStorage feature
-						/// </summary>
-						local,
-						/// <summary>
-						/// Indicates usage of the browser's sessionStorage feature
-						/// </summary>
-						session,
+					/// <summary>
+					/// Indicates usage of the browser's globalStorage feature
+					/// </summary>
+					global,
+					/// <summary>
+					/// Indicates usage of the browser's localStorage feature
+					/// </summary>
+					local,
+					/// <summary>
+					/// Indicates usage of the browser's sessionStorage feature
+					/// </summary>
+					session,
 				}
 				/// <summary>
 				/// A Storage API for JavaScript.
@@ -116,6 +118,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("jQuery.sap.storage.Storage")]
 				public partial interface Storage
 				{
 					#region Methods

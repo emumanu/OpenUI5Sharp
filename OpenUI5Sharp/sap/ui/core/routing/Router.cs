@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -15,6 +15,7 @@ namespace OpenUI5Sharp
 				{
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.routing.Router")]
 					public partial class Router : sap.ui.@base.EventProvider
 					{
 						#region Typed Parameters
@@ -722,28 +723,28 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Attach event-handler <code>fnFunction</code> to the 'viewCreated' event of this <code>sap.ui.core.routing.Router</code>.<br/>
 						/// </summary>
-						[Obsolete("Deprecated since 1.28. use {@link #getViews} instead.")]
 						/// <param name="oData">The object, that should be passed along with the event-object when firing the event.</param>
 						/// <param name="fnFunction">The function to call, when the event occurs. This function will be called on the oListener-instance (if present) or in a 'static way'.</param>
 						/// <param name="oListener">Object on which to call the given function. If empty, this router is used.</param>
 						/// <returns><code>this</code> to allow method chaining</returns>
+						[Obsolete("Deprecated since 1.28. use {@link #getViews} instead.")]
 						public extern virtual sap.ui.core.routing.Router attachViewCreated(object oData, object fnFunction, object oListener);
 
 						/// <summary>
 						/// Attach event-handler <code>fnFunction</code> to the 'viewCreated' event of this <code>sap.ui.core.routing.Router</code>.<br/>
 						/// </summary>
-						[Obsolete("Deprecated since 1.28. use {@link #getViews} instead.")]
 						/// <param name="oData">The object, that should be passed along with the event-object when firing the event.</param>
 						/// <param name="fnFunction">The function to call, when the event occurs. This function will be called on the oListener-instance (if present) or in a 'static way'.</param>
 						/// <returns><code>this</code> to allow method chaining</returns>
+						[Obsolete("Deprecated since 1.28. use {@link #getViews} instead.")]
 						public extern virtual sap.ui.core.routing.Router attachViewCreated(object oData, object fnFunction);
 
 						/// <summary>
 						/// Attach event-handler <code>fnFunction</code> to the 'viewCreated' event of this <code>sap.ui.core.routing.Router</code>.<br/>
 						/// </summary>
-						[Obsolete("Deprecated since 1.28. use {@link #getViews} instead.")]
 						/// <param name="fnFunction">The function to call, when the event occurs. This function will be called on the oListener-instance (if present) or in a 'static way'.</param>
 						/// <returns><code>this</code> to allow method chaining</returns>
+						[Obsolete("Deprecated since 1.28. use {@link #getViews} instead.")]
 						public extern virtual sap.ui.core.routing.Router attachViewCreated(object fnFunction);
 
 						/// <summary>
@@ -757,10 +758,10 @@ namespace OpenUI5Sharp
 						/// 
 						/// The passed function and listener object must match the ones previously used for event registration.
 						/// </summary>
-						[Obsolete("Deprecated since 1.28. use {@link #getViews} instead.")]
 						/// <param name="fnFunction">The function to call, when the event occurs.</param>
 						/// <param name="oListener">Object on which the given function had to be called.</param>
 						/// <returns><code>this</code> to allow method chaining</returns>
+						[Obsolete("Deprecated since 1.28. use {@link #getViews} instead.")]
 						public extern virtual sap.ui.core.routing.Router detachViewCreated(object fnFunction, object oListener);
 
 						/// <summary>
@@ -796,16 +797,16 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Fire event viewCreated to attached listeners.
 						/// </summary>
-						[Obsolete("Deprecated since 1.28. use {@link #getViews} instead.")]
 						/// <param name="mArguments">the arguments to pass along with the event.</param>
 						/// <returns><code>this</code> to allow method chaining</returns>
+						[Obsolete("Deprecated since 1.28. use {@link #getViews} instead.")]
 						public extern virtual sap.ui.core.routing.Router fireViewCreated(object mArguments);
 
 						/// <summary>
 						/// Fire event viewCreated to attached listeners.
 						/// </summary>
-						[Obsolete("Deprecated since 1.28. use {@link #getViews} instead.")]
 						/// <returns><code>this</code> to allow method chaining</returns>
+						[Obsolete("Deprecated since 1.28. use {@link #getViews} instead.")]
 						public extern virtual sap.ui.core.routing.Router fireViewCreated();
 
 						/// <summary>
@@ -860,11 +861,11 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Returns a cached view for a given name or creates it if it does not yet exists
 						/// </summary>
-						[Obsolete("Deprecated since 1.28.1. use {@link #getViews} instead.")]
 						/// <param name="sViewName">Name of the view</param>
 						/// <param name="sViewType">Type of the view</param>
 						/// <param name="sViewId">Optional view id</param>
 						/// <returns>the view instance</returns>
+						[Obsolete("Deprecated since 1.28.1. use {@link #getViews} instead.")]
 						public extern virtual sap.ui.core.mvc.View getView(string sViewName, string sViewType, string sViewId);
 
 						/// <summary>
@@ -925,10 +926,10 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Adds or overwrites a view in the viewcache of the router, the viewname serves as a key
 						/// </summary>
-						[Obsolete("Deprecated since 1.28. use {@link #getViews} instead.")]
 						/// <param name="sViewName">Name of the view</param>
 						/// <param name="oView">the view instance</param>
 						/// <returns>@since 1.28 the this pointer for chaining</returns>
+						[Obsolete("Deprecated since 1.28. use {@link #getViews} instead.")]
 						public extern virtual sap.ui.core.routing.Router setView(string sViewName, sap.ui.core.mvc.View oView);
 
 						/// <summary>

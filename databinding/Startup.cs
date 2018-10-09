@@ -28,6 +28,7 @@ namespace openui5tests
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            app.UseDefaultFiles();
             app.UseStaticFiles(new StaticFileOptions() {
                 OnPrepareResponse = context => {
                     context.Context.Response.Headers.Add("Cache-Control", "no-cache, no-store");

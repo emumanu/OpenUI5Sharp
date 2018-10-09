@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.m.routing.RouteMatchedHandler")]
 				[Obsolete("Deprecated since 1.28. use {@link sap.m.routing.Router} or {@link sap.m.routing.Targets} instead. The functionality of the routematched handler is built in into these two classes, there is no need to create this anymore.")]
 				public partial class RouteMatchedHandler : sap.ui.@base.Object
 				{

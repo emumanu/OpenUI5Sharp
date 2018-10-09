@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.SegmentedButton")]
 			public partial class SegmentedButton : sap.ui.core.Control, sap.ui.core.IFormContent
 			{
 				#region Settings
@@ -32,47 +33,47 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the width of the SegmentedButton control. If not set, it uses the minimum required width to make all buttons inside of the same size (based on the biggest button).
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// Disables all the buttons in the SegmentedButton control. When disabled all the buttons look grey and you cannot focus or click on them.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enabled;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enabled;
 
 					/// <summary>
 					/// Key of the selected item. If no item to this key is found in the items aggregation, no changes will apply. Only the items aggregation is affected. If duplicate keys exist, the first item matching the key is used.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedKey;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> selectedKey;
 
 					/// <summary>
 					/// The buttons of the SegmentedButton control. The items set in this aggregation are used as an interface for the buttons displayed by the control. Only the properties ID, icon, text, enabled and textDirections of the Button control are evaluated. Setting other properties of the button will have no effect. Alternatively, you can use the createButton method to add buttons.
 					/// </summary>
-					public Union<sap.m.Button[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> buttons;
+					public Union<sap.m.Button[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> buttons;
 
 					/// <summary>
 					/// Aggregation of items to be displayed. The items set in this aggregation are used as an interface for the buttons displayed by the control. The "items" and "buttons" aggregations should NOT be used simultaneously as it causes the control to work incorrectly.
 					/// </summary>
-					public Union<sap.m.SegmentedButtonItem[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
+					public Union<sap.m.SegmentedButtonItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
 
 					/// <summary>
 					/// A reference to the currently selected button control. By default or if the association is set to false (null, undefined, "", false), the first button will be selected. If the association is set to an invalid value (for example, an ID of a button that does not exist) the selection on the SegmentedButton will be removed.
 					/// </summary>
-					public Union<sap.m.Button, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedButton;
+					public Union<sap.m.Button, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> selectedButton;
 
 					/// <summary>
 					/// A reference to the currently selected item control.
 					/// </summary>
-					public Union<sap.m.SegmentedButtonItem, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedItem;
+					public Union<sap.m.SegmentedButtonItem, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> selectedItem;
 
 					/// <summary>
 					/// Association to controls / IDs, which describe this control (see WAI-ARIA attribute aria-describedby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaDescribedBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaDescribedBy;
 
 					/// <summary>
 					/// Association to controls / IDs, which label this control (see WAI-ARIA attribute aria-labelledby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 					/// <summary>
 					/// Fires when the user selects a button, which returns the ID and button object.
@@ -265,48 +266,48 @@ namespace OpenUI5Sharp
 				/// 
 				/// The buttons of the SegmentedButton control. The items set in this aggregation are used as an interface for the buttons displayed by the control. Only the properties ID, icon, text, enabled and textDirections of the Button control are evaluated. Setting other properties of the button will have no effect. Alternatively, you can use the createButton method to add buttons.
 				/// </summary>
-				[Obsolete("Deprecated since 1.28.0. replaced by <code>items</code> aggregation")]
 				/// <returns></returns>
+				[Obsolete("Deprecated since 1.28.0. replaced by <code>items</code> aggregation")]
 				public extern virtual sap.m.Button[] getButtons();
 
 				/// <summary>
 				/// Destroys all the buttons in the aggregation {@link #getButtons buttons}.
 				/// </summary>
-				[Obsolete("Deprecated since 1.28.0. replaced by <code>items</code> aggregation")]
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.28.0. replaced by <code>items</code> aggregation")]
 				public extern virtual sap.m.SegmentedButton destroyButtons();
 
 				/// <summary>
 				/// Inserts a button into the aggregation {@link #getButtons buttons}.
 				/// </summary>
-				[Obsolete("Deprecated since 1.28.0. replaced by <code>items</code> aggregation")]
 				/// <param name="oButton">The button to insert; if empty, nothing is inserted</param>
 				/// <param name="iIndex">The <code>0</code>-based index the button should be inserted at; for a negative value of <code>iIndex</code>, the button is inserted at position 0; for a value greater than the current size of the aggregation, the button is inserted at the last position</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.28.0. replaced by <code>items</code> aggregation")]
 				public extern virtual sap.m.SegmentedButton insertButton(sap.m.Button oButton, int iIndex);
 
 				/// <summary>
 				/// Adds some button to the aggregation {@link #getButtons buttons}.
 				/// </summary>
-				[Obsolete("Deprecated since 1.28.0. replaced by <code>items</code> aggregation")]
 				/// <param name="oButton">The button to add; if empty, nothing is inserted</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.28.0. replaced by <code>items</code> aggregation")]
 				public extern virtual sap.m.SegmentedButton addButton(sap.m.Button oButton);
 
 				/// <summary>
 				/// Removes a button from the aggregation {@link #getButtons buttons}.
 				/// </summary>
-				[Obsolete("Deprecated since 1.28.0. replaced by <code>items</code> aggregation")]
 				/// <param name="vButton">The button to remove or its index or id</param>
 				/// <returns>The removed button or <code>null</code></returns>
+				[Obsolete("Deprecated since 1.28.0. replaced by <code>items</code> aggregation")]
 				public extern virtual sap.m.Button removeButton(Union<int, string, sap.m.Button> vButton);
 
 				/// <summary>
 				/// Checks for the provided <code>sap.m.Button</code> in the aggregation {@link #getButtons buttons}. and returns its index if found or -1 otherwise.
 				/// </summary>
-				[Obsolete("Deprecated since 1.28.0. replaced by <code>items</code> aggregation")]
 				/// <param name="oButton">The button whose index is looked for</param>
 				/// <returns>The index of the provided control in the aggregation if found, or -1 otherwise</returns>
+				[Obsolete("Deprecated since 1.28.0. replaced by <code>items</code> aggregation")]
 				public extern virtual int indexOfButton(sap.m.Button oButton);
 
 				/// <summary>
@@ -314,8 +315,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Additionally, it unregisters them from the hosting UIArea.
 				/// </summary>
-				[Obsolete("Deprecated since 1.28.0. replaced by <code>items</code> aggregation")]
 				/// <returns>An array of the removed elements (might be empty)</returns>
+				[Obsolete("Deprecated since 1.28.0. replaced by <code>items</code> aggregation")]
 				public extern virtual sap.m.Button[] removeAllButtons();
 
 				#endregion
@@ -396,8 +397,8 @@ namespace OpenUI5Sharp
 				/// <summary>
 				/// ID of the element which is the current target of the association {@link #getSelectedButton selectedButton}, or <code>null</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.52. replaced by <code>selectedItem</code> association")]
 				/// <returns></returns>
+				[Obsolete("Deprecated since 1.52. replaced by <code>selectedItem</code> association")]
 				public extern virtual sap.ui.core.ID getSelectedButton();
 
 				/// <summary>
@@ -495,11 +496,11 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fires when the user selects a button, which returns the ID and button object.
 				/// </summary>
-				[Obsolete("Deprecated since 1.52. replaced by <code>selectionChange</code> event")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.SegmentedButton</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.52. replaced by <code>selectionChange</code> event")]
 				public extern virtual sap.m.SegmentedButton attachSelect(object oData, sap.m.SegmentedButton.SelectDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -509,10 +510,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fires when the user selects a button, which returns the ID and button object.
 				/// </summary>
-				[Obsolete("Deprecated since 1.52. replaced by <code>selectionChange</code> event")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.52. replaced by <code>selectionChange</code> event")]
 				public extern virtual sap.m.SegmentedButton attachSelect(object oData, sap.m.SegmentedButton.SelectDelegate fnFunction);
 
 				/// <summary>
@@ -522,9 +523,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fires when the user selects a button, which returns the ID and button object.
 				/// </summary>
-				[Obsolete("Deprecated since 1.52. replaced by <code>selectionChange</code> event")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.52. replaced by <code>selectionChange</code> event")]
 				public extern virtual sap.m.SegmentedButton attachSelect(sap.m.SegmentedButton.SelectDelegate fnFunction);
 
 				/// <summary>
@@ -534,10 +535,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fires when the user selects a button, which returns the ID and button object.
 				/// </summary>
-				[Obsolete("Deprecated since 1.52. replaced by <code>selectionChange</code> event")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.SegmentedButton</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.52. replaced by <code>selectionChange</code> event")]
 				public extern virtual sap.m.SegmentedButton attachSelect(sap.m.SegmentedButton.SelectDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -545,25 +546,25 @@ namespace OpenUI5Sharp
 				/// 
 				/// The passed function and listener object must match the ones used for event registration.
 				/// </summary>
-				[Obsolete("Deprecated since 1.52. replaced by <code>selectionChange</code> event")]
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.52. replaced by <code>selectionChange</code> event")]
 				public extern virtual sap.m.SegmentedButton detachSelect(sap.m.SegmentedButton.SelectDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:select select} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.52. replaced by <code>selectionChange</code> event")]
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.52. replaced by <code>selectionChange</code> event")]
 				public extern virtual sap.m.SegmentedButton fireSelect(sap.m.SegmentedButton.SelectInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:select select} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.52. replaced by <code>selectionChange</code> event")]
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.52. replaced by <code>selectionChange</code> event")]
 				public extern virtual sap.m.SegmentedButton fireSelect();
 
 				#endregion

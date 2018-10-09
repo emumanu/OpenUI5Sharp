@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.NewsContent")]
 			public partial class NewsContent : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,17 +29,17 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Updates the size of the chart. If not set then the default size is applied based on the device tile.
 					/// </summary>
-					public Union<sap.m.Size, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> size;
+					public Union<sap.m.Size, string, sap.ui.@base.ManagedObject.BindPropertyInfo> size;
 
 					/// <summary>
 					/// The content text.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> contentText;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> contentText;
 
 					/// <summary>
 					/// The subheader.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> subheader;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> subheader;
 
 					/// <summary>
 					/// The event is triggered when the News Content is pressed.
@@ -96,8 +97,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>Auto</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.38.0. The NewsContent control has now a fixed size, depending on the used media (desktop, tablet or phone).")]
 				/// <returns>Value of property <code>size</code></returns>
+				[Obsolete("Deprecated since 1.38.0. The NewsContent control has now a fixed size, depending on the used media (desktop, tablet or phone).")]
 				public extern virtual sap.m.Size getSize();
 
 				/// <summary>
@@ -109,9 +110,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>Auto</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.38.0. The NewsContent control has now a fixed size, depending on the used media (desktop, tablet or phone).")]
 				/// <param name="sSize">New value for property <code>size</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.38.0. The NewsContent control has now a fixed size, depending on the used media (desktop, tablet or phone).")]
 				public extern virtual sap.m.NewsContent setSize(sap.m.Size sSize);
 
 				#endregion

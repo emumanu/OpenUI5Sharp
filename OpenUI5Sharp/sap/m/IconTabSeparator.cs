@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.IconTabSeparator")]
 			public partial class IconTabSeparator : sap.ui.core.Element, sap.m.IconTab
 			{
 				#region Settings
@@ -28,19 +29,19 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// The icon to display for this separator. If no icon is given, a separator line is used instead.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> icon;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> icon;
 
 					/// <summary>
 					/// Specifies whether the separator is rendered.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visible;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visible;
 
 					/// <summary>
 					/// If set to true, it sends one or more requests, trying to get the density perfect version of the image if this version of the image doesn't exist on the server. Default value is set to true.
 					/// 
 					/// If bandwidth is key for the application, set this value to false.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> iconDensityAware;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> iconDensityAware;
 
 				}
 

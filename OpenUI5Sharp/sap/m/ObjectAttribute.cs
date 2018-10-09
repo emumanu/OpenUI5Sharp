@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.ObjectAttribute")]
 			public partial class ObjectAttribute : sap.ui.core.Control
 			{
 				#region Settings
@@ -30,60 +31,36 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the ObjectAttribute title.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> title;
 
 					/// <summary>
 					/// Defines the ObjectAttribute text.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> text;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> text;
 
 					/// <summary>
 					/// Indicates if the <code>ObjectAttribute</code> text is selectable for the user.
 					/// 
 					/// <b>Note:</b> As of version 1.48, only the value of the <code>text</code> property becomes active (styled and acts like a link) as opposed to both the <code>title</code> and <code>text</code> in the previous versions. If you set this property to <code>true</code>, you have to also set the <code>text</code> property.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> active;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> active;
 
 					/// <summary>
 					/// Determines the direction of the text, not including the title. Available options for the text direction are LTR (left-to-right) and RTL (right-to-left). By default the control inherits the text direction from its parent control.
 					/// </summary>
-					public Union<sap.ui.core.TextDirection, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> textDirection;
+					public Union<sap.ui.core.TextDirection, string, sap.ui.@base.ManagedObject.BindPropertyInfo> textDirection;
 
 					/// <summary>
 					/// When the aggregation is set, it replaces the text, active and textDirection properties. This also ignores the press event. The provided control is displayed as an active link. <b>Note:</b> It will only allow sap.m.Text and sap.m.Link controls.
 					/// </summary>
-					public Union<sap.ui.core.Control, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> customContent;
+					public Union<sap.ui.core.Control, string, sap.ui.@base.ManagedObject.BindAggregationInfo> customContent;
 
 					/// <summary>
 					/// Fires when the user clicks on active text.
 					/// </summary>
-					public sap.m.ObjectAttribute.PressDelegate press;
+					public sap.m.ObjectPressDelegate press;
 
 				}
-
-				#endregion
-
-				#region Typed Parameters
-
-				/// <summary>
-				/// Parameter to be used as Object Literal
-				/// </summary>
-				[External]
-				[ObjectLiteral]
-				public partial class PressInfo
-				{
-					/// <summary>
-					/// DOM reference of the ObjectAttribute's text to be used for positioning.
-					/// </summary>
-					public string domRef;
-
-				}
-
-				#endregion
-
-				#region Delegates
-
-				public delegate void PressDelegate(sap.ui.@base.Event<sap.m.ObjectAttribute.PressInfo> oEvent, object oData);
 
 				#endregion
 
@@ -267,7 +244,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.ObjectAttribute</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectAttribute attachPress(object oData, sap.m.ObjectAttribute.PressDelegate fnFunction, object oListener);
+				public extern virtual sap.m.ObjectAttribute attachPress(object oData, sap.m.ObjectPressDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:press press} event of this <code>sap.m.ObjectAttribute</code>.
@@ -279,7 +256,7 @@ namespace OpenUI5Sharp
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectAttribute attachPress(object oData, sap.m.ObjectAttribute.PressDelegate fnFunction);
+				public extern virtual sap.m.ObjectAttribute attachPress(object oData, sap.m.ObjectPressDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:press press} event of this <code>sap.m.ObjectAttribute</code>.
@@ -290,7 +267,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectAttribute attachPress(sap.m.ObjectAttribute.PressDelegate fnFunction);
+				public extern virtual sap.m.ObjectAttribute attachPress(sap.m.ObjectPressDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:press press} event of this <code>sap.m.ObjectAttribute</code>.
@@ -302,7 +279,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.ObjectAttribute</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectAttribute attachPress(sap.m.ObjectAttribute.PressDelegate fnFunction, object oListener);
+				public extern virtual sap.m.ObjectAttribute attachPress(sap.m.ObjectPressDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:press press} event of this <code>sap.m.ObjectAttribute</code>.
@@ -312,14 +289,14 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectAttribute detachPress(sap.m.ObjectAttribute.PressDelegate fnFunction, object oListener);
+				public extern virtual sap.m.ObjectAttribute detachPress(sap.m.ObjectPressDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:press press} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectAttribute firePress(sap.m.ObjectAttribute.PressInfo mParameters);
+				public extern virtual sap.m.ObjectAttribute firePress(sap.m.ObjectPressInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:press press} to attached listeners.

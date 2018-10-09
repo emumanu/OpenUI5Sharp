@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.layout.SplitPane")]
 				public partial class SplitPane : sap.ui.core.Element
 				{
 					#region Settings
@@ -32,17 +33,17 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Determines whether the pane will be moved to the pagination
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> demandPane;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> demandPane;
 
 						/// <summary>
 						/// Determines the minimum width of the ResponsiveSplitter(in pixels). When it is reached the pane will be hidden from the screen.
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> requiredParentWidth;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> requiredParentWidth;
 
 						/// <summary>
 						/// Content of the SplitPane
 						/// </summary>
-						public Union<sap.ui.core.Control, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
+						public Union<sap.ui.core.Control, string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
 
 					}
 

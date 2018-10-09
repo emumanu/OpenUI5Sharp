@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.GroupHeaderListItem")]
 			public partial class GroupHeaderListItem : sap.m.ListItemBase
 			{
 				#region Settings
@@ -28,22 +29,22 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the title of the group header.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> title;
 
 					/// <summary>
 					/// Defines the count of items in the group, but it could also be an amount which represents the sum of all amounts in the group. <b>Note:</b> Will not be displayed if not set.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> count;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> count;
 
 					/// <summary>
 					/// Allows to uppercase the group title.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> upperCase;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> upperCase;
 
 					/// <summary>
 					/// Defines the title text directionality with enumerated options. By default, the control inherits text direction from the DOM.
 					/// </summary>
-					public Union<sap.ui.core.TextDirection, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> titleTextDirection;
+					public Union<sap.ui.core.TextDirection, string, sap.ui.@base.ManagedObject.BindPropertyInfo> titleTextDirection;
 
 				}
 
@@ -142,8 +143,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>false</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.40.10.")]
 				/// <returns>Value of property <code>upperCase</code></returns>
+				[Obsolete("Deprecated since 1.40.10.")]
 				public extern virtual bool getUpperCase();
 
 				/// <summary>
@@ -155,9 +156,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>false</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.40.10.")]
 				/// <param name="bUpperCase">New value for property <code>upperCase</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.40.10.")]
 				public extern virtual sap.m.GroupHeaderListItem setUpperCase(bool bUpperCase);
 
 				#endregion

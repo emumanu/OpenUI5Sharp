@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.util.ExportColumn")]
 					public partial class ExportColumn : sap.ui.@base.ManagedObject
 					{
 						#region Settings
@@ -32,12 +33,12 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// Column name.
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> name;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> name;
 
 							/// <summary>
 							/// Cell template for column.
 							/// </summary>
-							public Union<sap.ui.core.util.ExportCell, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> template;
+							public Union<sap.ui.core.util.ExportCell, string, sap.ui.@base.ManagedObject.BindAggregationInfo> template;
 
 						}
 

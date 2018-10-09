@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.NavContainer")]
 			public partial class NavContainer : sap.ui.core.Control
 			{
 				#region Settings
@@ -32,51 +33,51 @@ namespace OpenUI5Sharp
 					/// 
 					/// <b>Note:</b> The following scenarios are possible, depending on where the focus was before navigation to a new page: <ul><li>If <code>autoFocus</code> is set to <code>true</code> and the focus was inside the current page, the focus will be moved automatically on the new page.</li> <li>If <code>autoFocus</code> is set to <code>false</code> and the focus was inside the current page, the focus will disappear. <li>If the focus was outside the current page, after the navigation it will remain unchanged regardless of what is set to the <code>autoFocus</code> property.</li></ul>
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> autoFocus;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> autoFocus;
 
 					/// <summary>
 					/// The height of the NavContainer. Can be changed when the NavContainer should not cover the whole available area.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> height;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> height;
 
 					/// <summary>
 					/// The width of the NavContainer. Can be changed when the NavContainer should not cover the whole available area.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// Whether the NavContainer is visible.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visible;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visible;
 
 					/// <summary>
 					/// The type of the transition/animation to apply when "to()" is called without defining a transition type to use. The default is "slide". Other options are: "fade", "flip" and "show" - and the names of any registered custom transitions.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> defaultTransitionName;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> defaultTransitionName;
 
 					/// <summary>
 					/// The content entities between which this NavContainer navigates. These can be of type sap.m.Page, sap.ui.core.View, sap.m.Carousel or any other control with fullscreen/page semantics.
 					/// 
 					/// These aggregated controls will receive navigation events like {@link sap.m.NavContainerChild#beforeShow beforeShow}, they are documented in the pseudo interface {@link sap.m.NavContainerChild sap.m.NavContainerChild}
 					/// </summary>
-					public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> pages;
+					public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> pages;
 
 					/// <summary>
 					/// This association can be used to define which page is displayed initially. If the given page does not exist or no page is given, the first page which has been added is considered as initial page. This value should be set initially and not set/modified while the application is running.
 					/// 
 					/// This could be used not only for the initial display, but also if the user wants to navigate "up to top", so this page serves as a sort of "home/root page".
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> initialPage;
+					public Union<sap.ui.core.Control, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> initialPage;
 
 					/// <summary>
 					/// The event is fired when navigation between two pages has been triggered. The transition (if any) to the new page has not started yet. This event can be aborted by the application with preventDefault(), which means that there will be no navigation.
 					/// </summary>
-					public sap.m.ContainerNavigateDelegate navigate;
+					public sap.m.NavigateDelegate navigate;
 
 					/// <summary>
 					/// The event is fired when navigation between two pages has completed. In case of animated transitions this event is fired with some delay after the "navigate" event.
 					/// </summary>
-					public sap.m.ContainerNavigateDelegate afterNavigate;
+					public sap.m.NavigateDelegate afterNavigate;
 
 				}
 
@@ -346,7 +347,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.NavContainer</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.NavContainer attachNavigate(object oData, sap.m.ContainerNavigateDelegate fnFunction, object oListener);
+				public extern virtual sap.m.NavContainer attachNavigate(object oData, sap.m.NavigateDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:navigate navigate} event of this <code>sap.m.NavContainer</code>.
@@ -358,7 +359,7 @@ namespace OpenUI5Sharp
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.NavContainer attachNavigate(object oData, sap.m.ContainerNavigateDelegate fnFunction);
+				public extern virtual sap.m.NavContainer attachNavigate(object oData, sap.m.NavigateDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:navigate navigate} event of this <code>sap.m.NavContainer</code>.
@@ -369,7 +370,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.NavContainer attachNavigate(sap.m.ContainerNavigateDelegate fnFunction);
+				public extern virtual sap.m.NavContainer attachNavigate(sap.m.NavigateDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:navigate navigate} event of this <code>sap.m.NavContainer</code>.
@@ -381,7 +382,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.NavContainer</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.NavContainer attachNavigate(sap.m.ContainerNavigateDelegate fnFunction, object oListener);
+				public extern virtual sap.m.NavContainer attachNavigate(sap.m.NavigateDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:navigate navigate} event of this <code>sap.m.NavContainer</code>.
@@ -391,7 +392,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.NavContainer detachNavigate(sap.m.ContainerNavigateDelegate fnFunction, object oListener);
+				public extern virtual sap.m.NavContainer detachNavigate(sap.m.NavigateDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:navigate navigate} to attached listeners.
@@ -400,7 +401,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Whether or not to prevent the default action</returns>
-				public extern virtual bool fireNavigate(sap.m.ContainerNavigateInfo mParameters);
+				public extern virtual bool fireNavigate(sap.m.NavigateInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:navigate navigate} to attached listeners.
@@ -425,7 +426,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.NavContainer</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.NavContainer attachAfterNavigate(object oData, sap.m.ContainerNavigateDelegate fnFunction, object oListener);
+				public extern virtual sap.m.NavContainer attachAfterNavigate(object oData, sap.m.NavigateDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:afterNavigate afterNavigate} event of this <code>sap.m.NavContainer</code>.
@@ -437,7 +438,7 @@ namespace OpenUI5Sharp
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.NavContainer attachAfterNavigate(object oData, sap.m.ContainerNavigateDelegate fnFunction);
+				public extern virtual sap.m.NavContainer attachAfterNavigate(object oData, sap.m.NavigateDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:afterNavigate afterNavigate} event of this <code>sap.m.NavContainer</code>.
@@ -448,7 +449,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.NavContainer attachAfterNavigate(sap.m.ContainerNavigateDelegate fnFunction);
+				public extern virtual sap.m.NavContainer attachAfterNavigate(sap.m.NavigateDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:afterNavigate afterNavigate} event of this <code>sap.m.NavContainer</code>.
@@ -460,7 +461,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.NavContainer</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.NavContainer attachAfterNavigate(sap.m.ContainerNavigateDelegate fnFunction, object oListener);
+				public extern virtual sap.m.NavContainer attachAfterNavigate(sap.m.NavigateDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:afterNavigate afterNavigate} event of this <code>sap.m.NavContainer</code>.
@@ -470,14 +471,14 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.NavContainer detachAfterNavigate(sap.m.ContainerNavigateDelegate fnFunction, object oListener);
+				public extern virtual sap.m.NavContainer detachAfterNavigate(sap.m.NavigateDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:afterNavigate afterNavigate} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.NavContainer fireAfterNavigate(sap.m.ContainerNavigateInfo mParameters);
+				public extern virtual sap.m.NavContainer fireAfterNavigate(sap.m.NavigateInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:afterNavigate afterNavigate} to attached listeners.

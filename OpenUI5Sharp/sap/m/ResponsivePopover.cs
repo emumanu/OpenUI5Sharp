@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.ResponsivePopover")]
 			public partial class ResponsivePopover : sap.ui.core.Control
 			{
 				#region Settings
@@ -32,112 +33,112 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// This property only takes effect on desktop or tablet. Please see the documentation sap.m.Popover#placement.
 					/// </summary>
-					public Union<sap.m.PlacementType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> placement;
+					public Union<sap.m.PlacementType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> placement;
 
 					/// <summary>
 					/// This property is supported by both variants. Please see the documentation on sap.m.Popover#showHeader and sap.m.Dialog#showHeader
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showHeader;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showHeader;
 
 					/// <summary>
 					/// This property is supported by both variants. Please see the documentation on sap.m.Popover#title and sap.m.Dialog#title
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> title;
 
 					/// <summary>
 					/// This property only takes effect on phone. Please see the documentation sap.m.Dialog#icon.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> icon;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> icon;
 
 					/// <summary>
 					/// This property only takes effect on desktop or tablet. Please see the documentation sap.m.Popover#modal.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> modal;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> modal;
 
 					/// <summary>
 					/// This property only takes effect on desktop or tablet. Please see the documentation sap.m.Popover#offsetX.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> offsetX;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> offsetX;
 
 					/// <summary>
 					/// This property only takes effect on desktop or tablet. Please see the documentation sap.m.Popover#offsetY.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> offsetY;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> offsetY;
 
 					/// <summary>
 					/// This property only takes effect on desktop or tablet. Please see the documentation sap.m.Popover#showArrow.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showArrow;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showArrow;
 
 					/// <summary>
 					/// This property is supported by both variants. Please see the documentation on sap.m.Popover#contentWidth and sap.m.Dialog#contentWidth
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> contentWidth;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> contentWidth;
 
 					/// <summary>
 					/// This property is supported by both variants. Please see the documentation on sap.m.Popover#contentHeight and sap.m.Dialog#contentHeight
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> contentHeight;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> contentHeight;
 
 					/// <summary>
 					/// This property is supported by both variants. Please see the documentation on sap.m.Popover#horizontalScrolling and sap.m.Dialog#horizontalScrolling
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> horizontalScrolling;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> horizontalScrolling;
 
 					/// <summary>
 					/// This property is supported by both variants. Please see the documentation on sap.m.Popover#verticalScrolling and sap.m.Dialog#verticalScrolling
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> verticalScrolling;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> verticalScrolling;
 
 					/// <summary>
 					/// Determines if a close button should be inserted into the dialog's header dynamically to close the dialog. This property only takes effect on phone. <b>Note:</b> The close button could be placed only in a sap.m.Bar if a sap.m.Toolbar is passed as a header - the property will not take effect.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showCloseButton;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showCloseButton;
 
 					/// <summary>
 					/// Whether resize option is enabled.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> resizable;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> resizable;
 
 					/// <summary>
 					/// Content is supported by both variants. Please see the documentation on sap.m.Popover#content and sap.m.Dialog#content
 					/// </summary>
-					public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
+					public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
 
 					/// <summary>
 					/// CustomHeader is supported by both variants. Please see the documentation on sap.m.Popover#customHeader and sap.m.Dialog#customHeader
 					/// </summary>
-					public Union<sap.m.IBar, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> customHeader;
+					public Union<sap.m.IBar, string, sap.ui.@base.ManagedObject.BindAggregationInfo> customHeader;
 
 					/// <summary>
 					/// SubHeader is supported by both variants. Please see the documentation on sap.m.Popover#subHeader and sap.m.Dialog#subHeader
 					/// </summary>
-					public Union<sap.m.IBar, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> subHeader;
+					public Union<sap.m.IBar, string, sap.ui.@base.ManagedObject.BindAggregationInfo> subHeader;
 
 					/// <summary>
 					/// BeginButton is supported by both variants. It is always show in the left part (right part in RTL mode) of the footer which is located at the bottom of the ResponsivePopover. If buttons need to be displayed in header, please use customHeader instead.
 					/// </summary>
-					public Union<sap.m.Button, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> beginButton;
+					public Union<sap.m.Button, string, sap.ui.@base.ManagedObject.BindAggregationInfo> beginButton;
 
 					/// <summary>
 					/// EndButton is supported by both variants. It is always show in the right part (left part in RTL mode) of the footer which is located at the bottom of the ResponsivePopover. If buttons need to be displayed in header, please use customHeader instead.
 					/// </summary>
-					public Union<sap.m.Button, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> endButton;
+					public Union<sap.m.Button, string, sap.ui.@base.ManagedObject.BindAggregationInfo> endButton;
 
 					/// <summary>
 					/// InitialFocus is supported by both variants. Please see the documentation on sap.m.Popover#initialFocus and sap.m.Dialog#initialFocus
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> initialFocus;
+					public Union<sap.ui.core.Control, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> initialFocus;
 
 					/// <summary>
 					/// Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 					/// <summary>
 					/// Association to controls / IDs which describe this control (see WAI-ARIA attribute aria-describedby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaDescribedBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaDescribedBy;
 
 					/// <summary>
 					/// Event is fired before popover or dialog is open.
@@ -1130,7 +1131,7 @@ namespace OpenUI5Sharp
 				/// Checks whether the ResponsivePopover is currently open.
 				/// </summary>
 				/// <returns></returns>
-				public extern virtual sap.ui.core.Control isOpen();
+				public extern virtual bool isOpen();
 
 				/// <summary>
 				/// Opens the ResponsivePopover. The ResponsivePopover is positioned relatively to the control parameter on tablet or desktop and is full screen on phone. Therefore the control parameter is only used on tablet or desktop and is ignored on phone.

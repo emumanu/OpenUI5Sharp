@@ -1,7 +1,7 @@
 /**
  * @version 1.0.0.0
  * @copyright Copyright ©  2018
- * @compiler Bridge.NET 17.1.1
+ * @compiler Bridge.NET 17.4.0
  */
 Bridge.assembly("DatabindingClientScripts", function ($asm, globals) {
     "use strict";
@@ -67,6 +67,6 @@ Bridge.assembly("DatabindingClientScripts", function ($asm, globals) {
 });
 
 sap.ui.define(System.Array.init(["sap/ui/core/mvc/Controller", "sap/ui/model/type/Currency"], System.String), function () {
-    var newObj = Glue.CreateRawClassObject(sap.ui.demo.db.controller.App);
+    var newObj = UI5.Glue.CreateRawClassObject(sap.ui.demo.db.controller.App);
     return sap.ui.core.mvc.Controller.extend("sap.ui.demo.db.controller.App", newObj);
 });

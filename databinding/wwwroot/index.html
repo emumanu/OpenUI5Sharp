@@ -7,7 +7,7 @@
 
     <title>OpenUI5Tests</title>
 
-    <script id="sap-ui-bootstrap" src="https://openui5.hana.ondemand.com/1.54.6/resources/sap-ui-core.js"
+    <script id="sap-ui-bootstrap" src="https://openui5.hana.ondemand.com/1.52.10/resources/sap-ui-core.js"
             data-sap-ui-theme="sap_belize"
             data-sap-ui-libs="sap.m"
             data-sap-ui-compatVersion="edge"
@@ -21,48 +21,6 @@
     <script src="/bridge.js"></script>
     <script src="/bridge.meta.js"></script>
     <script src="/bridge/openui5sharp.js"></script>
-    <script>
-        sap.ui.getCore().attachInit(function () {
-            var oProductModel = new sap.ui.model.json.JSONModel();
-            oProductModel.loadData("./bridge/model/Products.json");
-            sap.ui.getCore().setModel(oProductModel, "products");
-
-            // Create a JSON model from an object literal
-            var oModel = new sap.ui.model.json.JSONModel({
-                firstName: "Harry",
-                lastName: "Hawk",
-                enabled: true,
-                address: {
-                    street: "Dietmar-Hopp-Allee 16",
-                    city: "Walldorf",
-                    zip: "69190",
-                    country: "Germany"
-                },
-                salesToDate: 12345.6789,
-                priceThreshold: 20,
-                currencyCode: "EUR"
-            });
-
-            // Assign the model object to the SAPUI5 core
-            sap.ui.getCore().setModel(oModel);
-
-            // Create a resource bundle for language specific texts
-            var oResourceModel = new sap.ui.model.resource.ResourceModel({
-                bundleName: "sap.ui.demo.db.i18n.i18n"
-            });
-
-            // Assign the model object to the SAPUI5 core using the name "i18n"
-            sap.ui.getCore().setModel(oResourceModel, "i18n");
-
-            // Create view
-            var oView = new sap.ui.core.mvc.XMLView({ viewName: "sap.ui.demo.db.view.App" });
-
-            // Register the view with the message manager
-            sap.ui.getCore().getMessageManager().registerObject(oView, true);
-
-            // Insert the view into the DOM
-            oView.placeAt("content");
-        });
-    </script>
+    <script src="/bridge/startup.js"></script>
 </body>
 </html>

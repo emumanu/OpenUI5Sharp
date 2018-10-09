@@ -12541,11 +12541,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\OpenUI5Sharp\\ddd\\OpenUI5Sharp\\Routing\\routing.csproj",
+      "projectUniqueName": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\OpenUI5Sharp\\remote\\OpenUI5Sharp\\Routing\\routing.csproj",
       "projectName": "routing",
-      "projectPath": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\OpenUI5Sharp\\ddd\\OpenUI5Sharp\\Routing\\routing.csproj",
+      "projectPath": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\OpenUI5Sharp\\remote\\OpenUI5Sharp\\Routing\\routing.csproj",
       "packagesPath": "C:\\Users\\Manu\\.nuget\\packages\\",
-      "outputPath": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\OpenUI5Sharp\\ddd\\OpenUI5Sharp\\Routing\\obj\\",
+      "outputPath": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\OpenUI5Sharp\\remote\\OpenUI5Sharp\\Routing\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

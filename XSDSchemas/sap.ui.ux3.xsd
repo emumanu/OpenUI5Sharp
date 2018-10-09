@@ -1,0 +1,2501 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:n23="sap.ui.ux3" xmlns:n0="sap.ui.core" xmlns:n16="sap.ui.commons" elementFormDefault="qualified" targetNamespace="sap.ui.ux3" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="sap.ui.core" />
+  <xs:import namespace="sap.ui.commons" />
+  <xs:element name="ActionBar" substitutionGroup="n0:Control" type="n23:_ActionBarType">
+    <xs:annotation>
+      <xs:documentation>A special toolbar with predefined social actions which can be shown as needed. These are: Create an update (Feed), Follow, Mark for Follow Up, Mark as Favorite and Open Thing.
+
+In addition business actions (ThingAction instances) can be added which are either displayed as MenuItems of the 'More' menu button or as individual tool bar buttons.
+
+When using this control, please be aware that it fulfills rather specific requirements: it has been designed for and is used within composite controls QuickView and ThingInspector.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ActionBarType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="businessActions">
+            <xs:annotation>
+              <xs:documentation>Displayed on the actionBar's right hand-side, either as menu item under 'More' or as individual buttons</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n23:ThingAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="followState" type="n23:_FollowActionStateType">
+          <xs:annotation>
+            <xs:documentation>Keeps track of the actionBars Follow/Unfollow button’s state. Its value is one of - FollowActionState.Default - FollowActionState.Follow - FollowActionState.Hold</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="flagState" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Indicates whether “Mark for Follow Up” is active</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="favoriteState" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Indicates whether “Favorite” is active</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="updateState" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Indicates whether “Update” is active</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="thingIconURI" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>The thing icon uri. Icon will be displayed in Feeder</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="alwaysShowMoreMenu" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If true, business actions are rendered as menu items of the 'More' menu button. Otherwise, 'More' menu button is only displayed for overflow and business actions are rendered as inidividual buttons.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showUpdate" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Indicates whether social action “Update” is shown, default is ‘true’</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showFollow" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Indicates whether social action “Follow” is shown, default is ‘true’</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showFlag" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Indicates whether social action “Mark for Follow Up” is shown, default is ‘true’</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showFavorite" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Indicates whether social action “Favorite” is shown, default is ‘true’</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showOpen" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Indicates whether social action “Open” is shown, default is ‘true’</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="dividerWidth" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>The minimum width of ActionBar's the social actions part: business action controls have to be rendered outside this area</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="businessActions" type="xs:string" />
+        <xs:attribute name="actionSelected" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired when any of the social action’s toolbar buttons except ‘Update’ or any of the business action’s menu items resp. buttons is pressed. The selected action can be identified by its id and newState (the latter if applicable only) ‘Follow’ button + menu: id: follow, newState: Follow/Hold/Default ‘Mark for follow up’ button: id: flag, newState: true/false ‘Favorite’ button: id: favorite, newState: true/false ‘Open Thing Inspector’ button id: open Business Actions: id: the ThingAction id
+
+For ‘Update’, please refer to event ‘feedSubmit’</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="feedSubmit" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired when a new feed entry is submitted.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Collection" substitutionGroup="n0:Element" type="n23:_CollectionType">
+    <xs:annotation>
+      <xs:documentation>Collection</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_CollectionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="items">
+            <xs:annotation>
+              <xs:documentation>Items in the collection</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Item" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="title" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Name for the collection</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="editable" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If a collection is editable an edit button will be displayed below the list of items</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="multiSelection" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Allow multi selection of items in collection</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="items" type="xs:string" />
+        <xs:attribute name="selectedItems" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Contains all items that are currently selected</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="selectionChanged" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired when ever the selected items changer</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="propertyChanged" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fires if a property has changed, and the collection inspector needs to do something after that</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CollectionInspector" substitutionGroup="n0:Control" type="n23:_CollectionInspectorType">
+    <xs:annotation>
+      <xs:documentation>CollectionInspector</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_CollectionInspectorType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="collections">
+            <xs:annotation>
+              <xs:documentation>Collections which are displayed in the COllectionInspector</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n23:Collection" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>All controls that are currently displayed</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="sidebarVisible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Defines if the list of collection items is visible on the left</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="fitParent" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set to true, control will fit parents content area</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="collections" type="xs:string" />
+        <xs:attribute name="content" type="xs:string" />
+        <xs:attribute name="selectedCollection" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Collection which is currently selected</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="collectionSelected" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired if user selects a collection</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="itemSelectionChanged" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fires when an item in a collection is selected</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="editCollection" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fires when the edit button is clicked</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DataSet" substitutionGroup="n0:Control" type="n23:_DataSetType">
+    <xs:annotation>
+      <xs:documentation>DataSet</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_DataSetType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="items">
+            <xs:annotation>
+              <xs:documentation>Aggregation of DataSetItems</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n23:DataSetItem" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="views">
+            <xs:annotation>
+              <xs:documentation>views</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="filter">
+            <xs:annotation>
+              <xs:documentation>Filter control (e.g. a FacetFilter) for the DataSet</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="showToolbar" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>show Toolbar</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showFilter" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>show filter</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showSearchField" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Show/hide SearchField in Toolbar</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="multiSelect" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Selection mode of the DataSet</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="items" type="xs:string" />
+        <xs:attribute name="views" type="xs:string" />
+        <xs:attribute name="filter" type="xs:string" />
+        <xs:attribute name="selectedView" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Selected view of the Dataset</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="selectionChanged" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>selection Changed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="search" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event which is fired when the user triggers a search</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DataSetItem" substitutionGroup="n0:Element" type="n23:_DataSetItemType">
+    <xs:annotation>
+      <xs:documentation>DataSet Item</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_DataSetItemType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:attribute name="iconSrc" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>image</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="title" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>title</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="checkable" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>checkable</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="subtitle" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>subtitle</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="selected" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event Fired when Datset item is selected.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DataSetSimpleView" substitutionGroup="n0:Control" type="n23:_DataSetSimpleViewType">
+    <xs:annotation>
+      <xs:documentation>DataSetSimpleView provides a simple view example for DataSet usage.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_DataSetSimpleViewType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="template">
+            <xs:annotation>
+              <xs:documentation>template</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="floating" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>When true the DatSet items are floating containers. When set to false The Items are rendered in a 1 column Layout.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="name" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Name of the View</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="icon" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>Icon source for this view</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="iconHovered" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>icon: hovered state</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="iconSelected" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>icon: selected state</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="responsive" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>When true and the property floating is true the DatSet items are floating containers filling the whole space of a row.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="itemMinWidth" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>When itemMinWidth&gt;0 and the property floating is true the given minimum width in pixels is set to DatSet items. A minimum width must be given when the property responsive is set.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="initialItemCount" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>If this value is greater zero only this amount of items is loaded in the first place. New items are loaded automatically when the user scrolls down. The number of items which are reloaded can be defined with the property "reloadItemCount"</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="reloadItemCount" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>This number defines the item count which is reloaded on scroll if initialItemCount is enabled.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="scrollArea" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>ID of the DOM Element or jQuery reference to the dom which holds the scrollbar for the dataset</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>If the pagination feature is used without specifying a scroll area, a height for the dataset must be defined.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Exact" substitutionGroup="n0:Control" type="n23:_ExactType">
+    <xs:annotation>
+      <xs:documentation>A comprehensive UI design approach with graphical and functional elements for searching data, exploring data, and acting on the data ("Explore and Act (Exact) Pattern").</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ExactType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n23:ExactAttribute" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="settingsMenu">
+            <xs:annotation>
+              <xs:documentation>Defines the 'Settings' button in the browse section tool bar</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n16:Menu" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="attributes">
+            <xs:annotation>
+              <xs:documentation>The attributes which shall be available to refine the search</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n23:ExactAttribute" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="resultText" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>A title text which is displayed above the result section</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="attributes" type="xs:string" />
+        <xs:attribute name="search" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the search button is clicked</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="refineSearch" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event which is fired when an attribute is selected or unselected.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ExactArea" substitutionGroup="n0:Control" type="n23:_ExactAreaType">
+    <xs:annotation>
+      <xs:documentation>Consists of two sections: A tool bar and a content area where arbitrary controls can be added. The ExactArea is intended to be used for the Exact design approach but alternatively also in a stand alone version.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ExactAreaType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>Arbitrary child controls of the content area</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="toolbarItems">
+            <xs:annotation>
+              <xs:documentation>Tool bar items which shall be shown in the tool bar.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="toolbarVisible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies whether the tool bar shall be visible</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="content" type="xs:string" />
+        <xs:attribute name="toolbarItems" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ExactAttribute" substitutionGroup="n0:Element" type="n23:_ExactAttributeType">
+    <xs:annotation>
+      <xs:documentation>An element for defining attributes and sub-attributes used within the Exact pattern.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ExactAttributeType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n23:ExactAttribute" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="attributes">
+            <xs:annotation>
+              <xs:documentation>Values (sub attributes) of this attribute</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n23:ExactAttribute" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The attribute name</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="selected" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies whether the attribute shall be selected</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Specifies the width of the corresponding list in pixels. The value must be between 70 and 500.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listOrder" type="n23:_ExactOrderType">
+          <xs:annotation>
+            <xs:documentation>The order how the sublists of this attribute should be displayed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showSubAttributesIndicator" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies whether the attribute shall have sub values for visual purposes. The indicator which is a little arrow beside an attribute in the list is computed automatically (getShowSubAttributesIndicator_Computed() of sap.ui.ux3.ExactAttribute). In the case that a supply function is attached, and the supplyActive attribute has value 'true', then the Exact pattern needs a hint if sub attributes are available. The showSubAttributesIndicator attribute is considered then and has to be maintained. If the back-end does not support count-calls, for example, showSubAttributesIndicator should be set to true.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="additionalData" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>An example for additional data are database keys</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="supplyActive" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>The supplyAttributes event is only fired if supplyActive has value true which is the default. After firing the event, the attribute is automatically set to false. The idea is that a supply function is called only once when the data is requested. To enable the event again it is possible to manually set the attribute back to true.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="autoActivateSupply" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If you want the supply function to be called on every select, you can set the autoActivateSupply attribute to true. In this case, supplyActive is automatically set to true on every unselect.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="attributes" type="xs:string" />
+        <xs:attribute name="supplyAttributes" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>A supply function is a handler which is attached to the supplyAttributes event. The event is fired when the corresponding ExactAttribute is selected, it was already selected when a handler is attached or function getAttributes() is called.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ExactBrowser" substitutionGroup="n0:Control" type="n23:_ExactBrowserType">
+    <xs:annotation>
+      <xs:documentation>Attribute browse area used within the Exact pattern. The main benefit of this control is the high flexibility when large data amounts shall be displayed in the form of structured data sets with a high or low interdependency level. From lists - which can be nested according to the defined attributes - the user can choose entries and thereby trigger the display of further information, depending on the chosen entry/entries (multiple selection supported).</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ExactBrowserType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n23:ExactAttribute" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="attributes">
+            <xs:annotation>
+              <xs:documentation>The attributes which shall be available.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n23:ExactAttribute" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="optionsMenu">
+            <xs:annotation>
+              <xs:documentation>Menu with options. The menu can not used when the property showTopList is set to false.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n16:Menu" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="title" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Title text in the list area of the Exact Browser. The title is not shown when the property showTopList is set to false.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="headerTitle" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Title text in the header of the Exact Browser.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="topListOrder" type="n23:_ExactOrderType">
+          <xs:annotation>
+            <xs:documentation>The order how the sublists of the top level list should be displayed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enableListClose" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Enables the close icons of the displayed lists.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="listHeight" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>The height of the list area in px.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showHeader" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Whether the header area of the ExactBrowser should be shown.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showTopList" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Whether the top list of the ExactBrowser should be shown. When the property is set to false the application must ensure to select top level attributes appropriately.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enableReset" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Whether the reset functionality should be available in the header area.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enableSave" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Whether the save button should be available in the header area.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="topListWidth" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Specifies the width of the top list in pixels. The value must be between 70 and 500.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="attributes" type="xs:string" />
+        <xs:attribute name="followUpControl" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The successor control of the Exact Browser. The id of this control is used in the ARIA description of the control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="attributeSelected" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when an attribute is selected or unselected.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="save" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when an attribute is selected or unselected.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FacetFilter" substitutionGroup="n0:Control" type="n23:_FacetFilterType">
+    <xs:annotation>
+      <xs:documentation>FacetFilter Control.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FacetFilterType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="lists">
+            <xs:annotation>
+              <xs:documentation>Facet Filter list represents the list of the filter values and the title of this list.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n23:FacetFilterList" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="visibleItemCountMode" type="n23:_VisibleItemCountModeType">
+          <xs:annotation>
+            <xs:documentation>If the value is "Auto" - the Facet Filter takes the whole available height. If "Fixed" , then the default number of Facet Filter Items (5) is visible.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="lists" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FacetFilterList" substitutionGroup="n0:Control" type="n23:_FacetFilterListType">
+    <xs:annotation>
+      <xs:documentation>List to be used with the FacetFilter control. The control is not intended to be used stand alone.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FacetFilterListType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="items">
+            <xs:annotation>
+              <xs:documentation>The filter values that are presented as a list.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:ListItem" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="title" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The title of this list.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="multiSelect" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies whether multiple or single selection is used.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="displaySecondaryValues" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies whether the text values from the additionalText property (see sap.ui.core.ListItems) shall be displayed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="selectedKeys" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Array of type string containing the selected keys.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showCounter" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies whether the counter for all entries is shown.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="items" type="xs:string" />
+        <xs:attribute name="select" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>On Select event.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Feed" substitutionGroup="n0:Control" type="n23:_FeedType">
+    <xs:annotation>
+      <xs:documentation>A container control representing a full feed page, including feeder and updates.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FeedType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="filterItems">
+            <xs:annotation>
+              <xs:documentation>Items of the filter</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:ListItem" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="chunks">
+            <xs:annotation>
+              <xs:documentation>The chunks</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n23:FeedChunk" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="toolsMenuItems">
+            <xs:annotation>
+              <xs:documentation>MenuItems to open when the tool button is clicked by the user</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n16:MenuItem" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="feederThumbnailSrc" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>The path to the thumbnail image used for the feeder</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="feederSender" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The sender of the feeder</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="live" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies whether the feed shall be in live mode</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="title" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Title text of the Feed. If no text is entered "FEED" is displayed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="filterItems" type="xs:string" />
+        <xs:attribute name="chunks" type="xs:string" />
+        <xs:attribute name="toolsMenuItems" type="xs:string" />
+        <xs:attribute name="filterChange" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the filter is changed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="search" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the search function on SearchField is triggered</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="chunkAdded" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when a new chunk is added</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="toolsItemSelected" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when an item from the tools MenuButton was selected</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="toggleLive" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the live mode has changed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FeedChunk" substitutionGroup="n0:Control" type="n23:_FeedChunkType">
+    <xs:annotation>
+      <xs:documentation>The unit that is embedded - single-wise or in a multiple way - into a Feed control. The control provides a set of properties for text, sender information, time stamp, comments, and functions such as flagging the entry to be favorite, shared, or flagged.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FeedChunkType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="comments">
+            <xs:annotation>
+              <xs:documentation>Comments on this chunk</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n23:FeedChunk" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="actionMenuItems">
+            <xs:annotation>
+              <xs:documentation>MenuItems to open when there is a click on the action menu button</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n16:MenuItem" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="thumbnailSrc" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>URL to the thumbnail image.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The FeedChunk text. @References are supported.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="sender" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Sender of the chunk</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="timestamp" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Format is ISO 8601 YYYY-MM-DDThh:mm:ss.sZ, Z meaning the time is in UTC time zone</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="deletionAllowed" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Flag if the deletion of the chunk shall be allowed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="commentChunk" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>This flag changes a FeedChunk into a CommentChunk. In this case, it can not have own comments, furthermore it must be assigned to a FeedChunk.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="feederThumbnailSrc" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>URL to the thumbnail image for the comment feeder. This property is optional if the chunk is a sub-control of a feed control. In this case the value of the feed control is used if it's not set. So it must be only set once on the feed control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="feederSender" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Sender for the comment feeder This property is optional if the chunk is a sub-control of a feed control. In this case the value of the feed control is used if it's not set. So it must be only set once on the feed control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="flagged" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Defines whether the entry is flagged. This property is not supported for comment chunks.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="favorite" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Defines whether the entry shall be displayed as favorite. This property is not supported for comment chunks.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="shared" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Defines whether the entry shall be shared. This property is not supported for comment chunks.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enableFlag" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If true the flag action is enabled.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enableShare" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If true the share action is enabled.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enableComment" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If true the comment action is enabled.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enableInspect" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If true the inspect action is enabled.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enableFavorite" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If true the favorite action is enabled.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="comments" type="xs:string" />
+        <xs:attribute name="actionMenuItems" type="xs:string" />
+        <xs:attribute name="deleted" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the deletion button is pressed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="commentAdded" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is raised when a comment is added to the entry. This event is not supported for comment chunks.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="toggleFlagged" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is raised when the user clicks to flag the entry. This event is not supported for comment chunks.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="senderClicked" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the thumbnail or the name of the sender is clicked.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="referenceClicked" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Click on a @-reference</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="toggleFavorite" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is raised when the user clicks to set the entry as favorite. This event is not supported for comment chunks.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="inspect" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the inspect button was pressed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="toggleShared" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is raised when the user clicks to share the entry. This event is not supported for comment chunks.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="actionItemSelected" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when an item from the action menu button was selected.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Feeder" substitutionGroup="n0:Control" type="n23:_FeederType">
+    <xs:annotation>
+      <xs:documentation>This feed control flavor represents a lean common feed, or a comment feed, with a text commit function. The control can be used stand alone or in a multiple way, and generally would be integrated directly into a UIArea.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FeederType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="thumbnailSrc" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>URL to the thumb nail image This property is optional if the feeder is a sub-control of a feed or a feedChunk control. In this case the value of the feed or feddChunk control is used if it's not set. So it must be only set once on the feed or feedChunk control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The text for the Feeder. @References are supported.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="type" type="n23:_FeederTypeType">
+          <xs:annotation>
+            <xs:documentation>Type and size of the Feeder</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="placeholderText" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This property could be used for costum placeholder. If it is not set, the default text is used.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="submit" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the entered text is submitted</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="NavigationBar" substitutionGroup="n0:Control" type="n23:_NavigationBarType">
+    <xs:annotation>
+      <xs:documentation>Provides enhanced navigation capabilities and is the parent control of NavigationItem. It is displayed in the form of a horizontal line with switching markers depending on the currently selected item. The size of an item which is currently chosen by the user is enlarged. In the case that a large number of items are defined for the bar, this is made transparent to the user by showing symbols for scrolling options (forwards and backwards) to see the next or previous items.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_NavigationBarType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n23:NavigationItem" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="items">
+            <xs:annotation>
+              <xs:documentation>If the navigation items need to have a different parent than the NavigationBar, alternatively the associatedItems association can be used. The NavigationBar follows the approach to use the items aggregation. If this aggregation is empty, associatedItems is used.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n23:NavigationItem" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="toplevelVariant" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Defines whether the navigation bar shall have top-level appearance</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="overflowItemsToUpperCase" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Sets the appearance of the menu items in the overflow menu to uppercase</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="items" type="xs:string" />
+        <xs:attribute name="selectedItem" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The selected NavigationItem.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="associatedItems" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This association is ignored as long as the items aggregation is used; and supposed to be used alternatively when the items should be aggregated by other entities.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="select" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when an item is selected by the user</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="NavigationItem" substitutionGroup="n0:Item" type="n23:_NavigationItemType">
+    <xs:annotation>
+      <xs:documentation>Is the item to be used within the NavigationBar</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_NavigationItemType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ItemType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n23:NavigationItem" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="subItems">
+            <xs:annotation>
+              <xs:documentation>Any NavigationItems on the next hierarchy level connected to this NavigationItem</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n23:NavigationItem" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="visible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Whether the NavigationItem is currently visible. When making NavigationItems invisible at runtime it is the application's responsibility to make sure it is not the currently selected one - or to select another one in this case.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="href" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>Defines the link target URL. This property is optional and should only be set when required! The use of the href property is to not only allow users to navigate in-place by left-clicking NavigationItems, but also to allow right-click and then "open in new tab" or "open in new window". As long as href is not set, an empty window will open and stay blank. But when href is set, the new window/tab will load this URL and it is the application's responsibility to display what the user expects (e.g. the Shell, with the respective NavigationItem being selected).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="subItems" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="NotificationBar" substitutionGroup="n0:Control" type="n23:_NotificationBarType">
+    <xs:annotation>
+      <xs:documentation>A NotificationBar is a "toolbar" that can be added to a page to show messages and notifications from the application. Its position, height and width is inherited from the element that the notification bar is added to. The NotificationBar uses position: fixed; to always stay at the bottom of the screen. This CSS may sometimes cause issues when nested deeply inside other controls. To have a proper behavior of the NotificationBar use it as high in the control hierarchy as possible.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_NotificationBarType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="messageNotifier">
+            <xs:annotation>
+              <xs:documentation>Notifier that shows messages</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Element" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="notifiers">
+            <xs:annotation>
+              <xs:documentation>Notifiers that monitor something within the application and display the corresponding notifications.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Element" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="visibleStatus" type="n23:_NotificationBarStatusType">
+          <xs:annotation>
+            <xs:documentation>This property displays the bar corresponding to given status</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="resizeEnabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>This property enables the bar to be resized by the user.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="alwaysShowToggler" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>This property defines if the toggler should be displayed the whole time when the NotificationBar is shown.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="notifiers" type="xs:string" />
+        <xs:attribute name="display" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the bar wants to be displayed depending on given flag. This allows the application to decide what to do.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="resize" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This event is thrown when the bar was resized (to the different valid states: Min, Max, Default, None). The event itself can be used from SAPUI5-version 1.12.2 since there was a bug in the previous versions firing this event.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Notifier" substitutionGroup="n0:Element" type="n23:_NotifierType">
+    <xs:annotation>
+      <xs:documentation>This element can be docked to a notification bar to show notification items</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_NotifierType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="messages">
+            <xs:annotation>
+              <xs:documentation>Messages of this notifier.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Message" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="icon" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>Icon of the control that should be displayed within the corresponding bar</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="title" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Defines the title that should be displayed within the opening popup</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="messages" type="xs:string" />
+        <xs:attribute name="messageSelected" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when a message of the notifiers was selected.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Overlay" substitutionGroup="n0:Control" type="n23:_OverlayType">
+    <xs:annotation>
+      <xs:documentation>Overlay Control</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_OverlayType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="openButtonVisible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Defines whether the 'Open' button shall be visible.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="closeButtonVisible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Defines whether the 'Close' button shall be visible.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="close" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the Overlay starts closing.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="closed" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the Overlay is closed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="openNew" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the 'Open' button of the Overlay is clicked.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="open" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the Overlay is opened.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OverlayContainer" substitutionGroup="n23:Overlay" type="n23:_OverlayContainerType">
+    <xs:annotation>
+      <xs:documentation>Is to be embedded into the Overlay control as content container</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_OverlayContainerType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n23:_OverlayType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>Aggregation for content</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="content" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OverlayDialog" substitutionGroup="n23:Overlay" type="n23:_OverlayDialogType">
+    <xs:annotation>
+      <xs:documentation>Dialog implementation based on the Overlay. If used in a Shell it leaves the Tool-Palette, Pane-Bar and Header-Items accessible.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_OverlayDialogType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n23:_OverlayType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>Content for the OverlayDialog.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Determines the width of the Overlay Dialog. If the width is set to "auto" it is always 50% of the overlay width.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Determines the height of the Overlay Dialog. If the height is set to "auto" it is always 50% of the overlay height.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="content" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="QuickView" substitutionGroup="n16:CalloutBase" type="n23:_QuickViewType">
+    <xs:annotation>
+      <xs:documentation>QuickView is a small popup with a short overview of a Thing. QuickView is shown when a user holds the mouse pointer over a related screen element.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_QuickViewType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n16:_CalloutBaseType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>Body content of the QuickView</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Element" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="actions">
+            <xs:annotation>
+              <xs:documentation>Actions of a Thing</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n23:ThingAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="actionBar">
+            <xs:annotation>
+              <xs:documentation>ActionBar. If no actionBar is set a default ActionBar will be created. In any case, ActionBar is displayed only when the showActionBar property is set to true.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n23:ActionBar" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="type" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Thing type (mandatory) like Account, Material, Employee etc. is displayed in a header at the top part of the QuickView.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="firstTitle" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Thing name shown in the header of the QuickView</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="firstTitleHref" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>URI to Thing Inspector</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="secondTitle" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Optional short text shown under the firstTitle</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="icon" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>URI of the Thing icon image (mandatory). The image is scaled down to the maximal size of 32 pixel (vertical or horizontal).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Control width as common CSS-size (px or % as unit, for example).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showActionBar" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Show Action Bar</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="followState" type="n23:_FollowActionStateType">
+          <xs:annotation>
+            <xs:documentation>Follow State of a Thing</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="flagState" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>State of Flag Action</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="favoriteState" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>State Of favorite Action</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="favoriteActionEnabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Favorite action enabled/disabled. If disabled the action will be invisible.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="updateActionEnabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Update action enabled/disabled. If disabled the action will be invisible.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="followActionEnabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Follow action enabled/disabled. If disabled the action will be invisible.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="flagActionEnabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Flag action enabled/disabled. If disabled the action will be invisible.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="openActionEnabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Open Thing action enabled/disabled. If disabled the action will be invisible.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="content" type="xs:string" />
+        <xs:attribute name="actions" type="xs:string" />
+        <xs:attribute name="actionSelected" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Action is selected in Action Bar</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="feedSubmit" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired when a new feed entry is submitted.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="navigate" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when a user clicks on the firstTitle link. Call the preventDefault method of the event object to cancel browser navigation.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Shell" substitutionGroup="n0:Control" type="n23:_ShellType">
+    <xs:annotation>
+      <xs:documentation>The Ux3 GoldReflection Shell, which is an application frame with navigation capabilities. It is supposed to be added to a direct child of the BODY tag of a page and there should be no other parts of the page consuming space outside the Shell.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ShellType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="worksetItems">
+            <xs:annotation>
+              <xs:documentation>The workset items.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n23:NavigationItem" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="paneBarItems">
+            <xs:annotation>
+              <xs:documentation>The items to appear in the PaneBar.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Item" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="paneContent">
+            <xs:annotation>
+              <xs:documentation>The content to appear in the pane area.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>The content to appear in the main canvas. Each modification of this aggregation leads to a re-rendering of the content area - but not to a re-rendering of the complete Shell.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="toolPopups">
+            <xs:annotation>
+              <xs:documentation>The items which appear in the ToolPalette and are opened as popup when clicked.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n23:ToolPopup" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="headerItems">
+            <xs:annotation>
+              <xs:documentation>Controls to appear in the header next to the logout button. It is recommended to only use controls of type Button, MenuButton and TextView. The respective UI guidelines need to be enforced on a higher level.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="notificationBar">
+            <xs:annotation>
+              <xs:documentation>The NotificationBar which should be integrated into the Shell.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n23:NotificationBar" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="appTitle" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The application title to appear in the left part of the header, usually a company and/or product name. appIcon and appTitle are both optional and can both be set; in this case the icon appears first.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="appIcon" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>The URL of the image to appear in the left part of the header, usually a branding image containing a logo and/or product name. appIcon and appTitle are both optional and can both be set; in this case the icon appears first. If the appIcon is set, for accessibility reasons the appIconTooltip must also be set.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="appIconTooltip" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The tooltip of the application icon in the header</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showLogoutButton" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Whether the Logoff button in the header should be displayed or not.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="logoutButtonTooltip" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The tooltip to be displayed for the Logout Button of the Shell. If not set, a text meaning "Logout" in the current language will be displayed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showSearchTool" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Whether the "Global Search" tool should be displayed or not.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showInspectorTool" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Whether the "Inspector" tool should be displayed or not.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showFeederTool" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Whether the "Feeder" tool should be displayed or not.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showTools" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Whether the tool area should be displayed at all or not.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showPane" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Whether the pane bar should be displayed at all or not.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="headerType" type="n23:_ShellHeaderTypeType">
+          <xs:annotation>
+            <xs:documentation>Defines which header type to be used. Depending on the header type some other functionality might be obsolete.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="designType" type="n23:_ShellDesignTypeType">
+          <xs:annotation>
+            <xs:documentation>Defines which design type is to be used.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="paneWidth" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>The width of the right-hand side pane in pixels. The value must be a non-negative integer. The Shell reserves the right to define a minimum width (currently 50px).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="applyContentPadding" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Whether the Shell content area should have a theme-dependent padding or not.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="fullHeightContent" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set to true, the content area has a defined height. This means that any content put inside can use "100%" height in CSS and will then consume all available space. However, if content is larger, scrollbars will appear at the content area of the Shell and not on window level.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="allowOverlayHeaderAccess" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Whether the Shell header (Title Area + Header Items) can be accessed when an Overlay, OverlayContainer or ThingInspector is open.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="worksetItems" type="xs:string" />
+        <xs:attribute name="paneBarItems" type="xs:string" />
+        <xs:attribute name="paneContent" type="xs:string" />
+        <xs:attribute name="content" type="xs:string" />
+        <xs:attribute name="toolPopups" type="xs:string" />
+        <xs:attribute name="headerItems" type="xs:string" />
+        <xs:attribute name="selectedWorksetItem" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The ID of the Item that is currently selected. When setting, the NavigationItem itself can be given instead of its ID. There will not be a worksetItemSelected event, the application is responsible to show the proper content according to the newly selected WorksetItem. If the set WorksetItem does not exist in this Shell, the first item (and first sub-item) will be selected after the call. When getting, always the ID is returned, by which the NavigationItem instance can be retrieved.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="worksetItemSelected" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired when a workset item was selected by the user. The application may populate the sub-items of the given workset item in the event handler, but this must happen synchronously. If this is done, the application is responsible for displaying the correct content for the selected one of the newly created sub-items. The Shell will currently always mark the first sub-item as selected.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="paneBarItemSelected" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>An item in the right-hand-side pane bar has been selected, the pane is now visible and can be filled with UI elements.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="logout" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired when the user clicks the "Log-off" button</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="search" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired when search has been triggered.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="feedSubmit" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired when a new feed entry is submitted.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="paneClosed" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired after a side pane of the shell is closed. It is also fired, when an open pane is closed by calling setShowPane(false), if and only if the pane was opened before.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ThingAction" substitutionGroup="n0:Element" type="n23:_ThingActionType">
+    <xs:annotation>
+      <xs:documentation>Thing Action for Swatch, QuickView, Thinginspector</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ThingActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>text of action</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>action enabled (true/false)</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="select" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event will be fired when the action was triggered.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ThingGroup" substitutionGroup="n0:Element" type="n23:_ThingGroupType">
+    <xs:annotation>
+      <xs:documentation>Thing Group Area</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ThingGroupType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>Content of Group</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="actions">
+            <xs:annotation>
+              <xs:documentation>Actions of the groups content</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n23:ThingGroup" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="title" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Title of Group</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="colspan" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If Group is used in a column layout the groups spans the all columns if set to true.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="content" type="xs:string" />
+        <xs:attribute name="actions" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ThingInspector" substitutionGroup="n23:Overlay" type="n23:_ThingInspectorType">
+    <xs:annotation>
+      <xs:documentation>Thing Inspector</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ThingInspectorType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n23:_OverlayType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="actions">
+            <xs:annotation>
+              <xs:documentation>Actions of a Thing</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n23:ThingAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="headerContent">
+            <xs:annotation>
+              <xs:documentation>ThingGroups for the header content</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n23:ThingGroup" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="facets">
+            <xs:annotation>
+              <xs:documentation>Thing Inspector facets</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n23:NavigationItem" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="facetContent">
+            <xs:annotation>
+              <xs:documentation>ThingGroups for content of the selected facet</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n23:ThingGroup" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="actionBar">
+            <xs:annotation>
+              <xs:documentation>ActionBar. If no actionBar is set a default ActionBar will be created.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n23:ActionBar" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="firstTitle" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>First Line of the Thing Inspector Title</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="type" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Thing type</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="icon" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>Thing Icon Url</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="secondTitle" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Second Line of the Thing Inspector Title</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="followState" type="n23:_FollowActionStateType">
+          <xs:annotation>
+            <xs:documentation>Follow State of a Thing</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="flagState" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>State of Flag Action</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="favoriteState" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>State Of favorite Action</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="favoriteActionEnabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Favorite action enabled/disabled. If disabled the action will be invisible.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="updateActionEnabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Update action enabled/disabled. If disabled the action will be invisible.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="followActionEnabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Follow action enabled/disabled. If disabled the action will be invisible.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="flagActionEnabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Flag action enabled/disabled. If disabled the action will be invisible.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="headerType" type="n23:_ThingViewerHeaderTypeType">
+          <xs:annotation>
+            <xs:documentation>Defines which header type should be used.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="actions" type="xs:string" />
+        <xs:attribute name="headerContent" type="xs:string" />
+        <xs:attribute name="facets" type="xs:string" />
+        <xs:attribute name="facetContent" type="xs:string" />
+        <xs:attribute name="selectedFacet" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The Facet that is currently selected.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="actionSelected" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Further thing related Action selected</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="facetSelected" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event for facet selection. The application is responsible for displaying the correct content for the selected one. The ThingInspector will currently always mark the first facet as selected.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="feedSubmit" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired when a new feed entry is submitted.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ThingViewer" substitutionGroup="n0:Control" type="n23:_ThingViewerType">
+    <xs:annotation>
+      <xs:documentation>ThingViewer: Same as ThingInspector but decoupled from the Overlay and the ActionBar. The control can be added to a Parent container that has a defined width. The ThingViewer fill the whole container. If the parent container has no width defined the control will not work properly.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ThingViewerType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="headerContent">
+            <xs:annotation>
+              <xs:documentation>ThingGroups for the header content</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n23:ThingGroup" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="facets">
+            <xs:annotation>
+              <xs:documentation>Thing Inspector facets</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n23:NavigationItem" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="facetContent">
+            <xs:annotation>
+              <xs:documentation>ThingGroups for content of the selected facet</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n23:ThingGroup" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="actionBar">
+            <xs:annotation>
+              <xs:documentation>An ActionBar can be given</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n23:ActionBar" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="title" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Title of the Thing Inspector</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="type" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Thing type</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="icon" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>Thing Icon Url</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="subtitle" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Subtitle of the Thing Inspector</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Width of the ThingViewer</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Height of the ThingViewer</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="headerType" type="n23:_ThingViewerHeaderTypeType">
+          <xs:annotation>
+            <xs:documentation>Defines which header type should be used.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="headerContent" type="xs:string" />
+        <xs:attribute name="facets" type="xs:string" />
+        <xs:attribute name="facetContent" type="xs:string" />
+        <xs:attribute name="selectedFacet" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The Facet that is currently selected.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="facetSelected" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event for facet selection. The application is responsible for displaying the correct content for the selected one. The ThingInspector will currently always mark the first facet as selected.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ToolPopup" substitutionGroup="n0:Control" type="n23:_ToolPopupType">
+    <xs:annotation>
+      <xs:documentation>A popup which the user can open from the Shell's tool pane. Generally, the starting point would be an icon. For this pop up, buttons can be defined with any text; therefore, it has the same purpose and similar look like any common dialog box. A ToolPopup can have any content. Depending on the application type and design, the structure of the texts and input fields can be for example form-like.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ToolPopupType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="buttons">
+            <xs:annotation>
+              <xs:documentation>Defines the buttons to appear in the popup</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>Defines the content of the popup</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="title" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Determines the title displayed in the pop up window</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="icon" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>This property is relevant for Shell use: The URL to the icon displayed in the tool area which is used to open the ToolPopup. The recommended size is 32x32px, including some transparent border. Therefore, the content will cover about 20x20px.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="iconHover" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>This property is relevant for Shell use: The URL to the icon in hover state, displayed in the tool area which is used to open the popup.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="iconSelected" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>This property is relevant for Shell use: The URL to the icon in selected state displayed in the tool area which is used to open the popup. If no selected icon is given, the hover icon is used.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="modal" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies whether the popup is modal and blocks any user-interaction with controls in the background. Changing this property while the ToolPopup is open will not have any effect. Please don't use "modal" and "autoclose" at the same time. In this case a warning will be prompted to the console and "autoclose" won't be used.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="inverted" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies whether the ToolPopup has a dark or bright background. If set to true the background and borders will be dark. If false they will be bright. This property only has an effect for the GoldReflection-theme.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="autoClose" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the ToolPopup will auto close when it loses focus. If the user e.g. clicks outside of the ToolPopup it will be closed. Please don't use "modal" and "autoclose" at the same time. In this case a warning will be prompted to the console and "autoclose" won't be used.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="maxHeight" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Forces a maximum height of the ToolPopup in pixels. If the ToolPopup content is higher than the ToolPopup, the content will be scrollable.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="maxWidth" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Forces a maximum width of the ToolPopup in pixels.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="openDuration" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Time in milliseconds for the open animation.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="closeDuration" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Time in milliseconds for the close animation.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="buttons" type="xs:string" />
+        <xs:attribute name="content" type="xs:string" />
+        <xs:attribute name="initialFocus" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Defines the control that will get the focus when the ToolPopup is opened.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="opener" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This property is relevant for stand-alone use: This association needs to be set if the ToolPopup should not be opened by/with the Shell. This association contains the instance of the control that assigns the ToolPopup's position.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="defaultButton" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Defines one of the buttons that have been provided via button aggregation to be the default button. This default button is initially selected, if no control is set via the initialFocus association explicitly. The default button is activated when Enter is pressed in the context of the dialog and when the currently selected element does not handle the Enter event itself.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="open" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the popup opens</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="close" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the popup closes because the user pressed Escape or the ToolPopup Button in the Shell. This is called before the closing animation.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enter" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired whenever the user clicks the Enter or the Enter key inside the pop up</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="iconChanged" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when one of the icon properties is modified (Note: The icon is not rendered by the ToolPopup). To be used by other controls which want to update the icon in their UI.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="closed" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This event is fired after the ToolPopup has finished its closing animation. It is called for EVERY close, regardless of whether the user has triggered the close or whether the ToolPopup was closed via API call.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="opened" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is being fired after the ToolPopup has been opened.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="_ActionBarSocialActionsType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Favorite">
+        <xs:annotation>
+          <xs:documentation>Standards action 'Mark as Favorite'</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Flag">
+        <xs:annotation>
+          <xs:documentation>Standard action 'Mark for Follow up'</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Follow">
+        <xs:annotation>
+          <xs:documentation>Standard action 'Follow/Unfollow'</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Open">
+        <xs:annotation>
+          <xs:documentation>Standard action 'Open Thing Inspector'</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Update">
+        <xs:annotation>
+          <xs:documentation>Standard action 'Create an update' (Feed)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_ExactOrderType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Fixed">
+        <xs:annotation>
+          <xs:documentation>The order of the sub lists is defined by order of the defined sub attributes.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Select">
+        <xs:annotation>
+          <xs:documentation>The order of the sub lists is defined by the selection order of the user.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_FeederTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Comment">
+        <xs:annotation>
+          <xs:documentation>comment feeder (small)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Large">
+        <xs:annotation>
+          <xs:documentation>large Feeder</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Medium">
+        <xs:annotation>
+          <xs:documentation>medium feeder</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_FollowActionStateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default">
+        <xs:annotation>
+          <xs:documentation>default state</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Follow">
+        <xs:annotation>
+          <xs:documentation>follow state</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Hold">
+        <xs:annotation>
+          <xs:documentation>hold state</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_NotificationBarStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default">
+        <xs:annotation>
+          <xs:documentation>Default height for the bar</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Max">
+        <xs:annotation>
+          <xs:documentation>Bar should be maximized</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Min">
+        <xs:annotation>
+          <xs:documentation>Bar should be minimized</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="None">
+        <xs:annotation>
+          <xs:documentation>Bar should not be visible</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_ShellDesignTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Crystal">
+        <xs:annotation>
+          <xs:documentation>An even lighter design. It borrows most of its properties from the Light design and just changes a few details like the header colors in order to have a blue design within gold reflection.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Light">
+        <xs:annotation>
+          <xs:documentation>A lighter design. Should be used in combination with the Standard header type.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Standard">
+        <xs:annotation>
+          <xs:documentation>The standard Shell design (dark).</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_ShellHeaderTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BrandOnly">
+        <xs:annotation>
+          <xs:documentation>Only the branding area is visible. Top-level navigation bar, header items, title and icon are not shown.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NoNavigation">
+        <xs:annotation>
+          <xs:documentation>Like the Standard Area but without top-level navigation bar.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SlimNavigation">
+        <xs:annotation>
+          <xs:documentation>Like the Standard Area but with a leaner top-level navigation bar.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Standard">
+        <xs:annotation>
+          <xs:documentation>The standard Shell header.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_ThingViewerHeaderTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Horizontal">
+        <xs:annotation>
+          <xs:documentation>The header content is displayed horizontally above the facet content</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Standard">
+        <xs:annotation>
+          <xs:documentation>The standard ThingViewer header.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_VisibleItemCountModeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Auto">
+        <xs:annotation>
+          <xs:documentation>The FacetFilter automatically fills the height of the surrounding container. The visibleItemCount property is automatically changed accordingly.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Fixed">
+        <xs:annotation>
+          <xs:documentation>The FacetFilter always has as many items in the FacetFilterList as defined in the visibleItemCount property.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

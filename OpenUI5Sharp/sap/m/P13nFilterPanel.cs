@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.P13nFilterPanel")]
 			public partial class P13nFilterPanel : sap.m.P13nPanel
 			{
 				#region Settings
@@ -28,27 +29,27 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the maximum number of include filters.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maxIncludes;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> maxIncludes;
 
 					/// <summary>
 					/// Defines the maximum number of exclude filters.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maxExcludes;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> maxExcludes;
 
 					/// <summary>
 					/// Defines if the <code>mediaQuery</code> or a <code>ContainerResize</code> is used for layout update. If the <code>ConditionPanel</code> is used in a dialog, the property must be set to <code>true</code>.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> containerQuery;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> containerQuery;
 
 					/// <summary>
 					/// Can be used to control the layout behavior. Default is "" which will automatically change the layout. With "Desktop", "Table" or"Phone" you can set a fixed layout.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> layoutMode;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> layoutMode;
 
 					/// <summary>
 					/// Defines filter items.
 					/// </summary>
-					public Union<sap.m.P13nFilterItem[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> filterItems;
+					public Union<sap.m.P13nFilterItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> filterItems;
 
 					/// <summary>
 					/// Event raised if a filter item has been added.

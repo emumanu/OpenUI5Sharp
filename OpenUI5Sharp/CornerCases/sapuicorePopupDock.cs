@@ -2,7 +2,7 @@
 using Bridge;
 using Retyped;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
     public partial class sap
     {

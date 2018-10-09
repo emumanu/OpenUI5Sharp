@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.MenuItem")]
 			public partial class MenuItem : sap.ui.core.Item
 			{
 				#region Settings
@@ -28,22 +29,22 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the icon, which belongs to the item. This can be a URI to an image or an icon font URI.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> icon;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> icon;
 
 					/// <summary>
 					/// Defines whether the item should be visible on the screen. If set to <code>false</code>, a placeholder is rendered instead of the real item.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visible;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visible;
 
 					/// <summary>
 					/// Defines whether a visual separator should be rendered before the item. <b>Note:</b> If an item is invisible its separator is also not displayed.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> startsSection;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> startsSection;
 
 					/// <summary>
 					/// Defines the sub-items contained within this element.
 					/// </summary>
-					public Union<sap.m.MenuItem[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
+					public Union<sap.m.MenuItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
 
 					/// <summary>
 					/// Fired after the item has been pressed.

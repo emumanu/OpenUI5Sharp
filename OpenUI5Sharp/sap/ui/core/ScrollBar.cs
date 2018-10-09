@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -16,6 +16,8 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.core.ScrollBar")]
+				[Obsolete("Deprecated since 1.56.")]
 				public partial class ScrollBar : sap.ui.core.Control
 				{
 					#region Settings
@@ -30,27 +32,27 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Orientation. Defines if the Scrollbar is vertical or horizontal.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> vertical;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> vertical;
 
 						/// <summary>
 						/// Scroll position in steps or pixels.
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> scrollPosition;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> scrollPosition;
 
 						/// <summary>
 						/// Size of the Scrollbar (in pixels).
 						/// </summary>
-						public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> size;
+						public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> size;
 
 						/// <summary>
 						/// Size of the scrollable content (in pixels).
 						/// </summary>
-						public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> contentSize;
+						public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> contentSize;
 
 						/// <summary>
 						/// Number of steps to scroll. Used if the size of the content is not known as the data is loaded dynamically.
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> steps;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> steps;
 
 						/// <summary>
 						/// Scroll event.

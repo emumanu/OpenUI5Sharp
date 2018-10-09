@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq.Expressions;
 using Bridge;
-using OpenUI5Sharp;
+using UI5;
 
-namespace OpenUI5Sharp.Extensions
+namespace UI5.Extensions
 {
     [Namespace(false)]
     [FileName("openui5sharp.js")]

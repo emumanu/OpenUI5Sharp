@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.unified.DateRange")]
 				public partial class DateRange : sap.ui.core.Element
 				{
 					#region Settings
@@ -30,12 +31,12 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Start date for a date range. This must be a JavaScript date object.
 						/// </summary>
-						public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> startDate;
+						public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> startDate;
 
 						/// <summary>
 						/// End date for a date range. If empty only a single date is presented by this DateRange element. This must be a JavaScript date object.
 						/// </summary>
-						public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> endDate;
+						public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> endDate;
 
 					}
 

@@ -22,7 +22,7 @@ Bridge.assembly("ODatav4ClientScripts", function ($asm, globals) {
 });
 
 sap.ui.define(System.Array.init(["sap/ui/model/json/JSONModel", "sap/ui/Device"], System.String), function (Model, Device) {
-    var newObj = Glue.CreateRawClassObject(sap.ui.core.tutorial.odata4.model.Models);
+    var newObj = UI5.Glue.CreateRawClassObject(sap.ui.core.tutorial.odata4.model.Models);
     newObj.Device = Device;
     return newObj;
 });

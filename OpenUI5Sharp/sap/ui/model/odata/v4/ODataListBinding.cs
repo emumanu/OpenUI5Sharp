@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -20,8 +20,37 @@ namespace OpenUI5Sharp
 						/// </summary>
 						[External]
 						[Namespace(false)]
+						[Name("sap.ui.model.odata.v4.ODataListBinding")]
 						public partial class ODataListBinding : sap.ui.model.ListBinding
 						{
+							#region Typed Parameters
+
+							/// <summary>
+							/// Parameter to be used as Object Literal
+							/// </summary>
+							[External]
+							[ObjectLiteral]
+							public partial class SetAggregationInfo
+							{
+								/// <summary>
+								/// A map from aggregatable property names or aliases to objects containing the following details: <ul> <li><code>subtotals</code>: An optional boolean that tells whether subtotals for this aggregatable property are needed <li><code>with</code>: An optional string that provides the name of the method (for example "sum") used for aggregation of this aggregatable property; see "3.1.2 Keyword with" <li><code>name</code>: An optional string that provides the original aggregatable property name in case a different alias is chosen as the name of the dynamic property used for aggregation of this aggregatable property; see "3.1.1 Keyword as" </ul>
+								/// </summary>
+								public object aggregate;
+
+								/// <summary>
+								/// A map from groupable property names to empty objects
+								/// </summary>
+								public object group;
+
+								/// <summary>
+								/// A list of groupable property names used to determine group levels. They may, but don't need to, be repeated in <code>oAggregation.group</code>. Group levels cannot be combined with filtering or with the system query option <code>$count</code>; only a single group level is supported.
+								/// </summary>
+								public string[] groupLevels;
+
+							}
+
+							#endregion
+
 							#region Constructor
 
 							/// <summary>
@@ -306,6 +335,12 @@ namespace OpenUI5Sharp
 							public extern override void resume();
 
 							/// <summary>
+							/// Sets a new data aggregation object and derives the system query option <code>$apply</code> implicitly from it.
+							/// </summary>
+							/// <param name="oAggregation">An object holding the information needed for data aggregation; see also <a href="http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/">OData Extension for Data Aggregation Version 4.0</a>.</param>
+							public extern virtual void setAggregation(sap.ui.model.odata.v4.ODataListBinding.SetAggregationInfo oAggregation);
+
+							/// <summary>
 							/// Sort the entries represented by this list binding according to the given sorters. The sorters are stored at this list binding and they are used for each following data request.
 							/// 
 							/// If there are pending changes an error is thrown. Use {@link #hasPendingChanges} to check if there are pending changes. If there are changes, call {@link sap.ui.model.odata.v4.ODataModel#submitBatch} to submit the changes or {@link sap.ui.model.odata.v4.ODataModel#resetChanges} to reset the changes before calling {@link #sort}.
@@ -328,10 +363,11 @@ namespace OpenUI5Sharp
 							public extern override void suspend();
 
 							/// <summary>
-							/// Updates the binding's "$apply" parameter based on the given data aggregation information. Its value is "groupby((&lt;dimension_1,...,dimension_N,unit_or_text_1,...,unit_or_text_K>), aggregate(&lt;measure> with &lt;method> as &lt;alias>, ...))" where the "aggregate" part is only present if measures are given and both "with" and "as" are optional.
+							/// Updates the binding's system query option <code>$apply</code> based on the given data aggregation information. Its value is "groupby((&lt;dimension_1,...,dimension_N,unit_or_text_1,...,unit_or_text_K>), aggregate(&lt;measure> with &lt;method> as &lt;alias>, ...))" where the "aggregate" part is only present if measures are given and both "with" and "as" are optional.
 							/// </summary>
 							/// <param name="aAggregation">An array with objects holding the information needed for data aggregation; see also <a href="http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/">OData Extension for Data Aggregation Version 4.0</a></param>
-							public extern virtual void updateAnalyticalInfo(object[] aAggregation);
+							/// <returns>The return object contains a property <code>measureRangePromise</code> if and only if at least one measure has requested a minimum or maximum value; its value is a promise which resolves with the measure range map as soon as data has been received; the measure range map contains measure names as keys and objects as values which have a <code>min</code> and <code>max</code> property as requested above. <code>undefined</code> is returned instead of an empty object.</returns>
+							public extern virtual object updateAnalyticalInfo(object[] aAggregation);
 
 							#endregion
 

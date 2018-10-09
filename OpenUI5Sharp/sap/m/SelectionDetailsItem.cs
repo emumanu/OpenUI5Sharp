@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.SelectionDetailsItem")]
 			public partial class SelectionDetailsItem : sap.ui.core.Element
 			{
 				#region Settings
@@ -28,17 +29,17 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Determines whether or not the item is active and a navigation event is triggered on press.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enableNav;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enableNav;
 
 					/// <summary>
 					/// Contains a record of information about, for example, measures and dimensions. These entries are usually obtained via selection in chart controls.
 					/// </summary>
-					public Union<sap.m.SelectionDetailsItemLine[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> lines;
+					public Union<sap.m.SelectionDetailsItemLine[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> lines;
 
 					/// <summary>
 					/// Contains custom actions shown below the main content of the item.
 					/// </summary>
-					public Union<sap.ui.core.Item[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> actions;
+					public Union<sap.ui.core.Item[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> actions;
 
 				}
 

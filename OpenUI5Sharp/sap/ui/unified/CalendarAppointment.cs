@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.unified.CalendarAppointment")]
 				public partial class CalendarAppointment : sap.ui.unified.DateTypeRange
 				{
 					#region Settings
@@ -32,39 +33,39 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Title of the appointment.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> title;
 
 						/// <summary>
 						/// Text of the appointment.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> text;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> text;
 
 						/// <summary>
 						/// Icon of the Appointment. (e.g. picture of the person)
 						/// 
 						/// URI of an image or an icon registered in sap.ui.core.IconPool.
 						/// </summary>
-						public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> icon;
+						public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> icon;
 
 						/// <summary>
 						/// Indicates if the icon is tentative.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> tentative;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> tentative;
 
 						/// <summary>
 						/// Indicates if the icon is selected.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selected;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> selected;
 
 						/// <summary>
 						/// Can be used as identifier of the appointment
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> key;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> key;
 
 						/// <summary>
 						/// Overrides the color derived from the <code>type</code> property. This property will work only with full hex color with pound symbol, e.g.: #FF0000.
 						/// </summary>
-						public Union<sap.ui.core.CSSColor, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> color;
+						public Union<sap.ui.core.CSSColor, string, sap.ui.@base.ManagedObject.BindPropertyInfo> color;
 
 					}
 

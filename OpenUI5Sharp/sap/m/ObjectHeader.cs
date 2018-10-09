@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.ObjectHeader")]
 			public partial class ObjectHeader : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,109 +29,109 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Determines the title of the <code>ObjectHeader</code>.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> title;
 
 					/// <summary>
 					/// Determines the displayed number of the <code>ObjectHeader</code> number field.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> number;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> number;
 
 					/// <summary>
 					/// Determines the units qualifier of the <code>ObjectHeader</code> number.
 					/// 
 					/// <b>Note:</b> The value of the <code>numberUnit</code> is not displayed if the number property is set to <code>null</code>.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> numberUnit;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> numberUnit;
 
 					/// <summary>
 					/// Determines the introductory text for the <code>ObjectHeader</code>.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> intro;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> intro;
 
 					/// <summary>
 					/// Determines whether the introductory text of the <code>ObjectHeader</code> is clickable.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> introActive;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> introActive;
 
 					/// <summary>
 					/// Determines whether the title of the <code>ObjectHeader</code> is clickable and is set only if a title is provided.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> titleActive;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> titleActive;
 
 					/// <summary>
 					/// Defines the icon of the <code>ObjectHeader</code>.
 					/// 
 					/// <b>Note:</b> Recursive resolution of binding expressions is not supported by the framework. It works only in ObjectHeader, since it is a composite control and creates an Image control internally.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> icon;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> icon;
 
 					/// <summary>
 					/// Determines whether the <code>ObjectHeader</code> icon is clickable.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> iconActive;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> iconActive;
 
 					/// <summary>
 					/// Determines the alternative text of the <code>ObjectHeader</code> icon. The text is displayed if the image for the icon is not available, or cannot be displayed.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> iconAlt;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> iconAlt;
 
 					/// <summary>
 					/// Determines the tooltip text of the <code>ObjectHeader</code> icon.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> iconTooltip;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> iconTooltip;
 
 					/// <summary>
 					/// By default, this is set to <code>true</code> but then one or more requests are sent trying to get the density perfect version of image if this version of image doesn't exist on the server.
 					/// 
 					/// If bandwidth is the key for the application, set this value to <code>false</code>.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> iconDensityAware;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> iconDensityAware;
 
 					/// <summary>
 					/// Sets the favorite state for the <code>ObjectHeader</code>. The <code>showMarkers</code> property must be set to <code>true</code> for this property to take effect.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> markFavorite;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> markFavorite;
 
 					/// <summary>
 					/// Sets the flagged state for the <code>ObjectHeader</code>. The <code>showMarkers</code> property must be set to <code>true</code> for this property to take effect.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> markFlagged;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> markFlagged;
 
 					/// <summary>
 					/// If set to <code>true</code>, the <code>ObjectHeader</code> can be marked with icons such as favorite and flag.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showMarkers;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showMarkers;
 
 					/// <summary>
 					/// Determines whether the selector arrow icon/image is displayed and can be pressed.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showTitleSelector;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showTitleSelector;
 
 					/// <summary>
 					/// Determines the value state of the <code>number</code> and <code>numberUnit</code> properties.
 					/// </summary>
-					public Union<sap.ui.core.ValueState, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> numberState;
+					public Union<sap.ui.core.ValueState, string, sap.ui.@base.ManagedObject.BindPropertyInfo> numberState;
 
 					/// <summary>
 					/// <code>ObjectHeader</code> with title, one attribute, number, and number unit.
 					/// 
 					/// <b>Note:</b> Only applied if the <code>responsive</code> property is set to <code>false</code>.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> condensed;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> condensed;
 
 					/// <summary>
 					/// Determines the background color of the <code>ObjectHeader</code>.
 					/// 
 					/// <b>Note:</b> The different types of <code>ObjectHeader</code> come with different default background: <ul> <li>non responsive - Transparent</li> <li>responsive - Translucent</li> <li>condensed - Solid</li> </ul>
 					/// </summary>
-					public Union<sap.m.BackgroundDesign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> backgroundDesign;
+					public Union<sap.m.BackgroundDesign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundDesign;
 
 					/// <summary>
 					/// Determines whether the <code>ObjectHeader</code> is rendered with a different design that reacts responsively to the screen sizes.
 					/// 
 					/// <b>Note:</b> Be aware that the design and behavior of the responsive <code>ObjectHeader</code> could change without further notification.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> responsive;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> responsive;
 
 					/// <summary>
 					/// Optimizes the display of the elements of the <code>ObjectHeader</code>.
@@ -143,121 +144,121 @@ namespace OpenUI5Sharp
 					/// 
 					/// If set to <code>false</code>, the attributes and statuses are being positioned below the Title/Number of the <code>ObjectHeader</code> in 2 or 3 columns depending on their number: <ul> <li>On desktop, 1-4 attributes/statuses - 2 columns</li> <li>On desktop, 5+ attributes/statuses - 3 columns</li> <li>On tablet, always in 2 columns</li> </ul>
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> fullScreenOptimized;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> fullScreenOptimized;
 
 					/// <summary>
 					/// Defines the title link target URI. Supports standard hyperlink behavior.
 					/// 
 					/// <b>Note:</b> If an action should be triggered, this property should not be set, but instead an event handler for the <code>titlePress</code> event should be registered.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> titleHref;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> titleHref;
 
 					/// <summary>
 					/// Determines the <code>target</code> attribute for the title link. Options are <code>_self</code>, <code>_top</code>, <code>_blank</code>, <code>_parent</code>, <code>_search</code>. Alternatively, a frame name can be entered.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> titleTarget;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> titleTarget;
 
 					/// <summary>
 					/// Determines the intro link target URI. Supports standard hyperlink behavior. If an action should be triggered, this should not be set, but instead an event handler for the <code>introPress</code> event should be registered.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> introHref;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> introHref;
 
 					/// <summary>
 					/// Determines the <code>target</code> attribute for the intro link. Options are <code>_self</code>, <code>_top</code>, <code>_blank</code>, <code>_parent</code>, <code>_search</code>. Alternatively, a frame name can be entered.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> introTarget;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> introTarget;
 
 					/// <summary>
 					/// Specifies the title text directionality with enumerated options. By default, the control inherits text direction from the DOM.
 					/// </summary>
-					public Union<sap.ui.core.TextDirection, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> titleTextDirection;
+					public Union<sap.ui.core.TextDirection, string, sap.ui.@base.ManagedObject.BindPropertyInfo> titleTextDirection;
 
 					/// <summary>
 					/// Specifies the intro text directionality with enumerated options. By default, the control inherits text direction from the DOM.
 					/// </summary>
-					public Union<sap.ui.core.TextDirection, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> introTextDirection;
+					public Union<sap.ui.core.TextDirection, string, sap.ui.@base.ManagedObject.BindPropertyInfo> introTextDirection;
 
 					/// <summary>
 					/// Specifies the number and unit text directionality with enumerated options. By default, the control inherits text direction from the DOM.
 					/// </summary>
-					public Union<sap.ui.core.TextDirection, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> numberTextDirection;
+					public Union<sap.ui.core.TextDirection, string, sap.ui.@base.ManagedObject.BindPropertyInfo> numberTextDirection;
 
 					/// <summary>
 					/// Determines a custom text for the tooltip of the select title arrow. If not set, a default text of the tooltip will be displayed.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> titleSelectorTooltip;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> titleSelectorTooltip;
 
 					/// <summary>
 					/// Defines the semantic level of the title.
 					/// 
 					/// This information is used by assistive technologies, such as screen readers to create a hierarchical site map for faster navigation. Depending on this setting an HTML h1-h6 element is used.
 					/// </summary>
-					public Union<sap.ui.core.TitleLevel, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> titleLevel;
+					public Union<sap.ui.core.TitleLevel, string, sap.ui.@base.ManagedObject.BindPropertyInfo> titleLevel;
 
 					/// <summary>
 					/// The list of Object Attributes
 					/// </summary>
-					public Union<sap.m.ObjectAttribute[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> attributes;
+					public Union<sap.m.ObjectAttribute[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> attributes;
 
 					/// <summary>
 					/// First status shown on the right side of the attributes above the second status. If it is not set the first attribute will expand to take the entire row.
 					/// </summary>
-					public Union<sap.m.ObjectStatus, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> firstStatus;
+					public Union<sap.m.ObjectStatus, string, sap.ui.@base.ManagedObject.BindAggregationInfo> firstStatus;
 
 					/// <summary>
 					/// Second status shown on the right side of the attributes below the first status. If it is not set the second attribute will expand to take the entire row.
 					/// </summary>
-					public Union<sap.m.ObjectStatus, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> secondStatus;
+					public Union<sap.m.ObjectStatus, string, sap.ui.@base.ManagedObject.BindAggregationInfo> secondStatus;
 
 					/// <summary>
 					/// The list of Object sap.ui.core.Control. It will only allow sap.m.ObjectStatus and sap.m.ProgressIndicator controls.
 					/// </summary>
-					public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> statuses;
+					public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> statuses;
 
 					/// <summary>
 					/// NOTE: Only applied if you set "responsive=false". Additional object numbers and units are managed in this aggregation. The numbers are hidden on tablet and phone size screens. When only one number is provided, it is rendered with additional separator from the main ObjectHeader number.
 					/// </summary>
-					public Union<sap.m.ObjectNumber[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> additionalNumbers;
+					public Union<sap.m.ObjectNumber[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> additionalNumbers;
 
 					/// <summary>
 					/// This aggregation takes only effect when you set "responsive" to true. It can either be filled with an sap.m.IconTabBar or an sap.suite.ui.commons.HeaderContainer control. Overflow handling must be taken care of by the inner control. If used with an IconTabBar control, only the header will be displayed inside the object header, the content will be displayed below the ObjectHeader.
 					/// </summary>
-					public Union<sap.m.ObjectHeaderContainer, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> headerContainer;
+					public Union<sap.m.ObjectHeaderContainer, string, sap.ui.@base.ManagedObject.BindAggregationInfo> headerContainer;
 
 					/// <summary>
 					/// List of markers (icon and/or text) that can be displayed for the <code>ObjectHeader</code>, such as favorite and flagged.<br><br> <b>Note:</b> You should use either this aggregation or the already deprecated properties - <code>markFlagged</code> and <code>markFavorite</code>. Using both can lead to unexpected results.
 					/// </summary>
-					public Union<sap.m.ObjectMarker[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> markers;
+					public Union<sap.m.ObjectMarker[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> markers;
 
 					/// <summary>
 					/// Association to controls / ids which describe this control (see WAI-ARIA attribute aria-describedby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaDescribedBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaDescribedBy;
 
 					/// <summary>
 					/// Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 					/// <summary>
 					/// Event is fired when the title is active and the user taps/clicks on it
 					/// </summary>
-					public sap.m.ObjectPressDelegate titlePress;
+					public sap.m.ObjectHeaderPressDelegate titlePress;
 
 					/// <summary>
 					/// Event is fired when the intro is active and the user taps/clicks on it
 					/// </summary>
-					public sap.m.ObjectPressDelegate introPress;
+					public sap.m.ObjectHeaderPressDelegate introPress;
 
 					/// <summary>
 					/// Event is fired when the title icon is active and the user taps/clicks on it
 					/// </summary>
-					public sap.m.ObjectPressDelegate iconPress;
+					public sap.m.ObjectHeaderPressDelegate iconPress;
 
 					/// <summary>
 					/// Event is fired when the object header title selector (down-arrow) is pressed
 					/// </summary>
-					public sap.m.ObjectPressDelegate titleSelectorPress;
+					public sap.m.ObjectHeaderPressDelegate titleSelectorPress;
 
 				}
 
@@ -569,8 +570,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>false</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.42.0. replaced by <code>markers</code> aggregation. Add {@link sap.m.ObjectMarker} with type <code>sap.m.ObjectMarkerType.Favorite</code>. You should use either this property or the <code>markers</code> aggregation, using both may lead to unpredicted behavior.")]
 				/// <returns>Value of property <code>markFavorite</code></returns>
+				[Obsolete("Deprecated since 1.42.0. replaced by <code>markers</code> aggregation. Add {@link sap.m.ObjectMarker} with type <code>sap.m.ObjectMarkerType.Favorite</code>. You should use either this property or the <code>markers</code> aggregation, using both may lead to unpredicted behavior.")]
 				public extern virtual bool getMarkFavorite();
 
 				/// <summary>
@@ -591,8 +592,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>false</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.42.0. replaced by <code>markers</code> aggregation. Add {@link sap.m.ObjectMarker} with type <code>sap.m.ObjectMarkerType.Flagged</code>. You should use either this property or the <code>markers</code> aggregation, using both may lead to unpredicted behavior.")]
 				/// <returns>Value of property <code>markFlagged</code></returns>
+				[Obsolete("Deprecated since 1.42.0. replaced by <code>markers</code> aggregation. Add {@link sap.m.ObjectMarker} with type <code>sap.m.ObjectMarkerType.Flagged</code>. You should use either this property or the <code>markers</code> aggregation, using both may lead to unpredicted behavior.")]
 				public extern virtual bool getMarkFlagged();
 
 				/// <summary>
@@ -613,8 +614,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>false</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.42.0. replaced by <code>markers</code> aggregationv. This property is valid only if you are using the already deprecated properties - <code>markFlagged</code> and <code>markFavorite</code>. If you are using <code>markers</code>, the visibility of the markers depends on what is set in the aggregation itself.")]
 				/// <returns>Value of property <code>showMarkers</code></returns>
+				[Obsolete("Deprecated since 1.42.0. replaced by <code>markers</code> aggregationv. This property is valid only if you are using the already deprecated properties - <code>markFlagged</code> and <code>markFavorite</code>. If you are using <code>markers</code>, the visibility of the markers depends on what is set in the aggregation itself.")]
 				public extern virtual bool getShowMarkers();
 
 				/// <summary>
@@ -1089,23 +1090,23 @@ namespace OpenUI5Sharp
 				/// 
 				/// First status shown on the right side of the attributes above the second status. If it is not set the first attribute will expand to take the entire row.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16.0. replaced by <code>statuses</code> aggregation")]
 				/// <returns></returns>
+				[Obsolete("Deprecated since 1.16.0. replaced by <code>statuses</code> aggregation")]
 				public extern virtual sap.m.ObjectStatus getFirstStatus();
 
 				/// <summary>
 				/// Destroys the firstStatus in the aggregation {@link #getFirstStatus firstStatus}.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16.0. replaced by <code>statuses</code> aggregation")]
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.16.0. replaced by <code>statuses</code> aggregation")]
 				public extern virtual sap.m.ObjectHeader destroyFirstStatus();
 
 				/// <summary>
 				/// Sets the aggregated {@link #getFirstStatus firstStatus}.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16.0. replaced by <code>statuses</code> aggregation")]
 				/// <param name="oFirstStatus">The firstStatus to set</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.16.0. replaced by <code>statuses</code> aggregation")]
 				public extern virtual sap.m.ObjectHeader setFirstStatus(sap.m.ObjectStatus oFirstStatus);
 
 				#endregion
@@ -1117,23 +1118,23 @@ namespace OpenUI5Sharp
 				/// 
 				/// Second status shown on the right side of the attributes below the first status. If it is not set the second attribute will expand to take the entire row.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16.0. replaced by <code>statuses</code> aggregation")]
 				/// <returns></returns>
+				[Obsolete("Deprecated since 1.16.0. replaced by <code>statuses</code> aggregation")]
 				public extern virtual sap.m.ObjectStatus getSecondStatus();
 
 				/// <summary>
 				/// Destroys the secondStatus in the aggregation {@link #getSecondStatus secondStatus}.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16.0. replaced by <code>statuses</code> aggregation")]
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.16.0. replaced by <code>statuses</code> aggregation")]
 				public extern virtual sap.m.ObjectHeader destroySecondStatus();
 
 				/// <summary>
 				/// Sets the aggregated {@link #getSecondStatus secondStatus}.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16.0. replaced by <code>statuses</code> aggregation")]
 				/// <param name="oSecondStatus">The secondStatus to set</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.16.0. replaced by <code>statuses</code> aggregation")]
 				public extern virtual sap.m.ObjectHeader setSecondStatus(sap.m.ObjectStatus oSecondStatus);
 
 				#endregion
@@ -1405,7 +1406,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.ObjectHeader</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectHeader attachTitlePress(object oData, sap.m.ObjectPressDelegate fnFunction, object oListener);
+				public extern virtual sap.m.ObjectHeader attachTitlePress(object oData, sap.m.ObjectHeaderPressDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:titlePress titlePress} event of this <code>sap.m.ObjectHeader</code>.
@@ -1417,7 +1418,7 @@ namespace OpenUI5Sharp
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectHeader attachTitlePress(object oData, sap.m.ObjectPressDelegate fnFunction);
+				public extern virtual sap.m.ObjectHeader attachTitlePress(object oData, sap.m.ObjectHeaderPressDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:titlePress titlePress} event of this <code>sap.m.ObjectHeader</code>.
@@ -1428,7 +1429,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectHeader attachTitlePress(sap.m.ObjectPressDelegate fnFunction);
+				public extern virtual sap.m.ObjectHeader attachTitlePress(sap.m.ObjectHeaderPressDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:titlePress titlePress} event of this <code>sap.m.ObjectHeader</code>.
@@ -1440,7 +1441,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.ObjectHeader</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectHeader attachTitlePress(sap.m.ObjectPressDelegate fnFunction, object oListener);
+				public extern virtual sap.m.ObjectHeader attachTitlePress(sap.m.ObjectHeaderPressDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:titlePress titlePress} event of this <code>sap.m.ObjectHeader</code>.
@@ -1450,14 +1451,14 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectHeader detachTitlePress(sap.m.ObjectPressDelegate fnFunction, object oListener);
+				public extern virtual sap.m.ObjectHeader detachTitlePress(sap.m.ObjectHeaderPressDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:titlePress titlePress} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectHeader fireTitlePress(sap.m.ObjectPressInfo mParameters);
+				public extern virtual sap.m.ObjectHeader fireTitlePress(sap.m.ObjectHeaderPressInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:titlePress titlePress} to attached listeners.
@@ -1480,7 +1481,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.ObjectHeader</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectHeader attachIntroPress(object oData, sap.m.ObjectPressDelegate fnFunction, object oListener);
+				public extern virtual sap.m.ObjectHeader attachIntroPress(object oData, sap.m.ObjectHeaderPressDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:introPress introPress} event of this <code>sap.m.ObjectHeader</code>.
@@ -1492,7 +1493,7 @@ namespace OpenUI5Sharp
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectHeader attachIntroPress(object oData, sap.m.ObjectPressDelegate fnFunction);
+				public extern virtual sap.m.ObjectHeader attachIntroPress(object oData, sap.m.ObjectHeaderPressDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:introPress introPress} event of this <code>sap.m.ObjectHeader</code>.
@@ -1503,7 +1504,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectHeader attachIntroPress(sap.m.ObjectPressDelegate fnFunction);
+				public extern virtual sap.m.ObjectHeader attachIntroPress(sap.m.ObjectHeaderPressDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:introPress introPress} event of this <code>sap.m.ObjectHeader</code>.
@@ -1515,7 +1516,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.ObjectHeader</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectHeader attachIntroPress(sap.m.ObjectPressDelegate fnFunction, object oListener);
+				public extern virtual sap.m.ObjectHeader attachIntroPress(sap.m.ObjectHeaderPressDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:introPress introPress} event of this <code>sap.m.ObjectHeader</code>.
@@ -1525,14 +1526,14 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectHeader detachIntroPress(sap.m.ObjectPressDelegate fnFunction, object oListener);
+				public extern virtual sap.m.ObjectHeader detachIntroPress(sap.m.ObjectHeaderPressDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:introPress introPress} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectHeader fireIntroPress(sap.m.ObjectPressInfo mParameters);
+				public extern virtual sap.m.ObjectHeader fireIntroPress(sap.m.ObjectHeaderPressInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:introPress introPress} to attached listeners.
@@ -1555,7 +1556,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.ObjectHeader</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectHeader attachIconPress(object oData, sap.m.ObjectPressDelegate fnFunction, object oListener);
+				public extern virtual sap.m.ObjectHeader attachIconPress(object oData, sap.m.ObjectHeaderPressDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:iconPress iconPress} event of this <code>sap.m.ObjectHeader</code>.
@@ -1567,7 +1568,7 @@ namespace OpenUI5Sharp
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectHeader attachIconPress(object oData, sap.m.ObjectPressDelegate fnFunction);
+				public extern virtual sap.m.ObjectHeader attachIconPress(object oData, sap.m.ObjectHeaderPressDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:iconPress iconPress} event of this <code>sap.m.ObjectHeader</code>.
@@ -1578,7 +1579,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectHeader attachIconPress(sap.m.ObjectPressDelegate fnFunction);
+				public extern virtual sap.m.ObjectHeader attachIconPress(sap.m.ObjectHeaderPressDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:iconPress iconPress} event of this <code>sap.m.ObjectHeader</code>.
@@ -1590,7 +1591,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.ObjectHeader</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectHeader attachIconPress(sap.m.ObjectPressDelegate fnFunction, object oListener);
+				public extern virtual sap.m.ObjectHeader attachIconPress(sap.m.ObjectHeaderPressDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:iconPress iconPress} event of this <code>sap.m.ObjectHeader</code>.
@@ -1600,14 +1601,14 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectHeader detachIconPress(sap.m.ObjectPressDelegate fnFunction, object oListener);
+				public extern virtual sap.m.ObjectHeader detachIconPress(sap.m.ObjectHeaderPressDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:iconPress iconPress} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectHeader fireIconPress(sap.m.ObjectPressInfo mParameters);
+				public extern virtual sap.m.ObjectHeader fireIconPress(sap.m.ObjectHeaderPressInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:iconPress iconPress} to attached listeners.
@@ -1630,7 +1631,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.ObjectHeader</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectHeader attachTitleSelectorPress(object oData, sap.m.ObjectPressDelegate fnFunction, object oListener);
+				public extern virtual sap.m.ObjectHeader attachTitleSelectorPress(object oData, sap.m.ObjectHeaderPressDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:titleSelectorPress titleSelectorPress} event of this <code>sap.m.ObjectHeader</code>.
@@ -1642,7 +1643,7 @@ namespace OpenUI5Sharp
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectHeader attachTitleSelectorPress(object oData, sap.m.ObjectPressDelegate fnFunction);
+				public extern virtual sap.m.ObjectHeader attachTitleSelectorPress(object oData, sap.m.ObjectHeaderPressDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:titleSelectorPress titleSelectorPress} event of this <code>sap.m.ObjectHeader</code>.
@@ -1653,7 +1654,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectHeader attachTitleSelectorPress(sap.m.ObjectPressDelegate fnFunction);
+				public extern virtual sap.m.ObjectHeader attachTitleSelectorPress(sap.m.ObjectHeaderPressDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:titleSelectorPress titleSelectorPress} event of this <code>sap.m.ObjectHeader</code>.
@@ -1665,7 +1666,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.ObjectHeader</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectHeader attachTitleSelectorPress(sap.m.ObjectPressDelegate fnFunction, object oListener);
+				public extern virtual sap.m.ObjectHeader attachTitleSelectorPress(sap.m.ObjectHeaderPressDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:titleSelectorPress titleSelectorPress} event of this <code>sap.m.ObjectHeader</code>.
@@ -1675,14 +1676,14 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectHeader detachTitleSelectorPress(sap.m.ObjectPressDelegate fnFunction, object oListener);
+				public extern virtual sap.m.ObjectHeader detachTitleSelectorPress(sap.m.ObjectHeaderPressDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:titleSelectorPress titleSelectorPress} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectHeader fireTitleSelectorPress(sap.m.ObjectPressInfo mParameters);
+				public extern virtual sap.m.ObjectHeader fireTitleSelectorPress(sap.m.ObjectHeaderPressInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:titleSelectorPress titleSelectorPress} to attached listeners.

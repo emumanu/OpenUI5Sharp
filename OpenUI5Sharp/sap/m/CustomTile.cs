@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.CustomTile")]
 			[Obsolete("Deprecated since 1.50. use {@link sap.m.GenericTile} instead")]
 			public partial class CustomTile : sap.m.Tile
 			{
@@ -29,7 +30,7 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the content of the CustomTile.
 					/// </summary>
-					public Union<sap.ui.core.Control, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
+					public Union<sap.ui.core.Control, string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
 
 				}
 

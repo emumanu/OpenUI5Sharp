@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -26,6 +26,7 @@ namespace OpenUI5Sharp
 						/// </summary>
 						[External]
 						[Namespace(false)]
+						[Name("sap.ui.model.odata.v4.ODataModel")]
 						public partial class ODataModel : sap.ui.model.Model
 						{
 							#region Typed Parameters
@@ -108,6 +109,12 @@ namespace OpenUI5Sharp
 								public string dollardollargroupId;
 
 								/// <summary>
+								/// For operation bindings only: Whether $expand and $select from the parent binding are used in the request sent on {@link #execute}. If set to <code>true</code>, the binding must not set the $expand or $select parameter itself and its {@link sap.ui.model.odata.v4.ODataContextBinding#execute} must resolve with a return value context.
+								/// </summary>
+								[Name("$$inheritExpandSelect")]
+								public bool dollardollarinheritExpandSelect;
+
+								/// <summary>
 								/// Whether the binding always uses an own service request to read its data; only the value <code>true</code> is allowed.
 								/// </summary>
 								[Name("$$ownRequest")]
@@ -132,6 +139,12 @@ namespace OpenUI5Sharp
 								/// The operation mode for sorting. Since 1.39.0, the operation mode {@link sap.ui.model.odata.OperationMode.Server} is supported. All other operation modes including <code>undefined</code> lead to an error if 'vSorters' are given or if {@link sap.ui.model.odata.v4.ODataListBinding#sort} is called.
 								/// </summary>
 								public sap.ui.model.odata.OperationMode operationMode;
+
+								/// <summary>
+								/// An object holding the information needed for data aggregation, see {@link sap.ui.model.odata.v4.ODataListBinding#setAggregation} for details.
+								/// </summary>
+								[Name("$$aggregation")]
+								public object dollardollaraggregation;
 
 								/// <summary>
 								/// The group ID to be used for <b>read</b> requests triggered by this binding; if not specified, either the parent binding's group ID (if the binding is relative) or the model's group ID is used, see {@link sap.ui.model.odata.v4.ODataModel#constructor}. Valid values are <code>undefined</code>, '$auto', '$direct' or application group IDs as specified in {@link #submitBatch}.
@@ -189,7 +202,7 @@ namespace OpenUI5Sharp
 							/// </summary>
 							/// <param name="sPath">The binding path in the model; must not end with a slash</param>
 							/// <param name="oContext">The context which is required as base for a relative path</param>
-							/// <param name="mParameters">Map of binding parameters which can be OData query options as specified in "OData Version 4.0 Part 2: URL Conventions" or the binding-specific parameters "$$groupId" and "$$updateGroupId". Note: The binding creates its own data service request if it is absolute or if it has any parameters or if it is relative and has a context created via {@link #createBindingContext}. The following OData query options are allowed: <ul> <li> All "5.2 Custom Query Options" except for those with a name starting with "sap-" <li> The $count, $expand, $filter, $levels, $orderby, $search and $select "5.1 System Query Options"; OData V4 only allows $count, $filter, $levels, $orderby and $search inside resource paths that identify a collection. In our case here, this means you can only use them inside $expand. </ul> All other query options lead to an error. Query options specified for the binding overwrite model query options.</param>
+							/// <param name="mParameters">Map of binding parameters which can be OData query options as specified in "OData Version 4.0 Part 2: URL Conventions" or the binding-specific parameters as specified below. Note: The binding creates its own data service request if it is absolute or if it has any parameters or if it is relative and has a context created via {@link #createBindingContext}. The following OData query options are allowed: <ul> <li> All "5.2 Custom Query Options" except for those with a name starting with "sap-" <li> The $count, $expand, $filter, $levels, $orderby, $search and $select "5.1 System Query Options"; OData V4 only allows $count, $filter, $levels, $orderby and $search inside resource paths that identify a collection. In our case here, this means you can only use them inside $expand. </ul> All other query options lead to an error. Query options specified for the binding overwrite model query options.</param>
 							/// <returns>The context binding</returns>
 							public extern virtual sap.ui.model.odata.v4.ODataContextBinding bindContext(string sPath, sap.ui.model.odata.v4.Context oContext, sap.ui.model.odata.v4.ODataModel.BindContextInfo mParameters);
 
@@ -219,7 +232,7 @@ namespace OpenUI5Sharp
 							/// <param name="oContext">The context which is required as base for a relative path</param>
 							/// <param name="vSorters">The dynamic sorters to be used initially. Call {@link sap.ui.model.odata.v4.ODataListBinding#sort} to replace them. Static sorters, as defined in the '$orderby' binding parameter, are always executed after the dynamic sorters. Supported since 1.39.0.</param>
 							/// <param name="vFilters">The dynamic application filters to be used initially. Call {@link sap.ui.model.odata.v4.ODataListBinding#filter} to replace them. Static filters, as defined in the '$filter' binding parameter, are always combined with the dynamic filters using a logical <code>AND</code>. Supported since 1.39.0.</param>
-							/// <param name="mParameters">Map of binding parameters which can be OData query options as specified in "OData Version 4.0 Part 2: URL Conventions" or the binding-specific parameters "$$groupId" and "$$updateGroupId". Note: The binding creates its own data service request if it is absolute or if it has any parameters or if it is relative and has a context created via {@link #createBindingContext} or if it has sorters or filters. The following OData query options are allowed: <ul> <li> All "5.2 Custom Query Options" except for those with a name starting with "sap-" <li> The $apply, $count, $expand, $filter, $levels, $orderby, $search, and $select "5.1 System Query Options" </ul> All other query options lead to an error. Query options specified for the binding overwrite model query options.</param>
+							/// <param name="mParameters">Map of binding parameters which can be OData query options as specified in "OData Version 4.0 Part 2: URL Conventions" or binding-specific parameters as specified below. Note: The binding creates its own data service request if it is absolute or if it has any parameters or if it is relative and has a context created via {@link #createBindingContext} or if it has sorters or filters. The following OData query options are allowed: <ul> <li> All "5.2 Custom Query Options" except for those with a name starting with "sap-" <li> The $apply, $count, $expand, $filter, $levels, $orderby, $search, and $select "5.1 System Query Options" </ul> All other query options lead to an error. Query options specified for the binding overwrite model query options.</param>
 							/// <returns>The list binding</returns>
 							public extern virtual sap.ui.model.odata.v4.ODataListBinding bindList(string sPath, sap.ui.model.Context oContext, Union<sap.ui.model.Sorter, sap.ui.model.Sorter[]> vSorters, Union<sap.ui.model.Filter, sap.ui.model.Filter[]> vFilters, sap.ui.model.odata.v4.ODataModel.BindListInfo mParameters);
 
@@ -426,9 +439,9 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// Returns a promise for the "canonical path" of the entity for the given context. According to "4.3.1 Canonical URL" of the specification "OData Version 4.0 Part 2: URL Conventions", this is the "name of the entity set associated with the entity followed by the key predicate identifying the entity within the collection". Use the canonical path in {@link sap.ui.core.Element#bindElement} to create an element binding.
 							/// </summary>
-							[Obsolete("Deprecated since 1.39.0. Use {@link sap.ui.model.odata.v4.Context#requestCanonicalPath} instead.")]
 							/// <param name="oEntityContext">A context in this model which must point to a non-contained OData entity</param>
 							/// <returns>A promise which is resolved with the canonical path (e.g. "/SalesOrderList('0500000000')") in case of success, or rejected with an instance of <code>Error</code> in case of failure, e.g. when the given context does not point to an entity</returns>
+							[Obsolete("Deprecated since 1.39.0. Use {@link sap.ui.model.odata.v4.Context#requestCanonicalPath} instead.")]
 							public extern virtual jquery.JQueryPromise<object> requestCanonicalPath(sap.ui.model.odata.v4.Context oEntityContext);
 
 							/// <summary>

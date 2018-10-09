@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.SearchField")]
 			public partial class SearchField : sap.ui.core.Control, sap.ui.core.IFormContent
 			{
 				#region Settings
@@ -28,77 +29,77 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Input Value.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> value;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> value;
 
 					/// <summary>
 					/// Defines the CSS width of the input. If not set, width is 100%.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// Boolean property to enable the control (default is true).
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enabled;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enabled;
 
 					/// <summary>
 					/// Invisible inputs are not rendered.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visible;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visible;
 
 					/// <summary>
 					/// Maximum number of characters. Value '0' means the feature is switched off.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maxLength;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> maxLength;
 
 					/// <summary>
 					/// Text shown when no value available. Default placeholder text is the word "Search" in the current local language (if supported) or in English.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> placeholder;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> placeholder;
 
 					/// <summary>
 					/// Set to false to hide the magnifier icon.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showMagnifier;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showMagnifier;
 
 					/// <summary>
 					/// Set to true to display a refresh button in place of the search icon. By pressing the refresh button or F5 key on keyboard, the user can reload the results list without changing the search string.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showRefreshButton;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showRefreshButton;
 
 					/// <summary>
 					/// Tooltip text of the refresh button. If it is not set, the Default placeholder text is the word "Refresh" in the current local language (if supported) or in English. Tooltips are not displayed on touch devices.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> refreshButtonTooltip;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> refreshButtonTooltip;
 
 					/// <summary>
 					/// Set to true to show the search button with the magnifier icon. If false, both the search and refresh buttons are not displayed even if the "showRefreshButton" property is true.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showSearchButton;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showSearchButton;
 
 					/// <summary>
 					/// If true, a <code>suggest</code> event is fired when user types in the input and when the input is focused. On a phone device, a full screen dialog with suggestions is always shown even if the suggestions list is empty.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enableSuggestions;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enableSuggestions;
 
 					/// <summary>
 					/// Normally, search text is selected for copy when the SearchField is focused by keyboard navigation. If an application re-renders the SearchField during the liveChange event, set this property to false to disable text selection by focus.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectOnFocus;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> selectOnFocus;
 
 					/// <summary>
 					/// <code>SuggestionItems</code> are the items which will be shown in the suggestions list. The following properties can be used: <ul> <li><code>key</code> is not displayed and may be used as internal technical field</li> <li><code>text</code> is displayed as normal suggestion text</li> <li><code>icon</code></li> <li><code>description</code> - additional text may be used to visually display search item type or category</li> </ul>
 					/// </summary>
-					public Union<sap.m.SuggestionItem[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> suggestionItems;
+					public Union<sap.m.SuggestionItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> suggestionItems;
 
 					/// <summary>
 					/// Association to controls / ids which describe this control (see WAI-ARIA attribute aria-describedby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaDescribedBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaDescribedBy;
 
 					/// <summary>
 					/// Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 					/// <summary>
 					/// Event which is fired when the user triggers a search.
@@ -108,32 +109,18 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// This event is fired when the value of the search field is changed by a user - e.g. at each key press. Do not invalidate or re-render a focused search field, especially during the liveChange event.
 					/// </summary>
-					public sap.m.SearchField.LiveChangeDelegate liveChange;
+					public sap.ui.ux3.ChangeDelegate liveChange;
 
 					/// <summary>
 					/// This event is fired when the search field is initially focused or its value is changed by the user. This event means that suggestion data should be updated, in case if suggestions are used. Use the value parameter to create new suggestions for it.
 					/// </summary>
-					public sap.m.SearchField.SuggestDelegate suggest;
+					public sap.m.SuggestDelegate suggest;
 
 				}
 
 				#endregion
 
 				#region Typed Parameters
-
-				/// <summary>
-				/// Parameter to be used as Object Literal
-				/// </summary>
-				[External]
-				[ObjectLiteral]
-				public partial class LiveChangeInfo
-				{
-					/// <summary>
-					/// Current search string.
-					/// </summary>
-					public string newValue;
-
-				}
 
 				/// <summary>
 				/// Parameter to be used as Object Literal
@@ -164,29 +151,11 @@ namespace OpenUI5Sharp
 
 				}
 
-				/// <summary>
-				/// Parameter to be used as Object Literal
-				/// </summary>
-				[External]
-				[ObjectLiteral]
-				public partial class SuggestInfo
-				{
-					/// <summary>
-					/// Current search string of the search field.
-					/// </summary>
-					public string suggestValue;
-
-				}
-
 				#endregion
 
 				#region Delegates
 
-				public delegate void LiveChangeDelegate(sap.ui.@base.Event<sap.m.SearchField.LiveChangeInfo> oEvent, object oData);
-
 				public delegate void SearchDelegate(sap.ui.@base.Event<sap.m.SearchField.SearchInfo> oEvent, object oData);
-
-				public delegate void SuggestDelegate(sap.ui.@base.Event<sap.m.SearchField.SuggestInfo> oEvent, object oData);
 
 				#endregion
 
@@ -402,8 +371,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>true</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16.0. This parameter is deprecated. Use 'showSearchButton' instead.")]
 				/// <returns>Value of property <code>showMagnifier</code></returns>
+				[Obsolete("Deprecated since 1.16.0. This parameter is deprecated. Use 'showSearchButton' instead.")]
 				public extern virtual bool getShowMagnifier();
 
 				/// <summary>
@@ -415,9 +384,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>true</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16.0. This parameter is deprecated. Use 'showSearchButton' instead.")]
 				/// <param name="bShowMagnifier">New value for property <code>showMagnifier</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.16.0. This parameter is deprecated. Use 'showSearchButton' instead.")]
 				public extern virtual sap.m.SearchField setShowMagnifier(bool bShowMagnifier);
 
 				#endregion
@@ -535,8 +504,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>true</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.38. This parameter is deprecated and has no effect in run time. The cursor position of a focused search field is restored after re-rendering automatically.")]
 				/// <returns>Value of property <code>selectOnFocus</code></returns>
+				[Obsolete("Deprecated since 1.38. This parameter is deprecated and has no effect in run time. The cursor position of a focused search field is restored after re-rendering automatically.")]
 				public extern virtual bool getSelectOnFocus();
 
 				/// <summary>
@@ -548,9 +517,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>true</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.38. This parameter is deprecated and has no effect in run time. The cursor position of a focused search field is restored after re-rendering automatically.")]
 				/// <param name="bSelectOnFocus">New value for property <code>selectOnFocus</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.38. This parameter is deprecated and has no effect in run time. The cursor position of a focused search field is restored after re-rendering automatically.")]
 				public extern virtual sap.m.SearchField setSelectOnFocus(bool bSelectOnFocus);
 
 				#endregion
@@ -758,7 +727,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.SearchField</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SearchField attachLiveChange(object oData, sap.m.SearchField.LiveChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.SearchField attachLiveChange(object oData, sap.ui.ux3.ChangeDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:liveChange liveChange} event of this <code>sap.m.SearchField</code>.
@@ -770,7 +739,7 @@ namespace OpenUI5Sharp
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SearchField attachLiveChange(object oData, sap.m.SearchField.LiveChangeDelegate fnFunction);
+				public extern virtual sap.m.SearchField attachLiveChange(object oData, sap.ui.ux3.ChangeDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:liveChange liveChange} event of this <code>sap.m.SearchField</code>.
@@ -781,7 +750,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SearchField attachLiveChange(sap.m.SearchField.LiveChangeDelegate fnFunction);
+				public extern virtual sap.m.SearchField attachLiveChange(sap.ui.ux3.ChangeDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:liveChange liveChange} event of this <code>sap.m.SearchField</code>.
@@ -793,7 +762,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.SearchField</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SearchField attachLiveChange(sap.m.SearchField.LiveChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.SearchField attachLiveChange(sap.ui.ux3.ChangeDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:liveChange liveChange} event of this <code>sap.m.SearchField</code>.
@@ -803,14 +772,14 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SearchField detachLiveChange(sap.m.SearchField.LiveChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.SearchField detachLiveChange(sap.ui.ux3.ChangeDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:liveChange liveChange} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SearchField fireLiveChange(sap.m.SearchField.LiveChangeInfo mParameters);
+				public extern virtual sap.m.SearchField fireLiveChange(sap.ui.ux3.ChangeInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:liveChange liveChange} to attached listeners.
@@ -833,7 +802,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.SearchField</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SearchField attachSuggest(object oData, sap.m.SearchField.SuggestDelegate fnFunction, object oListener);
+				public extern virtual sap.m.SearchField attachSuggest(object oData, sap.m.SuggestDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:suggest suggest} event of this <code>sap.m.SearchField</code>.
@@ -845,7 +814,7 @@ namespace OpenUI5Sharp
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SearchField attachSuggest(object oData, sap.m.SearchField.SuggestDelegate fnFunction);
+				public extern virtual sap.m.SearchField attachSuggest(object oData, sap.m.SuggestDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:suggest suggest} event of this <code>sap.m.SearchField</code>.
@@ -856,7 +825,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SearchField attachSuggest(sap.m.SearchField.SuggestDelegate fnFunction);
+				public extern virtual sap.m.SearchField attachSuggest(sap.m.SuggestDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:suggest suggest} event of this <code>sap.m.SearchField</code>.
@@ -868,7 +837,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.SearchField</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SearchField attachSuggest(sap.m.SearchField.SuggestDelegate fnFunction, object oListener);
+				public extern virtual sap.m.SearchField attachSuggest(sap.m.SuggestDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:suggest suggest} event of this <code>sap.m.SearchField</code>.
@@ -878,14 +847,14 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SearchField detachSuggest(sap.m.SearchField.SuggestDelegate fnFunction, object oListener);
+				public extern virtual sap.m.SearchField detachSuggest(sap.m.SuggestDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:suggest suggest} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SearchField fireSuggest(sap.m.SearchField.SuggestInfo mParameters);
+				public extern virtual sap.m.SearchField fireSuggest(sap.m.SuggestInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:suggest suggest} to attached listeners.

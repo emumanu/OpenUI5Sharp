@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.InputListItem")]
 			public partial class InputListItem : sap.m.ListItemBase
 			{
 				#region Settings
@@ -28,17 +29,17 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Label of the list item
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> label;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> label;
 
 					/// <summary>
 					/// This property specifies the label text directionality with enumerated options. By default, the label inherits text direction from the DOM.
 					/// </summary>
-					public Union<sap.ui.core.TextDirection, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> labelTextDirection;
+					public Union<sap.ui.core.TextDirection, string, sap.ui.@base.ManagedObject.BindPropertyInfo> labelTextDirection;
 
 					/// <summary>
 					/// Content controls can be added
 					/// </summary>
-					public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
+					public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
 
 				}
 

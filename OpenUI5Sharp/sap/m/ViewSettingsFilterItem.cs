@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.ViewSettingsFilterItem")]
 			public partial class ViewSettingsFilterItem : sap.m.ViewSettingsItem
 			{
 				#region Settings
@@ -28,12 +29,12 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// If set to (true), multi selection will be allowed for the items aggregation.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> multiSelect;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> multiSelect;
 
 					/// <summary>
 					/// Items that are logically grouped under this filter item. They are used to display filter details in the ViewSettingsDialog.
 					/// </summary>
-					public Union<sap.m.ViewSettingsItem[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
+					public Union<sap.m.ViewSettingsItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
 
 					/// <summary>
 					/// Let the outside world know that the filter detail aggregation was changed.

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.ColorPalettePopover")]
 			public partial class ColorPalettePopover : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,22 +29,22 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// The color, which the app developer will receive when end-user chooses the "Default color" button. See event {@link #event:colorSelect colorSelect}.
 					/// </summary>
-					public Union<sap.ui.core.CSSColor, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> defaultColor;
+					public Union<sap.ui.core.CSSColor, string, sap.ui.@base.ManagedObject.BindPropertyInfo> defaultColor;
 
 					/// <summary>
 					/// Defines the List of colors displayed in the palette. Minimum is 2 colors, maximum is 15 colors.
 					/// </summary>
-					public Union<sap.ui.core.CSSColor[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> colors;
+					public Union<sap.ui.core.CSSColor[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> colors;
 
 					/// <summary>
 					/// Indicates if the button for default color selection is available.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showDefaultColorButton;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showDefaultColorButton;
 
 					/// <summary>
 					/// Denotes if the color has been chosen by selecting the "Default Color" button (true or false)
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showMoreColorsButton;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showMoreColorsButton;
 
 					/// <summary>
 					/// Fired when the user selects a color.

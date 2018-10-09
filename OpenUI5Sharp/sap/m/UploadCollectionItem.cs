@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.UploadCollectionItem")]
 			public partial class UploadCollectionItem : sap.ui.core.Element
 			{
 				#region Settings
@@ -28,92 +29,92 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Specifies the name of the user who uploaded the file.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> contributor;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> contributor;
 
 					/// <summary>
 					/// Specifies a unique identifier of the file (created by the application).
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> documentId;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> documentId;
 
 					/// <summary>
 					/// Specifies the name of the uploaded file.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> fileName;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> fileName;
 
 					/// <summary>
 					/// Specifies the size of the uploaded file (in megabytes).
 					/// </summary>
-					public Union<float, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> fileSize;
+					public Union<float, string, sap.ui.@base.ManagedObject.BindPropertyInfo> fileSize;
 
 					/// <summary>
 					/// Specifies the MIME type of the file.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> mimeType;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> mimeType;
 
 					/// <summary>
 					/// Specifies the URL where the thumbnail of the file is located. This can also be an SAPUI5 icon URL.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> thumbnailUrl;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> thumbnailUrl;
 
 					/// <summary>
 					/// Specifies the date on which the file was uploaded. The application has to define the date format.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> uploadedDate;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> uploadedDate;
 
 					/// <summary>
 					/// Specifies the URL where the file is located. If the application doesn't provide a value for this property, the icon and the file name of the UploadCollectionItem are not clickable.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> url;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> url;
 
 					/// <summary>
 					/// Enables/Disables the Edit button. If the value is true, the Edit button is enabled and the edit function can be used. If the value is false, the edit function is not available.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enableEdit;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enableEdit;
 
 					/// <summary>
 					/// Enables/Disables the Delete button. If the value is true, the Delete button is enabled and the delete function can be used. If the value is false, the delete function is not available.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enableDelete;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enableDelete;
 
 					/// <summary>
 					/// Show/Hide the Edit button. If the value is true, the Edit button is visible. If the value is false, the Edit button is not visible.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visibleEdit;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visibleEdit;
 
 					/// <summary>
 					/// Show/Hide the Delete button. If the value is true, the Delete button is visible. If the value is false, the Delete button is not visible.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visibleDelete;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visibleDelete;
 
 					/// <summary>
 					/// Aria label for the icon (or for the image).
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelForPicture;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelForPicture;
 
 					/// <summary>
 					/// Defines the selected state of the UploadCollectionItem.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selected;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> selected;
 
 					/// <summary>
 					/// Attributes of an uploaded item, for example, 'Uploaded By', 'Uploaded On', 'File Size' attributes are displayed after an item has been uploaded. Additionally, the Active property of sap.m.ObjectAttribute is supported.<br> Note that if one of the deprecated properties contributor, fileSize or UploadedDate is filled in addition to this attribute, two attributes with the same title are displayed as these properties get displayed as an attribute. Example: An application passes the property ‘contributor’ with the value ‘A’ and the aggregation attributes ‘contributor’: ‘B’. As a result, the attributes ‘contributor’:’A’ and ‘contributor’:’B’ are displayed. To make sure the title does not appear twice, check if one of the properties is filled.
 					/// </summary>
-					public Union<sap.m.ObjectAttribute[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> attributes;
+					public Union<sap.m.ObjectAttribute[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> attributes;
 
 					/// <summary>
 					/// Statuses of an uploaded item Statuses will be displayed after an item has been uploaded
 					/// </summary>
-					public Union<sap.m.ObjectStatus[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> statuses;
+					public Union<sap.m.ObjectStatus[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> statuses;
 
 					/// <summary>
 					/// Markers of an uploaded item Markers will be displayed after an item has been uploaded But not in Edit mode
 					/// </summary>
-					public Union<sap.m.ObjectMarker[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> markers;
+					public Union<sap.m.ObjectMarker[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> markers;
 
 					/// <summary>
 					/// ID of the FileUploader instance
 					/// </summary>
-					public Union<sap.ui.unified.FileUploader, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> fileUploader;
+					public Union<sap.ui.unified.FileUploader, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> fileUploader;
 
 					/// <summary>
 					/// This event is triggered when the user presses the filename link. If this event is provided, it overwrites the default behavior of opening the file.
@@ -174,8 +175,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Specifies the name of the user who uploaded the file.
 				/// </summary>
-				[Obsolete("Deprecated since 1.30. This property is deprecated; use the aggregation attributes instead. However, if the property is filled, it is displayed as an attribute. To make sure the title does not appear twice, do not use the property.")]
 				/// <returns>Value of property <code>contributor</code></returns>
+				[Obsolete("Deprecated since 1.30. This property is deprecated; use the aggregation attributes instead. However, if the property is filled, it is displayed as an attribute. To make sure the title does not appear twice, do not use the property.")]
 				public extern virtual string getContributor();
 
 				/// <summary>
@@ -185,9 +186,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// </summary>
-				[Obsolete("Deprecated since 1.30. This property is deprecated; use the aggregation attributes instead. However, if the property is filled, it is displayed as an attribute. To make sure the title does not appear twice, do not use the property.")]
 				/// <param name="sContributor">New value for property <code>contributor</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.30. This property is deprecated; use the aggregation attributes instead. However, if the property is filled, it is displayed as an attribute. To make sure the title does not appear twice, do not use the property.")]
 				public extern virtual sap.m.UploadCollectionItem setContributor(string sContributor);
 
 				#endregion
@@ -245,8 +246,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Specifies the size of the uploaded file (in megabytes).
 				/// </summary>
-				[Obsolete("Deprecated since 1.30. This property is deprecated; use the aggregation attributes instead.")]
 				/// <returns>Value of property <code>fileSize</code></returns>
+				[Obsolete("Deprecated since 1.30. This property is deprecated; use the aggregation attributes instead.")]
 				public extern virtual float getFileSize();
 
 				/// <summary>
@@ -256,9 +257,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// </summary>
-				[Obsolete("Deprecated since 1.30. This property is deprecated; use the aggregation attributes instead.")]
 				/// <param name="fFileSize">New value for property <code>fileSize</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.30. This property is deprecated; use the aggregation attributes instead.")]
 				public extern virtual sap.m.UploadCollectionItem setFileSize(float fFileSize);
 
 				#endregion
@@ -316,8 +317,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Specifies the date on which the file was uploaded. The application has to define the date format.
 				/// </summary>
-				[Obsolete("Deprecated since 1.30. This property is deprecated; use the aggregation attributes instead.")]
 				/// <returns>Value of property <code>uploadedDate</code></returns>
+				[Obsolete("Deprecated since 1.30. This property is deprecated; use the aggregation attributes instead.")]
 				public extern virtual string getUploadedDate();
 
 				/// <summary>
@@ -327,9 +328,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// </summary>
-				[Obsolete("Deprecated since 1.30. This property is deprecated; use the aggregation attributes instead.")]
 				/// <param name="sUploadedDate">New value for property <code>uploadedDate</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.30. This property is deprecated; use the aggregation attributes instead.")]
 				public extern virtual sap.m.UploadCollectionItem setUploadedDate(string sUploadedDate);
 
 				#endregion

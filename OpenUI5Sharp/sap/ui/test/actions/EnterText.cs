@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -15,6 +15,7 @@ namespace OpenUI5Sharp
 				{
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.test.actions.EnterText")]
 					public partial class EnterText : sap.ui.test.actions.Action
 					{
 						#region Settings
@@ -29,9 +30,9 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// The Text that is going to be typed to the control. If you are entering an empty string, the value will be cleared.
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> text;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> text;
 
-							public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> clearTextFirst;
+							public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> clearTextFirst;
 
 						}
 

@@ -28,5 +28,5 @@ Bridge.assembly("WalkthroughClientScripts", function ($asm, globals) {
 });
 
 sap.ui.define(System.Array.init([], System.String), function () {
-    return Glue.CreateRawClassObject(WalkthroughClientScripts.Formatter);
+    return UI5.Glue.CreateRawClassObject(WalkthroughClientScripts.Formatter);
 });

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.model.type.Date")]
 					public partial class Date : sap.ui.model.SimpleType
 					{
 						#region Typed Parameters

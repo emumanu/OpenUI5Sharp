@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -20,8 +20,27 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.mvc.Controller")]
 					public partial class Controller : sap.ui.@base.EventProvider
 					{
+						#region Typed Parameters
+
+						/// <summary>
+						/// Parameter to be used as Object Literal
+						/// </summary>
+						[External]
+						[ObjectLiteral]
+						public partial class CreateOptions
+						{
+							/// <summary>
+							/// The controller name that corresponds to a JS module that can be loaded via the module system (mOptions.name + suffix ".controller.js")
+							/// </summary>
+							public string name;
+
+						}
+
+						#endregion
+
 						#region Constructor
 
 						/// <summary>
@@ -44,6 +63,13 @@ namespace OpenUI5Sharp
 						/// <param name="sId">View-local ID</param>
 						/// <returns>Element by its (view local) ID</returns>
 						public extern virtual sap.ui.core.Element byId(string sId);
+
+						/// <summary>
+						/// Creates an instance of controller class.
+						/// </summary>
+						/// <param name="mOptions">A map containing the controller configuration options.</param>
+						/// <returns>the Promise resolves with a new instance of the controller</returns>
+						public extern static jquery.JQueryPromise<object> create(sap.ui.core.mvc.Controller.CreateOptions mOptions);
 
 						/// <summary>
 						/// Converts a view local ID to a globally unique one by prepending the view ID.

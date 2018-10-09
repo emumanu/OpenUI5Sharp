@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.layout.form.GridElementData")]
 					public partial class GridElementData : sap.ui.core.LayoutData
 					{
 						#region Settings
@@ -38,14 +39,14 @@ namespace OpenUI5Sharp
 							/// 
 							/// <b>Note:</b> For labels, the full size setting has no effect.
 							/// </summary>
-							public Union<string, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> hCells;
+							public Union<string, string, sap.ui.@base.ManagedObject.BindPropertyInfo> hCells;
 
 							/// <summary>
 							/// Number of cells in vertical direction.
 							/// 
 							/// <b>Note:</b> This property has no effect on labels.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> vCells;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> vCells;
 
 						}
 

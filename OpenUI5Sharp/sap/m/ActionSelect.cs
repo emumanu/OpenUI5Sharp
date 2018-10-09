@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.ActionSelect")]
 			public partial class ActionSelect : sap.m.Select
 			{
 				#region Settings
@@ -28,7 +29,7 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Buttons to be added to the ActionSelect content.
 					/// </summary>
-					public Union<sap.m.Button, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> buttons;
+					public Union<sap.m.Button, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> buttons;
 
 				}
 

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.OverflowToolbarLayoutData")]
 			public partial class OverflowToolbarLayoutData : sap.m.ToolbarLayoutData
 			{
 				#region Settings
@@ -28,27 +29,27 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// The OverflowToolbar item can or cannot move to the overflow area
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> moveToOverflow;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> moveToOverflow;
 
 					/// <summary>
 					/// The OverflowToolbar item can or cannot stay in the overflow area
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> stayInOverflow;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> stayInOverflow;
 
 					/// <summary>
 					/// Defines OverflowToolbar items priority, Available priorities ate NeverOverflow, High, Low, Disappear and AlwaysOverflow
 					/// </summary>
-					public Union<sap.m.OverflowToolbarPriority, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> priority;
+					public Union<sap.m.OverflowToolbarPriority, string, sap.ui.@base.ManagedObject.BindPropertyInfo> priority;
 
 					/// <summary>
 					/// Defines OverflowToolbar items group number. Default value is 0, which means that the control does not belong to any group. Elements that belong to a group overflow together. The overall priority of the group is defined by the element with highest priority. Elements that belong to a group are not allowed to have AlwaysOverflow or NeverOverflow priority.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> group;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> group;
 
 					/// <summary>
 					/// Defines whether the overflow area is automatically closed when interacting with a control in it
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> closeOverflowOnInteraction;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> closeOverflowOnInteraction;
 
 				}
 
@@ -101,8 +102,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>true</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.32.")]
 				/// <returns>Value of property <code>moveToOverflow</code></returns>
+				[Obsolete("Deprecated since 1.32.")]
 				public extern virtual bool getMoveToOverflow();
 
 				/// <summary>
@@ -114,9 +115,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>true</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.32.")]
 				/// <param name="bMoveToOverflow">New value for property <code>moveToOverflow</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.32.")]
 				public extern virtual sap.m.OverflowToolbarLayoutData setMoveToOverflow(bool bMoveToOverflow);
 
 				#endregion
@@ -130,8 +131,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>false</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.32.")]
 				/// <returns>Value of property <code>stayInOverflow</code></returns>
+				[Obsolete("Deprecated since 1.32.")]
 				public extern virtual bool getStayInOverflow();
 
 				/// <summary>
@@ -143,9 +144,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>false</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.32.")]
 				/// <param name="bStayInOverflow">New value for property <code>stayInOverflow</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.32.")]
 				public extern virtual sap.m.OverflowToolbarLayoutData setStayInOverflow(bool bStayInOverflow);
 
 				#endregion

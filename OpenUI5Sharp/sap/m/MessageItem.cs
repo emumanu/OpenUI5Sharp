@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.MessageItem")]
 			public partial class MessageItem : sap.ui.core.Item
 			{
 				#region Settings
@@ -28,47 +29,47 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Specifies the type of the message
 					/// </summary>
-					public Union<sap.ui.core.MessageType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> type;
+					public Union<sap.ui.core.MessageType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> type;
 
 					/// <summary>
 					/// Specifies the title of the message
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> title;
 
 					/// <summary>
 					/// Specifies the subtitle of the message <b>Note:</b> This is only visible when the <code>title</code> property is not empty.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> subtitle;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> subtitle;
 
 					/// <summary>
 					/// Specifies detailed description of the message
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> description;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> description;
 
 					/// <summary>
 					/// Specifies if description should be interpreted as markup
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> markupDescription;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> markupDescription;
 
 					/// <summary>
 					/// Specifies long text description location URL
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> longtextUrl;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> longtextUrl;
 
 					/// <summary>
 					/// Defines the number of messages for a given message.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> counter;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> counter;
 
 					/// <summary>
 					/// Name of a message group the current item belongs to.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> groupName;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> groupName;
 
 					/// <summary>
 					/// Adds an sap.m.Link control which will be displayed at the end of the description of a message.
 					/// </summary>
-					public Union<sap.m.Link, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> link;
+					public Union<sap.m.Link, string, sap.ui.@base.ManagedObject.BindAggregationInfo> link;
 
 				}
 

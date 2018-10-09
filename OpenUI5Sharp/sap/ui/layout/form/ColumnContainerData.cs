@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -20,6 +20,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.layout.form.ColumnContainerData")]
 					public partial class ColumnContainerData : sap.ui.core.LayoutData
 					{
 						#region Settings
@@ -36,19 +37,19 @@ namespace OpenUI5Sharp
 							/// 
 							/// The number of columns for extra-large size must not be smaller than the number of columns for large size.
 							/// </summary>
-							public Union<sap.ui.layout.form.ColumnsXL, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> columnsXL;
+							public Union<sap.ui.layout.form.ColumnsXL, string, sap.ui.@base.ManagedObject.BindPropertyInfo> columnsXL;
 
 							/// <summary>
 							/// Number of columns the <code>FormContainer</code> element uses if the <code>Form</code> control has large size.
 							/// 
 							/// The number of columns for large size must not be smaller than the number of columns for medium size.
 							/// </summary>
-							public Union<sap.ui.layout.form.ColumnsL, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> columnsL;
+							public Union<sap.ui.layout.form.ColumnsL, string, sap.ui.@base.ManagedObject.BindPropertyInfo> columnsL;
 
 							/// <summary>
 							/// Number of columns the <code>FormContainer</code> element uses if the <code>Form</code> control has medium size.
 							/// </summary>
-							public Union<sap.ui.layout.form.ColumnsM, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> columnsM;
+							public Union<sap.ui.layout.form.ColumnsM, string, sap.ui.@base.ManagedObject.BindPropertyInfo> columnsM;
 
 						}
 

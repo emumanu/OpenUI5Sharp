@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.m.semantic.SemanticSelect")]
 				public abstract partial class SemanticSelect : sap.m.semantic.SemanticControl
 				{
 					#region Settings
@@ -30,22 +31,22 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// See {@link sap.m.Select#getEnabled}
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enabled;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enabled;
 
 						/// <summary>
 						/// See {@link sap.m.Select#getSelectedKey}
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedKey;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> selectedKey;
 
 						/// <summary>
 						/// See {@link sap.m.Select#getItems}
 						/// </summary>
-						public Union<sap.ui.core.Item[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
+						public Union<sap.ui.core.Item[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
 
 						/// <summary>
 						/// See {@link sap.m.Select#getSelectedItem}
 						/// </summary>
-						public Union<sap.ui.core.Item, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedItem;
+						public Union<sap.ui.core.Item, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> selectedItem;
 
 						/// <summary>
 						/// See {@link sap.m.Select#event:change}

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.model.TreeBinding")]
 				public abstract partial class TreeBinding : sap.ui.model.Binding
 				{
 					#region Constructor
@@ -82,31 +83,31 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Attach event-handler <code>fnFunction</code> to the '_filter' event of this <code>sap.ui.model.TreeBinding</code>.<br/>
 					/// </summary>
-					[Obsolete("Deprecated since 1.11. use the change event. It now contains a parameter (reason : 'filter') when a filter event is fired.")]
 					/// <param name="fnFunction">The function to call, when the event occurs.</param>
 					/// <param name="oListener">object on which to call the given function.</param>
+					[Obsolete("Deprecated since 1.11. use the change event. It now contains a parameter (reason : 'filter') when a filter event is fired.")]
 					public extern virtual void attachFilter(object fnFunction, object oListener);
 
 					/// <summary>
 					/// Attach event-handler <code>fnFunction</code> to the '_filter' event of this <code>sap.ui.model.TreeBinding</code>.<br/>
 					/// </summary>
-					[Obsolete("Deprecated since 1.11. use the change event. It now contains a parameter (reason : 'filter') when a filter event is fired.")]
 					/// <param name="fnFunction">The function to call, when the event occurs.</param>
+					[Obsolete("Deprecated since 1.11. use the change event. It now contains a parameter (reason : 'filter') when a filter event is fired.")]
 					public extern virtual void attachFilter(object fnFunction);
 
 					/// <summary>
 					/// Detach event-handler <code>fnFunction</code> from the '_filter' event of this <code>sap.ui.model.TreeBinding</code>.<br/>
 					/// </summary>
-					[Obsolete("Deprecated since 1.11. use the change event.")]
 					/// <param name="fnFunction">The function to call, when the event occurs.</param>
 					/// <param name="oListener">object on which to call the given function.</param>
+					[Obsolete("Deprecated since 1.11. use the change event.")]
 					public extern virtual void detachFilter(object fnFunction, object oListener);
 
 					/// <summary>
 					/// Detach event-handler <code>fnFunction</code> from the '_filter' event of this <code>sap.ui.model.TreeBinding</code>.<br/>
 					/// </summary>
-					[Obsolete("Deprecated since 1.11. use the change event.")]
 					/// <param name="fnFunction">The function to call, when the event occurs.</param>
+					[Obsolete("Deprecated since 1.11. use the change event.")]
 					public extern virtual void detachFilter(object fnFunction);
 
 					/// <summary>

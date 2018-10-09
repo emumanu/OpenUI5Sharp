@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.layout.Grid")]
 				public partial class Grid : sap.ui.core.Control
 				{
 					#region Settings
@@ -30,47 +31,47 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Optional. Width of the Grid. If not specified, then 100%.
 						/// </summary>
-						public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+						public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 						/// <summary>
 						/// Optional. Vertical spacing between the rows in the Grid. In rem, allowed values are 0, 0.5, 1 and 2.
 						/// </summary>
-						public Union<float, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> vSpacing;
+						public Union<float, string, sap.ui.@base.ManagedObject.BindPropertyInfo> vSpacing;
 
 						/// <summary>
 						/// Optional. Horizontal spacing between the content in the Grid. In rem, allowed values are 0, 0.5 , 1 or 2.
 						/// </summary>
-						public Union<float, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> hSpacing;
+						public Union<float, string, sap.ui.@base.ManagedObject.BindPropertyInfo> hSpacing;
 
 						/// <summary>
 						/// Optional. Position of the Grid in the window or surrounding container. Possible values are "Center", "Left" and "Right".
 						/// </summary>
-						public Union<sap.ui.layout.GridPosition, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> position;
+						public Union<sap.ui.layout.GridPosition, string, sap.ui.@base.ManagedObject.BindPropertyInfo> position;
 
 						/// <summary>
 						/// Optional. A string type that represents Grid's default span values for large, medium and small screens for the whole Grid. Allowed values are separated by space Letters L, M or S followed by number of columns from 1 to 12 that the container has to take, for example: "L2 M4 S6", "M12", "s10" or "l4 m4". Note that the parameters has to be provided in the order large medium small.
 						/// </summary>
-						public Union<sap.ui.layout.GridSpan, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> defaultSpan;
+						public Union<sap.ui.layout.GridSpan, string, sap.ui.@base.ManagedObject.BindPropertyInfo> defaultSpan;
 
 						/// <summary>
 						/// Optional. Defines default for the whole Grid numbers of empty columns before the current span begins. It can be defined for large, medium and small screens. Allowed values are separated by space Letters L, M or S followed by number of columns from 0 to 11 that the container has to take, for example: "L2 M4 S6", "M11", "s10" or "l4 m4". Note that the parameters has to be provided in the order large medium small.
 						/// </summary>
-						public Union<sap.ui.layout.GridIndent, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> defaultIndent;
+						public Union<sap.ui.layout.GridIndent, string, sap.ui.@base.ManagedObject.BindPropertyInfo> defaultIndent;
 
 						/// <summary>
 						/// If true then not the media Query ( device screen size), but the size of the container surrounding the grid defines the current range (large, medium or small).
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> containerQuery;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> containerQuery;
 
 						/// <summary>
 						/// Controls that are placed into Grid layout.
 						/// </summary>
-						public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
+						public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
 
 						/// <summary>
 						/// Association to controls / IDs that label this control (see WAI-ARIA attribute <code>aria-labelledby</code>).
 						/// </summary>
-						public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+						public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 					}
 

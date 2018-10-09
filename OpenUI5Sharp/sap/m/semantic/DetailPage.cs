@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.m.semantic.DetailPage")]
 				public partial class DetailPage : sap.m.semantic.ShareMenuPage
 				{
 					#region Settings
@@ -32,107 +33,107 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Add action
 						/// </summary>
-						public Union<sap.m.semantic.AddAction, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> addAction;
+						public Union<sap.m.semantic.AddAction, string, sap.ui.@base.ManagedObject.BindAggregationInfo> addAction;
 
 						/// <summary>
 						/// Main action
 						/// </summary>
-						public Union<sap.m.semantic.MainAction, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> mainAction;
+						public Union<sap.m.semantic.MainAction, string, sap.ui.@base.ManagedObject.BindAggregationInfo> mainAction;
 
 						/// <summary>
 						/// Positive action
 						/// </summary>
-						public Union<sap.m.semantic.PositiveAction, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> positiveAction;
+						public Union<sap.m.semantic.PositiveAction, string, sap.ui.@base.ManagedObject.BindAggregationInfo> positiveAction;
 
 						/// <summary>
 						/// Negative action
 						/// </summary>
-						public Union<sap.m.semantic.NegativeAction, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> negativeAction;
+						public Union<sap.m.semantic.NegativeAction, string, sap.ui.@base.ManagedObject.BindAggregationInfo> negativeAction;
 
 						/// <summary>
 						/// Negative action
 						/// </summary>
-						public Union<sap.m.semantic.ForwardAction, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> forwardAction;
+						public Union<sap.m.semantic.ForwardAction, string, sap.ui.@base.ManagedObject.BindAggregationInfo> forwardAction;
 
 						/// <summary>
 						/// Edit action
 						/// </summary>
-						public Union<sap.m.semantic.EditAction, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> editAction;
+						public Union<sap.m.semantic.EditAction, string, sap.ui.@base.ManagedObject.BindAggregationInfo> editAction;
 
 						/// <summary>
 						/// Save action
 						/// </summary>
-						public Union<sap.m.semantic.SaveAction, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> saveAction;
+						public Union<sap.m.semantic.SaveAction, string, sap.ui.@base.ManagedObject.BindAggregationInfo> saveAction;
 
 						/// <summary>
 						/// Delete action
 						/// </summary>
-						public Union<sap.m.semantic.DeleteAction, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> deleteAction;
+						public Union<sap.m.semantic.DeleteAction, string, sap.ui.@base.ManagedObject.BindAggregationInfo> deleteAction;
 
 						/// <summary>
 						/// Cancel action
 						/// </summary>
-						public Union<sap.m.semantic.CancelAction, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> cancelAction;
+						public Union<sap.m.semantic.CancelAction, string, sap.ui.@base.ManagedObject.BindAggregationInfo> cancelAction;
 
 						/// <summary>
 						/// Flag action
 						/// </summary>
-						public Union<sap.m.semantic.FlagAction, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> flagAction;
+						public Union<sap.m.semantic.FlagAction, string, sap.ui.@base.ManagedObject.BindAggregationInfo> flagAction;
 
 						/// <summary>
 						/// Favorite action
 						/// </summary>
-						public Union<sap.m.semantic.FavoriteAction, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> favoriteAction;
+						public Union<sap.m.semantic.FavoriteAction, string, sap.ui.@base.ManagedObject.BindAggregationInfo> favoriteAction;
 
 						/// <summary>
 						/// OpenIn action
 						/// </summary>
-						public Union<sap.m.semantic.OpenInAction, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> openInAction;
+						public Union<sap.m.semantic.OpenInAction, string, sap.ui.@base.ManagedObject.BindAggregationInfo> openInAction;
 
 						/// <summary>
 						/// DiscussInJam action
 						/// </summary>
-						public Union<sap.m.semantic.DiscussInJamAction, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> discussInJamAction;
+						public Union<sap.m.semantic.DiscussInJamAction, string, sap.ui.@base.ManagedObject.BindAggregationInfo> discussInJamAction;
 
 						/// <summary>
 						/// ShareInJam action
 						/// </summary>
-						public Union<sap.m.semantic.ShareInJamAction, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> shareInJamAction;
+						public Union<sap.m.semantic.ShareInJamAction, string, sap.ui.@base.ManagedObject.BindAggregationInfo> shareInJamAction;
 
 						/// <summary>
 						/// SendEmail action
 						/// </summary>
-						public Union<sap.m.semantic.SendEmailAction, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> sendEmailAction;
+						public Union<sap.m.semantic.SendEmailAction, string, sap.ui.@base.ManagedObject.BindAggregationInfo> sendEmailAction;
 
 						/// <summary>
 						/// SendMessage action
 						/// </summary>
-						public Union<sap.m.semantic.SendMessageAction, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> sendMessageAction;
+						public Union<sap.m.semantic.SendMessageAction, string, sap.ui.@base.ManagedObject.BindAggregationInfo> sendMessageAction;
 
 						/// <summary>
 						/// Print action
 						/// </summary>
-						public Union<sap.m.semantic.PrintAction, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> printAction;
+						public Union<sap.m.semantic.PrintAction, string, sap.ui.@base.ManagedObject.BindAggregationInfo> printAction;
 
 						/// <summary>
 						/// MessagesIndicator
 						/// </summary>
-						public Union<sap.m.semantic.MessagesIndicator, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> messagesIndicator;
+						public Union<sap.m.semantic.MessagesIndicator, string, sap.ui.@base.ManagedObject.BindAggregationInfo> messagesIndicator;
 
 						/// <summary>
 						/// SaveAsTile button
 						/// </summary>
-						public Union<sap.m.Button, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> saveAsTileAction;
+						public Union<sap.m.Button, string, sap.ui.@base.ManagedObject.BindAggregationInfo> saveAsTileAction;
 
 						/// <summary>
 						/// Paging action
 						/// </summary>
-						public Union<sap.m.PagingButton, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> pagingAction;
+						public Union<sap.m.PagingButton, string, sap.ui.@base.ManagedObject.BindAggregationInfo> pagingAction;
 
 						/// <summary>
 						/// DraftIndicator
 						/// </summary>
-						public Union<sap.m.DraftIndicator, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> draftIndicator;
+						public Union<sap.m.DraftIndicator, string, sap.ui.@base.ManagedObject.BindAggregationInfo> draftIndicator;
 
 					}
 

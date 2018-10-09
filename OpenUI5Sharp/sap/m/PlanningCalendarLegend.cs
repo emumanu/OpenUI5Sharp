@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.PlanningCalendarLegend")]
 			public partial class PlanningCalendarLegend : sap.ui.unified.CalendarLegend
 			{
 				#region Settings
@@ -28,17 +29,17 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the text displayed in the header of the items list. It is commonly related to the calendar days.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> itemsHeader;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> itemsHeader;
 
 					/// <summary>
 					/// Defines the text displayed in the header of the appointment items list. It is commonly related to the calendar appointments.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> appointmentItemsHeader;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> appointmentItemsHeader;
 
 					/// <summary>
 					/// The legend items which show color and type information about the calendar appointments.
 					/// </summary>
-					public Union<sap.ui.unified.CalendarLegendItem[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> appointmentItems;
+					public Union<sap.ui.unified.CalendarLegendItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> appointmentItems;
 
 				}
 

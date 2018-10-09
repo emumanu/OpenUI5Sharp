@@ -1,0 +1,289 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Retyped.scripthost</name>
+    </assembly>
+    <members>
+        <member name="T:Retyped.scripthost.ActiveXObject">
+            Windows Script Host APIS
+        </member>
+        <member name="P:Retyped.scripthost.TextStreamBase.Column">
+            <summary>
+            The column number of the current character position in an input stream.
+            </summary>
+        </member>
+        <member name="P:Retyped.scripthost.TextStreamBase.Line">
+            <summary>
+            The current line number in an input stream.
+            </summary>
+        </member>
+        <member name="M:Retyped.scripthost.TextStreamBase.Close">
+            <summary>
+            Closes a text stream.
+            It is not necessary to close standard streams; they close automatically when the process ends. If
+            you close a standard stream, be aware that any other pointers to that standard stream become invalid.
+            </summary>
+        </member>
+        <member name="M:Retyped.scripthost.TextStreamWriter.Write(System.String)">
+            <summary>
+            Sends a string to an output stream.
+            </summary>
+        </member>
+        <member name="M:Retyped.scripthost.TextStreamWriter.WriteBlankLines(System.Double)">
+            <summary>
+            Sends a specified number of blank lines (newline characters) to an output stream.
+            </summary>
+        </member>
+        <member name="M:Retyped.scripthost.TextStreamWriter.WriteLine(System.String)">
+            <summary>
+            Sends a string followed by a newline character to an output stream.
+            </summary>
+        </member>
+        <member name="M:Retyped.scripthost.TextStreamReader.Read(System.Double)">
+            <summary>
+            Returns a specified number of characters from an input stream, starting at the current pointer position.
+            Does not return until the ENTER key is pressed.
+            Can only be used on a stream in reading mode; causes an error in writing or appending mode.
+            </summary>
+        </member>
+        <member name="M:Retyped.scripthost.TextStreamReader.ReadAll">
+            <summary>
+            Returns all characters from an input stream.
+            Can only be used on a stream in reading mode; causes an error in writing or appending mode.
+            </summary>
+        </member>
+        <member name="M:Retyped.scripthost.TextStreamReader.ReadLine">
+            <summary>
+            Returns an entire line from an input stream.
+            Although this method extracts the newline character, it does not add it to the returned string.
+            Can only be used on a stream in reading mode; causes an error in writing or appending mode.
+            </summary>
+        </member>
+        <member name="M:Retyped.scripthost.TextStreamReader.Skip(System.Double)">
+            <summary>
+            Skips a specified number of characters when reading from an input text stream.
+            Can only be used on a stream in reading mode; causes an error in writing or appending mode.
+            </summary>
+            <param name = "characters">Positive number of characters to skip forward. (Backward skipping is not supported.)</param>
+        </member>
+        <member name="M:Retyped.scripthost.TextStreamReader.SkipLine">
+            <summary>
+            Skips the next line when reading from an input text stream.
+            Can only be used on a stream in reading mode, not writing or appending mode.
+            </summary>
+        </member>
+        <member name="P:Retyped.scripthost.TextStreamReader.AtEndOfLine">
+            <summary>
+            Indicates whether the stream pointer position is at the end of a line.
+            </summary>
+        </member>
+        <member name="P:Retyped.scripthost.TextStreamReader.AtEndOfStream">
+            <summary>
+            Indicates whether the stream pointer position is at the end of a stream.
+            </summary>
+        </member>
+        <member name="T:Retyped.scripthost.SafeArray`1">
+            <summary>
+            Represents an Automation SAFEARRAY
+            </summary>
+        </member>
+        <member name="M:Retyped.scripthost.Enumerator`1.atEnd">
+            <summary>
+            Returns true if the current item is the last one in the collection, or the collection is empty,
+            or the current item is undefined.
+            </summary>
+        </member>
+        <member name="M:Retyped.scripthost.Enumerator`1.item">
+            <summary>
+            Returns the current item in the collection
+            </summary>
+        </member>
+        <member name="M:Retyped.scripthost.Enumerator`1.moveFirst">
+            <summary>
+            Resets the current item in the collection to the first item. If there are no items in the collection,
+            the current item is set to undefined.
+            </summary>
+        </member>
+        <member name="M:Retyped.scripthost.Enumerator`1.moveNext">
+            <summary>
+            Moves the current item to the next item in the collection. If the enumerator is at the end of
+            the collection or the collection is empty, the current item is set to undefined.
+            </summary>
+        </member>
+        <member name="M:Retyped.scripthost.VBArray`1.dimensions">
+            <summary>
+            Returns the number of dimensions (1-based).
+            </summary>
+        </member>
+        <member name="M:Retyped.scripthost.VBArray`1.getItem(System.Double,System.Double[])">
+            <summary>
+            Takes an index for each dimension in the array, and returns the item at the corresponding location.
+            </summary>
+        </member>
+        <member name="M:Retyped.scripthost.VBArray`1.lbound">
+            <summary>
+            Returns the smallest available index for a given dimension.
+            </summary>
+        </member>
+        <member name="M:Retyped.scripthost.VBArray`1.lbound(System.Double)">
+            <summary>
+            Returns the smallest available index for a given dimension.
+            </summary>
+            <param name = "dimension">1-based dimension (defaults to 1)</param>
+        </member>
+        <member name="M:Retyped.scripthost.VBArray`1.ubound">
+            <summary>
+            Returns the largest available index for a given dimension.
+            </summary>
+        </member>
+        <member name="M:Retyped.scripthost.VBArray`1.ubound(System.Double)">
+            <summary>
+            Returns the largest available index for a given dimension.
+            </summary>
+            <param name = "dimension">1-based dimension (defaults to 1)</param>
+        </member>
+        <member name="M:Retyped.scripthost.VBArray`1.toArray">
+            <summary>
+            Returns a Javascript array with all the elements in the VBArray. If there are multiple dimensions,
+            each successive dimension is appended to the end of the array.
+            Example: [[1,2,3],[4,5,6]] becomes [1,2,3,4,5,6]
+            </summary>
+        </member>
+        <member name="T:Retyped.scripthost.VarDate">
+            <summary>
+            Automation date (VT_DATE)
+            </summary>
+        </member>
+        <member name="M:Retyped.scripthost.WScriptConfig.Echo(System.Object)">
+            <summary>
+            Outputs text to either a message box (under WScript.exe) or the command console window followed by
+            a newline (under CScript.exe).
+            </summary>
+        </member>
+        <member name="P:Retyped.scripthost.WScriptConfig.StdErr">
+            <summary>
+            Exposes the write-only error output stream for the current script.
+            Can be accessed only while using CScript.exe.
+            </summary>
+        </member>
+        <member name="P:Retyped.scripthost.WScriptConfig.StdOut">
+            <summary>
+            Exposes the write-only output stream for the current script.
+            Can be accessed only while using CScript.exe.
+            </summary>
+        </member>
+        <member name="P:Retyped.scripthost.WScriptConfig.ScriptFullName">
+            <summary>
+            The full path of the currently running script.
+            </summary>
+        </member>
+        <member name="M:Retyped.scripthost.WScriptConfig.Quit">
+            <summary>
+            Forces the script to stop immediately, with an optional exit code.
+            </summary>
+        </member>
+        <member name="M:Retyped.scripthost.WScriptConfig.Quit(System.Double)">
+            <summary>
+            Forces the script to stop immediately, with an optional exit code.
+            </summary>
+        </member>
+        <member name="P:Retyped.scripthost.WScriptConfig.BuildVersion">
+            <summary>
+            The Windows Script Host build version number.
+            </summary>
+        </member>
+        <member name="P:Retyped.scripthost.WScriptConfig.FullName">
+            <summary>
+            Fully qualified path of the host executable.
+            </summary>
+        </member>
+        <member name="P:Retyped.scripthost.WScriptConfig.Interactive">
+            <summary>
+            Gets/sets the script mode - interactive(true) or batch(false).
+            </summary>
+        </member>
+        <member name="P:Retyped.scripthost.WScriptConfig.Name">
+            <summary>
+            The name of the host executable (WScript.exe or CScript.exe).
+            </summary>
+        </member>
+        <member name="P:Retyped.scripthost.WScriptConfig.Path">
+            <summary>
+            Path of the directory containing the host executable.
+            </summary>
+        </member>
+        <member name="P:Retyped.scripthost.WScriptConfig.ScriptName">
+            <summary>
+            The filename of the currently running script.
+            </summary>
+        </member>
+        <member name="P:Retyped.scripthost.WScriptConfig.StdIn">
+            <summary>
+            Exposes the read-only input stream for the current script.
+            Can be accessed only while using CScript.exe.
+            </summary>
+        </member>
+        <member name="P:Retyped.scripthost.WScriptConfig.Version">
+            <summary>
+            Windows Script Host version
+            </summary>
+        </member>
+        <member name="M:Retyped.scripthost.WScriptConfig.ConnectObject(System.Object,System.String)">
+            <summary>
+            Connects a COM object's event sources to functions named with a given prefix, in the form prefix_event.
+            </summary>
+        </member>
+        <member name="M:Retyped.scripthost.WScriptConfig.CreateObject(System.String)">
+            <summary>
+            Creates a COM object.
+            </summary>
+        </member>
+        <member name="M:Retyped.scripthost.WScriptConfig.CreateObject(System.String,System.String)">
+            <summary>
+            Creates a COM object.
+            </summary>
+            <param name = "strPrefix">Function names in the form prefix_event will be bound to this object's COM events.</param>
+        </member>
+        <member name="M:Retyped.scripthost.WScriptConfig.DisconnectObject(System.Object)">
+            <summary>
+            Disconnects a COM object from its event sources.
+            </summary>
+        </member>
+        <member name="M:Retyped.scripthost.WScriptConfig.GetObject(System.String)">
+            <summary>
+            Retrieves an existing object with the specified ProgID from memory, or creates a new one from a file.
+            </summary>
+            <param name = "strPathname">
+            Fully qualified path to the file containing the object persisted to disk.
+            For objects in memory, pass a zero-length string.
+            </param>
+        </member>
+        <member name="M:Retyped.scripthost.WScriptConfig.GetObject(System.String,System.String)">
+            <summary>
+            Retrieves an existing object with the specified ProgID from memory, or creates a new one from a file.
+            </summary>
+            <param name = "strPathname">
+            Fully qualified path to the file containing the object persisted to disk.
+            For objects in memory, pass a zero-length string.
+            </param>
+            <param name = "strProgID"></param>
+        </member>
+        <member name="M:Retyped.scripthost.WScriptConfig.GetObject(System.String,System.String,System.String)">
+            <summary>
+            Retrieves an existing object with the specified ProgID from memory, or creates a new one from a file.
+            </summary>
+            <param name = "strPathname">
+            Fully qualified path to the file containing the object persisted to disk.
+            For objects in memory, pass a zero-length string.
+            </param>
+            <param name = "strProgID"></param>
+            <param name = "strPrefix">Function names in the form prefix_event will be bound to this object's COM events.</param>
+        </member>
+        <member name="M:Retyped.scripthost.WScriptConfig.Sleep(System.Double)">
+            <summary>
+            Suspends script execution for a specified length of time, then continues execution.
+            </summary>
+            <param name = "intTime">Interval (in milliseconds) to suspend script execution.</param>
+        </member>
+    </members>
+</doc>

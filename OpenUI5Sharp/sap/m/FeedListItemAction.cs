@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.FeedListItemAction")]
 			public partial class FeedListItemAction : sap.ui.core.Element
 			{
 				#region Settings
@@ -28,17 +29,17 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// The icon of the action.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> icon;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> icon;
 
 					/// <summary>
 					/// The text of the item. It is used as a tooltip and for accessibility reasons.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> text;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> text;
 
 					/// <summary>
 					/// The key of the item.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> key;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> key;
 
 					/// <summary>
 					/// The <code>press</code> event is fired when the user triggers the corresponding action.

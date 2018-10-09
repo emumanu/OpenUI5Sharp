@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.core.VariantLayoutData")]
 				public partial class VariantLayoutData : sap.ui.core.LayoutData
 				{
 					#region Settings
@@ -30,7 +31,7 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Allows multiple LayoutData.
 						/// </summary>
-						public Union<sap.ui.core.LayoutData[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> multipleLayoutData;
+						public Union<sap.ui.core.LayoutData[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> multipleLayoutData;
 
 					}
 

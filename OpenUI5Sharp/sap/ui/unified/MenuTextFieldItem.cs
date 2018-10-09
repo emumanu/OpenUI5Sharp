@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.unified.MenuTextFieldItem")]
 				public partial class MenuTextFieldItem : sap.ui.unified.MenuItemBase
 				{
 					#region Settings
@@ -30,22 +31,22 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Defines the label of the text field of the item.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> label;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> label;
 
 						/// <summary>
 						/// Defines the icon of the {@link sap.ui.core.IconPool sap.ui.core.IconPool} or an image which should be displayed on the item.
 						/// </summary>
-						public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> icon;
+						public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> icon;
 
 						/// <summary>
 						/// Defines the value of the text field of the item.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> value;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> value;
 
 						/// <summary>
 						/// Defines the value state of the text field of the item. This allows you to visualize e.g. warnings or errors.
 						/// </summary>
-						public Union<sap.ui.core.ValueState, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> valueState;
+						public Union<sap.ui.core.ValueState, string, sap.ui.@base.ManagedObject.BindPropertyInfo> valueState;
 
 					}
 
@@ -190,8 +191,8 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// The aggregation <code>submenu</code> (inherited from parent class) is not supported for this type of menu item.
 					/// </summary>
-					[Obsolete("Deprecated since 1.21. the aggregation <code>submenu</code> (inherited from parent class) is not supported for this type of menu item.")]
 					/// <returns><code>this</code> to allow method chaining</returns>
+					[Obsolete("Deprecated since 1.21. the aggregation <code>submenu</code> (inherited from parent class) is not supported for this type of menu item.")]
 					public extern virtual sap.ui.unified.MenuTextFieldItem destroySubmenu();
 
 					/// <summary>
@@ -233,16 +234,16 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// The aggregation <code>submenu</code> (inherited from parent class) is not supported for this type of menu item.
 					/// </summary>
-					[Obsolete("Deprecated since 1.21. the aggregation <code>submenu</code> (inherited from parent class) is not supported for this type of menu item.")]
 					/// <returns></returns>
+					[Obsolete("Deprecated since 1.21. the aggregation <code>submenu</code> (inherited from parent class) is not supported for this type of menu item.")]
 					public extern override sap.ui.unified.Menu getSubmenu();
 
 					/// <summary>
 					/// The aggregation <code>submenu</code> (inherited from parent class) is not supported for this type of menu item.
 					/// </summary>
-					[Obsolete("Deprecated since 1.21. the aggregation <code>submenu</code> (inherited from parent class) is not supported for this type of menu item.")]
 					/// <param name="oMenu">The menu to which the sap.ui.unified.Submenu should be set</param>
 					/// <returns><code>this</code> to allow method chaining</returns>
+					[Obsolete("Deprecated since 1.21. the aggregation <code>submenu</code> (inherited from parent class) is not supported for this type of menu item.")]
 					public extern virtual sap.ui.unified.MenuTextFieldItem setSubmenu(sap.ui.unified.Menu oMenu);
 
 					#endregion

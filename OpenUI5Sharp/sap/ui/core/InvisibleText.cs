@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.core.InvisibleText")]
 				public partial class InvisibleText : sap.ui.core.Control
 				{
 					#region Settings
@@ -32,7 +33,7 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// The text of the InvisibleText.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> text;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> text;
 
 					}
 
@@ -164,24 +165,24 @@ namespace OpenUI5Sharp
 					/// <returns>ID of the shared control</returns>
 					public extern static sap.ui.core.ID getStaticId(string sLibrary);
 
-					[Obsolete("Deprecated since 1.27. local BusyIndicator is not supported by control.")]
 					/// <returns>Returns <code>this</code> to allow method chaining</returns>
+					[Obsolete("Deprecated since 1.27. local BusyIndicator is not supported by control.")]
 					public extern virtual sap.ui.core.InvisibleText setBusy();
 
-					[Obsolete("Deprecated since 1.27. local BusyIndicator is not supported by control.")]
 					/// <returns>Returns <code>this</code> to allow method chaining</returns>
+					[Obsolete("Deprecated since 1.27. local BusyIndicator is not supported by control.")]
 					public extern virtual sap.ui.core.InvisibleText setBusyIndicatorDelay();
 
-					[Obsolete("Deprecated since 1.54. local BusyIndicator is not supported by control.")]
 					/// <returns>Returns <code>this</code> to allow method chaining</returns>
+					[Obsolete("Deprecated since 1.54. local BusyIndicator is not supported by control.")]
 					public extern virtual sap.ui.core.InvisibleText setBusyIndicatorSize();
 
-					[Obsolete("Deprecated since 1.27. tooltip is not supported by control.")]
 					/// <returns>Returns <code>this</code> to allow method chaining</returns>
+					[Obsolete("Deprecated since 1.27. tooltip is not supported by control.")]
 					public extern virtual sap.ui.core.InvisibleText setTooltip();
 
-					[Obsolete("Deprecated since 1.27. property <code>visible</code> is not supported by control.")]
 					/// <returns>Returns <code>this</code> to allow method chaining</returns>
+					[Obsolete("Deprecated since 1.27. property <code>visible</code> is not supported by control.")]
 					public extern virtual sap.ui.core.InvisibleText setVisible();
 
 					/// <summary>

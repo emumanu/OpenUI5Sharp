@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Retyped.es2015.symbol</name>
+    </assembly>
+    <members>
+        <member name="M:Retyped.es2015_symbol.Symbol.toString">
+            <summary>
+            Returns a string representation of an object.
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_symbol.Symbol.valueOf">
+            <summary>
+            Returns the primitive value of the specified object.
+            </summary>
+        </member>
+        <member name="P:Retyped.es2015_symbol.SymbolConstructor.prototype">
+            <summary>
+            A reference to the prototype.
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_symbol.SymbolConstructor.Self">
+            <summary>
+            Returns a new unique Symbol value.
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_symbol.SymbolConstructor.Self(Bridge.Union{System.String,System.Double})">
+            <summary>
+            Returns a new unique Symbol value.
+            </summary>
+            <param name = "description">Description of the new Symbol object.</param>
+        </member>
+        <member name="M:Retyped.es2015_symbol.SymbolConstructor.Self(System.String)">
+            <summary>
+            Returns a new unique Symbol value.
+            </summary>
+            <param name = "description">Description of the new Symbol object.</param>
+        </member>
+        <member name="M:Retyped.es2015_symbol.SymbolConstructor.Self(System.Double)">
+            <summary>
+            Returns a new unique Symbol value.
+            </summary>
+            <param name = "description">Description of the new Symbol object.</param>
+        </member>
+        <member name="M:Retyped.es2015_symbol.SymbolConstructor.for(System.String)">
+            <summary>
+            Returns a Symbol object from the global symbol registry matching the given key if found.
+            Otherwise, returns a new symbol with this key.
+            </summary>
+            <param name = "key">key to search for.</param>
+        </member>
+        <member name="M:Retyped.es2015_symbol.SymbolConstructor.keyFor(Retyped.Primitive.symbol)">
+            <summary>
+            Returns a key from the global symbol registry matching the given Symbol if found.
+            Otherwise, returns a undefined.
+            </summary>
+            <param name = "sym">Symbol to find the key for.</param>
+        </member>
+    </members>
+</doc>

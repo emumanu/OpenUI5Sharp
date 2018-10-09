@@ -1,0 +1,1123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:n24="sap.uxap" xmlns:n6="sap.m" xmlns:n0="sap.ui.core" xmlns:n12="sap.f" elementFormDefault="qualified" targetNamespace="sap.uxap" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="sap.m" />
+  <xs:import namespace="sap.ui.core" />
+  <xs:import namespace="sap.f" />
+  <xs:element name="AnchorBar" substitutionGroup="n6:Toolbar" type="n24:_AnchorBarType">
+    <xs:annotation>
+      <xs:documentation>Displays the titles of the sections and subsections in the {@link sap.uxap.ObjectPageLayout ObjectPageLayout} and allows the user to scroll to the respective content.
+
+&lt;h3&gt;Overview&lt;/h3&gt;
+
+The &lt;code&gt;AnchorBar&lt;/code&gt; is internally generated as a menu in the &lt;code&gt;ObjectPageLayout&lt;/code&gt;. It displays the sections and subsections and allows the user to directly scroll to the respective content by selecting them, while it remains visible at the top of the page (below the page header).</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_AnchorBarType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n6:_ToolbarType">
+        <xs:attribute name="showPopover" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether to show a Popover with Subsection links when clicking on Section links in the Anchor bar.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="upperCase" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the Anchor bar items are displayed in upper case.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="selectedButton" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The button that represents the Section being scrolled by the user.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BlockBase" substitutionGroup="n0:Control" type="n24:_BlockBaseType">
+    <xs:annotation>
+      <xs:documentation>The main element that holds the content that is displayed in an {@link sap.uxap.ObjectPageLayout ObjectPageLayout}, but not necessarily only there.
+
+&lt;h3&gt;Overview&lt;/h3&gt;
+
+The blocks give the flexibility to combine different content types.
+
+A block is a control that: &lt;ul&gt; &lt;li&gt;Has modes and a view associated to each mode. At rendering time, the view associated to the mode is rendered.&lt;/li&gt; &lt;li&gt;Can use all view types for storing its internal control tree (XML, JS, JSON, HTML)&lt;/li&gt; &lt;/ul&gt;
+
+As any UI5 view, the XML view can have a controller which automatically comes with a &lt;code&gt;this.oParentBlock&lt;/code&gt; attribute (so that the controller can interact with the block). If the controller implements the &lt;code&gt;onParentBlockModeChange&lt;/code&gt; method, this method will be called with the &lt;code&gt;sMode&lt;/code&gt; parameter when the view is used or reused by the block.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_BlockBaseType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n24:ModelMapping" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="mappings">
+            <xs:annotation>
+              <xs:documentation>Map external UI5 model and internal Block model</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n24:ModelMapping" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="mode" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Determines the mode of the block. When block is used inside ObjectPage this mode is inherited my the SubSection. The mode of the block is changed when SubSection mode changes.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="visible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines the visibility of the block.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="columnLayout" type="n24:_BlockBaseColumnLayoutType">
+          <xs:annotation>
+            <xs:documentation>Determines on how many columns the layout will be rendered. Allowed values are integers from 1 to 4 and "auto".</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="formAdjustment" type="n24:_BlockBaseFormAdjustmentType">
+          <xs:annotation>
+            <xs:documentation>Determines if the block should automatically adjust its inner forms. Allowed values are "BlockColumns" and "OneColumn" and "None". If the value is "BlockColumns", then the inner form will have as many columns as the colspan of its parent block. If the value is "OneColumn", the inner form will have exactly one column, regardless the colspan of its parent block. If the value is "None", no automatic adjustment of inner forms will be made and the form will keep its original column count.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showSubSectionMore" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the show more button should be shown.
+
+&lt;b&gt;Note:&lt;/b&gt; The property will take effect if the &lt;code&gt;BlockBase&lt;/code&gt; is inside &lt;ObjectPageSubSection&lt;/code&gt; and would be ignored in case the &lt;code&gt;BlockBase&lt;/code&gt; is nested inside another &lt;code&gt;BlockBase&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="mappings" type="xs:string" />
+        <xs:attribute name="selectedView" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The view that is rendered now. Can be used as getter for the rendered view.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BreadCrumbs" substitutionGroup="n0:Control" type="n24:_BreadCrumbsType">
+    <xs:annotation>
+      <xs:documentation>Represents the navigation steps up to the current location in the app.
+
+&lt;h3&gt;Overview&lt;/h3&gt;
+
+The &lt;code&gt;BreadCrumbs&lt;/code&gt; control allows the users to quickly navigate to a previous location on the path that got them to the current location by choosing the displayed navigation steps.
+
+It has two main modes of operation: &lt;ul&gt; &lt;li&gt;A trail of links followed by separators, when there's enough space for the control to fit on one line.&lt;/li&gt; &lt;li&gt;A dropdown list with the links, when the trail of links wouldn't fit on one line.&lt;/li&gt; &lt;/ul&gt;</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_BreadCrumbsType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n6:Link" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="links">
+            <xs:annotation>
+              <xs:documentation>A list of all the active link elements in the BreadCrumbs control.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n6:Link" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="currentLocation">
+            <xs:annotation>
+              <xs:documentation>The current/last element in the BreadCrumbs path.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n6:Text" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="showCurrentLocation" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Sets the visibility of the current/last element in the BreadCrumbs path.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="links" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="HierarchicalSelect" substitutionGroup="n6:Select" type="n24:_HierarchicalSelectType">
+    <xs:annotation>
+      <xs:documentation>A select that displays items on a hierarchy of 2 levels.
+
+If a provided item has a custom data named &lt;code&gt;secondLevel&lt;/code&gt;, then it will be displayed as a second level, otherwise it would be displayed as a first level.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_HierarchicalSelectType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n6:_SelectType">
+        <xs:attribute name="upperCase" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the HierarchicalSelect items are displayed in upper case.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ModelMapping" substitutionGroup="n0:Element" type="n24:_ModelMappingType">
+    <xs:annotation>
+      <xs:documentation>Defines the entity that will be passed to the {@link sap.uxap.ObjectPageLayout}.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ModelMappingType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:attribute name="externalModelName" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Determines the external model name.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="internalModelName" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Determines the internal model name.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="externalPath" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Determines the external path.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObjectPageDynamicHeaderContent" substitutionGroup="n12:DynamicPageHeader" type="n24:_ObjectPageDynamicHeaderContentType">
+    <xs:annotation>
+      <xs:documentation>Header content for the dynamic header of the {@link sap.uxap.ObjectPageLayout}.
+
+&lt;h3&gt;Overview&lt;/h3&gt;
+
+The &lt;code&gt;ObjectPageDynamicHeaderContent&lt;/code&gt; represents the movable part of the &lt;code&gt;ObjectPageLayout&lt;/code&gt;'s dynamic header. It can contain any control and scrolls along with the content of the page until it disappears (collapsed header). When scrolled back to the top it becomes visible again (expanded header). It contains all the additional information of the object.
+
+Documentation links: &lt;ul&gt; &lt;li&gt;{@link topic:d2ef0099542d44dc868719d908e576d0 Object Page Headers}&lt;/li&gt; &lt;li&gt;{@link topic:6e340c119ddd4c778b315f65a0432420 Object Page Dynamic Header}&lt;/li&gt; &lt;/ul&gt;</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ObjectPageDynamicHeaderContentType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n12:_DynamicPageHeaderType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObjectPageDynamicHeaderTitle" substitutionGroup="n12:DynamicPageTitle" type="n24:_ObjectPageDynamicHeaderTitleType">
+    <xs:annotation>
+      <xs:documentation>Represents the static part (header title) of the dynamic header of the {@link sap.uxap.ObjectPageLayout}.
+
+&lt;h3&gt;Overview&lt;/h3&gt;
+
+The &lt;code&gt;ObjectPageDynamicHeaderTitle&lt;/code&gt; is used to represent the most important details of the displayed business object, such as the object title and actions that the user can perform.
+
+&lt;b&gt;Note:&lt;/b&gt; The &lt;code&gt;ObjectPageDynamicHeaderTitle&lt;/code&gt; is meant to be used inside the &lt;code&gt;ObjectPageLayout&lt;/code&gt; control. Any other usage is not supported and can lead to unexpected behavior.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ObjectPageDynamicHeaderTitleType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n12:_DynamicPageTitleType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObjectPageHeader" substitutionGroup="n0:Control" type="n24:_ObjectPageHeaderType">
+    <xs:annotation>
+      <xs:documentation>Represents the static part (header title) of the classic header of the {@link sap.uxap.ObjectPageLayout}.
+
+&lt;h3&gt;Overview&lt;/h3&gt;
+
+The &lt;code&gt;ObjectPageHeader&lt;/code&gt; is used to display the basic information about a business object, such as title/description/picture, as well as a list of common actions.
+
+&lt;b&gt;Note:&lt;/b&gt; The &lt;code&gt;ObjectPageHeader&lt;/code&gt; is meant to be used inside the &lt;code&gt;ObjectPageLayout&lt;/code&gt; control. Any other usage is not supported and can lead to unexpected behavior.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ObjectPageHeaderType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="breadcrumbs">
+            <xs:annotation>
+              <xs:documentation>The breadcrumbs displayed in the &lt;code&gt;ObjectPageHeader&lt;/code&gt;. If this aggregation is set, the &lt;code&gt;breadCrumbsLinks&lt;/code&gt; aggregation is omitted.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n6:Breadcrumbs" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="breadCrumbsLinks">
+            <xs:annotation>
+              <xs:documentation>A list of all the active link elements in the BreadCrumbs control.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n6:Link" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="navigationBar">
+            <xs:annotation>
+              <xs:documentation>An instance of sap.m.Bar to be embedded in the header</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n6:Bar" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="actions">
+            <xs:annotation>
+              <xs:documentation>List of actions that will be displayed in the header. You can use ObjectPageHeaderActionButton controls to achieve a different visual representation of the action buttons in the action bar and the action sheet (overflow menu). You can use ObjectPageHeaderLayoutData to display a visual separator.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="sideContentButton">
+            <xs:annotation>
+              <xs:documentation>A button that is used for opening the side content of the page or some additional content.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n6:Button" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="titleSelectorTooltip">
+            <xs:annotation>
+              <xs:documentation>A custom tooltip for the title selector button.
+
+The custom tooltip will be visible if the &lt;code&gt;showTitleSelector&lt;/code&gt; property is set to &lt;code&gt;true&lt;/code&gt;.
+
+&lt;b&gt;Note:&lt;/b&gt; If the aggregation is destroyed or set to invalid value, the default tooltip will be set. The default tooltip text is "Related options".</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:TooltipBase" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="objectImageURI" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The URL of the image, representing the business object</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="objectImageAlt" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The text to be used for the Alt and Tooltip attribute of the image, supplied via the objectImageURI property</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="objectImageDensityAware" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>The value of densityAware for the image, supplied via the objectImageURI property. See sap.m.Image for more details on densityAware.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="objectTitle" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The title of the object</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="objectSubtitle" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The description of the object</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="objectImageShape" type="n24:_ObjectPageHeaderPictureShapeType">
+          <xs:annotation>
+            <xs:documentation>Determines whether the picture should be displayed in a square or with a circle-shaped mask.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="isObjectIconAlwaysVisible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the icon should always be visible or visible only when the header is snapped.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="isObjectTitleAlwaysVisible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the title should always be visible or visible only when the header is snapped.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="isObjectSubtitleAlwaysVisible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the subtitle should always be visible or visible only when the header is snapped.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="isActionAreaAlwaysVisible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the action buttons should always be visible or visible only when the header is snapped.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="headerDesign" type="n24:_ObjectPageHeaderDesignType">
+          <xs:annotation>
+            <xs:documentation>Determines the design of the header - Light or Dark. &lt;b&gt;Note: &lt;/b&gt;This property is deprecated. It will continue to work in the Blue Crystal theme, but it will not be taken into account for the Belize themes.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showTitleSelector" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>When set to true, the selector arrow icon/image is shown and can be pressed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="markFavorite" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Set the favorite state to true or false. The showMarkers property must be true for this property to take effect.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="markFlagged" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Set the flagged state to true or false. The showMarkers property must be true for this property to take effect.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showMarkers" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Indicates if object page header title supports showing markers such as flagged and favorite.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="markLocked" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Set the locked state of the objectPageHeader.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showPlaceholder" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Enables support of a placeholder image in case no image is specified or the URL of the provided image is invalid.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="markChanges" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Marks that there are unsaved changes in the objectPageHeader. The markChanges state cannot be used together with the markLocked state. If both are set to true, only the locked state will be displayed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="breadCrumbsLinks" type="xs:string" />
+        <xs:attribute name="actions" type="xs:string" />
+        <xs:attribute name="titleSelectorTooltip" type="xs:string" />
+        <xs:attribute name="titleSelectorPress" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The event is fired when the objectPage header title selector (down-arrow) is pressed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="markLockedPress" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The event is fired when the Locked button is pressed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="markChangesPress" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The event is fired when the unsaved changes button is pressed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObjectPageHeaderActionButton" substitutionGroup="n6:Button" type="n24:_ObjectPageHeaderActionButtonType">
+    <xs:annotation>
+      <xs:documentation>A Button that is used in the &lt;code&gt;actions&lt;/code&gt; aggregation of the {@link sap.uxap.ObjectPageHeader}.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ObjectPageHeaderActionButtonType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n6:_ButtonType">
+        <xs:attribute name="hideText" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Hide the button text when rendered into the headerTitle part of the ObjectPageLayout. This is useful if you want to display icons only in the headerTitle part but still want to display text + icon in the actionSheet that appears when not enough space is available on the screen for displaying all actions.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="hideIcon" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Hide the button icon when rendered into the headerTitle part of the ObjectPageLayout. This is useful if you want to display texts only in the headerTitle part but still want to display text + icon in the actionSheet that appears when not enough space is available on the screen for displaying all actions.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="importance" type="n24:_ImportanceType">
+          <xs:annotation>
+            <xs:documentation>Determines the order in which the button overflows.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObjectPageHeaderContent" substitutionGroup="n0:Control" type="n24:_ObjectPageHeaderContentType">
+    <xs:annotation>
+      <xs:documentation>Header content for the classic header of the {@link sap.uxap.ObjectPageLayout}.
+
+&lt;h3&gt;Overview&lt;/h3&gt;
+
+The &lt;code&gt;ObjectPageHeaderContent&lt;/code&gt; represents the movable part of the &lt;code&gt;ObjectPageLayout&lt;/code&gt;'s classic header. It can contain any control and scrolls along with the content of the page until it disappears (collapsed header). When scrolled back to the top it becomes visible again (expanded header). It contains all the additional information of the object.
+
+Documentation links: &lt;ul&gt; &lt;li&gt;{@link topic:d2ef0099542d44dc868719d908e576d0 Object Page Headers}&lt;/li&gt; &lt;li&gt;{@link topic:0fecbce45e39406aa939bd25e89823f4 Object Page Classic Header}&lt;/li&gt; &lt;li&gt;{@link https://experience.sap.com/fiori-design-web/object-page/ UX Guidelines: Object Page}&lt;/li&gt; &lt;/ul&gt;</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ObjectPageHeaderContentType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>The list of Objects of type sap.ui.core.Control.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="contentDesign" type="n24:_ObjectPageHeaderDesignType">
+          <xs:annotation>
+            <xs:documentation>Determines the design of the header - Light or Dark. &lt;b&gt;Note: &lt;/b&gt;This property is deprecated. It will continue to work in the Blue Crystal theme, but it will not be taken into account for the Belize themes.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="content" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObjectPageHeaderLayoutData" substitutionGroup="n0:LayoutData" type="n24:_ObjectPageHeaderLayoutDataType">
+    <xs:annotation>
+      <xs:documentation>A {@link sap.ui.core.LayoutData} element that can be added to controls used in the &lt;code&gt;headerContent&lt;/code&gt; aggregation of the &lt;code&gt;ObjectPageLayout&lt;/code&gt;.
+
+&lt;b&gt;Note:&lt;/b&gt; This element is only taken into account when the &lt;code&gt;sap.uxap.ObjectPageLayout&lt;/code&gt; control is used together with &lt;code&gt;sap.uxap.ObjectPageHeader&lt;/code&gt; as value of &lt;code&gt;headerTitle&lt;/code&gt;.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ObjectPageHeaderLayoutDataType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_LayoutDataType">
+        <xs:attribute name="visibleS" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If this property is set the control will be visible (or not) in a small sized layout.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="visibleM" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If this property is set the control will be visible (or not) in a medium sized layout.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="visibleL" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If this property is set the control will be visible (or not) in a large sized layout.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showSeparatorBefore" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If this property is set the control will display a separator before it.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showSeparatorAfter" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If this property is set the control will display a separator after it.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>If this property is set the control will take the provided size.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObjectPageLayout" substitutionGroup="n0:Control" type="n24:_ObjectPageLayoutType">
+    <xs:annotation>
+      <xs:documentation>A layout that allows apps to easily display information related to a business object.
+
+&lt;h3&gt;Overview&lt;/h3&gt;
+
+The &lt;code&gt;ObjectPageLayout&lt;/code&gt; layout is composed of a header (title and content), an optional anchor bar and block content wrapped in sections and subsections that structure the information.
+
+&lt;h3&gt;Structure&lt;/h3&gt;
+
+An &lt;code&gt;ObjectPageLayout&lt;/code&gt; control is used to put together all parts of an Object page - Header, optional Anchor Bar and Sections/Subsections.
+
+&lt;h4&gt;Header&lt;/h4&gt; The &lt;code&gt;ObjectPageLayout&lt;/code&gt; implements the snapping header concept. This means that the upper part of the header (Header Title) always stays visible, while the lower part (Header Content) can scroll out of view.
+
+Header Title is displayed at the top of the header and always remains visible above the scrollable content of the page. It contains the title and most prominent details of the object.
+
+The Header Content scrolls along with the content of the page until it disappears (collapsed header). When scrolled back to the top it becomes visible again (expanded header). It contains all the additional information of the object.
+
+&lt;h4&gt;Anchor Bar&lt;/h4&gt; The Anchor Bar is an automatically generated internal menu that shows the titles of the sections and subsections and allows the user to scroll to the respective section and subsection content.
+
+&lt;h4&gt;Sections, Subsections, Blocks&lt;/h4&gt; The content of the page that appears bellow the header is composed of blocks structured into sections and subsections.
+
+&lt;h3&gt;Usage&lt;/h3&gt; Use the &lt;code&gt;ObjectPageLayout&lt;/code&gt; if: &lt;ul&gt; &lt;li&gt;The users need to see, edit, or create an item with all its details.&lt;/li&gt; &lt;li&gt;Users need to get an overview of an object and interact with different parts of the object.&lt;/li&gt; &lt;/ul&gt;
+
+&lt;h3&gt;Responsive behavior&lt;/h3&gt;
+
+The &lt;code&gt;ObjectPageLayout&lt;/code&gt; is responsive and adapts to all screen sizes.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ObjectPageLayoutType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n24:ObjectPageSection" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="sections">
+            <xs:annotation>
+              <xs:documentation>The sections that make up the Object page content area.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n24:ObjectPageSection" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="headerTitle">
+            <xs:annotation>
+              <xs:documentation>Object page header title - the upper, always static, part of the Object page header.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="headerContent">
+            <xs:annotation>
+              <xs:documentation>Object page header content - the dynamic part of the Object page header.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="footer">
+            <xs:annotation>
+              <xs:documentation>Object page floating footer.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="showAnchorBar" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the Navigation bar (Anchor bar) is displayed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showAnchorBarPopover" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether to show a Popover with Subsection links when clicking on Section links in the Anchor bar.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="upperCaseAnchorBar" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the Anchor bar items are displayed in upper case.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Determines the height of the ObjectPage.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enableLazyLoading" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Enable lazy loading for the Object page Subsections.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="subSectionLayout" type="n24:_ObjectPageSubSectionLayoutType">
+          <xs:annotation>
+            <xs:documentation>Determines whether Subsection titles are displayed on top or to the left of the Subsection content.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="sectionTitleLevel" type="n0:_TitleLevelType">
+          <xs:annotation>
+            <xs:documentation>Determines the ARIA level of the &lt;code&gt;ObjectPageSection&lt;/code&gt; and &lt;code&gt;ObjectPageSubSection&lt;/code&gt; titles. The ARIA level is used by assisting technologies, such as screen readers, to create a hierarchical site map for faster navigation.
+
+&lt;br&gt;&lt;b&gt;Note:&lt;/b&gt; &lt;ul&gt; &lt;li&gt;Defining a &lt;code&gt;sectionTitleLevel&lt;/code&gt; will add &lt;code&gt;aria-level&lt;/code&gt; attribute from 1 to 6 instead of changing the titles` HTML tag from H1 to H6. &lt;br&gt;For example: if &lt;code&gt;sectionTitleLevel&lt;/code&gt; is &lt;code&gt;TitleLevel.H1&lt;/code&gt;, it will result as aria-level of 1 added to the &lt;code&gt;ObjectPageSection&lt;/code&gt; title. &lt;/li&gt;
+
+&lt;li&gt; The &lt;code&gt;ObjectPageSubSection&lt;/code&gt; title would have &lt;code&gt;aria-level&lt;/code&gt; one level lower than the defined. For example: if &lt;code&gt;sectionTitleLevel&lt;/code&gt; is &lt;code&gt;TitleLevel.H1&lt;/code&gt;, it will result as aria-level of 2 added to the &lt;code&gt;ObjectPageSubSection&lt;/code&gt; title.&lt;/li&gt;
+
+&lt;li&gt; It is possible to define a &lt;code&gt;titleLevel&lt;/code&gt; on &lt;code&gt;ObjectPageSection&lt;/code&gt; or &lt;code&gt;ObjectPageSubSection&lt;/code&gt; level. In this case the value of this property will be ignored. &lt;/li&gt; &lt;/ul&gt;</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="useIconTabBar" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Use tab navigation mode instead of the default Anchor bar mode. &lt;br&gt;&lt;b&gt;Note: &lt;/b&gt;Keep in mind that the &lt;code&gt;sap.m.IconTabBar&lt;/code&gt; control is no longer used for the tab navigation mode.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showHeaderContent" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines the visibility of the Header content (headerContent aggregation).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="useTwoColumnsForLargeScreen" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the to use two column layout for the L screen size.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showTitleInHeaderContent" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the title, image, markers and selectTitleArrow are shown in the Header content area.
+
+&lt;b&gt;Note&lt;/b&gt;: This property is only taken into account if an instance of &lt;code&gt;sap.uxap.ObjectPageHeader&lt;/code&gt; is used for the &lt;code&gt;headerTitle&lt;/code&gt; aggregation.&lt;/li&gt;</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showOnlyHighImportance" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether sections and subsections with importance Low and Medium are hidden even on large screens.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="isChildPage" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the page is a child page and renders it with a different design. Child pages have an additional (darker/lighter) stripe on the left side of their header content area.
+
+&lt;b&gt;Note&lt;/b&gt;: This property is only taken into account if an instance of &lt;code&gt;sap.uxap.ObjectPageHeader&lt;/code&gt; is used for the &lt;code&gt;headerTitle&lt;/code&gt; aggregation.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="alwaysShowContentHeader" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether Header Content will always be expanded on desktop.
+
+&lt;b&gt;Note&lt;/b&gt;: This property is only taken into account if an instance of &lt;code&gt;sap.uxap.ObjectPageHeader&lt;/code&gt; is used for the &lt;code&gt;headerTitle&lt;/code&gt; aggregation.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="headerContentPinnable" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the Header Content area can be pinned.
+
+When set to &lt;code&gt;true&lt;/code&gt;, a pin button is displayed within the Header Content area. The pin button allows the user to make the Header Content always visible at the top of the page above any scrollable content.
+
+&lt;b&gt;Note:&lt;/b&gt; This property is only taken into account if an instance of &lt;code&gt;sap.uxap.ObjectPageDynamicHeaderTitle&lt;/code&gt; is used for the &lt;code&gt;headerTitle&lt;/code&gt; aggregation.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="toggleHeaderOnTitleClick" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the user can switch between the expanded/collapsed states of the &lt;code&gt;sap.uxap.ObjectPageDynamicHeaderContent&lt;/code&gt; by clicking on the &lt;code&gt;sap.uxap.ObjectPageDynamicHeaderTitle&lt;/code&gt;. If set to &lt;code&gt;false&lt;/code&gt;, the &lt;code&gt;sap.uxap.ObjectPageDynamicHeaderTitle&lt;/code&gt; is not clickable and the application must provide other means for expanding/collapsing the &lt;code&gt;sap.uxap.ObjectPageDynamicHeaderContent&lt;/code&gt;, if necessary.
+
+&lt;b&gt;Note:&lt;/b&gt; This property is only taken into account if an instance of &lt;code&gt;sap.uxap.ObjectPageDynamicHeaderTitle&lt;/code&gt; is used for the &lt;code&gt;headerTitle&lt;/code&gt; aggregation.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="preserveHeaderStateOnScroll" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Preserves the current header state when scrolling. For example, if the user expands the header by clicking on the title and then scrolls down the page, the header will remain expanded.
+
+&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt;&lt;li&gt;This property is only taken into account if an instance of &lt;code&gt;sap.uxap.ObjectPageDynamicHeaderTitle&lt;/code&gt; is used for the &lt;code&gt;headerTitle&lt;/code&gt; aggregation.&lt;/li&gt; &lt;li&gt;Based on internal rules, the value of the property is not always taken into account - for example, when the control is rendered on tablet or mobile and the control`s title and header are with height larger than the given threshold.&lt;/li&gt;&lt;/ul&gt;</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showEditHeaderButton" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether an Edit button will be displayed in Header Content.
+
+&lt;b&gt;Note&lt;/b&gt;: This property is only taken into account if an instance of &lt;code&gt;sap.uxap.ObjectPageHeader&lt;/code&gt; is used for the &lt;code&gt;headerTitle&lt;/code&gt; aggregation.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="flexEnabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies whether the object page enables flexibility features, such as hiding and adding sections.&lt;br&gt; For more information about SAPUI5 flexibility, refer to the Developer Guide.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showFooter" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the footer is visible.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="sections" type="xs:string" />
+        <xs:attribute name="headerContent" type="xs:string" />
+        <xs:attribute name="selectedSection" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The section that is selected by default on load.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="toggleAnchorBar" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The event is fired when the Anchor bar is switched from moving to fixed or the other way round.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="editHeaderButtonPress" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The event is fired when the Edit Header button is pressed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="navigate" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The event is fired when the selected section is changed using the navigation.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObjectPageLazyLoader" substitutionGroup="n0:Element" type="n24:_ObjectPageLazyLoaderType">
+    <xs:annotation>
+      <xs:documentation>A helper element that enables a "stashed-based" lazy loading approach for the content of the {@link sap.uxap.ObjectPageSubSection} control.
+
+&lt;code&gt;ObjectPageLazyLoader&lt;/code&gt; is intended to be used in a declarative way only (for example, in a view) with the &lt;code&gt;stashed&lt;/code&gt; property set to &lt;code&gt;true&lt;/code&gt;, and is recommended to be used only once per subsection as its sole content.
+
+&lt;code&gt;ObjectPageLazyLoader&lt;/code&gt; utilizes UI5's stashing mechanism and is a lightweight alternative to the native block-based Lazy Loading of the &lt;code&gt;ObjectPageLayout&lt;/code&gt;. Wrapping the content of a subsection in an &lt;code&gt;ObjectPageLazyLoader&lt;/code&gt; with &lt;code&gt;stashed=true&lt;/code&gt; will make the content unstash automatically as the user scrolls.
+
+&lt;b&gt;Note:&lt;/b&gt; Subsections are required to have an ID when used with &lt;code&gt;ObjectPageLazyLoader&lt;/code&gt;.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ObjectPageLazyLoaderType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>Controls to be displayed after this element is unstashed</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="content" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObjectPageSection" substitutionGroup="n24:ObjectPageSectionBase" type="n24:_ObjectPageSectionType">
+    <xs:annotation>
+      <xs:documentation>Top-level information container of an {@link sap.uxap.ObjectPageLayout}.
+
+The &lt;code&gt;ObjectPageSection&lt;/code&gt;'s purpose is to aggregate subsections.
+
+&lt;b&gt;Note:&lt;/b&gt; This control is intended to be used only as part of the &lt;code&gt;ObjectPageLayout&lt;/code&gt;.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ObjectPageSectionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n24:_ObjectPageSectionBaseType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n24:ObjectPageSubSection" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="subSections">
+            <xs:annotation>
+              <xs:documentation>The list of Subsections.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n24:ObjectPageSubSection" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="showTitle" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether to display the Section title or not.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="titleUppercase" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the Section title is displayed in upper case.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="subSections" type="xs:string" />
+        <xs:attribute name="selectedSubSection" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The most recently selected Subsection by the user.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObjectPageSectionBase" substitutionGroup="n0:Control" type="n24:_ObjectPageSectionBaseType">
+    <xs:annotation>
+      <xs:documentation>An abstract container for sections and subsections in the {@link sap.uxap.ObjectPageLayout}.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ObjectPageSectionBaseType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="customAnchorBarButton">
+            <xs:annotation>
+              <xs:documentation>The custom button that will provide a link to the section in the ObjectPageLayout anchor bar. This button will be used as a custom template to be into the ObjectPageLayout anchorBar area, therefore property changes happening on this button template after the first rendering won't affect the actual button copy used in the anchorBar.
+
+If you want to change some of the button properties, you would need to bind them to a model.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n6:Button" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="title" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Section Title</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="titleLevel" type="n0:_TitleLevelType">
+          <xs:annotation>
+            <xs:documentation>Determines the ARIA level of the &lt;code&gt;ObjectPageSectionBase&lt;/code&gt; title. The ARIA level is used by assisting technologies, such as screen readers, to create a hierarchical site map for faster navigation.
+
+&lt;b&gt;Note:&lt;/b&gt; Defining a &lt;code&gt;titleLevel&lt;/code&gt; will add &lt;code&gt;aria-level&lt;/code&gt; attribute from 1 to 6, instead of changing the &lt;code&gt;ObjectPageSectionBase&lt;/code&gt; title HTML tag from H1 to H6. &lt;br&gt;For example: if &lt;code&gt;titleLevel&lt;/code&gt; is &lt;code&gt;TitleLevel.H1&lt;/code&gt;, it will result as aria-level of 1 added to the &lt;code&gt;ObjectPageSectionBase&lt;/code&gt; title.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="visible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Invisible ObjectPageSectionBase are not rendered</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="importance" type="n24:_ImportanceType">
+          <xs:annotation>
+            <xs:documentation>Determines whether the section will be hidden on low resolutions.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ObjectPageSubSection" substitutionGroup="n24:ObjectPageSectionBase" type="n24:_ObjectPageSubSectionType">
+    <xs:annotation>
+      <xs:documentation>Second-level information container of an {@link sap.uxap.ObjectPageLayout}.
+
+An &lt;code&gt;ObjectPageSubSection&lt;/code&gt; may only be used within sections in the &lt;code&gt;ObjectPageLayout&lt;/code&gt;. Subsections are used to display primary information in the &lt;code&gt;blocks&lt;/code&gt; aggregation (always visible) and not-so-important information in the &lt;code&gt;moreBlocks&lt;/code&gt; aggregation. The content in the &lt;code&gt;moreBlocks&lt;/code&gt; aggregation is initially hidden, but may be accessed with a "See more" (...) button.
+
+&lt;b&gt;Note:&lt;/b&gt; This control is intended to be used only as part of the &lt;code&gt;ObjectPageLayout&lt;/code&gt;.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ObjectPageSubSectionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n24:_ObjectPageSectionBaseType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="blocks">
+            <xs:annotation>
+              <xs:documentation>Controls to be displayed in the subsection</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="moreBlocks">
+            <xs:annotation>
+              <xs:documentation>Additional controls to display when the Show more / See all / (...) button is pressed</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="actions">
+            <xs:annotation>
+              <xs:documentation>Actions available for this Subsection</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="mode" type="n24:_ObjectPageSubSectionModeType">
+          <xs:annotation>
+            <xs:documentation>A mode property that will be passed to the controls in the blocks and moreBlocks aggregations. Only relevant if these aggregations use Object page blocks.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="titleUppercase" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the Subsection title is displayed in upper case.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="blocks" type="xs:string" />
+        <xs:attribute name="moreBlocks" type="xs:string" />
+        <xs:attribute name="actions" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="_BlockBaseColumnLayoutType">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="_BlockBaseFormAdjustmentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BlockColumns">
+        <xs:annotation>
+          <xs:documentation>Any form within the block will be automatically adjusted to have as many columns as the colspan of its parent block.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="None">
+        <xs:annotation>
+          <xs:documentation>No automatic adjustment of forms.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="OneColumn">
+        <xs:annotation>
+          <xs:documentation>Any form within the block will be automatically adjusted to have only one column.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_ImportanceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="High">
+        <xs:annotation>
+          <xs:documentation>High importance of the content.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Low">
+        <xs:annotation>
+          <xs:documentation>Low importance of the content.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Medium">
+        <xs:annotation>
+          <xs:documentation>Medium importance of the content.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_ObjectPageConfigurationModeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="JsonModel">
+        <xs:annotation>
+          <xs:documentation>Determines the JSON model.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="JsonURL">
+        <xs:annotation>
+          <xs:documentation>Determines the JSON URL.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_ObjectPageHeaderDesignType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Dark">
+        <xs:annotation>
+          <xs:documentation>Dark theme for the &lt;code&gt;ObjectPageHeader&lt;/code&gt;.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Light">
+        <xs:annotation>
+          <xs:documentation>Light theme for the &lt;code&gt;ObjectPageHeader&lt;/code&gt;.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_ObjectPageHeaderPictureShapeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Circle">
+        <xs:annotation>
+          <xs:documentation>Circle shape for the images in the &lt;code&gt;ObjectPageHeader&lt;/code&gt;.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Square">
+        <xs:annotation>
+          <xs:documentation>Square shape for the images in the &lt;code&gt;ObjectPageHeader&lt;/code&gt;.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_ObjectPageSubSectionLayoutType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TitleOnLeft">
+        <xs:annotation>
+          <xs:documentation>Title and actions on the left, inside the block area.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TitleOnTop">
+        <xs:annotation>
+          <xs:documentation>Title and actions on top of the block area.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_ObjectPageSubSectionModeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Collapsed">
+        <xs:annotation>
+          <xs:documentation>Collapsed mode of display of the &lt;code&gt;ObjectPageLayout&lt;/code&gt;.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Expanded">
+        <xs:annotation>
+          <xs:documentation>Expanded mode of displaying the &lt;code&gt;ObjectPageLayout&lt;/code&gt;.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

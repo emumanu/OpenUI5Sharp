@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -11,6 +11,7 @@ namespace OpenUI5Sharp
 		{
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.GrowingEnablement")]
 			public partial class GrowingEnablement : sap.ui.@base.Object
 			{
 				#region Constructor

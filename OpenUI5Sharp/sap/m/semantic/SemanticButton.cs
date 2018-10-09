@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.m.semantic.SemanticButton")]
 				public abstract partial class SemanticButton : sap.m.semantic.SemanticControl
 				{
 					#region Settings
@@ -30,7 +31,7 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// See {@link sap.m.Button#enabled}
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enabled;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enabled;
 
 						/// <summary>
 						/// See {@link sap.m.Button#press}

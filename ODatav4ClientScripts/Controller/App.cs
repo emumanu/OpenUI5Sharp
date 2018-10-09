@@ -1,8 +1,8 @@
 ﻿using Bridge;
 using System;
 using System.Linq;
-using OpenUI5Sharp;
-using OpenUI5Sharp.Extensions;
+using UI5;
+using UI5.Extensions;
 
 namespace ODatav4ClientScripts
 {
@@ -216,7 +216,7 @@ namespace ODatav4ClientScripts
             int iOrder = oView.getModelFor<ViewModel>("appView").getPropertyFor(m => m.order);
 
             iOrder = (iOrder + 1) % aStates.Length;
-            var sOrder = (string)aStates[iOrder];
+            var sOrder = aStates[iOrder];
 
             oView.getModelFor<ViewModel>("appView").setPropertyFor(m => m.order, iOrder);
             if (sOrder != null) {

@@ -1,0 +1,801 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:n13="sap.f.semantic" xmlns:n0="sap.ui.core" xmlns:n12="sap.f" xmlns:n6="sap.m" elementFormDefault="qualified" targetNamespace="sap.f.semantic" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="sap.ui.core" />
+  <xs:import namespace="sap.f" />
+  <xs:import namespace="sap.m" />
+  <xs:element name="AddAction" substitutionGroup="n13:SemanticButton" type="n13:_AddActionType">
+    <xs:annotation>
+      <xs:documentation>A semantic-specific button, eligible for the &lt;code&gt;addAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in its title.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_AddActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n13:_SemanticButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CloseAction" substitutionGroup="n13:SemanticButton" type="n13:_CloseActionType">
+    <xs:annotation>
+      <xs:documentation>A semantic-specific button, eligible for the &lt;code&gt;closeAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in its title.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_CloseActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n13:_SemanticButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CopyAction" substitutionGroup="n13:SemanticButton" type="n13:_CopyActionType">
+    <xs:annotation>
+      <xs:documentation>A semantic-specific button, eligible for the &lt;code&gt;copyAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in its title.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_CopyActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n13:_SemanticButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteAction" substitutionGroup="n13:SemanticButton" type="n13:_DeleteActionType">
+    <xs:annotation>
+      <xs:documentation>A semantic-specific button, eligible for the &lt;code&gt;deleteAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in its title.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_DeleteActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n13:_SemanticButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DiscussInJamAction" substitutionGroup="n13:SemanticButton" type="n13:_DiscussInJamActionType">
+    <xs:annotation>
+      <xs:documentation>A semantic-specific button, eligible for the &lt;code&gt;discussInJamAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in the share menu within its title.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_DiscussInJamActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n13:_SemanticButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EditAction" substitutionGroup="n13:SemanticButton" type="n13:_EditActionType">
+    <xs:annotation>
+      <xs:documentation>A semantic-specific button, eligible for the &lt;code&gt;editAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in its title.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_EditActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n13:_SemanticButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ExitFullScreenAction" substitutionGroup="n13:SemanticButton" type="n13:_ExitFullScreenActionType">
+    <xs:annotation>
+      <xs:documentation>A semantic-specific button, eligible for the &lt;code&gt;exitFullScreenAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in its title.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ExitFullScreenActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n13:_SemanticButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FavoriteAction" substitutionGroup="n13:SemanticToggleButton" type="n13:_FavoriteActionType">
+    <xs:annotation>
+      <xs:documentation>A semantic-specific button, eligible for the &lt;code&gt;favoriteAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in its title.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FavoriteActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n13:_SemanticToggleButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FlagAction" substitutionGroup="n13:SemanticToggleButton" type="n13:_FlagActionType">
+    <xs:annotation>
+      <xs:documentation>A semantic-specific button, eligible for the &lt;code&gt;flagAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in its title.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FlagActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n13:_SemanticToggleButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FooterMainAction" substitutionGroup="n13:MainAction" type="n13:_FooterMainActionType">
+    <xs:annotation>
+      <xs:documentation>A semantic-specific button, eligible for the &lt;code&gt;footerMainAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in its footer.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FooterMainActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n13:_MainActionType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FullScreenAction" substitutionGroup="n13:SemanticButton" type="n13:_FullScreenActionType">
+    <xs:annotation>
+      <xs:documentation>A semantic-specific button, eligible for the &lt;code&gt;fullScreenAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in its title.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FullScreenActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n13:_SemanticButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MainAction" substitutionGroup="n13:SemanticButton" type="n13:_MainActionType">
+    <xs:annotation>
+      <xs:documentation>Serves as a base class for the {@link sap.f.semantic.TitleMainAction} and {@link sap.f.semantic.FooterMainAction} controls.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_MainActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n13:_SemanticButtonType">
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Defines &lt;code&gt;MainAction&lt;/code&gt; text</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MessagesIndicator" substitutionGroup="n13:SemanticButton" type="n13:_MessagesIndicatorType">
+    <xs:annotation>
+      <xs:documentation>A semantic-specific button, eligible for the &lt;code&gt;messagesIndicator&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in its footer.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_MessagesIndicatorType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n13:_SemanticButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="NegativeAction" substitutionGroup="n13:SemanticButton" type="n13:_NegativeActionType">
+    <xs:annotation>
+      <xs:documentation>A semantic-specific button, eligible for the &lt;code&gt;negativeAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in its footer.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_NegativeActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n13:_SemanticButtonType">
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Defines &lt;code&gt;NegativeAction&lt;/code&gt; text. &lt;b&gt;Note:&lt;/b&gt; the default text is "Reject"</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PositiveAction" substitutionGroup="n13:SemanticButton" type="n13:_PositiveActionType">
+    <xs:annotation>
+      <xs:documentation>A semantic-specific button, eligible for the &lt;code&gt;positiveAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in its footer.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_PositiveActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n13:_SemanticButtonType">
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Defines &lt;code&gt;PositiveAction&lt;/code&gt; text. &lt;b&gt;Note:&lt;/b&gt; the default text is "Accept"</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PrintAction" substitutionGroup="n13:SemanticButton" type="n13:_PrintActionType">
+    <xs:annotation>
+      <xs:documentation>A semantic-specific button, eligible for the &lt;code&gt;printAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in the share menu within its title.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_PrintActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n13:_SemanticButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SemanticButton" substitutionGroup="n13:SemanticControl" type="n13:_SemanticButtonType">
+    <xs:annotation>
+      <xs:documentation>A base class for the available semantic actions, such as {@link sap.f.semantic.AddAction AddAction}, {@link sap.f.semantic.CloseAction CloseAction}, etc.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_SemanticButtonType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n13:_SemanticControlType">
+        <xs:attribute name="enabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the &lt;code&gt;SemanticButton&lt;/code&gt; is enabled.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="press" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired when the user selects the &lt;code&gt;SemanticButton&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SemanticControl" substitutionGroup="n0:Element" type="n13:_SemanticControlType">
+    <xs:annotation>
+      <xs:documentation>The base class for the {@link sap.f.semantic.SemanticButton}.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_SemanticControlType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:attribute name="visible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the &lt;code&gt;SemanticControl&lt;/code&gt; is visible.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SemanticPage" substitutionGroup="n0:Control" type="n13:_SemanticPageType">
+    <xs:annotation>
+      <xs:documentation>An enhanced {@link sap.f.DynamicPage}, that contains controls with semantic-specific meaning.
+
+&lt;h3&gt;Overview&lt;/h3&gt;
+
+Content specified in the &lt;code&gt;sap.f.semantic.SemanticPage&lt;/code&gt; aggregations is automatically positioned in dedicated sections of the title or the footer of the page, depending on the control's semantics.
+
+The actions in the &lt;code&gt;SemanticPage&lt;/code&gt; title are grouped to text actions or icon actions. When an aggregation is set, the actions appear in the following predefined order (from left to right):
+
+&lt;ul&gt;Text actions: &lt;li&gt;The main semantic text action - &lt;code&gt;titleMainAction&lt;/code&gt;&lt;/li&gt; &lt;li&gt;Any custom text actions - &lt;code&gt;titleCustomTextActions&lt;/code&gt;&lt;/li&gt; &lt;li&gt;The semantic text actions - &lt;code&gt;editAction&lt;/code&gt;, &lt;code&gt;deleteAction&lt;/code&gt;, &lt;code&gt;copyAction&lt;/code&gt; and &lt;code&gt;addAction&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;ul&gt;Icon actions: &lt;li&gt;Any custom icon actions - &lt;code&gt;titleCustomIconActions&lt;/code&gt;&lt;/li&gt; &lt;li&gt;The simple semantic icon actions - &lt;code&gt;favoriteAction&lt;/code&gt; and &lt;code&gt;flagAction&lt;/code&gt;&lt;/li&gt; &lt;li&gt;The share menu semantic icon actions as a drop-down list with the following order: &lt;ul&gt;&lt;li&gt;&lt;code&gt;sendEmailAction&lt;/code&gt;&lt;/li&gt; &lt;li&gt;&lt;code&gt;discussInJamAction&lt;/code&gt;&lt;/li&gt; &lt;li&gt;&lt;code&gt;shareInJamAction&lt;/code&gt;&lt;/li&gt; &lt;li&gt;&lt;code&gt;sendMessageAction&lt;/code&gt;&lt;/li&gt; &lt;li&gt;&lt;code&gt;printAction&lt;/code&gt;&lt;/li&gt; &lt;li&gt;Any &lt;code&gt;customShareActions&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt; &lt;li&gt;The navigation semantic actions - &lt;code&gt;fullScreenAction&lt;/code&gt;, &lt;code&gt;exitFullScreenAction&lt;/code&gt;, and &lt;code&gt;closeAction&lt;/li&gt;&lt;/code&gt;&lt;/ul&gt;
+
+The actions in the &lt;code&gt;SemanticPage&lt;/code&gt; footer are positioned either on its left or right area and have the following predefined order:
+
+&lt;ul&gt;Footer left area: &lt;li&gt;The semantic text action - &lt;code&gt;messagesIndicator&lt;/code&gt;&lt;/li&gt; &lt;li&gt;The semantic label - &lt;code&gt;draftIndicator&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;ul&gt;Footer right area: &lt;li&gt;The main semantic text action - &lt;code&gt;footerMainAction&lt;/code&gt;&lt;/li&gt; &lt;li&gt;The semantic text actions - &lt;code&gt;positiveAction&lt;/code&gt; and &lt;code&gt;negativeAction&lt;/code&gt;&lt;/li&gt; &lt;li&gt;Any custom text actions - &lt;code&gt;footerCustomActions&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;h3&gt;Usage&lt;/h3&gt;
+
+Using the &lt;code&gt;SemanticPage&lt;/code&gt; facilitates the implementation of the SAP Fiori 2.0 design guidelines.
+
+&lt;h3&gt;Responsive behavior&lt;/h3&gt;
+
+The responsive behavior of the &lt;code&gt;SemanticPage&lt;/code&gt; depends on the behavior of the content that is displayed.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_SemanticPageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="titleHeading">
+            <xs:annotation>
+              <xs:documentation>The &lt;code&gt;SemanticPage&lt;/code&gt; heading.
+
+A typical usage is the &lt;code&gt;sap.m.Title&lt;/code&gt; or any other UI5 control, that serves as a heading for an object.
+
+&lt;b&gt;Note:&lt;/b&gt; The control will be placed in the title`s leftmost area.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="titleBreadcrumbs">
+            <xs:annotation>
+              <xs:documentation>The &lt;code&gt;SemanticPage&lt;/code&gt; breadcrumbs.
+
+A typical usage is the &lt;code&gt;sap.m.Breadcrumbs&lt;/code&gt; control or any other UI5 control, that implements the &lt;code&gt;sap.m.IBreadcrumbs&lt;/code&gt; interface.
+
+&lt;b&gt;Note:&lt;/b&gt; The control will be placed in the title`s top-left area.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="titleSnappedContent">
+            <xs:annotation>
+              <xs:documentation>The content, displayed in the title, when the header is in collapsed state.
+
+&lt;b&gt;Note:&lt;/b&gt; The controls will be placed in the title`s left area, under the &lt;code&gt;titleHeading&lt;/code&gt; aggregation.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="titleExpandedContent">
+            <xs:annotation>
+              <xs:documentation>The content,displayed in the title, when the header is in expanded state.
+
+&lt;b&gt;Note:&lt;/b&gt; The controls will be placed in the title`s left area, under the &lt;code&gt;titleHeading&lt;/code&gt; aggregation.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="titleContent">
+            <xs:annotation>
+              <xs:documentation>The content, displayed in the title.
+
+&lt;b&gt;Note:&lt;/b&gt; The controls will be placed in the middle area.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="titleMainAction">
+            <xs:annotation>
+              <xs:documentation>A semantic-specific button which is placed in the &lt;code&gt;SemanticPage&lt;/code&gt; title as first action.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n13:TitleMainAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="editAction">
+            <xs:annotation>
+              <xs:documentation>A semantic-specific button which is placed in the &lt;code&gt;TextActions&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n13:EditAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="deleteAction">
+            <xs:annotation>
+              <xs:documentation>A semantic-specific button which is placed in the &lt;code&gt;TextActions&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n13:DeleteAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="copyAction">
+            <xs:annotation>
+              <xs:documentation>A semantic-specific button which is placed in the &lt;code&gt;TextActions&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n13:CopyAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="addAction">
+            <xs:annotation>
+              <xs:documentation>A semantic-specific button which is placed in the &lt;code&gt;TextActions&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n13:AddAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="flagAction">
+            <xs:annotation>
+              <xs:documentation>A semantic-specific button which is placed in the &lt;code&gt;IconActions&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n13:FlagAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="favoriteAction">
+            <xs:annotation>
+              <xs:documentation>A semantic-specific button which is placed in the &lt;code&gt;IconActions&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n13:FavoriteAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="fullScreenAction">
+            <xs:annotation>
+              <xs:documentation>A semantic-specific button which is placed in the &lt;code&gt;IconActions&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n13:FullScreenAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="exitFullScreenAction">
+            <xs:annotation>
+              <xs:documentation>A semantic-specific button which is placed in the &lt;code&gt;IconActions&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n13:ExitFullScreenAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="closeAction">
+            <xs:annotation>
+              <xs:documentation>A semantic-specific button which is placed in the &lt;code&gt;IconActions&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n13:CloseAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="titleCustomTextActions">
+            <xs:annotation>
+              <xs:documentation>The &lt;code&gt;titleCustomTextActions&lt;/code&gt; are placed in the &lt;code&gt;TextActions&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title, right before the semantic text action.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n6:Button" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="titleCustomIconActions">
+            <xs:annotation>
+              <xs:documentation>The &lt;code&gt;titleCustomIconActions&lt;/code&gt; are placed in the &lt;code&gt;IconActions&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title, right before the semantic icon action.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n6:OverflowToolbarButton" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="headerContent">
+            <xs:annotation>
+              <xs:documentation>The header content.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>The &lt;code&gt;SemanticPage&lt;/code&gt; content.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="footerMainAction">
+            <xs:annotation>
+              <xs:documentation>A semantic-specific button which is placed in the &lt;code&gt;FooterRight&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; footer with default text value set to &lt;code&gt;Save&lt;/code&gt;.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n13:FooterMainAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="messagesIndicator">
+            <xs:annotation>
+              <xs:documentation>A semantic-specific button which is placed in the &lt;code&gt;FooterLeft&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; footer as a first action.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n13:MessagesIndicator" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="draftIndicator">
+            <xs:annotation>
+              <xs:documentation>A semantic-specific button which is placed in the &lt;code&gt;FooterLeft&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; footer as a second action.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n6:DraftIndicator" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="positiveAction">
+            <xs:annotation>
+              <xs:documentation>A semantic-specific button which is placed in the &lt;code&gt;FooterRight&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; footer with default text value set to &lt;code&gt;Accept&lt;/code&gt;.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n13:PositiveAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="negativeAction">
+            <xs:annotation>
+              <xs:documentation>A semantic-specific button which is placed in the &lt;code&gt;FooterRight&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; footer with default text value set to &lt;code&gt;Reject&lt;/code&gt;.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n13:NegativeAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="footerCustomActions">
+            <xs:annotation>
+              <xs:documentation>The &lt;code&gt;footerCustomActions&lt;/code&gt; are placed in the &lt;code&gt;FooterRight&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; footer, right after the semantic footer actions.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n6:Button" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="discussInJamAction">
+            <xs:annotation>
+              <xs:documentation>A semantic-specific button which is placed in the &lt;code&gt;ShareMenu&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n13:DiscussInJamAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="saveAsTileAction">
+            <xs:annotation>
+              <xs:documentation>A button which is placed in the &lt;code&gt;ShareMenu&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n6:Button" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="shareInJamAction">
+            <xs:annotation>
+              <xs:documentation>A semantic-specific button which is placed in the &lt;code&gt;ShareMenu&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n13:ShareInJamAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="sendMessageAction">
+            <xs:annotation>
+              <xs:documentation>A semantic-specific button which is placed in the &lt;code&gt;ShareMenu&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n13:SendMessageAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="sendEmailAction">
+            <xs:annotation>
+              <xs:documentation>A semantic-specific button which is placed in the &lt;code&gt;ShareMenu&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n13:SendEmailAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="printAction">
+            <xs:annotation>
+              <xs:documentation>A semantic-specific button which is placed in the &lt;code&gt;ShareMenu&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n13:PrintAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="customShareActions">
+            <xs:annotation>
+              <xs:documentation>The &lt;code&gt;customShareActions&lt;/code&gt; are placed in the &lt;code&gt;ShareMenu&lt;/code&gt; area of the &lt;code&gt;SemanticPage&lt;/code&gt; title, right after the semantic actions.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n6:Button" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="headerExpanded" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the header is expanded.
+
+The header can be also expanded/collapsed by user interaction, which requires the property to be internally mutated by the control to reflect the changed state.
+
+&lt;b&gt;Note:&lt;/b&gt; Please be aware, that initially collapsed header state is not supported, so &lt;code&gt;headerExpanded&lt;/code&gt; should not be set to &lt;code&gt;false&lt;/code&gt; when initializing the control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="headerPinnable" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the header is pinnable.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="preserveHeaderStateOnScroll" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Preserves the current header state when scrolling.
+
+For example, if the user expands the header by clicking on the title and then scrolls down the page, the header will remain expanded.
+
+&lt;b&gt;Note:&lt;/b&gt; Based on internal rules, the value of the property is not always taken into account - for example, when the control is rendered on tablet or mobile and the title and the header are with height larger than a given threshold.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="toggleHeaderOnTitleClick" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the user can switch between the expanded/collapsed states of the header by clicking on the title.
+
+If set to &lt;code&gt;false&lt;/code&gt;, the title is not clickable and the application must provide other means for expanding/collapsing the header, if necessary.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showFooter" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the footer is visible.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="titlePrimaryArea" type="n12:_DynamicPageTitleAreaType">
+          <xs:annotation>
+            <xs:documentation>Determines which of the title areas (Begin, Middle) is primary.
+
+&lt;b&gt;Note:&lt;/b&gt; The primary area is shrinking at a lower rate, remaining visible as long as it can.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="titleSnappedContent" type="xs:string" />
+        <xs:attribute name="titleExpandedContent" type="xs:string" />
+        <xs:attribute name="titleContent" type="xs:string" />
+        <xs:attribute name="titleCustomTextActions" type="xs:string" />
+        <xs:attribute name="titleCustomIconActions" type="xs:string" />
+        <xs:attribute name="headerContent" type="xs:string" />
+        <xs:attribute name="footerCustomActions" type="xs:string" />
+        <xs:attribute name="customShareActions" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SemanticToggleButton" substitutionGroup="n13:SemanticButton" type="n13:_SemanticToggleButtonType">
+    <xs:annotation>
+      <xs:documentation>A base class for the {@link sap.f.semantic.FavoriteAction} and {@link sap.f.semantic.FlagAction}.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_SemanticToggleButtonType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n13:_SemanticButtonType">
+        <xs:attribute name="pressed" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Defines the &lt;code&gt;SemanticToggleButton&lt;/code&gt; pressed state.
+
+The property is set to &lt;code&gt;true&lt;/code&gt; when the control is toggled (default is &lt;code&gt;false&lt;/code&gt;).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SendEmailAction" substitutionGroup="n13:SemanticButton" type="n13:_SendEmailActionType">
+    <xs:annotation>
+      <xs:documentation>A semantic-specific button, eligible for the &lt;code&gt;sendEmailAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in the share menu within its title.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_SendEmailActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n13:_SemanticButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SendMessageAction" substitutionGroup="n13:SemanticButton" type="n13:_SendMessageActionType">
+    <xs:annotation>
+      <xs:documentation>A semantic-specific button, eligible for the &lt;code&gt;sendMessageAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in the share menu within its title.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_SendMessageActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n13:_SemanticButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ShareInJamAction" substitutionGroup="n13:SemanticButton" type="n13:_ShareInJamActionType">
+    <xs:annotation>
+      <xs:documentation>A semantic-specific button, eligible for the &lt;code&gt;shareInJamAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in the share menu within its title.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ShareInJamActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n13:_SemanticButtonType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TitleMainAction" substitutionGroup="n13:MainAction" type="n13:_TitleMainActionType">
+    <xs:annotation>
+      <xs:documentation>A semantic-specific button, eligible for the &lt;code&gt;titleMainAction&lt;/code&gt; aggregation of the {@link sap.f.semantic.SemanticPage} to be placed in its title.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_TitleMainActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n13:_MainActionType" />
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

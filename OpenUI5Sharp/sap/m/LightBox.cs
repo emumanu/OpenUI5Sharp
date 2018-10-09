@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -32,6 +32,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.LightBox")]
 			public partial class LightBox : sap.ui.core.Control, sap.ui.core.PopupInterface
 			{
 				#region Settings
@@ -46,7 +47,7 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Aggregation which holds data about the image and its description. Although multiple LightBoxItems may be added to this aggregation only the first one in the list will be taken into account.
 					/// </summary>
-					public Union<sap.m.LightBoxItem[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> imageContent;
+					public Union<sap.m.LightBoxItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> imageContent;
 
 				}
 

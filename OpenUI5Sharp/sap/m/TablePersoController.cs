@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.TablePersoController")]
 			public partial class TablePersoController : sap.ui.@base.ManagedObject
 			{
 				#region Settings
@@ -25,29 +26,29 @@ namespace OpenUI5Sharp
 				[ObjectLiteral]
 				public partial class Settings : sap.ui.@base.ManagedObject.Settings
 				{
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> contentWidth;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> contentWidth;
 
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> contentHeight;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> contentHeight;
 
 					/// <summary>
 					/// Available options for the text direction are LTR and RTL. By default the control inherits the text direction from its parent control.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> componentName;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> componentName;
 
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> hasGrouping;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> hasGrouping;
 
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showSelectAll;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showSelectAll;
 
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showResetAll;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showResetAll;
 
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> persoService;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindAggregationInfo> persoService;
 
-					public Union<sap.m.Table, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> table;
+					public Union<sap.m.Table, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> table;
 
 					/// <summary>
 					/// Also several tables may be personalized at once given they have same columns.
 					/// </summary>
-					public Union<sap.m.Table, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> tables;
+					public Union<sap.m.Table, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> tables;
 
 					public sap.ui.@base.EventDelegate personalizationsDone;
 

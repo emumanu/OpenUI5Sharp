@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -11,7 +11,7 @@ namespace OpenUI5Sharp
 		{
 			public static partial class core
 			{
-				public partial class Configuration : sap.ui.@base.Object
+				public partial class Configuration
 				{
 					/// <summary>
 					/// Encapsulates configuration settings that are related to data formatting/parsing.
@@ -20,6 +20,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.Configuration.FormatSettings")]
 					public partial class FormatSettings : sap.ui.@base.Object
 					{
 						#region Constructor

@@ -24,6 +24,8 @@
     <WarningLevel>4</WarningLevel>
     <NoStdLib>true</NoStdLib>
     <LangVersion>7</LangVersion>
+    <DocumentationFile>bin\Debug\OpenUI5Sharp.xml</DocumentationFile>
+    <NoWarn>CS0626;CS1570;CS0824;CS1591;CS0618;CS0114</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -36,8 +38,8 @@
     <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bridge, Version=17.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bridge.Core.17.1.1\lib\net40\Bridge.dll</HintPath>
+    <Reference Include="Bridge, Version=17.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bridge.Core.17.4.0\lib\net40\Bridge.dll</HintPath>
     </Reference>
     <Reference Include="Retyped.Core, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Retyped.Core.1.6.6733\lib\net40\Retyped.Core.dll</HintPath>
@@ -78,7 +80,9 @@
     <Compile Include="Additions\ExternalsUI5.cs" />
     <Compile Include="Additions\map.cs" />
     <Compile Include="Additions\Metadata\metadata.cs" />
-    <Compile Include="Additions\jquerysaputilAdditions.cs" />
+    <Compile Include="Additions\jquerysapAdditions.cs" />
+    <Compile Include="Additions\Extensions\jqueryExtensions.cs" />
+    <Compile Include="Additions\sapuideviceAdditions.cs" />
     <Compile Include="Additions\sapuimodelAdditions.cs" />
     <Compile Include="Additions\sapuicoreroutingAdditions.cs" />
     <Compile Include="Additions\sapuitestOpaOpa5.cs" />
@@ -86,7 +90,8 @@
     <Compile Include="Additions\sapuicoremvcAdditions.cs" />
     <Compile Include="Additions\sapuicoreAdditions.cs" />
     <Compile Include="Additions\sapuicoretestOpaConfig.cs" />
-    <Compile Include="Additions\Tests\BaseIntegrationStep.cs" />
+    <Compile Include="Additions\Tests\IntegrationPageAttributes.cs" />
+    <Compile Include="Additions\Tests\BaseIntegrationPage.cs" />
     <Compile Include="Additions\Tests\BaseUnitTest.cs" />
     <Compile Include="Additions\Tests\Globals.cs" />
     <Compile Include="Additions\Globals.cs" />
@@ -108,12 +113,48 @@
     <Compile Include="jQuery\sap\measure.cs" />
     <Compile Include="jQuery\sap\PseudoEvents.cs" />
     <Compile Include="jQuery\sap\storage.cs" />
+    <Compile Include="jQuery\sap\support.cs" />
     <Compile Include="jQuery\sap\util\Properties.cs" />
     <Compile Include="jQuery\sap\util\ResourceBundle.cs" />
     <Compile Include="jQuery\sap\util\UriParameters.cs" />
     <Compile Include="jQuery\sap\Version.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="sap.cs" />
+    <Compile Include="sap\f.cs" />
+    <Compile Include="sap\f\Avatar.cs" />
+    <Compile Include="sap\f\DynamicPage.cs" />
+    <Compile Include="sap\f\DynamicPageHeader.cs" />
+    <Compile Include="sap\f\DynamicPageTitle.cs" />
+    <Compile Include="sap\f\DynamicPageTitleShrinkRatio.cs" />
+    <Compile Include="sap\f\FlexibleColumnLayout.cs" />
+    <Compile Include="sap\f\FlexibleColumnLayoutSemanticHelper.cs" />
+    <Compile Include="sap\f\routing\Router.cs" />
+    <Compile Include="sap\f\routing\TargetHandler.cs" />
+    <Compile Include="sap\f\routing\Targets.cs" />
+    <Compile Include="sap\f\semantic\AddAction.cs" />
+    <Compile Include="sap\f\semantic\CloseAction.cs" />
+    <Compile Include="sap\f\semantic\CopyAction.cs" />
+    <Compile Include="sap\f\semantic\DeleteAction.cs" />
+    <Compile Include="sap\f\semantic\DiscussInJamAction.cs" />
+    <Compile Include="sap\f\semantic\EditAction.cs" />
+    <Compile Include="sap\f\semantic\ExitFullScreenAction.cs" />
+    <Compile Include="sap\f\semantic\FavoriteAction.cs" />
+    <Compile Include="sap\f\semantic\FlagAction.cs" />
+    <Compile Include="sap\f\semantic\FooterMainAction.cs" />
+    <Compile Include="sap\f\semantic\FullScreenAction.cs" />
+    <Compile Include="sap\f\semantic\MainAction.cs" />
+    <Compile Include="sap\f\semantic\MessagesIndicator.cs" />
+    <Compile Include="sap\f\semantic\NegativeAction.cs" />
+    <Compile Include="sap\f\semantic\PositiveAction.cs" />
+    <Compile Include="sap\f\semantic\PrintAction.cs" />
+    <Compile Include="sap\f\semantic\SemanticButton.cs" />
+    <Compile Include="sap\f\semantic\SemanticControl.cs" />
+    <Compile Include="sap\f\semantic\SemanticPage.cs" />
+    <Compile Include="sap\f\semantic\SemanticToggleButton.cs" />
+    <Compile Include="sap\f\semantic\SendEmailAction.cs" />
+    <Compile Include="sap\f\semantic\SendMessageAction.cs" />
+    <Compile Include="sap\f\semantic\ShareInJamAction.cs" />
+    <Compile Include="sap\f\semantic\TitleMainAction.cs" />
     <Compile Include="sap\m.cs" />
     <Compile Include="sap\m\ActionListItem.cs" />
     <Compile Include="sap\m\ActionSelect.cs" />
@@ -356,6 +397,14 @@
     <Compile Include="sap\m\ViewSettingsItem.cs" />
     <Compile Include="sap\m\Wizard.cs" />
     <Compile Include="sap\m\WizardStep.cs" />
+    <Compile Include="sap\tnt.cs" />
+    <Compile Include="sap\tnt\InfoLabel.cs" />
+    <Compile Include="sap\tnt\NavigationList.cs" />
+    <Compile Include="sap\tnt\NavigationListItem.cs" />
+    <Compile Include="sap\tnt\SideNavigation.cs" />
+    <Compile Include="sap\tnt\ToolHeader.cs" />
+    <Compile Include="sap\tnt\ToolHeaderUtilitySeparator.cs" />
+    <Compile Include="sap\tnt\ToolPage.cs" />
     <Compile Include="sap\ui.cs" />
     <Compile Include="sap\ui\app\Application.cs" />
     <Compile Include="sap\ui\app\MockServer.cs" />
@@ -369,6 +418,109 @@
     <Compile Include="sap\ui\base\Metadata.cs" />
     <Compile Include="sap\ui\base\Object.cs" />
     <Compile Include="sap\ui\base\ObjectPool.cs" />
+    <Compile Include="sap\ui\codeeditor.cs" />
+    <Compile Include="sap\ui\codeeditor\CodeEditor.cs" />
+    <Compile Include="sap\ui\commons.cs" />
+    <Compile Include="sap\ui\commons\Accordion.cs" />
+    <Compile Include="sap\ui\commons\AccordionSection.cs" />
+    <Compile Include="sap\ui\commons\ApplicationHeader.cs" />
+    <Compile Include="sap\ui\commons\Area.cs" />
+    <Compile Include="sap\ui\commons\AutoComplete.cs" />
+    <Compile Include="sap\ui\commons\Button.cs" />
+    <Compile Include="sap\ui\commons\Callout.cs" />
+    <Compile Include="sap\ui\commons\CalloutBase.cs" />
+    <Compile Include="sap\ui\commons\Carousel.cs" />
+    <Compile Include="sap\ui\commons\CheckBox.cs" />
+    <Compile Include="sap\ui\commons\ColorPicker.cs" />
+    <Compile Include="sap\ui\commons\ComboBox.cs" />
+    <Compile Include="sap\ui\commons\DatePicker.cs" />
+    <Compile Include="sap\ui\commons\Dialog.cs" />
+    <Compile Include="sap\ui\commons\DropdownBox.cs" />
+    <Compile Include="sap\ui\commons\enums\AreaDesign.cs" />
+    <Compile Include="sap\ui\commons\enums\BorderDesign.cs" />
+    <Compile Include="sap\ui\commons\enums\Orientation.cs" />
+    <Compile Include="sap\ui\commons\FileUploader.cs" />
+    <Compile Include="sap\ui\commons\FileUploaderParameter.cs" />
+    <Compile Include="sap\ui\commons\FormattedTextView.cs" />
+    <Compile Include="sap\ui\commons\form\Form.cs" />
+    <Compile Include="sap\ui\commons\form\FormContainer.cs" />
+    <Compile Include="sap\ui\commons\form\FormElement.cs" />
+    <Compile Include="sap\ui\commons\form\FormLayout.cs" />
+    <Compile Include="sap\ui\commons\form\GridContainerData.cs" />
+    <Compile Include="sap\ui\commons\form\GridElementData.cs" />
+    <Compile Include="sap\ui\commons\form\GridLayout.cs" />
+    <Compile Include="sap\ui\commons\form\ResponsiveLayout.cs" />
+    <Compile Include="sap\ui\commons\form\SimpleForm.cs" />
+    <Compile Include="sap\ui\commons\HorizontalDivider.cs" />
+    <Compile Include="sap\ui\commons\Image.cs" />
+    <Compile Include="sap\ui\commons\ImageMap.cs" />
+    <Compile Include="sap\ui\commons\InPlaceEdit.cs" />
+    <Compile Include="sap\ui\commons\Label.cs" />
+    <Compile Include="sap\ui\commons\layout\AbsoluteLayout.cs" />
+    <Compile Include="sap\ui\commons\layout\BackgroundDesign.cs" />
+    <Compile Include="sap\ui\commons\layout\BorderLayout.cs" />
+    <Compile Include="sap\ui\commons\layout\BorderLayoutArea.cs" />
+    <Compile Include="sap\ui\commons\layout\BorderLayoutAreaTypes.cs" />
+    <Compile Include="sap\ui\commons\layout\HAlign.cs" />
+    <Compile Include="sap\ui\commons\layout\HorizontalLayout.cs" />
+    <Compile Include="sap\ui\commons\layout\MatrixLayout.cs" />
+    <Compile Include="sap\ui\commons\layout\MatrixLayoutCell.cs" />
+    <Compile Include="sap\ui\commons\layout\MatrixLayoutRow.cs" />
+    <Compile Include="sap\ui\commons\layout\Padding.cs" />
+    <Compile Include="sap\ui\commons\layout\PositionContainer.cs" />
+    <Compile Include="sap\ui\commons\layout\ResponsiveFlowLayout.cs" />
+    <Compile Include="sap\ui\commons\layout\ResponsiveFlowLayoutData.cs" />
+    <Compile Include="sap\ui\commons\layout\Separation.cs" />
+    <Compile Include="sap\ui\commons\layout\VAlign.cs" />
+    <Compile Include="sap\ui\commons\layout\VerticalLayout.cs" />
+    <Compile Include="sap\ui\commons\Link.cs" />
+    <Compile Include="sap\ui\commons\ListBox.cs" />
+    <Compile Include="sap\ui\commons\Menu.cs" />
+    <Compile Include="sap\ui\commons\MenuBar.cs" />
+    <Compile Include="sap\ui\commons\MenuButton.cs" />
+    <Compile Include="sap\ui\commons\MenuItem.cs" />
+    <Compile Include="sap\ui\commons\MenuItemBase.cs" />
+    <Compile Include="sap\ui\commons\MenuTextFieldItem.cs" />
+    <Compile Include="sap\ui\commons\Message.cs" />
+    <Compile Include="sap\ui\commons\MessageBar.cs" />
+    <Compile Include="sap\ui\commons\MessageBox.cs" />
+    <Compile Include="sap\ui\commons\MessageList.cs" />
+    <Compile Include="sap\ui\commons\MessageToast.cs" />
+    <Compile Include="sap\ui\commons\Paginator.cs" />
+    <Compile Include="sap\ui\commons\Panel.cs" />
+    <Compile Include="sap\ui\commons\PasswordField.cs" />
+    <Compile Include="sap\ui\commons\ProgressIndicator.cs" />
+    <Compile Include="sap\ui\commons\RadioButton.cs" />
+    <Compile Include="sap\ui\commons\RadioButtonGroup.cs" />
+    <Compile Include="sap\ui\commons\RangeSlider.cs" />
+    <Compile Include="sap\ui\commons\RatingIndicator.cs" />
+    <Compile Include="sap\ui\commons\ResponsiveContainer.cs" />
+    <Compile Include="sap\ui\commons\ResponsiveContainerRange.cs" />
+    <Compile Include="sap\ui\commons\RichTooltip.cs" />
+    <Compile Include="sap\ui\commons\RoadMap.cs" />
+    <Compile Include="sap\ui\commons\RoadMapStep.cs" />
+    <Compile Include="sap\ui\commons\RowRepeater.cs" />
+    <Compile Include="sap\ui\commons\RowRepeaterFilter.cs" />
+    <Compile Include="sap\ui\commons\RowRepeaterSorter.cs" />
+    <Compile Include="sap\ui\commons\SearchField.cs" />
+    <Compile Include="sap\ui\commons\SearchProvider.cs" />
+    <Compile Include="sap\ui\commons\SegmentedButton.cs" />
+    <Compile Include="sap\ui\commons\Slider.cs" />
+    <Compile Include="sap\ui\commons\Splitter.cs" />
+    <Compile Include="sap\ui\commons\SplitterSize.cs" />
+    <Compile Include="sap\ui\commons\Tab.cs" />
+    <Compile Include="sap\ui\commons\TabStrip.cs" />
+    <Compile Include="sap\ui\commons\TextArea.cs" />
+    <Compile Include="sap\ui\commons\TextField.cs" />
+    <Compile Include="sap\ui\commons\TextView.cs" />
+    <Compile Include="sap\ui\commons\Title.cs" />
+    <Compile Include="sap\ui\commons\ToggleButton.cs" />
+    <Compile Include="sap\ui\commons\Toolbar.cs" />
+    <Compile Include="sap\ui\commons\ToolbarSeparator.cs" />
+    <Compile Include="sap\ui\commons\Tree.cs" />
+    <Compile Include="sap\ui\commons\TreeNode.cs" />
+    <Compile Include="sap\ui\commons\TriStateCheckBox.cs" />
+    <Compile Include="sap\ui\commons\ValueHelpField.cs" />
     <Compile Include="sap\ui\core.cs" />
     <Compile Include="sap\ui\core\AbsoluteCSSSize.cs" />
     <Compile Include="sap\ui\core\AppCacheBuster.cs" />
@@ -403,6 +555,7 @@
     <Compile Include="sap\ui\core\Element.cs" />
     <Compile Include="sap\ui\core\EnabledPropagator.cs" />
     <Compile Include="sap\ui\core\EventBus.cs" />
+    <Compile Include="sap\ui\core\ExtensionPoint.cs" />
     <Compile Include="sap\ui\core\format.cs" />
     <Compile Include="sap\ui\core\format\DateFormat.cs" />
     <Compile Include="sap\ui\core\format\FileSizeFormat.cs" />
@@ -483,16 +636,16 @@
     <Compile Include="sap\ui\core\ws\WebSocket.cs" />
     <Compile Include="sap\ui\core\XMLComposite.cs" />
     <Compile Include="sap\ui\Device.cs" />
-    <Compile Include="sap\ui\Device\browser.cs" />
-    <Compile Include="sap\ui\Device\browser\BROWSER.cs" />
-    <Compile Include="sap\ui\Device\media.cs" />
-    <Compile Include="sap\ui\Device\media\RANGESETS.cs" />
-    <Compile Include="sap\ui\Device\orientation.cs" />
-    <Compile Include="sap\ui\Device\os.cs" />
-    <Compile Include="sap\ui\Device\os\OS.cs" />
-    <Compile Include="sap\ui\Device\resize.cs" />
-    <Compile Include="sap\ui\Device\support.cs" />
-    <Compile Include="sap\ui\Device\system.cs" />
+    <Compile Include="sap\ui\Device\Browser.cs" />
+    <Compile Include="sap\ui\Device\Media.cs" />
+    <Compile Include="sap\ui\Device\Orientation.cs" />
+    <Compile Include="sap\ui\Device\Os.cs" />
+    <Compile Include="sap\ui\Device\Resize.cs" />
+    <Compile Include="sap\ui\Device\Support.cs" />
+    <Compile Include="sap\ui\Device\System.cs" />
+    <Compile Include="sap\ui\fl\transport\TransportDialog.cs" />
+    <Compile Include="sap\ui\fl\transport\TransportSelection.cs" />
+    <Compile Include="sap\ui\fl\variants\VariantManagement.cs" />
     <Compile Include="sap\ui\layout.cs" />
     <Compile Include="sap\ui\layout\BlockLayout.cs" />
     <Compile Include="sap\ui\layout\BlockLayoutCell.cs" />
@@ -667,6 +820,26 @@
     <Compile Include="sap\ui\model\xml.cs" />
     <Compile Include="sap\ui\model\xml\XMLModel.cs" />
     <Compile Include="sap\ui\model\xml\XMLTreeBinding.cs" />
+    <Compile Include="sap\ui\rta\util\ServiceEventBus.cs" />
+    <Compile Include="sap\ui\suite.cs" />
+    <Compile Include="sap\ui\suite\TaskCircle.cs" />
+    <Compile Include="sap\ui\suite\VerticalProgressIndicator.cs" />
+    <Compile Include="sap\ui\support.cs" />
+    <Compile Include="sap\ui\support\ExecutionScope.cs" />
+    <Compile Include="sap\ui\support\RuleSet.cs" />
+    <Compile Include="sap\ui\table.cs" />
+    <Compile Include="sap\ui\table\AnalyticalColumn.cs" />
+    <Compile Include="sap\ui\table\AnalyticalColumnMenu.cs" />
+    <Compile Include="sap\ui\table\AnalyticalTable.cs" />
+    <Compile Include="sap\ui\table\Column.cs" />
+    <Compile Include="sap\ui\table\ColumnMenu.cs" />
+    <Compile Include="sap\ui\table\Row.cs" />
+    <Compile Include="sap\ui\table\RowAction.cs" />
+    <Compile Include="sap\ui\table\RowActionItem.cs" />
+    <Compile Include="sap\ui\table\RowSettings.cs" />
+    <Compile Include="sap\ui\table\Table.cs" />
+    <Compile Include="sap\ui\table\TablePersoController.cs" />
+    <Compile Include="sap\ui\table\TreeTable.cs" />
     <Compile Include="sap\ui\test\actions\Action.cs" />
     <Compile Include="sap\ui\test\actions\EnterText.cs" />
     <Compile Include="sap\ui\test\actions\Press.cs" />
@@ -701,7 +874,6 @@
     <Compile Include="sap\ui\unified\CalendarMonthInterval.cs" />
     <Compile Include="sap\ui\unified\CalendarRow.cs" />
     <Compile Include="sap\ui\unified\CalendarTimeInterval.cs" />
-    <Compile Include="sap\ui\unified\calendar\CalendarUtils.cs" />
     <Compile Include="sap\ui\unified\calendar\DatesRow.cs" />
     <Compile Include="sap\ui\unified\calendar\Header.cs" />
     <Compile Include="sap\ui\unified\calendar\Month.cs" />
@@ -727,21 +899,67 @@
     <Compile Include="sap\ui\unified\ShellLayout.cs" />
     <Compile Include="sap\ui\unified\ShellOverlay.cs" />
     <Compile Include="sap\ui\unified\SplitContainer.cs" />
+    <Compile Include="sap\ui\ux3.cs" />
+    <Compile Include="sap\ui\ux3\ActionBar.cs" />
+    <Compile Include="sap\ui\ux3\Collection.cs" />
+    <Compile Include="sap\ui\ux3\CollectionInspector.cs" />
+    <Compile Include="sap\ui\ux3\DataSet.cs" />
+    <Compile Include="sap\ui\ux3\DataSetItem.cs" />
+    <Compile Include="sap\ui\ux3\DataSetSimpleView.cs" />
+    <Compile Include="sap\ui\ux3\Exact.cs" />
+    <Compile Include="sap\ui\ux3\ExactArea.cs" />
+    <Compile Include="sap\ui\ux3\ExactAttribute.cs" />
+    <Compile Include="sap\ui\ux3\ExactBrowser.cs" />
+    <Compile Include="sap\ui\ux3\FacetFilter.cs" />
+    <Compile Include="sap\ui\ux3\FacetFilterList.cs" />
+    <Compile Include="sap\ui\ux3\Feed.cs" />
+    <Compile Include="sap\ui\ux3\FeedChunk.cs" />
+    <Compile Include="sap\ui\ux3\Feeder.cs" />
+    <Compile Include="sap\ui\ux3\NavigationBar.cs" />
+    <Compile Include="sap\ui\ux3\NavigationItem.cs" />
+    <Compile Include="sap\ui\ux3\NotificationBar.cs" />
+    <Compile Include="sap\ui\ux3\Notifier.cs" />
+    <Compile Include="sap\ui\ux3\Overlay.cs" />
+    <Compile Include="sap\ui\ux3\OverlayContainer.cs" />
+    <Compile Include="sap\ui\ux3\OverlayDialog.cs" />
+    <Compile Include="sap\ui\ux3\QuickView.cs" />
+    <Compile Include="sap\ui\ux3\Shell.cs" />
+    <Compile Include="sap\ui\ux3\ThingAction.cs" />
+    <Compile Include="sap\ui\ux3\ThingGroup.cs" />
+    <Compile Include="sap\ui\ux3\ThingInspector.cs" />
+    <Compile Include="sap\ui\ux3\ThingViewer.cs" />
+    <Compile Include="sap\ui\ux3\ToolPopup.cs" />
+    <Compile Include="sap\ui\VersionInfo.cs" />
+    <Compile Include="sap\uxap.cs" />
+    <Compile Include="sap\uxap\AnchorBar.cs" />
+    <Compile Include="sap\uxap\BlockBase.cs" />
+    <Compile Include="sap\uxap\BlockBaseColumnLayout.cs" />
+    <Compile Include="sap\uxap\BreadCrumbs.cs" />
+    <Compile Include="sap\uxap\HierarchicalSelect.cs" />
+    <Compile Include="sap\uxap\ModelMapping.cs" />
+    <Compile Include="sap\uxap\ObjectPageDynamicHeaderContent.cs" />
+    <Compile Include="sap\uxap\ObjectPageDynamicHeaderTitle.cs" />
+    <Compile Include="sap\uxap\ObjectPageHeader.cs" />
+    <Compile Include="sap\uxap\ObjectPageHeaderActionButton.cs" />
+    <Compile Include="sap\uxap\ObjectPageHeaderContent.cs" />
+    <Compile Include="sap\uxap\ObjectPageHeaderLayoutData.cs" />
+    <Compile Include="sap\uxap\ObjectPageLayout.cs" />
+    <Compile Include="sap\uxap\ObjectPageLazyLoader.cs" />
+    <Compile Include="sap\uxap\ObjectPageSection.cs" />
+    <Compile Include="sap\uxap\ObjectPageSectionBase.cs" />
+    <Compile Include="sap\uxap\ObjectPageSubSection.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="bridge.json" />
-    <None Include="Modelscd.cd" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="sap\ui\core\Popup\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\Bridge.Min.17.1.1\build\Bridge.Min.targets" Condition="Exists('..\packages\Bridge.Min.17.1.1\build\Bridge.Min.targets')" />
+  <Import Project="..\packages\Bridge.Min.17.4.0\build\Bridge.Min.targets" Condition="Exists('..\packages\Bridge.Min.17.4.0\build\Bridge.Min.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Bridge.Min.17.1.1\build\Bridge.Min.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Bridge.Min.17.1.1\build\Bridge.Min.targets'))" />
+    <Error Condition="!Exists('..\packages\Bridge.Min.17.4.0\build\Bridge.Min.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Bridge.Min.17.4.0\build\Bridge.Min.targets'))" />
   </Target>
 </Project>

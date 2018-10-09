@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -34,6 +34,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.m.semantic.SemanticPage")]
 				public abstract partial class SemanticPage : sap.ui.core.Control
 				{
 					#region Settings
@@ -48,74 +49,74 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// See {@link sap.m.Page#title}
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> title;
 
 						/// <summary>
 						/// See {@link sap.m.Page#titleLevel}
 						/// </summary>
-						public Union<sap.ui.core.TitleLevel, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> titleLevel;
+						public Union<sap.ui.core.TitleLevel, string, sap.ui.@base.ManagedObject.BindPropertyInfo> titleLevel;
 
 						/// <summary>
 						/// See {@link sap.m.Page#showNavButton}
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showNavButton;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showNavButton;
 
 						/// <summary>
 						/// See {@link sap.m.Page#showSubHeader}
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showSubHeader;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showSubHeader;
 
 						/// <summary>
 						/// See {@link sap.m.Page#enableScrolling}
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enableScrolling;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enableScrolling;
 
 						/// <summary>
 						/// Hides or shows the page footer
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showFooter;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showFooter;
 
 						/// <summary>
 						/// Determines whether the floating footer behavior is enabled. If set to <code>true</code>, the content is visible when it's underneath the footer.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> floatingFooter;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> floatingFooter;
 
 						/// <summary>
 						/// Declares the type of semantic ruleset that will govern the styling and positioning of semantic content.
 						/// </summary>
-						public Union<sap.m.semantic.SemanticRuleSetType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> semanticRuleSet;
+						public Union<sap.m.semantic.SemanticRuleSetType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> semanticRuleSet;
 
 						/// <summary>
 						/// Determines the backgound color of the page. For more information, see {@link sap.m.Page#backgroundDesign}.
 						/// </summary>
-						public Union<sap.m.PageBackgroundDesign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> backgroundDesign;
+						public Union<sap.m.PageBackgroundDesign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundDesign;
 
 						/// <summary>
 						/// See {@link sap.m.Page#subHeader}
 						/// </summary>
-						public Union<sap.m.IBar, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> subHeader;
+						public Union<sap.m.IBar, string, sap.ui.@base.ManagedObject.BindAggregationInfo> subHeader;
 
 						/// <summary>
 						/// See {@link sap.m.Page#content}
 						/// </summary>
-						public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
+						public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
 
 						/// <summary>
 						/// Custom header buttons
 						/// </summary>
-						public Union<sap.m.Button[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> customHeaderContent;
+						public Union<sap.m.Button[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> customHeaderContent;
 
 						/// <summary>
 						/// Custom footer buttons
 						/// </summary>
-						public Union<sap.m.Button[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> customFooterContent;
+						public Union<sap.m.Button[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> customFooterContent;
 
 						/// <summary>
 						/// Accessible landmark settings to be applied to the containers of the <code>sap.m.Page</code> control.
 						/// 
 						/// If not set, no landmarks will be written.
 						/// </summary>
-						public Union<sap.m.PageAccessibleLandmarkInfo, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> landmarkInfo;
+						public Union<sap.m.PageAccessibleLandmarkInfo, string, sap.ui.@base.ManagedObject.BindAggregationInfo> landmarkInfo;
 
 						/// <summary>
 						/// See {@link sap.m.Page#navButtonPress}

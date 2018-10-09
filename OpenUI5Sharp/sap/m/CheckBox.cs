@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -36,6 +36,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.CheckBox")]
 			public partial class CheckBox : sap.ui.core.Control, sap.ui.core.IFormContent
 			{
 				#region Settings
@@ -50,61 +51,61 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Stores the state of the checkbox whether it is selected or not.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selected;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> selected;
 
 					/// <summary>
 					/// Disables the Checkbox. Disabled controls are not interactive and are rendered differently according to the theme.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enabled;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enabled;
 
 					/// <summary>
 					/// The 'name' property to be used in the HTML code, for example for HTML forms that send data to the server via submit.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> name;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> name;
 
 					/// <summary>
 					/// Defines the text displayed next to the checkbox
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> text;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> text;
 
 					/// <summary>
 					/// Options for the text direction are RTL and LTR. Alternatively, the control can inherit the text direction from its parent container.
 					/// </summary>
-					public Union<sap.ui.core.TextDirection, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> textDirection;
+					public Union<sap.ui.core.TextDirection, string, sap.ui.@base.ManagedObject.BindPropertyInfo> textDirection;
 
 					/// <summary>
 					/// Aligns the text of the checkbox. Available alignment settings are "Begin", "Center", "End", "Left", and "Right".
 					/// </summary>
-					public Union<sap.ui.core.TextAlign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> textAlign;
+					public Union<sap.ui.core.TextAlign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> textAlign;
 
 					/// <summary>
 					/// Determines the total width of the control or the width of its label only, depending on the value of <code>useEntireWidth</code>.
 					/// 
 					/// <b>Note:</b> When <code>useEntireWidth</code> is set to <code>true</code>, <code>width</code> is applied to the control as a whole (checkbox and label). Otherwise, <code>width</code> is applied to the label only.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// Indicates if the given width will be applied to the control as a whole or to its label only.
 					/// 
 					/// <b>Note:</b> by default the width is set to the label
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> useEntireWidth;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> useEntireWidth;
 
 					/// <summary>
 					/// Flag to switch on activeHandling, when it is switched off, there will be no visual changes on active state. Default value is 'true'
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> activeHandling;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> activeHandling;
 
 					/// <summary>
 					/// Specifies whether the user shall be allowed to edit the state of the checkbox
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> editable;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> editable;
 
 					/// <summary>
 					/// Accepts the core enumeration ValueState.type that supports 'None', 'Error', 'Warning' and 'Success'.
 					/// </summary>
-					public Union<sap.ui.core.ValueState, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> valueState;
+					public Union<sap.ui.core.ValueState, string, sap.ui.@base.ManagedObject.BindPropertyInfo> valueState;
 
 					/// <summary>
 					/// Determines whether the <code>CheckBox</code> is in display only state.
@@ -113,24 +114,24 @@ namespace OpenUI5Sharp
 					/// 
 					/// <Note:> When the property <code>enabled</code> is set to <code>false</code> this property has no effect.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> displayOnly;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> displayOnly;
 
 					/// <summary>
 					/// Determines whether the label's text is wrapped.
 					/// 
 					/// When set to <code>false</code> (default), the label's text is truncated with ellipsis at the end.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> wrapping;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> wrapping;
 
 					/// <summary>
 					/// Association to controls / IDs which describe this control (see WAI-ARIA attribute aria-describedby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaDescribedBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaDescribedBy;
 
 					/// <summary>
 					/// Association to controls / IDs which label this control (see WAI-ARIA attribute aria-labelledby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 					/// <summary>
 					/// Event is triggered when the control status is changed by the user by selecting or deselecting the checkbox.

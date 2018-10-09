@@ -12541,11 +12541,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\OpenUI5Sharp\\ddd\\OpenUI5Sharp\\ODatav4\\odatav4.csproj",
+      "projectUniqueName": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\OpenUI5Sharp\\remote\\OpenUI5Sharp\\ODatav4\\odatav4.csproj",
       "projectName": "odatav4",
-      "projectPath": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\OpenUI5Sharp\\ddd\\OpenUI5Sharp\\ODatav4\\odatav4.csproj",
+      "projectPath": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\OpenUI5Sharp\\remote\\OpenUI5Sharp\\ODatav4\\odatav4.csproj",
       "packagesPath": "C:\\Users\\Manu\\.nuget\\packages\\",
-      "outputPath": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\OpenUI5Sharp\\ddd\\OpenUI5Sharp\\ODatav4\\obj\\",
+      "outputPath": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\OpenUI5Sharp\\remote\\OpenUI5Sharp\\ODatav4\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

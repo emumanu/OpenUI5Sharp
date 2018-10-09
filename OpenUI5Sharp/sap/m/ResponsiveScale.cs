@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.ResponsiveScale")]
 			public partial class ResponsiveScale : sap.ui.core.Element, sap.m.IScale
 			{
 				#region Settings
@@ -32,7 +33,7 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Put a label on every N-th tickmark.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> tickmarksBetweenLabels;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> tickmarksBetweenLabels;
 
 				}
 
@@ -145,7 +146,7 @@ namespace OpenUI5Sharp
 				/// Shows/hides tickmarks when some limitations are met. Implements responsiveness of the tickmarks.
 				/// </summary>
 				/// <param name="oEvent">The event object passed.</param>
-				private extern void handleResize(jQuery.Event oEvent);
+				private extern void handleResize(jquery.JQuery.Event oEvent);
 
 				#endregion
 

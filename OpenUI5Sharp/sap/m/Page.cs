@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.Page")]
 			public partial class Page : sap.ui.core.Control
 			{
 				#region Settings
@@ -32,108 +33,108 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// The title text appearing in the page header bar.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> title;
 
 					/// <summary>
 					/// Defines the semantic level of the title. Using "Auto" no explicit level information is written. Used for accessibility purposes only.
 					/// </summary>
-					public Union<sap.ui.core.TitleLevel, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> titleLevel;
+					public Union<sap.ui.core.TitleLevel, string, sap.ui.@base.ManagedObject.BindPropertyInfo> titleLevel;
 
 					/// <summary>
 					/// A nav button will be rendered on the left area of header bar if this property is set to true.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showNavButton;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showNavButton;
 
 					/// <summary>
 					/// Whether this page shall have a header. If set to true, either the control under the "customHeader" aggregation is used, or if there is no such control, a Header control is constructed from the properties "title", "showNavButton", "navButtonText" and "icon" depending on the platform.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showHeader;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showHeader;
 
 					/// <summary>
 					/// Whether this page shall show the subheader.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showSubHeader;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showSubHeader;
 
 					/// <summary>
 					/// The text of the nav button when running in iOS (if shown) in case it deviates from the default, which is "Back". This property is mvi-theme-dependent and will not have any effect in other themes.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> navButtonText;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> navButtonText;
 
 					/// <summary>
 					/// The tooltip of the nav button
 					/// 
 					/// Since version 1.34
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> navButtonTooltip;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> navButtonTooltip;
 
 					/// <summary>
 					/// Enable vertical scrolling of page contents. Page headers and footers are fixed and do not scroll. If set to false, there will be no vertical scrolling at all.
 					/// 
 					/// The Page only allows vertical scrolling because horizontal scrolling is discouraged in general for full-page content. If it still needs to be achieved, disable the Page scrolling and use a ScrollContainer as full-page content of the Page. This allows you to freely configure scrolling. It can also be used to create horizontally-scrolling sub-areas of (vertically-scrolling) Pages.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enableScrolling;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enableScrolling;
 
 					/// <summary>
 					/// the icon that is rendered in the page header bar in non-iOS phone/tablet platforms. This property is theme-dependent and only has an effect in the MVI theme.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> icon;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> icon;
 
 					/// <summary>
 					/// This property is used to set the background color of a page. When a list is placed inside a page, the value "List" should be used to display a gray background. "Standard", with the default background color, is used if not specified.
 					/// </summary>
-					public Union<sap.m.PageBackgroundDesign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> backgroundDesign;
+					public Union<sap.m.PageBackgroundDesign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundDesign;
 
 					/// <summary>
 					/// This property is used to set the appearance of the NavButton. By default when showNavButton is set to true, a back button will be shown in iOS and an up button in other platforms. In case you want to show a normal button in the left header area, you can set the value to "Default".
 					/// </summary>
-					public Union<sap.m.ButtonType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> navButtonType;
+					public Union<sap.m.ButtonType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> navButtonType;
 
 					/// <summary>
 					/// Whether this page shall have a footer
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showFooter;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showFooter;
 
 					/// <summary>
 					/// Decides which area is covered by the local BusyIndicator when <code>page.setBusy()</code> is called. By default the entire page is covered, including headers and footer. When this property is set to "true", only the content area is covered (not header/sub header and footer), which is useful e.g. when there is a SearchField in the sub header and live search continuously updates the content area while the user is still able to type.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> contentOnlyBusy;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> contentOnlyBusy;
 
 					/// <summary>
 					/// Decides whether the footer can float. When set to true, the footer is not fixed below the content area anymore, but rather floats over it with a slight offset from the bottom.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> floatingFooter;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> floatingFooter;
 
 					/// <summary>
 					/// The content of this page
 					/// </summary>
-					public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
+					public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
 
 					/// <summary>
 					/// The (optional) custom header of this page. Use this aggregation only when a custom header is constructed where the default header consisting of title text + nav button is not sufficient. If this aggregation is set, the simple properties "title", "showNavButton", "NavButtonText" and "icon" are not used.
 					/// </summary>
-					public Union<sap.m.IBar, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> customHeader;
+					public Union<sap.m.IBar, string, sap.ui.@base.ManagedObject.BindAggregationInfo> customHeader;
 
 					/// <summary>
 					/// The (optional) footer of this page. It is always located at the bottom of the page
 					/// </summary>
-					public Union<sap.m.IBar, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> footer;
+					public Union<sap.m.IBar, string, sap.ui.@base.ManagedObject.BindAggregationInfo> footer;
 
 					/// <summary>
 					/// a subHeader will be rendered directly under the header
 					/// </summary>
-					public Union<sap.m.IBar, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> subHeader;
+					public Union<sap.m.IBar, string, sap.ui.@base.ManagedObject.BindAggregationInfo> subHeader;
 
 					/// <summary>
 					/// Controls to be added to the right side of the page header. Usually an application would use Button controls and limit the number to one when the application needs to run on smartphones. There is no automatic overflow handling when the space is insufficient. When a customHeader is used, this aggregation will be ignored.
 					/// </summary>
-					public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> headerContent;
+					public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> headerContent;
 
 					/// <summary>
 					/// Accessible landmark settings to be applied on the containers of the <code>sap.m.Page</code> control.
 					/// 
 					/// If not set, no landmarks will be written.
 					/// </summary>
-					public Union<sap.m.PageAccessibleLandmarkInfo, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> landmarkInfo;
+					public Union<sap.m.PageAccessibleLandmarkInfo, string, sap.ui.@base.ManagedObject.BindAggregationInfo> landmarkInfo;
 
 					/// <summary>
 					/// this event is fired when Nav Button is tapped
@@ -325,8 +326,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// The text of the nav button when running in iOS (if shown) in case it deviates from the default, which is "Back". This property is mvi-theme-dependent and will not have any effect in other themes.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20. Deprecated since the MVI theme is removed now. This property only affected the NavButton in that theme.")]
 				/// <returns>Value of property <code>navButtonText</code></returns>
+				[Obsolete("Deprecated since 1.20. Deprecated since the MVI theme is removed now. This property only affected the NavButton in that theme.")]
 				public extern virtual string getNavButtonText();
 
 				/// <summary>
@@ -336,9 +337,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20. Deprecated since the MVI theme is removed now. This property only affected the NavButton in that theme.")]
 				/// <param name="sNavButtonText">New value for property <code>navButtonText</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20. Deprecated since the MVI theme is removed now. This property only affected the NavButton in that theme.")]
 				public extern virtual sap.m.Page setNavButtonText(string sNavButtonText);
 
 				#endregion
@@ -408,8 +409,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// the icon that is rendered in the page header bar in non-iOS phone/tablet platforms. This property is theme-dependent and only has an effect in the MVI theme.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20. Deprecated since the MVI theme is removed now. This property only affected the NavButton in that theme.")]
 				/// <returns>Value of property <code>icon</code></returns>
+				[Obsolete("Deprecated since 1.20. Deprecated since the MVI theme is removed now. This property only affected the NavButton in that theme.")]
 				public extern virtual sap.ui.core.URI getIcon();
 
 				/// <summary>
@@ -419,9 +420,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20. Deprecated since the MVI theme is removed now. This property only affected the NavButton in that theme.")]
 				/// <param name="sIcon">New value for property <code>icon</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20. Deprecated since the MVI theme is removed now. This property only affected the NavButton in that theme.")]
 				public extern virtual sap.m.Page setIcon(sap.ui.core.URI sIcon);
 
 				#endregion
@@ -462,8 +463,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>Back</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20. Deprecated since the MVI theme is removed now. This property is only usable with a Button text in that theme.")]
 				/// <returns>Value of property <code>navButtonType</code></returns>
+				[Obsolete("Deprecated since 1.20. Deprecated since the MVI theme is removed now. This property is only usable with a Button text in that theme.")]
 				public extern virtual sap.m.ButtonType getNavButtonType();
 
 				/// <summary>
@@ -475,9 +476,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>Back</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20. Deprecated since the MVI theme is removed now. This property is only usable with a Button text in that theme.")]
 				/// <param name="sNavButtonType">New value for property <code>navButtonType</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20. Deprecated since the MVI theme is removed now. This property is only usable with a Button text in that theme.")]
 				public extern virtual sap.m.Page setNavButtonType(sap.m.ButtonType sNavButtonType);
 
 				#endregion
@@ -788,11 +789,11 @@ namespace OpenUI5Sharp
 				/// 
 				/// this event is fired when Nav Button is tapped
 				/// </summary>
-				[Obsolete("Deprecated since 1.12.2. the navButtonPress event is replacing this event")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.Page</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.12.2. the navButtonPress event is replacing this event")]
 				public extern virtual sap.m.Page attachNavButtonTap(object oData, sap.ui.@base.EventDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -802,10 +803,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// this event is fired when Nav Button is tapped
 				/// </summary>
-				[Obsolete("Deprecated since 1.12.2. the navButtonPress event is replacing this event")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.12.2. the navButtonPress event is replacing this event")]
 				public extern virtual sap.m.Page attachNavButtonTap(object oData, sap.ui.@base.EventDelegate fnFunction);
 
 				/// <summary>
@@ -815,9 +816,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// this event is fired when Nav Button is tapped
 				/// </summary>
-				[Obsolete("Deprecated since 1.12.2. the navButtonPress event is replacing this event")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.12.2. the navButtonPress event is replacing this event")]
 				public extern virtual sap.m.Page attachNavButtonTap(sap.ui.@base.EventDelegate fnFunction);
 
 				/// <summary>
@@ -827,10 +828,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// this event is fired when Nav Button is tapped
 				/// </summary>
-				[Obsolete("Deprecated since 1.12.2. the navButtonPress event is replacing this event")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.Page</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.12.2. the navButtonPress event is replacing this event")]
 				public extern virtual sap.m.Page attachNavButtonTap(sap.ui.@base.EventDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -838,25 +839,25 @@ namespace OpenUI5Sharp
 				/// 
 				/// The passed function and listener object must match the ones used for event registration.
 				/// </summary>
-				[Obsolete("Deprecated since 1.12.2. the navButtonPress event is replacing this event")]
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.12.2. the navButtonPress event is replacing this event")]
 				public extern virtual sap.m.Page detachNavButtonTap(sap.ui.@base.EventDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:navButtonTap navButtonTap} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.12.2. the navButtonPress event is replacing this event")]
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.12.2. the navButtonPress event is replacing this event")]
 				public extern virtual sap.m.Page fireNavButtonTap(object mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:navButtonTap navButtonTap} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.12.2. the navButtonPress event is replacing this event")]
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.12.2. the navButtonPress event is replacing this event")]
 				public extern virtual sap.m.Page fireNavButtonTap();
 
 				#endregion

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.ProgressIndicator")]
 			public partial class ProgressIndicator : sap.ui.core.Control, sap.ui.core.IFormContent
 			{
 				#region Settings
@@ -28,49 +29,49 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Switches enabled state of the control. Disabled fields have different colors, and cannot be focused.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enabled;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enabled;
 
 					/// <summary>
 					/// Specifies the state of the bar. Enumeration sap.ui.core.ValueState provides Error (red), Warning (yellow), Success (green), None (blue) (default value).
 					/// </summary>
-					public Union<sap.ui.core.ValueState, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> state;
+					public Union<sap.ui.core.ValueState, string, sap.ui.@base.ManagedObject.BindPropertyInfo> state;
 
 					/// <summary>
 					/// Specifies the text value to be displayed in the bar.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> displayValue;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> displayValue;
 
 					/// <summary>
 					/// Specifies the numerical value in percent for the length of the progress bar.
 					/// 
 					/// <b>Note:</b> If a value greater than 100 is provided, the <code>percentValue</code> is set to 100. In other cases of invalid value, <code>percentValue</code> is set to its default of 0.
 					/// </summary>
-					public Union<float, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> percentValue;
+					public Union<float, string, sap.ui.@base.ManagedObject.BindPropertyInfo> percentValue;
 
 					/// <summary>
 					/// Indicates whether the displayValue should be shown in the ProgressIndicator.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showValue;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showValue;
 
 					/// <summary>
 					/// Specifies the width of the control.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// Specifies the height of the control. The default value depends on the theme. Suggested size for normal use is 2.5rem (40px). Suggested size for small size (like for use in ObjectHeader) is 1.375rem (22px).
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> height;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> height;
 
 					/// <summary>
 					/// Specifies the element's text directionality with enumerated options (RTL or LTR). By default, the control inherits text direction from the DOM.
 					/// </summary>
-					public Union<sap.ui.core.TextDirection, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> textDirection;
+					public Union<sap.ui.core.TextDirection, string, sap.ui.@base.ManagedObject.BindPropertyInfo> textDirection;
 
 					/// <summary>
 					/// Determines whether the control is in display-only state where the control has different visualization and cannot be focused.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> displayOnly;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> displayOnly;
 
 				}
 

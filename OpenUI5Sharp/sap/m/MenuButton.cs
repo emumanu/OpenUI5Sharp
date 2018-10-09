@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.MenuButton")]
 			public partial class MenuButton : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,64 +29,64 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the text of the <code>MenuButton</code>. <br/><b>Note:</b> In <code>Split</code> <code>buttonMode</code> with <code>useDefaultActionOnly</code> set to <code>false</code>, the text is changed to display the last selected item's text, while in <code>Regular</code> <code>buttonMode</code> the text stays unchanged.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> text;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> text;
 
 					/// <summary>
 					/// Defines the type of the <code>MenuButton</code> (for example, Default, Accept, Reject, Back, etc.)
 					/// </summary>
-					public Union<sap.m.ButtonType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> type;
+					public Union<sap.m.ButtonType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> type;
 
 					/// <summary>
 					/// Defines the width of the <code>MenuButton</code>. <br/><b>Note:</b>As per visual design this width can be maximum of 12rem (192px).
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// Boolean property to enable the control (default is <code>true</code>). <br/><b>Note:</b> Depending on custom settings, the buttons that are disabled have other colors than the enabled ones.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enabled;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enabled;
 
 					/// <summary>
 					/// Defines the icon to be displayed as a graphical element within the button. It can be an image or an icon from the icon font.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> icon;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> icon;
 
 					/// <summary>
 					/// The source property of an alternative icon for the active (pressed) state of the button. Both active and default icon properties should be defined and of the same type - image or icon font. If the <code>icon</code> property is not set or has a different type, the active icon is not displayed.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> activeIcon;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> activeIcon;
 
 					/// <summary>
 					/// When set to <code>true</code> (default), one or more requests are sent trying to get the density perfect version of image if this version of image doesn't exist on the server. If only one version of image is provided, set this value to <code>false</code> to avoid the attempt of fetching density perfect image.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> iconDensityAware;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> iconDensityAware;
 
 					/// <summary>
 					/// Specifies the element's text directionality with enumerated options. By default, the control inherits text direction from the DOM.
 					/// </summary>
-					public Union<sap.ui.core.TextDirection, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> textDirection;
+					public Union<sap.ui.core.TextDirection, string, sap.ui.@base.ManagedObject.BindPropertyInfo> textDirection;
 
 					/// <summary>
 					/// Defines whether the <code>MenuButton</code> is set to <code>Regular</code> or <code>Split</code> mode.
 					/// </summary>
-					public Union<sap.m.MenuButtonMode, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> buttonMode;
+					public Union<sap.m.MenuButtonMode, string, sap.ui.@base.ManagedObject.BindPropertyInfo> buttonMode;
 
 					/// <summary>
 					/// Specifies the position of the popup menu with enumerated options. By default, the control opens the menu at its bottom left side.
 					/// 
 					/// <b>Note:</b> In the case that the menu has no space to show itself in the view port of the current window it tries to open itself to the inverted direction.
 					/// </summary>
-					public Union<sap.ui.core.Popup.Dock, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> menuPosition;
+					public Union<sap.ui.core.Popup.Dock, string, sap.ui.@base.ManagedObject.BindPropertyInfo> menuPosition;
 
 					/// <summary>
 					/// Controls whether the default action handler is invoked always or it is invoked only until a menu item is selected. Usable only if <code>buttonMode</code> is set to <code>Split</code>.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> useDefaultActionOnly;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> useDefaultActionOnly;
 
 					/// <summary>
 					/// Defines the menu that opens for this button.
 					/// </summary>
-					public Union<sap.m.Menu, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> menu;
+					public Union<sap.m.Menu, string, sap.ui.@base.ManagedObject.BindAggregationInfo> menu;
 
 					/// <summary>
 					/// Fired when the <code>buttonMode</code> is set to <code>Split</code> and the user presses the main button unless <code>useDefaultActionOnly</code> is set to <code>false</code> and another action from the menu has been selected previously.

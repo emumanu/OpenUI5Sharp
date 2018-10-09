@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -48,6 +48,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.DateTimePicker")]
 			public partial class DateTimePicker : sap.m.DatePicker
 			{
 				#region Settings
@@ -62,12 +63,12 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Sets the minutes slider step. If the step is less than 1, it will be automatically converted back to 1. The minutes slider is populated only by multiples of the step.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> minutesStep;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> minutesStep;
 
 					/// <summary>
 					/// Sets the seconds slider step. If the step is less than 1, it will be automatically converted back to 1. The seconds slider is populated only by multiples of the step.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> secondsStep;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> secondsStep;
 
 				}
 

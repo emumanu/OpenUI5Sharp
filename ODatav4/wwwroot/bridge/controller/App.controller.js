@@ -1,7 +1,7 @@
 /**
  * @version 1.0.0.0
  * @copyright Copyright ©  2018
- * @compiler Bridge.NET 17.1.1
+ * @compiler Bridge.NET 17.4.0
  */
 Bridge.assembly("ODatav4ClientScripts", function ($asm, globals) {
     "use strict";
@@ -41,7 +41,7 @@ Bridge.assembly("ODatav4ClientScripts", function ($asm, globals) {
                 });
 
                 this._setUIChanges();
-                sapuimodelModelExtensions.setPropertyFor(Bridge.global.System.Object, System.Boolean, this.getView().getModel("appView"), ($t = { ntype: 38, t: System.Object, n: "m" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"usernameEmpty","t":4,"rt":System.Boolean,"sn":"usernameEmpty","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })), true);
+                sapuimodelModelExtensions.setPropertyFor(System.Object, System.Boolean, this.getView().getModel("appView"), ($t = { ntype: 38, t: System.Object, n: "m" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"usernameEmpty","t":4,"rt":System.Boolean,"sn":"usernameEmpty","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })), true);
 
                 return System.Linq.Enumerable.from(oList.getItems()).any(function (oItem) {
                         if (Bridge.referenceEquals(oItem.getBindingContext(), oContext)) {
@@ -76,8 +76,8 @@ Bridge.assembly("ODatav4ClientScripts", function ($asm, globals) {
                     this._setUIChanges(null);
                 } else {
                     this._setUIChanges(true);
-                    if (sapuimodelContextExtensions.getPropertyFor(Bridge.global.System.Object, System.String, oEvt.getSource().getParent().getBindingContext(), ($t = { ntype: 38, t: System.Object, n: "m" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"UserName","t":16,"rt":System.String,"g":{"td":System.Object,"a":2,"n":"get_UserName","t":8,"rt":System.String,"fg":"UserName"},"s":{"td":System.Object,"a":2,"n":"set_UserName","t":8,"p":[System.String],"rt":System.Void,"fs":"UserName"},"fn":"UserName"}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })), false) != null) {
-                        sapuimodelModelExtensions.setPropertyFor(Bridge.global.System.Object, System.Boolean, this.getView().getModel("appView"), ($t3 = { ntype: 38, t: System.Object, n: "m" }, ($t5 = ($t4 = {"td":System.Object,"a":2,"n":"usernameEmpty","t":4,"rt":System.Boolean,"sn":"usernameEmpty","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}}, { ntype: 23, t: $t4.rt, expression: $t3, member: $t4 }), { ntype: 18, t: Function, rt: $t5.t, body: $t5, p: Bridge.toList([$t3]) })), false);
+                    if (sapuimodelContextExtensions.getPropertyFor(System.Object, System.String, oEvt.getSource().getParent().getBindingContext(), ($t = { ntype: 38, t: System.Object, n: "m" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"UserName","t":16,"rt":System.String,"g":{"td":System.Object,"a":2,"n":"get_UserName","t":8,"rt":System.String,"fg":"UserName"},"s":{"td":System.Object,"a":2,"n":"set_UserName","t":8,"p":[System.String],"rt":System.Void,"fs":"UserName"},"fn":"UserName"}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })), false) != null) {
+                        sapuimodelModelExtensions.setPropertyFor(System.Object, System.Boolean, this.getView().getModel("appView"), ($t3 = { ntype: 38, t: System.Object, n: "m" }, ($t5 = ($t4 = {"td":System.Object,"a":2,"n":"usernameEmpty","t":4,"rt":System.Boolean,"sn":"usernameEmpty","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}}, { ntype: 23, t: $t4.rt, expression: $t3, member: $t4 }), { ntype: 18, t: Function, rt: $t5.t, body: $t5, p: Bridge.toList([$t3]) })), false);
                     }
                 }
             },
@@ -150,11 +150,11 @@ Bridge.assembly("ODatav4ClientScripts", function ($asm, globals) {
                 var aStates = System.Array.init([null, "asc", "desc"], System.String);
                 var aStateTextIds = System.Array.init(["sortNone", "sortAscending", "sortDescending"], System.String);
                 var sMessage;
-                var iOrder = sapuimodelModelExtensions.getPropertyFor(Bridge.global.System.Object, System.Int32, oView.getModel("appView"), ($t = { ntype: 38, t: System.Object, n: "m" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"order","t":4,"rt":System.Int32,"sn":"order","box":function ($v) { return Bridge.box($v, System.Int32);}}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })));
+                var iOrder = sapuimodelModelExtensions.getPropertyFor(System.Object, System.Int32, oView.getModel("appView"), ($t = { ntype: 38, t: System.Object, n: "m" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"order","t":4,"rt":System.Int32,"sn":"order","box":function ($v) { return Bridge.box($v, System.Int32);}}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })));
 
                 iOrder = (iOrder + 1) % aStates.length;
                 var sOrder = aStates[iOrder];
-                sapuimodelModelExtensions.setPropertyFor(Bridge.global.System.Object, System.Int32, oView.getModel("appView"), ($t3 = { ntype: 38, t: System.Object, n: "m" }, ($t5 = ($t4 = {"td":System.Object,"a":2,"n":"order","t":4,"rt":System.Int32,"sn":"order","box":function ($v) { return Bridge.box($v, System.Int32);}}, { ntype: 23, t: $t4.rt, expression: $t3, member: $t4 }), { ntype: 18, t: Function, rt: $t5.t, body: $t5, p: Bridge.toList([$t3]) })), iOrder);
+                sapuimodelModelExtensions.setPropertyFor(System.Object, System.Int32, oView.getModel("appView"), ($t3 = { ntype: 38, t: System.Object, n: "m" }, ($t5 = ($t4 = {"td":System.Object,"a":2,"n":"order","t":4,"rt":System.Int32,"sn":"order","box":function ($v) { return Bridge.box($v, System.Int32);}}, { ntype: 23, t: $t4.rt, expression: $t3, member: $t4 }), { ntype: 18, t: Function, rt: $t5.t, body: $t5, p: Bridge.toList([$t3]) })), iOrder);
                 if (sOrder != null) {
                     oView.byId("peopleList").getBinding("items").sort(new sap.ui.model.Sorter("LastName", Bridge.referenceEquals(sOrder, "desc")));
                 } else {
@@ -203,19 +203,19 @@ Bridge.assembly("ODatav4ClientScripts", function ($asm, globals) {
                     bHasUIChanges = this.getView().getModel().hasPendingChanges();
                 }
                 var oModel = this.getView().getModel("appView");
-                sapuimodelModelExtensions.setPropertyFor(Bridge.global.System.Object, System.Nullable$1(System.Boolean), oModel, ($t = { ntype: 38, t: System.Object, n: "m" }, ($t2 = { ntype: 10, t: System.Nullable$1(System.Boolean), operand: ($t1 = {"td":System.Object,"a":2,"n":"hasUIChanges","t":4,"rt":System.Boolean,"sn":"hasUIChanges","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }) }, { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })), bHasUIChanges);
+                sapuimodelModelExtensions.setPropertyFor(System.Object, System.Nullable$1(System.Boolean), oModel, ($t = { ntype: 38, t: System.Object, n: "m" }, ($t2 = { ntype: 10, t: System.Nullable$1(System.Boolean), operand: ($t1 = {"td":System.Object,"a":2,"n":"hasUIChanges","t":4,"rt":System.Boolean,"sn":"hasUIChanges","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }) }, { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })), bHasUIChanges);
             },
             _setBusy: function (bIsBusy) {
                 var $t, $t1, $t2;
                 var oModel = this.getView().getModel("appView");
                 oModel.setProperty("/busy", bIsBusy);
-                sapuimodelModelExtensions.setPropertyFor(Bridge.global.System.Object, System.Boolean, oModel, ($t = { ntype: 38, t: System.Object, n: "m" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"busy","t":4,"rt":System.Boolean,"sn":"busy","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })), bIsBusy);
+                sapuimodelModelExtensions.setPropertyFor(System.Object, System.Boolean, oModel, ($t = { ntype: 38, t: System.Object, n: "m" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"busy","t":4,"rt":System.Boolean,"sn":"busy","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })), bIsBusy);
             }
         }
     });
 });
 
 sap.ui.define(System.Array.init(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/MessageBox", "sap/ui/model/Sorter", "sap/ui/model/Filter", "sap/ui/model/FilterOperator", "sap/ui/model/FilterType", "sap/ui/model/json/JSONModel"], System.String), function () {
-    var newObj = Glue.CreateRawClassObject(sap.ui.core.tutorial.odatav4.controller.App);
+    var newObj = UI5.Glue.CreateRawClassObject(sap.ui.core.tutorial.odatav4.controller.App);
     return sap.ui.core.mvc.Controller.extend("sap.ui.core.tutorial.odatav4.controller.App", newObj);
 });

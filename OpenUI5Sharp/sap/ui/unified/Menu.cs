@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.unified.Menu")]
 				public partial class Menu : sap.ui.core.Control, sap.ui.core.IContextMenu
 				{
 					#region Settings
@@ -30,32 +31,32 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// When a menu is disabled none of its items can be selected by the user. The enabled property of an item (@link sap.ui.unified.MenuItemBase#getEnabled) has no effect when the menu of the item is disabled.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enabled;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enabled;
 
 						/// <summary>
 						/// Accessible label / description of the menu for assistive technologies like screenreaders.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaDescription;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaDescription;
 
 						/// <summary>
 						/// The maximum number of items which are displayed before an overflow mechanism takes effect. A value smaller than 1 means an infinite number of visible items. The overall height of the menu is limited by the height of the screen. If the maximum possible height is reached, an overflow takes effect, even if the maximum number of visible items is not yet reached.
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maxVisibleItems;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> maxVisibleItems;
 
 						/// <summary>
 						/// The keyboard can be used to navigate through the items of a menu. Beside the arrow keys for single steps and the <i>Home</i> / <i>End</i> keys for jumping to the first / last item, the <i>Page Up</i> / <i>Page Down</i> keys can be used to jump an arbitrary number of items up or down. This number can be defined via the <code>pageSize</code> property. For values smaller than 1, paging behaves in a similar way to when using the <i>Home</i> / <i>End</i> keys. If the value equals 1, the paging behavior is similar to that of the arrow keys.
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> pageSize;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> pageSize;
 
 						/// <summary>
 						/// The available actions to be displayed as items of the menu.
 						/// </summary>
-						public Union<sap.ui.unified.MenuItemBase[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
+						public Union<sap.ui.unified.MenuItemBase[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
 
 						/// <summary>
 						/// Reference to accessible labels (ids of existing DOM elements or controls) for assistive technologies like screenreaders.
 						/// </summary>
-						public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+						public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 						/// <summary>
 						/// Fired on the root menu of a menu hierarchy whenever a user selects an item within the menu or within one of its direct or indirect submenus. <b>Note:</b> There is also a select event available for each single menu item. This event and the event of the menu items are redundant.
@@ -162,8 +163,8 @@ namespace OpenUI5Sharp
 					/// 
 					/// Accessible label / description of the menu for assistive technologies like screenreaders.
 					/// </summary>
-					[Obsolete("Deprecated since 1.27.0. replaced by <code>ariaLabelledBy</code> association")]
 					/// <returns>Value of property <code>ariaDescription</code></returns>
+					[Obsolete("Deprecated since 1.27.0. replaced by <code>ariaLabelledBy</code> association")]
 					public extern virtual string getAriaDescription();
 
 					/// <summary>
@@ -173,9 +174,9 @@ namespace OpenUI5Sharp
 					/// 
 					/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 					/// </summary>
-					[Obsolete("Deprecated since 1.27.0. replaced by <code>ariaLabelledBy</code> association")]
 					/// <param name="sAriaDescription">New value for property <code>ariaDescription</code></param>
 					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					[Obsolete("Deprecated since 1.27.0. replaced by <code>ariaLabelledBy</code> association")]
 					public extern virtual sap.ui.unified.Menu setAriaDescription(string sAriaDescription);
 
 					#endregion

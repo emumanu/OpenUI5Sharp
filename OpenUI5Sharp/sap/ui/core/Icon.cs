@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.core.Icon")]
 				public partial class Icon : sap.ui.core.Control, sap.ui.core.IFormContent
 				{
 					#region Settings
@@ -32,77 +33,77 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// This property should be set by the return value of calling sap.ui.core.IconPool.getIconURI with an Icon name parameter and an optional collection parameter which is required when using application extended Icons. A list of standard FontIcon is available here.
 						/// </summary>
-						public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> src;
+						public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> src;
 
 						/// <summary>
 						/// Since Icon uses font, this property will be applied to the css font-size property on the rendered DOM element.
 						/// </summary>
-						public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> size;
+						public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> size;
 
 						/// <summary>
 						/// The color of the Icon. If color is not defined here, the Icon inherits the color from its DOM parent.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> color;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> color;
 
 						/// <summary>
 						/// This color is shown when icon is hovered. This property has no visual effect when run on mobile device.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> hoverColor;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> hoverColor;
 
 						/// <summary>
 						/// This color is shown when icon is pressed/activated by the user.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> activeColor;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> activeColor;
 
 						/// <summary>
 						/// This is the width of the DOM element which contains the Icon. Setting this property doesn't affect the size of the font. If you want to make the font bigger, increase the size property.
 						/// </summary>
-						public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+						public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 						/// <summary>
 						/// This is the height of the DOM element which contains the Icon. Setting this property doesn't affect the size of the font. If you want to make the font bigger, increase the size property.
 						/// </summary>
-						public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> height;
+						public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> height;
 
 						/// <summary>
 						/// Background color of the Icon in normal state.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> backgroundColor;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundColor;
 
 						/// <summary>
 						/// Background color for Icon in hover state. This property has no visual effect when run on mobile device.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> hoverBackgroundColor;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> hoverBackgroundColor;
 
 						/// <summary>
 						/// Background color for Icon in active state.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> activeBackgroundColor;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> activeBackgroundColor;
 
 						/// <summary>
 						/// A decorative icon is included for design reasons. Accessibility tools will ignore decorative icons. Tab stop isn't affected by this property anymore and it's now controlled by the existence of press event handler and the noTabStop property.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> decorative;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> decorative;
 
 						/// <summary>
 						/// Decides whether a default Icon tooltip should be used if no tooltip is set.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> useIconTooltip;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> useIconTooltip;
 
 						/// <summary>
 						/// This defines the alternative text which is used for outputting the aria-label attribute on the DOM.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> alt;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> alt;
 
 						/// <summary>
 						/// Defines whether the tab stop of icon is controlled by the existence of press event handler. When it's set to false, Icon control has tab stop when press event handler is attached. If it's set to true, Icon control never has tab stop no matter whether press event handler exists or not.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> noTabStop;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> noTabStop;
 
 						/// <summary>
 						/// Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).
 						/// </summary>
-						public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+						public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 						/// <summary>
 						/// This event is fired when icon is pressed/activated by the user. When a handler is attached to this event, the Icon gets tab stop. If you want to disable this behavior, set the noTabStop property to true.

@@ -3,19 +3,20 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
 		public static partial class m
 		{
 			/// <summary>
-			/// Row in the {@link sap.m.PlanningCalendar}.
+			/// Represents a row in the {@link sap.m.PlanningCalendar}.
 			/// 
-			/// This element holds the data of one row in the {@link sap.m.PlanningCalendar}. Once the header information (for example, person information) is assigned, the appointments are assigned.
+			/// This element holds the data of one row in the {@link sap.m.PlanningCalendar}. Once the header information (for example, person information) is assigned, the appointments are assigned. The <code>sap.m.PlanningCalendarRow</code> allows you to modify appointments at row level.
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.PlanningCalendarRow")]
 			public partial class PlanningCalendarRow : sap.ui.core.Element
 			{
 				#region Settings
@@ -30,43 +31,43 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the title of the header (for example, the name of the person).
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> title;
 
 					/// <summary>
 					/// Defines the text of the header (for example, the department of the person).
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> text;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> text;
 
 					/// <summary>
 					/// Specifies the URI of an image or an icon registered in <code>sap.ui.core.IconPool</code>.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> icon;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> icon;
 
 					/// <summary>
 					/// Determines whether the provided weekdays are displayed as non-working days. Valid values inside the array are from 0 to 6 (other values are ignored). If not set, the weekend defined in the locale settings is displayed as non-working days.
 					/// 
 					/// <b>Note:</b> The non-working days are visualized if the <code>intervalType</code> property of the {@link sap.m.PlanningCalendarView} is set to <code>Day</code>.
 					/// </summary>
-					public Union<int[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> nonWorkingDays;
+					public Union<int[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> nonWorkingDays;
 
 					/// <summary>
 					/// Determines whether the provided hours are displayed as non-working hours. Valid values inside the array are from 0 to 23 (other values are ignored).
 					/// 
 					/// <b>Note:</b> The non-working hours are visualized if <code>intervalType</code> property of the {@link sap.m.PlanningCalendarView} is set to <code>Hour</code>.
 					/// </summary>
-					public Union<int[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> nonWorkingHours;
+					public Union<int[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> nonWorkingHours;
 
 					/// <summary>
 					/// Defines the selected state of the <code>PlanningCalendarRow</code>.
 					/// 
 					/// <b>Note:</b> Binding the <code>selected</code> property in single selection modes may cause unwanted results if you have more than one selected row in your binding.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selected;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> selected;
 
 					/// <summary>
 					/// Defines the identifier of the row.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> key;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> key;
 
 					/// <summary>
 					/// Determines whether the appointments in the row are draggable.
@@ -85,7 +86,7 @@ namespace OpenUI5Sharp
 					/// 
 					/// <b>Note:</b> In "One month" view, the appointments are not draggable on small screen (as there they are displayed as a list below the dates). Group appointments are also not draggable.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enableAppointmentsDragAndDrop;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enableAppointmentsDragAndDrop;
 
 					/// <summary>
 					/// Determines whether the appointments in the row are resizable.
@@ -102,7 +103,7 @@ namespace OpenUI5Sharp
 					/// 
 					/// <b>Notes:</b> In "One month" view, the appointments are not resizable on small screen (as there they are displayed as a list below the dates). Group appointments are also not resizable
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enableAppointmentsResize;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enableAppointmentsResize;
 
 					/// <summary>
 					/// Determines whether the appointments can be created by dragging on empty cells.
@@ -111,14 +112,14 @@ namespace OpenUI5Sharp
 					/// 
 					/// <b>Notes:</b> In "One month" view, the appointments cannot be created on small screen (as there they are displayed as a list below the dates).
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enableAppointmentsCreate;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enableAppointmentsCreate;
 
 					/// <summary>
 					/// The appointments to be displayed in the row. Appointments that outside the visible time frame are not rendered.
 					/// 
 					/// <b>Note:</b> For performance reasons, only appointments in the visible time range or nearby should be assigned.
 					/// </summary>
-					public Union<sap.ui.unified.CalendarAppointment[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> appointments;
+					public Union<sap.ui.unified.CalendarAppointment[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> appointments;
 
 					/// <summary>
 					/// The appointments to be displayed at the top of the intervals (for example, for public holidays). Appointments outside the visible time frame are not rendered.
@@ -127,12 +128,14 @@ namespace OpenUI5Sharp
 					/// 
 					/// <b>Note:</b> For performance reasons, only appointments in the visible time range or nearby should be assigned.
 					/// </summary>
-					public Union<sap.ui.unified.CalendarAppointment[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> intervalHeaders;
+					public Union<sap.ui.unified.CalendarAppointment[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> intervalHeaders;
 
 					/// <summary>
-					/// Defines the drag-and-drop configuration via {@link sap.ui.core.dnd.DragDropInfo}
+					/// Holds the special dates in the context of a row. A single date or a date range can be set.
+					/// 
+					/// <b>Note</> Only date or date ranges of type <code>sap.ui.unified.CalendarDayType.NonWorking</code> will be visualized in the <code>PlanningCalendarRow</code>. If the aggregation is set as another type, the date or date range will be ignored and will not be displayed in the control.
 					/// </summary>
-					public Union<sap.ui.core.dnd.DragDropBase[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> dragDropConfig;
+					public Union<sap.ui.unified.DateTypeRange[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> specialDates;
 
 					/// <summary>
 					/// Fired if an appointment is dropped.
@@ -759,58 +762,60 @@ namespace OpenUI5Sharp
 
 				#endregion
 
-				#region Methods for Aggregation dragDropConfig
+				#region Methods for Aggregation specialDates
 
 				/// <summary>
-				/// Gets content of aggregation {@link #getDragDropConfig dragDropConfig}.
+				/// Gets content of aggregation {@link #getSpecialDates specialDates}.
 				/// 
-				/// Defines the drag-and-drop configuration via {@link sap.ui.core.dnd.DragDropInfo}
+				/// Holds the special dates in the context of a row. A single date or a date range can be set.
+				/// 
+				/// <b>Note</> Only date or date ranges of type <code>sap.ui.unified.CalendarDayType.NonWorking</code> will be visualized in the <code>PlanningCalendarRow</code>. If the aggregation is set as another type, the date or date range will be ignored and will not be displayed in the control.
 				/// </summary>
 				/// <returns></returns>
-				public extern virtual sap.ui.core.dnd.DragDropBase[] getDragDropConfig();
+				public extern virtual sap.ui.unified.DateTypeRange[] getSpecialDates();
 
 				/// <summary>
-				/// Destroys all the dragDropConfig in the aggregation {@link #getDragDropConfig dragDropConfig}.
+				/// Destroys all the specialDates in the aggregation {@link #getSpecialDates specialDates}.
 				/// </summary>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.PlanningCalendarRow destroyDragDropConfig();
+				public extern virtual sap.m.PlanningCalendarRow destroySpecialDates();
 
 				/// <summary>
-				/// Inserts a dragDropConfig into the aggregation {@link #getDragDropConfig dragDropConfig}.
+				/// Inserts a specialDate into the aggregation {@link #getSpecialDates specialDates}.
 				/// </summary>
-				/// <param name="oDragDropConfig">The dragDropConfig to insert; if empty, nothing is inserted</param>
-				/// <param name="iIndex">The <code>0</code>-based index the dragDropConfig should be inserted at; for a negative value of <code>iIndex</code>, the dragDropConfig is inserted at position 0; for a value greater than the current size of the aggregation, the dragDropConfig is inserted at the last position</param>
+				/// <param name="oSpecialDate">The specialDate to insert; if empty, nothing is inserted</param>
+				/// <param name="iIndex">The <code>0</code>-based index the specialDate should be inserted at; for a negative value of <code>iIndex</code>, the specialDate is inserted at position 0; for a value greater than the current size of the aggregation, the specialDate is inserted at the last position</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.PlanningCalendarRow insertDragDropConfig(sap.ui.core.dnd.DragDropBase oDragDropConfig, int iIndex);
+				public extern virtual sap.m.PlanningCalendarRow insertSpecialDate(sap.ui.unified.DateTypeRange oSpecialDate, int iIndex);
 
 				/// <summary>
-				/// Adds some dragDropConfig to the aggregation {@link #getDragDropConfig dragDropConfig}.
+				/// Adds some specialDate to the aggregation {@link #getSpecialDates specialDates}.
 				/// </summary>
-				/// <param name="oDragDropConfig">The dragDropConfig to add; if empty, nothing is inserted</param>
+				/// <param name="oSpecialDate">The specialDate to add; if empty, nothing is inserted</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.PlanningCalendarRow addDragDropConfig(sap.ui.core.dnd.DragDropBase oDragDropConfig);
+				public extern virtual sap.m.PlanningCalendarRow addSpecialDate(sap.ui.unified.DateTypeRange oSpecialDate);
 
 				/// <summary>
-				/// Removes a dragDropConfig from the aggregation {@link #getDragDropConfig dragDropConfig}.
+				/// Removes a specialDate from the aggregation {@link #getSpecialDates specialDates}.
 				/// </summary>
-				/// <param name="vDragDropConfig">The dragDropConfig to remove or its index or id</param>
-				/// <returns>The removed dragDropConfig or <code>null</code></returns>
-				public extern virtual sap.ui.core.dnd.DragDropBase removeDragDropConfig(Union<int, string, sap.ui.core.dnd.DragDropBase> vDragDropConfig);
+				/// <param name="vSpecialDate">The specialDate to remove or its index or id</param>
+				/// <returns>The removed specialDate or <code>null</code></returns>
+				public extern virtual sap.ui.unified.DateTypeRange removeSpecialDate(Union<int, string, sap.ui.unified.DateTypeRange> vSpecialDate);
 
 				/// <summary>
-				/// Checks for the provided <code>sap.ui.core.dnd.DragDropBase</code> in the aggregation {@link #getDragDropConfig dragDropConfig}. and returns its index if found or -1 otherwise.
+				/// Checks for the provided <code>sap.ui.unified.DateTypeRange</code> in the aggregation {@link #getSpecialDates specialDates}. and returns its index if found or -1 otherwise.
 				/// </summary>
-				/// <param name="oDragDropConfig">The dragDropConfig whose index is looked for</param>
+				/// <param name="oSpecialDate">The specialDate whose index is looked for</param>
 				/// <returns>The index of the provided control in the aggregation if found, or -1 otherwise</returns>
-				public extern virtual int indexOfDragDropConfig(sap.ui.core.dnd.DragDropBase oDragDropConfig);
+				public extern virtual int indexOfSpecialDate(sap.ui.unified.DateTypeRange oSpecialDate);
 
 				/// <summary>
-				/// Removes all the controls from the aggregation {@link #getDragDropConfig dragDropConfig}.
+				/// Removes all the controls from the aggregation {@link #getSpecialDates specialDates}.
 				/// 
 				/// Additionally, it unregisters them from the hosting UIArea.
 				/// </summary>
 				/// <returns>An array of the removed elements (might be empty)</returns>
-				public extern virtual sap.ui.core.dnd.DragDropBase[] removeAllDragDropConfig();
+				public extern virtual sap.ui.unified.DateTypeRange[] removeAllSpecialDates();
 
 				#endregion
 

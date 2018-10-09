@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.test.Opa")]
 				public partial class Opa : sap.ui.@base.Object
 				{
 					#region Typed Parameters
@@ -41,6 +42,11 @@ namespace OpenUI5Sharp
 						/// default: 400 - (milliseconds) Specifies how often the waitFor function polls.
 						/// </summary>
 						public int pollingInterval;
+
+						/// <summary>
+						/// @since 1.55 default: false Enable asynchronous polling after success() call. This allows more stable autoWaiter synchronization with event flows originating from within success(). Especially usefull to stabilize synchronization with overflow toolbars.
+						/// </summary>
+						public bool asyncPolling;
 
 						/// <summary>
 						/// Will get invoked in every polling interval. If it returns true, the check is successful and the polling will stop. The first parameter passed into the function is the same value that gets passed to the success function. Returning something other than boolean in the check will not change the first parameter of success.
@@ -79,7 +85,7 @@ namespace OpenUI5Sharp
 					#region Fields
 
 					/// <summary>
-					/// the global configuration of Opa. All of the global values can be overwritten in an individual waitFor call. The default values are: <ul> <li>arrangements: A new Opa instance</li> <li>actions: A new Opa instance</li> <li>assertions: A new Opa instance</li> <li>timeout : 15 seconds, 0 for infinite timeout</li> <li>pollingInterval: 400 milliseconds</li> <li>debugTimeout: 0 seconds, infinite timeout by default. This will be used instead of timeout if running in debug mode.</li> </ul> You can either directly manipulate the config, or extend it using {@link sap.ui.test.Opa.extendConfig}
+					/// the global configuration of Opa. All of the global values can be overwritten in an individual waitFor call. The default values are: <ul> <li>arrangements: A new Opa instance</li> <li>actions: A new Opa instance</li> <li>assertions: A new Opa instance</li> <li>timeout : 15 seconds, 0 for infinite timeout</li> <li>pollingInterval: 400 milliseconds</li> <li>debugTimeout: 0 seconds, infinite timeout by default. This will be used instead of timeout if running in debug mode.</li> <li>asyncPolling: false</li> </ul> You can either directly manipulate the config, or extend it using {@link sap.ui.test.Opa.extendConfig}
 					/// </summary>
 					public static object config;
 
@@ -107,7 +113,7 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Reset Opa.config to its default values. All of the global values can be overwritten in an individual waitFor call.
 					/// 
-					/// The default values are: <ul> <li>arrangements: A new Opa instance</li> <li>actions: A new Opa instance</li> <li>assertions: A new Opa instance</li> <li>timeout : 15 seconds, 0 for infinite timeout</li> <li>pollingInterval: 400 milliseconds</li> <li>debugTimeout: 0 seconds, infinite timeout by default. This will be used instead of timeout if running in debug mode.</li> <li> executionDelay: 0 or 50 (depending on the browser). The value is a number representing milliseconds. The executionDelay will slow down the execution of every single waitFor statement to be delayed by the number of milliseconds. This does not effect the polling interval it just adds an initial pause. Use this parameter to slow down OPA when you want to watch your test during development or checking the UI of your app. It is not recommended to use this parameter in any automated test executions. </li> </ul>
+					/// The default values are: <ul> <li>arrangements: A new Opa instance</li> <li>actions: A new Opa instance</li> <li>assertions: A new Opa instance</li> <li>timeout : 15 seconds, 0 for infinite timeout</li> <li>pollingInterval: 400 milliseconds</li> <li>debugTimeout: 0 seconds, infinite timeout by default. This will be used instead of timeout if running in debug mode.</li> <li> executionDelay: 0 or 50 (depending on the browser). The value is a number representing milliseconds. The executionDelay will slow down the execution of every single waitFor statement to be delayed by the number of milliseconds. This does not effect the polling interval it just adds an initial pause. Use this parameter to slow down OPA when you want to watch your test during development or checking the UI of your app. It is not recommended to use this parameter in any automated test executions. </li> <li>asyncPolling: false</li> </ul>
 					/// </summary>
 					public extern static void resetConfig();
 

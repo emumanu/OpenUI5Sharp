@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.NotificationListItem")]
 			public partial class NotificationListItem : sap.m.NotificationListBase
 			{
 				#region Settings
@@ -28,22 +29,22 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Determines the description of the NotificationListItem.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> description;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> description;
 
 					/// <summary>
 					/// Determines if the text in the title and the description of the notification are truncated to the first two lines.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> truncate;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> truncate;
 
 					/// <summary>
 					/// Determines if the "Show More" button should be hidden.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> hideShowMoreButton;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> hideShowMoreButton;
 
 					/// <summary>
 					/// The sap.m.MessageStrip control that holds the information about any error that may occur when pressing the notification buttons
 					/// </summary>
-					public Union<sap.m.MessageStrip, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> processingMessage;
+					public Union<sap.m.MessageStrip, string, sap.ui.@base.ManagedObject.BindAggregationInfo> processingMessage;
 
 				}
 

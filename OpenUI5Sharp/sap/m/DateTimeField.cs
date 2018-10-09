@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.DateTimeField")]
 			public abstract partial class DateTimeField : sap.m.InputBase
 			{
 				#region Settings
@@ -30,24 +31,24 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Determines the format, displayed in the input field.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> displayFormat;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> displayFormat;
 
 					/// <summary>
 					/// Determines the format of the value property.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> valueFormat;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> valueFormat;
 
 					/// <summary>
 					/// Holds a reference to a JavaScript Date Object. The <code>value</code> (string) property will be set according to it. Alternatively, if the <code>value</code> and <code>valueFormat</code> pair properties are supplied instead, the <code>dateValue</code> will be instantiated according to the parsed <code>value</code>.
 					/// </summary>
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> dateValue;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> dateValue;
 
 					/// <summary>
 					/// Holds a reference to a JavaScript Date Object to define the initially focused date/time when the picker popup is opened.
 					/// 
 					/// <b>Notes:</b> <ul> <li>Setting this property does not change the <code>value</code> property.</li> <li>Depending on the context this property is used in ({@link sap.m.TimePicker}, {@link sap.m.DatePicker} or {@link sap.m.DateTimePicker}), it takes into account only the time part, only the date part or both parts of the JavaScript Date Object.</li> </ul>
 					/// </summary>
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> initialFocusedDateValue;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> initialFocusedDateValue;
 
 				}
 

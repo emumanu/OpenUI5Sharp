@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -40,6 +40,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.FacetFilter")]
 			public partial class FacetFilter : sap.ui.core.Control, sap.ui.core.IShrinkable
 			{
 				#region Settings
@@ -54,37 +55,37 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// If set to <code>true</code> and the FacetFilter type is <code>Simple</code>, then the Add Facet icon will be displayed and each facet button will also have a Facet Remove icon displayed beside it, allowing the user to deactivate the facet.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showPersonalization;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showPersonalization;
 
 					/// <summary>
 					/// Defines the default appearance of the FacetFilter on the device. Possible values are <code>Simple</code> (default) and <code>Light</code>.
 					/// </summary>
-					public Union<sap.m.FacetFilterType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> type;
+					public Union<sap.m.FacetFilterType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> type;
 
 					/// <summary>
 					/// Enables/disables live search in the search field of all <code>sap.m.FacetFilterList</code> instances.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> liveSearch;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> liveSearch;
 
 					/// <summary>
 					/// Shows the summary bar instead of the FacetFilter buttons bar when set to <code>true</code>.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showSummaryBar;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showSummaryBar;
 
 					/// <summary>
 					/// Shows/hides the FacetFilter Reset button.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showReset;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showReset;
 
 					/// <summary>
 					/// If set to <code>true</code>, an OK button is displayed for every FacetFilterList popover. This button allows the user to close the popover from within the popover instead of having to click outside of it.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showPopoverOKButton;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showPopoverOKButton;
 
 					/// <summary>
 					/// Collection of FacetFilterList controls.
 					/// </summary>
-					public Union<sap.m.FacetFilterList[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> lists;
+					public Union<sap.m.FacetFilterList[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> lists;
 
 					/// <summary>
 					/// Fired when the Reset button is pressed to inform that all FacetFilterLists need to be reset.

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -46,6 +46,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.layout.DynamicSideContent")]
 				public partial class DynamicSideContent : sap.ui.core.Control
 				{
 					#region Settings
@@ -60,47 +61,47 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Determines whether the side content is visible or hidden.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showSideContent;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showSideContent;
 
 						/// <summary>
 						/// Determines whether the main content is visible or hidden.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showMainContent;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showMainContent;
 
 						/// <summary>
 						/// Determines on which breakpoints the side content is visible.
 						/// </summary>
-						public Union<sap.ui.layout.SideContentVisibility, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> sideContentVisibility;
+						public Union<sap.ui.layout.SideContentVisibility, string, sap.ui.@base.ManagedObject.BindPropertyInfo> sideContentVisibility;
 
 						/// <summary>
 						/// Determines on which breakpoints the side content falls down below the main content.
 						/// </summary>
-						public Union<sap.ui.layout.SideContentFallDown, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> sideContentFallDown;
+						public Union<sap.ui.layout.SideContentFallDown, string, sap.ui.@base.ManagedObject.BindPropertyInfo> sideContentFallDown;
 
 						/// <summary>
 						/// Defines whether the control is in equal split mode. In this mode, the side and the main content take 50:50 percent of the container on all screen sizes except for phone, where the main and side contents are switching visibility using the toggle method.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> equalSplit;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> equalSplit;
 
 						/// <summary>
 						/// If set to TRUE, then not the media Query (device screen size) but the size of the container, surrounding the control, defines the current range.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> containerQuery;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> containerQuery;
 
 						/// <summary>
 						/// Determines whether the side content is on the left or on the right side of the main content.
 						/// </summary>
-						public Union<sap.ui.layout.SideContentPosition, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> sideContentPosition;
+						public Union<sap.ui.layout.SideContentPosition, string, sap.ui.@base.ManagedObject.BindPropertyInfo> sideContentPosition;
 
 						/// <summary>
 						/// Main content controls.
 						/// </summary>
-						public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> mainContent;
+						public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> mainContent;
 
 						/// <summary>
 						/// Side content controls.
 						/// </summary>
-						public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> sideContent;
+						public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> sideContent;
 
 						/// <summary>
 						/// Fires when the current breakpoint has been changed.

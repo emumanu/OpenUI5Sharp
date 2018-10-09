@@ -3,7 +3,17 @@ Bridge.assembly("RoutingClientScripts", function ($asm, globals) {
 
     Bridge.define("sap.ui.demo.nav.Component", {
         inherits: [sap.ui.core.UIComponent],
-        $metadata : function () { return {"att":1048577,"a":2,"m":[{"a":2,"n":".ctor","t":1,"p":[System.String,System.Object],"pi":[{"n":"sId","pt":System.String,"ps":0},{"n":"mSettings","pt":System.Object,"ps":1}],"sn":"ctor"},{"a":2,"n":"Script","is":true,"t":8,"sn":"Script","rt":System.Void},{"ov":true,"a":2,"n":"init","t":8,"sn":"init","rt":System.Void}]}; },
+        $metadata : function () { return {"att":1048577,"a":2,"m":[{"a":2,"n":".ctor","t":1,"p":[System.String,System.Object],"pi":[{"n":"sId","pt":System.String,"ps":0},{"n":"mSettings","pt":System.Object,"ps":1}],"sn":"ctor"},{"a":2,"n":"Script","is":true,"t":8,"sn":"Script","rt":System.Void},{"ov":true,"a":2,"n":"init","t":8,"sn":"init","rt":System.Void},{"a":2,"n":"metadata","is":true,"t":4,"rt":System.Object,"sn":"metadata"}]}; },
+        statics: {
+            fields: {
+                metadata: null
+            },
+            ctors: {
+                init: function () {
+                    this.metadata = { manifest: "json" };
+                }
+            }
+        },
         ctors: {
             ctor: function (sId, mSettings) {
                 this.$initialize();
@@ -23,8 +33,6 @@ Bridge.assembly("RoutingClientScripts", function ($asm, globals) {
 });
 
 sap.ui.define(System.Array.init(["sap/ui/core/UIComponent"], System.String), function (UIComponent) {
-    var metadata = { manifest: "json" };
-
-    var newObj = Glue.CreateRawClassObject(sap.ui.demo.nav.Component, metadata);
+    var newObj = UI5.Glue.CreateRawClassObject(sap.ui.demo.nav.Component);
     return sap.ui.core.UIComponent.extend("sap.ui.demo.nav.Component", newObj);
 });

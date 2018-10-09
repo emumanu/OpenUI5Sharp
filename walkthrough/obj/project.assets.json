@@ -12541,11 +12541,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\OpenUI5Sharp\\ddd\\OpenUI5Sharp\\walkthrough\\walkthrough.csproj",
+      "projectUniqueName": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\OpenUI5Sharp\\remote\\OpenUI5Sharp\\walkthrough\\walkthrough.csproj",
       "projectName": "walkthrough",
-      "projectPath": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\OpenUI5Sharp\\ddd\\OpenUI5Sharp\\walkthrough\\walkthrough.csproj",
+      "projectPath": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\OpenUI5Sharp\\remote\\OpenUI5Sharp\\walkthrough\\walkthrough.csproj",
       "packagesPath": "C:\\Users\\Manu\\.nuget\\packages\\",
-      "outputPath": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\OpenUI5Sharp\\ddd\\OpenUI5Sharp\\walkthrough\\obj\\",
+      "outputPath": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\OpenUI5Sharp\\remote\\OpenUI5Sharp\\walkthrough\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

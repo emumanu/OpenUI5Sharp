@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.SelectList")]
 			public partial class SelectList : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,56 +29,56 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Indicates whether the user can change the selection.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enabled;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enabled;
 
 					/// <summary>
 					/// Sets the width of the control.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// Sets the maximum width of the control.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maxWidth;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> maxWidth;
 
 					/// <summary>
 					/// Key of the selected item.
 					/// 
 					/// <b>Note: </b> If duplicate keys exist, the first item matching the key is used.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedKey;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> selectedKey;
 
 					/// <summary>
 					/// ID of the selected item.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedItemId;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> selectedItemId;
 
 					/// <summary>
 					/// Indicates whether the text values of the <code>additionalText</code> property of a {@link sap.ui.core.ListItem} are shown.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showSecondaryValues;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showSecondaryValues;
 
 					/// <summary>
 					/// Defines the keyboard navigation mode.
 					/// 
 					/// <b>Note:</b> The <code>sap.m.SelectListKeyboardNavigationMode.None</code> enumeration value, is only intended for use in some composite controls that handles keyboard navigation by themselves.
 					/// </summary>
-					public Union<sap.m.SelectListKeyboardNavigationMode, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> keyboardNavigationMode;
+					public Union<sap.m.SelectListKeyboardNavigationMode, string, sap.ui.@base.ManagedObject.BindPropertyInfo> keyboardNavigationMode;
 
 					/// <summary>
 					/// Defines the items contained within this control.
 					/// </summary>
-					public Union<sap.ui.core.Item[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
+					public Union<sap.ui.core.Item[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
 
 					/// <summary>
 					/// Sets or retrieves the selected item from the aggregation named items.
 					/// </summary>
-					public Union<sap.ui.core.Item, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedItem;
+					public Union<sap.ui.core.Item, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> selectedItem;
 
 					/// <summary>
 					/// Association to controls / IDs which label this control (see WAI-ARIA attribute <code>aria-labelledby</code>).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 					/// <summary>
 					/// This event is fired when the selection has changed.
@@ -89,33 +90,9 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// This event is fired when an item is pressed.
 					/// </summary>
-					public sap.m.SelectList.ItemPressDelegate itemPress;
+					public sap.m.ItemSelectDelegate itemPress;
 
 				}
-
-				#endregion
-
-				#region Typed Parameters
-
-				/// <summary>
-				/// Parameter to be used as Object Literal
-				/// </summary>
-				[External]
-				[ObjectLiteral]
-				public partial class ItemPressInfo
-				{
-					/// <summary>
-					/// The pressed item.
-					/// </summary>
-					public sap.ui.core.Item item;
-
-				}
-
-				#endregion
-
-				#region Delegates
-
-				public delegate void ItemPressDelegate(sap.ui.@base.Event<sap.m.SelectList.ItemPressInfo> oEvent, object oData);
 
 				#endregion
 
@@ -555,7 +532,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.SelectList</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SelectList attachItemPress(object oData, sap.m.SelectList.ItemPressDelegate fnFunction, object oListener);
+				public extern virtual sap.m.SelectList attachItemPress(object oData, sap.m.ItemSelectDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:itemPress itemPress} event of this <code>sap.m.SelectList</code>.
@@ -567,7 +544,7 @@ namespace OpenUI5Sharp
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SelectList attachItemPress(object oData, sap.m.SelectList.ItemPressDelegate fnFunction);
+				public extern virtual sap.m.SelectList attachItemPress(object oData, sap.m.ItemSelectDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:itemPress itemPress} event of this <code>sap.m.SelectList</code>.
@@ -578,7 +555,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SelectList attachItemPress(sap.m.SelectList.ItemPressDelegate fnFunction);
+				public extern virtual sap.m.SelectList attachItemPress(sap.m.ItemSelectDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:itemPress itemPress} event of this <code>sap.m.SelectList</code>.
@@ -590,7 +567,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.SelectList</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SelectList attachItemPress(sap.m.SelectList.ItemPressDelegate fnFunction, object oListener);
+				public extern virtual sap.m.SelectList attachItemPress(sap.m.ItemSelectDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:itemPress itemPress} event of this <code>sap.m.SelectList</code>.
@@ -600,14 +577,14 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SelectList detachItemPress(sap.m.SelectList.ItemPressDelegate fnFunction, object oListener);
+				public extern virtual sap.m.SelectList detachItemPress(sap.m.ItemSelectDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:itemPress itemPress} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SelectList fireItemPress(sap.m.SelectList.ItemPressInfo mParameters);
+				public extern virtual sap.m.SelectList fireItemPress(sap.m.ItemSelectInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:itemPress itemPress} to attached listeners.

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.SelectionDetailsItemLine")]
 			public partial class SelectionDetailsItemLine : sap.ui.core.Element
 			{
 				#region Settings
@@ -28,27 +29,27 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// The label that is shown as the first part of the line. It may contain the name of the currently selected dimension or measure.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> label;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> label;
 
 					/// <summary>
 					/// The value of the line, for example the value of the currently selected measure. Expected type is a string or a plain object, including date and time properties of type string.
 					/// </summary>
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> value;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> value;
 
 					/// <summary>
 					/// The display value of the line. If this property is set, it overrides the value property and is displayed as is.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> displayValue;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> displayValue;
 
 					/// <summary>
 					/// The unit of the given value. If this unit is given, the line is displayed bold.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> unit;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> unit;
 
 					/// <summary>
 					/// A string to be rendered by the control as a line marker. This string must be a valid SVG definition. The only valid tags are: svg, path, line.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> lineMarker;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> lineMarker;
 
 				}
 

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.ObjectIdentifier")]
 			public partial class ObjectIdentifier : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,52 +29,52 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the object title.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> title;
 
 					/// <summary>
 					/// Defines the object text.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> text;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> text;
 
 					/// <summary>
 					/// Indicates whether or not the notes icon is displayed.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> badgeNotes;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> badgeNotes;
 
 					/// <summary>
 					/// Indicates whether or not the address book icon is displayed.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> badgePeople;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> badgePeople;
 
 					/// <summary>
 					/// Indicates whether or not the attachments icon is displayed.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> badgeAttachments;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> badgeAttachments;
 
 					/// <summary>
 					/// Indicates if the ObjectIdentifier is visible. An invisible ObjectIdentifier is not being rendered.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visible;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visible;
 
 					/// <summary>
 					/// Indicates if the ObjectIdentifier's title is clickable.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> titleActive;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> titleActive;
 
 					/// <summary>
 					/// Specifies the element's text directionality with enumerated options. By default, the control inherits text direction from the DOM.
 					/// </summary>
-					public Union<sap.ui.core.TextDirection, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> textDirection;
+					public Union<sap.ui.core.TextDirection, string, sap.ui.@base.ManagedObject.BindPropertyInfo> textDirection;
 
 					/// <summary>
 					/// Association to controls / IDs, which label this control (see WAI-ARIA attribute aria-labelledby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 					/// <summary>
 					/// Fires when the title is active and the user taps/clicks on it.
 					/// </summary>
-					public sap.m.ObjectPressDelegate titlePress;
+					public sap.m.ObjectHeaderPressDelegate titlePress;
 
 				}
 
@@ -162,8 +163,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Indicates whether or not the notes icon is displayed.
 				/// </summary>
-				[Obsolete("Deprecated since 1.24.0. There is no replacement for the moment.")]
 				/// <returns>Value of property <code>badgeNotes</code></returns>
+				[Obsolete("Deprecated since 1.24.0. There is no replacement for the moment.")]
 				public extern virtual bool getBadgeNotes();
 
 				/// <summary>
@@ -173,9 +174,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// </summary>
-				[Obsolete("Deprecated since 1.24.0. There is no replacement for the moment.")]
 				/// <param name="bBadgeNotes">New value for property <code>badgeNotes</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.24.0. There is no replacement for the moment.")]
 				public extern virtual sap.m.ObjectIdentifier setBadgeNotes(bool bBadgeNotes);
 
 				#endregion
@@ -187,8 +188,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Indicates whether or not the address book icon is displayed.
 				/// </summary>
-				[Obsolete("Deprecated since 1.24.0. There is no replacement for the moment.")]
 				/// <returns>Value of property <code>badgePeople</code></returns>
+				[Obsolete("Deprecated since 1.24.0. There is no replacement for the moment.")]
 				public extern virtual bool getBadgePeople();
 
 				/// <summary>
@@ -198,9 +199,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// </summary>
-				[Obsolete("Deprecated since 1.24.0. There is no replacement for the moment.")]
 				/// <param name="bBadgePeople">New value for property <code>badgePeople</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.24.0. There is no replacement for the moment.")]
 				public extern virtual sap.m.ObjectIdentifier setBadgePeople(bool bBadgePeople);
 
 				#endregion
@@ -212,8 +213,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Indicates whether or not the attachments icon is displayed.
 				/// </summary>
-				[Obsolete("Deprecated since 1.24.0. There is no replacement for the moment.")]
 				/// <returns>Value of property <code>badgeAttachments</code></returns>
+				[Obsolete("Deprecated since 1.24.0. There is no replacement for the moment.")]
 				public extern virtual bool getBadgeAttachments();
 
 				/// <summary>
@@ -223,9 +224,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// </summary>
-				[Obsolete("Deprecated since 1.24.0. There is no replacement for the moment.")]
 				/// <param name="bBadgeAttachments">New value for property <code>badgeAttachments</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.24.0. There is no replacement for the moment.")]
 				public extern virtual sap.m.ObjectIdentifier setBadgeAttachments(bool bBadgeAttachments);
 
 				#endregion
@@ -356,7 +357,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.ObjectIdentifier</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectIdentifier attachTitlePress(object oData, sap.m.ObjectPressDelegate fnFunction, object oListener);
+				public extern virtual sap.m.ObjectIdentifier attachTitlePress(object oData, sap.m.ObjectHeaderPressDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:titlePress titlePress} event of this <code>sap.m.ObjectIdentifier</code>.
@@ -368,7 +369,7 @@ namespace OpenUI5Sharp
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectIdentifier attachTitlePress(object oData, sap.m.ObjectPressDelegate fnFunction);
+				public extern virtual sap.m.ObjectIdentifier attachTitlePress(object oData, sap.m.ObjectHeaderPressDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:titlePress titlePress} event of this <code>sap.m.ObjectIdentifier</code>.
@@ -379,7 +380,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectIdentifier attachTitlePress(sap.m.ObjectPressDelegate fnFunction);
+				public extern virtual sap.m.ObjectIdentifier attachTitlePress(sap.m.ObjectHeaderPressDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:titlePress titlePress} event of this <code>sap.m.ObjectIdentifier</code>.
@@ -391,7 +392,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.ObjectIdentifier</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectIdentifier attachTitlePress(sap.m.ObjectPressDelegate fnFunction, object oListener);
+				public extern virtual sap.m.ObjectIdentifier attachTitlePress(sap.m.ObjectHeaderPressDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:titlePress titlePress} event of this <code>sap.m.ObjectIdentifier</code>.
@@ -401,14 +402,14 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectIdentifier detachTitlePress(sap.m.ObjectPressDelegate fnFunction, object oListener);
+				public extern virtual sap.m.ObjectIdentifier detachTitlePress(sap.m.ObjectHeaderPressDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:titlePress titlePress} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ObjectIdentifier fireTitlePress(sap.m.ObjectPressInfo mParameters);
+				public extern virtual sap.m.ObjectIdentifier fireTitlePress(sap.m.ObjectHeaderPressInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:titlePress titlePress} to attached listeners.

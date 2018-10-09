@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.core.Item")]
 				public partial class Item : sap.ui.core.Element
 				{
 					#region Settings
@@ -30,22 +31,22 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// The text to be displayed for the item.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> text;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> text;
 
 						/// <summary>
 						/// Enabled items can be selected.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enabled;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enabled;
 
 						/// <summary>
 						/// Options are RTL and LTR. Alternatively, an item can inherit its text direction from its parent control.
 						/// </summary>
-						public Union<sap.ui.core.TextDirection, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> textDirection;
+						public Union<sap.ui.core.TextDirection, string, sap.ui.@base.ManagedObject.BindPropertyInfo> textDirection;
 
 						/// <summary>
 						/// Can be used as input for subsequent actions.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> key;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> key;
 
 					}
 

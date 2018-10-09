@@ -1,8 +1,7 @@
 ﻿using System;
 using Bridge;
-using OpenUI5Sharp;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
     [External]
     public partial class sap
@@ -158,6 +157,29 @@ namespace OpenUI5Sharp
                     /// </summary>
                     /// <returns>the control created by {@link sap.ui.core.UIComponent#createContent}</returns>
                     public extern virtual T getRootControl<T>() where T : sap.ui.core.Control;
+                }
+
+                [External]
+                public partial class CustomData
+                {
+                    /// <summary>
+					/// Gets current value of property {@link #getValue value}.
+					/// 
+					/// The data stored in this CustomData object. When the data is just stored, it can be any JS type, but when it is to be written to HTML (writeToDom == true) then it must be a string. If this restriction is violated, a warning will be logged and nothing will be written to the DOM.
+					/// </summary>
+					/// <returns>Value of property <code>value</code></returns>
+					public extern virtual T getValue<T>();
+
+                    /// <summary>
+                    /// Sets a new value for property {@link #getValue value}.
+                    /// 
+                    /// The data stored in this CustomData object. When the data is just stored, it can be any JS type, but when it is to be written to HTML (writeToDom == true) then it must be a string. If this restriction is violated, a warning will be logged and nothing will be written to the DOM.
+                    /// 
+                    /// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
+                    /// </summary>
+                    /// <param name="oValue">New value for property <code>value</code></param>
+                    /// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+                    public extern virtual sap.ui.core.CustomData setValue<T>(T oValue);
                 }
             }
         }

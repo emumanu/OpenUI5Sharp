@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -20,6 +20,7 @@ namespace OpenUI5Sharp
 						/// </summary>
 						[External]
 						[Namespace(false)]
+						[Name("sap.ui.model.odata.v4.AnnotationHelper")]
 						public static partial class AnnotationHelper
 						{
 							#region Typed Parameters

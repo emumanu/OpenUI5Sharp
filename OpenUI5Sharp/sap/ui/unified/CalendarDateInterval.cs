@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.unified.CalendarDateInterval")]
 				public partial class CalendarDateInterval : sap.ui.unified.Calendar
 				{
 					#region Settings
@@ -30,22 +31,22 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Start date of the Interval
 						/// </summary>
-						public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> startDate;
+						public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> startDate;
 
 						/// <summary>
 						/// number of days displayed on phones the maximum rendered number of days is 8.
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> days;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> days;
 
 						/// <summary>
 						/// If set the day names are shown in a separate line. If not set the day names are shown inside the single days.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showDayNamesLine;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showDayNamesLine;
 
 						/// <summary>
 						/// If set, the month- and yearPicker opens on a popup
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> pickerPopup;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> pickerPopup;
 
 					}
 

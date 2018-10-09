@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.FacetFilterItem")]
 			public partial class FacetFilterItem : sap.m.ListItemBase
 			{
 				#region Settings
@@ -28,17 +29,17 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Can be used as input for subsequent actions.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> key;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> key;
 
 					/// <summary>
 					/// Determines the text to be displayed for the item.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> text;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> text;
 
 					/// <summary>
 					/// Defines the number of objects that match this item in the target data set.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> count;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> count;
 
 				}
 
@@ -135,8 +136,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Defines the number of objects that match this item in the target data set.
 				/// </summary>
-				[Obsolete("Deprecated since 1.18.11. replaced by <code>setCounter</code> method")]
 				/// <returns>Value of property <code>count</code></returns>
+				[Obsolete("Deprecated since 1.18.11. replaced by <code>setCounter</code> method")]
 				public extern virtual int getCount();
 
 				/// <summary>
@@ -146,9 +147,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// </summary>
-				[Obsolete("Deprecated since 1.18.11. replaced by <code>setCounter</code> method")]
 				/// <param name="iCount">New value for property <code>count</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.18.11. replaced by <code>setCounter</code> method")]
 				public extern virtual sap.m.FacetFilterItem setCount(int iCount);
 
 				#endregion

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.P13nDimMeasureItem")]
 			public partial class P13nDimMeasureItem : sap.ui.core.Item
 			{
 				#region Settings
@@ -28,22 +29,22 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Specifies the unique chart column key. In this context a column refers to dimensions or measures of a chart.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> columnKey;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> columnKey;
 
 					/// <summary>
 					/// Specifies the order of visible dimensions or measures of a chart.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> index;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> index;
 
 					/// <summary>
 					/// Specifies the visibility of dimensions or measures.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visible;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visible;
 
 					/// <summary>
 					/// Specifies the role of dimensions or measures. The role determines how dimensions and measures influence the chart.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> role;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> role;
 
 				}
 

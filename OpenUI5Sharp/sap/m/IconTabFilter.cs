@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.IconTabFilter")]
 			public partial class IconTabFilter : sap.ui.core.Item, sap.m.IconTab, sap.ui.core.PopupInterface
 			{
 				#region Settings
@@ -28,48 +29,48 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Represents the "count" text, which is displayed in the tab filter.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> count;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> count;
 
 					/// <summary>
-					/// Enables special visualization for disabled filter (show all items). <b>Note:</b> You can use this property when you use <code>IconTabBar</code> as a filter. In order for it to be displayed correctly, the other tabs in the filter should consist of an icon, text and an optional count. It can be set to true for the first tab filter. You can find more detailed guidelines at https://experience.sap.com/fiori-design-web/icontabbar/#tabs-as-filters.
+					/// Enables special visualization for disabled filter (show all items). <b>Note:</b> You can use this property when you use <code>IconTabBar</code> as a filter. In order for it to be displayed correctly, the other tabs in the filter should consist of an icon, text and an optional count. It can be set to true for the first tab filter. You can find more detailed information in the {@link https://experience.sap.com/fiori-design-web/icontabbar/#tabs-as-filters UX Guidelines}.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showAll;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showAll;
 
 					/// <summary>
 					/// Specifies the icon to be displayed for the tab filter.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> icon;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> icon;
 
 					/// <summary>
 					/// Specifies the icon color.
 					/// 
 					/// If an icon font is used, the color can be chosen from the icon colors (sap.ui.core.IconColor). Possible semantic colors are: Neutral, Positive, Critical, Negative. Instead of the semantic icon color the brand color can be used, this is named Default. Semantic colors and brand colors should not be mixed up inside one IconTabBar.
 					/// </summary>
-					public Union<sap.ui.core.IconColor, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> iconColor;
+					public Union<sap.ui.core.IconColor, string, sap.ui.@base.ManagedObject.BindPropertyInfo> iconColor;
 
 					/// <summary>
 					/// If set to true, it sends one or more requests, trying to get the density perfect version of the image if this version of the image doesn't exist on the server. Default value is set to true.
 					/// 
 					/// If bandwidth is key for the application, set this value to false.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> iconDensityAware;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> iconDensityAware;
 
 					/// <summary>
 					/// Specifies whether the tab filter is rendered.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visible;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visible;
 
 					/// <summary>
 					/// Specifies whether the icon and the texts are placed vertically or horizontally.
 					/// </summary>
-					public Union<sap.m.IconTabFilterDesign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> design;
+					public Union<sap.m.IconTabFilterDesign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> design;
 
 					/// <summary>
 					/// The content displayed for this item (optional).
 					/// 
 					/// If this content is set, it is displayed instead of the general content inside the IconTabBar.
 					/// </summary>
-					public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
+					public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
 
 				}
 
@@ -145,7 +146,7 @@ namespace OpenUI5Sharp
 				/// <summary>
 				/// Gets current value of property {@link #getShowAll showAll}.
 				/// 
-				/// Enables special visualization for disabled filter (show all items). <b>Note:</b> You can use this property when you use <code>IconTabBar</code> as a filter. In order for it to be displayed correctly, the other tabs in the filter should consist of an icon, text and an optional count. It can be set to true for the first tab filter. You can find more detailed guidelines at https://experience.sap.com/fiori-design-web/icontabbar/#tabs-as-filters.
+				/// Enables special visualization for disabled filter (show all items). <b>Note:</b> You can use this property when you use <code>IconTabBar</code> as a filter. In order for it to be displayed correctly, the other tabs in the filter should consist of an icon, text and an optional count. It can be set to true for the first tab filter. You can find more detailed information in the {@link https://experience.sap.com/fiori-design-web/icontabbar/#tabs-as-filters UX Guidelines}.
 				/// 
 				/// Default value is <code>false</code>.
 				/// </summary>
@@ -155,7 +156,7 @@ namespace OpenUI5Sharp
 				/// <summary>
 				/// Sets a new value for property {@link #getShowAll showAll}.
 				/// 
-				/// Enables special visualization for disabled filter (show all items). <b>Note:</b> You can use this property when you use <code>IconTabBar</code> as a filter. In order for it to be displayed correctly, the other tabs in the filter should consist of an icon, text and an optional count. It can be set to true for the first tab filter. You can find more detailed guidelines at https://experience.sap.com/fiori-design-web/icontabbar/#tabs-as-filters.
+				/// Enables special visualization for disabled filter (show all items). <b>Note:</b> You can use this property when you use <code>IconTabBar</code> as a filter. In order for it to be displayed correctly, the other tabs in the filter should consist of an icon, text and an optional count. It can be set to true for the first tab filter. You can find more detailed information in the {@link https://experience.sap.com/fiori-design-web/icontabbar/#tabs-as-filters UX Guidelines}.
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// 

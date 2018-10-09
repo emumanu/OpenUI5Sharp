@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.FormattedText")]
 			public partial class FormattedText : sap.ui.core.Control
 			{
 				#region Settings
@@ -30,29 +31,29 @@ namespace OpenUI5Sharp
 					/// 
 					/// <b>Note:</b> Keep in mind that not supported HTML tags and the content nested inside them are both not rendered by the control.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> htmlText;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> htmlText;
 
 					/// <summary>
 					/// Optional width of the control in CSS units.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// Determines whether strings that appear to be links will be converted to HTML anchor tags, and what are the criteria for recognizing them.
 					/// </summary>
-					public Union<sap.m.LinkConversion, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> convertLinksToAnchorTags;
+					public Union<sap.m.LinkConversion, string, sap.ui.@base.ManagedObject.BindPropertyInfo> convertLinksToAnchorTags;
 
 					/// <summary>
 					/// Determines the <code>target</code> attribute of the generated HTML anchor tags.
 					/// 
 					/// <b>Note:</b> Applicable only if <code>ConvertLinksToAnchorTags</code> property is used with a value other than <code>sap.m.LinkConversion.None</code>. Options are the standard values for the <code>target</code> attribute of the HTML anchor tag: <code>_self</code>, <code>_top</code>, <code>_blank</code>, <code>_parent</code>, <code>_search</code>.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> convertedLinksDefaultTarget;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> convertedLinksDefaultTarget;
 
 					/// <summary>
 					/// Optional height of the control in CSS units.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> height;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> height;
 
 				}
 

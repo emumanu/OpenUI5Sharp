@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.test.matchers.LabelFor")]
 					public partial class LabelFor : sap.ui.test.matchers.Matcher
 					{
 						#region Settings
@@ -32,27 +33,27 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// The text of the {@link sap.m.Label} which have the labelFor property.
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> text;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> text;
 
 							/// <summary>
 							/// The name of the {@link sap.ui.model.resource.ResourceModel} assigned to the control.
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> modelName;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> modelName;
 
 							/// <summary>
 							/// The key of the I18N text in the containing {@link jQuery.sap.util.ResourceBundle}.
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> key;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> key;
 
 							/// <summary>
 							/// The parameters for replacing the placeholders of the I18N text. See {@link jQuery.sap.util.ResourceBundle#getText}.
 							/// </summary>
-							public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> parameters;
+							public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> parameters;
 
 							/// <summary>
 							/// The name of the control property to match the I18N text with.
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> propertyName;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> propertyName;
 
 						}
 

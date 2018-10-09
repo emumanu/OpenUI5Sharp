@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -14,10 +14,11 @@ namespace OpenUI5Sharp
 				public static partial class dnd
 				{
 					/// <summary>
-					/// Provides the configuration for drag-and-drop operations.
+					/// Provides the configuration for drag-and-drop operations. <b>Note:</b> This configuration might be ignored due to control {@link sap.ui.core.Element.extend metadata} restrictions.
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.dnd.DragDropInfo")]
 					public partial class DragDropInfo : sap.ui.core.dnd.DropInfo, sap.ui.core.dnd.IDragInfo, sap.ui.core.dnd.IDropInfo
 					{
 						#region Settings
@@ -32,12 +33,12 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// The name of the aggregation from which all children can be dragged. If undefined, the control itself can be dragged.
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> sourceAggregation;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> sourceAggregation;
 
 							/// <summary>
 							/// The target element for this drag and drop action. If undefined, the control with this drag and drop configuration itself is the target. Leaving this empty, but defining source and target aggregation, allows you to reorder the children within a control, for example.
 							/// </summary>
-							public Union<sap.ui.core.Element, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> targetElement;
+							public Union<sap.ui.core.Element, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> targetElement;
 
 							/// <summary>
 							/// This event is fired when the user starts dragging an element.

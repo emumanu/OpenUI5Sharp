@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -32,6 +32,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.Input")]
 			public partial class Input : sap.m.InputBase
 			{
 				#region Settings
@@ -46,121 +47,121 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// HTML type of the internal <code>input</code> tag (e.g. Text, Number, Email, Phone). The particular effect of this property differs depending on the browser and the current language settings, especially for the type Number.<br> This parameter is intended to be used with touch devices that use different soft keyboard layouts depending on the given input type.<br> Only the default value <code>sap.m.InputType.Text</code> may be used in combination with data model formats. <code>sap.ui.model</code> defines extended formats that are mostly incompatible with normal HTML representations for numbers and dates.
 					/// </summary>
-					public Union<sap.m.InputType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> type;
+					public Union<sap.m.InputType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> type;
 
 					/// <summary>
 					/// Maximum number of characters. Value '0' means the feature is switched off. This parameter is not compatible with the input type <code>sap.m.InputType.Number</code>. If the input type is set to <code>Number</code>, the <code>maxLength</code> value is ignored.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maxLength;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> maxLength;
 
 					/// <summary>
 					/// Only used if type=date and no datepicker is available. The data is displayed and the user input is parsed according to this format. NOTE: The value property is always of the form RFC 3339 (YYYY-MM-dd).
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> dateFormat;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> dateFormat;
 
 					/// <summary>
 					/// If set to true, a value help indicator will be displayed inside the control. When clicked the event "valueHelpRequest" will be fired.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showValueHelp;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showValueHelp;
 
 					/// <summary>
 					/// If this is set to true, suggest event is fired when user types in the input. Changing the suggestItems aggregation in suggest event listener will show suggestions within a popup. When runs on phone, input will first open a dialog where the input and suggestions are shown. When runs on a tablet, the suggestions are shown in a popup next to the input.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showSuggestion;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showSuggestion;
 
 					/// <summary>
 					/// If set to true, direct text input is disabled and the control will trigger the event "valueHelpRequest" for all user interactions. The properties "showValueHelp", "editable", and "enabled" must be set to true, otherwise the property will have no effect
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> valueHelpOnly;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> valueHelpOnly;
 
 					/// <summary>
 					/// Defines whether to filter the provided suggestions before showing them to the user.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> filterSuggests;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> filterSuggests;
 
 					/// <summary>
 					/// If set, the value of this parameter will control the horizontal size of the suggestion list to display more data. This allows suggestion lists to be wider than the input field if there is enough space available. By default, the suggestion list is always as wide as the input field. Note: The value will be ignored if the actual width of the input field is larger than the specified parameter value.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maxSuggestionWidth;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> maxSuggestionWidth;
 
 					/// <summary>
 					/// Minimum length of the entered text in input before suggest event is fired. The default value is 1 which means the suggest event is fired after user types in input. When it's set to 0, suggest event is fired when input with no text gets focus.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> startSuggestion;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> startSuggestion;
 
 					/// <summary>
 					/// For tabular suggestions, this flag will show/hide the button at the end of the suggestion table that triggers the event "valueHelpRequest" when pressed. The default value is true.
 					/// 
 					/// NOTE: If suggestions are not tabular or no suggestions are used, the button will not be displayed and this flag is without effect.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showTableSuggestionValueHelp;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showTableSuggestionValueHelp;
 
 					/// <summary>
 					/// The description is a text after the input field, e.g. units of measurement, currencies.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> description;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> description;
 
 					/// <summary>
 					/// This property only takes effect if the description property is set. It controls the distribution of space between the input field and the description text. The default value is 50% leaving the other 50% for the description.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> fieldWidth;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> fieldWidth;
 
 					/// <summary>
 					/// Indicates when the value gets updated with the user changes: At each keystroke (true) or first when the user presses enter or tabs out (false).
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> valueLiveUpdate;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> valueLiveUpdate;
 
 					/// <summary>
 					/// Defines the key of the selected item.
 					/// 
 					/// <b>Note:</b> If duplicate keys exist, the first item matching the key is used.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedKey;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> selectedKey;
 
 					/// <summary>
 					/// Defines the display text format mode.
 					/// </summary>
-					public Union<sap.m.InputTextFormatMode, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> textFormatMode;
+					public Union<sap.m.InputTextFormatMode, string, sap.ui.@base.ManagedObject.BindPropertyInfo> textFormatMode;
 
 					/// <summary>
 					/// Defines the display text formatter function.
 					/// </summary>
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> textFormatter;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> textFormatter;
 
 					/// <summary>
 					/// Defines the validation callback function called when a suggestion row gets selected.
 					/// </summary>
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> suggestionRowValidator;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> suggestionRowValidator;
 
 					/// <summary>
 					/// Specifies whether the suggestions highlighting is enabled.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enableSuggestionsHighlighting;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enableSuggestionsHighlighting;
 
 					/// <summary>
 					/// SuggestItems are the items which will be shown in the suggestion popup. Changing this aggregation (by calling addSuggestionItem, insertSuggestionItem, removeSuggestionItem, removeAllSuggestionItems, destroySuggestionItems) after input is rendered will open/close the suggestion popup. o display suggestions with two text values, it is also possible to add sap.ui.core/ListItems as SuggestionItems (since 1.21.1). For the selected ListItem, only the first value is returned to the input field.
 					/// </summary>
-					public Union<sap.ui.core.Item[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> suggestionItems;
+					public Union<sap.ui.core.Item[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> suggestionItems;
 
 					/// <summary>
 					/// The suggestionColumns and suggestionRows are for tabular input suggestions. This aggregation allows for binding the table columns; for more details see the aggregation "suggestionRows".
 					/// </summary>
-					public Union<sap.m.Column[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> suggestionColumns;
+					public Union<sap.m.Column[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> suggestionColumns;
 
 					/// <summary>
 					/// The suggestionColumns and suggestionRows are for tabular input suggestions. This aggregation allows for binding the table cells. The items of this aggregation are to be bound directly or to set in the suggest event method. Note: If this aggregation is filled, the aggregation suggestionItems will be ignored.
 					/// </summary>
-					public Union<sap.m.ColumnListItem[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> suggestionRows;
+					public Union<sap.m.ColumnListItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> suggestionRows;
 
 					/// <summary>
 					/// Sets or retrieves the selected item from the suggestionItems.
 					/// </summary>
-					public Union<sap.ui.core.Item, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedItem;
+					public Union<sap.ui.core.Item, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> selectedItem;
 
 					/// <summary>
 					/// Sets or retrieves the selected row from the suggestionRows.
 					/// </summary>
-					public Union<sap.m.ColumnListItem, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedRow;
+					public Union<sap.m.ColumnListItem, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> selectedRow;
 
 					/// <summary>
 					/// This event is fired when the value of the input is changed - e.g. at each keypress
@@ -187,7 +188,7 @@ namespace OpenUI5Sharp
 					/// 
 					/// <b>Note:</b> The event is fired independent of whether there was a change before or not. If a change was performed the event is fired after the change event. The event is also fired when an item of the select list is selected via <code>Enter</code>. The event is only fired on an input which allows text input (<code>editable</code>, <code>enabled</code> and not <code>valueHelpOnly</code>).
 					/// </summary>
-					public sap.m.SubmitOrChangeDelegate submit;
+					public sap.m.ValueDelegate submit;
 
 				}
 
@@ -388,8 +389,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>YYYY-MM-dd</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.9.1. <code>sap.m.DatePicker</code>, <code>sap.m.TimePicker</code> or <code>sap.m.DateTimePicker</code> should be used for date/time inputs and formating.")]
 				/// <returns>Value of property <code>dateFormat</code></returns>
+				[Obsolete("Deprecated since 1.9.1. <code>sap.m.DatePicker</code>, <code>sap.m.TimePicker</code> or <code>sap.m.DateTimePicker</code> should be used for date/time inputs and formating.")]
 				public extern virtual string getDateFormat();
 
 				/// <summary>
@@ -401,9 +402,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>YYYY-MM-dd</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.9.1. <code>sap.m.DatePicker</code>, <code>sap.m.TimePicker</code> or <code>sap.m.DateTimePicker</code> should be used for date/time inputs and formating.")]
 				/// <param name="sDateFormat">New value for property <code>dateFormat</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.9.1. <code>sap.m.DatePicker</code>, <code>sap.m.TimePicker</code> or <code>sap.m.DateTimePicker</code> should be used for date/time inputs and formating.")]
 				public extern virtual sap.m.Input setDateFormat(string sDateFormat);
 
 				#endregion
@@ -1337,7 +1338,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.Input</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Input attachSubmit(object oData, sap.m.SubmitOrChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.Input attachSubmit(object oData, sap.m.ValueDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:submit submit} event of this <code>sap.m.Input</code>.
@@ -1351,7 +1352,7 @@ namespace OpenUI5Sharp
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Input attachSubmit(object oData, sap.m.SubmitOrChangeDelegate fnFunction);
+				public extern virtual sap.m.Input attachSubmit(object oData, sap.m.ValueDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:submit submit} event of this <code>sap.m.Input</code>.
@@ -1364,7 +1365,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Input attachSubmit(sap.m.SubmitOrChangeDelegate fnFunction);
+				public extern virtual sap.m.Input attachSubmit(sap.m.ValueDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:submit submit} event of this <code>sap.m.Input</code>.
@@ -1378,7 +1379,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.Input</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Input attachSubmit(sap.m.SubmitOrChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.Input attachSubmit(sap.m.ValueDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:submit submit} event of this <code>sap.m.Input</code>.
@@ -1388,14 +1389,14 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Input detachSubmit(sap.m.SubmitOrChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.Input detachSubmit(sap.m.ValueDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:submit submit} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Input fireSubmit(sap.m.SubmitOrChangeInfo mParameters);
+				public extern virtual sap.m.Input fireSubmit(sap.m.ValueInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:submit submit} to attached listeners.
@@ -1530,86 +1531,86 @@ namespace OpenUI5Sharp
 				/// Event handler for the onFocusIn event.
 				/// </summary>
 				/// <param name="oEvent">On focus in event.</param>
-				public extern virtual void onfocusin(jQuery.Event oEvent);
+				public extern virtual void onfocusin(jquery.JQuery.Event oEvent);
 
 				/// <summary>
 				/// Event handler for user input.
 				/// </summary>
 				/// <param name="oEvent">User input.</param>
-				public extern virtual void oninput(jQuery.Event oEvent);
+				public extern virtual void oninput(jquery.JQuery.Event oEvent);
 
 				/// <summary>
 				/// Keyboard handler for the onMouseDown event.
 				/// </summary>
 				/// <param name="oEvent">Keyboard event.</param>
-				public extern virtual void onmousedown(jQuery.Event oEvent);
+				public extern virtual void onmousedown(jquery.JQuery.Event oEvent);
 
 				/// <summary>
 				/// Keyboard handler for down arrow key.
 				/// </summary>
 				/// <param name="oEvent">Keyboard event.</param>
-				public extern virtual void onsapdown(jQuery.Event oEvent);
+				public extern virtual void onsapdown(jquery.JQuery.Event oEvent);
 
 				/// <summary>
 				/// Keyboard handler for end key.
 				/// </summary>
 				/// <param name="oEvent">Keyboard event.</param>
-				public extern virtual void onsapend(jQuery.Event oEvent);
+				public extern virtual void onsapend(jquery.JQuery.Event oEvent);
 
 				/// <summary>
 				/// Keyboard handler for enter key.
 				/// </summary>
 				/// <param name="oEvent">Keyboard event.</param>
-				public extern virtual void onsapenter(jQuery.Event oEvent);
+				public extern virtual void onsapenter(jquery.JQuery.Event oEvent);
 
 				/// <summary>
 				/// Keyboard handler for escape key.
 				/// </summary>
 				/// <param name="oEvent">Keyboard event.</param>
-				public extern virtual void onsapescape(jQuery.Event oEvent);
+				public extern virtual void onsapescape(jquery.JQuery.Event oEvent);
 
 				/// <summary>
 				/// Keyboard handler for the onFocusLeave event.
 				/// </summary>
 				/// <param name="oEvent">Keyboard event.</param>
-				public extern virtual void onsapfocusleave(jQuery.Event oEvent);
+				public extern virtual void onsapfocusleave(jquery.JQuery.Event oEvent);
 
 				/// <summary>
 				/// Keyboard handler for home key.
 				/// </summary>
 				/// <param name="oEvent">Keyboard event.</param>
-				public extern virtual void onsaphome(jQuery.Event oEvent);
+				public extern virtual void onsaphome(jquery.JQuery.Event oEvent);
 
 				/// <summary>
 				/// Keyboard handler for page down key.
 				/// </summary>
 				/// <param name="oEvent">Keyboard event.</param>
-				public extern virtual void onsappagedown(jQuery.Event oEvent);
+				public extern virtual void onsappagedown(jquery.JQuery.Event oEvent);
 
 				/// <summary>
 				/// Keyboard handler for page up key.
 				/// </summary>
 				/// <param name="oEvent">Keyboard event.</param>
-				public extern virtual void onsappageup(jQuery.Event oEvent);
+				public extern virtual void onsappageup(jquery.JQuery.Event oEvent);
 
 				/// <summary>
 				/// Keyboard handler for up arrow key.
 				/// </summary>
 				/// <param name="oEvent">Keyboard event.</param>
-				public extern virtual void onsapup(jQuery.Event oEvent);
+				public extern virtual void onsapup(jquery.JQuery.Event oEvent);
 
 				/// <summary>
 				/// Fire valueHelpRequest event on tap.
 				/// </summary>
 				/// <param name="oEvent">Ontap event.</param>
-				public extern virtual void ontap(jQuery.Event oEvent);
+				public extern virtual void ontap(jquery.JQuery.Event oEvent);
 
 				/// <summary>
 				/// Hook method to prevent the change event from being fired when the text input field loses focus.
 				/// </summary>
 				/// <param name="oEvent">The event object.</param>
 				/// <returns>Whether or not the change event should be prevented.</returns>
-				public extern override bool preventChangeOnFocusLeave(jQuery.Event oEvent);
+				public extern override bool preventChangeOnFocusLeave(jquery.JQuery.Event oEvent);
 
 				/// <summary>
 				/// Hook method to prevent the change event from being fired when the text input field loses focus.

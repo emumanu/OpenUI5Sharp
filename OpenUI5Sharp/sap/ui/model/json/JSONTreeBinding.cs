@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -20,6 +20,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.model.json.JSONTreeBinding")]
 					public partial class JSONTreeBinding : sap.ui.model.ClientTreeBinding
 					{
 						#region Constructor

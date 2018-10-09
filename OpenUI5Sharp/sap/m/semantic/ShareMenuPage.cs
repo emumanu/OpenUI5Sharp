@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.m.semantic.ShareMenuPage")]
 				public partial class ShareMenuPage : sap.m.semantic.SemanticPage
 				{
 					#region Settings
@@ -30,7 +31,7 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Custom share menu buttons
 						/// </summary>
-						public Union<sap.m.Button[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> customShareMenuContent;
+						public Union<sap.m.Button[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> customShareMenuContent;
 
 					}
 

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.Title")]
 			public partial class Title : sap.ui.core.Control, sap.ui.core.IShrinkable
 			{
 				#region Settings
@@ -28,37 +29,37 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the text which should be displayed as a title.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> text;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> text;
 
 					/// <summary>
 					/// Defines the semantic level of the title. This information is e.g. used by assistive technologies like screenreaders to create a hierarchical site map for faster navigation. Depending on this setting either an HTML h1-h6 element is used or when using level <code>Auto</code> no explicit level information is written (HTML5 header element). This property does not influence the style of the control. Use the property <code>titleStyle</code> for this purpose instead.
 					/// </summary>
-					public Union<sap.ui.core.TitleLevel, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> level;
+					public Union<sap.ui.core.TitleLevel, string, sap.ui.@base.ManagedObject.BindPropertyInfo> level;
 
 					/// <summary>
 					/// Defines the style of the title. When using the <code>Auto</code> styling, the appearance of the title depends on the current position of the title (e.g. inside a <code>Toolbar</code>). This default behavior can be overridden by setting a different style explicitly. The actual appearance of the title and the different styles always depends on the theme being used.
 					/// </summary>
-					public Union<sap.ui.core.TitleLevel, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> titleStyle;
+					public Union<sap.ui.core.TitleLevel, string, sap.ui.@base.ManagedObject.BindPropertyInfo> titleStyle;
 
 					/// <summary>
 					/// Defines the width of the title.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// Defines the alignment of the text within the title. <b>Note:</b> This property only has an effect if the overall width of the title control is larger than the displayed text.
 					/// </summary>
-					public Union<sap.ui.core.TextAlign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> textAlign;
+					public Union<sap.ui.core.TextAlign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> textAlign;
 
 					/// <summary>
 					/// Enables text wrapping. <b>Note:</b> Wrapping must only be activated if the surrounding container allows flexible heights.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> wrapping;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> wrapping;
 
 					/// <summary>
 					/// Defines a relationship to a generic title description. If such a title element is associated, the properties text, level and tooltip (text only) of this element are consumed. The corresponding properties of the title control are ignored.
 					/// </summary>
-					public Union<sap.ui.core.Title, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+					public Union<sap.ui.core.Title, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> title;
 
 				}
 

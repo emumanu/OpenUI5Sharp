@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -12,16 +12,21 @@ namespace OpenUI5Sharp
 			public static partial class layout
 			{
 				/// <summary>
-				/// The BlockLayout is used to display several objects in a section-based manner. <h3>Overview</h3> The BlockLayout uses horizontal and vertical subdivisions, and full-width banners to display a set of elements. By placing pictorial and textual elements side-by-side in different blocks, you can establish a visual connection between blocks and between similar elements. <h3>Structure</h3> The BlockLayout comes in five predefined types for background colors: <ul> <li>Layout only (default) - a layout scheme and no background colors</li> <li>Bright - a layout scheme with bright colors</li> <li>Accent - a layout scheme with four pre-defined color sets</li> <li>Dashboard - a layout scheme with additional borders and no background colors</li> <li>Mixed - a layout scheme with a mix of light and dark colors</li> </ul> Background colors are attached directly to the blocks of the layout.
+				/// The BlockLayout is used to display several objects in a section-based manner. <h3>Overview</h3> The BlockLayout uses horizontal and vertical subdivisions, and full-width banners to display a set of elements. By placing pictorial and textual elements side-by-side in different blocks, you can establish a visual connection between blocks and between similar elements. <h3>Structure</h3> The BlockLayout contains BlockLayout cells. Every cell consists of a title and content. The title can be text or a link.
+				/// 
+				/// The BlockLayout comes in five predefined types for background colors: <ul> <li>Layout only (default) - a layout scheme and no background colors</li> <li>Bright - a layout scheme with bright colors</li> <li>Accent - a layout scheme with four pre-defined color sets</li> <li>Dashboard - a layout scheme with additional borders and no background colors</li> <li>Mixed - a layout scheme with a mix of light and dark colors</li> </ul> Background colors are attached directly to the blocks of the layout.
 				/// 
 				/// Special full-width sections of the BlockLayout allow horizontal scrolling through a set of blocks.
 				/// 
 				/// <b>Note:</b> With version 1.48 colors can be set for each individual {@link sap.ui.layout.BlockLayoutCell cell}. There are 10 pre-defined color sets, each with 4 different shades. The main colors of the sets can be changed in Theme Designer. To change the background of a particular cell, set <code>backgroundColorSet</code> (main color) and <code>backgroundColorShade</code> (shade).
 				/// 
+				/// <b>Note:</b> Usage of disabled, emphasized or subtle links as titles is not recommended. Dark background designs, for example Accent, are not fully supported with regards to Аccessibility when used with links as titles.
+				/// 
 				/// <h3>Usage</h3> <h4>When to use</h4> <ul> <li>You want to create a catalogue-like page with sections of blocks.</li> <li>The BlockLayout is intended for developing administrative tools and applications.</li> </ul> <h4>When not to use</h4> <ul> <li>You want to display properties or features of one content item. Use a {@link sap.uxap.ObjectPageLayout object page} or {@link sap.f.DynamicPage dynamic page} instead.</li> </ul> <h3>Responsive Behavior</h3> <ul> <li>The breakpoints of the block layout react to the width of the control itself and not to the actual screen size.</li> <li> On small screens all blocks will wrap to a single scrollable column</li> </ul>
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.layout.BlockLayout")]
 				public partial class BlockLayout : sap.ui.core.Control
 				{
 					#region Settings
@@ -36,17 +41,17 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Determines the background used for the Layout
 						/// </summary>
-						public Union<sap.ui.layout.BlockBackgroundType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> background;
+						public Union<sap.ui.layout.BlockBackgroundType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> background;
 
 						/// <summary>
 						/// Keeps the font-size of the contents as is, independent from the screen size.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> keepFontSize;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> keepFontSize;
 
 						/// <summary>
 						/// The Rows to be included in the content of the control
 						/// </summary>
-						public Union<sap.ui.layout.BlockLayoutRow[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
+						public Union<sap.ui.layout.BlockLayoutRow[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
 
 					}
 

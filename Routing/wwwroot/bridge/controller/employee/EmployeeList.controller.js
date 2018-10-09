@@ -19,7 +19,7 @@ Bridge.assembly("RoutingClientScripts", function ($asm, globals) {
                 var $t, $t1, $t2;
                 var oItem = oEvent.getSource();
                 var oCtx = oItem.getBindingContext();
-                this.getRouter().navTo("employee", { employeeId: sapuimodelContextExtensions.getPropertyFor(Bridge.global.System.Object, System.Int32, oCtx, ($t = { ntype: 38, t: System.Object, n: "e" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"EmployeeID","t":16,"rt":System.Int32,"g":{"td":System.Object,"a":2,"n":"get_EmployeeID","t":8,"rt":System.Int32,"fg":"EmployeeID","box":function ($v) { return Bridge.box($v, System.Int32);}},"s":{"td":System.Object,"a":2,"n":"set_EmployeeID","t":8,"p":[System.Int32],"rt":System.Void,"fs":"EmployeeID"},"fn":"EmployeeID"}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })), false) });
+                this.getRouter().navTo("employee", { employeeId: sapuimodelContextExtensions.getPropertyFor(System.Object, System.Int32, oCtx, ($t = { ntype: 38, t: System.Object, n: "e" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"EmployeeID","t":16,"rt":System.Int32,"g":{"td":System.Object,"a":2,"n":"get_EmployeeID","t":8,"rt":System.Int32,"fg":"EmployeeID","box":function ($v) { return Bridge.box($v, System.Int32);}},"s":{"td":System.Object,"a":2,"n":"set_EmployeeID","t":8,"p":[System.Int32],"rt":System.Void,"fs":"EmployeeID"},"fn":"EmployeeID"}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })), false) });
             }
         }
     });

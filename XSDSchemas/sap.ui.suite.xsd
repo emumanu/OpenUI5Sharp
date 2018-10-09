@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:n21="sap.ui.suite" xmlns:n0="sap.ui.core" elementFormDefault="qualified" targetNamespace="sap.ui.suite" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="sap.ui.core" />
+  <xs:element name="TaskCircle" substitutionGroup="n0:Control" type="n21:_TaskCircleType">
+    <xs:annotation>
+      <xs:documentation>This control shows a circle which radius and color depends on the given parameters</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_TaskCircleType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="value" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Current value of the task circle to be displayed. In dependency of the parameters maxValue and minValue it controls the size of the circle.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="maxValue" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Upper limit of the displayed values. Default is 100.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="minValue" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Lower limit of the displayed values. Default is 0.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="color" type="n21:_TaskCircleColorType">
+          <xs:annotation>
+            <xs:documentation>Color of the circle. The default color is red.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaDescribedBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / ids which describe this control (see WAI-ARIA attribute aria-describedby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="press" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the user clicks the control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="VerticalProgressIndicator" substitutionGroup="n0:Control" type="n21:_VerticalProgressIndicatorType">
+    <xs:annotation>
+      <xs:documentation>This control shows a vertical progress bar in dependency of the given percentage. Only values between 0 and 100 are valid.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_VerticalProgressIndicatorType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="percentage" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>The numerical value between 0 and 100 which determines the height of the vertical bar. Values higher than 100 will be displayed as 100%, values lower than zero will be displayed as 0%.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaDescribedBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / ids which describe this control (see WAI-ARIA attribute aria-describedby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="press" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the user clicks the control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="_TaskCircleColorType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Gray">
+        <xs:annotation>
+          <xs:documentation>Default value</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Green">
+        <xs:annotation>
+          <xs:documentation>Green</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Red">
+        <xs:annotation>
+          <xs:documentation>Red</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Yellow">
+        <xs:annotation>
+          <xs:documentation>Yellow</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

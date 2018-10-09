@@ -1,7 +1,7 @@
 ﻿using Bridge;
 using System;
 using System.Linq;
-using OpenUI5Sharp;
+using UI5;
 
 namespace DatabindingClientScripts
 {
@@ -81,7 +81,7 @@ namespace DatabindingClientScripts
                 // The item is temporarily out of stock, so we will add a status
                 if (oContext.getProperty<int>("UnitsInStock") < 1) {
                     oUIControl.As<sap.m.ObjectListItem>().addAttribute(new sap.m.ObjectAttribute(new sap.m.ObjectAttribute.Settings() {
-                        text = new sap.ui.core.Element.BindElementInfo() {
+                        text = new sap.ui.@base.ManagedObject.BindPropertyInfo() {
                             path = "i18n>outOfStock"
                         }
                     }));

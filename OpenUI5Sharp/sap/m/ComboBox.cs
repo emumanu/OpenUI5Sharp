@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.ComboBox")]
 			public partial class ComboBox : sap.m.ComboBoxBase
 			{
 				#region Settings
@@ -30,27 +31,27 @@ namespace OpenUI5Sharp
 					/// 
 					/// <b>Note:</b> If duplicate keys exist, the first item matching the key is used.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedKey;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> selectedKey;
 
 					/// <summary>
 					/// ID of the selected item.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedItemId;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> selectedItemId;
 
 					/// <summary>
 					/// Indicates whether the text values of the <code>additionalText</code> property of a {@link sap.ui.core.ListItem} are shown.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showSecondaryValues;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showSecondaryValues;
 
 					/// <summary>
 					/// Indicates whether the filter should check in both the <code>text</code> and the <code>additionalText</code> property of the {@link sap.ui.core.ListItem} for the suggestion.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> filterSecondaryValues;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> filterSecondaryValues;
 
 					/// <summary>
 					/// Sets or retrieves the selected item from the aggregation named items.
 					/// </summary>
-					public Union<sap.ui.core.Item, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedItem;
+					public Union<sap.ui.core.Item, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> selectedItem;
 
 					/// <summary>
 					/// This event is fired when the value in the text input field is changed in combination with one of the following actions:

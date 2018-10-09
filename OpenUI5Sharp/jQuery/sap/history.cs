@@ -3,9 +3,9 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
-	public partial class jQuery
+	public abstract partial class jQuery
 	{
 		public static partial class sap
 		{
@@ -42,6 +42,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("jQuery.sap.history")]
 			[Obsolete("Deprecated since 1.19.1. Please use {@link sap.ui.core.routing.Route} instead.")]
 			public partial class history
 			{
@@ -144,24 +145,25 @@ namespace OpenUI5Sharp
 
 				[External]
 				[Namespace(false)]
+				[Name("jQuery.sap.history.NavType")]
 				public enum NavType
 				{
-						/// <summary>
-						/// This indicates that the new hash is achieved by pressing the back button.
-						/// </summary>
-						Back,
-						/// <summary>
-						/// This indicates that the new hash is restored from the bookmark.
-						/// </summary>
-						Bookmark,
-						/// <summary>
-						/// This indicates that the new hash is achieved by pressing the forward button.
-						/// </summary>
-						Forward,
-						/// <summary>
-						/// This indicates that the new hash is achieved by some unknown direction. This happens when the user navigates out of the application and then click on the forward button in the browser to navigate back to the application.
-						/// </summary>
-						Unknown,
+					/// <summary>
+					/// This indicates that the new hash is achieved by pressing the back button.
+					/// </summary>
+					Back,
+					/// <summary>
+					/// This indicates that the new hash is restored from the bookmark.
+					/// </summary>
+					Bookmark,
+					/// <summary>
+					/// This indicates that the new hash is achieved by pressing the forward button.
+					/// </summary>
+					Forward,
+					/// <summary>
+					/// This indicates that the new hash is achieved by some unknown direction. This happens when the user navigates out of the application and then click on the forward button in the browser to navigate back to the application.
+					/// </summary>
+					Unknown,
 				}
 			}
 		}

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.core.BusyIndicator")]
 				public static partial class BusyIndicator
 				{
 					#region Typed Parameters
@@ -31,7 +32,7 @@ namespace OpenUI5Sharp
 						/// is the jQuery object of the BusyIndicator
 						/// </summary>
 						[Name("$Busy")]
-						public jquery.JQuery<object> dollarBusy;
+						public jquery.JQuery<dom.HTMLElement> dollarBusy;
 
 					}
 

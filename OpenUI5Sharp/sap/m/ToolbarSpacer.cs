@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.ToolbarSpacer")]
 			public partial class ToolbarSpacer : sap.ui.core.Control
 			{
 				#region Settings
@@ -30,7 +31,7 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the width of the horizontal space. Note: Empty("") value makes the space flexible which means it covers the remaining space between toolbar items. This feature can be used to push next item to the edge of the toolbar.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 				}
 

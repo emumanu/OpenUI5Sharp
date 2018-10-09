@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.BusyDialog")]
 			public partial class BusyDialog : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,54 +29,54 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Optional text displayed inside the dialog.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> text;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> text;
 
 					/// <summary>
 					/// Sets the title of the BusyDialog. The default value is an empty string.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> title;
 
 					/// <summary>
 					/// Icon, used from the BusyIndicator. This icon is invisible in iOS platform and it is density aware. You can use the density convention (@2, @1.5, etc.) to provide higher resolution image for higher density screens.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> customIcon;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> customIcon;
 
 					/// <summary>
 					/// Defines the rotation speed of the given image. If GIF file is used, the speed has to be set to 0. The value is in milliseconds.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> customIconRotationSpeed;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> customIconRotationSpeed;
 
 					/// <summary>
 					/// If this is set to <code>false</code>, the source image will be loaded directly without attempting to fetch the density perfect image for high density devices. By default, this is set to <code>true</code> but then one or more requests are sent trying to get the density perfect version of the image.
 					/// 
 					/// If bandwidth is the key for the application, set this value to <code>false</code>.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> customIconDensityAware;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> customIconDensityAware;
 
 					/// <summary>
 					/// Width of the provided icon with default value "44px".
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> customIconWidth;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> customIconWidth;
 
 					/// <summary>
 					/// Height of the provided icon with default value "44px".
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> customIconHeight;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> customIconHeight;
 
 					/// <summary>
 					/// The text of the cancel button. The default text is "Cancel" (translated to the respective language).
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> cancelButtonText;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> cancelButtonText;
 
 					/// <summary>
 					/// Indicates if the cancel button will be rendered inside the busy dialog. The default value is set to <code>false</code>.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showCancelButton;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showCancelButton;
 
 					/// <summary>
 					/// Association to controls / IDs which label this control (see WAI-ARIA attribute aria-labelledby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 					/// <summary>
 					/// Fires when the busy dialog is closed.
@@ -452,6 +453,12 @@ namespace OpenUI5Sharp
 				/// <param name="isClosedFromUserInteraction">Indicates if the BusyDialog is closed from a user interaction.</param>
 				/// <returns>The modified BusyDialog.</returns>
 				public extern virtual sap.m.BusyDialog close(bool isClosedFromUserInteraction);
+
+				/// <summary>
+				/// Closes the BusyDialog.
+				/// </summary>
+				/// <returns>The modified BusyDialog.</returns>
+				public extern virtual sap.m.BusyDialog close();
 
 				/// <summary>
 				/// Creates a new subclass of class sap.m.BusyDialog with name <code>sClassName</code> and enriches it with the information contained in <code>oClassInfo</code>.

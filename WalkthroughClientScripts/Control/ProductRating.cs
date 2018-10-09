@@ -1,9 +1,9 @@
 ﻿using Bridge;
 using System;
 using System.Linq;
-using OpenUI5Sharp;
+using UI5;
 using System.Collections.Generic;
-using OpenUI5Sharp.Metadata;
+using UI5.Metadata;
 
 namespace WalkthroughClientScripts
 {
@@ -11,13 +11,26 @@ namespace WalkthroughClientScripts
     [Name("sap.ui.demo.walkthrough.control.ProductRating")]
     public class ProductRating : sap.ui.core.Control
     {
-        
         [Constructor("{}")]
         //[ObjectLiteral]
         public class RatingInfo
         {
             public float value;
         }
+
+        public static Metadata metadata = new Metadata() {
+            properties = new Map<Union<string, PropertyInfo>>() {
+                { "value", new PropertyInfo() { type = "float", defaultValue = 0 }}
+            },
+            aggregations = new Map<Union<string, AggregationInfo>>() {
+                { "_rating", new AggregationInfo() { type = "sap.m.RatingIndicator", multiple = false, visibility = "hidden" }},
+                { "_label", new AggregationInfo() { type = "sap.m.Label", multiple = false, visibility = "hidden" }},
+                { "_button", new AggregationInfo() { type = "sap.m.Button", multiple = false, visibility = "hidden" }}
+            },
+            events = new Map<Union<string, EventInfo>>() {
+                { "change", TypedMetadata.CreateUI5EventInfo<RatingInfo>() }
+            }
+        };
 
         [Init(InitPosition.Bottom)]
         public static void Script()
@@ -30,20 +43,7 @@ namespace WalkthroughClientScripts
                 },
                 new Func<object>(
                     () => {
-                        var metadata = new Metadata() {
-                            properties = new Map<Union<string, PropertyInfo>>() {
-                                { "value", new PropertyInfo() { type = "float", defaultValue = 0 }}
-                            },
-                            aggregations = new Map<Union<string, AggregationInfo>>() {
-                                { "_rating", new AggregationInfo() { type = "sap.m.RatingIndicator", multiple = false, visibility = "hidden" }},
-                                { "_label", new AggregationInfo() { type = "sap.m.Label", multiple = false, visibility = "hidden" }},
-                                { "_button", new AggregationInfo() { type = "sap.m.Button", multiple = false, visibility = "hidden" }}
-                            },
-                            events = new Map<Union<string, EventInfo>>() {
-                                { "change", TypedMetadata.CreateUI5EventInfo<RatingInfo>() }
-                            }
-                        };
-                        var newObj = Glue.CreateRawClassObject<ProductRating>(metadata);
+                        var newObj = Glue.CreateRawClassObject<ProductRating>();
                         return sap.ui.core.Control.extend(nameof(ProductRating), newObj);
                     }
                 )

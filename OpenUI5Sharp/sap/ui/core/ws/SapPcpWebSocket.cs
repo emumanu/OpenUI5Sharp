@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.ws.SapPcpWebSocket")]
 					public partial class SapPcpWebSocket : sap.ui.core.ws.WebSocket
 					{
 						#region Typed Parameters
@@ -149,9 +150,10 @@ namespace OpenUI5Sharp
 						/// </summary>
 						[External]
 						[Namespace(false)]
+						[Name("sap.ui.core.ws.SapPcpWebSocket.SUPPORTED_PROTOCOLS")]
 						public enum SUPPORTED_PROTOCOLS
 						{
-								v10,
+							v10,
 						}
 					}
 				}

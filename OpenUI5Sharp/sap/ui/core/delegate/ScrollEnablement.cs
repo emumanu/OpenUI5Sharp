@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -22,6 +22,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.delegate.ScrollEnablement")]
 					public partial class ScrollEnablement : sap.ui.@base.Object
 					{
 						#region Constructor
@@ -80,7 +81,7 @@ namespace OpenUI5Sharp
 						/// </summary>
 						/// <param name="vElement">An element(DOM or jQuery) for which the scroll position will be calculated.</param>
 						/// <returns>Position object.</returns>
-						public extern virtual object getChildPosition(Union<dom.HTMLElement, jquery.JQuery<object>> vElement);
+						public extern virtual object getChildPosition(Union<dom.HTMLElement, jQuery> vElement);
 
 						/// <summary>
 						/// Get current setting for horizontal scrolling.
@@ -117,8 +118,8 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Setter for property <code>bounce</code>.
 						/// </summary>
-						[Obsolete("Deprecated since 1.42.")]
 						/// <param name="bBounce">new value for property <code>bounce</code>.</param>
+						[Obsolete("Deprecated since 1.42.")]
 						public extern virtual void setBounce(bool bBounce);
 
 						/// <summary>

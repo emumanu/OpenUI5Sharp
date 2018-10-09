@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -22,6 +22,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.core.HTML")]
 				public partial class HTML : sap.ui.core.Control
 				{
 					#region Settings
@@ -46,7 +47,7 @@ namespace OpenUI5Sharp
 						/// 
 						/// When changing the content dynamically, ensure that the ID of the root node remains the same as the HTML control's ID. Otherwise it cannot be guaranteed that certain lifecycle events take place.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> content;
 
 						/// <summary>
 						/// Whether existing DOM content is preferred over the given content string.
@@ -55,19 +56,19 @@ namespace OpenUI5Sharp
 						/// 
 						/// As preserving the existing DOM is the most common use case of the HTML control, the default value is true.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> preferDOM;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> preferDOM;
 
 						/// <summary>
 						/// Whether to run the HTML sanitizer once the content (HTML markup) is applied or not.
 						/// 
 						/// To configure allowed URLs please use the whitelist API via jQuery.sap.addUrlWhitelist.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> sanitizeContent;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> sanitizeContent;
 
 						/// <summary>
 						/// Specifies whether the control is visible. Invisible controls are not rendered.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visible;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visible;
 
 						/// <summary>
 						/// Fired after the HTML control has been rendered. Allows to manipulate the resulting DOM.

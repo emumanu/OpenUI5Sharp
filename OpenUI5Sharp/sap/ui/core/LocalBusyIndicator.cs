@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.core.LocalBusyIndicator")]
 				[Obsolete("Deprecated since 1.14.2. The LocalBusyIndicator Control is not needed anymore by the new implementation of the LBI. Hence, it is not used anymore.")]
 				public partial class LocalBusyIndicator : sap.ui.core.Control
 				{
@@ -31,12 +32,12 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// This property is the width of the control that has to be covered. With this width the position of the animation can be properly set.
 						/// </summary>
-						public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+						public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 						/// <summary>
 						/// This property is the height of the control that has to be covered. With this height the position of the animation can be properly set.
 						/// </summary>
-						public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> height;
+						public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> height;
 
 					}
 

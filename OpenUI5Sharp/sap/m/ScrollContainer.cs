@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.ScrollContainer")]
 			public partial class ScrollContainer : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,38 +29,38 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// The width of the ScrollContainer. If not set, it consumes the complete available width, behaving like normal HTML block elements. If only vertical scrolling is enabled, make sure the content always fits or wraps.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// The height of the ScrollContainer. By default the height equals the content height. If only horizontal scrolling is used, do not set the height or make sure the height is always larger than the height of the content.
 					/// 
 					/// Note that when a percentage is given, for the height to work as expected, the height of the surrounding container must be defined.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> height;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> height;
 
 					/// <summary>
 					/// Whether horizontal scrolling should be possible.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> horizontal;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> horizontal;
 
 					/// <summary>
 					/// Whether vertical scrolling should be possible.
 					/// 
 					/// Note that this is off by default because typically a Page is used as fullscreen element which can handle vertical scrolling. If this is not the case and vertical scrolling is required, this flag needs to be set to "true". Important: it is not supported to have nested controls that both enable scrolling into the same dimension.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> vertical;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> vertical;
 
 					/// <summary>
 					/// Whether the scroll container can be focused.
 					/// 
 					/// Note that it should be set to "true" when there are no focusable elements inside or when keyboard interaction requires an additional tab stop on the container.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> focusable;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> focusable;
 
 					/// <summary>
 					/// The content of the ScrollContainer.
 					/// </summary>
-					public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
+					public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
 
 				}
 

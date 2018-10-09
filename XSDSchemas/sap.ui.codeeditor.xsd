@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:n15="sap.ui.codeeditor" xmlns:n0="sap.ui.core" elementFormDefault="qualified" targetNamespace="sap.ui.codeeditor" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="sap.ui.core" />
+  <xs:element name="CodeEditor" substitutionGroup="n0:Control" type="n15:_CodeEditorType">
+    <xs:annotation>
+      <xs:documentation>Allows to visualize source code of various types with syntax highlighting, line numbers in editable and read only mode. Use this controls in scenarios where the user should be able to inspect and edit source code. NOTE: There is a known limitation where CodeEditor won't work within IconTabBar on Internet Explorer. There is a way to achieve the same functionality - an example of IconTabHeader and a CodeEditor can be found in the CodeEditor's samples.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_CodeEditorType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="value" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The value displayed in the code editor</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="type" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The type of the code in the editor used for syntax highlighting Possible types are: abap, abc, actionscript, ada, apache_conf, applescript, asciidoc, assembly_x86, autohotkey, batchfile, bro, c9search, c_cpp, cirru, clojure, cobol, coffee, coldfusion, csharp, css, curly, d, dart, diff, django, dockerfile, dot, drools, eiffel, ejs, elixir, elm, erlang, forth, fortran, ftl, gcode, gherkin, gitignore, glsl, gobstones, golang, groovy, haml, handlebars, haskell, haskell_cabal, haxe, hjson, html, html_elixir, html_ruby, ini, io, jack, jade, java, javascript, json, jsoniq, jsp, jsx, julia, kotlin, latex, lean, less, liquid, lisp, live_script, livescript, logiql, lsl, lua, luapage, lucene, makefile, markdown, mask, matlab, mavens_mate_log, maze, mel, mips_assembler, mipsassembler, mushcode, mysql, nix, nsis, objectivec, ocaml, pascal, perl, pgsql, php, plain_text, powershell, praat, prolog, properties, protobuf, python, r, razor, rdoc, rhtml, rst, ruby, rust, sass, scad, scala, scheme, scss, sh, sjs, smarty, snippets, soy_template, space, sql, sqlserver, stylus, svg, swift, swig, tcl, tex, text, textile, toml, tsx, twig, typescript, vala, vbscript, velocity, verilog, vhdl, wollok, xml, xquery, yaml</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>The width of the code editor</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>The height of the code editor. A minimal height of 3rem will be applied in case the height is less than 20px.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="editable" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Sets whether the code in the editor can be changed by the user</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="lineNumbers" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Sets whether line numbers should be shown</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="valueSelection" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Sets whether the code is automatically selected if a value is set</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="maxLines" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Sets whether the editor height should auto expand to a maximum number of lines. After reaching the maximum number of lines specified, the content of the &lt;code&gt;CodeEditor&lt;/code&gt; will become scrollable.
+
+&lt;b&gt;Note:&lt;/b&gt; Keep in mind that the auto expand &lt;code&gt;CodeEditor&lt;/code&gt; behavior requires the &lt;code&gt;height&lt;/code&gt; property to be set to &lt;code&gt;auto&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="colorTheme" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Sets the editors color theme Possible values are: default, hcb, hcb_bright, hcb_blue, theme-ambiance, chaos, chrome, clouds, clouds_midnight, cobalt, crimson_editor, dawn, dreamweaver, eclipse, github, gob, gruvbox, idle_fingers, iplastic, katzenmilch, kr_theme, kuroir, merbivore, merbivore_soft, mono_industrial, monokai, pastel_on_dark, solarized_dark, solarized_light, sqlserver, terminal, textmate, tomorrow, tomorrow_night, tomorrow_night_blue, tomorrow_night_bright, tomorrow_night_eighties, twilight, vibrant_ink, xcode</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="syntaxHints" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Sets whether to show syntax hints the editor. This flag is only available if line numbers are shown.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="liveChange" type="xs:string" />
+        <xs:attribute name="change" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

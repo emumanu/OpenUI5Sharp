@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -13,6 +13,7 @@ namespace OpenUI5Sharp
 			{
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.model.SelectionModel")]
 				public partial class SelectionModel : sap.ui.@base.EventProvider
 				{
 					#region Constructor

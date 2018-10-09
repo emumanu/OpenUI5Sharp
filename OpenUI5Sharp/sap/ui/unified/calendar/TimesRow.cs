@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -20,6 +20,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.unified.calendar.TimesRow")]
 					public partial class TimesRow : sap.ui.core.Control
 					{
 						#region Settings
@@ -34,17 +35,17 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// A date as JavaScript Date object. The month including this date is rendered and this date is focused initially (if no other focus is set). If the date property is not in the range <code>startDate</code> + <code>items</code> in the rendering phase, it is set to the <code>startDate</code>. So after setting the <code>startDate</code> the date should be set to be in the visible range.
 							/// </summary>
-							public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> date;
+							public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> date;
 
 							/// <summary>
 							/// Start date, as JavaScript Date object, of the row.
 							/// </summary>
-							public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> startDate;
+							public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> startDate;
 
 							/// <summary>
 							/// Number of time items displayed
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> items;
 
 							/// <summary>
 							/// Size of on time interval in minutes, default is 60 minutes.
@@ -55,46 +56,46 @@ namespace OpenUI5Sharp
 							/// 
 							/// A day must be divisible by this interval size. One interval must not include more than one day.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> intervalMinutes;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> intervalMinutes;
 
 							/// <summary>
 							/// If set, interval selection is allowed
 							/// </summary>
-							public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> intervalSelection;
+							public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> intervalSelection;
 
 							/// <summary>
 							/// If set, only a single month or interval, if intervalSelection is enabled, can be selected
 							/// 
 							/// <b>Note:</b> Selection of multiple intervals is not supported in the current version.
 							/// </summary>
-							public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> singleSelection;
+							public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> singleSelection;
 
 							/// <summary>
 							/// If set, a header with the years is shown to visualize what month belongs to what year.
 							/// </summary>
-							public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showHeader;
+							public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showHeader;
 
 							/// <summary>
 							/// Date ranges for selected dates. If <code>singleSelection</code> is set, only the first entry is used.
 							/// </summary>
-							public Union<sap.ui.unified.DateRange[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedDates;
+							public Union<sap.ui.unified.DateRange[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedDates;
 
 							/// <summary>
 							/// Date ranges with type to visualize special item in the row. If one day is assigned to more than one type, only the first one will be used.
 							/// </summary>
-							public Union<sap.ui.unified.DateTypeRange[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> specialDates;
+							public Union<sap.ui.unified.DateTypeRange[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> specialDates;
 
 							/// <summary>
 							/// Association to controls / IDs which label this control (see WAI-ARIA attribute aria-labelledby).
 							/// </summary>
-							public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+							public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 							/// <summary>
 							/// Association to the <code>CalendarLegend</code> explaining the colors of the <code>specialDates</code>.
 							/// 
 							/// <b>Note</b> The legend does not have to be rendered but must exist, and all required types must be assigned.
 							/// </summary>
-							public Union<sap.ui.unified.CalendarLegend, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> legend;
+							public Union<sap.ui.unified.CalendarLegend, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> legend;
 
 							/// <summary>
 							/// Time selection changed

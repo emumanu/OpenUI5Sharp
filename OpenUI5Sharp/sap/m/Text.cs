@@ -3,17 +3,18 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
 		public static partial class m
 		{
 			/// <summary>
-			/// The <code>Text</code> control can be used for embedding longer text paragraphs, that need text wrapping, into your app. If the configured text value contains HTML code or script tags, those will be escaped.<br> <b>Note: </b>Line breaks (\r\n, \n\r, \r, \n) will always be visualized except when the <code>wrapping</code> property is set to <code>false</code>. In addition, tabs (\t) and whitespace (" ") can be preserved by setting the <code>renderWhitespace</code> property to <code>true</code>
+			/// The <code>Text</code> control can be used for embedding longer text paragraphs, that need text wrapping, into your app. If the configured text value contains HTML code or script tags, those will be escaped.<br> <b>Note: </b>Line breaks will always be visualized except when the <code>wrapping</code> property is set to <code>false</code>. In addition, tabs and whitespace can be preserved by setting the <code>renderWhitespace</code> property to <code>true</code>
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.Text")]
 			public partial class Text : sap.ui.core.Control, sap.ui.core.IShrinkable, sap.ui.core.IFormContent
 			{
 				#region Settings
@@ -28,41 +29,39 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Determines the text to be displayed.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> text;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> text;
 
 					/// <summary>
 					/// Available options for the text direction are LTR and RTL. By default the control inherits the text direction from its parent control.
 					/// </summary>
-					public Union<sap.ui.core.TextDirection, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> textDirection;
+					public Union<sap.ui.core.TextDirection, string, sap.ui.@base.ManagedObject.BindPropertyInfo> textDirection;
 
 					/// <summary>
 					/// Enables text wrapping.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> wrapping;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> wrapping;
 
 					/// <summary>
 					/// Sets the horizontal alignment of the text.
 					/// </summary>
-					public Union<sap.ui.core.TextAlign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> textAlign;
+					public Union<sap.ui.core.TextAlign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> textAlign;
 
 					/// <summary>
 					/// Sets the width of the Text control. By default, the Text control uses the full width available. Set this property to restrict the width to a custom value.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// Limits the number of lines for wrapping texts.
 					/// 
 					/// <b>Note</b>: The multi-line overflow indicator depends on the browser line clamping support. For such browsers, this will be shown as ellipsis, for the other browsers the overflow will just be hidden.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maxLines;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> maxLines;
 
 					/// <summary>
 					/// Specifies how whitespace and tabs inside the control are handled. If true, whitespace will be preserved by the browser. Depending on wrapping property text will either only wrap on line breaks or wrap when necessary, and on line breaks.
-					/// 
-					/// <b>Note:</b> Special characters that can be used are : \t , \n and " " respectively Tab, New line and Space.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> renderWhitespace;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> renderWhitespace;
 
 				}
 
@@ -307,8 +306,6 @@ namespace OpenUI5Sharp
 				/// 
 				/// Specifies how whitespace and tabs inside the control are handled. If true, whitespace will be preserved by the browser. Depending on wrapping property text will either only wrap on line breaks or wrap when necessary, and on line breaks.
 				/// 
-				/// <b>Note:</b> Special characters that can be used are : \t , \n and " " respectively Tab, New line and Space.
-				/// 
 				/// Default value is <code>false</code>.
 				/// </summary>
 				/// <returns>Value of property <code>renderWhitespace</code></returns>
@@ -318,8 +315,6 @@ namespace OpenUI5Sharp
 				/// Sets a new value for property {@link #getRenderWhitespace renderWhitespace}.
 				/// 
 				/// Specifies how whitespace and tabs inside the control are handled. If true, whitespace will be preserved by the browser. Depending on wrapping property text will either only wrap on line breaks or wrap when necessary, and on line breaks.
-				/// 
-				/// <b>Note:</b> Special characters that can be used are : \t , \n and " " respectively Tab, New line and Space.
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// 

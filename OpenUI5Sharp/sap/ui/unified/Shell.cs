@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.unified.Shell")]
 				[Obsolete("Deprecated since 1.44.0.")]
 				public partial class Shell : sap.ui.unified.ShellLayout
 				{
@@ -31,52 +32,52 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// The application icon. If a custom header is set this property has no effect.
 						/// </summary>
-						public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> icon;
+						public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> icon;
 
 						/// <summary>
 						/// Shows / Hides the curtain.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showCurtain;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showCurtain;
 
 						/// <summary>
 						/// Shows / Hides the side pane on the curtain.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showCurtainPane;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showCurtainPane;
 
 						/// <summary>
 						/// If set to false, the search area (aggregation 'search') is hidden. If a custom header is set this property has no effect.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> searchVisible;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> searchVisible;
 
 						/// <summary>
 						/// The content to appear in the curtain area.
 						/// </summary>
-						public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> curtainContent;
+						public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> curtainContent;
 
 						/// <summary>
 						/// The content to appear in the pane area of the curtain.
 						/// </summary>
-						public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> curtainPaneContent;
+						public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> curtainPaneContent;
 
 						/// <summary>
 						/// The buttons shown in the begin (left in left-to-right case) of the Shell header. Currently max. 3 visible buttons are supported. If a custom header is set this aggregation has no effect.
 						/// </summary>
-						public Union<sap.ui.unified.ShellHeadItem[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> headItems;
+						public Union<sap.ui.unified.ShellHeadItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> headItems;
 
 						/// <summary>
 						/// The buttons shown in the end (right in left-to-right case) of the Shell header. Currently max. 3 visible buttons are supported (when user is set only 1). If a custom header is set this aggregation has no effect.
 						/// </summary>
-						public Union<sap.ui.unified.ShellHeadItem[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> headEndItems;
+						public Union<sap.ui.unified.ShellHeadItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> headEndItems;
 
 						/// <summary>
 						/// Experimental (This aggregation might change in future!): The search control which should be displayed in the shell header. If a custom header is set this aggregation has no effect.
 						/// </summary>
-						public Union<sap.ui.core.Control, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> search;
+						public Union<sap.ui.core.Control, string, sap.ui.@base.ManagedObject.BindAggregationInfo> search;
 
 						/// <summary>
 						/// The user item which is rendered in the shell header beside the items. If a custom header is set this aggregation has no effect.
 						/// </summary>
-						public Union<sap.ui.unified.ShellHeadUserItem, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> user;
+						public Union<sap.ui.unified.ShellHeadUserItem, string, sap.ui.@base.ManagedObject.BindAggregationInfo> user;
 
 					}
 
@@ -150,8 +151,8 @@ namespace OpenUI5Sharp
 					/// 
 					/// Shows / Hides the curtain.
 					/// </summary>
-					[Obsolete("Deprecated since 1.16.3. Curtain is deprecated and replaced by ShellOverlay mechanism.")]
 					/// <returns>Value of property <code>showCurtain</code></returns>
+					[Obsolete("Deprecated since 1.16.3. Curtain is deprecated and replaced by ShellOverlay mechanism.")]
 					public extern virtual bool getShowCurtain();
 
 					/// <summary>
@@ -161,9 +162,9 @@ namespace OpenUI5Sharp
 					/// 
 					/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 					/// </summary>
-					[Obsolete("Deprecated since 1.16.3. Curtain is deprecated and replaced by ShellOverlay mechanism.")]
 					/// <param name="bShowCurtain">New value for property <code>showCurtain</code></param>
 					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					[Obsolete("Deprecated since 1.16.3. Curtain is deprecated and replaced by ShellOverlay mechanism.")]
 					public extern virtual sap.ui.unified.Shell setShowCurtain(bool bShowCurtain);
 
 					#endregion
@@ -175,8 +176,8 @@ namespace OpenUI5Sharp
 					/// 
 					/// Shows / Hides the side pane on the curtain.
 					/// </summary>
-					[Obsolete("Deprecated since 1.16.3. Curtain is deprecated and replaced by ShellOverlay mechanism.")]
 					/// <returns>Value of property <code>showCurtainPane</code></returns>
+					[Obsolete("Deprecated since 1.16.3. Curtain is deprecated and replaced by ShellOverlay mechanism.")]
 					public extern virtual bool getShowCurtainPane();
 
 					/// <summary>
@@ -186,9 +187,9 @@ namespace OpenUI5Sharp
 					/// 
 					/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 					/// </summary>
-					[Obsolete("Deprecated since 1.16.3. Curtain is deprecated and replaced by ShellOverlay mechanism.")]
 					/// <param name="bShowCurtainPane">New value for property <code>showCurtainPane</code></param>
 					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					[Obsolete("Deprecated since 1.16.3. Curtain is deprecated and replaced by ShellOverlay mechanism.")]
 					public extern virtual sap.ui.unified.Shell setShowCurtainPane(bool bShowCurtainPane);
 
 					#endregion

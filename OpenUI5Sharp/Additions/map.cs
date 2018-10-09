@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Bridge;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
     /// <summary>
     /// This class represents a Map with string keys and TValue values, but using just javascript properties
@@ -11,14 +11,18 @@ namespace OpenUI5Sharp
     /// <typeparam name="TValue">The type of </typeparam>
     [External]
     [Constructor("{}")]
-    [Namespace(false)]
     public class Map<TValue> : IEnumerable
     {
         [Template("{this}[{key}] = {value}")]
         public extern void Add(string key, TValue value);
 
-        [External]
         extern IEnumerator IEnumerable.GetEnumerator();
+
+        [Template("{this}['{TType}']")]
+        public extern TType Get<TType>();
+
+        [Template("{this}['{TType}'] = {value}")]
+        public extern TType Set<TType>(object value);
     }
 
     /// <summary>
@@ -26,7 +30,6 @@ namespace OpenUI5Sharp
     /// </summary>
     [External]
     [Constructor("{}")]
-    [Namespace(false)]
     public class Map : Map<object>
     {
     }

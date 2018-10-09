@@ -3,13 +3,13 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
 		public static partial class ui
 		{
-			public static partial class Device
+			public partial class Device
 			{
 				/// <summary>
 				/// Provides a basic categorization of the used device based on various indicators.
@@ -20,7 +20,8 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
-				public static partial class system
+				[Name("sap.ui.Device.system")]
+				public partial class System
 				{
 					#region Fields
 
@@ -31,21 +32,21 @@ namespace OpenUI5Sharp
 					/// 
 					/// <b>Note:</b> This property is mainly for Microsoft Windows 8 (and following) devices where the mouse and touch event may be supported natively by the browser being used. This property is set to <code>true</code> only when both mouse and touch event are natively supported.
 					/// </summary>
-					public static bool combi;
+					public bool combi;
 
 					/// <summary>
 					/// If this flag is set to <code>true</code>, the device is recognized as a desktop system.
 					/// 
 					/// Furthermore, a CSS class <code>sap-desktop</code> is added to the document root element.
 					/// </summary>
-					public static bool desktop;
+					public bool desktop;
 
 					/// <summary>
 					/// If this flag is set to <code>true</code>, the device is recognized as a phone.
 					/// 
 					/// Furthermore, a CSS class <code>sap-phone</code> is added to the document root element.
 					/// </summary>
-					public static bool phone;
+					public bool phone;
 
 					/// <summary>
 					/// If this flag is set to <code>true</code>, the device is recognized as a tablet.
@@ -60,7 +61,7 @@ namespace OpenUI5Sharp
 					/// }
 					/// </pre>
 					/// </summary>
-					public static bool tablet;
+					public bool tablet;
 
 					#endregion
 

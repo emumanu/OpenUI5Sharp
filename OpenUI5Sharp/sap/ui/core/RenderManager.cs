@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -22,6 +22,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.core.RenderManager")]
 				public partial class RenderManager : Object
 				{
 					#region Constructor
@@ -124,7 +125,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					/// <param name="sId">control id to search content for.</param>
 					/// <returns>a jQuery collection representing the found content</returns>
-					public extern static jquery.JQuery<object> findPreservedContent(string sId);
+					public extern static jQuery findPreservedContent(string sId);
 
 					/// <summary>
 					/// Renders the content of the rendering buffer into the provided DOM node.
@@ -164,9 +165,9 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Renders the given {@link sap.ui.core.Control} and finally returns the content of the rendering buffer. Ensures the buffer is restored to the state before calling this method.
 					/// </summary>
-					[Obsolete("Deprecated since 0.15.0. Use <code>flush()</code> instead render content outside the rendering phase.")]
 					/// <param name="oControl">the Control whose HTML should be returned.</param>
 					/// <returns>the resulting HTML of the provided control</returns>
+					[Obsolete("Deprecated since 0.15.0. Use <code>flush()</code> instead render content outside the rendering phase.")]
 					public extern virtual string getHTML(sap.ui.core.Control oControl);
 
 					/// <summary>
@@ -214,8 +215,8 @@ namespace OpenUI5Sharp
 					/// <returns>this render manager instance to allow chaining</returns>
 					public extern virtual sap.ui.core.RenderManager renderControl(sap.ui.core.Control oControl);
 
-					[Obsolete("Deprecated since 1.1. never has been implemented - DO NOT USE")]
 					/// <param name="sKey"></param>
+					[Obsolete("Deprecated since 1.1. never has been implemented - DO NOT USE")]
 					public extern virtual void translate(string sKey);
 
 					/// <summary>
@@ -225,8 +226,8 @@ namespace OpenUI5Sharp
 					/// <returns>this render manager instance to allow chaining</returns>
 					public extern virtual sap.ui.core.RenderManager write(Union<string, int> sText);
 
-					[Obsolete("Deprecated since 1.1. never has been implemented - DO NOT USE")]
 					/// <returns>this render manager instance to allow chaining</returns>
+					[Obsolete("Deprecated since 1.1. never has been implemented - DO NOT USE")]
 					public extern virtual sap.ui.core.RenderManager writeAcceleratorKey();
 
 					/// <summary>

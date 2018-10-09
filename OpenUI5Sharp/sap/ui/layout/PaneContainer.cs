@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.layout.PaneContainer")]
 				public partial class PaneContainer : sap.ui.core.Element
 				{
 					#region Settings
@@ -32,12 +33,12 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// The orientation of the Splitter
 						/// </summary>
-						public Union<sap.ui.core.Orientation, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> orientation;
+						public Union<sap.ui.core.Orientation, string, sap.ui.@base.ManagedObject.BindPropertyInfo> orientation;
 
 						/// <summary>
 						/// The Pane that will be shown when there is no suitable pane for ResponsiveSplitter's current width.
 						/// </summary>
-						public Union<sap.ui.core.Element[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> panes;
+						public Union<sap.ui.core.Element[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> panes;
 
 					}
 

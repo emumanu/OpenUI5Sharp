@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Views\Index6.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Views\UI5\App.view.xml" />
+    <Content Include="Views\UI5\Home.view.xml" />
+    <Content Include="Views\UI5\settings\AppSettings.view.xml" />
+    <Content Include="Views\UI5\settings\DetailSettings.view.xml" />
+    <Content Include="Views\UI5\settings\MasterSettings.view.xml" />
+    <Content Include="Views\UI5\Statistics.view.xml" />
+    <Content Include="Views\UI5\StatisticsD3.view.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\lib\ui5\bridge.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\ui5\bridge.meta.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\ui5\bridge.meta.min.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\ui5\bridge.min.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\ui5\openui5sharp-test.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\ui5\openui5sharp-test.min.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\ui5\openui5sharp.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\lib\ui5\openui5sharp.min.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties wwwroot_4ui5_4manifest_1json__JSONSchema="http://json.schemastore.org/ui5-manifest" /></VisualStudio></ProjectExtensions>
+
+</Project>

@@ -2,8 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using OpenUI5Sharp;
-using OpenUI5Sharp.Extensions;
+using UI5;
+using UI5.Extensions;
 
 namespace RoutingClientScripts
 {

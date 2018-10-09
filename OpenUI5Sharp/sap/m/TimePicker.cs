@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -46,6 +46,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.TimePicker")]
 			public partial class TimePicker : sap.m.DateTimeField
 			{
 				#region Settings
@@ -64,49 +65,49 @@ namespace OpenUI5Sharp
 					/// 
 					/// Example: AM in the string "09:04 AM" is locale (language) dependent. The format comes from the browser language settings if not set explicitly. Used in combination with 12 hour <code>displayFormat</code> containing 'a', which stands for day period string.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> localeId;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> localeId;
 
 					/// <summary>
 					/// Displays the text of the general picker label and is read by screen readers. It is visible only on phone.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> title;
 
 					/// <summary>
 					/// Sets the minutes slider step. If step is less than 1, it will be automatically converted back to 1. The minutes slider is populated only by multiples of the step.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> minutesStep;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> minutesStep;
 
 					/// <summary>
 					/// Sets the seconds slider step. If step is less than 1, it will be automatically converted back to 1. The seconds slider is populated only by multiples of the step.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> secondsStep;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> secondsStep;
 
 					/// <summary>
 					/// Defines a placeholder symbol. Shown at the position where there is no user input yet.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> placeholderSymbol;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> placeholderSymbol;
 
 					/// <summary>
 					/// Mask defined by its characters type (respectively, by its length). You should consider the following important facts: 1. The mask characters normally correspond to an existing rule (one rule per unique char). Characters which don't, are considered immutable characters (for example, the mask '2099', where '9' corresponds to a rule for digits, has the characters '2' and '0' as immutable). 2. Adding a rule corresponding to the <code>placeholderSymbol</code> is not recommended and would lead to an unpredictable behavior. 3. You can use the special escape character '^' called "Caret" prepending a rule character to make it immutable. Use the double escape '^^' if you want to make use of the escape character as an immutable one.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> mask;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> mask;
 
 					/// <summary>
 					/// Defines whether the mask is enabled. When disabled, there are no restrictions and validation for the user and no placeholders are displayed.
 					/// 
 					/// <b>Note:</b> A disabled mask does not reset any validation rules that are already set. You can update the <code>mask</code> property and add new <code>rules</code> while it is disabled. When <code>maskMode</code> is set to <code>On</code> again, the <code>rules</code> and the updated <code>mask</code> will be applied.
 					/// </summary>
-					public Union<sap.m.TimePickerMaskMode, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maskMode;
+					public Union<sap.m.TimePickerMaskMode, string, sap.ui.@base.ManagedObject.BindPropertyInfo> maskMode;
 
 					/// <summary>
 					/// Allows to set a value of 24:00, used to indicate the end of the day. Works only with HH or H formats. Don't use it together with am/pm.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> support2400;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> support2400;
 
 					/// <summary>
 					/// A list of validation rules (one rule per mask character).
 					/// </summary>
-					public Union<sap.m.MaskInputRule[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> rules;
+					public Union<sap.m.MaskInputRule[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> rules;
 
 				}
 

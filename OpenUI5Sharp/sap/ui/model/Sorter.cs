@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.model.Sorter")]
 				public partial class Sorter : sap.ui.@base.Object
 				{
 					#region Constructor
@@ -27,7 +28,7 @@ namespace OpenUI5Sharp
 					/// <param name="bDescending">whether the sort order should be descending</param>
 					/// <param name="vGroup">configure grouping of the content, can either be true to enable grouping based on the raw model property value, or a function which calculates the group value out of the context (e.g. oContext.getProperty("date").getYear() for year grouping). The control needs to implement the grouping behaviour for the aggregation which you want to group. In case a function is provided it must either return a primitive type value as the group key or an object containing a "key" property and additional properties needed for group visualization. <b>Note:</b> Grouping is only possible (and only makes sense) for the primary sort property.</param>
 					/// <param name="fnComparator">a custom comparator function, which is used for clientside sorting instead of the default comparator method. Information about parameters and expected return values of such a method can be found in the default comparator documentation.</param>
-					public extern Sorter(string sPath, bool bDescending, Union<bool, object> vGroup, object fnComparator);
+					public extern Sorter(string sPath, bool bDescending, Union<bool, sap.ui.model.Sorter.CalculateGroupDelegate> vGroup, object fnComparator);
 
 					/// <summary>
 					/// Constructor for Sorter
@@ -35,7 +36,7 @@ namespace OpenUI5Sharp
 					/// <param name="sPath">the binding path used for sorting</param>
 					/// <param name="bDescending">whether the sort order should be descending</param>
 					/// <param name="vGroup">configure grouping of the content, can either be true to enable grouping based on the raw model property value, or a function which calculates the group value out of the context (e.g. oContext.getProperty("date").getYear() for year grouping). The control needs to implement the grouping behaviour for the aggregation which you want to group. In case a function is provided it must either return a primitive type value as the group key or an object containing a "key" property and additional properties needed for group visualization. <b>Note:</b> Grouping is only possible (and only makes sense) for the primary sort property.</param>
-					public extern Sorter(string sPath, bool bDescending, Union<bool, object> vGroup);
+					public extern Sorter(string sPath, bool bDescending, Union<bool, sap.ui.model.Sorter.CalculateGroupDelegate> vGroup);
 
 					/// <summary>
 					/// Constructor for Sorter

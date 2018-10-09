@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.FeedListItem")]
 			public partial class FeedListItem : sap.m.ListItemBase
 			{
 				#region Settings
@@ -28,74 +29,74 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Icon to be displayed as graphical element within the FeedListItem. This can be an image or an icon from the icon font. If no icon is provided, a default person-placeholder icon is displayed. Icon is only shown if showIcon = true.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> icon;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> icon;
 
 					/// <summary>
 					/// Icon displayed when the list item is active.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> activeIcon;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> activeIcon;
 
 					/// <summary>
 					/// Sender of the chunk
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> sender;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> sender;
 
 					/// <summary>
 					/// The FeedListItem text. It supports html formatted tags as described in the documentation of sap.m.FormattedText
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> text;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> text;
 
 					/// <summary>
 					/// The Info text.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> info;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> info;
 
 					/// <summary>
 					/// This chunks timestamp
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> timestamp;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> timestamp;
 
 					/// <summary>
 					/// If true, sender string is a link, which will fire 'senderPress' events. If false, sender is normal text.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> senderActive;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> senderActive;
 
 					/// <summary>
 					/// If true, icon is a link, which will fire 'iconPress' events. If false, icon is normal image
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> iconActive;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> iconActive;
 
 					/// <summary>
 					/// By default, this is set to true but then one or more requests are sent trying to get the density perfect version of image if this version of image doesn't exist on the server.
 					/// 
 					/// If bandwidth is the key for the application, set this value to false.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> iconDensityAware;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> iconDensityAware;
 
 					/// <summary>
 					/// If set to "true" (default), icons will be displayed, if set to false icons are hidden
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showIcon;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showIcon;
 
 					/// <summary>
 					/// Determines whether strings that appear to be links will be converted to HTML anchor tags, and what are the criteria for recognizing them.
 					/// </summary>
-					public Union<sap.m.LinkConversion, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> convertLinksToAnchorTags;
+					public Union<sap.m.LinkConversion, string, sap.ui.@base.ManagedObject.BindPropertyInfo> convertLinksToAnchorTags;
 
 					/// <summary>
 					/// Determines the target attribute of the generated HTML anchor tags. Note: Applicable only if ConvertLinksToAnchorTags property is used with a value other than sap.m.LinkConversion.None. Options are the standard values for the target attribute of the HTML anchor tag: _self, _top, _blank, _parent, _search.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> convertedLinksDefaultTarget;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> convertedLinksDefaultTarget;
 
 					/// <summary>
 					/// The expand and collapse feature is set by default and uses 300 characters on mobile devices and 500 characters on desktops as limits. Based on these values, the text of the FeedListItem is collapsed once text reaches these limits. In this case, only the specified number of characters is displayed. By clicking on the text link More, the entire text can be displayed. The text link Less collapses the text. The application is able to set the value to its needs.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maxCharacters;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> maxCharacters;
 
 					/// <summary>
 					/// Contains {@link sap.m.FeedListItemAction elements} that are displayed in the action sheet.
 					/// </summary>
-					public Union<sap.m.FeedListItemAction[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> actions;
+					public Union<sap.m.FeedListItemAction[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> actions;
 
 					/// <summary>
 					/// Event is fired when name of the sender is pressed.

@@ -1,7 +1,7 @@
 ﻿using System;
 using static Retyped.qunit;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
     public partial class sap
     {

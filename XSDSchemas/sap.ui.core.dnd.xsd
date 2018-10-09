@@ -3,7 +3,7 @@
   <xs:import namespace="sap.ui.core" />
   <xs:element name="DragDropBase" substitutionGroup="n0:Element" type="n1:_DragDropBaseType">
     <xs:annotation>
-      <xs:documentation>Provides the base class for all drag-and-drop configurations. This feature enables a native HTML5 drag-and-drop API for the controls, therefore it is limited to browser support. &lt;h3&gt;Limitations&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;There is no mobile device that supports drag and drop.&lt;/li&gt; &lt;li&gt;There is no accessible alternative for drag and drop. Applications which use the drag-and-drop functionality must provide an accessible alternative UI (for example, action buttons or menus) to perform the same operations.&lt;/li&gt; &lt;li&gt;A custom dragging ghost element is not possible in Internet Explorer.&lt;/li&gt; &lt;li&gt;Transparency of the drag ghost element and the cursor during drag-and-drop operations depends on the browser implementation.&lt;/li&gt; &lt;li&gt;Internet Explorer does only support plain text MIME type for the DataTransfer Object.&lt;/li&gt; &lt;li&gt;Constraining a drag position is not possible, therefore there is no snap-to-grid or snap-to-element feature possible.&lt;/li&gt; &lt;li&gt;For controls which do not provide an aggregation &lt;code&gt;dragDropConfig&lt;/code&gt; drag and drop might not work correctly if they are configured as target via {@link sap.ui.core.dnd.DragDropInfo}.&lt;/li&gt; &lt;/ul&gt;</xs:documentation>
+      <xs:documentation>Provides the base class for all drag-and-drop configurations. This feature enables a native HTML5 drag-and-drop API for the controls, therefore it is limited to browser support. &lt;h3&gt;Limitations&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;There is no mobile device that supports drag and drop.&lt;/li&gt; &lt;li&gt;There is no accessible alternative for drag and drop. Applications which use the drag-and-drop functionality must provide an accessible alternative UI (for example, action buttons or menus) to perform the same operations.&lt;/li&gt; &lt;li&gt;A custom dragging ghost element is not possible in Internet Explorer.&lt;/li&gt; &lt;li&gt;Transparency of the drag ghost element and the cursor during drag-and-drop operations depends on the browser implementation.&lt;/li&gt; &lt;li&gt;Internet Explorer does only support plain text MIME type for the DataTransfer Object.&lt;/li&gt; &lt;li&gt;Constraining a drag position is not possible, therefore there is no snap-to-grid or snap-to-element feature possible.&lt;/li&gt; &lt;li&gt;Texts in draggable controls cannot be selected.&lt;/li&gt; &lt;li&gt;The text of input fields in draggable controls can be selected, but not dragged.&lt;/li&gt; &lt;/ul&gt;</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="_DragDropBaseType">
@@ -24,7 +24,7 @@
   </xs:complexType>
   <xs:element name="DragDropInfo" substitutionGroup="n1:DropInfo" type="n1:_DragDropInfoType">
     <xs:annotation>
-      <xs:documentation>Provides the configuration for drag-and-drop operations.</xs:documentation>
+      <xs:documentation>Provides the configuration for drag-and-drop operations. &lt;b&gt;Note:&lt;/b&gt; This configuration might be ignored due to control {@link sap.ui.core.Element.extend metadata} restrictions.</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="_DragDropInfoType">
@@ -55,7 +55,7 @@
   </xs:complexType>
   <xs:element name="DragInfo" substitutionGroup="n1:DragDropBase" type="n1:_DragInfoType">
     <xs:annotation>
-      <xs:documentation>Provides the configuration for drag operations.</xs:documentation>
+      <xs:documentation>Provides the configuration for drag operations. &lt;b&gt;Note:&lt;/b&gt; This configuration might be ignored due to control {@link sap.ui.core.Element.extend metadata} restrictions.</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="_DragInfoType">
@@ -81,7 +81,7 @@
   </xs:complexType>
   <xs:element name="DropInfo" substitutionGroup="n1:DragDropBase" type="n1:_DropInfoType">
     <xs:annotation>
-      <xs:documentation>Provides the configuration for drop operations.</xs:documentation>
+      <xs:documentation>Provides the configuration for drop operations. &lt;b&gt;Note:&lt;/b&gt; This configuration might be ignored due to control {@link sap.ui.core.Element.extend metadata} restrictions.</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="_DropInfoType">
@@ -151,6 +151,11 @@
   </xs:simpleType>
   <xs:simpleType name="_DropLayoutType">
     <xs:restriction base="xs:string">
+      <xs:enumeration value="Default">
+        <xs:annotation>
+          <xs:documentation>Default {@link sap.ui.core.Element.extend layout} definition of the aggregations.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="Horizontal">
         <xs:annotation>
           <xs:documentation>Droppable controls are arranged horizontally.</xs:documentation>

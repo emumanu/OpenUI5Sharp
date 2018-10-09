@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -22,6 +22,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.mvc.XMLView")]
 					public partial class XMLView : sap.ui.core.mvc.View
 					{
 						#region Settings
@@ -36,7 +37,50 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// Configuration for the XMLView caching.
 							/// </summary>
-							public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> cache;
+							public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> cache;
+
+						}
+
+						#endregion
+
+						#region Typed Parameters
+
+						/// <summary>
+						/// Parameter to be used as Object Literal
+						/// </summary>
+						[External]
+						[ObjectLiteral]
+						public partial class CreateOptions
+						{
+							/// <summary>
+							/// Specifies an ID for the View instance. If no ID is given, an ID will be generated.
+							/// </summary>
+							public string id;
+
+							/// <summary>
+							/// corresponds to an XML module that can be loaded via the module system (mOptions.viewName + suffix ".view.xml")
+							/// </summary>
+							public string viewName;
+
+							/// <summary>
+							/// Controller instance to be used for this view. The given controller instance overrides the controller defined in the view definition. Sharing a controller instance between multiple views is not supported.
+							/// </summary>
+							public sap.ui.core.mvc.Controller controller;
+
+							/// <summary>
+							/// XML string or XML document that defines the view. If not given, the view content definition is loaded by the module system.
+							/// </summary>
+							public Union<string, dom.HTMLDocument> definition;
+
+							/// <summary>
+							/// Cache configuration; caching gets active when this object is provided with vView.cache.keys array; keys are used to store data in the cache and for invalidation of the cache.
+							/// </summary>
+							public sap.ui.Info cache;
+
+							/// <summary>
+							/// Preprocessors configuration, see {@link sap.ui.core.mvc.View} <strong>Note</strong>: These preprocessors are only available to this instance. For global or on-demand availability use {@link sap.ui.core.mvc.XMLView.registerPreprocessor}.
+							/// </summary>
+							public object preprocessors;
 
 						}
 
@@ -96,6 +140,17 @@ namespace OpenUI5Sharp
 						#endregion
 
 						#region Methods
+
+						/// <summary>
+						/// Instantiates an XMLView of the given configuration object.
+						/// 
+						/// <strong>Note:</strong><br> On root level, you can only define content for the default aggregation, e.g. without adding the <code>&lt;content&gt;</code> tag. If you want to specify content for another aggregation of a view like <code>dependents</code>, place it in a child control's dependents aggregation or add it by using {@link sap.ui.core.mvc.XMLView#addDependent}.
+						/// 
+						/// <strong>Note</strong>: if you enable caching, you need to take care of the invalidation via keys. Automatic invalidation takes only place if the UI5 version or the component descriptor (manifest.json) change. This is still an experimental feature and may experience slight changes of the invalidation parameters or the cache key format.
+						/// </summary>
+						/// <param name="mOptions">A map containing the view configuration options.</param>
+						/// <returns>a Promise that resolves with the view instance and rejects with any thrown error.</returns>
+						public extern static jquery.JQueryPromise<object> create(Map mOptions);
 
 						/// <summary>
 						/// Creates a new subclass of class sap.ui.core.mvc.XMLView with name <code>sClassName</code> and enriches it with the information contained in <code>oClassInfo</code>.
@@ -185,20 +240,21 @@ namespace OpenUI5Sharp
 						/// </summary>
 						[External]
 						[Namespace(false)]
+						[Name("sap.ui.core.mvc.XMLView.PreprocessorType")]
 						public enum PreprocessorType
 						{
-								/// <summary>
-								/// This preprocessor receives the control tree produced through the view source
-								/// </summary>
-								CONTROLS,
-								/// <summary>
-								/// This preprocessor receives a valid xml source for View creation without any template tags but with control declarations. These include their full IDs by which they can also be queried during runtime.
-								/// </summary>
-								VIEWXML,
-								/// <summary>
-								/// This preprocessor receives the plain xml source of the view and should also return a valid xml ready for view creation
-								/// </summary>
-								XML,
+							/// <summary>
+							/// This preprocessor receives the control tree produced through the view source
+							/// </summary>
+							CONTROLS,
+							/// <summary>
+							/// This preprocessor receives a valid xml source for View creation without any template tags but with control declarations. These include their full IDs by which they can also be queried during runtime.
+							/// </summary>
+							VIEWXML,
+							/// <summary>
+							/// This preprocessor receives the plain xml source of the view and should also return a valid xml ready for view creation
+							/// </summary>
+							XML,
 						}
 					}
 				}

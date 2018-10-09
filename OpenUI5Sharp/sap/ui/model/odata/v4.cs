@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.model.odata.v4")]
 					public static partial class v4
 					{
 						#region Typed Parameters
@@ -70,40 +71,42 @@ namespace OpenUI5Sharp
 						/// </summary>
 						[External]
 						[Namespace(false)]
+						[Name("sap.ui.model.odata.v4.SubmitMode")]
 						public enum SubmitMode
 						{
-								/// <summary>
-								/// Requests associated with the group ID are sent in a batch request via {@link sap.ui.model.odata.v4.ODataModel#submitBatch}.
-								/// </summary>
-								API,
-								/// <summary>
-								/// Requests associated with the group ID are sent in a batch request which is triggered automatically before rendering.
-								/// </summary>
-								Auto,
-								/// <summary>
-								/// Requests associated with the group ID are sent directly without batch.
-								/// </summary>
-								Direct,
+							/// <summary>
+							/// Requests associated with the group ID are sent in a batch request via {@link sap.ui.model.odata.v4.ODataModel#submitBatch}.
+							/// </summary>
+							API,
+							/// <summary>
+							/// Requests associated with the group ID are sent in a batch request which is triggered automatically before rendering.
+							/// </summary>
+							Auto,
+							/// <summary>
+							/// Requests associated with the group ID are sent directly without batch.
+							/// </summary>
+							Direct,
 						}
 						/// <summary>
 						/// Specifies the value list type of a property.
 						/// </summary>
 						[External]
 						[Namespace(false)]
+						[Name("sap.ui.model.odata.v4.ValueListType")]
 						public enum ValueListType
 						{
-								/// <summary>
-								/// There is one enumeration of fixed values.
-								/// </summary>
-								Fixed,
-								/// <summary>
-								/// There is no value list.
-								/// </summary>
-								None,
-								/// <summary>
-								/// There is a dynamic value list with multiple queries including selection criteria.
-								/// </summary>
-								Standard,
+							/// <summary>
+							/// There is one enumeration of fixed values.
+							/// </summary>
+							Fixed,
+							/// <summary>
+							/// There is no value list.
+							/// </summary>
+							None,
+							/// <summary>
+							/// There is a dynamic value list with multiple queries including selection criteria.
+							/// </summary>
+							Standard,
 						}
 					}
 				}

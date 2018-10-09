@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.Column")]
 			public partial class Column : sap.ui.core.Element
 			{
 				#region Settings
@@ -30,75 +31,71 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the width of the column. If you leave it empty then this column covers the remaining space.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// Defines the horizontal alignment of the column content.
 					/// 
-					/// NOTE: Text controls with a <code>textAlign</code> property inherits the horizontal alignment.
+					/// <b>Note:</b> Text controls with a <code>textAlign</code> property inherits the horizontal alignment.
 					/// </summary>
-					public Union<sap.ui.core.TextAlign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> hAlign;
+					public Union<sap.ui.core.TextAlign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> hAlign;
 
 					/// <summary>
 					/// Defines the vertical alignment of the cells in a column. This property does not affect the vertical alignment of header and footer.
 					/// </summary>
-					public Union<sap.ui.core.VerticalAlign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> vAlign;
+					public Union<sap.ui.core.VerticalAlign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> vAlign;
 
 					/// <summary>
 					/// CSS class name for column contents(header, cells and footer of column). This property can be used for different column styling. If column is shown as pop-in then this class name is applied to related pop-in row.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> styleClass;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> styleClass;
 
 					/// <summary>
 					/// Specifies whether or not the column is visible. Invisible columns are not rendered.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visible;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visible;
 
 					/// <summary>
-					/// By default column is always shown. If you set this property, control checks the minimum width of the screen to show or hide this column. As you can give specific CSS sizes(e.g: "480px" or "40em"), you can also use sap.m.ScreenSize enumeration(e.g: "Phone", "Tablet", "Desktop", "Small", "Medium", "Large", ....).
-					/// 
-					/// sap.m.Column.MediaQuery1->Range1 = 199
-					/// 
-					/// This property can be used for responsive design. e.g: "40em"(or "640px" or "Tablet") setting shows this column in iPad(and Desktop) but hides in iPhone. Please also see "demandPopin" property
+					/// Defines the minimum screen width to show or hide this column. By default column is always shown. The responsive behavior of the <code>sap.m.Table</code> is determined by this property. As an example by setting <code>minScreenWidth</code> property to "40em" (or "640px" or "Tablet") shows this column on tablet (and desktop) but hides on mobile. As you can give specific CSS sizes (e.g: "480px" or "40em"), you can also use the {@link sap.m.ScreenSize} enumeration (e.g: "Phone", "Tablet", "Desktop", "Small", "Medium", "Large", ....). Please also see <code>demandPopin</code> property for further responsive design options.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> minScreenWidth;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> minScreenWidth;
 
 					/// <summary>
 					/// According to your minScreenWidth settings, the column can be hidden in different screen sizes. Setting this property to true, shows this column as pop-in instead of hiding it.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> demandPopin;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> demandPopin;
 
 					/// <summary>
 					/// Horizontal alignment of the pop-in content. Available alignment settings are "Begin", "Center", "End", "Left", and "Right".
 					/// 
-					/// NOTE: Controls with a text align do not inherit the horizontal alignment.
+					/// <b>Note:</b> Controls with a text align do not inherit the horizontal alignment.
 					/// </summary>
-					public Union<sap.ui.core.TextAlign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> popinHAlign;
+					public Union<sap.ui.core.TextAlign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> popinHAlign;
 
 					/// <summary>
 					/// Defines enumerated display options for the pop-in.
 					/// </summary>
-					public Union<sap.m.PopinDisplay, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> popinDisplay;
+					public Union<sap.m.PopinDisplay, string, sap.ui.@base.ManagedObject.BindPropertyInfo> popinDisplay;
 
 					/// <summary>
-					/// Set "true" to merge repeating cells(duplicates) into one cell block. Please see "mergeFunctionName" property to customize this property. Note: This feature must not be used together with two-way binding. This property is ignored if a column is shown in the pop-in.
+					/// Set <code>true</code> to merge repeating/duplicate cells into one cell block. See <code>mergeFunctionName</code> property to customize. <b>Note:</b> Merging only happens at the rendering of the <code>sap.m.Table</code> control, subsequent changes on the cell or item do not have any effect on the merged state of the cells, therefore this feature should not be used together with two-way binding. This property is ignored if any column is configured to be shown as a pop-in.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> mergeDuplicates;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> mergeDuplicates;
 
 					/// <summary>
-					/// Defines the value getter(serialization) function if "mergeDuplicates" property is set "true" Control itself uses this function to compare values of two repeating cells. Default value "getText" is suitable for Label and Text control. e.g. For "Icon" control "getSrc" can be used. Note: You can pass one string parameter to given function after "#" sign. e.g. "data#myparameter"
+					/// Defines the control serialization function if <code>mergeDuplicates<code> property is set to <code>true</code>. The control itself uses this function to compare values of two repeating cells. Default value "getText" is suitable for <code>sap.m.Label</code> and <code>sap.m.Text</code> controls but for the <code>sap.ui.core.Icon</code> control "getSrc" function should be used to merge icons. <b>Note:</b> You can pass one string parameter to given function after "#" sign. e.g. "data#myparameter"
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> mergeFunctionName;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> mergeFunctionName;
 
 					/// <summary>
 					/// Control to be displayed in the column header.
 					/// </summary>
-					public Union<sap.ui.core.Control, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> header;
+					public Union<sap.ui.core.Control, string, sap.ui.@base.ManagedObject.BindAggregationInfo> header;
 
 					/// <summary>
 					/// Control to be displayed in the column footer.
 					/// </summary>
-					public Union<sap.ui.core.Control, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> footer;
+					public Union<sap.ui.core.Control, string, sap.ui.@base.ManagedObject.BindAggregationInfo> footer;
 
 				}
 
@@ -172,7 +169,7 @@ namespace OpenUI5Sharp
 				/// 
 				/// Defines the horizontal alignment of the column content.
 				/// 
-				/// NOTE: Text controls with a <code>textAlign</code> property inherits the horizontal alignment.
+				/// <b>Note:</b> Text controls with a <code>textAlign</code> property inherits the horizontal alignment.
 				/// 
 				/// Default value is <code>Begin</code>.
 				/// </summary>
@@ -184,7 +181,7 @@ namespace OpenUI5Sharp
 				/// 
 				/// Defines the horizontal alignment of the column content.
 				/// 
-				/// NOTE: Text controls with a <code>textAlign</code> property inherits the horizontal alignment.
+				/// <b>Note:</b> Text controls with a <code>textAlign</code> property inherits the horizontal alignment.
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// 
@@ -278,11 +275,7 @@ namespace OpenUI5Sharp
 				/// <summary>
 				/// Gets current value of property {@link #getMinScreenWidth minScreenWidth}.
 				/// 
-				/// By default column is always shown. If you set this property, control checks the minimum width of the screen to show or hide this column. As you can give specific CSS sizes(e.g: "480px" or "40em"), you can also use sap.m.ScreenSize enumeration(e.g: "Phone", "Tablet", "Desktop", "Small", "Medium", "Large", ....).
-				/// 
-				/// sap.m.Column.MediaQuery1->Range1 = 199
-				/// 
-				/// This property can be used for responsive design. e.g: "40em"(or "640px" or "Tablet") setting shows this column in iPad(and Desktop) but hides in iPhone. Please also see "demandPopin" property
+				/// Defines the minimum screen width to show or hide this column. By default column is always shown. The responsive behavior of the <code>sap.m.Table</code> is determined by this property. As an example by setting <code>minScreenWidth</code> property to "40em" (or "640px" or "Tablet") shows this column on tablet (and desktop) but hides on mobile. As you can give specific CSS sizes (e.g: "480px" or "40em"), you can also use the {@link sap.m.ScreenSize} enumeration (e.g: "Phone", "Tablet", "Desktop", "Small", "Medium", "Large", ....). Please also see <code>demandPopin</code> property for further responsive design options.
 				/// </summary>
 				/// <returns>Value of property <code>minScreenWidth</code></returns>
 				public extern virtual string getMinScreenWidth();
@@ -290,11 +283,7 @@ namespace OpenUI5Sharp
 				/// <summary>
 				/// Sets a new value for property {@link #getMinScreenWidth minScreenWidth}.
 				/// 
-				/// By default column is always shown. If you set this property, control checks the minimum width of the screen to show or hide this column. As you can give specific CSS sizes(e.g: "480px" or "40em"), you can also use sap.m.ScreenSize enumeration(e.g: "Phone", "Tablet", "Desktop", "Small", "Medium", "Large", ....).
-				/// 
-				/// sap.m.Column.MediaQuery1->Range1 = 199
-				/// 
-				/// This property can be used for responsive design. e.g: "40em"(or "640px" or "Tablet") setting shows this column in iPad(and Desktop) but hides in iPhone. Please also see "demandPopin" property
+				/// Defines the minimum screen width to show or hide this column. By default column is always shown. The responsive behavior of the <code>sap.m.Table</code> is determined by this property. As an example by setting <code>minScreenWidth</code> property to "40em" (or "640px" or "Tablet") shows this column on tablet (and desktop) but hides on mobile. As you can give specific CSS sizes (e.g: "480px" or "40em"), you can also use the {@link sap.m.ScreenSize} enumeration (e.g: "Phone", "Tablet", "Desktop", "Small", "Medium", "Large", ....). Please also see <code>demandPopin</code> property for further responsive design options.
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// </summary>
@@ -338,12 +327,12 @@ namespace OpenUI5Sharp
 				/// 
 				/// Horizontal alignment of the pop-in content. Available alignment settings are "Begin", "Center", "End", "Left", and "Right".
 				/// 
-				/// NOTE: Controls with a text align do not inherit the horizontal alignment.
+				/// <b>Note:</b> Controls with a text align do not inherit the horizontal alignment.
 				/// 
 				/// Default value is <code>Begin</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.14. Use popinDisplay property instead.")]
 				/// <returns>Value of property <code>popinHAlign</code></returns>
+				[Obsolete("Deprecated since 1.14. Use popinDisplay property instead.")]
 				public extern virtual sap.ui.core.TextAlign getPopinHAlign();
 
 				/// <summary>
@@ -351,15 +340,15 @@ namespace OpenUI5Sharp
 				/// 
 				/// Horizontal alignment of the pop-in content. Available alignment settings are "Begin", "Center", "End", "Left", and "Right".
 				/// 
-				/// NOTE: Controls with a text align do not inherit the horizontal alignment.
+				/// <b>Note:</b> Controls with a text align do not inherit the horizontal alignment.
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// 
 				/// Default value is <code>Begin</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.14. Use popinDisplay property instead.")]
 				/// <param name="sPopinHAlign">New value for property <code>popinHAlign</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.14. Use popinDisplay property instead.")]
 				public extern virtual sap.m.Column setPopinHAlign(sap.ui.core.TextAlign sPopinHAlign);
 
 				#endregion
@@ -396,7 +385,7 @@ namespace OpenUI5Sharp
 				/// <summary>
 				/// Gets current value of property {@link #getMergeDuplicates mergeDuplicates}.
 				/// 
-				/// Set "true" to merge repeating cells(duplicates) into one cell block. Please see "mergeFunctionName" property to customize this property. Note: This feature must not be used together with two-way binding. This property is ignored if a column is shown in the pop-in.
+				/// Set <code>true</code> to merge repeating/duplicate cells into one cell block. See <code>mergeFunctionName</code> property to customize. <b>Note:</b> Merging only happens at the rendering of the <code>sap.m.Table</code> control, subsequent changes on the cell or item do not have any effect on the merged state of the cells, therefore this feature should not be used together with two-way binding. This property is ignored if any column is configured to be shown as a pop-in.
 				/// 
 				/// Default value is <code>false</code>.
 				/// </summary>
@@ -406,7 +395,7 @@ namespace OpenUI5Sharp
 				/// <summary>
 				/// Sets a new value for property {@link #getMergeDuplicates mergeDuplicates}.
 				/// 
-				/// Set "true" to merge repeating cells(duplicates) into one cell block. Please see "mergeFunctionName" property to customize this property. Note: This feature must not be used together with two-way binding. This property is ignored if a column is shown in the pop-in.
+				/// Set <code>true</code> to merge repeating/duplicate cells into one cell block. See <code>mergeFunctionName</code> property to customize. <b>Note:</b> Merging only happens at the rendering of the <code>sap.m.Table</code> control, subsequent changes on the cell or item do not have any effect on the merged state of the cells, therefore this feature should not be used together with two-way binding. This property is ignored if any column is configured to be shown as a pop-in.
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// 
@@ -423,7 +412,7 @@ namespace OpenUI5Sharp
 				/// <summary>
 				/// Gets current value of property {@link #getMergeFunctionName mergeFunctionName}.
 				/// 
-				/// Defines the value getter(serialization) function if "mergeDuplicates" property is set "true" Control itself uses this function to compare values of two repeating cells. Default value "getText" is suitable for Label and Text control. e.g. For "Icon" control "getSrc" can be used. Note: You can pass one string parameter to given function after "#" sign. e.g. "data#myparameter"
+				/// Defines the control serialization function if <code>mergeDuplicates<code> property is set to <code>true</code>. The control itself uses this function to compare values of two repeating cells. Default value "getText" is suitable for <code>sap.m.Label</code> and <code>sap.m.Text</code> controls but for the <code>sap.ui.core.Icon</code> control "getSrc" function should be used to merge icons. <b>Note:</b> You can pass one string parameter to given function after "#" sign. e.g. "data#myparameter"
 				/// 
 				/// Default value is <code>getText</code>.
 				/// </summary>
@@ -433,7 +422,7 @@ namespace OpenUI5Sharp
 				/// <summary>
 				/// Sets a new value for property {@link #getMergeFunctionName mergeFunctionName}.
 				/// 
-				/// Defines the value getter(serialization) function if "mergeDuplicates" property is set "true" Control itself uses this function to compare values of two repeating cells. Default value "getText" is suitable for Label and Text control. e.g. For "Icon" control "getSrc" can be used. Note: You can pass one string parameter to given function after "#" sign. e.g. "data#myparameter"
+				/// Defines the control serialization function if <code>mergeDuplicates<code> property is set to <code>true</code>. The control itself uses this function to compare values of two repeating cells. Default value "getText" is suitable for <code>sap.m.Label</code> and <code>sap.m.Text</code> controls but for the <code>sap.ui.core.Icon</code> control "getSrc" function should be used to merge icons. <b>Note:</b> You can pass one string parameter to given function after "#" sign. e.g. "data#myparameter"
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// 

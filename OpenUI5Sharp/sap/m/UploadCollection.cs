@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.UploadCollection")]
 			public partial class UploadCollection : sap.ui.core.Control
 			{
 				#region Settings
@@ -30,109 +31,109 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the allowed file types for the upload. The chosen files will be checked against an array of file types. If at least one file does not fit the file type requirements, the upload is prevented. Example: ["jpg", "png", "bmp"].
 					/// </summary>
-					public Union<string[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> fileType;
+					public Union<string[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> fileType;
 
 					/// <summary>
 					/// Specifies the maximum length of a file name. If the maximum file name length is exceeded, the corresponding event 'filenameLengthExceed' is triggered.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maximumFilenameLength;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> maximumFilenameLength;
 
 					/// <summary>
 					/// Specifies a file size limit in megabytes that prevents the upload if at least one file exceeds the limit. This property is not supported by Internet Explorer 8 and 9.
 					/// </summary>
-					public Union<float, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maximumFileSize;
+					public Union<float, string, sap.ui.@base.ManagedObject.BindPropertyInfo> maximumFileSize;
 
 					/// <summary>
 					/// Defines the allowed MIME types of files to be uploaded. The chosen files will be checked against an array of MIME types. If at least one file does not fit the MIME type requirements, the upload is prevented. This property is not supported by Internet Explorer 8 and 9. Example: mimeType ["image/png", "image/jpeg"].
 					/// </summary>
-					public Union<string[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> mimeType;
+					public Union<string[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> mimeType;
 
 					/// <summary>
 					/// Lets the user select multiple files from the same folder and then upload them. Internet Explorer 8 and 9 do not support this property. Please note that the various operating systems for mobile devices can react differently to the property so that fewer upload functions may be available in some cases.
 					/// 
 					/// If multiple property is set to false, the control shows an error message if more than one file is chosen for drag & drop.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> multiple;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> multiple;
 
 					/// <summary>
 					/// Allows you to set your own text for the 'No data' text label.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> noDataText;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> noDataText;
 
 					/// <summary>
 					/// Allows you to set your own text for the 'No data' description label.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> noDataDescription;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> noDataDescription;
 
 					/// <summary>
 					/// Allows the user to use the same name for a file when editing the file name. 'Same name' refers to an already existing file name in the list.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> sameFilenameAllowed;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> sameFilenameAllowed;
 
 					/// <summary>
 					/// Defines whether separators are shown between list items.
 					/// </summary>
-					public Union<sap.m.ListSeparators, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showSeparators;
+					public Union<sap.m.ListSeparators, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showSeparators;
 
 					/// <summary>
 					/// Enables the upload of a file.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> uploadEnabled;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> uploadEnabled;
 
 					/// <summary>
 					/// Specifies the URL where the uploaded files have to be stored.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> uploadUrl;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> uploadUrl;
 
 					/// <summary>
 					/// If false, no upload is triggered when a file is selected. In addition, if a file was selected, a new FileUploader instance is created to ensure that multiple files from multiple folders can be chosen.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> instantUpload;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> instantUpload;
 
 					/// <summary>
 					/// Sets the title text in the toolbar of the list of attachments. To show as well the number of attachments in brackets like the default text does. The number of attachments could be retrieved via "getItems().length". If a new title is set, the default is deactivated. The default value is set to language-dependent "Attachments (n)".
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> numberOfAttachmentsText;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> numberOfAttachmentsText;
 
 					/// <summary>
 					/// Defines the selection mode of the control (e.g. None, SingleSelect, MultiSelect, SingleSelectLeft, SingleSelectMaster). Since the UploadCollection reacts like a list for attachments, the API is close to the ListBase Interface. sap.m.ListMode.Delete mode is not supported and will be automatically set to sap.m.ListMode.None. In addition, if instant upload is set to false the mode sap.m.ListMode.MultiSelect is not supported and will be automatically set to sap.m.ListMode.None.
 					/// </summary>
-					public Union<sap.m.ListMode, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> mode;
+					public Union<sap.m.ListMode, string, sap.ui.@base.ManagedObject.BindPropertyInfo> mode;
 
 					/// <summary>
 					/// If true, the button used for uploading files is invisible.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> uploadButtonInvisible;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> uploadButtonInvisible;
 
 					/// <summary>
 					/// If true, the button that is used to terminate the instant file upload gets visible. The button normally appears when a file is being uploaded.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> terminationEnabled;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> terminationEnabled;
 
 					/// <summary>
 					/// Uploaded items.
 					/// </summary>
-					public Union<sap.m.UploadCollectionItem[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
+					public Union<sap.m.UploadCollectionItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
 
 					/// <summary>
 					/// Specifies the header parameters for the FileUploader that are submitted only with XHR requests. Header parameters are not supported by Internet Explorer 8 and 9.
 					/// </summary>
-					public Union<sap.m.UploadCollectionParameter[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> headerParameters;
+					public Union<sap.m.UploadCollectionParameter[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> headerParameters;
 
 					/// <summary>
 					/// Specifies the parameters for the FileUploader that are rendered as a hidden input field.
 					/// </summary>
-					public Union<sap.m.UploadCollectionParameter[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> parameters;
+					public Union<sap.m.UploadCollectionParameter[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> parameters;
 
 					/// <summary>
 					/// Specifies the toolbar.
 					/// </summary>
-					public Union<sap.m.OverflowToolbar, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> toolbar;
+					public Union<sap.m.OverflowToolbar, string, sap.ui.@base.ManagedObject.BindAggregationInfo> toolbar;
 
 					/// <summary>
 					/// Specifies the info toolbar for filtering information. Sorting information will not displayed.
 					/// </summary>
-					public Union<sap.m.Toolbar, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> infoToolbar;
+					public Union<sap.m.Toolbar, string, sap.ui.@base.ManagedObject.BindAggregationInfo> infoToolbar;
 
 					/// <summary>
 					/// The event is triggered when files are selected in the FileUploader dialog. Applications can set parameters and headerParameters which will be dispatched to the embedded FileUploader control. Limitation: parameters and headerParameters are not supported by Internet Explorer 9.

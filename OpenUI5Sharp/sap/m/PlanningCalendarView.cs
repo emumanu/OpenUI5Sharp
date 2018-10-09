@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.PlanningCalendarView")]
 			public partial class PlanningCalendarView : sap.ui.core.Element
 			{
 				#region Settings
@@ -30,41 +31,41 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the key of the view. This must be set to identify the used view in the {@link sap.m.PlanningCalendar}.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> key;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> key;
 
 					/// <summary>
 					/// Determines the type of the intervals of the row.
 					/// 
 					/// <b>Note:</b> Not all predefined interval types are supported for this property. For more information, see the descriptions in the {@link sap.ui.unified.CalendarIntervalType CalendarIntervalType} enumeration.
 					/// </summary>
-					public Union<sap.ui.unified.CalendarIntervalType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> intervalType;
+					public Union<sap.ui.unified.CalendarIntervalType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> intervalType;
 
 					/// <summary>
 					/// Defines the description of the <code>PlanningCalendarView</code>.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> description;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> description;
 
 					/// <summary>
 					/// Defines the number of intervals that are displayed for a {@link sap.m.PlanningCalendar} that is less than 600 pixels wide.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> intervalsS;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> intervalsS;
 
 					/// <summary>
 					/// Defines the number of intervals that are displayed for a {@link sap.m.PlanningCalendar} that is between 600 and 1024 pixels wide.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> intervalsM;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> intervalsM;
 
 					/// <summary>
 					/// Defines the number of intervals that are displayed for a {@link sap.m.PlanningCalendar} that is more than 1024 pixels wide.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> intervalsL;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> intervalsL;
 
 					/// <summary>
 					/// If set, subintervals are displayed as lines in the rows.
 					/// 
 					/// <ul> <li>Quarter hour subintervals for interval type <code>Hour</code>.</li> <li>Hour subintervals for interval types <code>Day</code>, <code>Week</code> and <code>OneMonth</code>.</li> <li>Day subintervals for interval type <code>Month</code>.</li> </ul>
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showSubIntervals;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showSubIntervals;
 
 				}
 

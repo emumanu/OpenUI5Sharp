@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -14,10 +14,11 @@ namespace OpenUI5Sharp
 				public static partial class dnd
 				{
 					/// <summary>
-					/// Provides the configuration for drag operations.
+					/// Provides the configuration for drag operations. <b>Note:</b> This configuration might be ignored due to control {@link sap.ui.core.Element.extend metadata} restrictions.
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.dnd.DragInfo")]
 					public partial class DragInfo : sap.ui.core.dnd.DragDropBase, sap.ui.core.dnd.IDragInfo
 					{
 						#region Settings
@@ -32,7 +33,7 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// The name of the aggregation from which all children can be dragged. If undefined, the control itself can be dragged.
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> sourceAggregation;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> sourceAggregation;
 
 							/// <summary>
 							/// This event is fired when the user starts dragging an element.

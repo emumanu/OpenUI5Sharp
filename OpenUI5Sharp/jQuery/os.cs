@@ -3,15 +3,16 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
-	public partial class jQuery
+	public abstract partial class jQuery
 	{
 		/// <summary>
 		/// Holds information about the current operating system
 		/// </summary>
 		[External]
 		[Namespace(false)]
+		[Name("jQuery.os")]
 		[Obsolete("Deprecated since 1.20. use {@link sap.ui.Device.os} instead")]
 		public static partial class os
 		{
@@ -40,6 +41,7 @@ namespace OpenUI5Sharp
 			/// <summary>
 			/// The name of the operating system; currently supported are: "ios", "android", "blackberry"
 			/// </summary>
+			[Name("os")]
 			public static string os_;
 
 			/// <summary>

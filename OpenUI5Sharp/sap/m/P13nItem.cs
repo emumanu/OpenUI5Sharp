@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.P13nItem")]
 			public partial class P13nItem : sap.ui.core.Element
 			{
 				#region Settings
@@ -28,27 +29,27 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Can be used as input for subsequent actions.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> columnKey;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> columnKey;
 
 					/// <summary>
 					/// The text to be displayed for the item.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> text;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> text;
 
 					/// <summary>
 					/// Defines visibility of column
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visible;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visible;
 
 					/// <summary>
 					/// data type of the column (text, numeric or date is supported)
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> type;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> type;
 
 					/// <summary>
 					/// if type==numeric the precision will be used to format the entered value (maxIntegerDigits of the used Formatter)
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> precision;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> precision;
 
 					/// <summary>
 					/// A JSON object containing the formatSettings which will be used to pass additional type/format settings for the entered value. if type==time or date or datetime the object will be used for the DateFormatter, TimeFormatter or DateTimeFormatter
@@ -62,62 +63,62 @@ namespace OpenUI5Sharp
 					/// }
 					/// </code></pre>
 					/// </summary>
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> formatSettings;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> formatSettings;
 
 					/// <summary>
 					/// if type==numeric the scale will be used to format the entered value (maxFractionDigits of the used Formatter)
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> scale;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> scale;
 
 					/// <summary>
 					/// specifies the number of characters which can be entered in the value fields of the condition panel
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maxLength;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> maxLength;
 
 					/// <summary>
 					/// Defines column width
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// the column with isDefault==true will be used as the selected column item on the conditionPanel
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> isDefault;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> isDefault;
 
 					/// <summary>
 					/// the array of values for type bool. e.g. ["", "Off", "On"]. The first entry can be empty (used to blank the value field). Next value represent the false value, last entry the true value.
 					/// </summary>
-					public Union<string[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> values;
+					public Union<string[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> values;
 
 					/// <summary>
 					/// Defines role. The role is reflected in the manner how the dimension will influence the chart layout.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> role;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> role;
 
 					/// <summary>
 					/// Defines aggregation role
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> aggregationRole;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> aggregationRole;
 
 					/// <summary>
 					/// Defines href of a link.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> href;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> href;
 
 					/// <summary>
 					/// Defines target of a link.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> target;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> target;
 
 					/// <summary>
 					/// Defines press handler of a link.
 					/// </summary>
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> press;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> press;
 
 					/// <summary>
 					/// Defines additional information of the link.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> description;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> description;
 
 				}
 

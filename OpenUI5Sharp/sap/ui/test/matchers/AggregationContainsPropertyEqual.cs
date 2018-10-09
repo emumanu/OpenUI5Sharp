@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.test.matchers.AggregationContainsPropertyEqual")]
 					public partial class AggregationContainsPropertyEqual : sap.ui.test.matchers.Matcher
 					{
 						#region Settings
@@ -32,17 +33,17 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// The Name of the aggregation that is used for matching.
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> aggregationName;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> aggregationName;
 
 							/// <summary>
 							/// The Name of the property that is used for matching.
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> propertyName;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> propertyName;
 
 							/// <summary>
 							/// The value of the Property that is used for matching.
 							/// </summary>
-							public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> propertyValue;
+							public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> propertyValue;
 
 						}
 

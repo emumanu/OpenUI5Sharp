@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.ListBase")]
 			public partial class ListBase : sap.ui.core.Control
 			{
 				#region Settings
@@ -32,142 +33,137 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the indentation of the container. Setting it to <code>true</code> indents the list.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> inset;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> inset;
 
 					/// <summary>
 					/// Defines the header text that appears in the control. <b>Note:</b> If <code>headerToolbar</code> aggregation is set, then this property is ignored.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> headerText;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> headerText;
 
 					/// <summary>
 					/// Defines the header style of the control. Possible values are <code>Standard</code> and <code>Plain</code>.
 					/// </summary>
-					public Union<sap.m.ListHeaderDesign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> headerDesign;
+					public Union<sap.m.ListHeaderDesign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> headerDesign;
 
 					/// <summary>
 					/// Defines the footer text that appears in the control.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> footerText;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> footerText;
 
 					/// <summary>
 					/// Defines the mode of the control (e.g. <code>None</code>, <code>SingleSelect</code>, <code>MultiSelect</code>, <code>Delete</code>).
 					/// </summary>
-					public Union<sap.m.ListMode, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> mode;
+					public Union<sap.m.ListMode, string, sap.ui.@base.ManagedObject.BindPropertyInfo> mode;
 
 					/// <summary>
 					/// Sets the width of the control.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// Defines whether the items are selectable by clicking on the item itself (<code>true</code>) rather than having to set the selection control first. <b>Note:</b> The <code>SingleSelectMaster</code> mode also provides this functionality by default.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> includeItemInSelection;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> includeItemInSelection;
 
 					/// <summary>
 					/// Activates the unread indicator for all items, if set to <code>true</code>.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showUnread;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showUnread;
 
 					/// <summary>
 					/// This text is displayed when the control contains no items.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> noDataText;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> noDataText;
 
 					/// <summary>
 					/// Defines whether or not the text specified in the <code>noDataText</code> property is displayed.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showNoData;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showNoData;
 
 					/// <summary>
 					/// When this property is set to <code>true</code>, the control will automatically display a busy indicator when it detects that data is being loaded. This busy indicator blocks the interaction with the items until data loading is finished. By default, the busy indicator will be shown after one second. This behavior can be customized by setting the <code>busyIndicatorDelay</code> property.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enableBusyIndicator;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enableBusyIndicator;
 
 					/// <summary>
 					/// Defines if animations will be shown while switching between modes.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> modeAnimationOn;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> modeAnimationOn;
 
 					/// <summary>
 					/// Defines which item separator style will be used.
 					/// </summary>
-					public Union<sap.m.ListSeparators, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showSeparators;
+					public Union<sap.m.ListSeparators, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showSeparators;
 
 					/// <summary>
 					/// Defines the direction of the swipe movement (e.g LeftToRight, RightToLeft, Both) to display the control defined in the <code>swipeContent</code> aggregation.
 					/// </summary>
-					public Union<sap.m.SwipeDirection, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> swipeDirection;
+					public Union<sap.m.SwipeDirection, string, sap.ui.@base.ManagedObject.BindPropertyInfo> swipeDirection;
 
 					/// <summary>
 					/// If set to <code>true</code>, enables the growing feature of the control to load more items by requesting from the model. <b>Note:</b>: This feature only works when an <code>items</code> aggregation is bound. Growing must not be used together with two-way binding.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> growing;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> growing;
 
 					/// <summary>
 					/// Defines the number of items to be requested from the model for each grow. This property can only be used if the <code>growing</code> property is set to <code>true</code>.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> growingThreshold;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> growingThreshold;
 
 					/// <summary>
 					/// Defines the text displayed on the growing button. The default is a translated text ("More") coming from the message bundle. This property can only be used if the <code>growing</code> property is set to <code>true</code>.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> growingTriggerText;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> growingTriggerText;
 
 					/// <summary>
 					/// If set to true, the user can scroll down/up to load more items. Otherwise a growing button is displayed at the bottom/top of the control. <b>Note:</b> This property can only be used if the <code>growing</code> property is set to <code>true</code> and only if there is one instance of <code>sap.m.List</code> or <code>sap.m.Table</code> inside the scrollable scroll container (e.g <code>sap.m.Page</code>).
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> growingScrollToLoad;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> growingScrollToLoad;
 
 					/// <summary>
 					/// Defines the direction of the growing feature. If set to <code>Downwards</code> the user has to scroll down to load more items or the growing button is displayed at the bottom. If set to <code>Upwards</code> the user has to scroll up to load more items or the growing button is displayed at the top.
 					/// </summary>
-					public Union<sap.m.ListGrowingDirection, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> growingDirection;
+					public Union<sap.m.ListGrowingDirection, string, sap.ui.@base.ManagedObject.BindPropertyInfo> growingDirection;
 
 					/// <summary>
 					/// If set to true, this control remembers and retains the selection of the items after a binding update has been performed (e.g. sorting, filtering). <b>Note:</b> This feature works only if two-way data binding for the <code>selected</code> property of the item is not used. It also needs to be turned off if the binding context of the item does not always point to the same entry in the model, for example, if the order of the data in the <code>JSONModel</code> is changed.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> rememberSelections;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> rememberSelections;
 
 					/// <summary>
 					/// Defines keyboard handling behavior of the control.
 					/// </summary>
-					public Union<sap.m.ListKeyboardMode, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> keyboardMode;
+					public Union<sap.m.ListKeyboardMode, string, sap.ui.@base.ManagedObject.BindPropertyInfo> keyboardMode;
 
 					/// <summary>
 					/// Defines the items contained within this control.
 					/// </summary>
-					public Union<sap.m.ListItemBase[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
+					public Union<sap.m.ListItemBase[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
 
 					/// <summary>
 					/// User can swipe to bring in this control on the right hand side of an item. <b>Note:</b> For non-touch devices, this functionality is ignored.
 					/// </summary>
-					public Union<sap.ui.core.Control, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> swipeContent;
+					public Union<sap.ui.core.Control, string, sap.ui.@base.ManagedObject.BindAggregationInfo> swipeContent;
 
 					/// <summary>
 					/// The header area can be used as a toolbar to add extra controls for user interactions. <b>Note:</b> When set, this overwrites the <code>headerText</code> property.
 					/// </summary>
-					public Union<sap.m.Toolbar, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> headerToolbar;
+					public Union<sap.m.Toolbar, string, sap.ui.@base.ManagedObject.BindAggregationInfo> headerToolbar;
 
 					/// <summary>
 					/// A toolbar that is placed below the header to show extra information to the user.
 					/// </summary>
-					public Union<sap.m.Toolbar, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> infoToolbar;
-
-					/// <summary>
-					/// Defines the drag-and-drop configuration.
-					/// </summary>
-					public Union<sap.ui.core.dnd.DragDropBase[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> dragDropConfig;
+					public Union<sap.m.Toolbar, string, sap.ui.@base.ManagedObject.BindAggregationInfo> infoToolbar;
 
 					/// <summary>
 					/// Defines the context menu of the items.
 					/// </summary>
-					public Union<sap.ui.core.IContextMenu, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> contextMenu;
+					public Union<sap.ui.core.IContextMenu, string, sap.ui.@base.ManagedObject.BindAggregationInfo> contextMenu;
 
 					/// <summary>
 					/// Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 					/// <summary>
 					/// Fires when selection is changed via user interaction. In <code>MultiSelect</code> mode, this event is also fired on deselection.
@@ -471,8 +467,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>Standard</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16. No longer has any functionality.")]
 				/// <returns>Value of property <code>headerDesign</code></returns>
+				[Obsolete("Deprecated since 1.16. No longer has any functionality.")]
 				public extern virtual sap.m.ListHeaderDesign getHeaderDesign();
 
 				/// <summary>
@@ -484,9 +480,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>Standard</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16. No longer has any functionality.")]
 				/// <param name="sHeaderDesign">New value for property <code>headerDesign</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.16. No longer has any functionality.")]
 				public extern virtual sap.m.ListBase setHeaderDesign(sap.m.ListHeaderDesign sHeaderDesign);
 
 				#endregion
@@ -1110,61 +1106,6 @@ namespace OpenUI5Sharp
 
 				#endregion
 
-				#region Methods for Aggregation dragDropConfig
-
-				/// <summary>
-				/// Gets content of aggregation {@link #getDragDropConfig dragDropConfig}.
-				/// 
-				/// Defines the drag-and-drop configuration.
-				/// </summary>
-				/// <returns></returns>
-				public extern virtual sap.ui.core.dnd.DragDropBase[] getDragDropConfig();
-
-				/// <summary>
-				/// Destroys all the dragDropConfig in the aggregation {@link #getDragDropConfig dragDropConfig}.
-				/// </summary>
-				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ListBase destroyDragDropConfig();
-
-				/// <summary>
-				/// Inserts a dragDropConfig into the aggregation {@link #getDragDropConfig dragDropConfig}.
-				/// </summary>
-				/// <param name="oDragDropConfig">The dragDropConfig to insert; if empty, nothing is inserted</param>
-				/// <param name="iIndex">The <code>0</code>-based index the dragDropConfig should be inserted at; for a negative value of <code>iIndex</code>, the dragDropConfig is inserted at position 0; for a value greater than the current size of the aggregation, the dragDropConfig is inserted at the last position</param>
-				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ListBase insertDragDropConfig(sap.ui.core.dnd.DragDropBase oDragDropConfig, int iIndex);
-
-				/// <summary>
-				/// Adds some dragDropConfig to the aggregation {@link #getDragDropConfig dragDropConfig}.
-				/// </summary>
-				/// <param name="oDragDropConfig">The dragDropConfig to add; if empty, nothing is inserted</param>
-				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ListBase addDragDropConfig(sap.ui.core.dnd.DragDropBase oDragDropConfig);
-
-				/// <summary>
-				/// Removes a dragDropConfig from the aggregation {@link #getDragDropConfig dragDropConfig}.
-				/// </summary>
-				/// <param name="vDragDropConfig">The dragDropConfig to remove or its index or id</param>
-				/// <returns>The removed dragDropConfig or <code>null</code></returns>
-				public extern virtual sap.ui.core.dnd.DragDropBase removeDragDropConfig(Union<int, string, sap.ui.core.dnd.DragDropBase> vDragDropConfig);
-
-				/// <summary>
-				/// Checks for the provided <code>sap.ui.core.dnd.DragDropBase</code> in the aggregation {@link #getDragDropConfig dragDropConfig}. and returns its index if found or -1 otherwise.
-				/// </summary>
-				/// <param name="oDragDropConfig">The dragDropConfig whose index is looked for</param>
-				/// <returns>The index of the provided control in the aggregation if found, or -1 otherwise</returns>
-				public extern virtual int indexOfDragDropConfig(sap.ui.core.dnd.DragDropBase oDragDropConfig);
-
-				/// <summary>
-				/// Removes all the controls from the aggregation {@link #getDragDropConfig dragDropConfig}.
-				/// 
-				/// Additionally, it unregisters them from the hosting UIArea.
-				/// </summary>
-				/// <returns>An array of the removed elements (might be empty)</returns>
-				public extern virtual sap.ui.core.dnd.DragDropBase[] removeAllDragDropConfig();
-
-				#endregion
-
 				#region Methods for Aggregation contextMenu
 
 				/// <summary>
@@ -1229,11 +1170,11 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fires when selection is changed via user interaction. In <code>MultiSelect</code> mode, this event is also fired on deselection.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16. Use the <code>selectionChange</code> event instead.")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.ListBase</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.16. Use the <code>selectionChange</code> event instead.")]
 				public extern virtual sap.m.ListBase attachSelect(object oData, sap.m.ListBase.EventDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -1243,10 +1184,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fires when selection is changed via user interaction. In <code>MultiSelect</code> mode, this event is also fired on deselection.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16. Use the <code>selectionChange</code> event instead.")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.16. Use the <code>selectionChange</code> event instead.")]
 				public extern virtual sap.m.ListBase attachSelect(object oData, sap.m.ListBase.EventDelegate fnFunction);
 
 				/// <summary>
@@ -1256,9 +1197,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fires when selection is changed via user interaction. In <code>MultiSelect</code> mode, this event is also fired on deselection.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16. Use the <code>selectionChange</code> event instead.")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.16. Use the <code>selectionChange</code> event instead.")]
 				public extern virtual sap.m.ListBase attachSelect(sap.m.ListBase.EventDelegate fnFunction);
 
 				/// <summary>
@@ -1268,10 +1209,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fires when selection is changed via user interaction. In <code>MultiSelect</code> mode, this event is also fired on deselection.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16. Use the <code>selectionChange</code> event instead.")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.ListBase</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.16. Use the <code>selectionChange</code> event instead.")]
 				public extern virtual sap.m.ListBase attachSelect(sap.m.ListBase.EventDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -1279,25 +1220,25 @@ namespace OpenUI5Sharp
 				/// 
 				/// The passed function and listener object must match the ones used for event registration.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16. Use the <code>selectionChange</code> event instead.")]
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.16. Use the <code>selectionChange</code> event instead.")]
 				public extern virtual sap.m.ListBase detachSelect(sap.m.ListBase.EventDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:select select} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16. Use the <code>selectionChange</code> event instead.")]
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.16. Use the <code>selectionChange</code> event instead.")]
 				public extern virtual sap.m.ListBase fireSelect(sap.m.ListBase.EventInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:select select} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16. Use the <code>selectionChange</code> event instead.")]
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.16. Use the <code>selectionChange</code> event instead.")]
 				public extern virtual sap.m.ListBase fireSelect();
 
 				#endregion
@@ -1540,11 +1481,11 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fires before the new growing chunk is requested from the model.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16.3. Instead, use <code>updateStarted</code> event with listening <code>changeReason</code>.")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.ListBase</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.16.3. Instead, use <code>updateStarted</code> event with listening <code>changeReason</code>.")]
 				public extern virtual sap.m.ListBase attachGrowingStarted(object oData, sap.m.ListBase.GrowingDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -1554,10 +1495,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fires before the new growing chunk is requested from the model.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16.3. Instead, use <code>updateStarted</code> event with listening <code>changeReason</code>.")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.16.3. Instead, use <code>updateStarted</code> event with listening <code>changeReason</code>.")]
 				public extern virtual sap.m.ListBase attachGrowingStarted(object oData, sap.m.ListBase.GrowingDelegate fnFunction);
 
 				/// <summary>
@@ -1567,9 +1508,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fires before the new growing chunk is requested from the model.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16.3. Instead, use <code>updateStarted</code> event with listening <code>changeReason</code>.")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.16.3. Instead, use <code>updateStarted</code> event with listening <code>changeReason</code>.")]
 				public extern virtual sap.m.ListBase attachGrowingStarted(sap.m.ListBase.GrowingDelegate fnFunction);
 
 				/// <summary>
@@ -1579,10 +1520,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fires before the new growing chunk is requested from the model.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16.3. Instead, use <code>updateStarted</code> event with listening <code>changeReason</code>.")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.ListBase</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.16.3. Instead, use <code>updateStarted</code> event with listening <code>changeReason</code>.")]
 				public extern virtual sap.m.ListBase attachGrowingStarted(sap.m.ListBase.GrowingDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -1590,25 +1531,25 @@ namespace OpenUI5Sharp
 				/// 
 				/// The passed function and listener object must match the ones used for event registration.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16.3. Instead, use <code>updateStarted</code> event with listening <code>changeReason</code>.")]
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.16.3. Instead, use <code>updateStarted</code> event with listening <code>changeReason</code>.")]
 				public extern virtual sap.m.ListBase detachGrowingStarted(sap.m.ListBase.GrowingDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:growingStarted growingStarted} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16.3. Instead, use <code>updateStarted</code> event with listening <code>changeReason</code>.")]
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.16.3. Instead, use <code>updateStarted</code> event with listening <code>changeReason</code>.")]
 				public extern virtual sap.m.ListBase fireGrowingStarted(sap.m.ListBase.GrowingInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:growingStarted growingStarted} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16.3. Instead, use <code>updateStarted</code> event with listening <code>changeReason</code>.")]
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.16.3. Instead, use <code>updateStarted</code> event with listening <code>changeReason</code>.")]
 				public extern virtual sap.m.ListBase fireGrowingStarted();
 
 				#endregion
@@ -1622,11 +1563,11 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fires after the new growing chunk has been fetched from the model and processed by the control.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16.3. Instead, use 'updateFinished' event.")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.ListBase</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.16.3. Instead, use 'updateFinished' event.")]
 				public extern virtual sap.m.ListBase attachGrowingFinished(object oData, sap.m.ListBase.GrowingDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -1636,10 +1577,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fires after the new growing chunk has been fetched from the model and processed by the control.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16.3. Instead, use 'updateFinished' event.")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.16.3. Instead, use 'updateFinished' event.")]
 				public extern virtual sap.m.ListBase attachGrowingFinished(object oData, sap.m.ListBase.GrowingDelegate fnFunction);
 
 				/// <summary>
@@ -1649,9 +1590,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fires after the new growing chunk has been fetched from the model and processed by the control.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16.3. Instead, use 'updateFinished' event.")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.16.3. Instead, use 'updateFinished' event.")]
 				public extern virtual sap.m.ListBase attachGrowingFinished(sap.m.ListBase.GrowingDelegate fnFunction);
 
 				/// <summary>
@@ -1661,10 +1602,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fires after the new growing chunk has been fetched from the model and processed by the control.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16.3. Instead, use 'updateFinished' event.")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.ListBase</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.16.3. Instead, use 'updateFinished' event.")]
 				public extern virtual sap.m.ListBase attachGrowingFinished(sap.m.ListBase.GrowingDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -1672,25 +1613,25 @@ namespace OpenUI5Sharp
 				/// 
 				/// The passed function and listener object must match the ones used for event registration.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16.3. Instead, use 'updateFinished' event.")]
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.16.3. Instead, use 'updateFinished' event.")]
 				public extern virtual sap.m.ListBase detachGrowingFinished(sap.m.ListBase.GrowingDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:growingFinished growingFinished} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16.3. Instead, use 'updateFinished' event.")]
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.16.3. Instead, use 'updateFinished' event.")]
 				public extern virtual sap.m.ListBase fireGrowingFinished(sap.m.ListBase.GrowingInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:growingFinished growingFinished} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16.3. Instead, use 'updateFinished' event.")]
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.16.3. Instead, use 'updateFinished' event.")]
 				public extern virtual sap.m.ListBase fireGrowingFinished();
 
 				#endregion

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.ObjectListItem")]
 			public partial class ObjectListItem : sap.m.ListItemBase
 			{
 				#region Settings
@@ -30,99 +31,99 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the ObjectListItem title.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> title;
 
 					/// <summary>
 					/// Defines the ObjectListItem number.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> number;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> number;
 
 					/// <summary>
 					/// Defines the number units qualifier of the ObjectListItem.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> numberUnit;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> numberUnit;
 
 					/// <summary>
 					/// Defines the introductory text for the ObjectListItem.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> intro;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> intro;
 
 					/// <summary>
 					/// ObjectListItem icon displayed to the left of the title.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> icon;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> icon;
 
 					/// <summary>
 					/// Icon displayed when the ObjectListItem is active.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> activeIcon;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> activeIcon;
 
 					/// <summary>
 					/// By default, this is set to true but then one or more requests are sent trying to get the density perfect version of image (in case this version of image doesn't exist on the server).
 					/// 
 					/// If bandwidth is key for the application, set this value to false.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> iconDensityAware;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> iconDensityAware;
 
 					/// <summary>
 					/// Sets the favorite state for the ObjectListItem.<br><br>
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> markFavorite;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> markFavorite;
 
 					/// <summary>
 					/// Sets the flagged state for the ObjectListItem.<br><br>
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> markFlagged;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> markFlagged;
 
 					/// <summary>
 					/// If set to true, the ObjectListItem can be marked with icons such as favorite and flag.<br><br>
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showMarkers;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showMarkers;
 
 					/// <summary>
 					/// Defines the ObjectListItem number and numberUnit value state.
 					/// </summary>
-					public Union<sap.ui.core.ValueState, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> numberState;
+					public Union<sap.ui.core.ValueState, string, sap.ui.@base.ManagedObject.BindPropertyInfo> numberState;
 
 					/// <summary>
 					/// Determines the text direction of the item title. Available options for the title direction are LTR (left-to-right) and RTL (right-to-left). By default the item title inherits the text direction from its parent.
 					/// </summary>
-					public Union<sap.ui.core.TextDirection, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> titleTextDirection;
+					public Union<sap.ui.core.TextDirection, string, sap.ui.@base.ManagedObject.BindPropertyInfo> titleTextDirection;
 
 					/// <summary>
 					/// Determines the text direction of the item intro. Available options for the intro direction are LTR (left-to-right) and RTL (right-to-left). By default the item intro inherits the text direction from its parent.
 					/// </summary>
-					public Union<sap.ui.core.TextDirection, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> introTextDirection;
+					public Union<sap.ui.core.TextDirection, string, sap.ui.@base.ManagedObject.BindPropertyInfo> introTextDirection;
 
 					/// <summary>
 					/// Determines the text direction of the item number. Available options for the number direction are LTR (left-to-right) and RTL (right-to-left). By default the item number inherits the text direction from its parent.
 					/// </summary>
-					public Union<sap.ui.core.TextDirection, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> numberTextDirection;
+					public Union<sap.ui.core.TextDirection, string, sap.ui.@base.ManagedObject.BindPropertyInfo> numberTextDirection;
 
 					/// <summary>
 					/// Sets the locked state of the ObjectListItem.<br><br>
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> markLocked;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> markLocked;
 
 					/// <summary>
 					/// List of attributes displayed below the title to the left of the status fields.
 					/// </summary>
-					public Union<sap.m.ObjectAttribute[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> attributes;
+					public Union<sap.m.ObjectAttribute[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> attributes;
 
 					/// <summary>
 					/// First status text field displayed on the right side of the attributes.
 					/// </summary>
-					public Union<sap.m.ObjectStatus, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> firstStatus;
+					public Union<sap.m.ObjectStatus, string, sap.ui.@base.ManagedObject.BindAggregationInfo> firstStatus;
 
 					/// <summary>
 					/// Second status text field displayed on the right side of the attributes.
 					/// </summary>
-					public Union<sap.m.ObjectStatus, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> secondStatus;
+					public Union<sap.m.ObjectStatus, string, sap.ui.@base.ManagedObject.BindAggregationInfo> secondStatus;
 
 					/// <summary>
 					/// List of markers (icon and/or text) that can be displayed for the <code>ObjectListItems</code>, such as favorite and flagged.<br><br> <b>Note:</b> You should use either this aggregation or the already deprecated properties - <code>markFlagged</code>, <code>markFavorite</code>, and <code>markLocked</code>. Using both can lead to unexpected results.
 					/// </summary>
-					public Union<sap.m.ObjectMarker[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> markers;
+					public Union<sap.m.ObjectMarker[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> markers;
 
 				}
 
@@ -342,8 +343,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Sets the favorite state for the ObjectListItem.<br><br>
 				/// </summary>
-				[Obsolete("Deprecated since 1.42.0. replaced by <code>markers</code> aggregation. Add {@link sap.m.ObjectMarker} with type <code>sap.m.ObjectMarkerType.Favorite</code>. You should use either this property or the <code>markers</code> aggregation, using both may lead to unpredicted behavior.")]
 				/// <returns>Value of property <code>markFavorite</code></returns>
+				[Obsolete("Deprecated since 1.42.0. replaced by <code>markers</code> aggregation. Add {@link sap.m.ObjectMarker} with type <code>sap.m.ObjectMarkerType.Favorite</code>. You should use either this property or the <code>markers</code> aggregation, using both may lead to unpredicted behavior.")]
 				public extern virtual bool getMarkFavorite();
 
 				/// <summary>
@@ -362,8 +363,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Sets the flagged state for the ObjectListItem.<br><br>
 				/// </summary>
-				[Obsolete("Deprecated since 1.42.0. replaced by <code>markers</code> aggregation. Add {@link sap.m.ObjectMarker} with type <code>sap.m.ObjectMarkerType.Flagged</code>. You should use either this property or the <code>markers</code> aggregation, using both may lead to unpredicted behavior.")]
 				/// <returns>Value of property <code>markFlagged</code></returns>
+				[Obsolete("Deprecated since 1.42.0. replaced by <code>markers</code> aggregation. Add {@link sap.m.ObjectMarker} with type <code>sap.m.ObjectMarkerType.Flagged</code>. You should use either this property or the <code>markers</code> aggregation, using both may lead to unpredicted behavior.")]
 				public extern virtual bool getMarkFlagged();
 
 				/// <summary>
@@ -382,8 +383,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// If set to true, the ObjectListItem can be marked with icons such as favorite and flag.<br><br>
 				/// </summary>
-				[Obsolete("Deprecated since 1.42.0. replaced by <code>markers</code> aggregation. This property is valid only if you are using the already deprecated properties - <code>markFlagged</code>, <code>markFavorite</code>, and <code>markLocked</code>. If you are using the <code>markers</code> aggregation, the visibility of the markers depends on what is set in the aggregation itself.")]
 				/// <returns>Value of property <code>showMarkers</code></returns>
+				[Obsolete("Deprecated since 1.42.0. replaced by <code>markers</code> aggregation. This property is valid only if you are using the already deprecated properties - <code>markFlagged</code>, <code>markFavorite</code>, and <code>markLocked</code>. If you are using the <code>markers</code> aggregation, the visibility of the markers depends on what is set in the aggregation itself.")]
 				public extern virtual bool getShowMarkers();
 
 				/// <summary>
@@ -512,8 +513,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>false</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.42.0. replaced by <code>markers</code> aggregation. Add {@link sap.m.ObjectMarker} with type <code>sap.m.ObjectMarkerType.Locked</code>. You should use either this property or the <code>markers</code> aggregation, using both may lead to unpredicted behavior.<br><br>")]
 				/// <returns>Value of property <code>markLocked</code></returns>
+				[Obsolete("Deprecated since 1.42.0. replaced by <code>markers</code> aggregation. Add {@link sap.m.ObjectMarker} with type <code>sap.m.ObjectMarkerType.Locked</code>. You should use either this property or the <code>markers</code> aggregation, using both may lead to unpredicted behavior.<br><br>")]
 				public extern virtual bool getMarkLocked();
 
 				/// <summary>

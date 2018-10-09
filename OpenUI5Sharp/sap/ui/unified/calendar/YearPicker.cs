@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.unified.calendar.YearPicker")]
 					public partial class YearPicker : sap.ui.core.Control
 					{
 						#region Settings
@@ -32,27 +33,27 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// The year is initial focused and selected The value must be between 0 and 9999
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> year;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> year;
 
 							/// <summary>
 							/// number of displayed years
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> years;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> years;
 
 							/// <summary>
 							/// number of years in each row 0 means just to have all years in one row, independent of the number
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> columns;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> columns;
 
 							/// <summary>
 							/// Date as JavaScript Date object. For this date a <code>YearPicker</code> is rendered. If a Year is selected the date is updated with the start date of the selected year (depending on the calendar type).
 							/// </summary>
-							public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> date;
+							public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> date;
 
 							/// <summary>
 							/// If set, the calendar type is used for display. If not set, the calendar type of the global configuration is used.
 							/// </summary>
-							public Union<sap.ui.core.CalendarType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> primaryCalendarType;
+							public Union<sap.ui.core.CalendarType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> primaryCalendarType;
 
 							/// <summary>
 							/// Month selection changed
@@ -115,8 +116,8 @@ namespace OpenUI5Sharp
 						/// 
 						/// Default value is <code>2000</code>.
 						/// </summary>
-						[Obsolete("Deprecated since 1.34.0. replaced by <code>date</code> property")]
 						/// <returns>Value of property <code>year</code></returns>
+						[Obsolete("Deprecated since 1.34.0. replaced by <code>date</code> property")]
 						public extern virtual int getYear();
 
 						/// <summary>
@@ -128,9 +129,9 @@ namespace OpenUI5Sharp
 						/// 
 						/// Default value is <code>2000</code>.
 						/// </summary>
-						[Obsolete("Deprecated since 1.34.0. replaced by <code>date</code> property")]
 						/// <param name="iYear">New value for property <code>year</code></param>
 						/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+						[Obsolete("Deprecated since 1.34.0. replaced by <code>date</code> property")]
 						public extern virtual sap.ui.unified.calendar.YearPicker setYear(int iYear);
 
 						#endregion

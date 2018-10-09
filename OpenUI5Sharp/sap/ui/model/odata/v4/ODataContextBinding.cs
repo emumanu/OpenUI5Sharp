@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -30,6 +30,7 @@ namespace OpenUI5Sharp
 						/// </summary>
 						[External]
 						[Namespace(false)]
+						[Name("sap.ui.model.odata.v4.ODataContextBinding")]
 						public partial class ODataContextBinding : sap.ui.model.ContextBinding
 						{
 							#region Constructor
@@ -85,7 +86,7 @@ namespace OpenUI5Sharp
 							/// The value of this binding is the result of the operation. To access a result of primitive type, bind a control to the path "value", for example <code>&lt;Text text="{value}"/></code>. If the result has a complex or entity type, you can bind properties as usual, for example <code>&lt;Text text="{street}"/></code>.
 							/// </summary>
 							/// <param name="sGroupId">The group ID to be used for the request; if not specified, the group ID for this binding is used, see {@link sap.ui.model.odata.v4.ODataContextBinding#constructor}. Valid values are <code>undefined</code>, '$auto', '$direct' or application group IDs as specified in {@link sap.ui.model.odata.v4.ODataModel#submitBatch}.</param>
-							/// <returns>A promise that is resolved without data when the operation call succeeded, or rejected with an instance of <code>Error</code> in case of failure, for instance if the operation metadata is not found, if overloading is not supported, or if a collection-valued function parameter is encountered.</returns>
+							/// <returns>A promise that is resolved without data or a return value context when the operation call succeeded, or rejected with an instance of <code>Error</code> in case of failure, for instance if the operation metadata is not found, if overloading is not supported, or if a collection-valued function parameter is encountered. A return value context is a {@link sap.ui.model.odata.v4.Context} which represents a bound operation response. It is created only if the operation is bound and has a single entity return value from the same entity set as the operation's binding parameter and has a parent context which is a {@link sap.ui.model.odata.v4.Context} and points to an entity from an entity set.</returns>
 							public extern virtual jquery.JQueryPromise<object> execute(string sGroupId);
 
 							/// <summary>
@@ -95,7 +96,7 @@ namespace OpenUI5Sharp
 							/// 
 							/// The value of this binding is the result of the operation. To access a result of primitive type, bind a control to the path "value", for example <code>&lt;Text text="{value}"/></code>. If the result has a complex or entity type, you can bind properties as usual, for example <code>&lt;Text text="{street}"/></code>.
 							/// </summary>
-							/// <returns>A promise that is resolved without data when the operation call succeeded, or rejected with an instance of <code>Error</code> in case of failure, for instance if the operation metadata is not found, if overloading is not supported, or if a collection-valued function parameter is encountered.</returns>
+							/// <returns>A promise that is resolved without data or a return value context when the operation call succeeded, or rejected with an instance of <code>Error</code> in case of failure, for instance if the operation metadata is not found, if overloading is not supported, or if a collection-valued function parameter is encountered. A return value context is a {@link sap.ui.model.odata.v4.Context} which represents a bound operation response. It is created only if the operation is bound and has a single entity return value from the same entity set as the operation's binding parameter and has a parent context which is a {@link sap.ui.model.odata.v4.Context} and points to an entity from an entity set.</returns>
 							public extern virtual jquery.JQueryPromise<object> execute();
 
 							/// <summary>

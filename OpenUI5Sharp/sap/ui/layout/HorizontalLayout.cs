@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.layout.HorizontalLayout")]
 				public partial class HorizontalLayout : sap.ui.core.Control
 				{
 					#region Settings
@@ -30,12 +31,12 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Specifies whether the content inside the Layout shall be line-wrapped in the case that there is less horizontal space available than required.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> allowWrapping;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> allowWrapping;
 
 						/// <summary>
 						/// The controls inside this layout
 						/// </summary>
-						public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
+						public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
 
 					}
 

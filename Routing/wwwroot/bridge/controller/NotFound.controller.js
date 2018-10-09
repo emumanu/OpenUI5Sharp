@@ -22,7 +22,7 @@ Bridge.assembly("RoutingClientScripts", function ($asm, globals) {
                 var oTarget = oRouter.getTarget("notFound");
                 oTarget.attachDisplay(Bridge.fn.bind(this, function (oEvent, oData) {
                     var $t, $t1, $t2;
-                    this._oData = sapuibaseExtensions.getParameterFor(Bridge.global.System.Object, System.Object, oEvent, ($t = { ntype: 38, t: System.Object, n: "p" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"data","t":4,"rt":System.Object,"sn":"data"}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })));
+                    this._oData = sapuibaseExtensions.getParameterFor(System.Object, System.Object, oEvent, ($t = { ntype: 38, t: System.Object, n: "p" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"data","t":4,"rt":System.Object,"sn":"data"}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })));
                 }));
             },
             onNavBack: function (oEvent, oData) {

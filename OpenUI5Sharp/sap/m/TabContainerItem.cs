@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.TabContainerItem")]
 			public partial class TabContainerItem : sap.ui.core.Element
 			{
 				#region Settings
@@ -28,22 +29,22 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Determines the text to be displayed for the item.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> name;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> name;
 
 					/// <summary>
 					/// Determines the name of the item. Can be used as input for subsequent actions.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> key;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> key;
 
 					/// <summary>
 					/// Shows if a control is edited (default is false). Items that are marked as modified have a * symbol to indicate that they haven't been saved.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> modified;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> modified;
 
 					/// <summary>
 					/// The content displayed for this item.
 					/// </summary>
-					public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
+					public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
 
 					/// <summary>
 					/// Sends information that some of the properties have changed.

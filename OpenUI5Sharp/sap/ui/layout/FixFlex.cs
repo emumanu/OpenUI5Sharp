@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.layout.FixFlex")]
 				public partial class FixFlex : sap.ui.core.Control
 				{
 					#region Settings
@@ -30,32 +31,32 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Determines the direction of the layout of child elements. True for vertical and false for horizontal layout.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> vertical;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> vertical;
 
 						/// <summary>
 						/// Determines whether the fixed-size area should be on the beginning/top ( if the value is "true") or end/bottom ( if the value is "false").
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> fixFirst;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> fixFirst;
 
 						/// <summary>
 						/// Determines the height (if the vertical property is "true") or the width (if the vertical property is "false") of the fixed area. If left at the default value "auto", the fixed-size area will be as large as its content. In this case the content cannot use percentage sizes.
 						/// </summary>
-						public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> fixContentSize;
+						public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> fixContentSize;
 
 						/// <summary>
 						/// Enables scrolling inside the flexible part. The given size is calculated in "px". If the child control in the flexible part is larger than the available flexible size on the screen and if the available size for the flexible part is smaller or equal to the minFlexSize value, the scroll will be for the entire FixFlex control.
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> minFlexSize;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> minFlexSize;
 
 						/// <summary>
 						/// Controls in the fixed part of the layout.
 						/// </summary>
-						public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> fixContent;
+						public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> fixContent;
 
 						/// <summary>
 						/// Control in the stretching part of the layout.
 						/// </summary>
-						public Union<sap.ui.core.Control, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> flexContent;
+						public Union<sap.ui.core.Control, string, sap.ui.@base.ManagedObject.BindAggregationInfo> flexContent;
 
 					}
 

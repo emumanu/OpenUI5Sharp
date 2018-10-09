@@ -3,11 +3,10 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Reflection;
 using Bridge;
-using OpenUI5Sharp;
+using UI5;
 
-namespace OpenUI5Sharp.Metadata
+namespace UI5.Metadata
 {
-    [Namespace(false)]
     [FileName("openui5sharp.js")]
     public static partial class TypedMetadata
     {

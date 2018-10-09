@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -14,10 +14,11 @@ namespace OpenUI5Sharp
 				public static partial class dnd
 				{
 					/// <summary>
-					/// Provides the configuration for drop operations.
+					/// Provides the configuration for drop operations. <b>Note:</b> This configuration might be ignored due to control {@link sap.ui.core.Element.extend metadata} restrictions.
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.dnd.DropInfo")]
 					public partial class DropInfo : sap.ui.core.dnd.DragDropBase, sap.ui.core.dnd.IDropInfo
 					{
 						#region Settings
@@ -32,22 +33,22 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// The aggregation name in the drop target control which is the target of this drag-and-drop action. If undefined, the entire control is the target. This can be handy if the target control does not have any aggregations or if the drop position within the target does not matter.
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> targetAggregation;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> targetAggregation;
 
 							/// <summary>
 							/// Defines the visual drop effect.
 							/// </summary>
-							public Union<sap.ui.core.dnd.DropEffect, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> dropEffect;
+							public Union<sap.ui.core.dnd.DropEffect, string, sap.ui.@base.ManagedObject.BindPropertyInfo> dropEffect;
 
 							/// <summary>
 							/// Defines the position for the drop action, visualized by a rectangle.
 							/// </summary>
-							public Union<sap.ui.core.dnd.DropPosition, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> dropPosition;
+							public Union<sap.ui.core.dnd.DropPosition, string, sap.ui.@base.ManagedObject.BindPropertyInfo> dropPosition;
 
 							/// <summary>
 							/// Defines the layout of the droppable controls if <code>dropPosition</code> is set to <code>Between</code> or <code>OnOrBetween</code>.
 							/// </summary>
-							public Union<sap.ui.core.dnd.DropLayout, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> dropLayout;
+							public Union<sap.ui.core.dnd.DropLayout, string, sap.ui.@base.ManagedObject.BindPropertyInfo> dropLayout;
 
 							/// <summary>
 							/// This event is fired when a dragged element enters a drop target.
@@ -265,7 +266,7 @@ namespace OpenUI5Sharp
 						/// 
 						/// Defines the layout of the droppable controls if <code>dropPosition</code> is set to <code>Between</code> or <code>OnOrBetween</code>.
 						/// 
-						/// Default value is <code>Vertical</code>.
+						/// Default value is <code>Default</code>.
 						/// </summary>
 						/// <returns>Value of property <code>dropLayout</code></returns>
 						public extern virtual sap.ui.core.dnd.DropLayout getDropLayout();
@@ -277,7 +278,7 @@ namespace OpenUI5Sharp
 						/// 
 						/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 						/// 
-						/// Default value is <code>Vertical</code>.
+						/// Default value is <code>Default</code>.
 						/// </summary>
 						/// <param name="sDropLayout">New value for property <code>dropLayout</code></param>
 						/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>

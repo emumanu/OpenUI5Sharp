@@ -1,0 +1,818 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:n12="sap.f" xmlns:n0="sap.ui.core" xmlns:n6="sap.m" elementFormDefault="qualified" targetNamespace="sap.f" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="sap.ui.core" />
+  <xs:import namespace="sap.m" />
+  <xs:element name="Avatar" substitutionGroup="n0:Control" type="n12:_AvatarType">
+    <xs:annotation>
+      <xs:documentation>An image-like control that has different display options for representing images, initials, and icons.
+
+&lt;h3&gt;Overview&lt;/h3&gt;
+
+The &lt;code&gt;Avatar&lt;/code&gt; control allows the usage of different content, shapes, and sizes depending on the use case.
+
+The content types that can be displayed are either images, icons, or initials. The shape can be circular or square. There are several predefined sizes, as well as an option to set a custom size.
+
+&lt;h3&gt;Usage&lt;/h3&gt;
+
+Up to two Latin letters can be displayed as initials in an &lt;code&gt;Avatar&lt;/code&gt;. If there are more than two letters, or if there's a non-Latin character present, a default image placeholder will be created.
+
+There are two options for how the displayed image can fit inside the available area: &lt;ul&gt; &lt;li&gt;Cover - the image is scaled to cover all of the available area&lt;/li&gt; &lt;li&gt;Contain - the image is scaled as large as possible while both its height and width fit inside the avalable area&lt;/li&gt; &lt;/ul&gt; &lt;b&gt;Note:&lt;/b&gt; To set a custom size for the &lt;code&gt;Avatar&lt;/code&gt;, you have to choose the &lt;code&gt;Custom&lt;/code&gt; value for the &lt;code&gt;displaySize&lt;/code&gt; property. Then, you have to set both the &lt;code&gt;customDisplaySize&lt;/code&gt; and &lt;code&gt;customFontSize&lt;/code&gt; properties.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_AvatarType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="detailBox">
+            <xs:annotation>
+              <xs:documentation>A &lt;code&gt;sap.m.LightBox&lt;/code&gt; instance, that will be opened automatically when the user interacts with the &lt;code&gt;Avatar&lt;/code&gt; control.
+
+The &lt;code&gt;press&lt;/code&gt; event will still be fired.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n6:LightBox" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="src" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>Determines the path to the desired image or icon.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="initials" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Defines the displayed initials.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="displayShape" type="n12:_AvatarShapeType">
+          <xs:annotation>
+            <xs:documentation>Defines the shape of the &lt;code&gt;Avatar&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="displaySize" type="n12:_AvatarSizeType">
+          <xs:annotation>
+            <xs:documentation>Sets a predefined display size of the &lt;code&gt;Avatar&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="customDisplaySize" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Specifies custom display size of the &lt;code&gt;Avatar&lt;/code&gt;.
+
+&lt;b&gt;Note:&lt;/b&gt; It takes effect if the &lt;code&gt;displaySize&lt;/code&gt; property is set to &lt;code&gt;Custom&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="customFontSize" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Specifies custom font size of the &lt;code&gt;Avatar&lt;/code&gt;.
+
+&lt;b&gt;Note:&lt;/b&gt; It takes effect if the &lt;code&gt;displaySize&lt;/code&gt; property is set to &lt;code&gt;Custom&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="imageFitType" type="n12:_AvatarImageFitTypeType">
+          <xs:annotation>
+            <xs:documentation>Specifies how an image would fit in the &lt;code&gt;Avatar&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="press" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired when the user selects the control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DynamicPage" substitutionGroup="n0:Control" type="n12:_DynamicPageType">
+    <xs:annotation>
+      <xs:documentation>A layout control, representing a web page, consisting of a title, header with dynamic behavior, a content area, and an optional floating footer.
+
+&lt;h3&gt;Overview&lt;/h3&gt;
+
+The control consist of several components:
+
+&lt;ul&gt;&lt;li&gt;{@link sap.f.DynamicPageTitle DynamicPageTitle} - consists of a heading on the left side, content in the middle, and actions on the right. The displayed content changes based on the current mode of the {@link sap.f.DynamicPageHeader DynamicPageHeader}.&lt;/li&gt; &lt;li&gt;{@link sap.f.DynamicPageHeader DynamicPageHeader} - a generic container, which can contain a single layout control and does not care about the content alignment and responsiveness. The header works in two modes - expanded and snapped and its behavior can be adjusted with the help of different properties.&lt;/li&gt; &lt;li&gt;Content area - a generic container, which can have a single UI5 layout control and does not care about the content alignment and responsiveness.&lt;/li&gt; &lt;li&gt;Footer - positioned at the bottom with a small offset and used for additional actions, the footer floats above the content. It can be any {@link sap.m.IBar} control.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;h3&gt;Usage&lt;/h3&gt;
+
+Use the &lt;code&gt;DynamicPage&lt;/code&gt; if you need to have a title, that is always visible and a header, that has configurable Expanding/Snapping functionality. If you don't need the Expanding/Snapping functionality it is better to use the {@link sap.m.Page} as a lighter control.
+
+&lt;ul&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;li&gt;If you're displaying a {@link sap.m.FlexBox} with non-adaptive content (doesn't stretch to fill the available space), it is recommended to set the &lt;code&gt;fitContainer&lt;/code&gt; property of the {@link sap.m.FlexBox FlexBox} to &lt;code&gt;false&lt;/code&gt;.&lt;/li&gt; &lt;li&gt;If you are displaying a {@link sap.ui.table.Table}, keep in mind that it is non-adaptive and may cause unpredicted behavior for the &lt;code&gt;DynamicPage&lt;/code&gt; on smaller screen sizes, such as mobile.&lt;/li&gt; &lt;li&gt;Snapping of the {@link sap.f.DynamicPageTitle DynamicPageTitle} is not supported in the following case: When the &lt;code&gt;DynamicPage&lt;/code&gt; has a scroll bar, the control usually scrolls to the snapping point - the point, where the {@link sap.f.DynamicPageHeader DynamicPageHeader} is scrolled out completely. However, when there is a scroll bar, but not enough content to reach the snapping point, the snapping is not possible using scrolling.&lt;/li&gt; &lt;li&gt;When using {@link sap.ui.layout.form.Form}, {@link sap.m.Panel}, {@link sap.m.Table} and {@link sap.m.List} controls in the content of &lt;code&gt;DynamicPage&lt;/code&gt;, you need to adjust their left text offset if you want to achieve vertical alignment between the &lt;code&gt;sap.f.DynamicPageHeader&lt;/code&gt;`s content and &lt;code&gt;DynamicPage&lt;/code&gt;`s content. For more information, see the documentation for the &lt;code&gt;content&lt;/code&gt; aggregation.&lt;/li&gt;&lt;/ul&gt;
+
+&lt;h3&gt;Responsive Behavior&lt;/h3&gt;
+
+The responsive behavior of the &lt;code&gt;DynamicPage&lt;/code&gt; depends on the behavior of the content that is displayed.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_DynamicPageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="title">
+            <xs:annotation>
+              <xs:documentation>&lt;code&gt;DynamicPage&lt;/code&gt; title.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n12:DynamicPageTitle" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="header">
+            <xs:annotation>
+              <xs:documentation>&lt;code&gt;DynamicPage&lt;/code&gt; header.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n12:DynamicPageHeader" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>&lt;code&gt;DynamicPage&lt;/code&gt; content.
+
+&lt;b&gt;Note:&lt;/b&gt; The SAP Fiori Design guidelines require that the &lt;code&gt;DynamicPageHeader&lt;/code&gt;'s content and the &lt;code&gt;DynamicPage&lt;/code&gt;'s content are aligned vertically. When using {@link sap.ui.layout.form.Form}, {@link sap.m.Panel}, {@link sap.m.Table} and {@link sap.m.List} in the content area of &lt;code&gt;DynamicPage&lt;/code&gt;, you need to adjust their left text offset to achieve the vertical alignment. To do this, apply the &lt;code&gt;sapFDynamicPageAlignContent&lt;/code&gt; CSS class to them and set their &lt;code&gt;width&lt;/code&gt; property to &lt;code&gt;auto&lt;/code&gt; (if not set by default).
+
+Example:
+
+&lt;pre&gt;
+&lt;code&gt; &amp;lt;Panel class=“sapFDynamicPageAlignContent” width=“auto”&amp;gt;&amp;lt;/Panel&amp;gt; &lt;/code&gt;
+&lt;/pre&gt;
+
+Please keep in mind that the alignment is not possible when the controls are placed in a {@link sap.ui.layout.Grid} or in other layout controls that use &lt;code&gt;overflow:hidden&lt;/code&gt; CSS property.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="footer">
+            <xs:annotation>
+              <xs:documentation>&lt;code&gt;DynamicPage&lt;/code&gt; floating footer.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="preserveHeaderStateOnScroll" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Preserves the current header state when scrolling. For example, if the user expands the header by clicking on the title and then scrolls down the page, the header will remain expanded.
+
+&lt;b&gt;Note:&lt;/b&gt; Based on internal rules, the value of the property is not always taken into account - for example, when the control is rendered on tablet or mobile and the control`s title and header are with height larger than the given threshold.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="headerExpanded" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the header is expanded.
+
+The header can be also expanded/collapsed by user interaction, which requires the property to be internally mutated by the control to reflect the changed state.
+
+&lt;b&gt;Note:&lt;/b&gt; As of version 1.48, you can initialize the control in collapsed header state by setting this property to &lt;code&gt;false&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="toggleHeaderOnTitleClick" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the user can switch between the expanded/collapsed states of the &lt;code&gt;DynamicPageHeader&lt;/code&gt; by clicking on the &lt;code&gt;DynamicPageTitle&lt;/code&gt; or by using the expand/collapse visual indicators, positioned at the bottom of the &lt;code&gt;DynamicPageTitle&lt;/code&gt; and the &lt;code&gt;DynamicPageHeader&lt;/code&gt;. If set to &lt;code&gt;false&lt;/code&gt;, the &lt;code&gt;DynamicPageTitle&lt;/code&gt; is not clickable, the visual indicators are not available and the application must provide other means for expanding/collapsing the &lt;code&gt;DynamicPageHeader&lt;/code&gt;, if necessary.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showFooter" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the footer is visible.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="fitContent" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Optimizes &lt;code&gt;DynamicPage&lt;/code&gt; responsiveness on small screens and behavior when expanding/collapsing the &lt;code&gt;DynamicPageHeader&lt;/code&gt;.
+
+&lt;b&gt;Note:&lt;/b&gt; It is recommended to use this property when displaying content of adaptive controls that stretch to fill the available space. Such controls may be {@link sap.ui.table.Table} and {@link sap.ui.table.AnalyticalTable} depending on their settings.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DynamicPageHeader" substitutionGroup="n0:Control" type="n12:_DynamicPageHeaderType">
+    <xs:annotation>
+      <xs:documentation>Header of the {@link sap.f.DynamicPage}.
+
+&lt;h3&gt;Overview&lt;/h3&gt;
+
+The &lt;code&gt;DynamicPageHeader&lt;/code&gt; control is part of the {@link sap.f.DynamicPage} family and is used to serve as header of the {@link sap.f.DynamicPage DynamicPage}.
+
+&lt;h3&gt;Usage&lt;/h3&gt;
+
+The &lt;code&gt;DynamicPageHeader&lt;/code&gt; can hold any layout control and has two states - expanded and collapsed (snapped). The switching between these states happens when:
+
+&lt;ul&gt;&lt;li&gt;the user scrolls below its bottom margin&lt;/li&gt; &lt;li&gt;the user clicks on the {@link sap.f.DynamicPageTitle DynamicPageTitle}&lt;/li&gt; &lt;li&gt;through the {@link sap.f.DynamicPage DynamicPage} property &lt;code&gt;headerExpanded&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+
+&lt;h3&gt;Responsive Behavior&lt;/h3&gt;
+
+The responsive behavior of the &lt;code&gt;DynamicPageHeader&lt;/code&gt; depends on the behavior of the content that is displayed.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_DynamicPageHeaderType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>The content of the header.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="pinnable" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the header is pinnable.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="content" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DynamicPageTitle" substitutionGroup="n0:Control" type="n12:_DynamicPageTitleType">
+    <xs:annotation>
+      <xs:documentation>Title of the {@link sap.f.DynamicPage}.
+
+&lt;h3&gt;Overview&lt;/h3&gt;
+
+The &lt;code&gt;DynamicPageTitle&lt;/code&gt; control is part of the {@link sap.f.DynamicPage} family and is used to serve as title of the {@link sap.f.DynamicPage DynamicPage}.
+
+&lt;h3&gt;Usage&lt;/h3&gt;
+
+The &lt;code&gt;DynamicPageTitle&lt;/code&gt; can hold any control and displays the most important information regarding the object that will always remain visible while scrolling.
+
+&lt;b&gt;Note:&lt;/b&gt; The &lt;code&gt;actions&lt;/code&gt; aggregation accepts any UI5 control, but it`s recommended to use controls, suitable for {@link sap.m.Toolbar} and {@link sap.m.OverflowToolbar}.
+
+If the &lt;code&gt;toggleHeaderOnTitleClick&lt;/code&gt; property of the {@link sap.f.DynamicPage DynamicPage} is set to &lt;code&gt;true&lt;/code&gt;, the user can switch between the expanded/collapsed states of the {@link sap.f.DynamicPageHeader DynamicPageHeader} by clicking on the &lt;code&gt;DynamicPageTitle&lt;/code&gt; or by using the expand/collapse visual indicators, positioned at the bottom of the &lt;code&gt;DynamicPageTitle&lt;/code&gt; and the &lt;code&gt;DynamicPageHeader&lt;/code&gt;.
+
+If set to &lt;code&gt;false&lt;/code&gt;, the &lt;code&gt;DynamicPageTitle&lt;/code&gt; is not clickable, the visual indicators are not available, and the app must provide other means for expanding/collapsing the &lt;code&gt;DynamicPageHeader&lt;/code&gt;, if necessary.
+
+&lt;h3&gt;Responsive Behavior&lt;/h3&gt;
+
+The responsive behavior of the &lt;code&gt;DynamicPageTitle&lt;/code&gt; depends on the behavior of the content that is displayed.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_DynamicPageTitleType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="heading">
+            <xs:annotation>
+              <xs:documentation>The &lt;code&gt;heading&lt;/code&gt; is positioned in the &lt;code&gt;DynamicPageTitle&lt;/code&gt; left area and is displayed in both expanded and collapsed (snapped) states of the header. Use this aggregation to display a title (or any other UI5 control that serves as a heading) that has to be present in both expanded and collapsed states of the header.
+
+&lt;b&gt;Note:&lt;/b&gt; &lt;code&gt;heading&lt;/code&gt; is mutually exclusive with &lt;code&gt;snappedHeading&lt;/code&gt; and &lt;code&gt;expandedHeading&lt;/code&gt;. If &lt;code&gt;heading&lt;/code&gt; is provided, both &lt;code&gt;snappedHeading&lt;/code&gt; and &lt;code&gt;expandedHeading&lt;/code&gt; are ignored. &lt;code&gt;heading&lt;/code&gt; is useful when the content of &lt;code&gt;snappedHeading&lt;/code&gt; and &lt;code&gt;expandedHeading&lt;/code&gt; needs to be the same as it replaces them both.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="snappedHeading">
+            <xs:annotation>
+              <xs:documentation>The &lt;code&gt;snappedHeading&lt;/code&gt; is positioned in the &lt;code&gt;DynamicPageTitle&lt;/code&gt; left area and is displayed when the header is in collapsed (snapped) state only. Use this aggregation to display a title (or any other UI5 control that serves as a heading) that has to be present in collapsed state only.
+
+&lt;b&gt;Note:&lt;/b&gt; In order for &lt;code&gt;snappedHeading&lt;/code&gt; to be taken into account, &lt;code&gt;heading&lt;/code&gt; has to be empty. Combine &lt;code&gt;snappedHeading&lt;/code&gt; with &lt;code&gt;expandedHeading&lt;/code&gt; to switch content when the header switches state.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="expandedHeading">
+            <xs:annotation>
+              <xs:documentation>The &lt;code&gt;expandedHeading&lt;/code&gt; is positioned in the &lt;code&gt;DynamicPageTitle&lt;/code&gt; left area and is displayed when the header is in expanded state only. Use this aggregation to display a title (or any other UI5 control that serves as a heading) that has to be present in expanded state only.
+
+&lt;b&gt;Note:&lt;/b&gt; In order for &lt;code&gt;expandedHeading&lt;/code&gt; to be taken into account, &lt;code&gt;heading&lt;/code&gt; has to be empty. Combine &lt;code&gt;expandedHeading&lt;/code&gt; with &lt;code&gt;snappedHeading&lt;/code&gt; to switch content when the header switches state.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="actions">
+            <xs:annotation>
+              <xs:documentation>The &lt;code&gt;DynamicPageTitle&lt;/code&gt; actions. &lt;br&gt;&lt;b&gt;Note:&lt;/b&gt; The &lt;code&gt;actions&lt;/code&gt; aggregation accepts any UI5 control, but it`s recommended to use controls, suitable for {@link sap.m.Toolbar} and {@link sap.m.OverflowToolbar}.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="navigationActions">
+            <xs:annotation>
+              <xs:documentation>The &lt;code&gt;DynamicPageTitle&lt;/code&gt; navigation actions.
+
+&lt;b&gt;Note:&lt;/b&gt; The &lt;code&gt;navigationActions&lt;/code&gt; position depends on the control size. If the control size is 1280px or bigger, they are rendered right next to the &lt;code&gt;actions&lt;/code&gt;. Otherwise, they are rendered in the top-right area, above the &lt;code&gt;actions&lt;/code&gt;. If a large number of elements(buttons) are used, there could be visual degradations as the space for the &lt;code&gt;navigationActions&lt;/code&gt; is limited.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n6:Button" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>The content is positioned in the &lt;code&gt;DynamicPageTitle&lt;/code&gt; middle area and displayed in both expanded and collapsed (snapped) states.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="snappedContent">
+            <xs:annotation>
+              <xs:documentation>The content that is displayed in the &lt;code&gt;DynamicPageTitle&lt;/code&gt; in collapsed (snapped) state.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="expandedContent">
+            <xs:annotation>
+              <xs:documentation>The content that is displayed in the &lt;code&gt;DynamicPageTitle&lt;/code&gt; in expanded state.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="breadcrumbs">
+            <xs:annotation>
+              <xs:documentation>The breadcrumbs displayed in the &lt;code&gt;DynamicPageTitle&lt;/code&gt; top-left area.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="primaryArea" type="n12:_DynamicPageTitleAreaType">
+          <xs:annotation>
+            <xs:documentation>Determines which of the &lt;code&gt;DynamicPageTitle&lt;/code&gt; areas (Begin, Middle) is primary.
+
+&lt;b&gt;Note:&lt;/b&gt; The primary area is shrinking at lower rate, remaining visible as much as it can.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="areaShrinkRatio" type="n12:_DynamicPageTitleShrinkRatioType">
+          <xs:annotation>
+            <xs:documentation>Assigns shrinking ratio to the &lt;code&gt;DynamicPageTitle&lt;/code&gt; areas (Heading, Content, Actions). The greater value a section has the faster it shrinks when the screen size is being reduced.
+
+The value must be set in &lt;code&gt;Heading:Content:Actions&lt;/code&gt; format where Title, Content and Actions are numbers greater than or equal to 0. If set to 0, the respective area will not shrink.
+
+For example, if &lt;code&gt;2:7:1&lt;/code&gt; is set, the Content area will shrink seven times faster than the Actions area. So, when all three areas have width of 500px and the available space is reduced by 100px the Title area will reduced by 20px, the Content area - by 70px and the Actions area - by 10px.
+
+If all the areas have assigned values greater than 1, the numbers are scaled so that at least one of them is equal to 1. For example, value of &lt;code&gt;2:4:8&lt;/code&gt; is equal to &lt;code&gt;1:2:4&lt;/code&gt;.
+
+&lt;Note:&gt; When this property is set the &lt;code&gt;primaryArea&lt;/code&gt; property has no effect.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="actions" type="xs:string" />
+        <xs:attribute name="navigationActions" type="xs:string" />
+        <xs:attribute name="content" type="xs:string" />
+        <xs:attribute name="snappedContent" type="xs:string" />
+        <xs:attribute name="expandedContent" type="xs:string" />
+        <xs:attribute name="stateChange" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired when the title state (expanded/collapsed) is toggled by user interaction. For example, scrolling, title clicking/tapping, using expand/collapse button.
+
+Also fired when the developer toggles the title state by programmatically changing the scroll position of the scrollbar of &lt;code&gt;DynamicPage&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FlexibleColumnLayout" substitutionGroup="n0:Control" type="n12:_FlexibleColumnLayoutType">
+    <xs:annotation>
+      <xs:documentation>Implements the master-detail-detail paradigm by displaying up to three pages in separate columns.
+
+&lt;h3&gt;Overview&lt;/h3&gt;
+
+The control is logically similar to {@link sap.m.SplitContainer} with the difference that it capable of handling three columns (referred to as &lt;code&gt;Begin&lt;/code&gt;, &lt;code&gt;Mid&lt;/code&gt; and &lt;code&gt;End&lt;/code&gt;) rather than two (&lt;code&gt;Master&lt;/code&gt;, &lt;code&gt;Detail&lt;/code&gt;). The width of the three columns is variable.
+
+There are several possible layouts that can be changed either with the control's API, or by the user with the help of layout arrows.
+
+Internally the control makes use of three instances of {@link sap.m.NavContainer}, thus forming the three columns.
+
+&lt;h3&gt;Usage&lt;/h3&gt;
+
+Use this control for applications that need to display several logical levels of related information side by side (e.g. list of items, item, sub-item, etc.). The control is flexible in a sense that the application can focus the user's attention on one particular column by making it larger or even fullscreen.
+
+The columns are accessible with the &lt;code&gt;beginColumnPages&lt;/code&gt;, &lt;code&gt;midColumnPages&lt;/code&gt; and &lt;code&gt;endColumnPages&lt;/code&gt; aggregations.
+
+The relative sizes and the visibility of the three columns are determined based on the value of the {@link sap.f.LayoutType layout} property.
+
+Changes to the layout due to user interaction are communicated to the app with the &lt;code&gt;stateChange&lt;/code&gt; event.
+
+&lt;ul&gt;&lt;b&gt;Notes:&lt;/b&gt; &lt;li&gt;To easily implement the recommended UX design of a &lt;code&gt;sap.f.FlexibleColumnLayout&lt;/code&gt;-based app, you can use the &lt;code&gt;sap.f.FlexibleColumnLayoutSemanticHelper&lt;/code&gt; class.&lt;/li&gt; &lt;li&gt;To facilitate the navigation and view loading, you can use the {@link sap.f.routing.Router} &lt;/li&gt;&lt;/ul&gt;
+
+&lt;h3&gt;Responsive Behavior&lt;/h3&gt;
+
+The control automatically displays the maximum possible number of columns based on the device size and current &lt;code&gt;layout&lt;/code&gt;. The app does not need to take into consideration the current device/screen size, but only to add content to the columns and change the value of the &lt;code&gt;layout&lt;/code&gt; property.
+
+For detailed information, see {@link sap.f.LayoutType LayoutType} enumeration.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FlexibleColumnLayoutType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="beginColumnPages">
+            <xs:annotation>
+              <xs:documentation>The content entities between which the &lt;code&gt;FlexibleColumnLayout&lt;/code&gt; navigates in the &lt;code&gt;Begin&lt;/code&gt; column.
+
+These should be any control with page semantics. These aggregated controls will receive navigation events like {@link sap.m.NavContainerChild#beforeShow beforeShow}, they are documented in the pseudo interface {@link sap.m.NavContainerChild sap.m.NavContainerChild}.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="midColumnPages">
+            <xs:annotation>
+              <xs:documentation>The content entities between which the &lt;code&gt;FlexibleColumnLayout&lt;/code&gt; navigates in the &lt;code&gt;Mid&lt;/code&gt; column.
+
+These should be any control with page semantics. These aggregated controls will receive navigation events like {@link sap.m.NavContainerChild#beforeShow beforeShow}, they are documented in the pseudo interface {@link sap.m.NavContainerChild sap.m.NavContainerChild}.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="endColumnPages">
+            <xs:annotation>
+              <xs:documentation>The content entities between which the &lt;code&gt;FlexibleColumnLayout&lt;/code&gt; navigates in the &lt;code&gt;End&lt;/code&gt; column.
+
+These should be any control with page semantics. These aggregated controls will receive navigation events like {@link sap.m.NavContainerChild#beforeShow beforeShow}, they are documented in the pseudo interface {@link sap.m.NavContainerChild sap.m.NavContainerChild}.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="layout" type="n12:_LayoutTypeType">
+          <xs:annotation>
+            <xs:documentation>Determines the layout of the control - number of visible columns and their relative sizes.
+
+For more details, see {@link topic:3b9f760da5b64adf8db7f95247879086 Types of Layout} in the documentation.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="defaultTransitionNameBeginColumn" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Determines the type of the transition/animation to apply for the &lt;code&gt;Begin&lt;/code&gt; column when &lt;code&gt;to()&lt;/code&gt; is called without defining the transition to use. The default is &lt;code&gt;slide&lt;/code&gt;, other options are &lt;code&gt;fade&lt;/code&gt;, &lt;code&gt;flip&lt;/code&gt;, &lt;code&gt;show&lt;/code&gt;, and the names of any registered custom transitions.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="defaultTransitionNameMidColumn" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Determines the type of the transition/animation to apply for the &lt;code&gt;Mid&lt;/code&gt; column when &lt;code&gt;to()&lt;/code&gt; is called without defining the transition to use. The default is &lt;code&gt;slide&lt;/code&gt;, other options are &lt;code&gt;fade&lt;/code&gt;, &lt;code&gt;flip&lt;/code&gt;, &lt;code&gt;show&lt;/code&gt;, and the names of any registered custom transitions.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="defaultTransitionNameEndColumn" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Determines the type of the transition/animation to apply for the &lt;code&gt;End&lt;/code&gt; column when &lt;code&gt;to()&lt;/code&gt; is called without defining the transition to use. The default is &lt;code&gt;slide&lt;/code&gt;, other options are &lt;code&gt;fade&lt;/code&gt;, &lt;code&gt;flip&lt;/code&gt;, &lt;code&gt;show&lt;/code&gt;, and the names of any registered custom transitions.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="backgroundDesign" type="n6:_BackgroundDesignType">
+          <xs:annotation>
+            <xs:documentation>Specifies the background color of the content. The visualization of the different options depends on the used theme.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="beginColumnPages" type="xs:string" />
+        <xs:attribute name="midColumnPages" type="xs:string" />
+        <xs:attribute name="endColumnPages" type="xs:string" />
+        <xs:attribute name="initialBeginColumnPage" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Sets the initial &lt;code&gt;Begin&lt;/code&gt; column page, which is displayed on application launch.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="initialMidColumnPage" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Sets the initial &lt;code&gt;Mid&lt;/code&gt; column page, which is displayed on application launch.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="initialEndColumnPage" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Sets the initial &lt;code&gt;End&lt;/code&gt; column page, which is displayed on application launch.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="stateChange" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired when there is a change in the &lt;code&gt;layout&lt;/code&gt; property or in the maximum number of columns that can be displayed at once. &lt;br/&gt;&lt;/br&gt; &lt;ul&gt;The interactions that may lead to a state change are: &lt;li&gt;the property &lt;code&gt;layout&lt;/code&gt; was changed indirectly by the user clicking a layout arrow&lt;/li&gt; &lt;li&gt;the user resized the browser beyond a breakpoint, thus changing the maximum number of columns that can be displayed at once.&lt;/li&gt;&lt;/ul&gt; &lt;br/&gt;&lt;br/&gt; &lt;b&gt;Note: &lt;/b&gt;The event is suppressed while the control has zero width and will be fired the first time it gets a non-zero width</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="beginColumnNavigate" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fires when navigation between two pages in the &lt;code&gt;Begin&lt;/code&gt; column has been triggered. The transition (if any) to the new page has not started yet. This event can be aborted by the application with preventDefault(), which means that there will be no navigation.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="afterBeginColumnNavigate" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fires when navigation between two pages in the &lt;code&gt;Begin&lt;/code&gt; column has completed.
+
+NOTE: In case of animated transitions this event is fired with some delay after the navigate event.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="midColumnNavigate" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fires when navigation between two pages in the &lt;code&gt;Mid&lt;/code&gt; column has been triggered. The transition (if any) to the new page has not started yet. This event can be aborted by the application with preventDefault(), which means that there will be no navigation.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="afterMidColumnNavigate" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fires when navigation between two pages in the &lt;code&gt;Mid&lt;/code&gt; column has completed.
+
+NOTE: In case of animated transitions this event is fired with some delay after the navigate event.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="endColumnNavigate" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fires when navigation between two pages in the &lt;code&gt;End&lt;/code&gt; column has been triggered. The transition (if any) to the new page has not started yet. This event can be aborted by the application with preventDefault(), which means that there will be no navigation.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="afterEndColumnNavigate" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fires when navigation between two pages in the &lt;code&gt;End&lt;/code&gt; column has completed.
+
+NOTE: In case of animated transitions this event is fired with some delay after the navigate event.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="_DynamicPageTitleShrinkRatioType">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="_AvatarImageFitTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Contain">
+        <xs:annotation>
+          <xs:documentation>The image is scaled to the largest size so that both its width and height can fit in the control area.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Cover">
+        <xs:annotation>
+          <xs:documentation>The image is scaled to be large enough so that the control area is completely covered.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_AvatarShapeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Circle">
+        <xs:annotation>
+          <xs:documentation>Circular shape.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Square">
+        <xs:annotation>
+          <xs:documentation>Square shape.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_AvatarSizeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Custom">
+        <xs:annotation>
+          <xs:documentation>Custom size</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="L">
+        <xs:annotation>
+          <xs:documentation>Control size - 5rem Font size - 2rem</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="M">
+        <xs:annotation>
+          <xs:documentation>Control size - 4rem Font size - 1.625rem</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="S">
+        <xs:annotation>
+          <xs:documentation>Control size - 3rem Font size - 1.125rem</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="XL">
+        <xs:annotation>
+          <xs:documentation>Control size - 7rem Font size - 2.75rem</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="XS">
+        <xs:annotation>
+          <xs:documentation>Control size - 2rem Font size - 0.75rem</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_AvatarTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Icon">
+        <xs:annotation>
+          <xs:documentation>The displayed content is an icon.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Image">
+        <xs:annotation>
+          <xs:documentation>The displayed content is an image.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Initials">
+        <xs:annotation>
+          <xs:documentation>The displayed content is initials.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_DynamicPageTitleAreaType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Begin">
+        <xs:annotation>
+          <xs:documentation>The area includes the &lt;code&gt;heading&lt;/code&gt;, &lt;code&gt;expandedContent&lt;/code&gt; and &lt;code&gt;snappedContent&lt;/code&gt; aggregations, positioned in the beginning area of the {@link sap.f.DynamicPageTitle}.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Middle">
+        <xs:annotation>
+          <xs:documentation>The area includes the &lt;code&gt;content&lt;/code&gt; aggregation, positioned in the middle part of the {@link sap.f.DynamicPageTitle}.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_LayoutTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="EndColumnFullScreen">
+        <xs:annotation>
+          <xs:documentation>Desktop: -/-/100 only the End column is displayed
+
+Tablet: -/-/100 only the End column is displayed
+
+Phone: -/-/100 only the End column is displayed
+
+Use to display a detail-detail page only, when the user should focus entirely on it.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MidColumnFullScreen">
+        <xs:annotation>
+          <xs:documentation>Desktop: -/100/- only the Mid column is displayed
+
+Tablet: -/100/- only the Mid column is displayed
+
+Phone: -/100/- only the Mid column is displayed
+
+Use to display a detail page only, when the user should focus entirely on it.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="OneColumn">
+        <xs:annotation>
+          <xs:documentation>Desktop: 100/-/- only the Begin column is displayed
+
+Tablet: 100/-/- only the Begin column is displayed
+
+Phone: 100/-/- only the Begin column is displayed
+
+Use to start with a master page.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ThreeColumnsBeginExpandedEndHidden">
+        <xs:annotation>
+          <xs:documentation>Desktop: 67/33/0 Begin (expanded) and Mid columns are displayed, End is accessible by layout arrows
+
+Tablet: 67/33/0 Begin (expanded) and Mid columns are displayed, End is accessible by layout arrows
+
+Phone: -/-/100 only the End column is displayed
+
+Use to display the master and detail pages when the user should focus on the master. The detail-detail is still loaded and easily accessible with layout arrows.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ThreeColumnsEndExpanded">
+        <xs:annotation>
+          <xs:documentation>Desktop: 25/25/50 Begin, Mid and End (expanded) columns are displayed
+
+Tablet: 0/33/67 Mid and End (expanded) columns are displayed, Begin is accessible by layout arrows
+
+Phone: -/-/100 (only the End column is displayed)
+
+Use to display all three pages (master, detail, detail-detail) when the user should focus on the detail-detail.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ThreeColumnsMidExpanded">
+        <xs:annotation>
+          <xs:documentation>Desktop: 25/50/25 Begin, Mid (expanded) and End columns are displayed
+
+Tablet: 0/67/33 Mid (expanded) and End columns are displayed, Begin is accessible by a layout arrow
+
+Phone: -/-/100 only the End column is displayed
+
+Use to display all three pages (master, detail, detail-detail) when the user should focus on the detail.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ThreeColumnsMidExpandedEndHidden">
+        <xs:annotation>
+          <xs:documentation>Desktop: 33/67/0 Begin and Mid (expanded) columns are displayed, End is accessible by a layout arrow
+
+Tablet: 33/67/0 Begin and Mid (expanded) columns are displayed, End is accessible by a layout arrow
+
+Phone: -/-/100 only the End column is displayed
+
+Use to display the master and detail pages when the user should focus on the detail. The detail-detail is still loaded and easily accessible with a layout arrow.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TwoColumnsBeginExpanded">
+        <xs:annotation>
+          <xs:documentation>Desktop: 67/33/- Begin (expanded) and Mid columns are displayed
+
+Tablet: 67/33/- Begin (expanded) and Mid columns are displayed
+
+Phone: -/100/- only the Mid column is displayed
+
+Use to display both a master and a detail page when the user should focus on the master page.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TwoColumnsMidExpanded">
+        <xs:annotation>
+          <xs:documentation>Desktop: 33/67/- Begin and Mid (expanded) columns are displayed
+
+Tablet: 33/67/- Begin and Mid (expanded) columns are displayed
+
+Phone: -/100/- only the Mid column is displayed
+
+Use to display both a master and a detail page when the user should focus on the detail page.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.Breadcrumbs")]
 			public partial class Breadcrumbs : sap.ui.core.Control, sap.m.IBreadcrumbs
 			{
 				#region Settings
@@ -28,12 +29,12 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Determines the text of current/last element in the Breadcrumbs path.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> currentLocationText;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> currentLocationText;
 
 					/// <summary>
 					/// A list of all the active link elements in the Breadcrumbs control. <b>Note:</b> Enabling the property <code>wrapping</code> of the link will not work since it's incompatible with the concept of the control. The other properties will work, but their effect may be undesirable.
 					/// </summary>
-					public Union<sap.m.Link[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> links;
+					public Union<sap.m.Link[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> links;
 
 				}
 

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.QuickViewBase")]
 			public partial class QuickViewBase : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,7 +29,7 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Displays a page header, object icon or image, object name with short description, and object information divided in groups
 					/// </summary>
-					public Union<sap.m.QuickViewPage[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> pages;
+					public Union<sap.m.QuickViewPage[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> pages;
 
 					/// <summary>
 					/// The event is fired when navigation between two pages has been triggered. The transition (if any) to the new page has not started yet. This event can be aborted by the application with preventDefault(), which means that there will be no navigation.

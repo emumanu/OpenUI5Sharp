@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.unified.CalendarLegend")]
 				public partial class CalendarLegend : sap.ui.core.Control
 				{
 					#region Settings
@@ -30,17 +31,17 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Determines the standard items related to the calendar days, such as, today, selected, working and non-working. Values must be one of <code>sap.ui.unified.StandardCalendarLegendItem</code>. Note: for versions 1.50 and 1.52, this property was defined in the the subclass <code>sap.m.PlanningCalendarLegend</code>
 						/// </summary>
-						public Union<string[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> standardItems;
+						public Union<string[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> standardItems;
 
 						/// <summary>
 						/// Defines the width of the created columns in which the items are arranged.
 						/// </summary>
-						public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> columnWidth;
+						public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> columnWidth;
 
 						/// <summary>
 						/// Items to be displayed.
 						/// </summary>
-						public Union<sap.ui.unified.CalendarLegendItem[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
+						public Union<sap.ui.unified.CalendarLegendItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
 
 					}
 

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.MessagePage")]
 			public partial class MessagePage : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,76 +29,76 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Determines the main text displayed on the MessagePage.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> text;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> text;
 
 					/// <summary>
 					/// Determines the detailed description that shows additional information on the MessagePage.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> description;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> description;
 
 					/// <summary>
 					/// Determines the title in the header of MessagePage.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> title;
 
 					/// <summary>
 					/// Determines the visibility of the MessagePage header. Can be used to hide the header of the MessagePage when it's embedded in another page.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showHeader;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showHeader;
 
 					/// <summary>
 					/// Determines the visibility of the navigation button in MessagePage header.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showNavButton;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showNavButton;
 
 					/// <summary>
 					/// Determines the icon displayed on the MessagePage.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> icon;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> icon;
 
 					/// <summary>
 					/// Defines the alt attribute of the icon displayed on the <code>MessagePage</code>.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> iconAlt;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> iconAlt;
 
 					/// <summary>
 					/// Determines the element's text directionality with enumerated options. By default, the control inherits text direction from the DOM.
 					/// </summary>
-					public Union<sap.ui.core.TextDirection, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> textDirection;
+					public Union<sap.ui.core.TextDirection, string, sap.ui.@base.ManagedObject.BindPropertyInfo> textDirection;
 
 					/// <summary>
 					/// Defines whether the value set in the <code>description</code> property is displayed as formatted text in HTML format.
 					/// 
 					/// For details regarding supported HTML tags, see {@link sap.m.FormattedText}
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enableFormattedText;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enableFormattedText;
 
 					/// <summary>
 					/// The (optional) custom Text control of this page. Use this aggregation when the "text" (sap.m.Text) control needs to be replaced with an sap.m.Link control. "text" and "textDirection" setters can be used for this aggregation.
 					/// </summary>
-					public Union<sap.m.Link, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> customText;
+					public Union<sap.m.Link, string, sap.ui.@base.ManagedObject.BindAggregationInfo> customText;
 
 					/// <summary>
 					/// The (optional) custom description control of this page. Use this aggregation when the "description" (sap.m.Text) control needs to be replaced with an sap.m.Link control. "description" and "textDirection" setters can be used for this aggregation.
 					/// </summary>
-					public Union<sap.m.Link, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> customDescription;
+					public Union<sap.m.Link, string, sap.ui.@base.ManagedObject.BindAggregationInfo> customDescription;
 
 					/// <summary>
 					/// The buttons displayed under the description text.
 					/// 
 					/// <b>Note:</b> Buttons added to this aggregation are both vertically and horizontally centered. Depending on the available space, they may be rendered on several lines.
 					/// </summary>
-					public Union<sap.m.Button[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> buttons;
+					public Union<sap.m.Button[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> buttons;
 
 					/// <summary>
 					/// Association to controls / ids which describe this control (see WAI-ARIA attribute aria-describedby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaDescribedBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaDescribedBy;
 
 					/// <summary>
 					/// Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 					/// <summary>
 					/// This event is fired when Nav Button is pressed.

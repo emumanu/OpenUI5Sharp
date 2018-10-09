@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.layout.form.GridContainerData")]
 					public partial class GridContainerData : sap.ui.core.LayoutData
 					{
 						#region Settings
@@ -32,7 +33,7 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// If set, the container takes half the width of the <code>Form</code> (8 cells), if not it takes the full width (16 cells). If the <code>GridLayout</code> is set to <code>singleColumn</code>, the full width of the grid is only 8 cells. So containers are rendered only once per row.
 							/// </summary>
-							public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> halfGrid;
+							public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> halfGrid;
 
 						}
 

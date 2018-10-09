@@ -3,12 +3,13 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
-	public partial class jQuery
+	public abstract partial class jQuery
 	{
 		[External]
 		[Namespace(false)]
+		[Name("jQuery.device")]
 		[Obsolete("Deprecated since 1.20. use the respective functions of {@link sap.ui.Device} instead")]
 		public static partial class device
 		{

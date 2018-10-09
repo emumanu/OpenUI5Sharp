@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.MessagePopoverItem")]
 			[Obsolete("Deprecated since 1.46. use MessageItem instead")]
 			public partial class MessagePopoverItem : sap.m.MessageItem
 			{

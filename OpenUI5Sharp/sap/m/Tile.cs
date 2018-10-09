@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.Tile")]
 			[Obsolete("Deprecated since 1.50. replaced by {@link sap.m.GenericTile}")]
 			public partial class Tile : sap.ui.core.Control
 			{
@@ -29,7 +30,7 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Determines whether the tile is movable within the surrounding tile container. The remove event is fired by the tile container.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> removable;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> removable;
 
 					/// <summary>
 					/// Tap event is raised if the user taps or clicks the control.

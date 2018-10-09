@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.unified.CalendarRow")]
 				public partial class CalendarRow : sap.ui.core.Control
 				{
 					#region Settings
@@ -30,17 +31,17 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Start date, as JavaScript Date object, of the row. As default, the current date is used.
 						/// </summary>
-						public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> startDate;
+						public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> startDate;
 
 						/// <summary>
 						/// Number of displayed intervals. The size of the intervals is defined with <code>intervalType</code>
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> intervals;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> intervals;
 
 						/// <summary>
 						/// Type of the intervals of the row. The default is one hour.
 						/// </summary>
-						public Union<sap.ui.unified.CalendarIntervalType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> intervalType;
+						public Union<sap.ui.unified.CalendarIntervalType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> intervalType;
 
 						/// <summary>
 						/// If set, subintervals are shown.
@@ -51,14 +52,14 @@ namespace OpenUI5Sharp
 						/// 
 						/// If the interval type is <code>Month</code>, days are shown.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showSubIntervals;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showSubIntervals;
 
 						/// <summary>
 						/// If set, interval headers are shown like specified in <code>showEmptyIntervalHeaders</code>.
 						/// 
 						/// If not set, no interval headers are shown even if <code>intervalHeaders</code> are assigned.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showIntervalHeaders;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showIntervalHeaders;
 
 						/// <summary>
 						/// If set, interval headers are shown even if no <code>intervalHeaders</code> are assigned to the visible time frame.
@@ -67,7 +68,7 @@ namespace OpenUI5Sharp
 						/// 
 						/// <b>Note:</b> This property is only used if <code>showIntervalHeaders</code> is set to true.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showEmptyIntervalHeaders;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showEmptyIntervalHeaders;
 
 						/// <summary>
 						/// If set, the provided weekdays are displayed as non-working days. Valid values inside the array are 0 to 6. (Other values will just be ignored.)
@@ -76,66 +77,66 @@ namespace OpenUI5Sharp
 						/// 
 						/// <b>Note:</b> The non working days are only visualized if <code>intervalType</code> is set to day.
 						/// </summary>
-						public Union<int[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> nonWorkingDays;
+						public Union<int[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> nonWorkingDays;
 
 						/// <summary>
 						/// If set, the provided hours are displayed as non-working hours. Valid values inside the array are 0 to 23. (Other values will just be ignored.)
 						/// 
 						/// <b>Note:</b> The non working hours are only visualized if <code>intervalType</code> is set to hour.
 						/// </summary>
-						public Union<int[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> nonWorkingHours;
+						public Union<int[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> nonWorkingHours;
 
 						/// <summary>
 						/// Width of the row
 						/// </summary>
-						public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+						public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 						/// <summary>
 						/// Height of the row
 						/// </summary>
-						public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> height;
+						public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> height;
 
 						/// <summary>
 						/// If set, the <code>CalendarRow</code> checks for resize by itself.
 						/// 
 						/// If a lot of <code>CalendarRow</code> controls are used in one container control (like <code>PlanningCalendar</code>). the resize checks should be done only by this container control. Then the container control should call <code>handleResize</code> of the <code>CalendarRow</code> if a resize happens.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> checkResize;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> checkResize;
 
 						/// <summary>
 						/// If set the <code>CalendarRow</code> triggers a periodic update to visualize the current time.
 						/// 
 						/// If a lot of <code>CalendarRow</code> controls are used in one container control (like <code>PlanningCalendar</code>) the periodic update should be triggered only by this container control. Then the container control should call <code>updateCurrentTimeVisualization</code> of the <code>CalendarRow</code> to update the visualization.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> updateCurrentTime;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> updateCurrentTime;
 
 						/// <summary>
 						/// Defines the mode in which the overlapping appointments are displayed.
 						/// 
 						/// <b>Note:</b> This property takes effect, only if the <code>intervalType</code> of the current calendar view is set to <code>sap.ui.unified.CalendarIntervalType.Month</code>. On phone devices this property is ignored, and the default value is applied.
 						/// </summary>
-						public Union<sap.ui.unified.GroupAppointmentsMode, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> groupAppointmentsMode;
+						public Union<sap.ui.unified.GroupAppointmentsMode, string, sap.ui.@base.ManagedObject.BindPropertyInfo> groupAppointmentsMode;
 
 						/// <summary>
 						/// If set the appointments without text (only title) are rendered with a smaller height.
 						/// 
 						/// <b>Note:</b> On phone devices this property is ignored, appointments are always rendered in full height to allow touching.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> appointmentsReducedHeight;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> appointmentsReducedHeight;
 
 						/// <summary>
 						/// Defines the visualization of the <code>CalendarAppoinment</code>
 						/// 
 						/// <b>Note:</b> The real visualization depends on the used theme.
 						/// </summary>
-						public Union<sap.ui.unified.CalendarAppointmentVisualization, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> appointmentsVisualization;
+						public Union<sap.ui.unified.CalendarAppointmentVisualization, string, sap.ui.@base.ManagedObject.BindPropertyInfo> appointmentsVisualization;
 
 						/// <summary>
 						/// Appointments to be displayed in the row. Appointments outside the visible time frame are not rendered.
 						/// 
 						/// <b>Note:</b> For performance reasons, only appointments in the visible time range or nearby should be assigned.
 						/// </summary>
-						public Union<sap.ui.unified.CalendarAppointment[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> appointments;
+						public Union<sap.ui.unified.CalendarAppointment[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> appointments;
 
 						/// <summary>
 						/// Appointments to be displayed in the top of the intervals. The <code>intervalHeaders</code> are used to visualize public holidays and similar things.
@@ -146,21 +147,21 @@ namespace OpenUI5Sharp
 						/// 
 						/// <b>Note:</b> For performance reasons, only appointments in the visible time range or nearby should be assigned.
 						/// </summary>
-						public Union<sap.ui.unified.CalendarAppointment[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> intervalHeaders;
+						public Union<sap.ui.unified.CalendarAppointment[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> intervalHeaders;
 
 						/// <summary>
 						/// Association to controls / IDs which label this control (see WAI-ARIA attribute aria-labelledby).
 						/// 
 						/// <b>Note</b> These labels are also assigned to the appointments.
 						/// </summary>
-						public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+						public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 						/// <summary>
 						/// Association to the <code>CalendarLegend</code> explaining the colors of the <code>Appointments</code>.
 						/// 
 						/// <b>Note</b> The legend does not have to be rendered but must exist, and all required types must be assigned.
 						/// </summary>
-						public Union<sap.ui.unified.CalendarLegend, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> legend;
+						public Union<sap.ui.unified.CalendarLegend, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> legend;
 
 						/// <summary>
 						/// Fired if an appointment was selected
@@ -837,10 +838,6 @@ namespace OpenUI5Sharp
 
 					#endregion
 
-					#region Methods for Aggregation _nonWorkingDates
-
-					#endregion
-
 					#region Methods for Association ariaLabelledBy
 
 					/// <summary>
@@ -1255,7 +1252,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					/// <param name="oEvent">The event object of the resize handler.</param>
 					/// <returns><code>this</code> to allow method chaining</returns>
-					public extern virtual sap.ui.unified.CalendarRow handleResize(jQuery.Event oEvent);
+					public extern virtual sap.ui.unified.CalendarRow handleResize(jquery.JQuery.Event oEvent);
 
 					/// <summary>
 					/// If the current time is in the visible output of the <code>CalendarRow</code>, the indicator for the current time must be positioned.

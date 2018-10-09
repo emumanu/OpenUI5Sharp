@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.MessageView")]
 			public partial class MessageView : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,32 +29,32 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Callback function for resolving a promise after description has been asynchronously loaded inside this function
 					/// </summary>
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> asyncDescriptionHandler;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> asyncDescriptionHandler;
 
 					/// <summary>
 					/// Callback function for resolving a promise after a link has been asynchronously validated inside this function
 					/// </summary>
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> asyncURLHandler;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> asyncURLHandler;
 
 					/// <summary>
 					/// Defines whether the MessageItems are grouped or not
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> groupItems;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> groupItems;
 
 					/// <summary>
 					/// Defines whether the header of details page will be shown
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showDetailsPageHeader;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showDetailsPageHeader;
 
 					/// <summary>
 					/// A list with message items. If only one item is provided, the initial page will be the details page for the item.
 					/// </summary>
-					public Union<sap.m.MessageItem[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
+					public Union<sap.m.MessageItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
 
 					/// <summary>
 					/// A custom header button
 					/// </summary>
-					public Union<sap.m.Button, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> headerButton;
+					public Union<sap.m.Button, string, sap.ui.@base.ManagedObject.BindAggregationInfo> headerButton;
 
 					/// <summary>
 					/// This event will be fired after the popover is opened

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.P13nSortItem")]
 			public partial class P13nSortItem : sap.ui.core.Item
 			{
 				#region Settings
@@ -28,12 +29,12 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// sap.m.P13nConditionOperation
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> operation;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> operation;
 
 					/// <summary>
 					/// key of the column
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> columnKey;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> columnKey;
 
 				}
 

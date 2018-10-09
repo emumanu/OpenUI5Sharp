@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.layout.BlockLayoutCell")]
 				public partial class BlockLayoutCell : sap.ui.core.Control
 				{
 					#region Settings
@@ -28,39 +29,44 @@ namespace OpenUI5Sharp
 					public partial class Settings : sap.ui.core.Control.Settings
 					{
 						/// <summary>
-						/// Defines the title of the cell
+						/// Defines the title of the cell. <b>Note:</b> When the <code>titleLink</code> aggregation is provided, the title of the cell will be replaced with the text from the <code>titleLink</code>.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> title;
 
 						/// <summary>
 						/// Defines the alignment of the cell title
 						/// </summary>
-						public Union<sap.ui.core.HorizontalAlign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> titleAlignment;
+						public Union<sap.ui.core.HorizontalAlign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> titleAlignment;
 
 						/// <summary>
 						/// Defines the aria level of the title This information is e.g. used by assistive technologies like screenreaders to create a hierarchical site map for faster navigation.
 						/// </summary>
-						public Union<sap.ui.core.TitleLevel, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> titleLevel;
+						public Union<sap.ui.core.TitleLevel, string, sap.ui.@base.ManagedObject.BindPropertyInfo> titleLevel;
 
 						/// <summary>
 						/// Defines the width of the cell. Depending on the context of the cell - whether it's in scrollable, or non scrollable row, this property is interpreted in two different ways. If the cell is placed inside a scrollable row - this property defines the width of the cell in percentages. If no value is provided - the default is 40%. If the cell is placed inside a non scrollable row - this property defines the grow factor of the cell compared to the whole row. <b>For example:</b> If you have 2 cells, each with width of 1, this means that they should be of equal size, and they need to fill the whole row. This results in 50% width for each cell. If you have 2 cells, one with width of 1, the other with width of 3, this means that the whole row width is 4, so the first cell will have a width of 25%, the second - 75%. According to the visual guidelines, it is suggested that you only use 25%, 50%, 75% or 100% cells in you applications. For example, 12,5% width is not desirable (1 cell with width 1, and another with width 7)
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 						/// <summary>
 						/// The Background color set from which the background color will be selected. By using background colors from the predefined sets your colors could later be customized from the Theme Designer. <b>Note:</b> backgroundColorSet should be used only in combination with backgroundColorShade.
 						/// </summary>
-						public Union<sap.ui.layout.BlockLayoutCellColorSet, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> backgroundColorSet;
+						public Union<sap.ui.layout.BlockLayoutCellColorSet, string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundColorSet;
 
 						/// <summary>
 						/// The index of the background color in the color set from which the color will be selected. By using background colors from the predefined sets your colors could later be customized from the Theme Designer. <b>Note:</b> backgroundColorShade should be used only in combination with backgroundColorSet.
 						/// </summary>
-						public Union<sap.ui.layout.BlockLayoutCellColorShade, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> backgroundColorShade;
+						public Union<sap.ui.layout.BlockLayoutCellColorShade, string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundColorShade;
 
 						/// <summary>
 						/// The content to be included inside the cell
 						/// </summary>
-						public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
+						public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
+
+						/// <summary>
+						/// The link that will replace the title of the cell. <b>Note:</b> The only possible value is the <code>sap.m.Link</code> control.
+						/// </summary>
+						public Union<sap.ui.core.Control, string, sap.ui.@base.ManagedObject.BindAggregationInfo> titleLink;
 
 					}
 
@@ -109,7 +115,7 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Gets current value of property {@link #getTitle title}.
 					/// 
-					/// Defines the title of the cell
+					/// Defines the title of the cell. <b>Note:</b> When the <code>titleLink</code> aggregation is provided, the title of the cell will be replaced with the text from the <code>titleLink</code>.
 					/// </summary>
 					/// <returns>Value of property <code>title</code></returns>
 					public extern virtual string getTitle();
@@ -117,7 +123,7 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Sets a new value for property {@link #getTitle title}.
 					/// 
-					/// Defines the title of the cell
+					/// Defines the title of the cell. <b>Note:</b> When the <code>titleLink</code> aggregation is provided, the title of the cell will be replaced with the text from the <code>titleLink</code>.
 					/// 
 					/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 					/// </summary>
@@ -306,6 +312,31 @@ namespace OpenUI5Sharp
 					/// </summary>
 					/// <returns>An array of the removed elements (might be empty)</returns>
 					public extern virtual sap.ui.core.Control[] removeAllContent();
+
+					#endregion
+
+					#region Methods for Aggregation titleLink
+
+					/// <summary>
+					/// Gets content of aggregation {@link #getTitleLink titleLink}.
+					/// 
+					/// The link that will replace the title of the cell. <b>Note:</b> The only possible value is the <code>sap.m.Link</code> control.
+					/// </summary>
+					/// <returns></returns>
+					public extern virtual sap.ui.core.Control getTitleLink();
+
+					/// <summary>
+					/// Destroys the titleLink in the aggregation {@link #getTitleLink titleLink}.
+					/// </summary>
+					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					public extern virtual sap.ui.layout.BlockLayoutCell destroyTitleLink();
+
+					/// <summary>
+					/// Sets the aggregated {@link #getTitleLink titleLink}.
+					/// </summary>
+					/// <param name="oTitleLink">The titleLink to set</param>
+					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					public extern virtual sap.ui.layout.BlockLayoutCell setTitleLink(sap.ui.core.Control oTitleLink);
 
 					#endregion
 

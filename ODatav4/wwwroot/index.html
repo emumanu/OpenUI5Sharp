@@ -7,7 +7,7 @@
 
     <title>OpenUI5Tests</title>
 
-    <script id="sap-ui-bootstrap" src="https://openui5.hana.ondemand.com/1.54.6/resources/sap-ui-core.js"
+    <script id="sap-ui-bootstrap" src="https://openui5.hana.ondemand.com/1.52.10/resources/sap-ui-core.js"
             data-sap-ui-theme="sap_belize"
             data-sap-ui-libs="sap.m"
             data-sap-ui-compatVersion="edge"
@@ -22,29 +22,5 @@
     <script src="/bridge.js"></script>
     <script src="/bridge.meta.js"></script>
     <script src="/bridge/openui5sharp.js"></script>
-    <script>
-        sap.ui.getCore().attachInit(function () {
-            sap.ui.require([
-                "sap/ui/core/tutorial/root/mockserver",
-                "sap/m/Shell",
-                "sap/ui/core/ComponentContainer"
-            ], function (mockserver, Shell, ComponentContainer) {
-                // Requests to the service are intercepted and fake responses returned.
-                // Comment this out to connect to the real service.
-                mockserver.start();
-
-                new Shell({
-                    app: new ComponentContainer({
-                        height: "100%",
-                        component: sap.ui.component({
-                            name: "sap.ui.core.tutorial.odatav4",
-                            manifestFirst: true,
-                            id: "odatav4"
-                        })
-                    })
-                }).placeAt("content");
-            })
-        });
-    </script>
-</body>
+    <script src="/bridge/startup.js"></script>
 </html>

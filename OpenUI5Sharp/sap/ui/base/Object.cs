@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.base.Object")]
 				public abstract partial class Object
 				{
 					#region Typed Parameters
@@ -59,11 +60,11 @@ namespace OpenUI5Sharp
 					/// 
 					/// The static info can at least contain the following entries: <ul> <li>baseType: {string} fully qualified name of a base class or empty</li> <li>publicMethods: {string} an array of method names that will be visible in the interface proxy returned by {@link #getInterface}</li> </ul>
 					/// </summary>
-					[Obsolete("Deprecated since 1.3.1. Use the static <code>extend</code> method of the desired base class (e.g. {@link sap.ui.base.Object.extend})")]
 					/// <param name="sClassName">name of an (already declared) constructor function</param>
 					/// <param name="oStaticInfo">static info used to create the metadata object</param>
 					/// <param name="FNMetaImpl">constructor function for the metadata object. If not given, it defaults to sap.ui.base.Metadata.</param>
 					/// <returns>the created metadata object</returns>
+					[Obsolete("Deprecated since 1.3.1. Use the static <code>extend</code> method of the desired base class (e.g. {@link sap.ui.base.Object.extend})")]
 					public extern static sap.ui.@base.Metadata defineClass(string sClassName, sap.ui.@base.Object.DefineClassInfo oStaticInfo, object FNMetaImpl);
 
 					/// <summary>
@@ -73,10 +74,10 @@ namespace OpenUI5Sharp
 					/// 
 					/// The static info can at least contain the following entries: <ul> <li>baseType: {string} fully qualified name of a base class or empty</li> <li>publicMethods: {string} an array of method names that will be visible in the interface proxy returned by {@link #getInterface}</li> </ul>
 					/// </summary>
-					[Obsolete("Deprecated since 1.3.1. Use the static <code>extend</code> method of the desired base class (e.g. {@link sap.ui.base.Object.extend})")]
 					/// <param name="sClassName">name of an (already declared) constructor function</param>
 					/// <param name="oStaticInfo">static info used to create the metadata object</param>
 					/// <returns>the created metadata object</returns>
+					[Obsolete("Deprecated since 1.3.1. Use the static <code>extend</code> method of the desired base class (e.g. {@link sap.ui.base.Object.extend})")]
 					public extern static sap.ui.@base.Metadata defineClass(string sClassName, sap.ui.@base.Object.DefineClassInfo oStaticInfo);
 
 					/// <summary>

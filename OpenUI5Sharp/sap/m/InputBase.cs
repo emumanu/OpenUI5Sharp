@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.InputBase")]
 			public partial class InputBase : sap.ui.core.Control, sap.ui.core.IFormContent
 			{
 				#region Settings
@@ -28,72 +29,72 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the value of the control.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> value;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> value;
 
 					/// <summary>
 					/// Defines the width of the control.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// Indicates whether the user can interact with the control or not. <b>Note:</b> Disabled controls cannot be focused and they are out of the tab-chain.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enabled;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enabled;
 
 					/// <summary>
 					/// Visualizes the validation state of the control, e.g. <code>Error</code>, <code>Warning</code>, <code>Success</code>.
 					/// </summary>
-					public Union<sap.ui.core.ValueState, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> valueState;
+					public Union<sap.ui.core.ValueState, string, sap.ui.@base.ManagedObject.BindPropertyInfo> valueState;
 
 					/// <summary>
 					/// Defines the name of the control for the purposes of form submission.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> name;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> name;
 
 					/// <summary>
 					/// Defines a short hint intended to aid the user with data entry when the control has no value.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> placeholder;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> placeholder;
 
 					/// <summary>
 					/// Defines whether the control can be modified by the user or not. <b>Note:</b> A user can tab to non-editable control, highlight it, and copy the text from it.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> editable;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> editable;
 
 					/// <summary>
 					/// Defines the text that appears in the value state message pop-up. If this is not specified, a default text is shown from the resource bundle.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> valueStateText;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> valueStateText;
 
 					/// <summary>
 					/// Indicates whether the value state message should be shown or not.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showValueStateMessage;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showValueStateMessage;
 
 					/// <summary>
 					/// Defines the horizontal alignment of the text that is shown inside the input field.
 					/// </summary>
-					public Union<sap.ui.core.TextAlign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> textAlign;
+					public Union<sap.ui.core.TextAlign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> textAlign;
 
 					/// <summary>
 					/// Defines the text directionality of the input field, e.g. <code>RTL</code>, <code>LTR</code>
 					/// </summary>
-					public Union<sap.ui.core.TextDirection, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> textDirection;
+					public Union<sap.ui.core.TextDirection, string, sap.ui.@base.ManagedObject.BindPropertyInfo> textDirection;
 
 					/// <summary>
 					/// Indicates that user input is required. This property is only needed for accessibility purposes when a single relationship between the field and a label (see aggregation <code>labelFor</code> of <code>sap.m.Label</code>) cannot be established (e.g. one label should label multiple fields).
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> required;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> required;
 
 					/// <summary>
 					/// Association to controls / IDs that label this control (see WAI-ARIA attribute aria-labelledby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 					/// <summary>
 					/// Is fired when the text in the input field has changed and the focus leaves the input field or the enter key is pressed.
 					/// </summary>
-					public sap.m.SubmitOrChangeDelegate change;
+					public sap.m.ValueDelegate change;
 
 				}
 
@@ -505,7 +506,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.InputBase</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.InputBase attachChange(object oData, sap.m.SubmitOrChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.InputBase attachChange(object oData, sap.m.ValueDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:change change} event of this <code>sap.m.InputBase</code>.
@@ -517,7 +518,7 @@ namespace OpenUI5Sharp
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.InputBase attachChange(object oData, sap.m.SubmitOrChangeDelegate fnFunction);
+				public extern virtual sap.m.InputBase attachChange(object oData, sap.m.ValueDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:change change} event of this <code>sap.m.InputBase</code>.
@@ -528,7 +529,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.InputBase attachChange(sap.m.SubmitOrChangeDelegate fnFunction);
+				public extern virtual sap.m.InputBase attachChange(sap.m.ValueDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:change change} event of this <code>sap.m.InputBase</code>.
@@ -540,7 +541,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.InputBase</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.InputBase attachChange(sap.m.SubmitOrChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.InputBase attachChange(sap.m.ValueDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:change change} event of this <code>sap.m.InputBase</code>.
@@ -550,14 +551,14 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.InputBase detachChange(sap.m.SubmitOrChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.InputBase detachChange(sap.m.ValueDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:change change} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.InputBase fireChange(sap.m.SubmitOrChangeInfo mParameters);
+				public extern virtual sap.m.InputBase fireChange(sap.m.ValueInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:change change} to attached listeners.
@@ -578,9 +579,9 @@ namespace OpenUI5Sharp
 				/// <summary>
 				/// Registers an event listener to the browser input event.
 				/// </summary>
-				[Obsolete("Deprecated since 1.22. Instead, use event delegation(oninput) to listen input event.")]
 				/// <param name="fnCallback">Function to be called when the value of the input element is changed.</param>
 				/// <returns><code>this</code> to allow method chaining.</returns>
+				[Obsolete("Deprecated since 1.22. Instead, use event delegation(oninput) to listen input event.")]
 				public extern virtual sap.m.InputBase bindToInputEvent(object fnCallback);
 
 				/// <summary>
@@ -689,7 +690,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="oEvent">The event object.</param>
 				/// <returns>Whether or not the change event should be prevented.</returns>
-				public extern virtual bool preventChangeOnFocusLeave(jQuery.Event oEvent);
+				public extern virtual bool preventChangeOnFocusLeave(jquery.JQuery.Event oEvent);
 
 				/// <summary>
 				/// Hook method to prevent the change event from being fired when the text input field loses focus.

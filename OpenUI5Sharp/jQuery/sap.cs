@@ -3,15 +3,16 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
-	public partial class jQuery
+	public abstract partial class jQuery
 	{
 		/// <summary>
 		/// Root Namespace for the jQuery plug-in provided by SAP SE.
 		/// </summary>
 		[External]
 		[Namespace(false)]
+		[Name("jQuery.sap")]
 		public static partial class sap
 		{
 			#region Typed Parameters
@@ -344,7 +345,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			/// <param name="oEvent"></param>
 			/// <param name="oDomRef"></param>
-			public extern static void checkMouseEnterOrLeave(jQuery.Event oEvent, dom.HTMLElement oDomRef);
+			public extern static void checkMouseEnterOrLeave(jquery.JQuery.Event oEvent, dom.HTMLElement oDomRef);
 
 			/// <summary>
 			/// Stops the delayed call.
@@ -384,9 +385,9 @@ namespace OpenUI5Sharp
 			/// 
 			/// By default, this function assumes that the module will create a JavaScript object with the same name as the module. As a convenience it ensures that the parent namespace for that object exists (by calling jQuery.sap.getObject). If such an object creation is not desired, <code>bCreateNamespace</code> must be set to false.
 			/// </summary>
-			[Obsolete("Deprecated since 1.52. UI5 modules and their dependencies should be defined using {@link sap.ui.define}. For more details see {@link topic:91f23a736f4d1014b6dd926db0e91070 Modules and Dependencies} in the documentation.")]
 			/// <param name="sModuleName">name of the module to be declared or in case of an object {modName: "...", type: "..."} where modName is the name of the module and the type could be a specific dot separated extension e.g. <code>{modName: "sap.ui.core.Dev", type: "view"}</code> loads <code>sap/ui/core/Dev.view.js</code> and registers as <code>sap.ui.core.Dev.view</code></param>
 			/// <param name="bCreateNamespace">whether to create the parent namespace</param>
+			[Obsolete("Deprecated since 1.52. UI5 modules and their dependencies should be defined using {@link sap.ui.define}. For more details see {@link topic:91f23a736f4d1014b6dd926db0e91070 Modules and Dependencies} in the documentation.")]
 			public extern static void declare(Union<string, object> sModuleName, bool bCreateNamespace = true);
 
 			/// <summary>
@@ -534,17 +535,17 @@ namespace OpenUI5Sharp
 			/// <summary>
 			/// Encode the string for inclusion into HTML content/attribute. Old name "escapeHTML" kept for backward compatibility
 			/// </summary>
-			[Obsolete("Deprecated since 1.4.0. has been renamed, use {@link jQuery.sap.encodeHTML} instead.")]
 			/// <param name="sString">The string to be escaped</param>
 			/// <returns>The escaped string</returns>
+			[Obsolete("Deprecated since 1.4.0. has been renamed, use {@link jQuery.sap.encodeHTML} instead.")]
 			public extern static string escapeHTML(string sString);
 
 			/// <summary>
 			/// Encode the string for inclusion into a JS string literal. Old name "escapeJS" kept for backward compatibility
 			/// </summary>
-			[Obsolete("Deprecated since 1.3.0. Has been renamed, use {@link jQuery.sap.encodeJS} instead.")]
 			/// <param name="sString">The string to be escaped</param>
 			/// <returns>The escaped string</returns>
+			[Obsolete("Deprecated since 1.3.0. Has been renamed, use {@link jQuery.sap.encodeJS} instead.")]
 			public extern static string escapeJS(string sString);
 
 			/// <summary>
@@ -573,9 +574,9 @@ namespace OpenUI5Sharp
 			///   MyFunction.prototype = oPrototype;
 			/// </pre>
 			/// </summary>
-			[Obsolete("Deprecated since 1.45.0. define your own function and assign <code>oPrototype</code> to its <code>prototype</code> property instead.")]
 			/// <param name="oPrototype">Prototype to use for the new objects</param>
 			/// <returns>the newly created constructor function</returns>
+			[Obsolete("Deprecated since 1.45.0. define your own function and assign <code>oPrototype</code> to its <code>prototype</code> property instead.")]
 			public extern static object factory(object oPrototype);
 
 			/// <summary>
@@ -988,16 +989,16 @@ namespace OpenUI5Sharp
 			/// </summary>
 			/// <param name="oEvent">The event object of the <code>keydown</code>, <code>keyup</code> or <code>keypress</code> events.</param>
 			/// <returns></returns>
-			public extern static bool isSpecialKey(jQuery.Event oEvent);
+			public extern static bool isSpecialKey(jquery.JQuery.Event oEvent);
 
 			/// <summary>
 			/// Returns a new object which has the given <code>oPrototype</code> as its prototype.
 			/// 
 			/// If several objects with the same prototype are to be created, {@link jQuery.sap.factory} should be used instead.
 			/// </summary>
-			[Obsolete("Deprecated since 1.45.0. use <code>Object.create(oPrototype)</code> instead.")]
 			/// <param name="oPrototype">Prototype to use for the new object</param>
 			/// <returns>new object</returns>
+			[Obsolete("Deprecated since 1.45.0. use <code>Object.create(oPrototype)</code> instead.")]
 			public extern static object newObject(object oPrototype);
 
 			/// <summary>
@@ -1168,8 +1169,8 @@ namespace OpenUI5Sharp
 			/// 
 			/// Any required and not yet loaded script will be loaded and execute synchronously. Already loaded modules will be skipped.
 			/// </summary>
-			[Obsolete("Deprecated since 1.52. UI5 modules and their dependencies should be defined using {@link sap.ui.define}. When additional modules have to be loaded dynamically at a later point in time, the asynchronous API {@link sap.ui.require} should be used. For more details, see {@link topic:91f23a736f4d1014b6dd926db0e91070 Modules and Dependencies} in the documentation.")]
 			/// <param name="vModuleName">one or more names of modules to be loaded or in case of an object {modName: "...", type: "..."} where modName is the name of the module and the type could be a specific dot separated extension e.g. <code>{modName: "sap.ui.core.Dev", type: "view"}</code> loads <code>sap/ui/core/Dev.view.js</code> and registers as <code>sap.ui.core.Dev.view</code></param>
+			[Obsolete("Deprecated since 1.52. UI5 modules and their dependencies should be defined using {@link sap.ui.define}. When additional modules have to be loaded dynamically at a later point in time, the asynchronous API {@link sap.ui.require} should be used. For more details, see {@link topic:91f23a736f4d1014b6dd926db0e91070 Modules and Dependencies} in the documentation.")]
 			public extern static void require(Union<string, object> vModuleName);
 
 			/// <summary>
@@ -1382,7 +1383,7 @@ namespace OpenUI5Sharp
 			/// <param name="vSource">jQuery object, control or an id of the source element.</param>
 			/// <param name="vDestination">target jQuery object or a control.</param>
 			/// <returns>Target element</returns>
-			public extern static Union<jquery.JQuery<object>, dom.HTMLElement> syncStyleClass(string sStyleClass, Union<jquery.JQuery<object>, OpenUI5Sharp.sap.ui.core.Control, string> vSource, Union<jquery.JQuery<object>, OpenUI5Sharp.sap.ui.core.Control> vDestination);
+			public extern static Union<jQuery, dom.HTMLElement> syncStyleClass(string sStyleClass, Union<jQuery, UI5.sap.ui.core.Control, string> vSource, Union<jQuery, UI5.sap.ui.core.Control> vDestination);
 
 			/// <summary>
 			/// Creates and returns a pseudo-unique id.
@@ -1525,110 +1526,111 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("jQuery.sap.KeyCodes")]
 			public enum KeyCodes
 			{
-					A,
-					ALT,
-					ARROW_DOWN,
-					ARROW_LEFT,
-					ARROW_RIGHT,
-					ARROW_UP,
-					B,
-					BACKSLASH,
-					BACKSPACE,
-					BREAK,
-					C,
-					CAPS_LOCK,
-					COMMA,
-					CONTEXT_MENU,
-					CONTROL,
-					D,
-					DELETE,
-					DIGIT_0,
-					DIGIT_1,
-					DIGIT_2,
-					DIGIT_3,
-					DIGIT_4,
-					DIGIT_5,
-					DIGIT_6,
-					DIGIT_7,
-					DIGIT_8,
-					DIGIT_9,
-					DOT,
-					E,
-					END,
-					ENTER,
-					EQUALS,
-					ESCAPE,
-					F,
-					F1,
-					F10,
-					F11,
-					F12,
-					F2,
-					F3,
-					F4,
-					F5,
-					F6,
-					F7,
-					F8,
-					F9,
-					G,
-					GREAT_ACCENT,
-					H,
-					HOME,
-					I,
-					INSERT,
-					J,
-					K,
-					L,
-					M,
-					MINUS,
-					N,
-					NUM_LOCK,
-					NUMPAD_0,
-					NUMPAD_1,
-					NUMPAD_2,
-					NUMPAD_3,
-					NUMPAD_4,
-					NUMPAD_5,
-					NUMPAD_6,
-					NUMPAD_7,
-					NUMPAD_8,
-					NUMPAD_9,
-					NUMPAD_ASTERISK,
-					NUMPAD_COMMA,
-					NUMPAD_MINUS,
-					NUMPAD_PLUS,
-					NUMPAD_SLASH,
-					O,
-					OPEN_BRACKET,
-					P,
-					PAGE_DOWN,
-					PAGE_UP,
-					PIPE,
-					PLUS,
-					PRINT,
-					Q,
-					R,
-					S,
-					SCROLL_LOCK,
-					SEMICOLON,
-					SHIFT,
-					SINGLE_QUOTE,
-					SLASH,
-					SLEEP,
-					SPACE,
-					T,
-					TAB,
-					TURN_OFF,
-					U,
-					V,
-					W,
-					WINDOWS,
-					X,
-					Y,
-					Z,
+				A,
+				ALT,
+				ARROW_DOWN,
+				ARROW_LEFT,
+				ARROW_RIGHT,
+				ARROW_UP,
+				B,
+				BACKSLASH,
+				BACKSPACE,
+				BREAK,
+				C,
+				CAPS_LOCK,
+				COMMA,
+				CONTEXT_MENU,
+				CONTROL,
+				D,
+				DELETE,
+				DIGIT_0,
+				DIGIT_1,
+				DIGIT_2,
+				DIGIT_3,
+				DIGIT_4,
+				DIGIT_5,
+				DIGIT_6,
+				DIGIT_7,
+				DIGIT_8,
+				DIGIT_9,
+				DOT,
+				E,
+				END,
+				ENTER,
+				EQUALS,
+				ESCAPE,
+				F,
+				F1,
+				F10,
+				F11,
+				F12,
+				F2,
+				F3,
+				F4,
+				F5,
+				F6,
+				F7,
+				F8,
+				F9,
+				G,
+				GREAT_ACCENT,
+				H,
+				HOME,
+				I,
+				INSERT,
+				J,
+				K,
+				L,
+				M,
+				MINUS,
+				N,
+				NUM_LOCK,
+				NUMPAD_0,
+				NUMPAD_1,
+				NUMPAD_2,
+				NUMPAD_3,
+				NUMPAD_4,
+				NUMPAD_5,
+				NUMPAD_6,
+				NUMPAD_7,
+				NUMPAD_8,
+				NUMPAD_9,
+				NUMPAD_ASTERISK,
+				NUMPAD_COMMA,
+				NUMPAD_MINUS,
+				NUMPAD_PLUS,
+				NUMPAD_SLASH,
+				O,
+				OPEN_BRACKET,
+				P,
+				PAGE_DOWN,
+				PAGE_UP,
+				PIPE,
+				PLUS,
+				PRINT,
+				Q,
+				R,
+				S,
+				SCROLL_LOCK,
+				SEMICOLON,
+				SHIFT,
+				SINGLE_QUOTE,
+				SLASH,
+				SLEEP,
+				SPACE,
+				T,
+				TAB,
+				TURN_OFF,
+				U,
+				V,
+				W,
+				WINDOWS,
+				X,
+				Y,
+				Z,
 			}
 		}
 	}

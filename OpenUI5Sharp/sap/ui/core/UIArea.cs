@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -20,6 +20,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.core.UIArea")]
 				public partial class UIArea : sap.ui.@base.ManagedObject
 				{
 					#region Settings
@@ -34,12 +35,12 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Content that is displayed in the UIArea.
 						/// </summary>
-						public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
+						public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
 
 						/// <summary>
 						/// Dependent objects whose lifecycle is bound to the UIarea but which are not automatically rendered by the UIArea.
 						/// </summary>
-						public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> dependents;
+						public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> dependents;
 
 					}
 
@@ -233,9 +234,9 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Returns the content control of this <code>UIArea</code> at the specified index. If no index is given the first content control is returned.
 					/// </summary>
-					[Obsolete("Deprecated since 1.1. use function {@link #getContent} instead")]
 					/// <param name="idx">index of the control in the content of this <code>UIArea</code></param>
 					/// <returns>the content control of this <code>UIArea</code> at the specified index.</returns>
+					[Obsolete("Deprecated since 1.1. use function {@link #getContent} instead")]
 					public extern virtual sap.ui.core.Control getRootControl(int idx);
 
 					/// <summary>
@@ -287,8 +288,8 @@ namespace OpenUI5Sharp
 					/// 
 					/// The real re-rendering happens whenever the re-rendering is called. Either implicitly at the end of any control event or by calling sap.ui.getCore().applyChanges().
 					/// </summary>
-					[Obsolete("Deprecated since 1.1. use {@link #removeAllContent} and {@link #addContent} instead")]
 					/// <param name="oRootControl">the Control that should be the Root for this <code>UIArea</code>.</param>
+					[Obsolete("Deprecated since 1.1. use {@link #removeAllContent} and {@link #addContent} instead")]
 					public extern virtual void setRootControl(Union<sap.ui.@base.Interface, sap.ui.core.Control> oRootControl);
 
 					/// <summary>

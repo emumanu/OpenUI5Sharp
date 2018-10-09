@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 using static Retyped.qunit;
-using OpenUI5Sharp;
+using UI5;
 
 namespace WalkthroughClientScripts.Tests
 {

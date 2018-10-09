@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.unified.ShellOverlay")]
 				[Obsolete("Deprecated since 1.44.0.")]
 				public partial class ShellOverlay : sap.ui.core.Control
 				{
@@ -31,22 +32,22 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// The content to appear in the overlay.
 						/// </summary>
-						public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
+						public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
 
 						/// <summary>
 						/// Experimental (This aggregation might change in future!): The search control which should be displayed in the overlay header.
 						/// </summary>
-						public Union<sap.ui.core.Control, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> search;
+						public Union<sap.ui.core.Control, string, sap.ui.@base.ManagedObject.BindAggregationInfo> search;
 
 						/// <summary>
 						/// Reference to the sap.ui.unified.Shell or sap.ui.unified.ShellLayout control.
 						/// </summary>
-						public Union<sap.ui.unified.ShellLayout, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> shell;
+						public Union<sap.ui.unified.ShellLayout, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> shell;
 
 						/// <summary>
 						/// Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).
 						/// </summary>
-						public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+						public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 						/// <summary>
 						/// Fired when the overlay was closed.

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.unified.CalendarLegendItem")]
 				public partial class CalendarLegendItem : sap.ui.core.Element
 				{
 					#region Settings
@@ -30,17 +31,17 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Text to be displayed for the item.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> text;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> text;
 
 						/// <summary>
 						/// Type of the item. If not set the type is automatically determined from the order of the items in the CalendarLegend.
 						/// </summary>
-						public Union<sap.ui.unified.CalendarDayType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> type;
+						public Union<sap.ui.unified.CalendarDayType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> type;
 
 						/// <summary>
 						/// Overrides the color derived from the <code>type</code> property.
 						/// </summary>
-						public Union<sap.ui.core.CSSColor, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> color;
+						public Union<sap.ui.core.CSSColor, string, sap.ui.@base.ManagedObject.BindPropertyInfo> color;
 
 					}
 

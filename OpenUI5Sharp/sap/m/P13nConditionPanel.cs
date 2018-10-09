@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.P13nConditionPanel")]
 			public partial class P13nConditionPanel : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,62 +29,62 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// defines the max number of conditions on the ConditionPanel
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maxConditions;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> maxConditions;
 
 					/// <summary>
 					/// exclude options for filter
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> exclude;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> exclude;
 
 					/// <summary>
 					/// defines if the mediaQuery or a ContainerResize will be used for layout update. When the <code>P13nConditionPanel</code> is used on a dialog the property should be set to <code>true</code>!
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> containerQuery;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> containerQuery;
 
 					/// <summary>
 					/// adds initial a new empty condition row
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> autoAddNewRow;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> autoAddNewRow;
 
 					/// <summary>
 					/// makes the remove icon on the first condition row disabled when only one condition exist.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> disableFirstRemoveIcon;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> disableFirstRemoveIcon;
 
 					/// <summary>
 					/// makes the Add icon visible on each condition row. If is set to false the Add is only visible at the end and you can only append a new condition.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> alwaysShowAddIcon;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> alwaysShowAddIcon;
 
 					/// <summary>
 					/// new added condition use the settings from the previous condition as default.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> usePrevConditionSetting;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> usePrevConditionSetting;
 
 					/// <summary>
 					/// KeyField value can only be selected once. When you set the property to <code>true</code> the ConditionPanel will automatically offers on the KeyField drop down only the keyFields which are not used. The default behavior is that in each keyField dropdown all keyfields are listed.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> autoReduceKeyFieldItems;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> autoReduceKeyFieldItems;
 
 					/// <summary>
 					/// can be used to control the layout behavior. Default is "" which will automatically change the layout. With "Desktop", "Table" or "Phone" you can set a fixed layout.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> layoutMode;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> layoutMode;
 
 					/// <summary>
 					/// show additional labels in the condition
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showLabel;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showLabel;
 
 					/// <summary>
 					/// This represents the displayFormat of the condition Values. With the value "UpperCase" the entered value of the condition will be converted to upperCase.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> displayFormat;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> displayFormat;
 
 					/// <summary>
 					/// Calls the validation listener tbd...
 					/// </summary>
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> validationExecutor;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> validationExecutor;
 
 					/// <summary>
 					/// Workaround for updating the binding

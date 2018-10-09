@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.core.Message")]
 				public partial class Message : sap.ui.core.Element
 				{
 					#region Settings
@@ -32,27 +33,27 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Message text
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> text;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> text;
 
 						/// <summary>
 						/// Message's timestamp. It is just a simple String that will be used without any transformation. So the application that uses messages needs to format the timestamp to its own needs.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> timestamp;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> timestamp;
 
 						/// <summary>
 						/// A possible icon URI of the message
 						/// </summary>
-						public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> icon;
+						public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> icon;
 
 						/// <summary>
 						/// Setting the message's level.
 						/// </summary>
-						public Union<sap.ui.core.MessageType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> level;
+						public Union<sap.ui.core.MessageType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> level;
 
 						/// <summary>
 						/// Determines whether the message should be read only. This helps the application to handle a message a different way if the application differentiates between read-only and common messages.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> readOnly;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> readOnly;
 
 					}
 

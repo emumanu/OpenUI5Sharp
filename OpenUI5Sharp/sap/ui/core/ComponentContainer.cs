@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.core.ComponentContainer")]
 				public partial class ComponentContainer : sap.ui.core.Control
 				{
 					#region Settings
@@ -30,67 +31,67 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Component name, the package where the component is contained. This property can only be applied initially.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> name;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> name;
 
 						/// <summary>
 						/// The URL of the component. This property can only be applied initially.
 						/// </summary>
-						public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> url;
+						public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> url;
 
 						/// <summary>
 						/// Flag whether the component should be created sync (default) or async. The default will be async when initially the property <code>manifest</code> is set to a truthy value and for the property <code>async</code> no value has been specified. This property can only be applied initially.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> async;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> async;
 
 						/// <summary>
 						/// Enable/disable validation handling by MessageManager for this component. The resulting Messages will be propagated to the controls. This property can only be applied initially.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> handleValidation;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> handleValidation;
 
 						/// <summary>
 						/// The settings object passed to the component when created. This property can only be applied initially.
 						/// </summary>
-						public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> settings;
+						public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> settings;
 
 						/// <summary>
 						/// Defines whether binding information is propagated to the component.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> propagateModel;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> propagateModel;
 
 						/// <summary>
 						/// Container width in CSS size
 						/// </summary>
-						public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+						public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 						/// <summary>
 						/// Container height in CSS size
 						/// </summary>
-						public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> height;
+						public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> height;
 
 						/// <summary>
 						/// Lifecycle behavior for the Component associated by the <code>ComponentContainer</code>. The default behavior is <code>Legacy</code>. This means that the <code>ComponentContainer</code> takes care that the Component is destroyed when the <code>ComponentContainer</code> is destroyed, but it is <b>not</b> destroyed when a new Component is associated. If you use the <code>usage</code> property to create the Component, the default behavior is <code>Container</code>. This means that the Component is destroyed when the <code>ComponentContainer</code> is destroyed or a new Component is associated. This property must only be applied before a component instance is created.
 						/// </summary>
-						public Union<sap.ui.core.ComponentLifecycle, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> lifecycle;
+						public Union<sap.ui.core.ComponentLifecycle, string, sap.ui.@base.ManagedObject.BindPropertyInfo> lifecycle;
 
 						/// <summary>
 						/// Flag, whether to auto-prefix the ID of the nested Component or not. If this property is set to true the ID of the Component will be prefixed with the ID of the ComponentContainer followed by a single dash. This property can only be applied initially.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> autoPrefixId;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> autoPrefixId;
 
 						/// <summary>
 						/// The component usage. If the ComponentContainer is used inside a Component, this Component can define a usage which will be used for creating the Component. This property can only be applied initially.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> usage;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> usage;
 
 						/// <summary>
 						/// Controls when and from where to load the manifest for the Component. When set to any truthy value, the manifest will be loaded asynchronously by default and evaluated before the Component controller, if it is set to a falsy value other than <code>undefined</code>, the manifest will be loaded after the controller. A non-empty string value will be interpreted as the URL location from where to load the manifest. A non-null object value will be interpreted as manifest content. This property can only be applied initially.
 						/// </summary>
-						public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> manifest;
+						public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> manifest;
 
 						/// <summary>
 						/// The component displayed in this ComponentContainer.
 						/// </summary>
-						public Union<sap.ui.core.UIComponent, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> component;
+						public Union<sap.ui.core.UIComponent, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> component;
 
 						/// <summary>
 						/// Fired when the component instance has been created by the ComponentContainer.

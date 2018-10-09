@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.layout.BlockLayoutRow")]
 				public partial class BlockLayoutRow : sap.ui.core.Control
 				{
 					#region Settings
@@ -30,24 +31,24 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Sets the rendering mode of the BlockLayoutRow to scrollable. In scrollable mode, the cells get aligned side by side, with horizontal scroll bar for the row.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> scrollable;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> scrollable;
 
 						/// <summary>
 						/// Defines background type for that row. There might be several rows with the same type
 						/// </summary>
-						public Union<sap.ui.layout.BlockRowColorSets, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> rowColorSet;
+						public Union<sap.ui.layout.BlockRowColorSets, string, sap.ui.@base.ManagedObject.BindPropertyInfo> rowColorSet;
 
 						/// <summary>
 						/// The content cells to be included in the row.
 						/// </summary>
-						public Union<sap.ui.layout.BlockLayoutCell[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
+						public Union<sap.ui.layout.BlockLayoutCell[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
 
 						/// <summary>
 						/// Cells that would be accented. *Note:* This association has visual impact only for BlockLayouts with background types "Mixed" and "Accent".
 						/// 
 						/// Mixed: In this type, areas of 25% (on desktop) can have a dark background color. Per section one area can be dark. Accent: Every section can contain multiple gray blocks, which are used alternately, beginning with the bright one
 						/// </summary>
-						public Union<sap.ui.layout.BlockLayoutCell, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> accentCells;
+						public Union<sap.ui.layout.BlockLayoutCell, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> accentCells;
 
 					}
 

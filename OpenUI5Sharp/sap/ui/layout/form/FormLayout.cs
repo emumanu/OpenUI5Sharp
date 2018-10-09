@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -20,6 +20,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.layout.form.FormLayout")]
 					public partial class FormLayout : sap.ui.core.Control
 					{
 						#region Settings
@@ -36,7 +37,7 @@ namespace OpenUI5Sharp
 							/// 
 							/// <b>Note:</b> The visualization of the different options depends on the theme used.
 							/// </summary>
-							public Union<sap.ui.layout.BackgroundDesign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> backgroundDesign;
+							public Union<sap.ui.layout.BackgroundDesign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundDesign;
 
 						}
 

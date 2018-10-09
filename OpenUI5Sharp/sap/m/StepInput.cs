@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -32,6 +32,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.StepInput")]
 			public partial class StepInput : sap.ui.core.Control, sap.ui.core.IFormContent
 			{
 				#region Settings
@@ -46,118 +47,118 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Sets the minimum possible value of the defined range.
 					/// </summary>
-					public Union<float, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> min;
+					public Union<float, string, sap.ui.@base.ManagedObject.BindPropertyInfo> min;
 
 					/// <summary>
 					/// Sets the maximum possible value of the defined range.
 					/// </summary>
-					public Union<float, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> max;
+					public Union<float, string, sap.ui.@base.ManagedObject.BindPropertyInfo> max;
 
 					/// <summary>
 					/// Increases/decreases the value of the input. <ul><b>Note:</b> <li>The value of the <code>step</code> property should not contain more digits after the decimal point than what is set to the <code>displayValuePrecision</code> property, as it may lead to an increase/decrease that is not visible for the user. For example, if the <code>value</code> is set to 1.22 and the <code>displayValuePrecision</code> is set to one digit after the decimal, the user will see 1.2. In this case, if the <code>value</code> of the <code>step</code> property is set to 1.005 and the user selects <code>increase</code>, the resulting value will increase to 1.2261 but the displayed value will remain as 1.2 as it will be rounded to the first digit after the decimal point.</li> <li>Depending on what is set for the <code>value</code> and the <code>displayValuePrecision</code> properties, it is possible the displayed value to be rounded to a higher number, for example to 3.0 when the actual value is 2.99.</li></ul>
 					/// </summary>
-					public Union<float, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> step;
+					public Union<float, string, sap.ui.@base.ManagedObject.BindPropertyInfo> step;
 
 					/// <summary>
 					/// Defines the calculation mode for the provided <code>step<code> and <code>largerStep</code>.
 					/// 
 					/// If the user increases/decreases the value by <code>largerStep</code>, this calculation will consider it as well. For example, if the current <code>value</code> is 3, <code>step</code> is 5, <code>largerStep</code> is 5 and the user chooses PageUp, the calculation logic will consider the value of 3x5=15 to decide what will be the next <code>value</code>.
 					/// </summary>
-					public Union<sap.m.StepInputStepModeType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> stepMode;
+					public Union<sap.m.StepInputStepModeType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> stepMode;
 
 					/// <summary>
 					/// Increases/decreases the value with a larger value than the set step only when using the PageUp/PageDown keys. Default value is 2 times larger than the set step.
 					/// </summary>
-					public Union<float, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> largerStep;
+					public Union<float, string, sap.ui.@base.ManagedObject.BindPropertyInfo> largerStep;
 
 					/// <summary>
 					/// Determines the value of the <code>StepInput</code> and can be set initially from the app developer.
 					/// </summary>
-					public Union<float, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> value;
+					public Union<float, string, sap.ui.@base.ManagedObject.BindPropertyInfo> value;
 
 					/// <summary>
 					/// Defines the name of the control for the purposes of form submission.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> name;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> name;
 
 					/// <summary>
 					/// Defines a short hint intended to aid the user with data entry when the control has no value.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> placeholder;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> placeholder;
 
 					/// <summary>
 					/// Indicates that user input is required. This property is only needed for accessibility purposes when a single relationship between the field and a label (see aggregation <code>labelFor</code> of <code>sap.m.Label</code>) cannot be established (e.g. one label should label multiple fields).
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> required;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> required;
 
 					/// <summary>
 					/// Defines the width of the control.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// Accepts the core enumeration ValueState.type that supports <code>None</code>, <code>Error</code>, <code>Warning</code> and <code>Success</code>.
 					/// </summary>
-					public Union<sap.ui.core.ValueState, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> valueState;
+					public Union<sap.ui.core.ValueState, string, sap.ui.@base.ManagedObject.BindPropertyInfo> valueState;
 
 					/// <summary>
 					/// Defines the text that appears in the value state message pop-up.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> valueStateText;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> valueStateText;
 
 					/// <summary>
 					/// Defines whether the control can be modified by the user or not. <b>Note:</b> A user can tab to the non-editable control, highlight it, and copy the text from it.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> editable;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> editable;
 
 					/// <summary>
 					/// Indicates whether the user can interact with the control or not. <b>Note:</b> Disabled controls cannot be focused and they are out of the tab-chain.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enabled;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enabled;
 
 					/// <summary>
 					/// Determines the number of digits after the decimal point.
 					/// 
 					/// The value should be between 0 (default) and 20. In case the value is not valid it will be set to the default value.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> displayValuePrecision;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> displayValuePrecision;
 
 					/// <summary>
 					/// Determines the description text after the input field, for example units of measurement, currencies.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> description;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> description;
 
 					/// <summary>
 					/// Determines the distribution of space between the input field and the description text . Default value is 50% (leaving the other 50% for the description).
 					/// 
 					/// <b>Note:</b> This property takes effect only if the <code>description</code> property is also set.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> fieldWidth;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> fieldWidth;
 
 					/// <summary>
 					/// Defines the horizontal alignment of the text that is displayed inside the input field.
 					/// </summary>
-					public Union<sap.ui.core.TextAlign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> textAlign;
+					public Union<sap.ui.core.TextAlign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> textAlign;
 
 					/// <summary>
 					/// Defines when the validation of the typed value will happen. By default this happens on focus out.
 					/// </summary>
-					public Union<sap.m.StepInputValidationMode, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> validationMode;
+					public Union<sap.m.StepInputValidationMode, string, sap.ui.@base.ManagedObject.BindPropertyInfo> validationMode;
 
 					/// <summary>
 					/// Association to controls / IDs that label this control (see WAI-ARIA attribute aria-labelledby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 					/// <summary>
 					/// Association to controls / IDs which describe this control (see WAI-ARIA attribute aria-describedby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaDescribedBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaDescribedBy;
 
 					/// <summary>
 					/// Is fired when one of the following happens: <br> <ol> <li>the text in the input has changed and the focus leaves the input field or the enter key is pressed.</li> <li>One of the decrement or increment buttons is pressed</li> </ol>
 					/// </summary>
-					public sap.m.SubmitOrChangeDelegate change;
+					public sap.m.ValueDelegate change;
 
 				}
 
@@ -783,7 +784,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.StepInput</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.StepInput attachChange(object oData, sap.m.SubmitOrChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.StepInput attachChange(object oData, sap.m.ValueDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:change change} event of this <code>sap.m.StepInput</code>.
@@ -795,7 +796,7 @@ namespace OpenUI5Sharp
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.StepInput attachChange(object oData, sap.m.SubmitOrChangeDelegate fnFunction);
+				public extern virtual sap.m.StepInput attachChange(object oData, sap.m.ValueDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:change change} event of this <code>sap.m.StepInput</code>.
@@ -806,7 +807,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.StepInput attachChange(sap.m.SubmitOrChangeDelegate fnFunction);
+				public extern virtual sap.m.StepInput attachChange(sap.m.ValueDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:change change} event of this <code>sap.m.StepInput</code>.
@@ -818,7 +819,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.StepInput</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.StepInput attachChange(sap.m.SubmitOrChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.StepInput attachChange(sap.m.ValueDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:change change} event of this <code>sap.m.StepInput</code>.
@@ -828,14 +829,14 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.StepInput detachChange(sap.m.SubmitOrChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.StepInput detachChange(sap.m.ValueDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:change change} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.StepInput fireChange(sap.m.SubmitOrChangeInfo mParameters);
+				public extern virtual sap.m.StepInput fireChange(sap.m.ValueInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:change change} to attached listeners.

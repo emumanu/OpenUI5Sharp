@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.TileContainer")]
 			[Obsolete("Deprecated since 1.50. replaced by a container of your choice with {@link sap.m.GenericTile} instances")]
 			public partial class TileContainer : sap.ui.core.Control
 			{
@@ -29,27 +30,27 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the width of the TileContainer in px.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// Defines the height of the TileContainer in px.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> height;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> height;
 
 					/// <summary>
 					/// Determines whether the TileContainer is editable so you can move, delete or add tiles.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> editable;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> editable;
 
 					/// <summary>
 					/// Determines whether the user is allowed to add Tiles in Edit mode (editable = true).
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> allowAdd;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> allowAdd;
 
 					/// <summary>
 					/// The Tiles to be displayed by the TileContainer.
 					/// </summary>
-					public Union<sap.m.Tile[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> tiles;
+					public Union<sap.m.Tile[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> tiles;
 
 					/// <summary>
 					/// Fires if a Tile is moved.

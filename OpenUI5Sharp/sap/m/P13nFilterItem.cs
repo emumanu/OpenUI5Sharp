@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.P13nFilterItem")]
 			public partial class P13nFilterItem : sap.ui.core.Item
 			{
 				#region Settings
@@ -28,27 +29,27 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// sap.m.P13nConditionOperation
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> operation;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> operation;
 
 					/// <summary>
 					/// value of the filter
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> value1;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> value1;
 
 					/// <summary>
 					/// to value of the between filter
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> value2;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> value2;
 
 					/// <summary>
 					/// key of the column
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> columnKey;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> columnKey;
 
 					/// <summary>
 					/// defines if the filter is an include or exclude filter item
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> exclude;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> exclude;
 
 				}
 

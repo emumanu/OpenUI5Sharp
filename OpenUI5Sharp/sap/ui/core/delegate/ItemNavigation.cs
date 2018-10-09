@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -34,6 +34,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.delegate.ItemNavigation")]
 					public partial class ItemNavigation : sap.ui.@base.EventProvider
 					{
 						#region Constructor
@@ -110,7 +111,7 @@ namespace OpenUI5Sharp
 						/// </summary>
 						/// <param name="oEvent">jQuery event</param>
 						/// <returns>Flag if disabled modifiers are set</returns>
-						public extern virtual bool hasDisabledModifier(jQuery.Event oEvent);
+						public extern virtual bool hasDisabledModifier(jquery.JQuery.Event oEvent);
 
 						/// <summary>
 						/// Sets whether the items are displayed in columns.

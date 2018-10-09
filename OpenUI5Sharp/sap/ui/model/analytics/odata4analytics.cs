@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -22,6 +22,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.model.analytics.odata4analytics")]
 					public static partial class odata4analytics
 					{
 						#region Methods
@@ -40,16 +41,17 @@ namespace OpenUI5Sharp
 						/// </summary>
 						[External]
 						[Namespace(false)]
+						[Name("sap.ui.model.analytics.odata4analytics.SortOrder")]
 						public enum SortOrder
 						{
-								/// <summary>
-								/// Sort Order: ascending.
-								/// </summary>
-								Ascending,
-								/// <summary>
-								/// Sort Order: descending.
-								/// </summary>
-								Descending,
+							/// <summary>
+							/// Sort Order: ascending.
+							/// </summary>
+							Ascending,
+							/// <summary>
+							/// Sort Order: descending.
+							/// </summary>
+							Descending,
 						}
 					}
 				}

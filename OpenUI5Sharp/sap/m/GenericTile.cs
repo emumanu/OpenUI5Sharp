@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.GenericTile")]
 			public partial class GenericTile : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,77 +29,77 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// The mode of the GenericTile.
 					/// </summary>
-					public Union<sap.m.GenericTileMode, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> mode;
+					public Union<sap.m.GenericTileMode, string, sap.ui.@base.ManagedObject.BindPropertyInfo> mode;
 
 					/// <summary>
 					/// The header of the tile.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> header;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> header;
 
 					/// <summary>
 					/// The subheader of the tile.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> subheader;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> subheader;
 
 					/// <summary>
 					/// The message that appears when the control is in the Failed state.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> failedText;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> failedText;
 
 					/// <summary>
 					/// The size of the tile. If not set, then the default size is applied based on the device.
 					/// </summary>
-					public Union<sap.m.Size, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> size;
+					public Union<sap.m.Size, string, sap.ui.@base.ManagedObject.BindPropertyInfo> size;
 
 					/// <summary>
 					/// The frame type: OneByOne or TwoByOne. Set to OneByOne as default if no property is defined or set to Auto by the app.
 					/// </summary>
-					public Union<sap.m.FrameType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> frameType;
+					public Union<sap.m.FrameType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> frameType;
 
 					/// <summary>
 					/// The URI of the background image.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> backgroundImage;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundImage;
 
 					/// <summary>
 					/// The image to be displayed as a graphical element within the header. This can be an image or an icon from the icon font.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> headerImage;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> headerImage;
 
 					/// <summary>
 					/// The load status.
 					/// </summary>
-					public Union<sap.m.LoadState, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> state;
+					public Union<sap.m.LoadState, string, sap.ui.@base.ManagedObject.BindPropertyInfo> state;
 
 					/// <summary>
 					/// Description of a header image that is used in the tooltip.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> imageDescription;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> imageDescription;
 
 					/// <summary>
 					/// Changes the visualization in order to enable additional actions with the Generic Tile.
 					/// </summary>
-					public Union<sap.m.GenericTileScope, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> scope;
+					public Union<sap.m.GenericTileScope, string, sap.ui.@base.ManagedObject.BindPropertyInfo> scope;
 
 					/// <summary>
 					/// If set to <code>TileSizeBehavior.Small</code>, the tile size is the same as it would be on a small-screened phone (374px wide and lower), regardless of the screen size of the actual device being used. If set to <code>TileSizeBehavior.Responsive</code>, the tile size adapts to the size of the screen.
 					/// </summary>
-					public Union<sap.m.TileSizeBehavior, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> sizeBehavior;
+					public Union<sap.m.TileSizeBehavior, string, sap.ui.@base.ManagedObject.BindPropertyInfo> sizeBehavior;
 
 					/// <summary>
 					/// Additional description for aria-label. The aria-label is rendered before the standard aria-label.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabel;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabel;
 
 					/// <summary>
 					/// The content of the tile.
 					/// </summary>
-					public Union<sap.m.TileContent[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> tileContent;
+					public Union<sap.m.TileContent[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> tileContent;
 
 					/// <summary>
 					/// An icon or image to be displayed in the control. This aggregation is deprecated since version 1.36.0, to display an icon or image use sap.m.ImageContent control instead.
 					/// </summary>
-					public Union<sap.ui.core.Control, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> icon;
+					public Union<sap.ui.core.Control, string, sap.ui.@base.ManagedObject.BindAggregationInfo> icon;
 
 					/// <summary>
 					/// The event is triggered when the user presses the tile.
@@ -252,8 +253,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>Auto</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.38.0. The GenericTile control has now a fixed size, depending on the used media (desktop, tablet or phone).")]
 				/// <returns>Value of property <code>size</code></returns>
+				[Obsolete("Deprecated since 1.38.0. The GenericTile control has now a fixed size, depending on the used media (desktop, tablet or phone).")]
 				public extern virtual sap.m.Size getSize();
 
 				/// <summary>
@@ -265,9 +266,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>Auto</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.38.0. The GenericTile control has now a fixed size, depending on the used media (desktop, tablet or phone).")]
 				/// <param name="sSize">New value for property <code>size</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.38.0. The GenericTile control has now a fixed size, depending on the used media (desktop, tablet or phone).")]
 				public extern virtual sap.m.GenericTile setSize(sap.m.Size sSize);
 
 				#endregion
@@ -549,23 +550,23 @@ namespace OpenUI5Sharp
 				/// 
 				/// An icon or image to be displayed in the control. This aggregation is deprecated since version 1.36.0, to display an icon or image use sap.m.ImageContent control instead.
 				/// </summary>
-				[Obsolete("Deprecated since 1.36.0. This aggregation is deprecated, use sap.m.ImageContent control to display an icon instead.")]
 				/// <returns></returns>
+				[Obsolete("Deprecated since 1.36.0. This aggregation is deprecated, use sap.m.ImageContent control to display an icon instead.")]
 				public extern virtual sap.ui.core.Control getIcon();
 
 				/// <summary>
 				/// Destroys the icon in the aggregation {@link #getIcon icon}.
 				/// </summary>
-				[Obsolete("Deprecated since 1.36.0. This aggregation is deprecated, use sap.m.ImageContent control to display an icon instead.")]
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.36.0. This aggregation is deprecated, use sap.m.ImageContent control to display an icon instead.")]
 				public extern virtual sap.m.GenericTile destroyIcon();
 
 				/// <summary>
 				/// Sets the aggregated {@link #getIcon icon}.
 				/// </summary>
-				[Obsolete("Deprecated since 1.36.0. This aggregation is deprecated, use sap.m.ImageContent control to display an icon instead.")]
 				/// <param name="oIcon">The icon to set</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.36.0. This aggregation is deprecated, use sap.m.ImageContent control to display an icon instead.")]
 				public extern virtual sap.m.GenericTile setIcon(sap.ui.core.Control oIcon);
 
 				#endregion

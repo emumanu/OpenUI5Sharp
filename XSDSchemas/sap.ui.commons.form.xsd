@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:n17="sap.ui.commons.form" xmlns:n9="sap.ui.layout.form" elementFormDefault="qualified" targetNamespace="sap.ui.commons.form" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="sap.ui.layout.form" />
+  <xs:element name="Form" substitutionGroup="n9:Form" type="n17:_FormType">
+    <xs:annotation>
+      <xs:documentation>Form control. Holder for form control to be rendered in a specific form layout. A Form supports VariantLayoutData for it's conent to allow a simple switching of Layouts.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FormType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n9:_FormType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FormContainer" substitutionGroup="n9:FormContainer" type="n17:_FormContainerType">
+    <xs:annotation>
+      <xs:documentation>Used to group form elements.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FormContainerType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n9:_FormContainerType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FormElement" substitutionGroup="n9:FormElement" type="n17:_FormElementType">
+    <xs:annotation>
+      <xs:documentation>A form element is a combination of one label and different controls associated to this label.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FormElementType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n9:_FormElementType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FormLayout" substitutionGroup="n9:FormLayout" type="n17:_FormLayoutType">
+    <xs:annotation>
+      <xs:documentation>Base layout for Forms. Other Layouts must inherit from this one.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FormLayoutType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n9:_FormLayoutType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GridContainerData" substitutionGroup="n9:GridContainerData" type="n17:_GridContainerDataType">
+    <xs:annotation>
+      <xs:documentation>Grid layout specific properties for FormContainers. The width and height properties of the elements are ignored since the witdh and heights are defined by the grid cells.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_GridContainerDataType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n9:_GridContainerDataType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GridElementData" substitutionGroup="n9:GridElementData" type="n17:_GridElementDataType">
+    <xs:annotation>
+      <xs:documentation>The grid specific layout data for FormElement fields. The width property of the elements is ignored since the width is defined by grid cells.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_GridElementDataType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n9:_GridElementDataType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GridLayout" substitutionGroup="n9:GridLayout" type="n17:_GridLayoutType">
+    <xs:annotation>
+      <xs:documentation>This Layout implements a guideline 2.0 grid. This can be a 16 column grid or an 8 column grid.
+
+To adjust the content inside the GridLayout GridContainerData and GridElementData could be used.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_GridLayoutType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n9:_GridLayoutType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponsiveLayout" substitutionGroup="n9:ResponsiveLayout" type="n17:_ResponsiveLayoutType">
+    <xs:annotation>
+      <xs:documentation>Renders a form with responsive layout. Internally the ResponsiveFlowLayout is used.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ResponsiveLayoutType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n9:_ResponsiveLayoutType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SimpleForm" substitutionGroup="n9:SimpleForm" type="n17:_SimpleFormType">
+    <xs:annotation>
+      <xs:documentation>Use the SimpleForm to create a form based on title, label and fields that are stacked in the content aggregation. Add Title to start a new FormContainer(Group). Add Label to start a new row in the container. Add Input/Display controls as needed. Use LayoutData to influence the layout for special cases in the Input/Display controls.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_SimpleFormType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n9:_SimpleFormType" />
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

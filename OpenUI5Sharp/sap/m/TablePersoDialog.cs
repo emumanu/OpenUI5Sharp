@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.TablePersoDialog")]
 			public partial class TablePersoDialog : sap.ui.@base.ManagedObject
 			{
 				#region Settings
@@ -25,31 +26,31 @@ namespace OpenUI5Sharp
 				[ObjectLiteral]
 				public partial class Settings : sap.ui.@base.ManagedObject.Settings
 				{
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> contentWidth;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> contentWidth;
 
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> contentHeight;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> contentHeight;
 
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> persoMap;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> persoMap;
 
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> columnInfoCallback;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> columnInfoCallback;
 
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> initialColumnState;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> initialColumnState;
 
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> hasGrouping;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> hasGrouping;
 
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showSelectAll;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showSelectAll;
 
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showResetAll;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showResetAll;
 
 					/// <summary>
 					/// Refers to the service for reading and writing the personalization.
 					/// </summary>
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> persoService;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindAggregationInfo> persoService;
 
 					/// <summary>
 					/// The table which shall be personalized.
 					/// </summary>
-					public Union<sap.m.Table, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> persoDialogFor;
+					public Union<sap.m.Table, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> persoDialogFor;
 
 					public sap.ui.@base.EventDelegate confirm;
 
@@ -250,23 +251,23 @@ namespace OpenUI5Sharp
 				/// 
 				/// Refers to the service for reading and writing the personalization.
 				/// </summary>
-				[Obsolete("Deprecated since 1.30.1. This aggregate is no longer used. It collided with the TablePersoController's persoService reference")]
 				/// <returns></returns>
+				[Obsolete("Deprecated since 1.30.1. This aggregate is no longer used. It collided with the TablePersoController's persoService reference")]
 				public extern virtual object getPersoService();
 
 				/// <summary>
 				/// Destroys the persoService in the aggregation {@link #getPersoService persoService}.
 				/// </summary>
-				[Obsolete("Deprecated since 1.30.1. This aggregate is no longer used. It collided with the TablePersoController's persoService reference")]
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.30.1. This aggregate is no longer used. It collided with the TablePersoController's persoService reference")]
 				public extern virtual sap.m.TablePersoDialog destroyPersoService();
 
 				/// <summary>
 				/// Sets the aggregated {@link #getPersoService persoService}.
 				/// </summary>
-				[Obsolete("Deprecated since 1.30.1. This aggregate is no longer used. It collided with the TablePersoController's persoService reference")]
 				/// <param name="oPersoService">The persoService to set</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.30.1. This aggregate is no longer used. It collided with the TablePersoController's persoService reference")]
 				public extern virtual sap.m.TablePersoDialog setPersoService(object oPersoService);
 
 				#endregion

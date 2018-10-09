@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.unified.ShellHeadUserItem")]
 				[Obsolete("Deprecated since 1.44.0.")]
 				public partial class ShellHeadUserItem : sap.ui.core.Element
 				{
@@ -31,22 +32,22 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// The name of the user.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> username;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> username;
 
 						/// <summary>
 						/// The user item is intended to be used for user settings. Normally these settings are done via a Menu or Dialog. If this property is set to true an indicator for such a popup mechanismn is shown in the item.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showPopupIndicator;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showPopupIndicator;
 
 						/// <summary>
 						/// An image of the user, normally a URI to an image but also an icon from the sap.ui.core.IconPool is possible.
 						/// </summary>
-						public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> image;
+						public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> image;
 
 						/// <summary>
 						/// Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).
 						/// </summary>
-						public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+						public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 						/// <summary>
 						/// Event is fired when the user presses the button.

@@ -2,7 +2,8 @@ using Bridge;
 using System;
 using static Retyped.qunit;
 using static Retyped.sinon.Sinon;
-using OpenUI5Sharp;
+using UI5;
+using UI5.Tests;
 
 namespace WalkthroughClientScripts.Tests
 {
@@ -36,13 +37,13 @@ namespace WalkthroughClientScripts.Tests
                         QUnit.test("Should return the translated texts",
                             (Assert assert) => {
                                 // Arrange
-                                var oModel = This.Instance.As<BaseUnitTest>().stub();
+                                var oModel = This.Instance.As<FormatterTests>().stub();
                                 oModel.withArgs("i18n").As<SinonStub>().returns(oResourceModel);
                                 var oViewStub = new {
                                     getModel = oModel
                                 };
                                 var oControllerStub = new {
-                                    getView = This.Instance.As<BaseUnitTest>().stub().returns(oViewStub)
+                                    getView = This.Instance.As<FormatterTests>().stub().returns(oViewStub)
                                 };
 
                                 // System under test

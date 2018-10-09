@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.QuickViewPage")]
 			public partial class QuickViewPage : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,42 +29,42 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Page id
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> pageId;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> pageId;
 
 					/// <summary>
 					/// Specifies the text displayed in the header of the control.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> header;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> header;
 
 					/// <summary>
 					/// Specifies the text displayed in the header of the content section of the control.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> title;
 
 					/// <summary>
 					/// Specifies the URL which opens when the title or the thumbnail is clicked.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> titleUrl;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> titleUrl;
 
 					/// <summary>
 					/// Specifies the application which provides target and param configuration for cross-application navigation from the 'page header'.
 					/// </summary>
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> crossAppNavCallback;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> crossAppNavCallback;
 
 					/// <summary>
 					/// Specifies the text displayed under the header of the content section
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> description;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> description;
 
 					/// <summary>
 					/// Specifies the URL of the icon displayed under the header of the page
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> icon;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> icon;
 
 					/// <summary>
 					/// QuickViewGroup consists of a title (optional) and an entity of group elements.
 					/// </summary>
-					public Union<sap.m.QuickViewGroup[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> groups;
+					public Union<sap.m.QuickViewGroup[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> groups;
 
 				}
 

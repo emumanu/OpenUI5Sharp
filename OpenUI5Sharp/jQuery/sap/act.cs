@@ -3,14 +3,15 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
-	public partial class jQuery
+	public abstract partial class jQuery
 	{
 		public static partial class sap
 		{
 			[External]
 			[Namespace(false)]
+			[Name("jQuery.sap.act")]
 			public static partial class act
 			{
 				#region Methods

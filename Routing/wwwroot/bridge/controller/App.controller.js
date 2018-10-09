@@ -26,7 +26,7 @@ Bridge.assembly("RoutingClientScripts", function ($asm, globals) {
 
                 oRouter.attachBypassed(function (oEvent, oData) {
                     var $t, $t1, $t2;
-                    var sHash = sapuibaseExtensions.getParameterFor(Bridge.global.System.Object, System.String, oEvent, ($t = { ntype: 38, t: System.Object, n: "p" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"hash","t":4,"rt":System.String,"sn":"hash"}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })));
+                    var sHash = sapuibaseExtensions.getParameterFor(System.Object, System.String, oEvent, ($t = { ntype: 38, t: System.Object, n: "p" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"hash","t":4,"rt":System.String,"sn":"hash"}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })));
                     // do something here, i.e. send logging data to the backend for analysis
                     // telling what resource the user tried to access...
                     jQuery.sap.log.info(System.String.format("Sorry, but the hash {0} is invalid.", [sHash]), "The resource was not found.");
@@ -34,7 +34,7 @@ Bridge.assembly("RoutingClientScripts", function ($asm, globals) {
 
                 oRouter.attachRouteMatched(function (oEvent, oData) {
                     var $t, $t1, $t2;
-                    var sRouteName = sapuibaseExtensions.getParameterFor(Bridge.global.System.Object, System.String, oEvent, ($t = { ntype: 38, t: System.Object, n: "p" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"name","t":4,"rt":System.String,"sn":"name"}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })));
+                    var sRouteName = sapuibaseExtensions.getParameterFor(System.Object, System.String, oEvent, ($t = { ntype: 38, t: System.Object, n: "p" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"name","t":4,"rt":System.String,"sn":"name"}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })));
                     // do something, i.e. send usage statistics to backend
                     // in order to improve our app and the user experience (Build-Measure-Learn cycle)
                     jQuery.sap.log.info(System.String.format("User accessed route {0}, timestamp = {1}", sRouteName, System.DateTime.getNow()));

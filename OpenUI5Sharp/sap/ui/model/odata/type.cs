@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -38,9 +38,16 @@ namespace OpenUI5Sharp
 					/// All types handle <code>null</code> in the same way. When formatting to <code>string</code>, it is simply passed through (and <code>undefined</code> becomes <code>null</code>, too). When parsing from <code>string</code>, it is also passed through. Additionally, {@link sap.ui.model.odata.type.String String} and {@link sap.ui.model.odata.type.Guid Guid} convert the empty string to <code>null</code> when parsing. <code>validate</code> decides based on the constraint <code>nullable</code>: If <code>false</code>, <code>null</code> is not accepted and leads to a (locale-dependent) <code>ParseException</code>.
 					/// 
 					/// This ensures that the user cannot clear an input field bound to an attribute with non-nullable type. However it does not ensure that the user really entered something if the field was empty before.
+					/// 
+					/// <b><code>Date</code> vs. <code>DateTime</code></b>:
+					/// 
+					/// The type {@link sap.ui.model.odata.type.Date} is only valid for an OData V4 service. If you use the type for an OData V2 service, displaying is possible but you get an error message from server if you try to save changes.
+					/// 
+					/// For an OData V2 service use {@link sap.ui.model.odata.type.DateTime} with the constraint <code>displayFormat: "Date"</code> to display only a date.
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.model.odata.type")]
 					public static partial class type
 					{
 						#region Typed Parameters

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -22,6 +22,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.m.semantic.GroupAction")]
 				public partial class GroupAction : sap.m.semantic.SemanticButton, sap.m.semantic.IGroup
 				{
 					#region Settings

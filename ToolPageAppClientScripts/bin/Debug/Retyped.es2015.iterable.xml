@@ -1,0 +1,547 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Retyped.es2015.iterable</name>
+    </assembly>
+    <members>
+        <member name="P:Retyped.es2015_iterable.SymbolConstructor.iterator">
+            <summary>
+            A method that returns the default iterator for an object. Called by the semantics of the
+            for-of statement.
+            </summary>
+        </member>
+        <member name="P:Retyped.es2015_iterable.Array`1.Symbol_iterator">
+            <summary>
+            Iterator
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Array`1.entries">
+            <summary>
+            Returns an iterable of key, value pairs for every entry in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Array`1.keys">
+            <summary>
+            Returns an iterable of keys in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Array`1.values">
+            <summary>
+            Returns an iterable of values in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.ArrayConstructor.from``1(Bridge.Union{Retyped.es2015_iterable.Iterable{``0},Retyped.es5.ArrayLike{``0}})">
+            <summary>
+            Creates an array from an iterable object.
+            </summary>
+            <param name = "iterable">An iterable object to convert to an array.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.ArrayConstructor.from``1(Retyped.es2015_iterable.Iterable{``0})">
+            <summary>
+            Creates an array from an iterable object.
+            </summary>
+            <param name = "iterable">An iterable object to convert to an array.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.ArrayConstructor.from``1(Retyped.es5.ArrayLike{``0})">
+            <summary>
+            Creates an array from an iterable object.
+            </summary>
+            <param name = "iterable">An iterable object to convert to an array.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.ArrayConstructor.from``2(Bridge.Union{Retyped.es2015_iterable.Iterable{``0},Retyped.es5.ArrayLike{``0}},Retyped.es2015_iterable.ArrayConstructor.fromFn{``0,``1})">
+            <summary>
+            Creates an array from an iterable object.
+            </summary>
+            <param name = "iterable">An iterable object to convert to an array.</param>
+            <param name = "mapfn">A mapping function to call on every element of the array.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.ArrayConstructor.from``2(Retyped.es2015_iterable.Iterable{``0},Retyped.es2015_iterable.ArrayConstructor.fromFn{``0,``1})">
+            <summary>
+            Creates an array from an iterable object.
+            </summary>
+            <param name = "iterable">An iterable object to convert to an array.</param>
+            <param name = "mapfn">A mapping function to call on every element of the array.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.ArrayConstructor.from``2(Retyped.es5.ArrayLike{``0},Retyped.es2015_iterable.ArrayConstructor.fromFn{``0,``1})">
+            <summary>
+            Creates an array from an iterable object.
+            </summary>
+            <param name = "iterable">An iterable object to convert to an array.</param>
+            <param name = "mapfn">A mapping function to call on every element of the array.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.ArrayConstructor.from``2(Bridge.Union{Retyped.es2015_iterable.Iterable{``0},Retyped.es5.ArrayLike{``0}},Retyped.es2015_iterable.ArrayConstructor.fromFn{``0,``1},System.Object)">
+            <summary>
+            Creates an array from an iterable object.
+            </summary>
+            <param name = "iterable">An iterable object to convert to an array.</param>
+            <param name = "mapfn">A mapping function to call on every element of the array.</param>
+            <param name = "thisArg">Value of 'this' used to invoke the mapfn.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.ArrayConstructor.from``2(Retyped.es2015_iterable.Iterable{``0},Retyped.es2015_iterable.ArrayConstructor.fromFn{``0,``1},System.Object)">
+            <summary>
+            Creates an array from an iterable object.
+            </summary>
+            <param name = "iterable">An iterable object to convert to an array.</param>
+            <param name = "mapfn">A mapping function to call on every element of the array.</param>
+            <param name = "thisArg">Value of 'this' used to invoke the mapfn.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.ArrayConstructor.from``2(Retyped.es5.ArrayLike{``0},Retyped.es2015_iterable.ArrayConstructor.fromFn{``0,``1},System.Object)">
+            <summary>
+            Creates an array from an iterable object.
+            </summary>
+            <param name = "iterable">An iterable object to convert to an array.</param>
+            <param name = "mapfn">A mapping function to call on every element of the array.</param>
+            <param name = "thisArg">Value of 'this' used to invoke the mapfn.</param>
+        </member>
+        <member name="P:Retyped.es2015_iterable.ReadonlyArray`1.Symbol_iterator">
+            <summary>
+            Iterator of values in the array.
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.ReadonlyArray`1.entries">
+            <summary>
+            Returns an iterable of key, value pairs for every entry in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.ReadonlyArray`1.keys">
+            <summary>
+            Returns an iterable of keys in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.ReadonlyArray`1.values">
+            <summary>
+            Returns an iterable of values in the array
+            </summary>
+        </member>
+        <member name="P:Retyped.es2015_iterable.IArguments.Symbol_iterator">
+            <summary>
+            Iterator
+            </summary>
+        </member>
+        <member name="P:Retyped.es2015_iterable.Map`2.Symbol_iterator">
+            <summary>
+            Returns an iterable of entries in the map.
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Map`2.entries">
+            <summary>
+            Returns an iterable of key, value pairs for every entry in the map.
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Map`2.keys">
+            <summary>
+            Returns an iterable of keys in the map
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Map`2.values">
+            <summary>
+            Returns an iterable of values in the map
+            </summary>
+        </member>
+        <member name="P:Retyped.es2015_iterable.ReadonlyMap`2.Symbol_iterator">
+            <summary>
+            Returns an iterable of entries in the map.
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.ReadonlyMap`2.entries">
+            <summary>
+            Returns an iterable of key, value pairs for every entry in the map.
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.ReadonlyMap`2.keys">
+            <summary>
+            Returns an iterable of keys in the map
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.ReadonlyMap`2.values">
+            <summary>
+            Returns an iterable of values in the map
+            </summary>
+        </member>
+        <member name="P:Retyped.es2015_iterable.Set`1.Symbol_iterator">
+            <summary>
+            Iterates over values in the set.
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Set`1.entries">
+            <summary>
+            Returns an iterable of [v,v] pairs for every value `v` in the set.
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Set`1.keys">
+            <summary>
+            Despite its name, returns an iterable of the values in the set,
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Set`1.values">
+            <summary>
+            Returns an iterable of values in the set.
+            </summary>
+        </member>
+        <member name="P:Retyped.es2015_iterable.ReadonlySet`1.Symbol_iterator">
+            <summary>
+            Iterates over values in the set.
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.ReadonlySet`1.entries">
+            <summary>
+            Returns an iterable of [v,v] pairs for every value `v` in the set.
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.ReadonlySet`1.keys">
+            <summary>
+            Despite its name, returns an iterable of the values in the set,
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.ReadonlySet`1.values">
+            <summary>
+            Returns an iterable of values in the set.
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.PromiseConstructor.all``1(Retyped.es2015_iterable.Iterable{Bridge.Union{``0,Retyped.es5.PromiseLike{``0}}})">
+            <summary>
+            Creates a Promise that is resolved with an array of results when all of the provided Promises
+            resolve, or rejected when any Promise is rejected.
+            </summary>
+            <param name = "values">An array of Promises.</param>
+            <returns>A new Promise.</returns>
+        </member>
+        <member name="M:Retyped.es2015_iterable.PromiseConstructor.race``1(Retyped.es2015_iterable.Iterable{Bridge.Union{``0,Retyped.es5.PromiseLike{``0}}})">
+            <summary>
+            Creates a Promise that is resolved or rejected when any of the provided Promises are resolved
+            or rejected.
+            </summary>
+            <param name = "values">An array of Promises.</param>
+            <returns>A new Promise.</returns>
+        </member>
+        <member name="P:Retyped.es2015_iterable.String.Symbol_iterator">
+            <summary>
+            Iterator
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Int8Array.entries">
+            <summary>
+            Returns an array of key, value pairs for every entry in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Int8Array.keys">
+            <summary>
+            Returns an list of keys in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Int8Array.values">
+            <summary>
+            Returns an list of values in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Int8ArrayConstructor.from(Retyped.es2015_iterable.Iterable{System.Double})">
+            <summary>
+            Creates an array from an array-like or iterable object.
+            </summary>
+            <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Int8ArrayConstructor.from(Retyped.es2015_iterable.Iterable{System.Double},Retyped.es2015_iterable.Int8ArrayConstructor.fromFn)">
+            <summary>
+            Creates an array from an array-like or iterable object.
+            </summary>
+            <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
+            <param name = "mapfn">A mapping function to call on every element of the array.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Int8ArrayConstructor.from(Retyped.es2015_iterable.Iterable{System.Double},Retyped.es2015_iterable.Int8ArrayConstructor.fromFn,System.Object)">
+            <summary>
+            Creates an array from an array-like or iterable object.
+            </summary>
+            <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
+            <param name = "mapfn">A mapping function to call on every element of the array.</param>
+            <param name = "thisArg">Value of 'this' used to invoke the mapfn.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Uint8Array.entries">
+            <summary>
+            Returns an array of key, value pairs for every entry in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Uint8Array.keys">
+            <summary>
+            Returns an list of keys in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Uint8Array.values">
+            <summary>
+            Returns an list of values in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Uint8ArrayConstructor.from(Retyped.es2015_iterable.Iterable{System.Double})">
+            <summary>
+            Creates an array from an array-like or iterable object.
+            </summary>
+            <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Uint8ArrayConstructor.from(Retyped.es2015_iterable.Iterable{System.Double},Retyped.es2015_iterable.Uint8ArrayConstructor.fromFn)">
+            <summary>
+            Creates an array from an array-like or iterable object.
+            </summary>
+            <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
+            <param name = "mapfn">A mapping function to call on every element of the array.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Uint8ArrayConstructor.from(Retyped.es2015_iterable.Iterable{System.Double},Retyped.es2015_iterable.Uint8ArrayConstructor.fromFn,System.Object)">
+            <summary>
+            Creates an array from an array-like or iterable object.
+            </summary>
+            <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
+            <param name = "mapfn">A mapping function to call on every element of the array.</param>
+            <param name = "thisArg">Value of 'this' used to invoke the mapfn.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Uint8ClampedArray.entries">
+            <summary>
+            Returns an array of key, value pairs for every entry in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Uint8ClampedArray.keys">
+            <summary>
+            Returns an list of keys in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Uint8ClampedArray.values">
+            <summary>
+            Returns an list of values in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Uint8ClampedArrayConstructor.from(Retyped.es2015_iterable.Iterable{System.Double})">
+            <summary>
+            Creates an array from an array-like or iterable object.
+            </summary>
+            <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Uint8ClampedArrayConstructor.from(Retyped.es2015_iterable.Iterable{System.Double},Retyped.es2015_iterable.Uint8ClampedArrayConstructor.fromFn)">
+            <summary>
+            Creates an array from an array-like or iterable object.
+            </summary>
+            <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
+            <param name = "mapfn">A mapping function to call on every element of the array.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Uint8ClampedArrayConstructor.from(Retyped.es2015_iterable.Iterable{System.Double},Retyped.es2015_iterable.Uint8ClampedArrayConstructor.fromFn,System.Object)">
+            <summary>
+            Creates an array from an array-like or iterable object.
+            </summary>
+            <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
+            <param name = "mapfn">A mapping function to call on every element of the array.</param>
+            <param name = "thisArg">Value of 'this' used to invoke the mapfn.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Int16Array.entries">
+            <summary>
+            Returns an array of key, value pairs for every entry in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Int16Array.keys">
+            <summary>
+            Returns an list of keys in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Int16Array.values">
+            <summary>
+            Returns an list of values in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Int16ArrayConstructor.from(Retyped.es2015_iterable.Iterable{System.Double})">
+            <summary>
+            Creates an array from an array-like or iterable object.
+            </summary>
+            <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Int16ArrayConstructor.from(Retyped.es2015_iterable.Iterable{System.Double},Retyped.es2015_iterable.Int16ArrayConstructor.fromFn)">
+            <summary>
+            Creates an array from an array-like or iterable object.
+            </summary>
+            <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
+            <param name = "mapfn">A mapping function to call on every element of the array.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Int16ArrayConstructor.from(Retyped.es2015_iterable.Iterable{System.Double},Retyped.es2015_iterable.Int16ArrayConstructor.fromFn,System.Object)">
+            <summary>
+            Creates an array from an array-like or iterable object.
+            </summary>
+            <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
+            <param name = "mapfn">A mapping function to call on every element of the array.</param>
+            <param name = "thisArg">Value of 'this' used to invoke the mapfn.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Uint16Array.entries">
+            <summary>
+            Returns an array of key, value pairs for every entry in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Uint16Array.keys">
+            <summary>
+            Returns an list of keys in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Uint16Array.values">
+            <summary>
+            Returns an list of values in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Uint16ArrayConstructor.from(Retyped.es2015_iterable.Iterable{System.Double})">
+            <summary>
+            Creates an array from an array-like or iterable object.
+            </summary>
+            <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Uint16ArrayConstructor.from(Retyped.es2015_iterable.Iterable{System.Double},Retyped.es2015_iterable.Uint16ArrayConstructor.fromFn)">
+            <summary>
+            Creates an array from an array-like or iterable object.
+            </summary>
+            <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
+            <param name = "mapfn">A mapping function to call on every element of the array.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Uint16ArrayConstructor.from(Retyped.es2015_iterable.Iterable{System.Double},Retyped.es2015_iterable.Uint16ArrayConstructor.fromFn,System.Object)">
+            <summary>
+            Creates an array from an array-like or iterable object.
+            </summary>
+            <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
+            <param name = "mapfn">A mapping function to call on every element of the array.</param>
+            <param name = "thisArg">Value of 'this' used to invoke the mapfn.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Int32Array.entries">
+            <summary>
+            Returns an array of key, value pairs for every entry in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Int32Array.keys">
+            <summary>
+            Returns an list of keys in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Int32Array.values">
+            <summary>
+            Returns an list of values in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Int32ArrayConstructor.from(Retyped.es2015_iterable.Iterable{System.Double})">
+            <summary>
+            Creates an array from an array-like or iterable object.
+            </summary>
+            <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Int32ArrayConstructor.from(Retyped.es2015_iterable.Iterable{System.Double},Retyped.es2015_iterable.Int32ArrayConstructor.fromFn)">
+            <summary>
+            Creates an array from an array-like or iterable object.
+            </summary>
+            <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
+            <param name = "mapfn">A mapping function to call on every element of the array.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Int32ArrayConstructor.from(Retyped.es2015_iterable.Iterable{System.Double},Retyped.es2015_iterable.Int32ArrayConstructor.fromFn,System.Object)">
+            <summary>
+            Creates an array from an array-like or iterable object.
+            </summary>
+            <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
+            <param name = "mapfn">A mapping function to call on every element of the array.</param>
+            <param name = "thisArg">Value of 'this' used to invoke the mapfn.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Uint32Array.entries">
+            <summary>
+            Returns an array of key, value pairs for every entry in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Uint32Array.keys">
+            <summary>
+            Returns an list of keys in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Uint32Array.values">
+            <summary>
+            Returns an list of values in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Uint32ArrayConstructor.from(Retyped.es2015_iterable.Iterable{System.Double})">
+            <summary>
+            Creates an array from an array-like or iterable object.
+            </summary>
+            <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Uint32ArrayConstructor.from(Retyped.es2015_iterable.Iterable{System.Double},Retyped.es2015_iterable.Uint32ArrayConstructor.fromFn)">
+            <summary>
+            Creates an array from an array-like or iterable object.
+            </summary>
+            <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
+            <param name = "mapfn">A mapping function to call on every element of the array.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Uint32ArrayConstructor.from(Retyped.es2015_iterable.Iterable{System.Double},Retyped.es2015_iterable.Uint32ArrayConstructor.fromFn,System.Object)">
+            <summary>
+            Creates an array from an array-like or iterable object.
+            </summary>
+            <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
+            <param name = "mapfn">A mapping function to call on every element of the array.</param>
+            <param name = "thisArg">Value of 'this' used to invoke the mapfn.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Float32Array.entries">
+            <summary>
+            Returns an array of key, value pairs for every entry in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Float32Array.keys">
+            <summary>
+            Returns an list of keys in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Float32Array.values">
+            <summary>
+            Returns an list of values in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Float32ArrayConstructor.from(Retyped.es2015_iterable.Iterable{System.Double})">
+            <summary>
+            Creates an array from an array-like or iterable object.
+            </summary>
+            <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Float32ArrayConstructor.from(Retyped.es2015_iterable.Iterable{System.Double},Retyped.es2015_iterable.Float32ArrayConstructor.fromFn)">
+            <summary>
+            Creates an array from an array-like or iterable object.
+            </summary>
+            <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
+            <param name = "mapfn">A mapping function to call on every element of the array.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Float32ArrayConstructor.from(Retyped.es2015_iterable.Iterable{System.Double},Retyped.es2015_iterable.Float32ArrayConstructor.fromFn,System.Object)">
+            <summary>
+            Creates an array from an array-like or iterable object.
+            </summary>
+            <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
+            <param name = "mapfn">A mapping function to call on every element of the array.</param>
+            <param name = "thisArg">Value of 'this' used to invoke the mapfn.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Float64Array.entries">
+            <summary>
+            Returns an array of key, value pairs for every entry in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Float64Array.keys">
+            <summary>
+            Returns an list of keys in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Float64Array.values">
+            <summary>
+            Returns an list of values in the array
+            </summary>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Float64ArrayConstructor.from(Retyped.es2015_iterable.Iterable{System.Double})">
+            <summary>
+            Creates an array from an array-like or iterable object.
+            </summary>
+            <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Float64ArrayConstructor.from(Retyped.es2015_iterable.Iterable{System.Double},Retyped.es2015_iterable.Float64ArrayConstructor.fromFn)">
+            <summary>
+            Creates an array from an array-like or iterable object.
+            </summary>
+            <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
+            <param name = "mapfn">A mapping function to call on every element of the array.</param>
+        </member>
+        <member name="M:Retyped.es2015_iterable.Float64ArrayConstructor.from(Retyped.es2015_iterable.Iterable{System.Double},Retyped.es2015_iterable.Float64ArrayConstructor.fromFn,System.Object)">
+            <summary>
+            Creates an array from an array-like or iterable object.
+            </summary>
+            <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
+            <param name = "mapfn">A mapping function to call on every element of the array.</param>
+            <param name = "thisArg">Value of 'this' used to invoke the mapfn.</param>
+        </member>
+    </members>
+</doc>

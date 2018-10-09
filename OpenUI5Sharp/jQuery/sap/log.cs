@@ -3,9 +3,9 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
-	public partial class jQuery
+	public abstract partial class jQuery
 	{
 		public static partial class sap
 		{
@@ -24,6 +24,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("jQuery.sap.log")]
 			public static partial class log
 			{
 				#region Methods
@@ -272,46 +273,48 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("jQuery.sap.log.Level")]
 				public enum Level
 				{
-						/// <summary>
-						/// Trace level to log everything.
-						/// </summary>
-						ALL,
-						/// <summary>
-						/// Debug level. Use this for logging information necessary for debugging
-						/// </summary>
-						DEBUG,
-						/// <summary>
-						/// Error level. Use this for logging of erroneous but still recoverable situations
-						/// </summary>
-						ERROR,
-						/// <summary>
-						/// Fatal level. Use this for logging unrecoverable situations
-						/// </summary>
-						FATAL,
-						/// <summary>
-						/// Info level. Use this for logging information of purely informative nature
-						/// </summary>
-						INFO,
-						/// <summary>
-						/// Do not log anything
-						/// </summary>
-						NONE,
-						/// <summary>
-						/// Trace level. Use this for tracing the program flow.
-						/// </summary>
-						TRACE,
-						/// <summary>
-						/// Warning level. Use this for logging unwanted but foreseen situations
-						/// </summary>
-						WARNING,
+					/// <summary>
+					/// Trace level to log everything.
+					/// </summary>
+					ALL,
+					/// <summary>
+					/// Debug level. Use this for logging information necessary for debugging
+					/// </summary>
+					DEBUG,
+					/// <summary>
+					/// Error level. Use this for logging of erroneous but still recoverable situations
+					/// </summary>
+					ERROR,
+					/// <summary>
+					/// Fatal level. Use this for logging unrecoverable situations
+					/// </summary>
+					FATAL,
+					/// <summary>
+					/// Info level. Use this for logging information of purely informative nature
+					/// </summary>
+					INFO,
+					/// <summary>
+					/// Do not log anything
+					/// </summary>
+					NONE,
+					/// <summary>
+					/// Trace level. Use this for tracing the program flow.
+					/// </summary>
+					TRACE,
+					/// <summary>
+					/// Warning level. Use this for logging unwanted but foreseen situations
+					/// </summary>
+					WARNING,
 				}
 				/// <summary>
 				/// Enumeration of levels that can be used in a call to {@link jQuery.sap.log.Logger#setLevel}(iLevel, sComponent).
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("jQuery.sap.log.LogLevel")]
 				[Obsolete("Deprecated since 1.1.2. To streamline the Logging API a bit, the separation between Level and LogLevel has been given up. Use the (enriched) enumeration {@link jQuery.sap.log.Level} instead.")]
 				public enum LogLevel
 				{

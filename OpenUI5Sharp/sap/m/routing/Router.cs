@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -13,6 +13,7 @@ namespace OpenUI5Sharp
 			{
 				[External]
 				[Namespace(false)]
+				[Name("sap.m.routing.Router")]
 				public partial class Router : sap.ui.core.routing.Router
 				{
 					#region Typed Parameters
@@ -303,7 +304,7 @@ namespace OpenUI5Sharp
 					/// </pre>
 					/// 
 					/// This will create two targets named 'welcome' and 'goodbye' you can display both of them or one of them using the {@link #display} function.</param>
-					public extern Router(Union<sap.ui.core.routing.Route.RouteConfig, sap.ui.core.routing.Route.RouteConfig[]> oRoutes, sap.m.routing.Router.RouterConfig oConfig, sap.ui.core.UIComponent oOwner, Map<sap.m.routing.Targets.TargetInfo> oTargetsConfig);
+					public extern Router(Union<sap.ui.core.routing.Route.RouteConfig, sap.ui.core.routing.Route.RouteConfig[]> oRoutes, sap.m.routing.Router.RouterConfig oConfig, sap.ui.core.UIComponent oOwner, Map<sap.m.RoutingRouterConfig> oTargetsConfig);
 
 					/// <summary>
 					/// Instantiates a SAPUI5 mobile Router see {@link sap.ui.core.routing.Router} for the constructor arguments The difference to the {@link sap.ui.core.routing.Router} are the properties viewLevel, transition and transitionParameters you can specify in every Route or Target created by this router.
@@ -359,7 +360,7 @@ namespace OpenUI5Sharp
 					/// </pre>
 					/// 
 					/// This will create two targets named 'welcome' and 'goodbye' you can display both of them or one of them using the {@link #display} function.</param>
-					public extern Router(sap.m.routing.Router.RouterConfig oConfig, sap.ui.core.UIComponent oOwner, Map<sap.m.routing.Targets.TargetInfo> oTargetsConfig);
+					public extern Router(sap.m.routing.Router.RouterConfig oConfig, sap.ui.core.UIComponent oOwner, Map<sap.m.RoutingRouterConfig> oTargetsConfig);
 
 					/// <summary>
 					/// Instantiates a SAPUI5 mobile Router see {@link sap.ui.core.routing.Router} for the constructor arguments The difference to the {@link sap.ui.core.routing.Router} are the properties viewLevel, transition and transitionParameters you can specify in every Route or Target created by this router.
@@ -387,7 +388,7 @@ namespace OpenUI5Sharp
 					/// </pre>
 					/// 
 					/// This will create two targets named 'welcome' and 'goodbye' you can display both of them or one of them using the {@link #display} function.</param>
-					public extern Router(sap.ui.core.UIComponent oOwner, Map<sap.m.routing.Targets.TargetInfo> oTargetsConfig);
+					public extern Router(sap.ui.core.UIComponent oOwner, Map<sap.m.RoutingRouterConfig> oTargetsConfig);
 
 					/// <summary>
 					/// Instantiates a SAPUI5 mobile Router see {@link sap.ui.core.routing.Router} for the constructor arguments The difference to the {@link sap.ui.core.routing.Router} are the properties viewLevel, transition and transitionParameters you can specify in every Route or Target created by this router.
@@ -414,7 +415,7 @@ namespace OpenUI5Sharp
 					/// </pre>
 					/// 
 					/// This will create two targets named 'welcome' and 'goodbye' you can display both of them or one of them using the {@link #display} function.</param>
-					public extern Router(Map<sap.m.routing.Targets.TargetInfo> oTargetsConfig);
+					public extern Router(Map<sap.m.RoutingRouterConfig> oTargetsConfig);
 
 					#endregion
 

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.FeedInput")]
 			public partial class FeedInput : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,32 +29,32 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Set this flag to "false" to disable both text input and post button.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enabled;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enabled;
 
 					/// <summary>
 					/// The maximum length (the maximum number of characters) for the feed input's value. By default this is not limited.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maxLength;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> maxLength;
 
 					/// <summary>
 					/// The placeholder text shown in the input area as long as the user has not entered any text value.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> placeholder;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> placeholder;
 
 					/// <summary>
 					/// The text value of the feed input. As long as the user has not entered any text the post button is disabled
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> value;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> value;
 
 					/// <summary>
 					/// Icon to be displayed as a graphical element within the feed input. This can be an image or an icon from the icon font.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> icon;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> icon;
 
 					/// <summary>
 					/// If set to "true" (default), icons will be displayed. In case no icon is provided the standard placeholder will be displayed. if set to "false" icons are hidden
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showIcon;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showIcon;
 
 					/// <summary>
 					/// Some mobile devices support higher resolution images while others do not. Therefore, you should provide image resources for all relevant densities. If the property is set to "true", one or more requests are sent to the server to try and get the perfect density version of an image. If an image of a certain density is not available, the image control falls back to the default image, which should be provided.
@@ -62,22 +63,22 @@ namespace OpenUI5Sharp
 					/// 
 					/// Please be aware that this property is relevant only for images and not for icons.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> iconDensityAware;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> iconDensityAware;
 
 					/// <summary>
 					/// Sets a new tooltip for Submit button. The tooltip can either be a simple string (which in most cases will be rendered as the title attribute of this element) or an instance of sap.ui.core.TooltipBase. If a new tooltip is set, any previously set tooltip is deactivated. The default value is set language dependent.
 					/// </summary>
-					public Union<sap.ui.core.TooltipBase, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> buttonTooltip;
+					public Union<sap.ui.core.TooltipBase, string, sap.ui.@base.ManagedObject.BindPropertyInfo> buttonTooltip;
 
 					/// <summary>
 					/// Text for Picture which will be read by screenreader. If a new ariaLabelForPicture is set, any previously set ariaLabelForPicture is deactivated.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelForPicture;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelForPicture;
 
 					/// <summary>
 					/// The Post event is triggered when the user has entered a value and pressed the post button. After firing this event, the value is reset.
 					/// </summary>
-					public sap.m.SubmitOrChangeDelegate post;
+					public sap.m.ValueDelegate post;
 
 				}
 
@@ -373,7 +374,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.FeedInput</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.FeedInput attachPost(object oData, sap.m.SubmitOrChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.FeedInput attachPost(object oData, sap.m.ValueDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:post post} event of this <code>sap.m.FeedInput</code>.
@@ -385,7 +386,7 @@ namespace OpenUI5Sharp
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.FeedInput attachPost(object oData, sap.m.SubmitOrChangeDelegate fnFunction);
+				public extern virtual sap.m.FeedInput attachPost(object oData, sap.m.ValueDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:post post} event of this <code>sap.m.FeedInput</code>.
@@ -396,7 +397,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.FeedInput attachPost(sap.m.SubmitOrChangeDelegate fnFunction);
+				public extern virtual sap.m.FeedInput attachPost(sap.m.ValueDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:post post} event of this <code>sap.m.FeedInput</code>.
@@ -408,7 +409,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.FeedInput</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.FeedInput attachPost(sap.m.SubmitOrChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.FeedInput attachPost(sap.m.ValueDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:post post} event of this <code>sap.m.FeedInput</code>.
@@ -418,14 +419,14 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.FeedInput detachPost(sap.m.SubmitOrChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.FeedInput detachPost(sap.m.ValueDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:post post} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.FeedInput firePost(sap.m.SubmitOrChangeInfo mParameters);
+				public extern virtual sap.m.FeedInput firePost(sap.m.ValueInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:post post} to attached listeners.

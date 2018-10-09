@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	/// <summary>
 	/// Provides base functionality of the SAP jQuery plugin as extension of the jQuery framework.<br/> See also <a href="http://api.jquery.com/jQuery/">jQuery</a> for details.<br/> Although these functions appear as static ones, they are meant to be used on jQuery instances.<br/> If not stated differently, the functions follow the fluent interface paradigm and return the jQuery instance for chaining of statements.
@@ -15,7 +15,8 @@ namespace OpenUI5Sharp
 	/// </summary>
 	[External]
 	[Namespace(false)]
-	public partial class jQuery
+	[Name("jQuery")]
+	public abstract partial class jQuery : jquery.JQueryStatic<dom.HTMLElement>
 	{
 		#region Methods
 
@@ -25,7 +26,7 @@ namespace OpenUI5Sharp
 		/// <param name="sId">The ID reference of an element</param>
 		/// <param name="bPrepend">whether prepend or not</param>
 		/// <returns><code>this</code> to allow method chaining.</returns>
-		public extern virtual jquery.JQuery<object> addAriaDescribedBy(string sId, bool bPrepend = false);
+		public extern virtual jQuery addAriaDescribedBy(string sId, bool bPrepend = false);
 
 		/// <summary>
 		/// Adds the given ID reference to the the aria-labelledby attribute.
@@ -33,39 +34,39 @@ namespace OpenUI5Sharp
 		/// <param name="sId">The ID reference of an element</param>
 		/// <param name="bPrepend">Whether prepend or not</param>
 		/// <returns><code>this</code> to allow method chaining.</returns>
-		public extern virtual jquery.JQuery<object> addAriaLabelledBy(string sId, bool bPrepend = false);
+		public extern virtual jQuery addAriaLabelledBy(string sId, bool bPrepend = false);
 
 		/// <summary>
 		/// Extension function to the jQuery.fn which identifies SAPUI5 controls in the given jQuery context.
 		/// </summary>
 		/// <param name="iIndex">Optional parameter to return the control instance at the given index in the array.</param>
 		/// <returns>Depending on the given context and index parameter an array of controls, an instance or null.</returns>
-		public extern virtual Union<OpenUI5Sharp.sap.ui.core.Control[], OpenUI5Sharp.sap.ui.core.Control> control(int iIndex);
+		public extern virtual Union<UI5.sap.ui.core.Control[], UI5.sap.ui.core.Control> control(int iIndex);
 
 		/// <summary>
 		/// Extension function to the jQuery.fn which identifies SAPUI5 controls in the given jQuery context.
 		/// </summary>
 		/// <returns>Depending on the given context and index parameter an array of controls, an instance or null.</returns>
-		public extern virtual Union<OpenUI5Sharp.sap.ui.core.Control[], OpenUI5Sharp.sap.ui.core.Control> control();
+		public extern virtual Union<UI5.sap.ui.core.Control[], UI5.sap.ui.core.Control> control();
 
 		/// <summary>
 		/// Sets or gets the position of the cursor in an element that supports cursor positioning.
 		/// </summary>
 		/// <param name="iPos">The cursor position to set (or no parameter to retrieve the cursor position)</param>
 		/// <returns>The cursor position (or the jQuery collection if the position has been set)</returns>
-		public extern virtual Union<int, jquery.JQuery<object>> cursorPos(int iPos);
+		public extern virtual Union<int, jQuery> cursorPos(int iPos);
 
 		/// <summary>
 		/// Disable HTML elements selection.
 		/// </summary>
 		/// <returns><code>this</code> to allow method chaining.</returns>
-		public extern virtual jquery.JQuery<object> disableSelection();
+		public extern virtual jQuery disableSelection();
 
 		/// <summary>
 		/// Enable HTML elements to get selected.
 		/// </summary>
 		/// <returns><code>this</code> to allow method chaining.</returns>
-		public extern virtual jquery.JQuery<object> enableSelection();
+		public extern virtual jQuery enableSelection();
 
 		/// <summary>
 		/// Returns the first focusable domRef in a given container (the first element of the collection)
@@ -118,18 +119,18 @@ namespace OpenUI5Sharp
 		/// </summary>
 		/// <param name="sId">The ID reference of an element</param>
 		/// <returns><code>this</code> to allow method chaining.</returns>
-		public extern virtual jquery.JQuery<object> removeAriaDescribedBy(string sId);
+		public extern virtual jQuery removeAriaDescribedBy(string sId);
 
 		/// <summary>
 		/// Removes the given ID reference from the aria-labelledby attribute.
 		/// </summary>
 		/// <param name="sId">The ID reference of an element</param>
 		/// <returns><code>this</code> to allow method chaining.</returns>
-		public extern virtual jquery.JQuery<object> removeAriaLabelledBy(string sId);
+		public extern virtual jQuery removeAriaLabelledBy(string sId);
 
 		/// <param name="oRootControl">The root control</param>
 		/// <returns>Returns itself</returns>
-		public extern virtual jquery.JQuery<object> root(object oRootControl);
+		public extern virtual jQuery root(object oRootControl);
 
 		/// <summary>
 		/// Sets or returns the scrollLeft value of the first element in the given jQuery collection in right-to-left mode. Precondition: The element is rendered in RTL mode.
@@ -140,7 +141,7 @@ namespace OpenUI5Sharp
 		/// </summary>
 		/// <param name="iPos">The desired scroll position</param>
 		/// <returns>The jQuery collection if iPos is given, otherwise the scroll position, counted from the leftmost position</returns>
-		public extern virtual Union<jquery.JQuery<object>, int> scrollLeftRTL(int iPos);
+		public extern virtual Union<jQuery, int> scrollLeftRTL(int iPos);
 
 		/// <summary>
 		/// Returns the MIRRORED scrollLeft value of the first element in the given jQuery collection in right-to-left mode. Precondition: The element is rendered in RTL mode.
@@ -160,7 +161,7 @@ namespace OpenUI5Sharp
 		/// <param name="iStart">Start position of the selection (inclusive)</param>
 		/// <param name="iEnd">End position of the selection (exclusive)</param>
 		/// <returns>The jQuery collection</returns>
-		public extern virtual jquery.JQuery<object> selectText(int iStart, int iEnd);
+		public extern virtual jQuery selectText(int iStart, int iEnd);
 
 		/// <summary>
 		/// Returns a single UIArea if an index is provided or an array of UIAreas.

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.unified.FileUploaderParameter")]
 				public partial class FileUploaderParameter : sap.ui.core.Element
 				{
 					#region Settings
@@ -30,12 +31,12 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// The name of the hidden inputfield.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> name;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> name;
 
 						/// <summary>
 						/// The value of the hidden inputfield.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> value;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> value;
 
 					}
 

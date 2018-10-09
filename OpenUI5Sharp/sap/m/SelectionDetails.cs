@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.SelectionDetails")]
 			public partial class SelectionDetails : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,17 +29,17 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Contains {@link sap.m.SelectionDetailsItem items} that are displayed on the first page.
 					/// </summary>
-					public Union<sap.m.SelectionDetailsItem[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
+					public Union<sap.m.SelectionDetailsItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
 
 					/// <summary>
 					/// Contains custom actions shown in the responsive toolbar below items on the first page.
 					/// </summary>
-					public Union<sap.ui.core.Item[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> actions;
+					public Union<sap.ui.core.Item[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> actions;
 
 					/// <summary>
 					/// Contains actions that are rendered as a dedicated {@link sap.m.StandardListItem item}. In case an action group is pressed, a navigation should be triggered via <code>navTo</code> method. A maximum of 5 actionGroups is displayed inside the popover, though more can be added to the aggregation.
 					/// </summary>
-					public Union<sap.ui.core.Item[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> actionGroups;
+					public Union<sap.ui.core.Item[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> actionGroups;
 
 					/// <summary>
 					/// Event is triggered before the popover is open.

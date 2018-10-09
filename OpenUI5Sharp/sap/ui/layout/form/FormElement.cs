@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.layout.form.FormElement")]
 					public partial class FormElement : sap.ui.core.Element
 					{
 						#region Settings
@@ -32,19 +33,19 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// If set to <code>false</code>, the <code>FormElement</code> is not rendered.
 							/// </summary>
-							public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visible;
+							public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visible;
 
 							/// <summary>
 							/// Label of the fields. Can either be a <code>Label</code> control or a string. If a <code>Label</code> control is used, the properties of the <code>Label</code> can be set. If no assignment between <code>Label</code> and the fields is set via (<code>labelFor</code> property of the <code>Label</code>), it will be done automatically by the <code>FormElement</code>. In this case the <code>Label</code> is assigned to the fields of the <code>FormElement</code>.
 							/// </summary>
-							public Union<sap.ui.core.Label, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> label;
+							public Union<sap.ui.core.Label, string, sap.ui.@base.ManagedObject.BindAggregationInfo> label;
 
 							/// <summary>
 							/// Form controls that belong together to be displayed in one row of a <code>Form</code>.
 							/// 
 							/// <b>Warning:</b> Do not put any layout or other container controls in here. This could damage the visual layout, keyboard support and screen-reader support. Only form controls are allowed. Views are also not supported. Allowed controls implement the interface <code>sap.ui.core.IFormContent</code>.
 							/// </summary>
-							public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> fields;
+							public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> fields;
 
 						}
 

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -28,6 +28,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.Toolbar")]
 			public partial class Toolbar : sap.ui.core.Control, sap.ui.core.Toolbar, sap.m.IBar
 			{
 				#region Settings
@@ -42,48 +43,48 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the width of the control. By default, Toolbar is a block element. If the width is not explicitly set, the control will assume its natural size.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// Indicates that the whole toolbar is clickable. The Press event is fired only if Active is set to true. Note: This property should be used when there are no interactive controls inside the toolbar and the toolbar itself is meant to be interactive.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> active;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> active;
 
 					/// <summary>
 					/// Sets the enabled property of all controls defined in the content aggregation. Note: This property does not apply to the toolbar itself, but rather to its items.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enabled;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enabled;
 
 					/// <summary>
 					/// Defines the height of the control. By default, the <code>height</code> property depends on the used theme and the <code>design</code> property.
 					/// 
 					/// <b>Note:</b> It is not recommended to use this property if the <code>sapMTBHeader-CTX</code> class is used
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> height;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> height;
 
 					/// <summary>
 					/// Defines the toolbar design.
 					/// 
 					/// <b>Note:</b> Design settings are theme-dependent. They also determine the default height of the toolbar.
 					/// </summary>
-					public Union<sap.m.ToolbarDesign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> design;
+					public Union<sap.m.ToolbarDesign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> design;
 
 					/// <summary>
 					/// Defines the visual style of the <code>Toolbar</code>.
 					/// 
 					/// <b>Note:</b> The visual styles are theme-dependent.
 					/// </summary>
-					public Union<sap.m.ToolbarStyle, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> style;
+					public Union<sap.m.ToolbarStyle, string, sap.ui.@base.ManagedObject.BindPropertyInfo> style;
 
 					/// <summary>
 					/// The content of the toolbar.
 					/// </summary>
-					public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
+					public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
 
 					/// <summary>
 					/// Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 					/// <summary>
 					/// Fired when the user clicks on the toolbar, if the Active property is set to "true".

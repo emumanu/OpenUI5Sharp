@@ -3,11 +3,15 @@
   <xs:import namespace="sap.ui.core" />
   <xs:element name="BlockLayout" substitutionGroup="n0:Control" type="n8:_BlockLayoutType">
     <xs:annotation>
-      <xs:documentation>The BlockLayout is used to display several objects in a section-based manner. &lt;h3&gt;Overview&lt;/h3&gt; The BlockLayout uses horizontal and vertical subdivisions, and full-width banners to display a set of elements. By placing pictorial and textual elements side-by-side in different blocks, you can establish a visual connection between blocks and between similar elements. &lt;h3&gt;Structure&lt;/h3&gt; The BlockLayout comes in five predefined types for background colors: &lt;ul&gt; &lt;li&gt;Layout only (default) - a layout scheme and no background colors&lt;/li&gt; &lt;li&gt;Bright - a layout scheme with bright colors&lt;/li&gt; &lt;li&gt;Accent - a layout scheme with four pre-defined color sets&lt;/li&gt; &lt;li&gt;Dashboard - a layout scheme with additional borders and no background colors&lt;/li&gt; &lt;li&gt;Mixed - a layout scheme with a mix of light and dark colors&lt;/li&gt; &lt;/ul&gt; Background colors are attached directly to the blocks of the layout.
+      <xs:documentation>The BlockLayout is used to display several objects in a section-based manner. &lt;h3&gt;Overview&lt;/h3&gt; The BlockLayout uses horizontal and vertical subdivisions, and full-width banners to display a set of elements. By placing pictorial and textual elements side-by-side in different blocks, you can establish a visual connection between blocks and between similar elements. &lt;h3&gt;Structure&lt;/h3&gt; The BlockLayout contains BlockLayout cells. Every cell consists of a title and content. The title can be text or a link.
+
+The BlockLayout comes in five predefined types for background colors: &lt;ul&gt; &lt;li&gt;Layout only (default) - a layout scheme and no background colors&lt;/li&gt; &lt;li&gt;Bright - a layout scheme with bright colors&lt;/li&gt; &lt;li&gt;Accent - a layout scheme with four pre-defined color sets&lt;/li&gt; &lt;li&gt;Dashboard - a layout scheme with additional borders and no background colors&lt;/li&gt; &lt;li&gt;Mixed - a layout scheme with a mix of light and dark colors&lt;/li&gt; &lt;/ul&gt; Background colors are attached directly to the blocks of the layout.
 
 Special full-width sections of the BlockLayout allow horizontal scrolling through a set of blocks.
 
 &lt;b&gt;Note:&lt;/b&gt; With version 1.48 colors can be set for each individual {@link sap.ui.layout.BlockLayoutCell cell}. There are 10 pre-defined color sets, each with 4 different shades. The main colors of the sets can be changed in Theme Designer. To change the background of a particular cell, set &lt;code&gt;backgroundColorSet&lt;/code&gt; (main color) and &lt;code&gt;backgroundColorShade&lt;/code&gt; (shade).
+
+&lt;b&gt;Note:&lt;/b&gt; Usage of disabled, emphasized or subtle links as titles is not recommended. Dark background designs, for example Accent, are not fully supported with regards to Аccessibility when used with links as titles.
 
 &lt;h3&gt;Usage&lt;/h3&gt; &lt;h4&gt;When to use&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;You want to create a catalogue-like page with sections of blocks.&lt;/li&gt; &lt;li&gt;The BlockLayout is intended for developing administrative tools and applications.&lt;/li&gt; &lt;/ul&gt; &lt;h4&gt;When not to use&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;You want to display properties or features of one content item. Use a {@link sap.uxap.ObjectPageLayout object page} or {@link sap.f.DynamicPage dynamic page} instead.&lt;/li&gt; &lt;/ul&gt; &lt;h3&gt;Responsive Behavior&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;The breakpoints of the block layout react to the width of the control itself and not to the actual screen size.&lt;/li&gt; &lt;li&gt; On small screens all blocks will wrap to a single scrollable column&lt;/li&gt; &lt;/ul&gt;</xs:documentation>
     </xs:annotation>
@@ -76,10 +80,23 @@ Special full-width sections of the BlockLayout allow horizontal scrolling throug
               </xs:sequence>
             </xs:complexType>
           </xs:element>
+          <xs:element minOccurs="0" name="titleLink">
+            <xs:annotation>
+              <xs:documentation>The link that will replace the title of the cell. &lt;b&gt;Note:&lt;/b&gt; The only possible value is the &lt;code&gt;sap.m.Link&lt;/code&gt; control.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
         </xs:sequence>
         <xs:attribute name="title" type="xs:string">
           <xs:annotation>
-            <xs:documentation>Defines the title of the cell</xs:documentation>
+            <xs:documentation>Defines the title of the cell. &lt;b&gt;Note:&lt;/b&gt; When the &lt;code&gt;titleLink&lt;/code&gt; aggregation is provided, the title of the cell will be replaced with the text from the &lt;code&gt;titleLink&lt;/code&gt;.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="titleAlignment" type="n0:_HorizontalAlignType">

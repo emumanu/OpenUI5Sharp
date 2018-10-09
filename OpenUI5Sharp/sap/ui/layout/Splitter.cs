@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -24,6 +24,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.layout.Splitter")]
 				public partial class Splitter : sap.ui.core.Control
 				{
 					#region Settings
@@ -38,22 +39,22 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Whether to split the contents horizontally (default) or vertically.
 						/// </summary>
-						public Union<sap.ui.core.Orientation, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> orientation;
+						public Union<sap.ui.core.Orientation, string, sap.ui.@base.ManagedObject.BindPropertyInfo> orientation;
 
 						/// <summary>
 						/// The width of the control
 						/// </summary>
-						public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+						public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 						/// <summary>
 						/// The height of the control
 						/// </summary>
-						public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> height;
+						public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> height;
 
 						/// <summary>
 						/// The content areas to be split. The control will show n-1 splitter bars between n controls in this aggregation.
 						/// </summary>
-						public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> contentAreas;
+						public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> contentAreas;
 
 						/// <summary>
 						/// Event is fired when contents are resized.
@@ -352,8 +353,8 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Disables the resize handler for this control, this leads to an automatic resize of the contents whenever the control changes its size. The resize handler is enabled in every control instance by default. For performance reasons this behavior can be disabled by calling disableAutoResize()
 					/// </summary>
-					[Obsolete("Deprecated since 1.21. This method is declared as protected in order to assess the need for this feature. It is declared as deprecated because the API might change in case the need for this is high enough to make it part of the official Splitter interface")]
 					/// <param name="bTemporarily">Only disable autoResize temporarily (used for live resize), so that the previous status can be restored afterwards</param>
+					[Obsolete("Deprecated since 1.21. This method is declared as protected in order to assess the need for this feature. It is declared as deprecated because the API might change in case the need for this is high enough to make it part of the official Splitter interface")]
 					public extern virtual void disableAutoResize(bool bTemporarily = false);
 
 					/// <summary>
@@ -370,8 +371,8 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Enables the resize handler for this control, this leads to an automatic resize of the contents whenever the control changes its size. The resize handler is enabled in every control instance by default. For performance reasons this behavior can be disabled by calling disableAutoResize()
 					/// </summary>
-					[Obsolete("Deprecated since 1.21. This method is declared as protected in order to assess the need for this feature. It is declared as deprecated because the API might change in case the need for this is high enough to make it part of the official Splitter interface")]
 					/// <param name="bTemporarily">Only enables autoResize if it was previously disabled temporarily (used for live resize)</param>
+					[Obsolete("Deprecated since 1.21. This method is declared as protected in order to assess the need for this feature. It is declared as deprecated because the API might change in case the need for this is high enough to make it part of the official Splitter interface")]
 					public extern virtual void enableAutoResize(bool bTemporarily = false);
 
 					/// <summary>
@@ -418,8 +419,8 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Returns the current actual content sizes as pixel value - these values can change with every resize.
 					/// </summary>
-					[Obsolete("Deprecated since 1.21. This method is declared as protected in order to assess the need for this feature. It is declared as deprecated because the API might change in case the need for this is high enough to make it part of the official Splitter interface")]
 					/// <returns>Array of px values that correspond to the content area sizes</returns>
+					[Obsolete("Deprecated since 1.21. This method is declared as protected in order to assess the need for this feature. It is declared as deprecated because the API might change in case the need for this is high enough to make it part of the official Splitter interface")]
 					public extern virtual int[] getCalculatedSizes();
 
 					/// <summary>

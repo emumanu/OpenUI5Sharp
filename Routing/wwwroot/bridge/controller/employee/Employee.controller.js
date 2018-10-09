@@ -30,7 +30,7 @@ Bridge.assembly("RoutingClientScripts", function ($asm, globals) {
             },
             _onRouteMatched: function (oEvent, oData) {
                 var $t, $t1, $t2;
-                var oArgs = sapuibaseExtensions.getParameterFor(Bridge.global.System.Object, System.Object, oEvent, ($t = { ntype: 38, t: System.Object, n: "p" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"arguments","t":4,"rt":System.Object,"sn":"arguments"}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })));
+                var oArgs = sapuibaseExtensions.getParameterFor(System.Object, System.Object, oEvent, ($t = { ntype: 38, t: System.Object, n: "p" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"arguments","t":4,"rt":System.Object,"sn":"arguments"}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })));
                 var oView = this.getView();
                 var employeeId = oArgs.employeeId;
 
@@ -50,7 +50,7 @@ Bridge.assembly("RoutingClientScripts", function ($asm, globals) {
                 var $t, $t1, $t2;
                 var oCtx = this.getView().getElementBinding().getBoundContext();
 
-                this.getRouter().navTo("employeeResume", { employeeId: sapuimodelContextExtensions.getPropertyFor(Bridge.global.System.Object, System.Int32, oCtx, ($t = { ntype: 38, t: System.Object, n: "e" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"EmployeeID","t":16,"rt":System.Int32,"g":{"td":System.Object,"a":2,"n":"get_EmployeeID","t":8,"rt":System.Int32,"fg":"EmployeeID","box":function ($v) { return Bridge.box($v, System.Int32);}},"s":{"td":System.Object,"a":2,"n":"set_EmployeeID","t":8,"p":[System.Int32],"rt":System.Void,"fs":"EmployeeID"},"fn":"EmployeeID"}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })), false) });
+                this.getRouter().navTo("employeeResume", { employeeId: sapuimodelContextExtensions.getPropertyFor(System.Object, System.Int32, oCtx, ($t = { ntype: 38, t: System.Object, n: "e" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"EmployeeID","t":16,"rt":System.Int32,"g":{"td":System.Object,"a":2,"n":"get_EmployeeID","t":8,"rt":System.Int32,"fg":"EmployeeID","box":function ($v) { return Bridge.box($v, System.Int32);}},"s":{"td":System.Object,"a":2,"n":"set_EmployeeID","t":8,"p":[System.Int32],"rt":System.Void,"fs":"EmployeeID"},"fn":"EmployeeID"}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })), false) });
             }
         }
     });

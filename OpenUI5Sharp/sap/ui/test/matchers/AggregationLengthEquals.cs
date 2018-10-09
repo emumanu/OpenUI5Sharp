@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -14,10 +14,11 @@ namespace OpenUI5Sharp
 				public static partial class matchers
 				{
 					/// <summary>
-					/// AggregationLengthEquals - checks if an aggregation contains at least one entry
+					/// AggregationLengthEquals - checks if an aggregation contains a specified number of entries.
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.test.matchers.AggregationLengthEquals")]
 					public partial class AggregationLengthEquals : sap.ui.test.matchers.Matcher
 					{
 						#region Settings
@@ -32,12 +33,12 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// The name of the aggregation that is used for matching.
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> name;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> name;
 
 							/// <summary>
 							/// The length that aggregation <code>name</code> should have.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> length;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> length;
 
 						}
 
@@ -46,7 +47,7 @@ namespace OpenUI5Sharp
 						#region Constructor
 
 						/// <summary>
-						/// AggregationLengthEquals - checks if an aggregation contains at least one entry.
+						/// AggregationLengthEquals - checks if an aggregation contains a specified number of entries.
 						/// 
 						/// Accepts an object literal <code>mSettings</code> that defines initial property values, aggregated and associated objects as well as event handlers. See {@link sap.ui.base.ManagedObject#constructor} for a general description of the syntax of the settings object.
 						/// </summary>
@@ -54,7 +55,7 @@ namespace OpenUI5Sharp
 						public extern AggregationLengthEquals(sap.ui.test.matchers.AggregationLengthEquals.Settings mSettings);
 
 						/// <summary>
-						/// AggregationLengthEquals - checks if an aggregation contains at least one entry.
+						/// AggregationLengthEquals - checks if an aggregation contains a specified number of entries.
 						/// 
 						/// Accepts an object literal <code>mSettings</code> that defines initial property values, aggregated and associated objects as well as event handlers. See {@link sap.ui.base.ManagedObject#constructor} for a general description of the syntax of the settings object.
 						/// </summary>

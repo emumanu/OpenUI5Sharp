@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.search.OpenSearchProvider")]
 					public partial class OpenSearchProvider : sap.ui.core.search.SearchProvider
 					{
 						#region Settings
@@ -32,12 +33,12 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// The URL for suggestions of the search provider. As placeholder for the concrete search queries '{searchTerms}' must be used. For cross domain requests maybe a proxy must be used.
 							/// </summary>
-							public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> suggestUrl;
+							public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> suggestUrl;
 
 							/// <summary>
 							/// The type of data which is provided by the given suggestUrl: either 'json' or 'xml'.
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> suggestType;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> suggestType;
 
 						}
 

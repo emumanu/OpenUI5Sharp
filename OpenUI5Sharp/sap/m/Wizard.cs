@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.Wizard")]
 			public partial class Wizard : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,42 +29,42 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Determines the width of the Wizard.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// Determines the height of the Wizard.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> height;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> height;
 
 					/// <summary>
 					/// Controls the visibility of the next button. The developers can choose to control the flow of the steps either through the API (with <code>nextStep</code> and <code>previousStep</code> methods) or let the user click the next button, and control it with <code>validateStep</code> or <code>invalidateStep</code> methods.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showNextButton;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showNextButton;
 
 					/// <summary>
 					/// Changes the text of the finish button for the last step. This property can be used only if <code>showNextButton</code> is set to true. By default the text of the button is "Review".
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> finishButtonText;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> finishButtonText;
 
 					/// <summary>
 					/// Enables the branching functionality of the Wizard. Branching gives the developer the ability to define multiple routes a user is able to take based on the input in the current step. It is up to the developer to programatically check for what is the input in the current step and set a concrete next step amongs the available subsequent steps. Note: If this property is set to false, <code>next</code> and <code>subSequentSteps</code> associations of the WizardStep control are ignored.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enableBranching;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enableBranching;
 
 					/// <summary>
 					/// The wizard steps to be included in the content of the control.
 					/// </summary>
-					public Union<sap.m.WizardStep[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> steps;
+					public Union<sap.m.WizardStep[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> steps;
 
 					/// <summary>
 					/// This association controls the current activated step of the wizard (meaning the last step) For example if we have A->B->C->D steps, we are on step A and we setCurrentStep(C) A,B and C are going to be activated. D will still remain unvisited. The parameter needs to be a Wizard step that is part of the current Wizard
 					/// </summary>
-					public Union<sap.m.WizardStep, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> currentStep;
+					public Union<sap.m.WizardStep, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> currentStep;
 
 					/// <summary>
 					/// The StepActivated event is fired every time a new step is activated.
 					/// </summary>
-					public sap.m.Wizard.StepActivateDelegate stepActivate;
+					public sap.m.IndexDelegate stepActivate;
 
 					/// <summary>
 					/// The complete event is fired when the user clicks the finish button of the Wizard. The finish button is only available on the last step of the Wizard.
@@ -71,30 +72,6 @@ namespace OpenUI5Sharp
 					public sap.ui.@base.EventDelegate complete;
 
 				}
-
-				#endregion
-
-				#region Typed Parameters
-
-				/// <summary>
-				/// Parameter to be used as Object Literal
-				/// </summary>
-				[External]
-				[ObjectLiteral]
-				public partial class StepActivateInfo
-				{
-					/// <summary>
-					/// The index of the activated step as a parameter. One-based.
-					/// </summary>
-					public int index;
-
-				}
-
-				#endregion
-
-				#region Delegates
-
-				public delegate void StepActivateDelegate(sap.ui.@base.Event<sap.m.Wizard.StepActivateInfo> oEvent, object oData);
 
 				#endregion
 
@@ -331,7 +308,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.Wizard</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Wizard attachStepActivate(object oData, sap.m.Wizard.StepActivateDelegate fnFunction, object oListener);
+				public extern virtual sap.m.Wizard attachStepActivate(object oData, sap.m.IndexDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:stepActivate stepActivate} event of this <code>sap.m.Wizard</code>.
@@ -343,7 +320,7 @@ namespace OpenUI5Sharp
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Wizard attachStepActivate(object oData, sap.m.Wizard.StepActivateDelegate fnFunction);
+				public extern virtual sap.m.Wizard attachStepActivate(object oData, sap.m.IndexDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:stepActivate stepActivate} event of this <code>sap.m.Wizard</code>.
@@ -354,7 +331,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Wizard attachStepActivate(sap.m.Wizard.StepActivateDelegate fnFunction);
+				public extern virtual sap.m.Wizard attachStepActivate(sap.m.IndexDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:stepActivate stepActivate} event of this <code>sap.m.Wizard</code>.
@@ -366,7 +343,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.Wizard</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Wizard attachStepActivate(sap.m.Wizard.StepActivateDelegate fnFunction, object oListener);
+				public extern virtual sap.m.Wizard attachStepActivate(sap.m.IndexDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:stepActivate stepActivate} event of this <code>sap.m.Wizard</code>.
@@ -376,14 +353,14 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Wizard detachStepActivate(sap.m.Wizard.StepActivateDelegate fnFunction, object oListener);
+				public extern virtual sap.m.Wizard detachStepActivate(sap.m.IndexDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:stepActivate stepActivate} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Wizard fireStepActivate(sap.m.Wizard.StepActivateInfo mParameters);
+				public extern virtual sap.m.Wizard fireStepActivate(sap.m.IndexInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:stepActivate stepActivate} to attached listeners.

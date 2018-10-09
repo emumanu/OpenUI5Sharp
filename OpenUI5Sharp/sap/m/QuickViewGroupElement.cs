@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.QuickViewGroupElement")]
 			public partial class QuickViewGroupElement : sap.ui.core.Element
 			{
 				#region Settings
@@ -28,42 +29,42 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Determines whether the element should be visible on the screen.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visible;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visible;
 
 					/// <summary>
 					/// Specifies the text displayed below the associated label.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> label;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> label;
 
 					/// <summary>
 					/// Specifies the text of the control that associates with the label.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> value;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> value;
 
 					/// <summary>
 					/// Specifies the address of the QuickViewGroupElement link. Works only with QuickViewGroupElement of type link.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> url;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> url;
 
 					/// <summary>
 					/// Specifies the target of the link - it works like the target property of the HTML <a> tag. Works only with QuickViewGroupElement of type link.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> target;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> target;
 
 					/// <summary>
 					/// Specifies the type of the displayed information - phone number, mobile number, e-mail, link, text or a link to another QuickViewPage. Default value is 'text'.
 					/// </summary>
-					public Union<sap.m.QuickViewGroupElementType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> type;
+					public Union<sap.m.QuickViewGroupElementType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> type;
 
 					/// <summary>
 					/// Specifies the ID of the QuickViewPage, which is opened from the link in the QuickViewGroupElement. Works only with QuickViewGroupElement of type pageLink.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> pageLinkId;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> pageLinkId;
 
 					/// <summary>
 					/// The subject of the email. Works only with QuickViewGroupElement of type email.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> emailSubject;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> emailSubject;
 
 				}
 

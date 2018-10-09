@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -15,6 +15,7 @@ namespace OpenUI5Sharp
 				{
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.message.MessageManager")]
 					public partial class MessageManager : sap.ui.@base.EventProvider
 					{
 						#region Constructor

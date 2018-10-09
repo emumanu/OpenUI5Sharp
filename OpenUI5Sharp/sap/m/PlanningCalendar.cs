@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -36,6 +36,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.PlanningCalendar")]
 			public partial class PlanningCalendar : sap.ui.core.Control
 			{
 				#region Settings
@@ -50,96 +51,96 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Determines the start date of the row, as a JavaScript date object. The current date is used as default.
 					/// </summary>
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> startDate;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> startDate;
 
 					/// <summary>
 					/// Defines the key of the <code>PlanningCalendarView</code> used for the output.
 					/// 
 					/// <b>Note:</b> The default value is set <code>Hour</code>. If you are using your own views, the keys of these views should be used instead.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> viewKey;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> viewKey;
 
 					/// <summary>
 					/// Determines whether only a single row can be selected.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> singleSelection;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> singleSelection;
 
 					/// <summary>
 					/// Specifies the width of the <code>PlanningCalendar</code>.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// Specifies the height of the <code>PlanningCalendar</code>.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> height;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> height;
 
 					/// <summary>
 					/// Determines whether the assigned interval headers are displayed. You can assign them using the <code>intervalHeaders</code> aggregation of the {@link sap.m.PlanningCalendarRow PlanningCalendarRow}.
 					/// 
 					/// <b>Note:</b> If you set both <code>showIntervalHeaders</code> and <code>showEmptyIntervalHeaders</code> properties to <code>true</code>, the space (at the top of the intervals) where the assigned interval headers appear, will remain visible even if no interval headers are assigned.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showIntervalHeaders;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showIntervalHeaders;
 
 					/// <summary>
 					/// Determines whether the space (at the top of the intervals), where the assigned interval headers appear, should remain visible even when no interval headers are present in the visible time frame. If set to <code>false</code>, this space would collapse/disappear when no interval headers are assigned.
 					/// 
 					/// <b>Note:</b> This property takes effect, only if <code>showIntervalHeaders</code> is also set to <code>true</code>.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showEmptyIntervalHeaders;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showEmptyIntervalHeaders;
 
 					/// <summary>
 					/// Determines whether the column containing the headers of the {@link sap.m.PlanningCalendarRow PlanningCalendarRows} is displayed.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showRowHeaders;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showRowHeaders;
 
 					/// <summary>
 					/// Defines the text that is displayed when no {@link sap.m.PlanningCalendarRow PlanningCalendarRows} are assigned.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> noDataText;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> noDataText;
 
 					/// <summary>
 					/// Defines the mode in which the overlapping appointments are displayed.
 					/// 
 					/// <b>Note:</b> This property takes effect, only if the <code>intervalType</code> of the current calendar view is set to <code>sap.ui.unified.CalendarIntervalType.Month</code>. On phone devices this property is ignored, and the default value is applied.
 					/// </summary>
-					public Union<sap.ui.unified.GroupAppointmentsMode, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> groupAppointmentsMode;
+					public Union<sap.ui.unified.GroupAppointmentsMode, string, sap.ui.@base.ManagedObject.BindPropertyInfo> groupAppointmentsMode;
 
 					/// <summary>
 					/// Determines whether the appointments that have only title without text are rendered with smaller height.
 					/// 
 					/// <b>Note:</b> On phone devices this property is ignored, appointments are always rendered in full height to facilitate touching.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> appointmentsReducedHeight;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> appointmentsReducedHeight;
 
 					/// <summary>
 					/// Determines how the appointments are visualized depending on the used theme.
 					/// </summary>
-					public Union<sap.ui.unified.CalendarAppointmentVisualization, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> appointmentsVisualization;
+					public Union<sap.ui.unified.CalendarAppointmentVisualization, string, sap.ui.@base.ManagedObject.BindPropertyInfo> appointmentsVisualization;
 
 					/// <summary>
 					/// Defines the minimum date that can be displayed and selected in the <code>PlanningCalendar</code>. This must be a JavaScript date object.
 					/// 
 					/// <b>Note:</b> If the <code>minDate</code> is set to be after the current <code>maxDate</code>, the <code>maxDate</code> is set to the last date of the month in which the <code>minDate</code> belongs.
 					/// </summary>
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> minDate;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> minDate;
 
 					/// <summary>
 					/// Defines the maximum date that can be displayed and selected in the <code>PlanningCalendar</code>. This must be a JavaScript date object.
 					/// 
 					/// <b>Note:</b> If the <code>maxDate</code> is set to be before the current <code>minDate</code>, the <code>minDate</code> is set to the first date of the month in which the <code>maxDate</code> belongs.
 					/// </summary>
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maxDate;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> maxDate;
 
 					/// <summary>
 					/// Determines whether the day names are displayed in a separate line or inside the single days.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showDayNamesLine;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showDayNamesLine;
 
 					/// <summary>
 					/// Determines if the week numbers are displayed.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showWeekNumbers;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showWeekNumbers;
 
 					/// <summary>
 					/// Defines the list of predefined views as an array. The views should be specified by their keys.
@@ -148,7 +149,7 @@ namespace OpenUI5Sharp
 					/// 
 					/// <b>Note:</b> If set, all specified views will be displayed along with any custom views (if available). If not set and no custom views are available, all default views will be displayed. If not set and there are any custom views available, only the custom views will be displayed.
 					/// </summary>
-					public Union<string[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> builtInViews;
+					public Union<string[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> builtInViews;
 
 					/// <summary>
 					/// Determines whether the header area will remain visible (fixed on top) when the rest of the content is scrolled out of view.
@@ -163,43 +164,43 @@ namespace OpenUI5Sharp
 					/// 
 					/// This API should not be used in production environment.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> stickyHeader;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> stickyHeader;
 
 					/// <summary>
 					/// Rows of the <code>PlanningCalendar</code>.
 					/// </summary>
-					public Union<sap.m.PlanningCalendarRow[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> rows;
+					public Union<sap.m.PlanningCalendarRow[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> rows;
 
 					/// <summary>
 					/// Views of the <code>PlanningCalendar</code>.
 					/// 
 					/// <b>Note:</b> If not set, all the default views are available. Their keys are defined in {@link sap.ui.unified.CalendarIntervalType}.
 					/// </summary>
-					public Union<sap.m.PlanningCalendarView[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> views;
+					public Union<sap.m.PlanningCalendarView[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> views;
 
 					/// <summary>
 					/// Special days in the header calendar visualized as date range with a type.
 					/// 
 					/// <b>Note:</b> If one day is assigned to more than one type, only the first type will be used.
 					/// </summary>
-					public Union<sap.ui.unified.DateTypeRange[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> specialDates;
+					public Union<sap.ui.unified.DateTypeRange[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> specialDates;
 
 					/// <summary>
 					/// The content of the toolbar.
 					/// </summary>
-					public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> toolbarContent;
+					public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> toolbarContent;
 
 					/// <summary>
 					/// Association to controls / IDs which label this control (see WAI-ARIA attribute aria-labelledby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 					/// <summary>
 					/// Association to the <code>CalendarLegend</code> explaining the colors of the <code>Appointments</code>.
 					/// 
 					/// <b>Note:</b> The legend does not have to be rendered but must exist, and all required types must be assigned.
 					/// </summary>
-					public Union<sap.ui.unified.CalendarLegend, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> legend;
+					public Union<sap.ui.unified.CalendarLegend, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> legend;
 
 					/// <summary>
 					/// Fired if an appointment is selected.

@@ -2,7 +2,7 @@
 using Bridge;
 using Retyped;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
     /// <summary>
     /// Global variables and functions
@@ -12,7 +12,7 @@ namespace OpenUI5Sharp
     {
         /// <summary>This is used to handle document constant in sap.ui.core.Popup.open method</summary>
         [Template("document")]
-        public const Union<string, sap.ui.core.Element, dom.HTMLElement, jquery.JQuery<object>, jQuery.Event> document = null;
+        public const Union<string, sap.ui.core.Element, dom.HTMLElement, jQuery, jquery.JQuery.Event> document = null;
 
         /// <summary>
         /// Method to call bind with a different object as this
@@ -25,6 +25,9 @@ namespace OpenUI5Sharp
         [Template("{obj}.{func:raw}.bind({context})")]
         public extern static T BindMethod<T>(object obj, string func, object context);
 
+
+        [Template("{obj}.{oldEventHandler:raw} = {newEventHandler}")]
+        public extern static void RedefineJQueryEvent(object obj, string oldEventHandler, Action<jquery.JQuery.Event> newEventHandler);
     }
 }
 

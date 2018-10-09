@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.Shell")]
 			public partial class Shell : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,47 +29,47 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the application title, which may or may not be displayed outside the actual application, depending on the available screen size.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> title;
 
 					/// <summary>
 					/// Defines the logo to be displayed next to the App when the screen is sufficiently large.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> logo;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> logo;
 
 					/// <summary>
 					/// Determines whether the Logout button should be displayed. Currently, this only happens on very tall screens (1568px height), otherwise, it is always hidden.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showLogout;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showLogout;
 
 					/// <summary>
 					/// Defines texts, such as the name of the logged-in user, which should be displayed on the right side of the header (if there is enough space to display the header at all - this only happens on very tall screens (1568px height), otherwise, it is always hidden).
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> headerRightText;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> headerRightText;
 
 					/// <summary>
 					/// Determines whether the width of the content (the aggregated App) should be limited or extended to the full screen width.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> appWidthLimited;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> appWidthLimited;
 
 					/// <summary>
 					/// Defines the background color of the Shell. If set, this color will override the default background defined by the theme. This should only be set when really required. Any configured background image will be placed above this colored background. Use the backgroundRepeat property to define whether this image should be stretched to cover the complete Shell or whether it should be tiled.
 					/// </summary>
-					public Union<sap.ui.core.CSSColor, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> backgroundColor;
+					public Union<sap.ui.core.CSSColor, string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundColor;
 
 					/// <summary>
 					/// Defines the background image of the Shell. If set, this image will override the default background defined by the theme. This should only be set when really required. This background image will be placed above any color set for the background. Use the backgroundRepeat property to define whether this image should be stretched to cover the complete Shell or whether it should be tiled.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> backgroundImage;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundImage;
 
 					/// <summary>
 					/// Determines whether the background image (if configured) should be proportionally stretched to cover the whole Shell (false, default) or whether it should be tiled (true).
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> backgroundRepeat;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundRepeat;
 
 					/// <summary>
 					/// Defines the opacity of the background image. The opacity can be set between 0 (fully transparent) and 1 (fully opaque). This can be used to improve readability of the Shell content by making the background image partly transparent.
 					/// </summary>
-					public Union<float, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> backgroundOpacity;
+					public Union<float, string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundOpacity;
 
 					/// <summary>
 					/// Sets the icon used for the mobile device home screen and the icon to be used for bookmarks by desktop browsers.
@@ -79,19 +80,19 @@ namespace OpenUI5Sharp
 					/// 
 					/// See jQuery.sap.setIcons() for full documentation.
 					/// </summary>
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> homeIcon;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> homeIcon;
 
 					/// <summary>
 					/// Defines the semantic level of the title.
 					/// 
 					/// This information is used by assistive technologies, such as screen readers to create a hierarchical site map for faster navigation. Depending on this setting an HTML h1-h6 element is used.
 					/// </summary>
-					public Union<sap.ui.core.TitleLevel, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> titleLevel;
+					public Union<sap.ui.core.TitleLevel, string, sap.ui.@base.ManagedObject.BindPropertyInfo> titleLevel;
 
 					/// <summary>
 					/// A Shell contains an App or a SplitApp (they may be wrapped in a View). Other control types are not allowed.
 					/// </summary>
-					public Union<sap.ui.core.Control, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> app;
+					public Union<sap.ui.core.Control, string, sap.ui.@base.ManagedObject.BindAggregationInfo> app;
 
 					/// <summary>
 					/// Fires when the user presses the logout button/link.

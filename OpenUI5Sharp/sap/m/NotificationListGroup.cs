@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.NotificationListGroup")]
 			public partial class NotificationListGroup : sap.m.NotificationListBase
 			{
 				#region Settings
@@ -28,27 +29,27 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Determines if the group is collapsed or expanded.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> collapsed;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> collapsed;
 
 					/// <summary>
 					/// Determines if the group will automatically set the priority based on the highest priority of its notifications or get its priority from the developer.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> autoPriority;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> autoPriority;
 
 					/// <summary>
 					/// Determines if the group header/footer of the empty group will be always shown. By default groups with 0 notifications are not shown.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showEmptyGroup;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showEmptyGroup;
 
 					/// <summary>
 					/// Determines if the collapse/expand button should be enabled for an empty group.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enableCollapseButtonWhenEmpty;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enableCollapseButtonWhenEmpty;
 
 					/// <summary>
 					/// The NotificationListItems inside the group.
 					/// </summary>
-					public Union<sap.m.NotificationListItem[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
+					public Union<sap.m.NotificationListItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
 
 					/// <summary>
 					/// This event is called when collapse property value is changed

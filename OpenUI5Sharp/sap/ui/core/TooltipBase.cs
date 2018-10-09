@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.core.TooltipBase")]
 				public abstract partial class TooltipBase : sap.ui.core.Control
 				{
 					#region Settings
@@ -30,47 +31,47 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// The text that is shown in the tooltip that extends the TooltipBase class, for example in RichTooltip.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> text;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> text;
 
 						/// <summary>
 						/// Optional. Open Duration in milliseconds.
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> openDuration;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> openDuration;
 
 						/// <summary>
 						/// Optional. Close Duration in milliseconds.
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> closeDuration;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> closeDuration;
 
 						/// <summary>
 						/// Optional. My position defines which position on the extended tooltip being positioned to align with the target control.
 						/// </summary>
-						public Union<sap.ui.core.Dock, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> myPosition;
+						public Union<sap.ui.core.Dock, string, sap.ui.@base.ManagedObject.BindPropertyInfo> myPosition;
 
 						/// <summary>
 						/// Optional. At position defines which position on the target control to align the positioned tooltip.
 						/// </summary>
-						public Union<sap.ui.core.Dock, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> atPosition;
+						public Union<sap.ui.core.Dock, string, sap.ui.@base.ManagedObject.BindPropertyInfo> atPosition;
 
 						/// <summary>
 						/// Optional. Offset adds these left-top values to the calculated position. Example: "10 3".
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> offset;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> offset;
 
 						/// <summary>
 						/// Optional. Collision - when the positioned element overflows the window in some direction, move it to an alternative position.
 						/// </summary>
-						public Union<sap.ui.core.Collision, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> collision;
+						public Union<sap.ui.core.Collision, string, sap.ui.@base.ManagedObject.BindPropertyInfo> collision;
 
 						/// <summary>
 						/// Opening delay of the tooltip in milliseconds
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> openDelay;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> openDelay;
 
 						/// <summary>
 						/// Closing delay of the tooltip in milliseconds
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> closeDelay;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> closeDelay;
 
 						/// <summary>
 						/// This event is fired when the Tooltip has been closed

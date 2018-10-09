@@ -23,7 +23,7 @@ Bridge.assembly("WalkthroughClientScripts", function ($asm, globals) {
                 var $t, $t1, $t2;
                 // build filter array
                 var aFilter = new (System.Collections.Generic.List$1(sap.ui.model.Filter)).ctor();
-                var sQuery = sapuibaseExtensions.getParameterFor(Bridge.global.System.Object, System.String, oEvent, ($t = { ntype: 38, t: System.Object, n: "p" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"query","t":4,"rt":System.String,"sn":"query"}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })));
+                var sQuery = sapuibaseExtensions.getParameterFor(System.Object, System.String, oEvent, ($t = { ntype: 38, t: System.Object, n: "p" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"query","t":4,"rt":System.String,"sn":"query"}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })));
                 if (sQuery != null) {
                     aFilter.add(new sap.ui.model.Filter("ProductName", sap.ui.model.FilterOperator.Contains, sQuery));
                 }
@@ -43,7 +43,7 @@ Bridge.assembly("WalkthroughClientScripts", function ($asm, globals) {
 });
 
 sap.ui.define(System.Array.init(["sap/ui/core/mvc/Controller", "sap/ui/model/json/JSONModel", "sap/ui/demo/walkthrough/model/formatter", "sap/ui/model/Filter", "sap/ui/model/FilterOperator"], System.String), function (Controller, JSONModel, Formatter, Filter, FilterOperator) {
-    var newObj = Glue.CreateRawClassObject(sap.ui.demo.walkthrough.controller.InvoiceList);
+    var newObj = UI5.Glue.CreateRawClassObject(sap.ui.demo.walkthrough.controller.InvoiceList);
     newObj.formatter = Formatter;
     return sap.ui.core.mvc.Controller.extend("sap.ui.demo.walkthrough.controller.InvoiceList", newObj);
 });

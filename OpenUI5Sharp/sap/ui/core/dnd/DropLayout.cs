@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -18,16 +18,21 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.dnd.DropLayout")]
 					public enum DropLayout
 					{
-							/// <summary>
-							/// Droppable controls are arranged horizontally.
-							/// </summary>
-							Horizontal,
-							/// <summary>
-							/// Droppable controls are arranged vertically.
-							/// </summary>
-							Vertical,
+						/// <summary>
+						/// Default {@link sap.ui.core.Element.extend layout} definition of the aggregations.
+						/// </summary>
+						Default,
+						/// <summary>
+						/// Droppable controls are arranged horizontally.
+						/// </summary>
+						Horizontal,
+						/// <summary>
+						/// Droppable controls are arranged vertically.
+						/// </summary>
+						Vertical,
 					}
 				}
 			}

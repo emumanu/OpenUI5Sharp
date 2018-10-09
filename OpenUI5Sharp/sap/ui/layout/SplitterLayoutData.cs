@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.layout.SplitterLayoutData")]
 				public partial class SplitterLayoutData : sap.ui.core.LayoutData
 				{
 					#region Settings
@@ -30,17 +31,17 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Determines whether the control in the splitter can be resized or not.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> resizable;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> resizable;
 
 						/// <summary>
 						/// Sets the size of the splitter content.
 						/// </summary>
-						public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> size;
+						public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> size;
 
 						/// <summary>
 						/// Sets the minimum size of the splitter content in px.
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> minSize;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> minSize;
 
 					}
 

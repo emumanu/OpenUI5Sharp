@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.mvc.HTMLView")]
 					public partial class HTMLView : sap.ui.core.mvc.View
 					{
 						#region Settings
@@ -29,6 +30,39 @@ namespace OpenUI5Sharp
 						[ObjectLiteral]
 						public partial class Settings : sap.ui.core.mvc.View.Settings
 						{
+						}
+
+						#endregion
+
+						#region Typed Parameters
+
+						/// <summary>
+						/// Parameter to be used as Object Literal
+						/// </summary>
+						[External]
+						[ObjectLiteral]
+						public partial class CreateOptions
+						{
+							/// <summary>
+							/// Specifies an ID for the View instance. If no ID is given, an ID will be generated.
+							/// </summary>
+							public string id;
+
+							/// <summary>
+							/// Name of the view resource in module name notation (without suffix)
+							/// </summary>
+							public string viewName;
+
+							/// <summary>
+							/// The view definition.
+							/// </summary>
+							public string definition;
+
+							/// <summary>
+							/// Controller instance to be used for this view. The given controller instance overrides the controller defined in the view definition. Sharing a controller instance between multiple views is not supported.
+							/// </summary>
+							public sap.ui.core.mvc.Controller controller;
+
 						}
 
 						#endregion
@@ -71,6 +105,13 @@ namespace OpenUI5Sharp
 						#endregion
 
 						#region Methods
+
+						/// <summary>
+						/// Creates an instance of a declarative HTML view.
+						/// </summary>
+						/// <param name="mOptions">A map containig the view configuration options.</param>
+						/// <returns>A Promise which resolves with the created HTMLView instance</returns>
+						public extern static jquery.JQueryPromise<object> create(Map mOptions);
 
 						/// <summary>
 						/// Creates a new subclass of class sap.ui.core.mvc.HTMLView with name <code>sClassName</code> and enriches it with the information contained in <code>oClassInfo</code>.

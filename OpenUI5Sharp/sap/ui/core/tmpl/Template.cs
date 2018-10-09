@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -18,6 +18,8 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.tmpl.Template")]
+					[Obsolete("Deprecated since 1.56. use XMLView or JSView instead")]
 					public abstract partial class Template : sap.ui.@base.ManagedObject
 					{
 						#region Settings
@@ -32,7 +34,7 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// The Template definition as a String.
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> content;
 
 						}
 

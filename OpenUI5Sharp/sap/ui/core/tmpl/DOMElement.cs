@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -18,6 +18,8 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.tmpl.DOMElement")]
+					[Obsolete("Deprecated since 1.56.")]
 					public partial class DOMElement : sap.ui.core.Control
 					{
 						#region Settings
@@ -32,22 +34,22 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// The text content of the DOM element
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> text;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> text;
 
 							/// <summary>
 							/// The HTML-tag of the DOM element which contains the text
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> tag;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> tag;
 
 							/// <summary>
 							/// DOM attributes which are rendered as part of the DOM element and bindable
 							/// </summary>
-							public Union<sap.ui.core.tmpl.DOMAttribute[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> attributes;
+							public Union<sap.ui.core.tmpl.DOMAttribute[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> attributes;
 
 							/// <summary>
 							/// Nested DOM elements to support nested bindable structures
 							/// </summary>
-							public Union<sap.ui.core.tmpl.DOMElement[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> elements;
+							public Union<sap.ui.core.tmpl.DOMElement[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> elements;
 
 						}
 

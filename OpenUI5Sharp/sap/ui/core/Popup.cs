@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -28,6 +28,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.core.Popup")]
 				public partial class Popup : sap.ui.@base.ManagedObject
 				{
 					#region Settings
@@ -325,7 +326,7 @@ namespace OpenUI5Sharp
 					/// <param name="offset">the offset relative to the docking point, specified as a string with space-separated pixel values (e.g. "0 10" to move the popup 10 pixels to the right). If the docking of both "my" and "at" are both RTL-sensitive ("begin" or "end"), this offset is automatically mirrored in the RTL case as well.</param>
 					/// <param name="collision">defines how the position of an element should be adjusted in case it overflows the window in some direction.</param>
 					/// <param name="followOf">defines whether the popup should follow the dock reference when the reference changes its position.</param>
-					public extern virtual void open(int iDuration, sap.ui.core.Popup.Dock my = sap.ui.core.Popup.Dock.CenterCenter, sap.ui.core.Popup.Dock at = sap.ui.core.Popup.Dock.CenterCenter, Union<string, sap.ui.core.Element, dom.HTMLElement, jquery.JQuery<object>, jQuery.Event> of = Globals.document, string offset = "0 0", string collision = "flip", bool followOf = false);
+					public extern virtual void open(int iDuration, sap.ui.core.Popup.Dock my = sap.ui.core.Popup.Dock.CenterCenter, sap.ui.core.Popup.Dock at = sap.ui.core.Popup.Dock.CenterCenter, Union<string, sap.ui.core.Element, dom.HTMLElement, jQuery, jquery.JQuery.Event> of = Globals.document, string offset = "0 0", string collision = "flip", bool followOf = false);
 
 					/// <summary>
 					/// Opens the popup's content at the position either specified here or beforehand via {@link #setPosition}. Content must be capable of being positioned via "position:absolute;" All parameters are optional (open() may be called without any parameters). iDuration may just be omitted, but if any of "at", "of", "offset", "collision" is given, also the preceding positioning parameters ("my", at",...) must be given.
@@ -353,7 +354,7 @@ namespace OpenUI5Sharp
 					/// <param name="offset">the offset relative to the docking point, specified as a string with space-separated pixel values (e.g. "0 10" to move the popup 10 pixels to the right). If the docking of both "my" and "at" are both RTL-sensitive ("begin" or "end"), this offset is automatically mirrored in the RTL case as well.</param>
 					/// <param name="collision">defines how the position of an element should be adjusted in case it overflows the window in some direction.</param>
 					/// <param name="followOf">defines whether the popup should follow the dock reference when the reference changes its position.</param>
-					public extern virtual void open(sap.ui.core.Popup.Dock my = sap.ui.core.Popup.Dock.CenterCenter, sap.ui.core.Popup.Dock at = sap.ui.core.Popup.Dock.CenterCenter, Union<string, sap.ui.core.Element, dom.HTMLElement, jquery.JQuery<object>, jQuery.Event> of = Globals.document, string offset = "0 0", string collision = "flip", bool followOf = false);
+					public extern virtual void open(sap.ui.core.Popup.Dock my = sap.ui.core.Popup.Dock.CenterCenter, sap.ui.core.Popup.Dock at = sap.ui.core.Popup.Dock.CenterCenter, Union<string, sap.ui.core.Element, dom.HTMLElement, jQuery, jquery.JQuery.Event> of = Globals.document, string offset = "0 0", string collision = "flip", bool followOf = false);
 
 					/// <summary>
 					/// Sets the animation functions to use for opening and closing the Popup. Any null value will be ignored and not change the respective animation function. When called, the animation functions receive three parameters: - the jQuery object wrapping the DomRef of the popup - the requested animation duration - a function that MUST be called once the animation has completed
@@ -434,7 +435,7 @@ namespace OpenUI5Sharp
 					/// <param name="offset">the offset relative to the docking point, specified as a string with space-separated pixel values (e.g. "0 10" to move the popup 10 pixels to the right). If the docking of both "my" and "at" are both RTL-sensitive ("begin" or "end"), this offset is automatically mirrored in the RTL case as well.</param>
 					/// <param name="collision">defines how the position of an element should be adjusted in case it overflows the window in some direction. The valid values that refer to jQuery-UI's position parameters are "flip", "fit" and "none".</param>
 					/// <returns><code>this</code> to allow method chaining</returns>
-					public extern virtual sap.ui.core.Popup setPosition(sap.ui.core.Popup.Dock my, Union<sap.ui.core.Popup.Dock, object> at, Union<string, sap.ui.core.Element, dom.HTMLElement, jquery.JQuery<object>, jQuery.Event> of, string offset, string collision);
+					public extern virtual sap.ui.core.Popup setPosition(sap.ui.core.Popup.Dock my, Union<sap.ui.core.Popup.Dock, object> at, Union<string, sap.ui.core.Element, dom.HTMLElement, jQuery, jquery.JQuery.Event> of, string offset, string collision);
 
 					/// <summary>
 					/// Sets the position of the Popup (if you refer to a Control as anchor then do not use the DOMRef of the control which might change after re-renderings). Optional parameters can only be omitted when all subsequent parameters are omitted as well.
@@ -444,7 +445,7 @@ namespace OpenUI5Sharp
 					/// <param name="of">specifies the reference element to which the given content should be aligned as specified in the other parameters</param>
 					/// <param name="offset">the offset relative to the docking point, specified as a string with space-separated pixel values (e.g. "0 10" to move the popup 10 pixels to the right). If the docking of both "my" and "at" are both RTL-sensitive ("begin" or "end"), this offset is automatically mirrored in the RTL case as well.</param>
 					/// <returns><code>this</code> to allow method chaining</returns>
-					public extern virtual sap.ui.core.Popup setPosition(sap.ui.core.Popup.Dock my, Union<sap.ui.core.Popup.Dock, object> at, Union<string, sap.ui.core.Element, dom.HTMLElement, jquery.JQuery<object>, jQuery.Event> of = Globals.document, string offset = "0 0");
+					public extern virtual sap.ui.core.Popup setPosition(sap.ui.core.Popup.Dock my, Union<sap.ui.core.Popup.Dock, object> at, Union<string, sap.ui.core.Element, dom.HTMLElement, jQuery, jquery.JQuery.Event> of = Globals.document, string offset = "0 0");
 
 					/// <summary>
 					/// Determines whether the Popup should have a shadow (in supporting browsers). This also affects a currently open popup.

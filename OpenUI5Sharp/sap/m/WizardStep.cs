@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.WizardStep")]
 			public partial class WizardStep : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,37 +29,37 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Determines the title of the step. The title is visualized in the Wizard control.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> title;
 
 					/// <summary>
 					/// Determines the icon that is displayed for this step. The icon is visualized in the progress navigation part of the Wizard control. <b>Note:</b> In order for the icon to be displayed, each step in the Wizard should have this property defined, otherwise the default numbering will be displayed.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> icon;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> icon;
 
 					/// <summary>
 					/// Indicates whether or not the step is validated. When a step is validated a Next button is visualized in the Wizard control.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> validated;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> validated;
 
 					/// <summary>
 					/// Indicates whether or not the step is optional. When a step is optional an "(Optional)" label is displayed under the step's title.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> optional;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> optional;
 
 					/// <summary>
 					/// The content of the Wizard Step.
 					/// </summary>
-					public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
+					public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
 
 					/// <summary>
 					/// This association is used only when the <code>enableBranching</code> property of the Wizard is set to true. Use the association to store the next steps that are about to come after the current. If this is going to be a final step - leave this association empty.
 					/// </summary>
-					public Union<sap.m.WizardStep, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> subsequentSteps;
+					public Union<sap.m.WizardStep, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> subsequentSteps;
 
 					/// <summary>
 					/// The next step to be taken after the step is completed. Set this association value in the complete event of the current WizardStep.
 					/// </summary>
-					public Union<sap.m.WizardStep, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> nextStep;
+					public Union<sap.m.WizardStep, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> nextStep;
 
 					/// <summary>
 					/// This event is fired after the user presses the Next button in the Wizard, or on <code>nextStep</code> method call from the app developer.

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.HeaderContainer")]
 			public partial class HeaderContainer : sap.ui.core.Control, sap.m.ObjectHeaderContainer
 			{
 				#region Settings
@@ -28,52 +29,52 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Number of pixels to scroll when the user chooses Next or Previous buttons. Relevant only for desktop.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> scrollStep;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> scrollStep;
 
 					/// <summary>
 					/// Number of items to scroll when the user chose Next or Previous buttons. Relevant only for desktop. Have priority over 'ScrollStep'. Have to be positive number.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> scrollStepByItem;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> scrollStepByItem;
 
 					/// <summary>
 					/// Scroll animation time in milliseconds.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> scrollTime;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> scrollTime;
 
 					/// <summary>
 					/// Indicates whether the incomplete item on the edge of visible area is displayed or hidden.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showOverflowItem;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showOverflowItem;
 
 					/// <summary>
 					/// If set to true, it shows dividers between the different content controls.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showDividers;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showDividers;
 
 					/// <summary>
 					/// The orientation of the HeaderContainer. There are two orientation modes: horizontal and vertical. In horizontal mode the content controls are displayed next to each other, in vertical mode the content controls are displayed on top of each other.
 					/// </summary>
-					public Union<sap.ui.core.Orientation, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> orientation;
+					public Union<sap.ui.core.Orientation, string, sap.ui.@base.ManagedObject.BindPropertyInfo> orientation;
 
 					/// <summary>
 					/// Specifies the background color of the content. The visualization of the different options depends on the used theme.
 					/// </summary>
-					public Union<sap.m.BackgroundDesign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> backgroundDesign;
+					public Union<sap.m.BackgroundDesign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundDesign;
 
 					/// <summary>
 					/// The width of the whole HeaderContainer. If not specified, it is rendered as '100%' in horizontal orientation and as 'auto' in vertical orientation.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// The height of the whole HeaderContainer. If not specified, it is rendered as 'auto' in horizontal orientation and as '100%' in vertical orientation.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> height;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> height;
 
 					/// <summary>
 					/// Content to add to HeaderContainer.
 					/// </summary>
-					public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
+					public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
 
 				}
 

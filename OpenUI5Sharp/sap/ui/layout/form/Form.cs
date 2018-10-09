@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -28,6 +28,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.layout.form.Form")]
 					public partial class Form : sap.ui.core.Control
 					{
 						#region Settings
@@ -42,7 +43,7 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// Width of the <code>Form</code>.
 							/// </summary>
-							public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+							public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 							/// <summary>
 							/// Applies a device-specific and theme-specific line height and label alignment to the form rows if the form has editable content. If set, all (not only the editable) rows of the form will get the line height of editable fields.
@@ -53,36 +54,36 @@ namespace OpenUI5Sharp
 							/// 
 							/// <b>Warning:</b> If this property is set wrong this could lead to visual issues, the labels are fields could be misaligned, the labels could be rendered in the wrong mode, the spacing between the single controls could be wrong and control, not fitting to the mode, could be rendered incorrect.
 							/// </summary>
-							public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> editable;
+							public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> editable;
 
 							/// <summary>
 							/// Containers with the content of the form. A <code>FormContainer</code> represents a group inside the <code>Form</code>.
 							/// </summary>
-							public Union<sap.ui.layout.form.FormContainer[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> formContainers;
+							public Union<sap.ui.layout.form.FormContainer[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> formContainers;
 
 							/// <summary>
 							/// Title of the <code>Form</code>. Can either be a <code>Title</code> element or a string. If a <code>Title</code> element it used, the style of the title can be set.
 							/// 
 							/// <b>Note:</b> If a <code>Toolbar</code> is used, the <code>Title</code> is ignored.
 							/// </summary>
-							public Union<sap.ui.core.Title, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+							public Union<sap.ui.core.Title, string, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
 
 							/// <summary>
 							/// Toolbar of the <code>Form</code>.
 							/// 
 							/// <b>Note:</b> If a <code>Toolbar</code> is used, the <code>Title</code> is ignored. If a title is needed inside the <code>Toolbar</code> it must be added at content to the <code>Toolbar</code>. In this case add the <code>Title</code> to the <code>ariaLabelledBy</code> association.
 							/// </summary>
-							public Union<sap.ui.core.Toolbar, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> toolbar;
+							public Union<sap.ui.core.Toolbar, string, sap.ui.@base.ManagedObject.BindAggregationInfo> toolbar;
 
 							/// <summary>
 							/// Layout of the <code>Form</code>. The assigned <code>Layout</code> renders the <code>Form</code>. We recommend using the <code>ResponsiveGridLayout</code> for rendering a <code>Form</code>, as its responsiveness allows the available space to be used in the best way possible.
 							/// </summary>
-							public Union<sap.ui.layout.form.FormLayout, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> layout;
+							public Union<sap.ui.layout.form.FormLayout, string, sap.ui.@base.ManagedObject.BindAggregationInfo> layout;
 
 							/// <summary>
 							/// Association to controls / IDs that label this control (see WAI-ARIA attribute <code>aria-labelledby</code>).
 							/// </summary>
-							public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+							public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 						}
 

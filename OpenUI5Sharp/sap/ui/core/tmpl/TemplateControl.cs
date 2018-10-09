@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -18,6 +18,8 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.tmpl.TemplateControl")]
+					[Obsolete("Deprecated since 1.56.")]
 					public partial class TemplateControl : sap.ui.core.Control
 					{
 						#region Settings
@@ -32,12 +34,12 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// The context is a data object. It can be used for default template expressions. A change of the context object leads to a re-rendering whereas a change of a nested property of the context object doesn't. By default the context is an empty object.
 							/// </summary>
-							public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> context;
+							public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> context;
 
 							/// <summary>
 							/// The template on which the template control is based on.
 							/// </summary>
-							public Union<sap.ui.core.tmpl.Template, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> template;
+							public Union<sap.ui.core.tmpl.Template, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> template;
 
 							/// <summary>
 							/// Fired when the Template Control has been (re-)rendered and its HTML is present in the DOM.

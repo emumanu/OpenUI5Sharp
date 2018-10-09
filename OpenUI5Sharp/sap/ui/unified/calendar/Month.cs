@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.unified.calendar.Month")]
 					public partial class Month : sap.ui.core.Control
 					{
 						#region Settings
@@ -32,83 +33,83 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// A date as JavaScript Date object. The month including this date is rendered and this date is focused initially (if no other focus is set).
 							/// </summary>
-							public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> date;
+							public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> date;
 
 							/// <summary>
 							/// If set, interval selection is allowed
 							/// </summary>
-							public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> intervalSelection;
+							public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> intervalSelection;
 
 							/// <summary>
 							/// If set, only a single date or interval, if intervalSelection is enabled, can be selected
 							/// </summary>
-							public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> singleSelection;
+							public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> singleSelection;
 
 							/// <summary>
 							/// If set, a header with the month name is shown
 							/// </summary>
-							public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showHeader;
+							public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showHeader;
 
 							/// <summary>
 							/// If set, the first day of the displayed week is this day. Valid values are 0 to 6. If not a valid value is set, the default of the used locale is used.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> firstDayOfWeek;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> firstDayOfWeek;
 
 							/// <summary>
 							/// If set, the provided weekdays are displayed as non-working days. Valid values inside the array are 0 to 6. If not set, the weekend defined in the locale settings is displayed as non-working days.
 							/// </summary>
-							public Union<int[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> nonWorkingDays;
+							public Union<int[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> nonWorkingDays;
 
 							/// <summary>
 							/// If set, the calendar type is used for display. If not set, the calendar type of the global configuration is used.
 							/// </summary>
-							public Union<sap.ui.core.CalendarType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> primaryCalendarType;
+							public Union<sap.ui.core.CalendarType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> primaryCalendarType;
 
 							/// <summary>
 							/// If set, the days are also displayed in this calendar type If not set, the dates are only displayed in the primary calendar type
 							/// </summary>
-							public Union<sap.ui.core.CalendarType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> secondaryCalendarType;
+							public Union<sap.ui.core.CalendarType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> secondaryCalendarType;
 
 							/// <summary>
 							/// Width of Month
 							/// </summary>
-							public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+							public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 							/// <summary>
 							/// Determines whether the week numbers in the months are displayed.
 							/// 
 							/// <b>Note:</b> For Islamic calendars, the week numbers are not displayed regardless of what is set to this property.
 							/// </summary>
-							public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showWeekNumbers;
+							public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showWeekNumbers;
 
 							/// <summary>
 							/// Date Ranges for selected dates of the DatePicker
 							/// </summary>
-							public Union<sap.ui.unified.DateRange[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedDates;
+							public Union<sap.ui.unified.DateRange[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedDates;
 
 							/// <summary>
 							/// <code>DateRange</code> with type to visualize special days in the Calendar.
 							/// 
 							/// <b>Note:</b> If one day is assigned to more than one DateTypeRange, only the first one will be used. The only exception is when one of the types is <code>NonWorking</code>, then you can have both <code>NonWorking</code> and the other type. For example, you can have <code>NonWorking</code> + <code>Type01</code> but you can't have <code>Type01</code> + <code>Type02</code>.
 							/// </summary>
-							public Union<sap.ui.unified.DateTypeRange[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> specialDates;
+							public Union<sap.ui.unified.DateTypeRange[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> specialDates;
 
 							/// <summary>
 							/// Date Ranges for disabled dates
 							/// </summary>
-							public Union<sap.ui.unified.DateRange[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> disabledDates;
+							public Union<sap.ui.unified.DateRange[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> disabledDates;
 
 							/// <summary>
 							/// Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).
 							/// </summary>
-							public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+							public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 							/// <summary>
 							/// Association to the <code>CalendarLegend</code> explaining the colors of the <code>specialDates</code>.
 							/// 
 							/// <b>Note</b> The legend does not have to be rendered but must exist, and all required types must be assigned.
 							/// </summary>
-							public Union<sap.ui.unified.CalendarLegend, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> legend;
+							public Union<sap.ui.unified.CalendarLegend, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> legend;
 
 							/// <summary>
 							/// Date selection changed

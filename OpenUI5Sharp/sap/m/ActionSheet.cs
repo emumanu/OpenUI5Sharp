@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.ActionSheet")]
 			public partial class ActionSheet : sap.ui.core.Control
 			{
 				#region Settings
@@ -32,27 +33,27 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// The ActionSheet behaves as an sap.m.Popover in iPad and this property is the information about on which side will the popover be placed at. Possible values are sap.m.PlacementType.Left, sap.m.PlacementType.Right, sap.m.PlacementType.Top, sap.m.PlacementType.Bottom, sap.m.PlacementType.Horizontal, sap.m.PlacementType.HorizontalPreferedLeft, sap.m.PlacementType.HorizontalPreferedRight, sap.m.PlacementType.Vertical, sap.m.PlacementType.VerticalPreferedTop, sap.m.PlacementType.VerticalPreferedBottom. The default value is sap.m.PlacementType.Bottom.
 					/// </summary>
-					public Union<sap.m.PlacementType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> placement;
+					public Union<sap.m.PlacementType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> placement;
 
 					/// <summary>
 					/// If this is set to true, there will be a cancel button shown below the action buttons. There won't be any cancel button shown in iPad regardless of this property. The default value is set to true.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showCancelButton;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showCancelButton;
 
 					/// <summary>
 					/// This is the text displayed in the cancelButton. Default value is "Cancel", and it's translated according to the current locale setting. This property will be ignored when running either in iPad or showCancelButton is set to false.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> cancelButtonText;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> cancelButtonText;
 
 					/// <summary>
 					/// Title will be shown in the header area in iPhone and every Android devices. This property will be ignored in tablets and desktop browser.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> title;
 
 					/// <summary>
 					/// These buttons are added to the content area in ActionSheet control. When button is tapped, the ActionSheet is closed before the tap event listener is called.
 					/// </summary>
-					public Union<sap.m.Button[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> buttons;
+					public Union<sap.m.Button[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> buttons;
 
 					/// <summary>
 					/// This event is fired when the cancelButton is tapped. For iPad, this event is also fired when showCancelButton is set to true, and Popover is closed by tapping outside.
@@ -298,11 +299,11 @@ namespace OpenUI5Sharp
 				/// 
 				/// This event is fired when the cancelButton is tapped. For iPad, this event is also fired when showCancelButton is set to true, and Popover is closed by tapping outside.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. This event is deprecated, use the cancelButtonPress event instead.")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.ActionSheet</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20.0. This event is deprecated, use the cancelButtonPress event instead.")]
 				public extern virtual sap.m.ActionSheet attachCancelButtonTap(object oData, sap.ui.@base.EventDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -312,10 +313,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// This event is fired when the cancelButton is tapped. For iPad, this event is also fired when showCancelButton is set to true, and Popover is closed by tapping outside.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. This event is deprecated, use the cancelButtonPress event instead.")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20.0. This event is deprecated, use the cancelButtonPress event instead.")]
 				public extern virtual sap.m.ActionSheet attachCancelButtonTap(object oData, sap.ui.@base.EventDelegate fnFunction);
 
 				/// <summary>
@@ -325,9 +326,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// This event is fired when the cancelButton is tapped. For iPad, this event is also fired when showCancelButton is set to true, and Popover is closed by tapping outside.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. This event is deprecated, use the cancelButtonPress event instead.")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20.0. This event is deprecated, use the cancelButtonPress event instead.")]
 				public extern virtual sap.m.ActionSheet attachCancelButtonTap(sap.ui.@base.EventDelegate fnFunction);
 
 				/// <summary>
@@ -337,10 +338,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// This event is fired when the cancelButton is tapped. For iPad, this event is also fired when showCancelButton is set to true, and Popover is closed by tapping outside.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. This event is deprecated, use the cancelButtonPress event instead.")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.ActionSheet</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20.0. This event is deprecated, use the cancelButtonPress event instead.")]
 				public extern virtual sap.m.ActionSheet attachCancelButtonTap(sap.ui.@base.EventDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -348,25 +349,25 @@ namespace OpenUI5Sharp
 				/// 
 				/// The passed function and listener object must match the ones used for event registration.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. This event is deprecated, use the cancelButtonPress event instead.")]
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20.0. This event is deprecated, use the cancelButtonPress event instead.")]
 				public extern virtual sap.m.ActionSheet detachCancelButtonTap(sap.ui.@base.EventDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:cancelButtonTap cancelButtonTap} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. This event is deprecated, use the cancelButtonPress event instead.")]
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20.0. This event is deprecated, use the cancelButtonPress event instead.")]
 				public extern virtual sap.m.ActionSheet fireCancelButtonTap(object mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:cancelButtonTap cancelButtonTap} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. This event is deprecated, use the cancelButtonPress event instead.")]
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20.0. This event is deprecated, use the cancelButtonPress event instead.")]
 				public extern virtual sap.m.ActionSheet fireCancelButtonTap();
 
 				#endregion

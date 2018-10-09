@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -28,6 +28,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.Bar")]
 			public partial class Bar : sap.ui.core.Control, sap.m.IBar
 			{
 				#region Settings
@@ -42,37 +43,37 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// If this flag is set to true, contentMiddle will be rendered as a HBox and layoutData can be used to allocate available space.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enableFlexBox;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enableFlexBox;
 
 					/// <summary>
 					/// Indicates whether the Bar is partially translucent. It is only applied for touch devices.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> translucent;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> translucent;
 
 					/// <summary>
 					/// Determines the design of the bar. If set to auto, it becomes dependent on the place where the bar is placed.
 					/// </summary>
-					public Union<sap.m.BarDesign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> design;
+					public Union<sap.m.BarDesign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> design;
 
 					/// <summary>
 					/// Represents the left content area, usually containing a button or an app icon. If it is overlapped by the right content, its content will disappear and the text will show an ellipsis.
 					/// </summary>
-					public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> contentLeft;
+					public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> contentLeft;
 
 					/// <summary>
 					/// Represents the middle content area. Controls such as label, segmented buttons or select can be placed here. The content is centrally positioned if there is enough space. If the right or left content overlaps the middle content, the middle content will be centered in the space between the left and the right content.
 					/// </summary>
-					public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> contentMiddle;
+					public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> contentMiddle;
 
 					/// <summary>
 					/// Represents the right content area. Controls such as action buttons or search field can be placed here.
 					/// </summary>
-					public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> contentRight;
+					public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> contentRight;
 
 					/// <summary>
 					/// Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 				}
 
@@ -166,8 +167,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>false</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16. replaced by <code>contentMiddle</code> aggregation. <code>contentMiddle</code> will always occupy of the 100% width when no <code>contentLeft</code> and <code>contentRight</code> are being set.")]
 				/// <returns>Value of property <code>enableFlexBox</code></returns>
+				[Obsolete("Deprecated since 1.16. replaced by <code>contentMiddle</code> aggregation. <code>contentMiddle</code> will always occupy of the 100% width when no <code>contentLeft</code> and <code>contentRight</code> are being set.")]
 				public extern virtual bool getEnableFlexBox();
 
 				/// <summary>
@@ -179,9 +180,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>false</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16. replaced by <code>contentMiddle</code> aggregation. <code>contentMiddle</code> will always occupy of the 100% width when no <code>contentLeft</code> and <code>contentRight</code> are being set.")]
 				/// <param name="bEnableFlexBox">New value for property <code>enableFlexBox</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.16. replaced by <code>contentMiddle</code> aggregation. <code>contentMiddle</code> will always occupy of the 100% width when no <code>contentLeft</code> and <code>contentRight</code> are being set.")]
 				public extern virtual sap.m.Bar setEnableFlexBox(bool bEnableFlexBox);
 
 				#endregion
@@ -195,8 +196,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>false</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.18.6. This property has no effect since release 1.18.6 and should not be used. Translucent bar may overlay an input and make it difficult to edit.")]
 				/// <returns>Value of property <code>translucent</code></returns>
+				[Obsolete("Deprecated since 1.18.6. This property has no effect since release 1.18.6 and should not be used. Translucent bar may overlay an input and make it difficult to edit.")]
 				public extern virtual bool getTranslucent();
 
 				/// <summary>
@@ -208,9 +209,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>false</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.18.6. This property has no effect since release 1.18.6 and should not be used. Translucent bar may overlay an input and make it difficult to edit.")]
 				/// <param name="bTranslucent">New value for property <code>translucent</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.18.6. This property has no effect since release 1.18.6 and should not be used. Translucent bar may overlay an input and make it difficult to edit.")]
 				public extern virtual sap.m.Bar setTranslucent(bool bTranslucent);
 
 				#endregion

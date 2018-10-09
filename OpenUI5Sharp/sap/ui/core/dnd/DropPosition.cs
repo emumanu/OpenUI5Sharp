@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -18,20 +18,21 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.dnd.DropPosition")]
 					public enum DropPosition
 					{
-							/// <summary>
-							/// Drop between the controls.
-							/// </summary>
-							Between,
-							/// <summary>
-							/// Drop on the control.
-							/// </summary>
-							On,
-							/// <summary>
-							/// Drop on the control or between the controls.
-							/// </summary>
-							OnOrBetween,
+						/// <summary>
+						/// Drop between the controls.
+						/// </summary>
+						Between,
+						/// <summary>
+						/// Drop on the control.
+						/// </summary>
+						On,
+						/// <summary>
+						/// Drop on the control or between the controls.
+						/// </summary>
+						OnOrBetween,
 					}
 				}
 			}

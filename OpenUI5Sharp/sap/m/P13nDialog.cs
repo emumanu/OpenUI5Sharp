@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.P13nDialog")]
 			public partial class P13nDialog : sap.m.Dialog
 			{
 				#region Settings
@@ -26,29 +27,29 @@ namespace OpenUI5Sharp
 				public partial class Settings : sap.m.Dialog.Settings
 				{
 					/// <summary>
-					/// This property determines which panel is initially shown when dialog is opened. Due to extensibility reason the type should be <code>string</code>. So it is feasible to add a custom panel without expanding the type.
+					/// This property determines which panel is initially shown when dialog is opened. If not defined then the first visible panel of <code>panels</code> aggregation is taken. Setting value after the dialog is opened has no effect anymore. Due to extensibility reason the type should be <code>string</code>. So it is feasible to add a custom panel without expanding the type.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> initialVisiblePanelType;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> initialVisiblePanelType;
 
 					/// <summary>
 					/// This property determines whether the 'Restore' button is shown inside the dialog. If this property is set to true, clicking the 'Reset' button will trigger the <code>reset</code> event sending a notification that model data must be reset.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showReset;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showReset;
 
 					/// <summary>
 					/// This property determines whether the 'Restore' button is enabled and is taken into account only if <code>showReset</code> is set to <code>true</code>.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showResetEnabled;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showResetEnabled;
 
 					/// <summary>
 					/// Calls the validation listener once all panel-relevant validation checks have been done. This callback function is called in order to perform cross-model validation checks.
 					/// </summary>
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> validationExecutor;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> validationExecutor;
 
 					/// <summary>
 					/// The dialog panels displayed in the dialog.
 					/// </summary>
-					public Union<sap.m.P13nPanel[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> panels;
+					public Union<sap.m.P13nPanel[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> panels;
 
 					/// <summary>
 					/// Event fired if the 'ok' button in <code>P13nDialog</code> is clicked.
@@ -112,7 +113,7 @@ namespace OpenUI5Sharp
 				/// <summary>
 				/// Gets current value of property {@link #getInitialVisiblePanelType initialVisiblePanelType}.
 				/// 
-				/// This property determines which panel is initially shown when dialog is opened. Due to extensibility reason the type should be <code>string</code>. So it is feasible to add a custom panel without expanding the type.
+				/// This property determines which panel is initially shown when dialog is opened. If not defined then the first visible panel of <code>panels</code> aggregation is taken. Setting value after the dialog is opened has no effect anymore. Due to extensibility reason the type should be <code>string</code>. So it is feasible to add a custom panel without expanding the type.
 				/// </summary>
 				/// <returns>Value of property <code>initialVisiblePanelType</code></returns>
 				public extern virtual string getInitialVisiblePanelType();
@@ -120,7 +121,7 @@ namespace OpenUI5Sharp
 				/// <summary>
 				/// Sets a new value for property {@link #getInitialVisiblePanelType initialVisiblePanelType}.
 				/// 
-				/// This property determines which panel is initially shown when dialog is opened. Due to extensibility reason the type should be <code>string</code>. So it is feasible to add a custom panel without expanding the type.
+				/// This property determines which panel is initially shown when dialog is opened. If not defined then the first visible panel of <code>panels</code> aggregation is taken. Setting value after the dialog is opened has no effect anymore. Due to extensibility reason the type should be <code>string</code>. So it is feasible to add a custom panel without expanding the type.
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// </summary>

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:n0="sap.ui.core" elementFormDefault="qualified" targetNamespace="sap.ui.core" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:n0="sap.ui.core" xmlns:n1="sap.ui.core.dnd" elementFormDefault="qualified" targetNamespace="sap.ui.core" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="sap.ui.core.dnd" />
   <xs:element name="FragmentDefinition">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
@@ -256,6 +257,21 @@ Can either be an instance of a TooltipBase subclass or a simple string.</xs:docu
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element minOccurs="0" name="dragDropConfig">
+        <xs:annotation>
+          <xs:documentation>Defines the drag-and-drop configuration.
+
+This aggregation is provided exclusively to test drag-and-drop functionality of all controls. It might be removed or the functionality might be limited due to control {@link sap.ui.core.Element.extend metadata} restrictions.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+              <xs:element ref="n1:DragDropBase" />
+              <xs:element ref="n0:Fragment" />
+            </xs:choice>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
     </xs:sequence>
     <xs:attribute name="id" type="n0:_IDType">
       <xs:annotation>
@@ -265,6 +281,7 @@ Can either be an instance of a TooltipBase subclass or a simple string.</xs:docu
     <xs:attribute name="tooltip" type="xs:string" />
     <xs:attribute name="customData" type="xs:string" />
     <xs:attribute name="dependents" type="xs:string" />
+    <xs:attribute name="dragDropConfig" type="xs:string" />
   </xs:complexType>
   <xs:element name="HTML" substitutionGroup="n0:Control" type="n0:_HTMLType">
     <xs:annotation>

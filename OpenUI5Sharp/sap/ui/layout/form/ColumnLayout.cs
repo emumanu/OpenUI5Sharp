@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -30,6 +30,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.layout.form.ColumnLayout")]
 					public partial class ColumnLayout : sap.ui.layout.form.FormLayout
 					{
 						#region Settings
@@ -46,29 +47,29 @@ namespace OpenUI5Sharp
 							/// 
 							/// The number of columns for extra-large size must not be smaller than the number of columns for large size.
 							/// </summary>
-							public Union<sap.ui.layout.form.ColumnsXL, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> columnsXL;
+							public Union<sap.ui.layout.form.ColumnsXL, string, sap.ui.@base.ManagedObject.BindPropertyInfo> columnsXL;
 
 							/// <summary>
 							/// Number of columns for large size.
 							/// 
 							/// The number of columns for large size must not be smaller than the number of columns for medium size.
 							/// </summary>
-							public Union<sap.ui.layout.form.ColumnsL, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> columnsL;
+							public Union<sap.ui.layout.form.ColumnsL, string, sap.ui.@base.ManagedObject.BindPropertyInfo> columnsL;
 
 							/// <summary>
 							/// Number of columns for medium size.
 							/// </summary>
-							public Union<sap.ui.layout.form.ColumnsM, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> columnsM;
+							public Union<sap.ui.layout.form.ColumnsM, string, sap.ui.@base.ManagedObject.BindPropertyInfo> columnsM;
 
 							/// <summary>
 							/// Defines how many cells a label uses if the column is large.
 							/// </summary>
-							public Union<sap.ui.layout.form.ColumnCells, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> labelCellsLarge;
+							public Union<sap.ui.layout.form.ColumnCells, string, sap.ui.@base.ManagedObject.BindPropertyInfo> labelCellsLarge;
 
 							/// <summary>
 							/// Defines how many cells are empty at the end of a row. This could be used to keep the fields small on large screens.
 							/// </summary>
-							public Union<sap.ui.layout.form.EmptyCells, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> emptyCellsLarge;
+							public Union<sap.ui.layout.form.EmptyCells, string, sap.ui.@base.ManagedObject.BindPropertyInfo> emptyCellsLarge;
 
 						}
 

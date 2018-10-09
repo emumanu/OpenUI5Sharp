@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -12,6 +12,7 @@ namespace OpenUI5Sharp
 		/// </summary>
 		[External]
 		[Namespace(false)]
+		[Name("sap.ui")]
 		public static partial class ui
 		{
 			#region Typed Parameters
@@ -21,15 +22,48 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[ObjectLiteral]
+			public partial class ItemSelectedInfo
+			{
+				/// <summary>
+				/// The ID of the selected item
+				/// </summary>
+				public string itemId;
+
+				/// <summary>
+				/// The selected item
+				/// </summary>
+				public sap.ui.unified.MenuItemBase item;
+
+			}
+
+			/// <summary>
+			/// Parameter to be used as Object Literal
+			/// </summary>
+			[External]
+			[ObjectLiteral]
+			public partial class SearchInfo
+			{
+				/// <summary>
+				/// The search query
+				/// </summary>
+				public string query;
+
+			}
+
+			/// <summary>
+			/// Parameter to be used as Object Literal
+			/// </summary>
+			[External]
+			[ObjectLiteral]
 			public partial class ComponentConfig
 			{
 				/// <summary>
-				/// Name of the Component to load, as a dot-separated name; Even when an alternate location is specified from which the manifest should be loaded (e.g. <code>vConfig.manifest</code> is set to a non-empty string), then the name specified in that manifest will be ignored and this name will be used instead to determine the module to be loaded.
+				/// Name of the Component to load, as a dot-separated name; Even when an alternative location is specified from which the manifest should be loaded (e.g. <code>vConfig.manifest</code> is set to a non-empty string), then the name specified in that manifest will be ignored and this name will be used instead to determine the module to be loaded.
 				/// </summary>
 				public string name;
 
 				/// <summary>
-				/// Alternate location from where to load the Component. If a <code>manifestUrl</code> is given, this URL specifies the location of the final component defined via that manifest, otherwise it specifies the location of the component defined via its name <code>vConfig.name</code>.
+				/// Alternative location from where to load the Component. If a <code>manifestUrl</code> is given, this URL specifies the location of the final component defined via that manifest, otherwise it specifies the location of the component defined via its name <code>vConfig.name</code>.
 				/// </summary>
 				public string url;
 
@@ -153,7 +187,7 @@ namespace OpenUI5Sharp
 				/// <summary>
 				/// Cache configuration, only for <code>async</code> views; caching gets active when this object is provided with vView.cache.keys array; keys are used to store data in the cache and for invalidation of the cache
 				/// </summary>
-				public sap.ui.ViewCacheInfo cache;
+				public sap.ui.Info cache;
 
 				/// <summary>
 				/// Preprocessors configuration, see {@link sap.ui.core.mvc.View}
@@ -187,7 +221,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[ObjectLiteral]
-			public partial class ViewCacheInfo
+			public partial class Info
 			{
 				/// <summary>
 				/// Array with strings or Promises resolving with strings
@@ -219,6 +253,11 @@ namespace OpenUI5Sharp
 				public string type;
 
 				/// <summary>
+				/// the context for the renderer/templating
+				/// </summary>
+				public object context;
+
+				/// <summary>
 				/// the URL to lookup the template</li> (<i>experimental!</i>)
 				/// </summary>
 				public string src;
@@ -229,6 +268,14 @@ namespace OpenUI5Sharp
 				public string control;
 
 			}
+
+			#endregion
+
+			#region Delegates
+
+			public delegate void ItemSelectedDelegate(sap.ui.@base.Event<sap.ui.ItemSelectedInfo> oEvent, object oData);
+
+			public delegate void SearchDelegate(sap.ui.@base.Event<sap.ui.SearchInfo> oEvent, object oData);
 
 			#endregion
 
@@ -251,6 +298,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			/// <param name="vConfig">ID of an existing Component or the configuration object to create the Component</param>
 			/// <returns>the Component instance or a Promise in case of asynchronous loading</returns>
+			[Obsolete("Deprecated since 1.56.0. use one of the following alternatives instead: <ul> <li>to load a component class, use {@link sap.ui.core.Component.load Component.load}</li> <li>to create a new component instance, use {@link sap.ui.core.Component.create Component.create}</li> <li>to retrieve an existing component instance by its ID, use {@link sap.ui.core.Component.get Component.get}</li> </ul>")]
 			public extern static Union<sap.ui.core.Component, jquery.JQueryPromise<object>> component(Union<string, sap.ui.ComponentConfig> vConfig);
 
 			/// <summary>
@@ -264,52 +312,65 @@ namespace OpenUI5Sharp
 			/// <param name="oControllerImpl">An object literal defining the methods and properties of the controller</param>
 			/// <param name="bAsync">Decides whether the controller gets loaded asynchronously or not</param>
 			/// <returns>void, the new controller instance or a Promise resolving with the controller in async case</returns>
+			[Obsolete("Deprecated since 1.56. <ul> <li>For controller instance creation use <code>Controller.create</code> instead.</li> <li>For defining controllers use <code>Controller.extend</code> instead. </ul>")]
 			public extern static Union<sap.ui.core.mvc.Controller, jquery.JQueryPromise<object>> controller(string sName, object oControllerImpl, bool bAsync);
 
 			/// <summary>
-			/// Creates 0..n UI5 controls from an ExtensionPoint. One control if the ExtensionPoint is e.g. filled with a View, zero for ExtensionPoints without configured extension and n controls for multi-root Fragments as extension.
+			/// Creates 0..n UI5 controls from an <code>ExtensionPoint</code>.
 			/// 
-			/// In JSViews, this function allows both JSON notation in aggregation content as well as adding an extension point to an aggregation after the target control has already been instantiated. In the latter case the optional parameters oTargetControls and oTargetAggregation need to be specified.
+			/// One control if the <code>ExtensionPoint</code> is e.g. filled with a <code>View</code>, zero for extension points without configured extension and n controls for multi-root <code>Fragments</code> as extension.
+			/// 
+			/// In <code>JSViews</code>, this function allows both JSON notation in aggregation content as well as adding an extension point to an aggregation after the target control has already been instantiated. In the latter case the optional parameters oTargetControls and oTargetAggregation need to be specified.
 			/// </summary>
 			/// <param name="oContainer">The view or fragment containing the extension point</param>
 			/// <param name="sExtName">The extensionName used to identify the extension point in the customizing</param>
-			/// <param name="fnCreateDefaultContent">Optional callback function creating default content, returning an Array of controls. It is executed when there's no customizing, if not provided, no default content will be rendered.</param>
+			/// <param name="fnCreateDefaultContent">Optional callback function creating default content, returning an array of controls. It is executed when there's no customizing, if not provided, no default content will be rendered. <code>fnCreateDefaultContent</code> might also return a Promise, which resolves with an array of controls.</param>
 			/// <param name="oTargetControl">Optional - use this parameter to attach the extension point to a particular aggregation</param>
-			/// <param name="sAggregationName">Optional - if provided along with oTargetControl, the extension point content is added to this particular aggregation at oTargetControl, if not given, but an oTargetControl is still present, the function will attempt to add the extension point to the default aggregation of oTargetControl. If no oTargetControl is provided, sAggregationName will also be ignored.</param>
+			/// <param name="sAggregationName">Optional - if provided along with <code>oTargetControl</code>, the extension point content is added to this particular aggregation at oTargetControl, if not given, but an oTargetControl is still present, the function will attempt to add the extension point to the default aggregation of oTargetControl. If no oTargetControl is provided, sAggregationName will also be ignored.</param>
 			/// <returns>An array with 0..n controls created from an ExtensionPoint or if fnCreateDefaultContent is called and returns a Promise, a Promise with the controls is returned instead</returns>
+			[Obsolete("Deprecated since 1.56. Use {@link sap.ui.core.ExtensionPoint.load} instead")]
 			public extern static Union<sap.ui.core.Control[], jquery.JQueryPromise<object>> extensionpoint(Union<sap.ui.core.mvc.View, sap.ui.core.Fragment> oContainer, string sExtName, object fnCreateDefaultContent, sap.ui.core.Control oTargetControl, string sAggregationName);
 
 			/// <summary>
-			/// Creates 0..n UI5 controls from an ExtensionPoint. One control if the ExtensionPoint is e.g. filled with a View, zero for ExtensionPoints without configured extension and n controls for multi-root Fragments as extension.
+			/// Creates 0..n UI5 controls from an <code>ExtensionPoint</code>.
 			/// 
-			/// In JSViews, this function allows both JSON notation in aggregation content as well as adding an extension point to an aggregation after the target control has already been instantiated. In the latter case the optional parameters oTargetControls and oTargetAggregation need to be specified.
+			/// One control if the <code>ExtensionPoint</code> is e.g. filled with a <code>View</code>, zero for extension points without configured extension and n controls for multi-root <code>Fragments</code> as extension.
+			/// 
+			/// In <code>JSViews</code>, this function allows both JSON notation in aggregation content as well as adding an extension point to an aggregation after the target control has already been instantiated. In the latter case the optional parameters oTargetControls and oTargetAggregation need to be specified.
 			/// </summary>
 			/// <param name="oContainer">The view or fragment containing the extension point</param>
 			/// <param name="sExtName">The extensionName used to identify the extension point in the customizing</param>
-			/// <param name="fnCreateDefaultContent">Optional callback function creating default content, returning an Array of controls. It is executed when there's no customizing, if not provided, no default content will be rendered.</param>
+			/// <param name="fnCreateDefaultContent">Optional callback function creating default content, returning an array of controls. It is executed when there's no customizing, if not provided, no default content will be rendered. <code>fnCreateDefaultContent</code> might also return a Promise, which resolves with an array of controls.</param>
 			/// <param name="oTargetControl">Optional - use this parameter to attach the extension point to a particular aggregation</param>
 			/// <returns>An array with 0..n controls created from an ExtensionPoint or if fnCreateDefaultContent is called and returns a Promise, a Promise with the controls is returned instead</returns>
+			[Obsolete("Deprecated since 1.56. Use {@link sap.ui.core.ExtensionPoint.load} instead")]
 			public extern static Union<sap.ui.core.Control[], jquery.JQueryPromise<object>> extensionpoint(Union<sap.ui.core.mvc.View, sap.ui.core.Fragment> oContainer, string sExtName, object fnCreateDefaultContent, sap.ui.core.Control oTargetControl);
 
 			/// <summary>
-			/// Creates 0..n UI5 controls from an ExtensionPoint. One control if the ExtensionPoint is e.g. filled with a View, zero for ExtensionPoints without configured extension and n controls for multi-root Fragments as extension.
+			/// Creates 0..n UI5 controls from an <code>ExtensionPoint</code>.
 			/// 
-			/// In JSViews, this function allows both JSON notation in aggregation content as well as adding an extension point to an aggregation after the target control has already been instantiated. In the latter case the optional parameters oTargetControls and oTargetAggregation need to be specified.
+			/// One control if the <code>ExtensionPoint</code> is e.g. filled with a <code>View</code>, zero for extension points without configured extension and n controls for multi-root <code>Fragments</code> as extension.
+			/// 
+			/// In <code>JSViews</code>, this function allows both JSON notation in aggregation content as well as adding an extension point to an aggregation after the target control has already been instantiated. In the latter case the optional parameters oTargetControls and oTargetAggregation need to be specified.
 			/// </summary>
 			/// <param name="oContainer">The view or fragment containing the extension point</param>
 			/// <param name="sExtName">The extensionName used to identify the extension point in the customizing</param>
-			/// <param name="fnCreateDefaultContent">Optional callback function creating default content, returning an Array of controls. It is executed when there's no customizing, if not provided, no default content will be rendered.</param>
+			/// <param name="fnCreateDefaultContent">Optional callback function creating default content, returning an array of controls. It is executed when there's no customizing, if not provided, no default content will be rendered. <code>fnCreateDefaultContent</code> might also return a Promise, which resolves with an array of controls.</param>
 			/// <returns>An array with 0..n controls created from an ExtensionPoint or if fnCreateDefaultContent is called and returns a Promise, a Promise with the controls is returned instead</returns>
+			[Obsolete("Deprecated since 1.56. Use {@link sap.ui.core.ExtensionPoint.load} instead")]
 			public extern static Union<sap.ui.core.Control[], jquery.JQueryPromise<object>> extensionpoint(Union<sap.ui.core.mvc.View, sap.ui.core.Fragment> oContainer, string sExtName, object fnCreateDefaultContent);
 
 			/// <summary>
-			/// Creates 0..n UI5 controls from an ExtensionPoint. One control if the ExtensionPoint is e.g. filled with a View, zero for ExtensionPoints without configured extension and n controls for multi-root Fragments as extension.
+			/// Creates 0..n UI5 controls from an <code>ExtensionPoint</code>.
 			/// 
-			/// In JSViews, this function allows both JSON notation in aggregation content as well as adding an extension point to an aggregation after the target control has already been instantiated. In the latter case the optional parameters oTargetControls and oTargetAggregation need to be specified.
+			/// One control if the <code>ExtensionPoint</code> is e.g. filled with a <code>View</code>, zero for extension points without configured extension and n controls for multi-root <code>Fragments</code> as extension.
+			/// 
+			/// In <code>JSViews</code>, this function allows both JSON notation in aggregation content as well as adding an extension point to an aggregation after the target control has already been instantiated. In the latter case the optional parameters oTargetControls and oTargetAggregation need to be specified.
 			/// </summary>
 			/// <param name="oContainer">The view or fragment containing the extension point</param>
 			/// <param name="sExtName">The extensionName used to identify the extension point in the customizing</param>
 			/// <returns>An array with 0..n controls created from an ExtensionPoint or if fnCreateDefaultContent is called and returns a Promise, a Promise with the controls is returned instead</returns>
+			[Obsolete("Deprecated since 1.56. Use {@link sap.ui.core.ExtensionPoint.load} instead")]
 			public extern static Union<sap.ui.core.Control[], jquery.JQueryPromise<object>> extensionpoint(Union<sap.ui.core.mvc.View, sap.ui.core.Fragment> oContainer, string sExtName);
 
 			/// <summary>
@@ -358,6 +419,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			/// <param name="mOptions">name of the library (e.g. "sap.ui.core") or an object map (see below)</param>
 			/// <returns>the full version info, the library specific one, undefined (if library is not listed or there was an error and "failOnError" is set to "false") or a Promise which resolves with one of them</returns>
+			[Obsolete("Deprecated since 1.56. Use {@link sap.ui.VersionInfo.load} instead")]
 			public extern static Union<object, jquery.JQueryPromise<object>> getVersionInfo(Union<string, sap.ui.GetVersionInfoOptions> mOptions);
 
 			/// <summary>
@@ -366,6 +428,7 @@ namespace OpenUI5Sharp
 			/// In case of the version info file is not available an error will occur when calling this function.
 			/// </summary>
 			/// <returns>the full version info, the library specific one, undefined (if library is not listed or there was an error and "failOnError" is set to "false") or a Promise which resolves with one of them</returns>
+			[Obsolete("Deprecated since 1.56. Use {@link sap.ui.VersionInfo.load} instead")]
 			public extern static Union<object, jquery.JQueryPromise<object>> getVersionInfo();
 
 			/// <summary>
@@ -428,6 +491,7 @@ namespace OpenUI5Sharp
 			/// <param name="sId">id of the newly created view, only allowed for instance creation</param>
 			/// <param name="vView">Name of the view or a view configuration object as described above</param>
 			/// <returns>the created HTMLView instance in the creation case, otherwise undefined</returns>
+			[Obsolete("Deprecated since 1.56. Use HTMLView.create instead")]
 			public extern static sap.ui.core.mvc.HTMLView htmlview(string sId, Union<string, sap.ui.ViewInfo> vView);
 
 			/// <summary>
@@ -441,6 +505,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			/// <param name="vView">Name of the view or a view configuration object as described above</param>
 			/// <returns>the created HTMLView instance in the creation case, otherwise undefined</returns>
+			[Obsolete("Deprecated since 1.56. Use HTMLView.create instead")]
 			public extern static sap.ui.core.mvc.HTMLView htmlview(Union<string, sap.ui.ViewInfo> vView);
 
 			/// <summary>
@@ -505,6 +570,7 @@ namespace OpenUI5Sharp
 			/// <param name="sId">id of the newly created view</param>
 			/// <param name="vView">Name of the view or a view configuration object as described above</param>
 			/// <returns>the created JSONView instance</returns>
+			[Obsolete("Deprecated since 1.56. Use sap.ui.core.mvc.JSONView.create instead.")]
 			public extern static sap.ui.core.mvc.JSONView jsonview(string sId, Union<string, sap.ui.ViewInfo> vView);
 
 			/// <summary>
@@ -520,6 +586,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			/// <param name="vView">Name of the view or a view configuration object as described above</param>
 			/// <returns>the created JSONView instance</returns>
+			[Obsolete("Deprecated since 1.56. Use sap.ui.core.mvc.JSONView.create instead.")]
 			public extern static sap.ui.core.mvc.JSONView jsonview(Union<string, sap.ui.ViewInfo> vView);
 
 			/// <summary>
@@ -548,6 +615,7 @@ namespace OpenUI5Sharp
 			/// <param name="vView">Name of the view or a view configuration object as described above</param>
 			/// <param name="bAsync">defines how the view source is loaded and rendered later on (only relevant for instantiation, ignored for everything else)</param>
 			/// <returns>the created JSView instance in the creation case, otherwise undefined</returns>
+			[Obsolete("Deprecated since 1.56.0. <ul> <li>For view instance creation use <code>JSView.create</code> instead.</li> <li>For defining views use <code>JSView.extend</code> instead.</li> </ul>")]
 			public extern static sap.ui.core.mvc.JSView jsview(string sId, Union<string, sap.ui.ViewInfo> vView, bool bAsync);
 
 			/// <summary>
@@ -575,6 +643,7 @@ namespace OpenUI5Sharp
 			/// <param name="sId">id of the newly created view, only allowed for instance creation</param>
 			/// <param name="vView">Name of the view or a view configuration object as described above</param>
 			/// <returns>the created JSView instance in the creation case, otherwise undefined</returns>
+			[Obsolete("Deprecated since 1.56.0. <ul> <li>For view instance creation use <code>JSView.create</code> instead.</li> <li>For defining views use <code>JSView.extend</code> instead.</li> </ul>")]
 			public extern static sap.ui.core.mvc.JSView jsview(string sId, Union<string, sap.ui.ViewInfo> vView);
 
 			/// <summary>
@@ -601,6 +670,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			/// <param name="vView">Name of the view or a view configuration object as described above</param>
 			/// <returns>the created JSView instance in the creation case, otherwise undefined</returns>
+			[Obsolete("Deprecated since 1.56.0. <ul> <li>For view instance creation use <code>JSView.create</code> instead.</li> <li>For defining views use <code>JSView.extend</code> instead.</li> </ul>")]
 			public extern static sap.ui.core.mvc.JSView jsview(Union<string, sap.ui.ViewInfo> vView);
 
 			/// <summary>
@@ -628,6 +698,7 @@ namespace OpenUI5Sharp
 			/// <param name="vView">Name of the view or a view configuration object as described above</param>
 			/// <param name="bAsync">defines how the view source is loaded and rendered later on (only relevant for instantiation, ignored for everything else)</param>
 			/// <returns>the created JSView instance in the creation case, otherwise undefined</returns>
+			[Obsolete("Deprecated since 1.56.0. <ul> <li>For view instance creation use <code>JSView.create</code> instead.</li> <li>For defining views use <code>JSView.extend</code> instead.</li> </ul>")]
 			public extern static sap.ui.core.mvc.JSView jsview(Union<string, sap.ui.ViewInfo> vView, bool bAsync);
 
 			/// <summary>
@@ -644,6 +715,7 @@ namespace OpenUI5Sharp
 			/// <param name="sClassName">Fully qualified name (dot notation) of the class that should be prepared</param>
 			/// <param name="sMethods">space separated list of additional (static) methods that should be created as stubs</param>
 			/// <param name="sModuleName">name of the module to load, defaults to the class name</param>
+			[Obsolete("Deprecated since 1.56.")]
 			public extern static void lazyRequire(string sClassName, string sMethods, string sModuleName);
 
 			/// <summary>
@@ -659,6 +731,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			/// <param name="sClassName">Fully qualified name (dot notation) of the class that should be prepared</param>
 			/// <param name="sMethods">space separated list of additional (static) methods that should be created as stubs</param>
+			[Obsolete("Deprecated since 1.56.")]
 			public extern static void lazyRequire(string sClassName, string sMethods = "new");
 
 			/// <summary>
@@ -683,14 +756,15 @@ namespace OpenUI5Sharp
 			/// It is intended to make this configuration obsolete in future releases, but for the time being, applications must call this method when they want to store resources relative to the assumed application root folder.
 			/// </summary>
 			/// <param name="sNamespace">Namespace prefix for which to load resources relative to the application root folder</param>
+			[Obsolete("Deprecated since 1.56. use <code>sap.ui.loader.config</code> instead.")]
 			public extern static void localResources(string sNamespace);
 
 			/// <summary>
 			/// Ensures that a given a namespace or hierarchy of nested namespaces exists in the current <code>window</code>.
 			/// </summary>
-			[Obsolete("Deprecated since 1.1. see {@link topic:c78c07c094e04ccfaab659378a1707c7 Creating Control and Class Modules}.")]
 			/// <param name="sNamespace"></param>
 			/// <returns>the innermost namespace of the hierarchy</returns>
+			[Obsolete("Deprecated since 1.1. see {@link topic:c78c07c094e04ccfaab659378a1707c7 Creating Control and Class Modules}.")]
 			public extern static object @namespace(string sNamespace);
 
 			/// <summary>
@@ -699,6 +773,7 @@ namespace OpenUI5Sharp
 			/// <param name="sLibraryName">the name of a library, like "sap.ui.commons"</param>
 			/// <param name="sResourcePath">the relative path of a resource inside this library, like "img/mypic.png" or "themes/my_theme/img/mypic.png"</param>
 			/// <returns>the URL of the requested resource</returns>
+			[Obsolete("Deprecated since 1.56.0. use <code>sap.ui.require.toUrl</code> instead.")]
 			public extern static string resource(string sLibraryName, string sResourcePath);
 
 			/// <summary>
@@ -717,9 +792,9 @@ namespace OpenUI5Sharp
 			/// 
 			/// Internally, if a string is given that does not identify a UIArea or a control then implicitly a new <code>UIArea</code> is created for the given DOM reference and the given control is added.
 			/// </summary>
-			[Obsolete("Deprecated since 1.1. use {@link sap.ui.core.Control#placeAt Control#placeAt} instead.")]
 			/// <param name="oDomRef">a DOM Element or Id String of the UIArea</param>
 			/// <param name="oControl">the Control that should be added to the <code>UIArea</code>.</param>
+			[Obsolete("Deprecated since 1.1. use {@link sap.ui.core.Control#placeAt Control#placeAt} instead.")]
 			public extern static void setRoot(Union<string, dom.HTMLElement, sap.ui.core.Control> oDomRef, Union<sap.ui.@base.Interface, sap.ui.core.Control> oControl);
 
 			/// <summary>
@@ -766,6 +841,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			/// <param name="oTemplate">the ID or the DOM reference to the template to lookup or a configuration object containing the src, type and eventually the ID of the Template.</param>
 			/// <returns>the created Template instance or in case of usage without parameters any array of templates is returned</returns>
+			[Obsolete("Deprecated since 1.56. use XMLView or JSView instead")]
 			public extern static Union<sap.ui.core.tmpl.Template, sap.ui.core.tmpl.Template[]> template(Union<string, dom.HTMLElement, sap.ui.TemplateInfo> oTemplate);
 
 			/// <summary>
@@ -811,6 +887,7 @@ namespace OpenUI5Sharp
 			/// </pre>
 			/// </summary>
 			/// <returns>the created Template instance or in case of usage without parameters any array of templates is returned</returns>
+			[Obsolete("Deprecated since 1.56. use XMLView or JSView instead")]
 			public extern static Union<sap.ui.core.tmpl.Template, sap.ui.core.tmpl.Template[]> template();
 
 			/// <summary>
@@ -853,8 +930,10 @@ namespace OpenUI5Sharp
 			/// </summary>
 			/// <param name="sId">id of the newly created view, only allowed for instance creation</param>
 			/// <param name="vView">Name of the view or a view configuration object as described above</param>
+			/// <param name="sType">Specifies what kind of view will be instantiated. All valid view types are listed in the enumeration {@link sap.ui.core.mvc.ViewType}.</param>
 			/// <returns>the created View instance</returns>
-			public extern static sap.ui.core.mvc.View view(string sId, Union<string, sap.ui.ViewInfo> vView);
+			[Obsolete("Deprecated since 1.56. Use sap.ui.core.mvc.View.create instead")]
+			public extern static sap.ui.core.mvc.View view(string sId, Union<string, sap.ui.ViewInfo> vView, sap.ui.core.mvc.ViewType sType);
 
 			/// <summary>
 			/// Instantiates an XML-based Fragment.
@@ -922,6 +1001,7 @@ namespace OpenUI5Sharp
 			/// <param name="sId">ID of the newly created view</param>
 			/// <param name="vView">Name of the view or a view configuration object as described above</param>
 			/// <returns>the created XMLView instance</returns>
+			[Obsolete("Deprecated since 1.56. Use sap.ui.core.mvc.XMLView.create instead")]
 			public extern static sap.ui.core.mvc.XMLView xmlview(string sId, Union<string, sap.ui.ViewInfo> vView);
 
 			/// <summary>
@@ -941,6 +1021,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			/// <param name="vView">Name of the view or a view configuration object as described above</param>
 			/// <returns>the created XMLView instance</returns>
+			[Obsolete("Deprecated since 1.56. Use sap.ui.core.mvc.XMLView.create instead")]
 			public extern static sap.ui.core.mvc.XMLView xmlview(Union<string, sap.ui.ViewInfo> vView);
 
 			/// <summary>

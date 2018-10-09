@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.model.odata.ODataModel")]
 					[Obsolete("Deprecated since 1.48. please use {@link sap.ui.model.odata.v2.ODataModel} instead.")]
 					public partial class ODataModel : sap.ui.model.Model
 					{
@@ -785,35 +786,35 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Force no caching
 						/// </summary>
-						[Obsolete("Deprecated since 1.13. the caching should be controlled by the backend by setting the correct cache control header")]
 						/// <param name="bForceNoCache">whether to force no caching</param>
+						[Obsolete("Deprecated since 1.13. the caching should be controlled by the backend by setting the correct cache control header")]
 						public extern virtual void forceNoCache(bool bForceNoCache = false);
 
 						/// <summary>
 						/// Return requested data as object if the data has already been loaded and stored in the model.
 						/// </summary>
-						[Obsolete("Deprecated since 1.6.0. please use {@link #getProperty} instead")]
 						/// <param name="sPath">A string containing the path to the data object that should be returned.</param>
 						/// <param name="oContext">the optional context which is used with the sPath to retrieve the requested data.</param>
 						/// <param name="bIncludeExpandEntries">This parameter should be set when a URI or custom parameter with a $expand System Query Option was used to retrieve associated entries embedded/inline. If true then the getProperty function returns a desired property value/entry and includes the associated expand entries (if any). If false the associated/expanded entry properties are removed and not included in the desired entry as properties at all. This is useful for performing updates on the base entry only. Note: A copy and not a reference of the entry will be returned.</param>
 						/// <returns>oData Object containing the requested data if the path is valid.</returns>
+						[Obsolete("Deprecated since 1.6.0. please use {@link #getProperty} instead")]
 						public extern virtual object getData(string sPath, object oContext, bool bIncludeExpandEntries);
 
 						/// <summary>
 						/// Return requested data as object if the data has already been loaded and stored in the model.
 						/// </summary>
-						[Obsolete("Deprecated since 1.6.0. please use {@link #getProperty} instead")]
 						/// <param name="sPath">A string containing the path to the data object that should be returned.</param>
 						/// <param name="oContext">the optional context which is used with the sPath to retrieve the requested data.</param>
 						/// <returns>oData Object containing the requested data if the path is valid.</returns>
+						[Obsolete("Deprecated since 1.6.0. please use {@link #getProperty} instead")]
 						public extern virtual object getData(string sPath, object oContext);
 
 						/// <summary>
 						/// Return requested data as object if the data has already been loaded and stored in the model.
 						/// </summary>
-						[Obsolete("Deprecated since 1.6.0. please use {@link #getProperty} instead")]
 						/// <param name="sPath">A string containing the path to the data object that should be returned.</param>
 						/// <returns>oData Object containing the requested data if the path is valid.</returns>
+						[Obsolete("Deprecated since 1.6.0. please use {@link #getProperty} instead")]
 						public extern virtual object getData(string sPath);
 
 						/// <summary>
@@ -900,8 +901,8 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Returns whether this model supports the $count on its collections
 						/// </summary>
-						[Obsolete("Deprecated since 1.20. please use {@link #getDefaultCountMode} instead.")]
 						/// <returns></returns>
+						[Obsolete("Deprecated since 1.20. please use {@link #getDefaultCountMode} instead.")]
 						public extern virtual bool isCountSupported();
 
 						/// <summary>
@@ -1012,8 +1013,8 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Sets whether this OData service supports $count on its collections.
 						/// </summary>
-						[Obsolete("Deprecated since 1.20. please use {@link #setDefaultCountMode} instead.")]
 						/// <param name="bCountSupported"></param>
+						[Obsolete("Deprecated since 1.20. please use {@link #setDefaultCountMode} instead.")]
 						public extern virtual void setCountSupported(bool bCountSupported);
 
 						/// <summary>

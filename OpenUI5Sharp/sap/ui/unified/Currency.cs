@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -32,6 +32,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.unified.Currency")]
 				public partial class Currency : sap.ui.core.Control
 				{
 					#region Settings
@@ -46,7 +47,7 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Determines the currency value.
 						/// </summary>
-						public Union<float, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> value;
+						public Union<float, string, sap.ui.@base.ManagedObject.BindPropertyInfo> value;
 
 						/// <summary>
 						/// Determines the currency value as a string.
@@ -55,24 +56,24 @@ namespace OpenUI5Sharp
 						/// 
 						/// <b>Note:</b> If set, it will take precedence over the <code>value</code> property.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> stringValue;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> stringValue;
 
 						/// <summary>
 						/// Determines the displayed currency code (ISO 4217).
 						/// 
 						/// <b>Note:</b> If a * character is set instead of currency code, only the character itself will be rendered, ignoring the <code>value</code> property.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> currency;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> currency;
 
 						/// <summary>
 						/// Defines the space that is available for the precision of the various currencies.
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maxPrecision;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> maxPrecision;
 
 						/// <summary>
 						/// Displays the currency symbol instead of the ISO currency code.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> useSymbol;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> useSymbol;
 
 					}
 

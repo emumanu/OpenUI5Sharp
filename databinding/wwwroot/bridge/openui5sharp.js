@@ -1,13 +1,13 @@
 /**
- * OpenUI5Sharp
- * @version 1.0.0.0
+ * A C# Wrapper for UI5 thanks to Bridge.net
+ * @version 1.1
  * @copyright Copyright © 2018 Manuel Abadia
- * @compiler Bridge.NET 17.1.1
+ * @compiler Bridge.NET 17.4.0
  */
 Bridge.assembly("OpenUI5Sharp", function ($asm, globals) {
     "use strict";
 
-    Bridge.define("ExpressionEvaluator", {
+    Bridge.define("UI5.Extensions.ExpressionEvaluator", {
         $metadata : function () { return {"att":1048961,"a":2,"s":true,"m":[{"a":2,"n":"GetPath","is":true,"t":8,"pi":[{"n":"pathExpression","pt":System.Object,"ps":0},{"n":"separator","dv":"/","o":true,"pt":System.String,"ps":1}],"tpc":1,"tprm":["T"],"sn":"GetPath","rt":System.String,"p":[System.Object,System.String]}]}; },
         statics: {
             methods: {
@@ -62,7 +62,7 @@ Bridge.assembly("OpenUI5Sharp", function ($asm, globals) {
                  * @return  {TValue}                                 The value for the parameter
                  */
                 getParameterFor: function (TParameter, TValue, event, pathExpression) {
-                    var sPropertyName = ExpressionEvaluator.GetPath(Bridge.global.Function, pathExpression);
+                    var sPropertyName = UI5.Extensions.ExpressionEvaluator.GetPath(Function, pathExpression);
                     return event.getParameter(sPropertyName);
                 },
                 /**
@@ -84,7 +84,7 @@ Bridge.assembly("OpenUI5Sharp", function ($asm, globals) {
     });
 
     Bridge.define("sapuimodelContextExtensions", {
-        $metadata : function () { return {"att":1048961,"a":2,"s":true,"m":[{"a":2,"n":"getPropertyFor","is":true,"t":8,"pi":[{"n":"context","pt":sap.ui.model.Context$1(System.Object),"ps":0},{"n":"pathExpression","pt":System.Object,"ps":1},{"n":"absolutePath","dv":true,"o":true,"pt":System.Boolean,"ps":2}],"tpc":2,"tprm":["TModel","TValue"],"sn":"getPropertyFor","rt":System.Object,"p":[sap.ui.model.Context$1(System.Object),System.Object,System.Boolean]}]}; },
+        $metadata : function () { return {"att":1048961,"a":2,"s":true,"m":[{"a":2,"n":"getPropertyFor","is":true,"t":8,"pi":[{"n":"context","pt":sap.ui.model.Context,"ps":0},{"n":"pathExpression","pt":System.Object,"ps":1},{"n":"absolutePath","dv":true,"o":true,"pt":System.Boolean,"ps":2}],"tpc":2,"tprm":["TModel","TValue"],"sn":"getPropertyFor","rt":System.Object,"p":[sap.ui.model.Context,System.Object,System.Boolean]}]}; },
         statics: {
             methods: {
                 /**
@@ -94,17 +94,17 @@ Bridge.assembly("OpenUI5Sharp", function ($asm, globals) {
                  * @public
                  * @this sapuimodelContextExtensions
                  * @memberof sapuimodelContextExtensions
-                 * @param   {Function}                  TModel            
-                 * @param   {Function}                  TValue            
-                 * @param   {sap.ui.model.Context$1}    context           the context to extend
-                 * @param   {System.Object}             pathExpression    the binding path
-                 * @param   {boolean}                   absolutePath      true if the generated path should be absolute; false otherwise
-                 * @return  {TValue}                                      the property value
+                 * @param   {Function}                TModel            
+                 * @param   {Function}                TValue            
+                 * @param   {sap.ui.model.Context}    context           the context to extend
+                 * @param   {System.Object}           pathExpression    the binding path
+                 * @param   {boolean}                 absolutePath      true if the generated path should be absolute; false otherwise
+                 * @return  {TValue}                                    the property value
                  */
                 getPropertyFor: function (TModel, TValue, context, pathExpression, absolutePath) {
                     if (absolutePath === void 0) { absolutePath = true; }
                     var pref = absolutePath ? "/" : "";
-                    var sPropertyName = System.String.format("{0}{1}", pref, ExpressionEvaluator.GetPath(Bridge.global.Function, pathExpression));
+                    var sPropertyName = System.String.format("{0}{1}", pref, UI5.Extensions.ExpressionEvaluator.GetPath(Function, pathExpression));
                     return context.getProperty(sPropertyName);
                 }
             }
@@ -112,7 +112,7 @@ Bridge.assembly("OpenUI5Sharp", function ($asm, globals) {
     });
 
     Bridge.define("sapuimodelModelExtensions", {
-        $metadata : function () { return {"att":1048961,"a":2,"s":true,"m":[{"a":2,"n":"getOriginalPropertyFor","is":true,"t":8,"pi":[{"n":"model","pt":sap.ui.model.Model$1(System.Object),"ps":0},{"n":"pathExpression","pt":System.Object,"ps":1},{"n":"absolutePath","dv":true,"o":true,"pt":System.Boolean,"ps":2}],"tpc":2,"tprm":["TModel","TValue"],"sn":"getOriginalPropertyFor","rt":System.Object,"p":[sap.ui.model.Model$1(System.Object),System.Object,System.Boolean]},{"a":2,"n":"getOriginalPropertyFor","is":true,"t":8,"pi":[{"n":"model","pt":sap.ui.model.Model$1(System.Object),"ps":0},{"n":"pathExpression","pt":System.Object,"ps":1},{"n":"oContext","pt":sap.ui.model.Context,"ps":2},{"n":"absolutePath","dv":true,"o":true,"pt":System.Boolean,"ps":3}],"tpc":2,"tprm":["TModel","TValue"],"sn":"getOriginalPropertyFor$1","rt":System.Object,"p":[sap.ui.model.Model$1(System.Object),System.Object,sap.ui.model.Context,System.Boolean]},{"a":2,"n":"getPropertyFor","is":true,"t":8,"pi":[{"n":"model","pt":sap.ui.model.Model$1(System.Object),"ps":0},{"n":"pathExpression","pt":System.Object,"ps":1},{"n":"absolutePath","dv":true,"o":true,"pt":System.Boolean,"ps":2}],"tpc":2,"tprm":["TModel","TValue"],"sn":"getPropertyFor","rt":System.Object,"p":[sap.ui.model.Model$1(System.Object),System.Object,System.Boolean]},{"a":2,"n":"getPropertyFor","is":true,"t":8,"pi":[{"n":"model","pt":sap.ui.model.Model$1(System.Object),"ps":0},{"n":"pathExpression","pt":System.Object,"ps":1},{"n":"oContext","pt":sap.ui.model.Context,"ps":2},{"n":"absolutePath","dv":true,"o":true,"pt":System.Boolean,"ps":3}],"tpc":2,"tprm":["TModel","TValue"],"sn":"getPropertyFor$1","rt":System.Object,"p":[sap.ui.model.Model$1(System.Object),System.Object,sap.ui.model.Context,System.Boolean]},{"a":2,"n":"setPropertyFor","is":true,"t":8,"pi":[{"n":"model","pt":sap.ui.model.Model$1(System.Object),"ps":0},{"n":"pathExpression","pt":System.Object,"ps":1},{"n":"value","pt":System.Object,"ps":2},{"n":"absolutePath","dv":true,"o":true,"pt":System.Boolean,"ps":3}],"tpc":2,"tprm":["TModel","TValue"],"sn":"setPropertyFor","rt":System.Boolean,"p":[sap.ui.model.Model$1(System.Object),System.Object,System.Object,System.Boolean],"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"setPropertyFor","is":true,"t":8,"pi":[{"n":"model","pt":sap.ui.model.Model$1(System.Object),"ps":0},{"n":"pathExpression","pt":System.Object,"ps":1},{"n":"value","pt":System.Object,"ps":2},{"n":"oContext","pt":sap.ui.model.Context,"ps":3},{"n":"absolutePath","dv":true,"o":true,"pt":System.Boolean,"ps":4}],"tpc":2,"tprm":["TModel","TValue"],"sn":"setPropertyFor$1","rt":System.Boolean,"p":[sap.ui.model.Model$1(System.Object),System.Object,System.Object,sap.ui.model.Context,System.Boolean],"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"setPropertyFor","is":true,"t":8,"pi":[{"n":"model","pt":sap.ui.model.Model$1(System.Object),"ps":0},{"n":"pathExpression","pt":System.Object,"ps":1},{"n":"value","pt":System.Object,"ps":2},{"n":"oContext","pt":sap.ui.model.Context,"ps":3},{"n":"bAsyncUpdate","pt":System.Boolean,"ps":4},{"n":"absolutePath","dv":true,"o":true,"pt":System.Boolean,"ps":5}],"tpc":2,"tprm":["TModel","TValue"],"sn":"setPropertyFor$2","rt":System.Boolean,"p":[sap.ui.model.Model$1(System.Object),System.Object,System.Object,sap.ui.model.Context,System.Boolean,System.Boolean],"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}}]}; },
+        $metadata : function () { return {"att":1048961,"a":2,"s":true,"m":[{"a":2,"n":"getOriginalPropertyFor","is":true,"t":8,"pi":[{"n":"model","pt":sap.ui.model.Model,"ps":0},{"n":"pathExpression","pt":System.Object,"ps":1},{"n":"absolutePath","dv":true,"o":true,"pt":System.Boolean,"ps":2}],"tpc":2,"tprm":["TModel","TValue"],"sn":"getOriginalPropertyFor","rt":System.Object,"p":[sap.ui.model.Model,System.Object,System.Boolean]},{"a":2,"n":"getOriginalPropertyFor","is":true,"t":8,"pi":[{"n":"model","pt":sap.ui.model.Model,"ps":0},{"n":"pathExpression","pt":System.Object,"ps":1},{"n":"oContext","pt":sap.ui.model.Context,"ps":2},{"n":"absolutePath","dv":true,"o":true,"pt":System.Boolean,"ps":3}],"tpc":2,"tprm":["TModel","TValue"],"sn":"getOriginalPropertyFor$1","rt":System.Object,"p":[sap.ui.model.Model,System.Object,sap.ui.model.Context,System.Boolean]},{"a":2,"n":"getPropertyFor","is":true,"t":8,"pi":[{"n":"model","pt":sap.ui.model.Model,"ps":0},{"n":"pathExpression","pt":System.Object,"ps":1},{"n":"absolutePath","dv":true,"o":true,"pt":System.Boolean,"ps":2}],"tpc":2,"tprm":["TModel","TValue"],"sn":"getPropertyFor","rt":System.Object,"p":[sap.ui.model.Model,System.Object,System.Boolean]},{"a":2,"n":"getPropertyFor","is":true,"t":8,"pi":[{"n":"model","pt":sap.ui.model.Model,"ps":0},{"n":"pathExpression","pt":System.Object,"ps":1},{"n":"oContext","pt":sap.ui.model.Context,"ps":2},{"n":"absolutePath","dv":true,"o":true,"pt":System.Boolean,"ps":3}],"tpc":2,"tprm":["TModel","TValue"],"sn":"getPropertyFor$1","rt":System.Object,"p":[sap.ui.model.Model,System.Object,sap.ui.model.Context,System.Boolean]},{"a":2,"n":"setPropertyFor","is":true,"t":8,"pi":[{"n":"model","pt":sap.ui.model.Model,"ps":0},{"n":"pathExpression","pt":System.Object,"ps":1},{"n":"value","pt":System.Object,"ps":2},{"n":"absolutePath","dv":true,"o":true,"pt":System.Boolean,"ps":3}],"tpc":2,"tprm":["TModel","TValue"],"sn":"setPropertyFor","rt":System.Boolean,"p":[sap.ui.model.Model,System.Object,System.Object,System.Boolean],"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"setPropertyFor","is":true,"t":8,"pi":[{"n":"model","pt":sap.ui.model.Model,"ps":0},{"n":"pathExpression","pt":System.Object,"ps":1},{"n":"value","pt":System.Object,"ps":2},{"n":"oContext","pt":sap.ui.model.Context,"ps":3},{"n":"absolutePath","dv":true,"o":true,"pt":System.Boolean,"ps":4}],"tpc":2,"tprm":["TModel","TValue"],"sn":"setPropertyFor$1","rt":System.Boolean,"p":[sap.ui.model.Model,System.Object,System.Object,sap.ui.model.Context,System.Boolean],"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"setPropertyFor","is":true,"t":8,"pi":[{"n":"model","pt":sap.ui.model.Model,"ps":0},{"n":"pathExpression","pt":System.Object,"ps":1},{"n":"value","pt":System.Object,"ps":2},{"n":"oContext","pt":sap.ui.model.Context,"ps":3},{"n":"bAsyncUpdate","pt":System.Boolean,"ps":4},{"n":"absolutePath","dv":true,"o":true,"pt":System.Boolean,"ps":5}],"tpc":2,"tprm":["TModel","TValue"],"sn":"setPropertyFor$2","rt":System.Boolean,"p":[sap.ui.model.Model,System.Object,System.Object,sap.ui.model.Context,System.Boolean,System.Boolean],"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}}]}; },
         statics: {
             methods: {
                 /**
@@ -124,7 +124,7 @@ Bridge.assembly("OpenUI5Sharp", function ($asm, globals) {
                  * @memberof sapuimodelModelExtensions
                  * @param   {Function}                TModel            
                  * @param   {Function}                TValue            
-                 * @param   {sap.ui.model.Model$1}    model             the model to extend
+                 * @param   {sap.ui.model.Model}      model             the model to extend
                  * @param   {System.Object}           pathExpression    the path/name of the property
                  * @param   {sap.ui.model.Context}    oContext          the context if available to access the property value
                  * @param   {boolean}                 absolutePath      true if the generated path should be absolute; false otherwise
@@ -133,7 +133,7 @@ Bridge.assembly("OpenUI5Sharp", function ($asm, globals) {
                 getOriginalPropertyFor$1: function (TModel, TValue, model, pathExpression, oContext, absolutePath) {
                     if (absolutePath === void 0) { absolutePath = true; }
                     var pref = absolutePath ? "/" : "";
-                    var sPropertyName = System.String.format("{0}{1}", pref, ExpressionEvaluator.GetPath(Bridge.global.Function, pathExpression));
+                    var sPropertyName = System.String.format("{0}{1}", pref, UI5.Extensions.ExpressionEvaluator.GetPath(Function, pathExpression));
                     return model.getOriginalProperty(sPropertyName, oContext);
                 },
                 /**
@@ -143,17 +143,17 @@ Bridge.assembly("OpenUI5Sharp", function ($asm, globals) {
                  * @public
                  * @this sapuimodelModelExtensions
                  * @memberof sapuimodelModelExtensions
-                 * @param   {Function}                TModel            
-                 * @param   {Function}                TValue            
-                 * @param   {sap.ui.model.Model$1}    model             the model to extend
-                 * @param   {System.Object}           pathExpression    the path/name of the property
-                 * @param   {boolean}                 absolutePath      true if the generated path should be absolute; false otherwise
-                 * @return  {TValue}                                    Value the value of the property
+                 * @param   {Function}              TModel            
+                 * @param   {Function}              TValue            
+                 * @param   {sap.ui.model.Model}    model             the model to extend
+                 * @param   {System.Object}         pathExpression    the path/name of the property
+                 * @param   {boolean}               absolutePath      true if the generated path should be absolute; false otherwise
+                 * @return  {TValue}                                  Value the value of the property
                  */
                 getOriginalPropertyFor: function (TModel, TValue, model, pathExpression, absolutePath) {
                     if (absolutePath === void 0) { absolutePath = true; }
                     var pref = absolutePath ? "/" : "";
-                    var sPropertyName = System.String.format("{0}{1}", pref, ExpressionEvaluator.GetPath(Bridge.global.Function, pathExpression));
+                    var sPropertyName = System.String.format("{0}{1}", pref, UI5.Extensions.ExpressionEvaluator.GetPath(Function, pathExpression));
                     return model.getOriginalProperty(sPropertyName);
                 },
                 /**
@@ -165,7 +165,7 @@ Bridge.assembly("OpenUI5Sharp", function ($asm, globals) {
                  * @memberof sapuimodelModelExtensions
                  * @param   {Function}                TModel            
                  * @param   {Function}                TValue            
-                 * @param   {sap.ui.model.Model$1}    model             the model to extend
+                 * @param   {sap.ui.model.Model}      model             the model to extend
                  * @param   {System.Object}           pathExpression    the path to where to read the attribute value
                  * @param   {sap.ui.model.Context}    oContext          the context with which the path should be resolved
                  * @param   {boolean}                 absolutePath      true if the generated path should be absolute; false otherwise
@@ -174,7 +174,7 @@ Bridge.assembly("OpenUI5Sharp", function ($asm, globals) {
                 getPropertyFor$1: function (TModel, TValue, model, pathExpression, oContext, absolutePath) {
                     if (absolutePath === void 0) { absolutePath = true; }
                     var pref = absolutePath ? "/" : "";
-                    var sPropertyName = System.String.format("{0}{1}", pref, ExpressionEvaluator.GetPath(Bridge.global.Function, pathExpression));
+                    var sPropertyName = System.String.format("{0}{1}", pref, UI5.Extensions.ExpressionEvaluator.GetPath(Function, pathExpression));
                     return model.getProperty(sPropertyName, oContext);
                 },
                 /**
@@ -184,17 +184,17 @@ Bridge.assembly("OpenUI5Sharp", function ($asm, globals) {
                  * @public
                  * @this sapuimodelModelExtensions
                  * @memberof sapuimodelModelExtensions
-                 * @param   {Function}                TModel            
-                 * @param   {Function}                TValue            
-                 * @param   {sap.ui.model.Model$1}    model             the model to extend
-                 * @param   {System.Object}           pathExpression    the path to where to read the attribute value
-                 * @param   {boolean}                 absolutePath      true if the generated path should be absolute; false otherwise
-                 * @return  {TValue}                                    Returns the value for the property with the given sPropertyName
+                 * @param   {Function}              TModel            
+                 * @param   {Function}              TValue            
+                 * @param   {sap.ui.model.Model}    model             the model to extend
+                 * @param   {System.Object}         pathExpression    the path to where to read the attribute value
+                 * @param   {boolean}               absolutePath      true if the generated path should be absolute; false otherwise
+                 * @return  {TValue}                                  Returns the value for the property with the given sPropertyName
                  */
                 getPropertyFor: function (TModel, TValue, model, pathExpression, absolutePath) {
                     if (absolutePath === void 0) { absolutePath = true; }
                     var pref = absolutePath ? "/" : "";
-                    var sPropertyName = System.String.format("{0}{1}", pref, ExpressionEvaluator.GetPath(Bridge.global.Function, pathExpression));
+                    var sPropertyName = System.String.format("{0}{1}", pref, UI5.Extensions.ExpressionEvaluator.GetPath(Function, pathExpression));
                     return model.getProperty(sPropertyName);
                 },
                 /**
@@ -206,7 +206,7 @@ Bridge.assembly("OpenUI5Sharp", function ($asm, globals) {
                  * @memberof sapuimodelModelExtensions
                  * @param   {Function}                TModel            
                  * @param   {Function}                TValue            
-                 * @param   {sap.ui.model.Model$1}    model             the model to extend
+                 * @param   {sap.ui.model.Model}      model             the model to extend
                  * @param   {System.Object}           pathExpression    path of the property to set
                  * @param   {TValue}                  value             value to set the property to
                  * @param   {sap.ui.model.Context}    oContext          the context which will be used to set the property
@@ -217,7 +217,7 @@ Bridge.assembly("OpenUI5Sharp", function ($asm, globals) {
                 setPropertyFor$2: function (TModel, TValue, model, pathExpression, value, oContext, bAsyncUpdate, absolutePath) {
                     if (absolutePath === void 0) { absolutePath = true; }
                     var pref = absolutePath ? "/" : "";
-                    var sPropertyName = System.String.format("{0}{1}", pref, ExpressionEvaluator.GetPath(Bridge.global.Function, pathExpression));
+                    var sPropertyName = System.String.format("{0}{1}", pref, UI5.Extensions.ExpressionEvaluator.GetPath(Function, pathExpression));
                     return model.setProperty(sPropertyName, value, oContext, bAsyncUpdate);
                 },
                 /**
@@ -229,7 +229,7 @@ Bridge.assembly("OpenUI5Sharp", function ($asm, globals) {
                  * @memberof sapuimodelModelExtensions
                  * @param   {Function}                TModel            
                  * @param   {Function}                TValue            
-                 * @param   {sap.ui.model.Model$1}    model             the model to extend
+                 * @param   {sap.ui.model.Model}      model             the model to extend
                  * @param   {System.Object}           pathExpression    path of the property to set
                  * @param   {TValue}                  value             value to set the property to
                  * @param   {sap.ui.model.Context}    oContext          the context which will be used to set the property
@@ -239,7 +239,7 @@ Bridge.assembly("OpenUI5Sharp", function ($asm, globals) {
                 setPropertyFor$1: function (TModel, TValue, model, pathExpression, value, oContext, absolutePath) {
                     if (absolutePath === void 0) { absolutePath = true; }
                     var pref = absolutePath ? "/" : "";
-                    var sPropertyName = System.String.format("{0}{1}", pref, ExpressionEvaluator.GetPath(Bridge.global.Function, pathExpression));
+                    var sPropertyName = System.String.format("{0}{1}", pref, UI5.Extensions.ExpressionEvaluator.GetPath(Function, pathExpression));
                     return model.setProperty(sPropertyName, value, oContext);
                 },
                 /**
@@ -249,26 +249,26 @@ Bridge.assembly("OpenUI5Sharp", function ($asm, globals) {
                  * @public
                  * @this sapuimodelModelExtensions
                  * @memberof sapuimodelModelExtensions
-                 * @param   {Function}                TModel            
-                 * @param   {Function}                TValue            
-                 * @param   {sap.ui.model.Model$1}    model             the model to extend
-                 * @param   {System.Object}           pathExpression    path of the property to set
-                 * @param   {TValue}                  value             value to set the property to
-                 * @param   {boolean}                 absolutePath      true if the generated path should be absolute; false otherwise
-                 * @return  {boolean}                                   true if the value was set correctly and false if errors occurred like the entry was not found.
+                 * @param   {Function}              TModel            
+                 * @param   {Function}              TValue            
+                 * @param   {sap.ui.model.Model}    model             the model to extend
+                 * @param   {System.Object}         pathExpression    path of the property to set
+                 * @param   {TValue}                value             value to set the property to
+                 * @param   {boolean}               absolutePath      true if the generated path should be absolute; false otherwise
+                 * @return  {boolean}                                 true if the value was set correctly and false if errors occurred like the entry was not found.
                  */
                 setPropertyFor: function (TModel, TValue, model, pathExpression, value, absolutePath) {
                     if (absolutePath === void 0) { absolutePath = true; }
                     var pref = absolutePath ? "/" : "";
-                    var sPropertyName = System.String.format("{0}{1}", pref, ExpressionEvaluator.GetPath(Bridge.global.Function, pathExpression));
+                    var sPropertyName = System.String.format("{0}{1}", pref, UI5.Extensions.ExpressionEvaluator.GetPath(Function, pathExpression));
                     return model.setProperty(sPropertyName, value);
                 }
             }
         }
     });
 
-    Bridge.define("Glue", {
-        $metadata : function () { return {"att":1048961,"a":2,"s":true,"m":[{"a":2,"n":"CreateRawClassObject","is":true,"t":8,"pi":[{"n":"metadata","dv":null,"o":true,"pt":System.Object,"ps":0},{"n":"renderer","dv":null,"o":true,"pt":System.Object,"ps":1},{"n":"ctorParamTypes","dv":null,"o":true,"pt":System.Array.type(Function),"ps":2}],"tpc":1,"tprm":["T"],"sn":"CreateRawClassObject","rt":System.Object,"p":[System.Object,System.Object,System.Array.type(Function)]},{"a":2,"n":"GetDefaultValue","is":true,"t":8,"pi":[{"n":"type","pt":Function,"ps":0}],"sn":"GetDefaultValue","rt":System.Object,"p":[Function]},{"a":2,"n":"IsNullOrUndefined","is":true,"t":8,"pi":[{"n":"val","pt":System.Object,"ps":0}],"sn":"IsNullOrUndefined","rt":System.Boolean,"p":[System.Object],"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"ToBoolean","is":true,"t":8,"pi":[{"n":"val","pt":System.Object,"ps":0}],"sn":"ToBoolean","rt":System.Boolean,"p":[System.Object],"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}}]}; },
+    Bridge.define("UI5.Glue", {
+        $metadata : function () { return {"att":1048961,"a":2,"s":true,"m":[{"a":2,"n":"CreateRawClassObject","is":true,"t":8,"tpc":1,"tprm":["T"],"sn":"CreateRawClassObject","rt":System.Object},{"a":2,"n":"IsNullOrUndefined","is":true,"t":8,"pi":[{"n":"val","pt":System.Object,"ps":0}],"sn":"IsNullOrUndefined","rt":System.Boolean,"p":[System.Object],"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}},{"a":2,"n":"ToBoolean","is":true,"t":8,"pi":[{"n":"val","pt":System.Object,"ps":0}],"sn":"ToBoolean","rt":System.Boolean,"p":[System.Object],"box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}}]}; },
         statics: {
             methods: {
                 /**
@@ -276,8 +276,8 @@ Bridge.assembly("OpenUI5Sharp", function ($asm, globals) {
                  *
                  * @static
                  * @public
-                 * @this Glue
-                 * @memberof Glue
+                 * @this UI5.Glue
+                 * @memberof UI5.Glue
                  * @param   {System.Object}    val    the value to check
                  * @return  {boolean}                 true if val is null or undefined; false otherwise
                  */
@@ -289,13 +289,13 @@ Bridge.assembly("OpenUI5Sharp", function ($asm, globals) {
                  *
                  * @static
                  * @public
-                 * @this Glue
-                 * @memberof Glue
+                 * @this UI5.Glue
+                 * @memberof UI5.Glue
                  * @param   {System.Object}    val    the value
                  * @return  {boolean}                 true if val or can be converted to a boolean; false otherwise
                  */
                 ToBoolean: function (val) {
-                    if (Glue.IsNullOrUndefined(val)) {
+                    if (UI5.Glue.IsNullOrUndefined(val)) {
                         return false;
                     }
 
@@ -305,83 +305,27 @@ Bridge.assembly("OpenUI5Sharp", function ($asm, globals) {
 
                     return !!val;
                 },
-                GetDefaultValue: function (type) {
-                    var output = null;
-
-                    if (Bridge.Reflection.isValueType(type)) {
-                        output = Bridge.createInstance(type);
-                    }
-
-                    return output;
-                },
-                CreateRawClassObject: function (T, metadata, renderer, ctorParamTypes) {
-                    var $t, $t1;
-                    if (metadata === void 0) { metadata = null; }
-                    if (renderer === void 0) { renderer = null; }
-                    if (ctorParamTypes === void 0) { ctorParamTypes = null; }
+                CreateRawClassObject: function (T) {
+                    var $t;
                     var type = T;
-                    var obj = { };
+                    var obj = T.prototype;
 
-                    // adds the metadata if present
-                    if (metadata != null) {
-                        obj.metadata = metadata;
-                    }
-
-                    // adds the renderer if present
-                    if (renderer != null) {
-                        obj.renderer = renderer;
-                    }
-
-                    var $constructor = null;
-
-                    // if there is no constructor specified, gets the one and only constructor
-                    if (ctorParamTypes == null) {
-                        $constructor = System.Linq.Enumerable.from(Bridge.Reflection.getMembers(type, 1, 28)).single();
-                    } else {
-                        // otherwise, find a matching constructor
-                        $constructor = Bridge.Reflection.getMembers(type, 1, 284, null, ctorParamTypes);
-                        if ($constructor == null) {
-                            throw new System.InvalidOperationException.$ctor1(System.String.format("Error, there is no constructor with parameter type(s) {0} for type {1}", Bridge.toArray(System.Linq.Enumerable.from(ctorParamTypes).select(function (t) {
-                                            return Bridge.Reflection.getTypeFullName(t);
-                                        })).join(", "), Bridge.Reflection.getTypeFullName(type)));
-                        }
-                    }
-
-                    // copies non static fields
+                    // copies static fields. This is needed to get the metadata values working, as non static
+                    // fields have default values after calling Activator.GetPrototype<T>()
                     $t = Bridge.getEnumerator(System.Linq.Enumerable.from(Bridge.Reflection.getMembers(type, 4, 28)).where(function (f) {
-                            return !(f.is || false);
+                            return (f.is || false);
                         }));
                     try {
                         while ($t.moveNext()) {
                             var field = $t.Current;
-                            obj[field.sn] = Glue.GetDefaultValue(field.rt);
+                            obj[field.sn] = Bridge.Reflection.fieldAccess(field, null);
                         }
                     } finally {
                         if (Bridge.is($t, System.IDisposable)) {
                             $t.System$IDisposable$Dispose();
                         }
-                    };
-
-                    // copies non static methods
-                    $t1 = Bridge.getEnumerator(System.Linq.Enumerable.from(Bridge.Reflection.getMembers(type, 8, 28)).where(function (m) {
-                            return !(m.is || false);
-                        }));
-                    try {
-                        while ($t1.moveNext()) {
-                            var method = $t1.Current;
-                            obj[method.sn] = method.td.prototype[method.sn];
-                        }
-                    } finally {
-                        if (Bridge.is($t1, System.IDisposable)) {
-                            $t1.System$IDisposable$Dispose();
-                        }
-                    };
-
-                    // adds the constructor if present
-                    if ($constructor != null) {
-                        obj.constructor = $constructor.td.prototype[$constructor.sn];
-                        obj.$initialize = function () { };
                     }
+                    ;
 
                     return obj;
                 }
@@ -389,7 +333,7 @@ Bridge.assembly("OpenUI5Sharp", function ($asm, globals) {
         }
     });
 
-    Bridge.define("TypedMetadata", {
+    Bridge.define("UI5.Metadata.TypedMetadata", {
         $metadata : function () { return {"att":1048961,"a":2,"s":true,"m":[{"a":2,"n":"CreateUI5EventInfo","is":true,"t":8,"tpc":1,"tprm":["T"],"sn":"CreateUI5EventInfo","rt":System.Object},{"a":2,"n":"GetUI5Type","is":true,"t":8,"pi":[{"n":"fieldType","pt":Function,"ps":0}],"sn":"GetUI5Type","rt":System.String,"p":[Function]}]}; },
         statics: {
             methods: {
@@ -405,13 +349,14 @@ Bridge.assembly("OpenUI5Sharp", function ($asm, globals) {
                     try {
                         while ($t.moveNext()) {
                             var field = $t.Current;
-                            paramDict[field.sn] = { type: TypedMetadata.GetUI5Type(field.rt) };
+                            paramDict[field.sn] = { type: UI5.Metadata.TypedMetadata.GetUI5Type(field.rt) };
                         }
                     } finally {
                         if (Bridge.is($t, System.IDisposable)) {
                             $t.System$IDisposable$Dispose();
                         }
-                    };
+                    }
+                    ;
 
                     var evt = { parameters: paramDict };
 

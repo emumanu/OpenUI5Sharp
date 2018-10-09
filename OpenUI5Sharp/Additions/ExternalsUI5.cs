@@ -1,7 +1,7 @@
 ﻿using System;
 using Bridge;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
     [External]
     public static partial class sap

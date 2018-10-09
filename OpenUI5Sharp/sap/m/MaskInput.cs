@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.MaskInput")]
 			public partial class MaskInput : sap.m.InputBase
 			{
 				#region Settings
@@ -28,17 +29,17 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines a placeholder symbol. Shown at the position where there is no user input yet.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> placeholderSymbol;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> placeholderSymbol;
 
 					/// <summary>
 					/// Mask defined by its characters type (respectively, by its length). You should consider the following important facts: 1. The mask characters normally correspond to an existing rule (one rule per unique char). Characters which don't, are considered immutable characters (for example, the mask '2099', where '9' corresponds to a rule for digits, has the characters '2' and '0' as immutable). 2. Adding a rule corresponding to the <code>placeholderSymbol</code> is not recommended and would lead to an unpredictable behavior. 3. You can use the special escape character '^' called "Caret" prepending a rule character to make it immutable. Use the double escape '^^' if you want to make use of the escape character as an immutable one.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> mask;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> mask;
 
 					/// <summary>
 					/// A list of validation rules (one rule per mask character).
 					/// </summary>
-					public Union<sap.m.MaskInputRule[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> rules;
+					public Union<sap.m.MaskInputRule[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> rules;
 
 				}
 

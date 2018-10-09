@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.unified.ColorPicker")]
 				public partial class ColorPicker : sap.ui.core.Control
 				{
 					#region Settings
@@ -32,12 +33,12 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Determines the input parameter that can be a string of type HEX, RGB, HSV, or a CSS color name: <ul> <li>HEX - #FFFFFF</li> <li>RGB - rgb(255,255,255)</li> <li>HSV - hsv(360,100,100)</li> <li>CSS - red</li> </ul> <b>Note:</b> The output parameter is an RGB string of the current color.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> colorString;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> colorString;
 
 						/// <summary>
 						/// Determines the color mode of the <code>ColorPicker</code>.
 						/// </summary>
-						public Union<sap.ui.unified.ColorPickerMode, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> mode;
+						public Union<sap.ui.unified.ColorPickerMode, string, sap.ui.@base.ManagedObject.BindPropertyInfo> mode;
 
 						/// <summary>
 						/// Fired when the value is changed by user action.

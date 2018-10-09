@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.ComboBoxBase")]
 			public abstract partial class ComboBoxBase : sap.m.ComboBoxTextField
 			{
 				#region Settings
@@ -28,7 +29,7 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the items contained within this control.
 					/// </summary>
-					public Union<sap.ui.core.Item[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
+					public Union<sap.ui.core.Item[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
 
 					/// <summary>
 					/// This event is fired when the end user clicks the combo box button to open the dropdown list and the data used to display items is not already loaded. Alternatively, it is fired after the user moves the cursor to the combo box text field and perform an action that requires data to be loaded. For example, pressing F4 to open the dropdown list or typing something in the text field fires the event.

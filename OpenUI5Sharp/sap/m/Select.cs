@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.Select")]
 			public partial class Select : sap.ui.core.Control, sap.ui.core.IFormContent
 			{
 				#region Settings
@@ -28,98 +29,98 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// The name to be used in the HTML code (for example, for HTML forms that send data to the server via submit).
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> name;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> name;
 
 					/// <summary>
 					/// Indicates whether the user can change the selection.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enabled;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enabled;
 
 					/// <summary>
 					/// Sets the width of the field. By default, the field width is automatically adjusted to the size of its content and the default width of the field is calculated based on the widest list item in the dropdown list. If the width defined is smaller than its content, only the field width is changed whereas the dropdown list keeps the width of its content. If the dropdown list is wider than the visual viewport, it is truncated and an ellipsis is displayed for each item. For phones, the width of the dropdown list is always the same as the viewport.
 					/// 
 					/// <b>Note:</b> This property is ignored if the <code>autoAdjustWidth</code> property is set to <code>true</code>.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// Sets the maximum width of the control.
 					/// 
 					/// <b>Note:</b> This property is ignored if the <code>autoAdjustWidth</code> property is set to <code>true</code>.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maxWidth;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> maxWidth;
 
 					/// <summary>
 					/// Key of the selected item.
 					/// 
 					/// <b>Note:</b> If duplicate keys exist, the first item matching the key is used.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedKey;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> selectedKey;
 
 					/// <summary>
 					/// ID of the selected item.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedItemId;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> selectedItemId;
 
 					/// <summary>
 					/// The URI to the icon that will be displayed only when using the <code>IconOnly</code> type.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> icon;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> icon;
 
 					/// <summary>
 					/// Type of a select. Possible values <code>Default</code>, <code>IconOnly</code>.
 					/// </summary>
-					public Union<sap.m.SelectType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> type;
+					public Union<sap.m.SelectType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> type;
 
 					/// <summary>
 					/// Indicates whether the width of the input field is determined by the selected item's content.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> autoAdjustWidth;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> autoAdjustWidth;
 
 					/// <summary>
 					/// Sets the horizontal alignment of the text within the input field.
 					/// </summary>
-					public Union<sap.ui.core.TextAlign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> textAlign;
+					public Union<sap.ui.core.TextAlign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> textAlign;
 
 					/// <summary>
 					/// Specifies the direction of the text within the input field with enumerated options. By default, the control inherits text direction from the DOM.
 					/// </summary>
-					public Union<sap.ui.core.TextDirection, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> textDirection;
+					public Union<sap.ui.core.TextDirection, string, sap.ui.@base.ManagedObject.BindPropertyInfo> textDirection;
 
 					/// <summary>
 					/// Visualizes the validation state of the control, e.g. <code>Error</code>, <code>Warning</code>, <code>Success</code>.
 					/// </summary>
-					public Union<sap.ui.core.ValueState, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> valueState;
+					public Union<sap.ui.core.ValueState, string, sap.ui.@base.ManagedObject.BindPropertyInfo> valueState;
 
 					/// <summary>
 					/// Defines the text of the value state message popup. If this is not specified, a default text is shown from the resource bundle.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> valueStateText;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> valueStateText;
 
 					/// <summary>
 					/// Indicates whether the text values of the <code>additionalText</code> property of a {@link sap.ui.core.ListItem} are shown.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showSecondaryValues;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showSecondaryValues;
 
 					/// <summary>
 					/// Indicates whether the selection is restricted to one of the items in the list. <b>Note:</b> We strongly recommend that you always set this property to <code>false</code> and bind the <code>selectedKey</code> property to the desired value for better interoperability with data binding.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> forceSelection;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> forceSelection;
 
 					/// <summary>
 					/// Defines the items contained within this control.
 					/// </summary>
-					public Union<sap.ui.core.Item[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
+					public Union<sap.ui.core.Item[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
 
 					/// <summary>
 					/// Sets or retrieves the selected item from the aggregation named items.
 					/// </summary>
-					public Union<sap.ui.core.Item, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedItem;
+					public Union<sap.ui.core.Item, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> selectedItem;
 
 					/// <summary>
 					/// Association to controls / IDs which label this control (see WAI-ARIA attribute <code>aria-labelledby</code>).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 					/// <summary>
 					/// This event is fired when the value in the selection field is changed in combination with one of the following actions: <ul> <li>The focus leaves the selection field</li> <li>The <i>Enter</i> key is pressed</li> <li>The item is pressed</li> </ul>

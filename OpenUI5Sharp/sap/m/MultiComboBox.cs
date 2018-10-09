@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.MultiComboBox")]
 			public partial class MultiComboBox : sap.m.ComboBoxBase
 			{
 				#region Settings
@@ -28,12 +29,12 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Keys of the selected items. If the key has no corresponding item, no changes will apply. If duplicate keys exists the first item matching the key is used.
 					/// </summary>
-					public Union<string[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedKeys;
+					public Union<string[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> selectedKeys;
 
 					/// <summary>
 					/// Provides getter and setter for the selected items from the aggregation named items.
 					/// </summary>
-					public Union<sap.ui.core.Item, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedItems;
+					public Union<sap.ui.core.Item, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> selectedItems;
 
 					/// <summary>
 					/// Event is fired when selection of an item is changed. Note: please do not use the "change" event inherited from sap.m.InputBase

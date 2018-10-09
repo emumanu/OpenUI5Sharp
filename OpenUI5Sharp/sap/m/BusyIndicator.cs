@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.BusyIndicator")]
 			public partial class BusyIndicator : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,52 +29,52 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines text to be displayed below the busy indicator. It can be used to inform the user of the current operation.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> text;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> text;
 
 					/// <summary>
 					/// Options for the text direction are RTL and LTR. Alternatively, the control can inherit the text direction from its parent container.
 					/// </summary>
-					public Union<sap.ui.core.TextDirection, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> textDirection;
+					public Union<sap.ui.core.TextDirection, string, sap.ui.@base.ManagedObject.BindPropertyInfo> textDirection;
 
 					/// <summary>
 					/// Icon URL if an icon is used as the busy indicator.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> customIcon;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> customIcon;
 
 					/// <summary>
 					/// Defines the rotation speed of the given image. If a .gif is used, the speed has to be set to 0. The unit is in ms. <b>Note:</b> Values are considered valid when greater than or equal to 0. If invalid value is provided the speed defaults to 0.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> customIconRotationSpeed;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> customIconRotationSpeed;
 
 					/// <summary>
 					/// If this is set to false, the src image will be loaded directly without attempting to fetch the density perfect image for high density device. By default, this is set to true but then one or more requests are sent to the server, trying to get the density perfect version of the specified image. If bandwidth is the key for the application, set this value to false.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> customIconDensityAware;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> customIconDensityAware;
 
 					/// <summary>
 					/// Width of the provided icon. By default 44px are used.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> customIconWidth;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> customIconWidth;
 
 					/// <summary>
 					/// Height of the provided icon. By default 44px are used.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> customIconHeight;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> customIconHeight;
 
 					/// <summary>
 					/// Defines the size of the busy indicator. The animation consists of three circles, each of which will be this size. Therefore the total width of the control amounts to three times the given size.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> size;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> size;
 
 					/// <summary>
 					/// Setting this property will not have any effect on the appearance of the BusyIndicator in versions greater than or equal to 1.32.1
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> design;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> design;
 
 					/// <summary>
 					/// Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 				}
 
@@ -342,8 +343,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>auto</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.32.1.")]
 				/// <returns>Value of property <code>design</code></returns>
+				[Obsolete("Deprecated since 1.32.1.")]
 				public extern virtual string getDesign();
 
 				/// <summary>
@@ -355,9 +356,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>auto</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.32.1.")]
 				/// <param name="sDesign">New value for property <code>design</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.32.1.")]
 				public extern virtual sap.m.BusyIndicator setDesign(string sDesign);
 
 				#endregion

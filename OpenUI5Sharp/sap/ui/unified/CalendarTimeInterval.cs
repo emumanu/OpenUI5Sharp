@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.unified.CalendarTimeInterval")]
 				public partial class CalendarTimeInterval : sap.ui.core.Control
 				{
 					#region Settings
@@ -30,31 +31,31 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Width of the <code>CalendarTimeInterval</code>. The width of the single months depends on this width.
 						/// </summary>
-						public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+						public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 						/// <summary>
 						/// Start date of the Interval as JavaScript Date object. The time interval corresponding to this Date and <code>items</code> and <code>intervalMinutes</code> will be the first time in the displayed row.
 						/// </summary>
-						public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> startDate;
+						public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> startDate;
 
 						/// <summary>
 						/// If set, interval selection is allowed
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> intervalSelection;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> intervalSelection;
 
 						/// <summary>
 						/// If set, only a single date or interval, if <code>intervalSelection</code> is enabled, can be selected
 						/// 
 						/// <b>Note:</b> Selection of multiple intervals is not supported in the current version.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> singleSelection;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> singleSelection;
 
 						/// <summary>
 						/// Number of time items displayed. Default is 12.
 						/// 
 						/// <b>Note:</b> On phones, the maximum number of items displayed in the row is always 6.
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> items;
 
 						/// <summary>
 						/// Size of on time interval in minutes, default is 60 minutes.
@@ -65,50 +66,50 @@ namespace OpenUI5Sharp
 						/// 
 						/// A day must be divisible by this interval size. One interval must not include more than one day.
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> intervalMinutes;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> intervalMinutes;
 
 						/// <summary>
 						/// If set, the day-, month- and yearPicker opens on a popup
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> pickerPopup;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> pickerPopup;
 
 						/// <summary>
 						/// Minimum date that can be shown and selected in the Calendar. This must be a JavaScript date object.
 						/// 
 						/// <b>Note:</b> If the <code>minDate</code> is set to be after the <code>maxDate</code>, the <code>maxDate</code> is set to the end of the month of the <code>minDate</code>.
 						/// </summary>
-						public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> minDate;
+						public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> minDate;
 
 						/// <summary>
 						/// Maximum date that can be shown and selected in the Calendar. This must be a JavaScript date object.
 						/// 
 						/// <b>Note:</b> If the <code>maxDate</code> is set to be before the <code>minDate</code>, the <code>minDate</code> is set to the begin of the month of the <code>maxDate</code>.
 						/// </summary>
-						public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maxDate;
+						public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> maxDate;
 
 						/// <summary>
 						/// Date ranges for selected items of the <code>CalendarTimeInterval</code>.
 						/// 
 						/// If <code>singleSelection</code> is set, only the first entry is used.
 						/// </summary>
-						public Union<sap.ui.unified.DateRange[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedDates;
+						public Union<sap.ui.unified.DateRange[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedDates;
 
 						/// <summary>
 						/// Date ranges with type to visualize special items in the <code>CalendarTimeInterval</code>. If one interval is assigned to more than one type, only the first one will be used.
 						/// </summary>
-						public Union<sap.ui.unified.DateTypeRange[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> specialDates;
+						public Union<sap.ui.unified.DateTypeRange[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> specialDates;
 
 						/// <summary>
 						/// Association to controls / IDs which label this control (see WAI-ARIA attribute aria-labelledby).
 						/// </summary>
-						public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+						public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 						/// <summary>
 						/// Association to the <code>CalendarLegend</code> explaining the colors of the <code>specialDates</code>.
 						/// 
 						/// <b>Note</b> The legend does not have to be rendered but must exist, and all required types must be assigned.
 						/// </summary>
-						public Union<sap.ui.unified.CalendarLegend, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> legend;
+						public Union<sap.ui.unified.CalendarLegend, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> legend;
 
 						/// <summary>
 						/// Time selection changed

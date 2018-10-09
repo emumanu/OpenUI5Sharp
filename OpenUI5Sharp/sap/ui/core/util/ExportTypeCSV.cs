@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -22,6 +22,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.util.ExportTypeCSV")]
 					public partial class ExportTypeCSV : sap.ui.core.util.ExportType
 					{
 						#region Settings
@@ -38,7 +39,7 @@ namespace OpenUI5Sharp
 							/// 
 							/// Value needs to be exactly one character or empty for default.
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> separatorChar;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> separatorChar;
 
 						}
 

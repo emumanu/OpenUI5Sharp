@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.PageAccessibleLandmarkInfo")]
 			public partial class PageAccessibleLandmarkInfo : sap.ui.core.Element
 			{
 				#region Settings
@@ -30,70 +31,70 @@ namespace OpenUI5Sharp
 					/// 
 					/// If set to <code>sap.ui.core.AccessibleLandmarkRole.None</code>, no landmark will be added to the container.
 					/// </summary>
-					public Union<sap.ui.core.AccessibleLandmarkRole, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> rootRole;
+					public Union<sap.ui.core.AccessibleLandmarkRole, string, sap.ui.@base.ManagedObject.BindPropertyInfo> rootRole;
 
 					/// <summary>
 					/// Texts which describes the landmark of the root container of the corresponding <code>sap.m.Page</code> control.
 					/// 
 					/// If not set (and a landmark different than <code>sap.ui.core.AccessibleLandmarkRole.None</code> is defined), a predefined text is used.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> rootLabel;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> rootLabel;
 
 					/// <summary>
 					/// Landmark role of the content container of the corresponding <code>sap.m.Page</code> control.
 					/// 
 					/// If set to <code>sap.ui.core.AccessibleLandmarkRole.None</code>, no landmark will be added to the container.
 					/// </summary>
-					public Union<sap.ui.core.AccessibleLandmarkRole, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> contentRole;
+					public Union<sap.ui.core.AccessibleLandmarkRole, string, sap.ui.@base.ManagedObject.BindPropertyInfo> contentRole;
 
 					/// <summary>
 					/// Texts which describes the landmark of the content container of the corresponding <code>sap.m.Page</code> control.
 					/// 
 					/// If not set (and a landmark different than <code>sap.ui.core.AccessibleLandmarkRole.None</code> is defined), a predefined text is used.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> contentLabel;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> contentLabel;
 
 					/// <summary>
 					/// Landmark role of the header container of the corresponding <code>sap.m.Page</code> control.
 					/// 
 					/// If set to <code>sap.ui.core.AccessibleLandmarkRole.None</code>, no landmark will be added to the container.
 					/// </summary>
-					public Union<sap.ui.core.AccessibleLandmarkRole, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> headerRole;
+					public Union<sap.ui.core.AccessibleLandmarkRole, string, sap.ui.@base.ManagedObject.BindPropertyInfo> headerRole;
 
 					/// <summary>
 					/// Texts which describes the landmark of the header container of the corresponding <code>sap.m.Page</code> control.
 					/// 
 					/// If not set (and a landmark different than <code>sap.ui.core.AccessibleLandmarkRole.None</code> is defined), a predefined text is used.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> headerLabel;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> headerLabel;
 
 					/// <summary>
 					/// Landmark role of the subheader container of the corresponding <code>sap.m.Page</code> control.
 					/// 
 					/// If set to <code>sap.ui.core.AccessibleLandmarkRole.None</code>, no landmark will be added to the container.
 					/// </summary>
-					public Union<sap.ui.core.AccessibleLandmarkRole, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> subHeaderRole;
+					public Union<sap.ui.core.AccessibleLandmarkRole, string, sap.ui.@base.ManagedObject.BindPropertyInfo> subHeaderRole;
 
 					/// <summary>
 					/// Texts which describes the landmark of the subheader container of the corresponding <code>sap.m.Page</code> control.
 					/// 
 					/// If not set (and a landmark different than <code>sap.ui.core.AccessibleLandmarkRole.None</code> is defined), a predefined text is used.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> subHeaderLabel;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> subHeaderLabel;
 
 					/// <summary>
 					/// Landmark role of the footer container of the corresponding <code>sap.m.Page</code> control.
 					/// 
 					/// If set to <code>sap.ui.core.AccessibleLandmarkRole.None</code>, no landmark will be added to the container.
 					/// </summary>
-					public Union<sap.ui.core.AccessibleLandmarkRole, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> footerRole;
+					public Union<sap.ui.core.AccessibleLandmarkRole, string, sap.ui.@base.ManagedObject.BindPropertyInfo> footerRole;
 
 					/// <summary>
 					/// Texts which describes the landmark of the header container of the corresponding <code>sap.m.Page</code> control.
 					/// 
 					/// If not set (and a landmark different than <code>sap.ui.core.AccessibleLandmarkRole.None</code> is defined), a predefined text is used.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> footerLabel;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> footerLabel;
 
 				}
 

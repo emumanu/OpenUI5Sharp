@@ -3,13 +3,13 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
 		public static partial class ui
 		{
-			public static partial class Device
+			public partial class Device
 			{
 				/// <summary>
 				/// Common API for orientation change notifications across all platforms.
@@ -18,19 +18,20 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
-				public static partial class orientation
+				[Name("sap.ui.Device.orientation")]
+				public partial class Orientation
 				{
 					#region Fields
 
 					/// <summary>
 					/// If this flag is set to <code>true</code>, the screen is currently in landscape mode (the width is greater than the height).
 					/// </summary>
-					public static bool landscape;
+					public bool landscape;
 
 					/// <summary>
 					/// If this flag is set to <code>true</code>, the screen is currently in portrait mode (the height is greater than the width).
 					/// </summary>
-					public static bool portrait;
+					public bool portrait;
 
 					#endregion
 
@@ -45,7 +46,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					/// <param name="fnFunction">The handler function to call when the event occurs. This function will be called in the context of the <code>oListener</code> instance (if present) or on the <code>window</code> instance. A map with information about the orientation is provided as a single argument to the handler (see details above).</param>
 					/// <param name="oListener">The object that wants to be notified when the event occurs (<code>this</code> context within the handler function). If it is not specified, the handler function is called in the context of the <code>window</code>.</param>
-					public extern static void attachHandler(object fnFunction, object oListener);
+					public extern virtual void attachHandler(object fnFunction, object oListener);
 
 					/// <summary>
 					/// Registers the given event handler to orientation change events of the document's window.
@@ -55,7 +56,7 @@ namespace OpenUI5Sharp
 					/// The event handler is called with a single argument: a map <code>mParams</code> which provides the following information: <ul> <li><code>mParams.landscape</code>: If this flag is set to <code>true</code>, the screen is currently in landscape mode, otherwise in portrait mode.</li> </ul>
 					/// </summary>
 					/// <param name="fnFunction">The handler function to call when the event occurs. This function will be called in the context of the <code>oListener</code> instance (if present) or on the <code>window</code> instance. A map with information about the orientation is provided as a single argument to the handler (see details above).</param>
-					public extern static void attachHandler(object fnFunction);
+					public extern virtual void attachHandler(object fnFunction);
 
 					/// <summary>
 					/// Removes a previously attached event handler from the orientation change events.
@@ -64,7 +65,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					/// <param name="fnFunction">The handler function to detach from the event</param>
 					/// <param name="oListener">The object that wanted to be notified when the event occurred</param>
-					public extern static void detachHandler(object fnFunction, object oListener);
+					public extern virtual void detachHandler(object fnFunction, object oListener);
 
 					/// <summary>
 					/// Removes a previously attached event handler from the orientation change events.
@@ -72,7 +73,7 @@ namespace OpenUI5Sharp
 					/// The passed parameters must match those used for registration with {@link #.attachHandler} beforehand.
 					/// </summary>
 					/// <param name="fnFunction">The handler function to detach from the event</param>
-					public extern static void detachHandler(object fnFunction);
+					public extern virtual void detachHandler(object fnFunction);
 
 					#endregion
 

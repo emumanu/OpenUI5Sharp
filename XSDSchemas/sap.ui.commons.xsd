@@ -1,0 +1,3707 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:n16="sap.ui.commons" xmlns:n0="sap.ui.core" xmlns:n10="sap.ui.unified" xmlns:n3="sap.ui.core.search" elementFormDefault="qualified" targetNamespace="sap.ui.commons" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="sap.ui.core" />
+  <xs:import namespace="sap.ui.unified" />
+  <xs:import namespace="sap.ui.core.search" />
+  <xs:element name="Accordion" substitutionGroup="n0:Control" type="n16:_AccordionType">
+    <xs:annotation>
+      <xs:documentation>Contains N sections, acting as containers for any library control</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_AccordionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n16:AccordionSection" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="sections">
+            <xs:annotation>
+              <xs:documentation>Empty container used to display any library control</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n16:AccordionSection" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>When the specified width is less than the width of a section content, a horizontal scroll bar is provided.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="openedSectionsId" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Section IDs that are opened by default at application start</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="sections" type="xs:string" />
+        <xs:attribute name="sectionOpen" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is triggered when the user opens a section.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="sectionClose" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is triggered when the user closes a section.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="sectionsReorder" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is triggered when the user changes the position of a section.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AccordionSection" substitutionGroup="n0:Element" type="n16:_AccordionSectionType">
+    <xs:annotation>
+      <xs:documentation>Represents a panel which is a container for other controls. The container does not have any layout function.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_AccordionSectionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>Aggregates the controls that are contained in the panel. The control layout is browser-dependent. For a stable content layout, use a layout control as direct single child. When the panel dimensions are set, the child control may have width and height of 100%; when the panel dimensions are not set, the child defines the panel size.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="maxHeight" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>When the section content exceeds maxHeight, a vertical scroll bar appears.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>It is required that the used theme supports the control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="collapsed" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>It is recommended to adjust the settings for the width when the section is set to 'collapsed'.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="title" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Text for the section header</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="content" type="xs:string" />
+        <xs:attribute name="scroll" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the user scrolls the panel</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ApplicationHeader" substitutionGroup="n0:Control" type="n16:_ApplicationHeaderType">
+    <xs:annotation>
+      <xs:documentation>The application header control stands on the top of any application page. It consists of 4 areas: Logo area, Function area provided by application, Search area, Logout area.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ApplicationHeaderType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="logoSrc" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>Path (src) to the logo icon to be displayed in the application header.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="logoText" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The text that will be displayed beside the logo in the application header. This property is optional.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="displayLogoff" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines if the logoff area will be displayed at the right hand side of the application header.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="userName" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>User name that will be displayed beside the welcome text</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="displayWelcome" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines if the welcome text is displayed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="logoff" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fires an event to log off the user from the application. No parameters.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Area" substitutionGroup="n0:Element" type="n16:_AreaType">
+    <xs:annotation>
+      <xs:documentation>Used for defining areas in an image map. At runtime, the user can trigger an action, or start a URL, from the single image areas.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_AreaType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:attribute name="shape" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The value is a string and can be 'rect' for rectangle, 'poly' for poligon, 'circle', or default.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="coords" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Coordinates of the area</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="href" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>Hyper link that is executed when the area is clicked</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="alt" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Alternative text that is displayed in the case the image is not available</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AutoComplete" substitutionGroup="n16:ComboBox" type="n16:_AutoCompleteType">
+    <xs:annotation>
+      <xs:documentation>Textfield with list based text completion.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_AutoCompleteType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n16:_ComboBoxType">
+        <xs:attribute name="enableScrolling" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether scrolling should be enabled when the number of items is higher than maxPopupItems. If set to false only the first n items (n=maxPopupItems) are shown.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="suggest" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired when the user has changed the value and a suggestion list update should occur.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Button" substitutionGroup="n0:Control" type="n16:_ButtonType">
+    <xs:annotation>
+      <xs:documentation>Enables users to trigger actions such as save or print. For the button UI, you can define some text or an icon, or both.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ButtonType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Button text displayed at runtime.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Boolean property to enable the control (default is true). Buttons that are disabled have other colors than enabled ones, depending on custom settings.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Control width as common CSS-size (px or % as unit, for example)</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="helpId" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Unique identifier used for help service</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="icon" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>Icon to be displayed as graphical element within the button. This can be a URI to an image or an icon font URI.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="iconHovered" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>Icon to be displayed as graphical element within the button when it is hovered (only if also a base icon was specified). If not specified the base icon is used. If an icon font icon is used, this property is ignored.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="iconSelected" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>Icon to be displayed as graphical element within the button when it is selected (only if also a base icon was specified). If not specified the base or hovered icon is used. If an icon font icon is used, this property is ignored.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="iconFirst" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set to true (default), the display sequence is 1. icon 2. control text .</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Specifies the button height. If this property is set, the height which is specified by the underlying theme is not used any longer.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="styled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Indicates if the button is styled. If not it is rendered as native HTML-button. In this case a custom styling can be added usig addStyleClass.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="lite" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>The button is rendered as lite button.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="style" type="n16:_ButtonStyleType">
+          <xs:annotation>
+            <xs:documentation>Style of the button. (e.g. emphasized)</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaDescribedBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / ids which describe this control (see WAI-ARIA attribute aria-describedby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="press" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the user presses the control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Callout" substitutionGroup="n16:CalloutBase" type="n16:_CalloutType">
+    <xs:annotation>
+      <xs:documentation>Callout is a small popup with some useful information and links that is shown when a mouse is hovered over a specific view element.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_CalloutType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n16:_CalloutBaseType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>Determines the content of the Callout</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="content" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CalloutBase" substitutionGroup="n0:TooltipBase" type="n16:_CalloutBaseType">
+    <xs:annotation>
+      <xs:documentation>CalloutBase is a building block for Callout. Do not use it directly. Use the Callout control instead</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_CalloutBaseType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_TooltipBaseType">
+        <xs:attribute name="open" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The event is fired when the popup is opened.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="close" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the Callout window is closed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="beforeOpen" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired before a Callout is displayed. Call the preventDefault method of the event object to postpone opening. Application may use this event to start asynchronous Ajax call to load the Callout content</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="opened" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Is fired when the Callout has been opened</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Carousel" substitutionGroup="n0:Control" type="n16:_CarouselType">
+    <xs:annotation>
+      <xs:documentation>Carousel holds multiple controls and displays them vertically or horizontally next to each other. You can define how many content items should be displayed at once or let the Carousel determine that for you. Navigation is done through buttons or keys.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_CarouselType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>Controls which are displayed inside the Carousel</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="orientation" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Determines the orientation of the Carousel. Can be either "horizontal" or "vertical"</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Determines the width of the Carousel</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Determines the height of the Carousel</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="defaultItemHeight" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Default height of the item in a carousel if no height can be determined</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="defaultItemWidth" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Default width of the item in a carousel if no height can be determined</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="animationDuration" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Duration for animation when navigating through the contents of the Carousel</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="visibleItems" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>If defined, the carousel displays the number of items defined. Items will be resized to fit the area.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="handleSize" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Determines the size of the handle in pixels. (Height for vertical carousel, width for horizontal carousel)</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="firstVisibleIndex" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>The index of the element in the content aggreation which is displayed first on rendering</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="content" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CheckBox" substitutionGroup="n0:Control" type="n16:_CheckBoxType">
+    <xs:annotation>
+      <xs:documentation>Provides a box which can be flagged, the box has a label. A check box can either stand alone, or in a group with other check boxes. As an option, the boxes can initially be set to status 'Not Editable'.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_CheckBoxType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="checked" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Contains the state of the control whether it is flagged with a check mark, or not</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Defines the text displayed next to the check box</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Using this property, the control could be disabled, if required.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="editable" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies whether the user shall be allowed to select the check box.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="valueState" type="n0:_ValueStateType">
+          <xs:annotation>
+            <xs:documentation>Accepts the core enumeration ValueState.type that supports 'None', 'Error', 'Warning' and 'Success'.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>The width can be set to an absolute value. If no value is set, the control width results from the text length.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="textDirection" type="n0:_TextDirectionType">
+          <xs:annotation>
+            <xs:documentation>The value can be set to LTR or RTL. Otherwise, the control inherits the text direction from its parent control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="name" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The 'name' property to be used in the HTML code, for example for HTML forms that send data to the server via submit.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaDescribedBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / ids which describe this control (see WAI-ARIA attribute aria-describedby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="change" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is triggered when the control status is changed by the user by flagging or unflagging the checkbox.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ColorPicker" substitutionGroup="n10:ColorPicker" type="n16:_ColorPickerType">
+    <xs:annotation>
+      <xs:documentation>This control gives the user the opportunity to choose a color. The color can be defined using HEX-, RGB- or HSV-values or a CSS colorname.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ColorPickerType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n10:_ColorPickerType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ComboBox" substitutionGroup="n16:TextField" type="n16:_ComboBoxType">
+    <xs:annotation>
+      <xs:documentation>The control provides a field that allows end users to either enter some text, or to choose an entry out of a list of pre-defined items. The choosable items can be provided in the form of a complete &lt;code&gt;ListBox&lt;/code&gt;, single &lt;code&gt;ListItems&lt;/code&gt;.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ComboBoxType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n16:_TextFieldType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:ListItem" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="items">
+            <xs:annotation>
+              <xs:documentation>&lt;code&gt;ListItems&lt;/code&gt; (see &lt;code&gt;sap.ui.core.ListBox&lt;/code&gt;) that shall be displayed in the list.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:ListItem" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="maxPopupItems" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Defines the number of items that shall be displayed at once. If the overall number of items is higher than this setting, a scrollbar is provided.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="displaySecondaryValues" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Indicates whether the &lt;code&gt;additionalText&lt;/code&gt; property that is available for &lt;code&gt;sap.ui.core.ListItem&lt;/code&gt; shall be displayed in the list.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="selectedKey" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Key of the selected item.
+
+If the value has no corresponding item the key is empty.
+
+If duplicate keys exists the first item matching the key is used.
+
+If the key is set to a not existing value it will not be changed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="selectedItemId" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Id of the selected item. If the value has no corresponding item, the &lt;code&gt;selectedItemId&lt;/code&gt; is empty.
+
+If the &lt;code&gt;selectedItemId&lt;/code&gt; is set to a not existing item, it will not be changed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="items" type="xs:string" />
+        <xs:attribute name="listBox" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Using this method, you provide a &lt;code&gt;ListBox&lt;/code&gt; control. This allows reuse of item lists in different controls. Either a control id can be used as new target, or a control instance.
+
+&lt;b&gt;Note:&lt;/b&gt; The ListBox must not be rendered somewhere in the UI. But if you want to bind the &lt;code&gt;ListBox&lt;/code&gt; items to a model it must be in the control tree. So we suggest to add it as dependent somewhere (e.g. to the view or the first used &lt;code&gt;ComboBox&lt;/code&gt;). If it is not set as child or dependant to an other control it will be automatically set as dependent to the first ComboBox where it is assigned.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DatePicker" substitutionGroup="n16:TextField" type="n16:_DatePickerType">
+    <xs:annotation>
+      <xs:documentation>Allows end users to interact with dates. Entries can directly be written in, or selected from a calendar pad. Note: Dates can always be manually entered in the fix YYYYMMDD format, on top of the flexible "locale" format. If the value is provided via data binding, using a Date.type the formatter of the Date.type is used. Since version 1.22 the unified.Calendar is used inside the datePicker. So applications using the DatePicker should load the unified library. Otherwise it will be loaded the first time a DatePicker is opened.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_DatePickerType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n16:_TextFieldType">
+        <xs:attribute name="locale" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Defines the locale (language and country), e.g. "en-US", whose translations and Date formatters should be used to render the DatePicker.If the value property is bound to a model using a Date type the locale will be ignored, because the locale information of the model are used.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="yyyymmdd" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Defines the date as a "yyyymmdd" string, independent from the format used. The inherited textField "value" attribute uses the date format as configured via the locale. The date is interpreted as gregorian date</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Dialog" substitutionGroup="n0:Control" type="n16:_DialogType">
+    <xs:annotation>
+      <xs:documentation>An interactive window appearing on request displaying information to the user. The API supports features such as popups with fixed sizes, popups with unlimited width, scrolling bars for large windows, and control nesting (for example, a drop-down list can be included in the window).</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_DialogType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="buttons">
+            <xs:annotation>
+              <xs:documentation>Aggregation of the buttons to display at the bottom of the dialog, for example OK and Cancel. Association defaultButton can be used for one of the defined buttons.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>Aggregation of the content of the dialog (one or more controls).
+
+Warning: when content is added with width given as a percentage, the Dialog itself should have a width set.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Outer width of dialog window. When not set and not constrained by one of the width parameters (minWidth/maxWidth), the window size is automatically adapted to the content.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Outer height of dialog window. When not set and not constrained by one of the height parameters (minHeight/maxHeight), the window size is automatically adapted to the content.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="scrollLeft" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Scroll position from left to right. "0" means leftmost position.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="scrollTop" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Scroll position from top to bottom. "0" means topmost position.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="title" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Dialog title displayed in the header.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="applyContentPadding" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Padding is theme-dependent. When set to "false", the content extends to the dialog borders.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showCloseButton" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Displays a close button in the title bar.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="resizable" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies whether the dialog window can be resized by the user. The dialog frame contains the visual symbol.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="minWidth" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Minimum outer width of the dialog window. When set, neither the user nor some layout settings can make the window smaller.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="minHeight" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Minimum outer height of the dialog window. When set, neither the user nor some layout settings can make the window smaller.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="maxWidth" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Maximum outer width of the dialog window. If set, neither the user nor some layout settings can make the window larger.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="maxHeight" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Maximum outer height of the dialog window. If set, neither the user nor some layout settings can make the window larger.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="contentBorderDesign" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Specifies the border design. Border design is theme dependent.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="modal" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies whether the dialog should be modal, or not. In case of &lt;code&gt;true&lt;/code&gt; the focus is kept inside the dialog.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="accessibleRole" type="n0:_AccessibleRoleType">
+          <xs:annotation>
+            <xs:documentation>The ARIA role for the control. E.g. for alert-style Dialogs this can be set to "AlertDialog".</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="keepInWindow" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies whether Dialog movement should be restricted to the visible area of the window. This only affects drag&amp;drop movements by the user. This doesn't affect modal dialogs -&gt; modal dialogs always stay in the window.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="autoClose" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If this property is set to true the Dialog will close if the Dialog loses its focus</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="buttons" type="xs:string" />
+        <xs:attribute name="content" type="xs:string" />
+        <xs:attribute name="defaultButton" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Defines one of the buttons that have been provided via button aggregation to be the default button. This default button is initially selected, if no control is set via the initialFocus association explicitly. The default button is activated when Enter is pressed in the context of the dialog and when the currently selected element does not handle the Enter event itself.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="initialFocus" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Defines the control that shall get the focus when the dialog is opened.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="closed" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the dialog has been closed (after closing-animation etc.). Event parameters provide information about last position and last size.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DropdownBox" substitutionGroup="n16:ComboBox" type="n16:_DropdownBoxType">
+    <xs:annotation>
+      <xs:documentation>The control provides a field that allows end users to an entry out of a list of pre-defined items. The choosable items can be provided in the form of a complete &lt;code&gt;ListBox&lt;/code&gt;, single &lt;code&gt;ListItems&lt;/code&gt;.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_DropdownBoxType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n16:_ComboBoxType">
+        <xs:attribute name="searchHelpEnabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Whether the DropdownBox's search help should be enabled.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="searchHelpText" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>(optional) The text to use for the search help entry.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="searchHelpAdditionalText" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>(optional) The additional Text to use for the search help entry.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="searchHelpIcon" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>(optional) The URI of the icon to use for the search help entry.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="maxHistoryItems" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Maximum number of history items in the list.
+
+If 0 no history is displayed or stored. The history is locally stored on the client. Therefore do not activate this feature when this control handles confidential data.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="searchHelp" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event fired whenever the configured searchHelpItem is clicked or the searchHelpItem is configured and F4 key is pressed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FileUploader" substitutionGroup="n10:FileUploader" type="n16:_FileUploaderType">
+    <xs:annotation>
+      <xs:documentation>The framework generates an input field and a button with text "Browse ...". The API supports features such as on change uploads (the upload starts immediately after a file has been selected), file uploads with explicit calls, adjustable control sizes, text display after uploads, or tooltips containing complete file paths.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FileUploaderType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n10:_FileUploaderType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FileUploaderParameter" substitutionGroup="n10:FileUploaderParameter" type="n16:_FileUploaderParameterType">
+    <xs:annotation>
+      <xs:documentation>Represents a parameter for the FileUploader which is rendered as a hidden inputfield.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FileUploaderParameterType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n10:_FileUploaderParameterType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FormattedTextView" substitutionGroup="n0:Control" type="n16:_FormattedTextViewType">
+    <xs:annotation>
+      <xs:documentation>The FormattedTextView control allows the usage of a limited set of HTML tags for display.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_FormattedTextViewType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="controls">
+            <xs:annotation>
+              <xs:documentation>Array of controls that should be replaced within htmlText.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="accessibleRole" type="n0:_AccessibleRoleType">
+          <xs:annotation>
+            <xs:documentation>The ARIA role for the control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="htmlText" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Determines text with placeholders.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="controls" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="HorizontalDivider" substitutionGroup="n0:Control" type="n16:_HorizontalDividerType">
+    <xs:annotation>
+      <xs:documentation>Divides the screen in visual areas.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_HorizontalDividerType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Defines the width of the divider.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="type" type="n16:_HorizontalDividerTypeType">
+          <xs:annotation>
+            <xs:documentation>Defines the type of the divider.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="n16:_HorizontalDividerHeightType">
+          <xs:annotation>
+            <xs:documentation>Defines the height of the divider.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Image" substitutionGroup="n0:Control" type="n16:_ImageType">
+    <xs:annotation>
+      <xs:documentation>A wrapper around the IMG tag. The image can be loaded from a remote or local server. There are various size setting options available, and the images can be combined with actions.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ImageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="src" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>Relative or absolute path to URL where the image file is stored.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>When the empty value is kept, the original size is not changed. It is also possible to make settings for width or height only, the overall size is maintained then, considering the aspect ratio.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>When the empty value is kept, the original size is not changed. It is also possible to make settings for width or height only, the overall size is maintained then, considering the aspect ratio.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="decorative" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>A decorative image is included for design reasons. Accessibility tools will ignore decorative images. Note: If the Image has an image map (useMap is set), this property will be overridden (the image will not be rendered as decorative). A decorative image has no ALT attribute, so the Alt property is ignored if the image is decorative.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="alt" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The alternative text that is displayed in case the Image is not available, or cannot be displayed. If the image is set to decorative this property is ignored.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="useMap" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The name of the image map that defines the clickable areas</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="press" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the user clicks on the control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ImageMap" substitutionGroup="n0:Control" type="n16:_ImageMapType">
+    <xs:annotation>
+      <xs:documentation>Combination of image areas where at runtime these areas are starting points for hyperlinks or actions</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ImageMapType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="areas">
+            <xs:annotation>
+              <xs:documentation>Area representing the reference to the target location</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n16:Area" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Name for the image that serves as reference</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="areas" type="xs:string" />
+        <xs:attribute name="press" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event for the areas that can be clicked in an ImageMap</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InPlaceEdit" substitutionGroup="n0:Control" type="n16:_InPlaceEditType">
+    <xs:annotation>
+      <xs:documentation>The InPlaceEdit is a functionality to have text in display mode that can be changed in place.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_InPlaceEditType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>Content control of the InPlaceEdit. The following controls are allowed: TextField, ComboBox, DropdownBox and Link</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="valueState" type="n0:_ValueStateType">
+          <xs:annotation>
+            <xs:documentation>Visualizes warnings or errors related to the InPlaceEdit. Possible values: Warning, Error, Success. If the content control has an own valueState property this will be used.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="undoEnabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If undo is enabled after changing the text an undo button appears.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="design" type="n16:_TextViewDesignType">
+          <xs:annotation>
+            <xs:documentation>Defines the visual appearance of the control. Currently this is not supported for Labels.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="change" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the text in the field has changed AND the focus leaves the InPlaceEdit or the Enter key is pressed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="liveChange" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This event if fired during typing into the InPlaceEdit and returns the currently entered value. This is not the content of the value property. The value property is only updated by ENTER and by leaving the control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Label" substitutionGroup="n0:Control" type="n16:_LabelType">
+    <xs:annotation>
+      <xs:documentation>The control is used for labeling other controls. The API provides formatting options, for example, for bold display or alignment. A label can have an icon.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_LabelType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="design" type="n16:_LabelDesignType">
+          <xs:annotation>
+            <xs:documentation>Defines whether the labels are in bold format.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="textDirection" type="n0:_TextDirectionType">
+          <xs:annotation>
+            <xs:documentation>Determines the text direction - right-to-left (RTL) and left-to-right (LTR).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="wrapping" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies whether a line wrapping width shall be displayed when the text value is longer than the width is.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Determines the control width as common CSS-size (for example, px or % as unit).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Determines the text to be displayed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="icon" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>Determines the icon to be displayed in the control. This can be a URI to an image or an icon font URI.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="textAlign" type="n0:_TextAlignType">
+          <xs:annotation>
+            <xs:documentation>Determines the alignment of the text. Available options are &lt;code&gt;Begin&lt;/code&gt;, &lt;code&gt;Center&lt;/code&gt;, &lt;code&gt;End&lt;/code&gt;, &lt;code&gt;Left&lt;/code&gt;, and &lt;code&gt;Right&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="required" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Allows to enforce the required indicator even when the associated control doesn't have a getRequired method (a required property) or when the flag is not set. If the associated control has a required property, the values of both required flags are combined with the OR operator, so a Label can't override a required=true value.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="requiredAtBegin" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the required indicator is at the beginning of the label (if set) or at the end (if not set).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="labelFor" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Defines the association to the labeled control. By default, the label is set the for the attribute to the ID of the labeled control. This can be changed with the implementation of function getIdForLabel on the labelled control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Link" substitutionGroup="n0:Control" type="n16:_LinkType">
+    <xs:annotation>
+      <xs:documentation>Provides an absolute or relative reference to an internal or external URL. The classical target parameters are supported. Another usage scenario is triggering an action, for example to open a popup window. In both cases, the link is a hypertext link.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_LinkType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Link text to be displayed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Whether the link can be triggered by the user.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="helpId" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Unique identifier used for help service.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="href" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>The link target URI. Supports standard hyperlink behavior. If an action should be triggered, this should not be set, but instead an event handler for the "press" event should be registered.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="target" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Options are _self, _top, _blank, _parent, _search. Alternatively, a frame name can be entered.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Width of text link. When it is set (CSS-size such as % or px), this is the exact size. When left blank, the text defines the size.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaDescribedBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / ids which describe this control (see WAI-ARIA attribute aria-describedby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="press" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the user clicks the control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ListBox" substitutionGroup="n0:Control" type="n16:_ListBoxType">
+    <xs:annotation>
+      <xs:documentation>Provides a list of items from which users can choose an item. For the design of the list box, features such as defining the list box height, fixing the number of visible items, choosing one item to be the item that is marked by default when the list box is shown, or a scroll bar for large list boxes are available.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ListBoxType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Item" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="items">
+            <xs:annotation>
+              <xs:documentation>Aggregation of items to be displayed. Must be either of type sap.ui.core.ListItem or sap.ui.core.SeparatorItem.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Item" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="editable" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the ListBox is interactive or not. Can be used to disable interaction with mouse or keyboard.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the ListBox is enabled or not. Can be used to disable interaction with mouse or keyboard. Disabled controls have another color display depending on custom settings.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="allowMultiSelect" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether multiple selection is allowed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Control width as common CSS-size (px or % as unit, for example).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Control height as common CSS-size (px or % as unit, for example). The setting overrides any definitions made for the setVisibleItems() method.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="scrollTop" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Scroll bar position from the top. Setting the scrollTop property and calling scrollToIndex are two operations influencing the same "physical" property, so the last call "wins".</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="displayIcons" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the icons of the list items shall also be displayed. Enabling icons requires some space to be reserved for them. Displaying icons can also influence the width and height of a single item, which affects the overall height of the ListBox when defined in number of items. Note that the number of icons that can be displayed in the ListBox depends on the size of the icons themselves and of the total ListBox height.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="displaySecondaryValues" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the text values from the additionalText property (see sap.ui.core.ListItems) shall be displayed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="valueTextAlign" type="n0:_TextAlignType">
+          <xs:annotation>
+            <xs:documentation>Determines the text alignment in the primary ListBox column.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="secondaryValueTextAlign" type="n0:_TextAlignType">
+          <xs:annotation>
+            <xs:documentation>Determines the text alignment in the secondary ListBox text column (if available).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="minWidth" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Determines the minimum width of the ListBox. If not set, there is no minimum width.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="maxWidth" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Determines the maximum width of the ListBox. If not set, there is no maximum width.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="visibleItems" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>The ListBox height in number of items that are initially displayed without scrolling. This setting overwrites height settings in terms of CSS size that have been made. When the items have different heights, the height of the first item is used for all other item height calculations. Note that if there are one or more separators between the visible ListBox items, the displayed items might not relate 1:1 to the initially specified number of items. When the value is retrieved, it equals the previously set value if it was set; otherwise, it will be the number of items completely fitting into the ListBox without scrolling in the case the control was already rendered. Note that if the control was not rendered, the behavior will be undefined, it may return -1 or any other number.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="items" type="xs:string" />
+        <xs:attribute name="ariaDescribedBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / ids which describe this control (see WAI-ARIA attribute aria-describedby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="select" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when selection is changed by user interaction.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Menu" substitutionGroup="n10:Menu" type="n16:_MenuType">
+    <xs:annotation>
+      <xs:documentation>A menu is an interactive element which provides a choice of different actions to the user. These actions (items) can also be organized in submenus. Like other dialog-like controls, the menu is not rendered within the control hierarchy. Instead it can be opened at a specified position via a function call.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_MenuType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n10:_MenuType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MenuBar" substitutionGroup="n0:Control" type="n16:_MenuBarType">
+    <xs:annotation>
+      <xs:documentation>Represents a user interface area which is the entry point for menus with their menu items. MenuBar is useful for applications which shall offer a set of actions that shall be provided in a structured way. The MenuBar contains the menu titles from where users navigate to the single items. The control supports for example long menu item texts, automated scrolling for menu items when the browser space is not large enough to display all items, defining images for single or all items in a menu, automated layouting of items with or w/o image, and active/non-active items.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_MenuBarType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n10:MenuItem" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="items">
+            <xs:annotation>
+              <xs:documentation>Aggregation of menu items.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n10:MenuItem" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="enabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>When the MenuBar is not enabled, automatically all single menu items are also displayed as 'disabled'.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Specifies the width of the MenuBar</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="design" type="n16:_MenuBarDesignType">
+          <xs:annotation>
+            <xs:documentation>Available design options are Header and Standard. Note that design settings are theme-dependent.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="items" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MenuButton" substitutionGroup="n16:Button" type="n16:_MenuButtonType">
+    <xs:annotation>
+      <xs:documentation>Common button control that opens a menu when clicked by the user. The control provides an API for configuring the docking position of the menu.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_MenuButtonType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n16:_ButtonType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n10:Menu" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="menu">
+            <xs:annotation>
+              <xs:documentation>Menu that shall be opened when the button is clicked</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n10:Menu" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="dockButton" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The position / edge (see sap.ui.core.Popup.Dock) of the button where the menu is docked. Default is 'begin bottom'.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="dockMenu" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The position / edge (see sap.ui.core.Popup.Dock) of the menu which is docked to the button. Default is 'begin top'.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="itemSelected" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event that is fired when a menu item is selected by the user</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MenuItem" substitutionGroup="n10:MenuItem" type="n16:_MenuItemType">
+    <xs:annotation>
+      <xs:documentation>Standard item to be used inside a menu. A menu item represents an action which can be selected by the user in the menu or it can provide a submenu to organize the actions hierarchically.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_MenuItemType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n10:_MenuItemType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MenuItemBase" substitutionGroup="n10:MenuItemBase" type="n16:_MenuItemBaseType">
+    <xs:annotation>
+      <xs:documentation>Abstract base class for menu item which provides common properties and events for all concrete item implementations.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_MenuItemBaseType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n10:_MenuItemBaseType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MenuTextFieldItem" substitutionGroup="n10:MenuTextFieldItem" type="n16:_MenuTextFieldItemType">
+    <xs:annotation>
+      <xs:documentation>Special menu item which contains a label and a text field. This menu item is e.g. helpful for filter implementations. The aggregation &lt;code&gt;submenu&lt;/code&gt; (inherited from parent class) is not supported for this type of menu item.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_MenuTextFieldItemType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n10:_MenuTextFieldItemType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Message" substitutionGroup="n0:Control" type="n16:_MessageType">
+    <xs:annotation>
+      <xs:documentation>Creates the "Message"s to be supplied to the "MessageBar" Control.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_MessageType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="type" type="n16:_MessageTypeType">
+          <xs:annotation>
+            <xs:documentation>"Success", or "Warning", or "Error" messages. (Mandatory)</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Message short text. (Mandatory)</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="associatedElementId" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Associated UI element ID. (Optional) For navigation to error field.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="design" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Internal attribute, used to force the display of the "short" or the "long" text only.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MessageBar" substitutionGroup="n0:Control" type="n16:_MessageBarType">
+    <xs:annotation>
+      <xs:documentation>Creates an instance of a MessageBar Control, for displaying messages.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_MessageBarType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="anchorID" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Element ID upon which the MessageBar will be initially positioned.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="visible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies whether or not the MessageBar is visible. Invisible controls are not rendered.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="maxToasted" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Maximum number of simultaneous messages being toasted in a row. Value '0' means this dynamic part is switched off.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="maxListed" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Maximum number of messages being displayed in the List before a scrollbar appears. Value '0' means no limit.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="anchorSnapPoint" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Type: sap.ui.core.Popup.Dock SnapPoint of MessageBar over anchorId. Note: Use "begin" or "end" for RTL support. Note: "center" is not indicated, as positioning is only set once, either via the css "left" or the "right" attribute. Therefore a MessageBar will only be extended in one direction, as Messages come in.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MessageList" substitutionGroup="n0:Control" type="n16:_MessageListType">
+    <xs:annotation>
+      <xs:documentation>Instantiated by the "MessageBar" Control if the user requests to generate the corresponding "MessageList".</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_MessageListType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="visible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies whether or not the MessageList is visible. Invisible controls are not rendered.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="anchorId" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>ID of the anchor under which the MessageList will render.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="maxListed" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Maximum number of messages being display in the List before a scrollbar appears. Value '0' means no limit.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MessageToast" substitutionGroup="n0:Control" type="n16:_MessageToastType">
+    <xs:annotation>
+      <xs:documentation>Responsible for displaying the new incoming messages, one at the time, on top of the MessageBar.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_MessageToastType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="anchorId" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>ID of the anchor on top of which the MessageToast is to render.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="next" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired once the &lt;code&gt;toast()&lt;/code&gt; method is over, so that the MessageBar can "toast" another message if needed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Paginator" substitutionGroup="n0:Control" type="n16:_PaginatorType">
+    <xs:annotation>
+      <xs:documentation>Provides navigation between pages within a list of numbered pages.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_PaginatorType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="currentPage" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Represents the current page (first page has index 1, not 0, to match the visual number)</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="numberOfPages" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Represents the overall number of pages that are embedded into the parent control</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="page" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the user navigates to another page by selecting it directly, or by jumping forward/backward.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Panel" substitutionGroup="n0:Control" type="n16:_PanelType">
+    <xs:annotation>
+      <xs:documentation>Represents a container with scroll functionality, that can be used for text and controls. The Panel does not layout the embedded controls.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_PanelType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>Aggregates the controls that are contained in the Panel. It is recommended to use a layout control as single direct child. When the Panel dimensions are set, the child control may have width and height of 100%. When the dimensions are not set, the child defines the size of the Panel.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="title">
+            <xs:annotation>
+              <xs:documentation>Aggregates the title element of the Panel. For text titles only, you alternatively could use setText() which also creates a title in the background.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Title" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="buttons">
+            <xs:annotation>
+              <xs:documentation>The buttons that shall be displayed in the Panel header</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n16:Button" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Determines the width of the Panel in CSS size.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Determines the height of the Panel in CSS size. Per default, the height for the Panel is automatically adjusted to the content. Dimension allows to explicitly specify the height.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Represents the state of the of the Panel (enabled or disabled)</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="scrollLeft" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Determines the scroll position from left to right. Value "0" means leftmost position.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="scrollTop" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Determines the scroll position from top to bottom. Value "0" means topmost position.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="applyContentPadding" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the Panel will have padding. Padding is theme-dependent.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="collapsed" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the Panel will be initially collapsed. When it is initially collapsed, the contents are not rendered. A collapsed Panel consumes less space than an expanded one.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="areaDesign" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Determines the background color. Note that color settings are theme-dependent.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="borderDesign" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Determines if the Panel can have a box as border. Note that displaying borders is theme-dependent.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showCollapseIcon" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the Panel will have an icon for collapsing/expanding, or not.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Specifies the text that is rendered in the Panel header. Can be used to create a simple titles that do not require an icon in the header.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="content" type="xs:string" />
+        <xs:attribute name="buttons" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PasswordField" substitutionGroup="n16:TextField" type="n16:_PasswordFieldType">
+    <xs:annotation>
+      <xs:documentation>A text field with masked characters which borrows its properties and methods from TextField.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_PasswordFieldType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n16:_TextFieldType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProgressIndicator" substitutionGroup="n0:Control" type="n16:_ProgressIndicatorType">
+    <xs:annotation>
+      <xs:documentation>Shows the progress of a process in a graphical way. The indicator can be displayed with or without numerical values. The filling can be displayed in color only, or additionally with the percentage rate. The indicator status can be interactive.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ProgressIndicatorType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="enabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the control is enabled or not. Disabled controls have different colors, and can not be focused.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="barColor" type="n0:_BarColorType">
+          <xs:annotation>
+            <xs:documentation>Determines the color of the bar which visualizes the progress. Possible values defined in the sap.ui.core.BarColor enumeration are the following: CRITICAL (yellow), NEGATIVE (red), POSITIVE (green), NEUTRAL (blue) (default value).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="displayValue" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Determines the text value that will be displayed in the bar.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="percentValue" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Determines the numerical value for the displayed length of the progress bar.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showValue" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the percent value shall be rendered inside the bar.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Determines the width of the control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RadioButton" substitutionGroup="n0:Control" type="n16:_RadioButtonType">
+    <xs:annotation>
+      <xs:documentation>RadioButton is a control similar to CheckBox, but it allows the user to choose only one of the predefined set of options.
+
+Usually, RadioButton is used in a group with other RadioButtons (with the groupName property or by using sap.ui.commons.RadioButtonGroup), thus providing a limited choice for the user. An event is triggered when the user makes a change of the selection.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_RadioButtonType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Defines the text displayed next to the RadioButton.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Displays the disabled controls in another color, depending on the customer settings.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="editable" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies whether the user can select the RadioButton.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="selected" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies the select state of the RadioButton.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="valueState" type="n0:_ValueStateType">
+          <xs:annotation>
+            <xs:documentation>Enumeration sap.ui.core.ValueState provides state values Error, Success, Warning and None.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Determines the control width. By default, it depends on the text length. Alternatively, CSS sizes in % or px can be set.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="textDirection" type="n0:_TextDirectionType">
+          <xs:annotation>
+            <xs:documentation>Defines the text direction - options are left-to-right (LTR) and right-to-left (RTL). Alternatively, the control can inherit the text direction from its parent container.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="groupName" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Defines the name of the RadioButtonGroup, in which the current RadioButton belongs to. You can define a new name for the group. If no new name is specified, the default is sapUiRbDefaultGroup. By default, when one of the RadioButtons in a group is selected, all others are unselected.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="key" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Can be used for subsequent actions.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaDescribedBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / IDs, which describe this control (see WAI-ARIA attribute aria-describedby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / IDs, which label this control (see WAI-ARIA attribute aria-labelledby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="select" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Triggers when the user makes a change on the RadioButton.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RadioButtonGroup" substitutionGroup="n0:Control" type="n16:_RadioButtonGroupType">
+    <xs:annotation>
+      <xs:documentation>The RadioButtonGroup is a basic control that is used to provide area for making interactive choice out of a set of options. It represents a list with items where exactly one item can be selected in a session. For the representation of the single group entries, the RadioButton items are created automatically. For the RadioButton choice, mouse and keyboard navigation usage is supported.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_RadioButtonGroupType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Item" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="items">
+            <xs:annotation>
+              <xs:documentation>The RadioButtons of this RadioButtonGroup.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Item" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Defines the width of the RadioButtonGroup.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="columns" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Determines the maximum number of RadioButtons displayed in one line.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="editable" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies whether the user can change the selected value of the RadioButtonGroup. When the property is set to false, the control obtains visual styles different from its visual styles for the normal and the disabled state. Additionally the control is no longer interactive, but can receive focus.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="valueState" type="n0:_ValueStateType">
+          <xs:annotation>
+            <xs:documentation>Тhe value state to be displayed for the RadioButton. Possible values are: sap.ui.core.ValueState.Error, sap.ui.core.ValueState.Warning, sap.ui.core.ValueState.Success and sap.ui.core.ValueState.None. Note: Setting this attribute to sap.ui.core.ValueState.Error when the accessibility feature is enabled, sets the value of the invalid property for the whole RadioButtonGroup to true.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="selectedIndex" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>The index of the selected/checked RadioButton.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Enables/disables the RadioButtonGroup. If it is disabled all RadioButtons will be displayed as disabled. The enabled property of the Item will not be used in this case. If the RadioButtonGroup is enabled, the enabled property of the Item will define if a RadioButton is enabled or not.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="items" type="xs:string" />
+        <xs:attribute name="ariaDescribedBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / IDs, which describe this control (see WAI-ARIA attribute aria-describedby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / IDs, which label this control (see WAI-ARIA attribute aria-labelledby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="select" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fires when selection is changed by user interaction.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RangeSlider" substitutionGroup="n16:Slider" type="n16:_RangeSliderType">
+    <xs:annotation>
+      <xs:documentation>The interactive control is displayed either as a horizontal or a vertical line with two pointers and units of measurement. Users can move the pointers along the line to change a range with graphical support.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_RangeSliderType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n16:_SliderType">
+        <xs:attribute name="value2" type="xs:float">
+          <xs:annotation>
+            <xs:documentation>Current second value of the slider. (Position of the second grip.)
+
+&lt;b&gt;Note:&lt;/b&gt; If the value is not in the valid range (between &lt;code&gt;min&lt;/code&gt; and &lt;code&gt;max&lt;/code&gt;) it will be changed to be in the valid range. If it is smaller than &lt;code&gt;value&lt;/code&gt; it will be set to the same value.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RatingIndicator" substitutionGroup="n0:Control" type="n16:_RatingIndicatorType">
+    <xs:annotation>
+      <xs:documentation>RatingIndicator is used to let the user do some rating on a given topic. The amount of rating symbols can be specified, as well as the URIs to the image icons which shall be used as rating symbols. When the user performs a rating, an event is fired.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_RatingIndicatorType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="editable" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines if the rating symbols can be edited.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="maxValue" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Determines the number of displayed rating symbols</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="value" type="xs:float">
+          <xs:annotation>
+            <xs:documentation>Determines the currently selected value. If value is set to sap.ui.commons.RatingIndicator.NoValue, the averageValue is shown.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="averageValue" type="xs:float">
+          <xs:annotation>
+            <xs:documentation>Determines the average value. This value is shown if no value is set. This can be used to display an average Value before the user votes.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="iconSelected" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>The URI to the image which shall be displayed for all selected rating symbols. Note that when this attribute is used, also the other icon attributes need to be set.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="iconUnselected" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>The URI to the image which shall be displayed for all unselected rating symbols. If this attribute is used, a requirement is that all custom icons need to have the same size. Note that when this attribute is used also the other icon attributes need to be set.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="iconHovered" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>The URI to the image which is displayed when the mouse hovers onto a rating symbol. If used, a requirement is that all custom icons need to have the same size. Note that when this attribute is used also the other icon attributes need to be set.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="visualMode" type="n16:_RatingIndicatorVisualModeType">
+          <xs:annotation>
+            <xs:documentation>Defines how float values are visualized: Full, Half, Continuous (see enumeration RatingIndicatorVisualMode)</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaDescribedBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / ids which describe this control (see WAI-ARIA attribute aria-describedby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="change" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The event is fired when the user has done a rating.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponsiveContainer" substitutionGroup="n0:Control" type="n16:_ResponsiveContainerType">
+    <xs:annotation>
+      <xs:documentation>Is used to provide a container, which can show different content depending on its current width. It fires an event, whenever a new range is reached. In addition the content of the new range is automatically shown, if it is set.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ResponsiveContainerType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ranges">
+            <xs:annotation>
+              <xs:documentation>The ranges defined for this container</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n16:ResponsiveContainerRange" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>The width of the responsive container.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>The width of the responsive container.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ranges" type="xs:string" />
+        <xs:attribute name="defaultContent" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The default content to show, in case the range does not provide content</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="rangeSwitch" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The event is fired the width of the container reaches a new range.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponsiveContainerRange" substitutionGroup="n0:Element" type="n16:_ResponsiveContainerRangeType">
+    <xs:annotation>
+      <xs:documentation>Defines a range for the ResponsiveContainer</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ResponsiveContainerRangeType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>The minimal width for this range to be displayed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>The minimal height for this range to be displayed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="key" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>A key which can be used to identify the range (optional).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="content" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The content to show for this range (optional).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RichTooltip" substitutionGroup="n0:TooltipBase" type="n16:_RichTooltipType">
+    <xs:annotation>
+      <xs:documentation>Is used to provide tool tips that can have long text, image and title. This tool tip extends the TooltipBase.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_RichTooltipType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_TooltipBaseType">
+        <xs:attribute name="title" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Tool tip title to be displayed in the header.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="imageSrc" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>If RichTooltip contains an image, this property is used to define the source path.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="valueStateText" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This property is an individual text that will be used instead of the default ValueState text</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="imageAltText" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This is the alt text for the image</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RoadMap" substitutionGroup="n0:Control" type="n16:_RoadMapType">
+    <xs:annotation>
+      <xs:documentation>RoadMap is used to display step-by-step work flows of a clearly defined work process.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_RoadMapType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n16:RoadMapStep" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="steps">
+            <xs:annotation>
+              <xs:documentation>Steps that are composing the RoadMap</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n16:RoadMapStep" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="numberOfVisibleSteps" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Total number of steps to be displayed at once</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="firstVisibleStep" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>ID of the first step to be displayed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="selectedStep" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>ID of the step which is currently selected</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Determines the control width in CSS size</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="steps" type="xs:string" />
+        <xs:attribute name="stepSelected" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the user selects a step.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="stepExpanded" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when a given step is expanded or collapsed by user.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RoadMapStep" substitutionGroup="n0:Element" type="n16:_RoadMapStepType">
+    <xs:annotation>
+      <xs:documentation>Step used within a RoadMap Control.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_RoadMapStepType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n16:RoadMapStep" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="subSteps">
+            <xs:annotation>
+              <xs:documentation>Sub steps for the current step. Will be displayed only in the case that the step is expanded. Otherwise, special arrows show the availability of sub steps. One level of sub steps supported.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n16:RoadMapStep" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="label" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Label of the step</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies whether the user shall be allowed to click a step, or not</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="expanded" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>This property is only relevant when using sub steps.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="visible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Step is visible</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="subSteps" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RowRepeater" substitutionGroup="n0:Control" type="n16:_RowRepeaterType">
+    <xs:annotation>
+      <xs:documentation>This control displays items in a stacked list format, allowing the user to page in order to see more items or to use the offered filtering and sorting capabilities in order to manipulate the displayed data.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_RowRepeaterType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="rows">
+            <xs:annotation>
+              <xs:documentation>Rows to be repeated.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="title">
+            <xs:annotation>
+              <xs:documentation>Title to be displayed in top left corner. Either text or icon.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Title" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="filters">
+            <xs:annotation>
+              <xs:documentation>Filters to be provided in toolbar.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n16:RowRepeaterFilter" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="sorters">
+            <xs:annotation>
+              <xs:documentation>Sorters to be provided in secondary toolbar.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n16:RowRepeaterSorter" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="noData">
+            <xs:annotation>
+              <xs:documentation>This control is shown, in case there is no data available to be displayed in the RowRepeater.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="numberOfRows" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Number of rows displayed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="currentPage" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>The index of the page currently displayed. The index starts at 1.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showMoreSteps" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Step size used to increase the numberOfRows value. This feature is only active if value is greater than 0. This will deactivate the paging feature.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="fixedRowHeight" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Row height adapts to rendered content. If a fixed height is specified the cells have a maximum height and the overflow will be hidden.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="design" type="n16:_RowRepeaterDesignType">
+          <xs:annotation>
+            <xs:documentation>The visual design of the control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="threshold" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Threshold to fetch the next chunk of data. The minimal threshold can be the numberOfRows of the RR.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="rows" type="xs:string" />
+        <xs:attribute name="filters" type="xs:string" />
+        <xs:attribute name="sorters" type="xs:string" />
+        <xs:attribute name="filter" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This event is triggered when a filter is set.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="sort" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This event is triggered when a sorting is applied.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="page" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This event is triggered when paging was executed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="resize" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This event is triggered when the number of rows was changed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RowRepeaterFilter" substitutionGroup="n0:Element" type="n16:_RowRepeaterFilterType">
+    <xs:annotation>
+      <xs:documentation>This element is used by the RowRepeater and allows to define a filter in this context along with the related data such as a text and an icon.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_RowRepeaterFilterType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The filter title if needed for display.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="icon" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The filter icon if needed for display.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="filters" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The set of filter objects.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RowRepeaterSorter" substitutionGroup="n0:Element" type="n16:_RowRepeaterSorterType">
+    <xs:annotation>
+      <xs:documentation>This element is used by the RowRepeater and allows to define a sorter in this context along with the related data such as a text and an icon.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_RowRepeaterSorterType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The sorter title if needed for display.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="icon" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The sorter icon if needed for display.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="sorter" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The sorter object.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SearchField" substitutionGroup="n0:Control" type="n16:_SearchFieldType">
+    <xs:annotation>
+      <xs:documentation>Allows the user to type search queries and to trigger the search. Optionally, suggestions can be added.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_SearchFieldType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="searchProvider">
+            <xs:annotation>
+              <xs:documentation>Search provider instance which handles the suggestions for this SearchField (e.g. Open Search Protocol).</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n3:SearchProvider" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="enableListSuggest" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Defines whether a pop up list shall be provided for suggestions</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showListExpander" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Defines whether the list expander shall be displayed in the case of an enabled list for suggestions. This feature is deactivated on mobile devices.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enableClear" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Defines whether the clear functionality shall be active</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showExternalButton" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Defines whether an additional search button shall be displayed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enableCache" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>When list suggestion is enabled all suggestions are cached and no suggest event is fired.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enableFilterMode" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Defines whether the search event should also be fired when the SearchField is empty (like a Filter field) and when the clear button (if activated) is pressed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="value" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Text that shall be displayed within the search field</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Disabled fields have different colors, and they can not be focused.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="editable" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Non-editable controls have different colors, depending on custom settings</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Control width in CSS-size</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="maxLength" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Maximum number of characters. Value '0' means the feature is switched off.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="valueState" type="n0:_ValueStateType">
+          <xs:annotation>
+            <xs:documentation>Visualizes warnings or errors related to the input field. Possible values: Warning, Error, Success, None.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="placeholder" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Placeholder for the input field.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="textAlign" type="n0:_TextAlignType">
+          <xs:annotation>
+            <xs:documentation>Sets the horizontal alignment of the text</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="visibleItemCount" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Defines the number of items in the suggestion list that shall be displayed at once. If the overall number of list items is higher than the setting, a scroll bar is provided.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="startSuggestion" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Minimum length of the entered string triggering the suggestion list.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="maxSuggestionItems" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Maximum number of suggestion items in the suggestion list.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="maxHistoryItems" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Maximum number of history items in the suggestion list. 0 displays and stores no history. The history is locally stored on the client. Therefore do not activate this feature when this control handles confidential data.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaDescribedBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / IDs which describe this control (see WAI-ARIA attribute aria-describedby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / IDs which label this control (see WAI-ARIA attribute aria-labelledby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="search" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event which is fired when the user triggers a search</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="suggest" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event which is fired when new suggest values are required.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SearchProvider" substitutionGroup="n3:OpenSearchProvider" type="n16:_SearchProviderType">
+    <xs:annotation>
+      <xs:documentation>A SearchProvider which can be attached to a Search Field.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_SearchProviderType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n3:_OpenSearchProviderType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SegmentedButton" substitutionGroup="n0:Control" type="n16:_SegmentedButtonType">
+    <xs:annotation>
+      <xs:documentation>The SegmentedButton provides a group of multiple buttons. Only one button can be active. The behaviour is more ore less like a radio button group.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_SegmentedButtonType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="buttons">
+            <xs:annotation>
+              <xs:documentation>Buttons</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n16:Button" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="enabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>enabled</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="buttons" type="xs:string" />
+        <xs:attribute name="selectedButton" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Selected Button</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="select" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event fired when button selected</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Slider" substitutionGroup="n0:Control" type="n16:_SliderType">
+    <xs:annotation>
+      <xs:documentation>The interactive control is displayed either as a horizontal or a vertical line with a pointer and units of measurement. Users can move the pointer along the line to change values with graphical support.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_SliderType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Width of the horizontal slider.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="min" type="xs:float">
+          <xs:annotation>
+            <xs:documentation>Minimal value of the slider.
+
+&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;min&lt;/code&gt; is larger than &lt;code&gt;max&lt;/code&gt; both values will be switched</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="max" type="xs:float">
+          <xs:annotation>
+            <xs:documentation>Maximal value of the slider
+
+&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;min&lt;/code&gt; is larger than &lt;code&gt;max&lt;/code&gt; both values will be switched</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="value" type="xs:float">
+          <xs:annotation>
+            <xs:documentation>Current value of the slider. (Position of the grip.)
+
+&lt;b&gt;Note:&lt;/b&gt; If the value is not in the valid range (between &lt;code&gt;min&lt;/code&gt; and &lt;code&gt;max&lt;/code&gt;) it will be changed to be in the valid range.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="smallStepWidth" type="xs:float">
+          <xs:annotation>
+            <xs:documentation>The grip can only be moved in steps of this width.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="totalUnits" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Number of units that are displayed by ticks. The PageUp and PageDown keys navigate according to these units.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="stepLabels" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Display step numbers for the ticks on the slider.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="editable" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Using the slider interactively requires value "true".</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Switches enabled state of the control. Disabled fields have different colors, and can not be focused.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="labels" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Labels to be displayed instead of numbers. Attribute totalUnits and label count should be the same
+
+&lt;b&gt;Note:&lt;/b&gt; To show the labels &lt;code&gt;stepLabels&lt;/code&gt; must be activated.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="vertical" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Orientation of slider</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Height of the vertical slider.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaDescribedBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / IDs which describe this control (see WAI-ARIA attribute aria-describedby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / IDs which label this control (see WAI-ARIA attribute aria-labelledby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="change" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Value was changed. This event is fired if the value has changed by a user action.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="liveChange" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Value was changed. This event is fired during the mouse move. The normal change event is only fired by mouseup.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Splitter" substitutionGroup="n0:Control" type="n16:_SplitterType">
+    <xs:annotation>
+      <xs:documentation>Allows to split the screen into two areas. Make sure that the container for the splitter has an absolute height or set an absolute height for the splitter using the height property. Otherwise the height of the splitter is calculated by the height of its contents.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_SplitterType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="firstPaneContent">
+            <xs:annotation>
+              <xs:documentation>Controls inside the first pane. These are the left ones in case of defining a vertical splitter, and the top ones in case of using the horizontal splitter.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="secondPaneContent">
+            <xs:annotation>
+              <xs:documentation>Controls inside the second pane. These are the right ones in case of defining a vertical splitter, and the bottom ones in case of using the horizontal splitter.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="splitterOrientation" type="n0:_OrientationType">
+          <xs:annotation>
+            <xs:documentation>The splitter can have horizontal or vertical orientation.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="splitterPosition" type="n0:_PercentageType">
+          <xs:annotation>
+            <xs:documentation>Position of splitter bar in percentage. The default value means that the splitter is positioned in the middle of the area that is available for the splitter.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="minSizeFirstPane" type="n0:_PercentageType">
+          <xs:annotation>
+            <xs:documentation>The minimum size (width for vertical splitter or height for horizontal splitter) of the first Pane</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="minSizeSecondPane" type="n0:_PercentageType">
+          <xs:annotation>
+            <xs:documentation>The minimum size (width for vertical splitter or height for horizontal splitter) of the second Pane</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n16:_SplitterSizeType">
+          <xs:annotation>
+            <xs:documentation>The width of the split area in px or in %</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="n16:_SplitterSizeType">
+          <xs:annotation>
+            <xs:documentation>The height of the split area in px or in %</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showScrollBars" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies if the browser should display scroll bars or simply cut the content of a splitter pane when the content does not fit into its pane.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="splitterBarVisible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>set the splitter bar to be visible or not.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="firstPaneContent" type="xs:string" />
+        <xs:attribute name="secondPaneContent" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Tab" substitutionGroup="n16:Panel" type="n16:_TabType">
+    <xs:annotation>
+      <xs:documentation>Represents a single tab in a TabStrip control.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_TabType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n16:_PanelType">
+        <xs:attribute name="verticalScrolling" type="n0:_ScrollingType">
+          <xs:annotation>
+            <xs:documentation>Specifies the vertical scrolling.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="horizontalScrolling" type="n0:_ScrollingType">
+          <xs:annotation>
+            <xs:documentation>Specifies the horizontal scrolling.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="closable" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies whether the tab contains a close button.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="selected" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Defines whether the tab is the active one.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TabStrip" substitutionGroup="n0:Control" type="n16:_TabStripType">
+    <xs:annotation>
+      <xs:documentation>TabStrip represents a container for tab controls, which contain the content and generally other controls. The user switches between the tabs to display the content.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_TabStripType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n16:Tab" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="tabs">
+            <xs:annotation>
+              <xs:documentation>The tabs contained in the TabStrip.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n16:Tab" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="height" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Specifies the height of the tab bar and content area.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Specifies the width of the bar and content area.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="selectedIndex" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Specifies the index of the currently selected tab.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enableTabReordering" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies whether tab reordering is enabled.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="tabs" type="xs:string" />
+        <xs:attribute name="select" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fires when the user selects a tab.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="close" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fires when the user closes a tab.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TextArea" substitutionGroup="n16:TextField" type="n16:_TextAreaType">
+    <xs:annotation>
+      <xs:documentation>Control to enter or display multible row text.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_TextAreaType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n16:_TextFieldType">
+        <xs:attribute name="height" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Height of text field. When it is set (CSS-size such as % or px), this is the exact size.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="cols" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Number of Columns. Cols means number of characters per row. This proprty is only used if Width is not used.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="rows" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Number of Rows. This proprty is only used if Height is not used.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="wrapping" type="n0:_WrappingType">
+          <xs:annotation>
+            <xs:documentation>Text wrapping. Possible values are: Soft, Hard, Off.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="cursorPos" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Position of cursor, e.g., to let the user re-start typing at the same position as before the server roundtrip</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="explanation" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>text which appears, in case quick-help is switched on</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="labeledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>ID of label control</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TextField" substitutionGroup="n0:Control" type="n16:_TextFieldType">
+    <xs:annotation>
+      <xs:documentation>Renders an input field for text input.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_TextFieldType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="value" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Text inside the &lt;code&gt;TextField&lt;/code&gt;</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="textDirection" type="n0:_TextDirectionType">
+          <xs:annotation>
+            <xs:documentation>Direction of the text. Possible values: "rtl", "ltr".</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Switches enabled state of the control. Disabled fields have different colors, and can not be focused.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="editable" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Switches edit state of the control. Read-only fields have different colors, depending on theme setting.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="required" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Depending on theme the &lt;code&gt;TextField&lt;/code&gt; is shown as required. If a &lt;code&gt;Label&lt;/code&gt; is assigned to the &lt;code&gt;TextField&lt;/code&gt; it will visualize the requires state too.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Width of text field. When it is set (CSS-size such as % or px), this is the exact size. When left blank, the text field length defines the width.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="maxLength" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Maximum number of characters. Value '0' means the feature is switched off.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="valueState" type="n0:_ValueStateType">
+          <xs:annotation>
+            <xs:documentation>Visualizes warnings or errors related to the text field. Possible values: Warning, Error, Success.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="textAlign" type="n0:_TextAlignType">
+          <xs:annotation>
+            <xs:documentation>Sets the horizontal alignment of the text.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="imeMode" type="n0:_ImeModeType">
+          <xs:annotation>
+            <xs:documentation>State of the Input Method Editor (IME).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="design" type="n0:_DesignType">
+          <xs:annotation>
+            <xs:documentation>Font type. valid values are Standard and Monospace.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="helpId" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Unique identifier used for help service.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="accessibleRole" type="n0:_AccessibleRoleType">
+          <xs:annotation>
+            <xs:documentation>Accessibility role for the text field.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="name" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The &lt;code&gt;name&lt;/code&gt; property to be used in the HTML code (e.g. for HTML forms that send data to the server via 'submit').</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="placeholder" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Placeholder for the text field.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaDescribedBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / IDs which describe this control (see WAI-ARIA attribute aria-describedby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / IDs which label this control (see WAI-ARIA attribute aria-labelledby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="change" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when the text in the field has changed AND the focus leaves the TextField or the Enter key is pressed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="liveChange" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This event if fired during typing into the &lt;code&gt;TextField&lt;/code&gt; and returns the currently entered value. &lt;b&gt;Note:&lt;/b&gt; This is not the content of the value property. The value property is only updated by ENTER and by leaving the control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TextView" substitutionGroup="n0:Control" type="n16:_TextViewType">
+    <xs:annotation>
+      <xs:documentation>Is used to display some continous text. The control can inherit the text direction from its parent control.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_TextViewType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Text to be displayed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="textDirection" type="n0:_TextDirectionType">
+          <xs:annotation>
+            <xs:documentation>Determines the text directionality. Available options are LTR and RTL. Alternatively, the control can inherit the text direction from its parent control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Switches the enabled state of the control. When the control is disabled, it is greyed out and no longer focusable.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="helpId" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Unique identifier used for help services.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="accessibleRole" type="n0:_AccessibleRoleType">
+          <xs:annotation>
+            <xs:documentation>The ARIA role for the control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="design" type="n16:_TextViewDesignType">
+          <xs:annotation>
+            <xs:documentation>Defines the visual appearance of the control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="wrapping" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Disabled automatic wrapping of the text.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="semanticColor" type="n16:_TextViewColorType">
+          <xs:annotation>
+            <xs:documentation>Semantic color of the text View</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="textAlign" type="n0:_TextAlignType">
+          <xs:annotation>
+            <xs:documentation>Sets the horizontal alignment of the text.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Width of the TextView</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaDescribedBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / IDs which describe this control (see WAI-ARIA attribute aria-describedby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / IDs which label this control (see WAI-ARIA attribute aria-labelledby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Title" substitutionGroup="n0:Title" type="n16:_TitleType">
+    <xs:annotation>
+      <xs:documentation>Represents a title element that can be used for aggregation with other controls</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_TitleType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_TitleType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ToggleButton" substitutionGroup="n16:Button" type="n16:_ToggleButtonType">
+    <xs:annotation>
+      <xs:documentation>The ToggleButton Control is a Button that can be toggled between pressed and normal state</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ToggleButtonType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n16:_ButtonType">
+        <xs:attribute name="pressed" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>The property is “true” when the control is toggled. The default state of this property is "false".</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Toolbar" substitutionGroup="n0:Control" type="n16:_ToolbarType">
+    <xs:annotation>
+      <xs:documentation>A horizontal row of items where in many cases the single toolbar items are buttons containing icons. Note that all controls with the sap.ui.commons.ToolbarItem interface can be used as item: Button, ComboBox, TextField.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ToolbarType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="items">
+            <xs:annotation>
+              <xs:documentation>Aggregating the tool bar items.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="rightItems">
+            <xs:annotation>
+              <xs:documentation>Aggregating the right side tool bar items.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>When there is not enough space for the toolbar to display all items, the rightmost items are overflowing into a drop-down menu.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="design" type="n16:_ToolbarDesignType">
+          <xs:annotation>
+            <xs:documentation>Design settings are theme-dependent.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="standalone" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Per default, tool bars have the stand alone status. Alternatively, they can be nested in other controls and then inherit the design from their parent control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="items" type="xs:string" />
+        <xs:attribute name="rightItems" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ToolbarSeparator" substitutionGroup="n0:Element" type="n16:_ToolbarSeparatorType">
+    <xs:annotation>
+      <xs:documentation>A small vertical line that is generally added to the tool bar between the items to visually separate them.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ToolbarSeparatorType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:attribute name="displayVisualSeparator" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>When set to false, there is no visual indication of separation by a vertical line but by a wider space.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="design" type="n16:_ToolbarSeparatorDesignType">
+          <xs:annotation>
+            <xs:documentation>Design of the Separator.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Tree" substitutionGroup="n0:Control" type="n16:_TreeType">
+    <xs:annotation>
+      <xs:documentation>Simple tree to display item in a hierarchical way</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_TreeType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n16:TreeNode" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="nodes">
+            <xs:annotation>
+              <xs:documentation>First level nodes</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n16:TreeNode" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="title" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Tree title</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Tree width</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Tree height</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showHeader" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Tree Header is display. If false, the tree will be in a transparent mode</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showHeaderIcons" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Show Header icons (e.g. Expand/Collapse all). Only consider if showHeader is true</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showHorizontalScrollbar" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Display horizontal scrollbar. If false, the overflow content will be hidden</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="minWidth" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Minimal width for the Tree. Can be useful when, for example, the width is specified in percentage, to avoid the tree to become too narrow when container is resize</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="selectionMode" type="n16:_TreeSelectionModeType">
+          <xs:annotation>
+            <xs:documentation>Selection mode of the Tree.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="nodes" type="xs:string" />
+        <xs:attribute name="select" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is fired when a tree node is selected.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="selectionChange" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>fired when the selection of the tree has been changed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TreeNode" substitutionGroup="n0:Element" type="n16:_TreeNodeType">
+    <xs:annotation>
+      <xs:documentation>Tree node element</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_TreeNodeType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n16:TreeNode" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="nodes">
+            <xs:annotation>
+              <xs:documentation>Subnodes for the current node</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n16:TreeNode" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Node text</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="expanded" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Node is expanded</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="hasExpander" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Should the node has an expander.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="icon" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>Icon to display in front of the node</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="isSelected" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Node is selected</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="selectable" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>The node is selectable. If true, clicking on the node text triggers "selected" event</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="nodes" type="xs:string" />
+        <xs:attribute name="ariaDescribedBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / ids which describe this control (see WAI-ARIA attribute aria-describedby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="toggleOpenState" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Node state has changed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="selected" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Node is selected</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TriStateCheckBox" substitutionGroup="n0:Control" type="n16:_TriStateCheckBoxType">
+    <xs:annotation>
+      <xs:documentation>TriStateCheckBox to reflect mixed state for checkboxes. The control can display three states, namely checked, unchecked and mixed. However, mixed state cannot be directly reached by user interaction on the particular control. It can be only set by the control's public toggle function, to make a behaviour possible which is e.g. required in checkbox trees.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_TriStateCheckBoxType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="selectionState" type="n16:_TriStateCheckBoxStateType">
+          <xs:annotation>
+            <xs:documentation>Defines the states of the checkbox</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Defines the text displayed next to the check box</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enabled" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Using this property, the control could be disabled, if required.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="editable" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies whether the user shall be allowed to flag the check box</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="valueState" type="n0:_ValueStateType">
+          <xs:annotation>
+            <xs:documentation>Accepts the core enumeration ValueState.type that supports 'None', 'Error', 'Warning' and 'Success'.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>The width can be set to an absolute value. If no value is set, the control width results from the text length.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="textDirection" type="n0:_TextDirectionType">
+          <xs:annotation>
+            <xs:documentation>The value can be set to LTR or RTL. Otherwise, the control inherits the text direction from its parent control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="change" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event is triggered when the control status is changed by the user by flagging or unflagging the checkbox.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ValueHelpField" substitutionGroup="n16:TextField" type="n16:_ValueHelpFieldType">
+    <xs:annotation>
+      <xs:documentation>A TextField with an attached icon which triggeres an event.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ValueHelpFieldType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n16:_TextFieldType">
+        <xs:attribute name="iconURL" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>URL of the standard icon for the value help. If no parameter is supplied the default icon image will be shown. This can be a URI to an image or an icon font URI.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="iconHoverURL" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>URL of the icon for the value help when hovered. If no parameter is supplied the standard icon image will be shown. If an icon font icon is used, this property is ignored.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="iconDisabledURL" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>URL of the icon for the value help when disabled. If no parameter is supplied the default icon image will be shown. If an icon font icon is used, this property is ignored.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="valueHelpRequest" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event which is fired when the ValueHelp is requested.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="_SplitterSizeType">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="_ButtonStyleType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Accept">
+        <xs:annotation>
+          <xs:documentation>Accept button (normally green).</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Default">
+        <xs:annotation>
+          <xs:documentation>default style (no special styling).</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Emph">
+        <xs:annotation>
+          <xs:documentation>Button is emphasized.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Reject">
+        <xs:annotation>
+          <xs:documentation>Reject button (normally red).</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_ColorPickerModeType">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="_HorizontalDividerHeightType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Large">
+        <xs:annotation>
+          <xs:documentation>Divider gets a large top and bottom margin.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Medium">
+        <xs:annotation>
+          <xs:documentation>Divider gets a medium top and bottom margin.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Ruleheight">
+        <xs:annotation>
+          <xs:documentation>Divider gets no top and bottom margin.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Small">
+        <xs:annotation>
+          <xs:documentation>Divider gets a small top and bottom margin.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_HorizontalDividerTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Area">
+        <xs:annotation>
+          <xs:documentation>Type Area</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Page">
+        <xs:annotation>
+          <xs:documentation>Type Page</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_LabelDesignType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Bold">
+        <xs:annotation>
+          <xs:documentation>Displays the label in bold.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Standard">
+        <xs:annotation>
+          <xs:documentation>Displays the label in normal mode.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_MenuBarDesignType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Header">
+        <xs:annotation>
+          <xs:documentation>The MenuBar appears in header design.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Standard">
+        <xs:annotation>
+          <xs:documentation>The MenuBar appears in standard design.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_MessageTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Error">
+        <xs:annotation>
+          <xs:documentation>Error message</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Success">
+        <xs:annotation>
+          <xs:documentation>Successful message</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Warning">
+        <xs:annotation>
+          <xs:documentation>Warning message</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_PaginatorEventType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="First">
+        <xs:annotation>
+          <xs:documentation>First page event</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Goto">
+        <xs:annotation>
+          <xs:documentation>Go to page event</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Last">
+        <xs:annotation>
+          <xs:documentation>Last page event</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Next">
+        <xs:annotation>
+          <xs:documentation>Next page event</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Previous">
+        <xs:annotation>
+          <xs:documentation>Previous page event</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_RatingIndicatorVisualModeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Continuous">
+        <xs:annotation>
+          <xs:documentation>Values are not rounded.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Full">
+        <xs:annotation>
+          <xs:documentation>Values are rounded to the nearest integer value (e.g. 1.7 -&gt; 2).</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Half">
+        <xs:annotation>
+          <xs:documentation>Values are rounded to the nearest half value (e.g. 1.7 -&gt; 1.5).</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_RowRepeaterDesignType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BareShell">
+        <xs:annotation>
+          <xs:documentation>The RowRepeater will be displayed without header, toolbar or footer. Background will be transparent.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Standard">
+        <xs:annotation>
+          <xs:documentation>The RowRepeater header and footer elements, as well as the row container background, appear solid.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Transparent">
+        <xs:annotation>
+          <xs:documentation>The RowRepeater header and footer elements, as well as the row container background, appear transparent.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_TextViewColorType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Critical">
+        <xs:annotation>
+          <xs:documentation>Critical color</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Default">
+        <xs:annotation>
+          <xs:documentation>Default color</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Negative">
+        <xs:annotation>
+          <xs:documentation>Negative color</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Positive">
+        <xs:annotation>
+          <xs:documentation>Positive color</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_TextViewDesignType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Bold">
+        <xs:annotation>
+          <xs:documentation>Displays the text in bold letters</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="H1">
+        <xs:annotation>
+          <xs:documentation>Displays the text in header 1 letters.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="H2">
+        <xs:annotation>
+          <xs:documentation>Displays the text in header 2 letters.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="H3">
+        <xs:annotation>
+          <xs:documentation>Displays the text in header 3 letters.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="H4">
+        <xs:annotation>
+          <xs:documentation>Displays the text in header 4 letters.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="H5">
+        <xs:annotation>
+          <xs:documentation>Displays the text in header 5 letters.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="H6">
+        <xs:annotation>
+          <xs:documentation>Displays the text in header 6 letters.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Italic">
+        <xs:annotation>
+          <xs:documentation>Displays the text in italic letters</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Monospace">
+        <xs:annotation>
+          <xs:documentation>Displays the text in monospace letters.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Small">
+        <xs:annotation>
+          <xs:documentation>Displays the text in smaller letters.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Standard">
+        <xs:annotation>
+          <xs:documentation>Displays the text in standard letters.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Underline">
+        <xs:annotation>
+          <xs:documentation>underlined Text</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_ToolbarDesignType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Flat">
+        <xs:annotation>
+          <xs:documentation>The included controls have a very light appearance. The feature might be not supported by all themes.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Standard">
+        <xs:annotation>
+          <xs:documentation>The toolbar elements such as buttons for example have their normal visual design, and the toolbar appears solid. The feature might be not supported by all themes.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Transparent">
+        <xs:annotation>
+          <xs:documentation>The controls included in the toolbar have a normal visual design where the toolbar appears transparent. The feature might be not supported by all themes.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_ToolbarSeparatorDesignType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FullHeight">
+        <xs:annotation>
+          <xs:documentation>100% height Separator before and after specific controls</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Standard">
+        <xs:annotation>
+          <xs:documentation>Standard Separator between controls</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_TreeSelectionModeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Legacy">
+        <xs:annotation>
+          <xs:documentation>Behavior of the former Tree. It is possible to select a plurality of nodes via the API.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Multi">
+        <xs:annotation>
+          <xs:documentation>Select multiple rows at a time.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="None">
+        <xs:annotation>
+          <xs:documentation>No rows can be selected.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Single">
+        <xs:annotation>
+          <xs:documentation>Select one row at a time.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_TriStateCheckBoxStateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Checked">
+        <xs:annotation>
+          <xs:documentation>checked value for tri-state checkbox</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Mixed">
+        <xs:annotation>
+          <xs:documentation>mixed state for tri-state checkbox</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Unchecked">
+        <xs:annotation>
+          <xs:documentation>unchecked, default value for tri-state checkbox</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

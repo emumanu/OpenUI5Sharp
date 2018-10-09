@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -46,6 +46,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.DatePicker")]
 			public partial class DatePicker : sap.m.DateTimeField
 			{
 				#region Settings
@@ -60,26 +61,26 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Displays date in this given type in input field. Default value is taken from locale settings. Accepted are values of <code>sap.ui.core.CalendarType</code> or an empty string. If no type is set, the default type of the configuration is used. <b>Note:</b> If data binding on <code>value</code> property with type <code>sap.ui.model.type.Date</code> is used, this property will be ignored.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> displayFormatType;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> displayFormatType;
 
 					/// <summary>
 					/// If set, the days in the calendar popup are also displayed in this calendar type If not set, the dates are only displayed in the primary calendar type
 					/// </summary>
-					public Union<sap.ui.core.CalendarType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> secondaryCalendarType;
+					public Union<sap.ui.core.CalendarType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> secondaryCalendarType;
 
 					/// <summary>
 					/// Minimum date that can be shown and selected in the <code>DatePicker</code>. This must be a JavaScript date object.
 					/// 
 					/// <b>Note:</b> If the <code>minDate</code> is set to be after the <code>maxDate</code>, the <code>maxDate</code> and the <code>minDate</code> are switched before rendering.
 					/// </summary>
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> minDate;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> minDate;
 
 					/// <summary>
 					/// Maximum date that can be shown and selected in the <code>DatePicker</code>. This must be a JavaScript date object.
 					/// 
 					/// <b>Note:</b> If the <code>maxDate</code> is set to be before the <code>minDate</code>, the <code>maxDate</code> and the <code>minDate</code> are switched before rendering.
 					/// </summary>
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maxDate;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> maxDate;
 
 					/// <summary>
 					/// Date Range with type to visualize special days in the Calendar. If one day is assigned to more than one Type, only the first one will be used.
@@ -88,14 +89,14 @@ namespace OpenUI5Sharp
 					/// 
 					/// <b>Note:</b> Since 1.48 you could set a non-working day via the sap.ui.unified.CalendarDayType.NonWorking enum type just as any other special date type using sap.ui.unified.DateRangeType.
 					/// </summary>
-					public Union<sap.ui.core.Element[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> specialDates;
+					public Union<sap.ui.core.Element[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> specialDates;
 
 					/// <summary>
 					/// Association to the <code>CalendarLegend</code> explaining the colors of the <code>specialDates</code>.
 					/// 
 					/// <b>Note</b> The legend does not have to be rendered but must exist, and all required types must be assigned.
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> legend;
+					public Union<sap.ui.core.Control, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> legend;
 
 					/// <summary>
 					/// Fired when navigating in <code>Calendar</code> popup.

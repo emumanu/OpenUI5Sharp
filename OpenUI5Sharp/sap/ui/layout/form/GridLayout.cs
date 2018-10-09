@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -24,6 +24,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.layout.form.GridLayout")]
 					public partial class GridLayout : sap.ui.layout.form.FormLayout
 					{
 						#region Settings
@@ -40,7 +41,7 @@ namespace OpenUI5Sharp
 							/// 
 							/// If not set, <code>FormContainer</code> can use the full width of the grid or two <code>FormContainers</code> can be placed beside each other. In this case the whole grid has 16 cells per row.
 							/// </summary>
-							public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> singleColumn;
+							public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> singleColumn;
 
 						}
 

@@ -1,0 +1,664 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:n18="sap.ui.commons.layout" xmlns:n0="sap.ui.core" xmlns:n8="sap.ui.layout" elementFormDefault="qualified" targetNamespace="sap.ui.commons.layout" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="sap.ui.core" />
+  <xs:import namespace="sap.ui.layout" />
+  <xs:element name="AbsoluteLayout" substitutionGroup="n0:Control" type="n18:_AbsoluteLayoutType">
+    <xs:annotation>
+      <xs:documentation>The Absolute Layout positions its child controls absolutely</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_AbsoluteLayoutType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n18:PositionContainer" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="positions">
+            <xs:annotation>
+              <xs:documentation>Positioned child controls within the layout</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n18:PositionContainer" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>The overall width of the control. When not set, 100% is automatically set.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>The overall height of the control. When not set, 100% is automatically set.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="verticalScrolling" type="n0:_ScrollingType">
+          <xs:annotation>
+            <xs:documentation>'Auto', 'Scroll', 'Hidden', and 'None' are the available values for setting the vertical scrolling mode.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="horizontalScrolling" type="n0:_ScrollingType">
+          <xs:annotation>
+            <xs:documentation>'Auto', 'Scroll', 'Hidden', and 'None' are the available values for setting the vertical scrolling mode.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="positions" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BorderLayout" substitutionGroup="n0:Control" type="n18:_BorderLayoutType">
+    <xs:annotation>
+      <xs:documentation>Based upon the border layout as it comes with the Java standard. Using this layout, you are able to divide your available UI space into five areas whose sizes can be defined. These areas are: Top: Header; Bottom: Footer; Begin: Left/right-hand side panel; Center: Content area in the middle; End: Right/left-hand side panel.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_BorderLayoutType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="top">
+            <xs:annotation>
+              <xs:documentation>Represents the Top area</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n18:BorderLayoutArea" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="begin">
+            <xs:annotation>
+              <xs:documentation>Represents the Begin area</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n18:BorderLayoutArea" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="center">
+            <xs:annotation>
+              <xs:documentation>Represents the Center area</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n18:BorderLayoutArea" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="end">
+            <xs:annotation>
+              <xs:documentation>Represents the End area</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n18:BorderLayoutArea" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="bottom">
+            <xs:annotation>
+              <xs:documentation>Represents the Bottom area</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n18:BorderLayoutArea" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="rtl" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>The RTL setting swaps the areas Begin and End.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Defines the overall width of the layout</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Defines the overall height of the layout</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BorderLayoutArea" substitutionGroup="n0:Element" type="n18:_BorderLayoutAreaType">
+    <xs:annotation>
+      <xs:documentation>The BorderLayoutArea represents one area of a BorderLayout</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_BorderLayoutAreaType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>Controls within the area</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="areaId" type="n18:_BorderLayoutAreaTypesType">
+          <xs:annotation>
+            <xs:documentation>Defines which area the element represents: top, begin, center, end, bottom</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="overflowX" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The overflow mode of the area in horizontal direction as CSS value</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="overflowY" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The overflow mode of the area in vertical direction as CSS value</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="contentAlign" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The content alignment as CSS value</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="size" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Defines the height or the width. Is not used when the area element is in Center.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="visible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Invisible controls are not rendered</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="content" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="HorizontalLayout" substitutionGroup="n8:HorizontalLayout" type="n18:_HorizontalLayoutType">
+    <xs:annotation>
+      <xs:documentation>A layout that provides support for horizontal alignment of controls</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_HorizontalLayoutType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n8:_HorizontalLayoutType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MatrixLayout" substitutionGroup="n0:Control" type="n18:_MatrixLayoutType">
+    <xs:annotation>
+      <xs:documentation>&lt;p&gt; A matrix layout arranges controls in a grid structure, using rows which need not have the same number of cells. &lt;/p&gt;
+
+&lt;p&gt; It uses predefined cell classes that guarantee appropriate distances between cells in the grid. The cell's &lt;code&gt;vGutter&lt;/code&gt; property lets you specify additional horizontal distances easily. You can set these additional distances (known as gutters) with or without separators. The distance for each cell is specified by assigning a specific enumeration value of the class &lt;code&gt;LayoutCellSeparator&lt;/code&gt; of the matrix data object. &lt;/p&gt;
+
+&lt;p&gt; You should &lt;b&gt;avoid nesting&lt;/b&gt; matrix layouts. You should only use a matrix layout if you need to align controls horizontally across rows. &lt;/p&gt;</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_MatrixLayoutType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n18:MatrixLayoutRow" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="rows">
+            <xs:annotation>
+              <xs:documentation>The matrix layout's individual rows.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n18:MatrixLayoutRow" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>CSS width of the matrix layout. If the LayoutFixed = true an adequate width should be provided.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="height" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>CSS height of the matrix layout.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="layoutFixed" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Sets the table layout. If fixed the width parameter of a column has priority, if not the width of the content of the colums has priority. The default is "fixed". If the fixed layout is used an adequate width of the MatrixLayout should be provided. Otherwise the column width displayed could be different than the given ones because of browser dependend optimazations.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="columns" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Number of columns. If not specified, the number of columns will be determined from the given cells.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="widths" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Widths of the columns. Use an array to define the widths of the columns. If a column shall have an automatical sizing enter "auto" for this column width.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="rows" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MatrixLayoutCell" substitutionGroup="n0:Element" type="n18:_MatrixLayoutCellType">
+    <xs:annotation>
+      <xs:documentation>Non-control element used as part of a matrix layout's inner structure.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_MatrixLayoutCellType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>The matrix layout cell's content (arbitrary controls).
+
+If the matrix row has a defined height and the matrix has layoutFixed = true, the controls inside of a cell should all use the same unit for its height property.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="backgroundDesign" type="n18:_BackgroundDesignType">
+          <xs:annotation>
+            <xs:documentation>Determines the matrix layout cell's background design.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="colSpan" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Determines how many columns of the underlying grid structure are occupied by this matrix layout cell.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="hAlign" type="n18:_HAlignType">
+          <xs:annotation>
+            <xs:documentation>Determines the horizontal alignment of the matrix layout cell's content with the cell's borders.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="padding" type="n18:_PaddingType">
+          <xs:annotation>
+            <xs:documentation>Determines the padding of the matrix layout cell's content within the cell's borders. The default value is appropriate for all cells in a form-like layout. Consider to remove the padding on the outer layout in case of nesting.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="rowSpan" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Determines how many rows of the underlying grid structure are occupied by this matrix layout cell. In case a row-height is used, all rows affected by the RowSpan must have the same unit.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="separation" type="n18:_SeparationType">
+          <xs:annotation>
+            <xs:documentation>Determines how a matrix layout cell is separated from its predecessor, via a vertical gutter of variable width, with or without a vertical line.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="vAlign" type="n18:_VAlignType">
+          <xs:annotation>
+            <xs:documentation>Determines the vertical alignment of the matrix layout cell's content with the cell's borders.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="content" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MatrixLayoutRow" substitutionGroup="n0:Element" type="n18:_MatrixLayoutRowType">
+    <xs:annotation>
+      <xs:documentation>Non-control element used as part of a matrix layout's inner structure.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_MatrixLayoutRowType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n18:MatrixLayoutCell" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="cells">
+            <xs:annotation>
+              <xs:documentation>The matrix layout row's individual cells.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n18:MatrixLayoutCell" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="height" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Height of the row.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="cells" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PositionContainer" substitutionGroup="n0:Element" type="n18:_PositionContainerType">
+    <xs:annotation>
+      <xs:documentation>Is used to specify the position of a control in the AbsoluteLayout</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_PositionContainerType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="control">
+            <xs:annotation>
+              <xs:documentation>Child control of the position container</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="top" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Defines the distance to the top of the layout (as specified in HTML)</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="bottom" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Defines the distance to the bottom of the layout (as specified in HTML)</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="left" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Defines the distance to the left of the layout (as specified in HTML)</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="right" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Defines the distance to the right of the layout (as specified in HTML)</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="centerHorizontally" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Indicates whether this container shall be centered horizontally within the AbsoluteLayout area. The values of the attributes left and right are ignored when this feature is activated.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="centerVertically" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Indicates whether this container should be centered vertically within the AbsoluteLayout area. The values of the attributes top and bottom are ignored when this feature is activated.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponsiveFlowLayout" substitutionGroup="n8:ResponsiveFlowLayout" type="n18:_ResponsiveFlowLayoutType">
+    <xs:annotation>
+      <xs:documentation>This is a layout where several controls can be added. These controls are blown up to fit a whole line. If the window resizes the controls are moved between the lines and resized again.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ResponsiveFlowLayoutType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n8:_ResponsiveFlowLayoutType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponsiveFlowLayoutData" substitutionGroup="n8:ResponsiveFlowLayoutData" type="n18:_ResponsiveFlowLayoutDataType">
+    <xs:annotation>
+      <xs:documentation>This is a LayoutData Element that can be added to a control if this control is used within a ResponsiveFlowLayout</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ResponsiveFlowLayoutDataType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n8:_ResponsiveFlowLayoutDataType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="VerticalLayout" substitutionGroup="n8:VerticalLayout" type="n18:_VerticalLayoutType">
+    <xs:annotation>
+      <xs:documentation>In this layout the elemnts are orderd one below the other</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_VerticalLayoutType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n8:_VerticalLayoutType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="_BackgroundDesignType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Border">
+        <xs:annotation>
+          <xs:documentation>A background design suitable for borders.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Fill1">
+        <xs:annotation>
+          <xs:documentation>An opaque background design that looks dark filled.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Fill2">
+        <xs:annotation>
+          <xs:documentation>An opaque background design that looks medium filled.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Fill3">
+        <xs:annotation>
+          <xs:documentation>An opaque background design that looks light filled.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Header">
+        <xs:annotation>
+          <xs:documentation>A background design suitable for headers.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Plain">
+        <xs:annotation>
+          <xs:documentation>A plain but opaque background design.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Transparent">
+        <xs:annotation>
+          <xs:documentation>A transparent background.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_BorderLayoutAreaTypesType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="begin">
+        <xs:annotation>
+          <xs:documentation>Value to identify the begin area.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="bottom">
+        <xs:annotation>
+          <xs:documentation>Value to identify the bottom area.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="center">
+        <xs:annotation>
+          <xs:documentation>Value to identify the center area.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="end">
+        <xs:annotation>
+          <xs:documentation>Value to identify the end area.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="top">
+        <xs:annotation>
+          <xs:documentation>Value to identify the top area.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_HAlignType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Begin">
+        <xs:annotation>
+          <xs:documentation>Aligned towards the beginning of a line, in the current locale's writing direction.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Center">
+        <xs:annotation>
+          <xs:documentation>Horizontally centered.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="End">
+        <xs:annotation>
+          <xs:documentation>Aligned towards the end of a line, in the current locale's writing direction.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Left">
+        <xs:annotation>
+          <xs:documentation>Left aligned, regardless of the current locale's writing direction.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Right">
+        <xs:annotation>
+          <xs:documentation>Right aligned, regardless of the current locale's writing direction.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_PaddingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Begin">
+        <xs:annotation>
+          <xs:documentation>Top and bottom padding of 2px. Padding of 4px towards the beginning of a line, in the current locale's writing direction, but none towards its end.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Both">
+        <xs:annotation>
+          <xs:documentation>Top and bottom padding of 2px. Padding of 4px towards both the beginning and end of a line.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="End">
+        <xs:annotation>
+          <xs:documentation>Top and bottom padding of 2px. Padding of 4px towards the end of a line, in the current locale's writing direction, but none towards its beginning.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Neither">
+        <xs:annotation>
+          <xs:documentation>Top and bottom padding of 2px. No padding towards neither the beginning nor end of a line.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="None">
+        <xs:annotation>
+          <xs:documentation>No padding at all.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_SeparationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Large">
+        <xs:annotation>
+          <xs:documentation>A large (63px) vertical gutter without a vertical line.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="LargeWithLine">
+        <xs:annotation>
+          <xs:documentation>A large (63px) vertical gutter with a vertical line in its middle.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Medium">
+        <xs:annotation>
+          <xs:documentation>A medium (31px) vertical gutter without a vertical line.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MediumWithLine">
+        <xs:annotation>
+          <xs:documentation>A medium (31px) vertical gutter with a vertical line in its middle.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="None">
+        <xs:annotation>
+          <xs:documentation>No gutter at all (0px), and without a vertical line, of course.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Small">
+        <xs:annotation>
+          <xs:documentation>A small (17px) vertical gutter without a vertical line.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="SmallWithLine">
+        <xs:annotation>
+          <xs:documentation>A small (17px) vertical gutter with a vertical line in its middle.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_VAlignType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Bottom">
+        <xs:annotation>
+          <xs:documentation>Aligned at the bottom.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Middle">
+        <xs:annotation>
+          <xs:documentation>Vertically centered.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Top">
+        <xs:annotation>
+          <xs:documentation>Aligned at the top.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

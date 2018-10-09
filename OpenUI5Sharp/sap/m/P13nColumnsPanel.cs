@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.P13nColumnsPanel")]
 			public partial class P13nColumnsPanel : sap.m.P13nPanel
 			{
 				#region Settings
@@ -35,12 +36,12 @@ namespace OpenUI5Sharp
 					/// /customData&gt;
 					/// </pre>
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visibleItemsThreshold;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visibleItemsThreshold;
 
 					/// <summary>
 					/// List of columns that has been changed.
 					/// </summary>
-					public Union<sap.m.P13nColumnsItem[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> columnsItems;
+					public Union<sap.m.P13nColumnsItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> columnsItems;
 
 					/// <summary>
 					/// Event raised when a <code>columnsItem</code> is added.
@@ -273,11 +274,11 @@ namespace OpenUI5Sharp
 				/// 
 				/// Event raised when a <code>columnsItem</code> is added.
 				/// </summary>
-				[Obsolete("Deprecated since 1.50. replaced by extended event {@link sap.m.P13nColumnsPanel.html#changeColumnsItems}")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.P13nColumnsPanel</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.50. replaced by extended event {@link sap.m.P13nColumnsPanel.html#changeColumnsItems}")]
 				public extern virtual sap.m.P13nColumnsPanel attachAddColumnsItem(object oData, sap.m.P13nColumnsPanel.AddColumnsItemDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -287,10 +288,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// Event raised when a <code>columnsItem</code> is added.
 				/// </summary>
-				[Obsolete("Deprecated since 1.50. replaced by extended event {@link sap.m.P13nColumnsPanel.html#changeColumnsItems}")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.50. replaced by extended event {@link sap.m.P13nColumnsPanel.html#changeColumnsItems}")]
 				public extern virtual sap.m.P13nColumnsPanel attachAddColumnsItem(object oData, sap.m.P13nColumnsPanel.AddColumnsItemDelegate fnFunction);
 
 				/// <summary>
@@ -300,9 +301,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Event raised when a <code>columnsItem</code> is added.
 				/// </summary>
-				[Obsolete("Deprecated since 1.50. replaced by extended event {@link sap.m.P13nColumnsPanel.html#changeColumnsItems}")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.50. replaced by extended event {@link sap.m.P13nColumnsPanel.html#changeColumnsItems}")]
 				public extern virtual sap.m.P13nColumnsPanel attachAddColumnsItem(sap.m.P13nColumnsPanel.AddColumnsItemDelegate fnFunction);
 
 				/// <summary>
@@ -312,10 +313,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// Event raised when a <code>columnsItem</code> is added.
 				/// </summary>
-				[Obsolete("Deprecated since 1.50. replaced by extended event {@link sap.m.P13nColumnsPanel.html#changeColumnsItems}")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.P13nColumnsPanel</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.50. replaced by extended event {@link sap.m.P13nColumnsPanel.html#changeColumnsItems}")]
 				public extern virtual sap.m.P13nColumnsPanel attachAddColumnsItem(sap.m.P13nColumnsPanel.AddColumnsItemDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -323,25 +324,25 @@ namespace OpenUI5Sharp
 				/// 
 				/// The passed function and listener object must match the ones used for event registration.
 				/// </summary>
-				[Obsolete("Deprecated since 1.50. replaced by extended event {@link sap.m.P13nColumnsPanel.html#changeColumnsItems}")]
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.50. replaced by extended event {@link sap.m.P13nColumnsPanel.html#changeColumnsItems}")]
 				public extern virtual sap.m.P13nColumnsPanel detachAddColumnsItem(sap.m.P13nColumnsPanel.AddColumnsItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:addColumnsItem addColumnsItem} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.50. replaced by extended event {@link sap.m.P13nColumnsPanel.html#changeColumnsItems}")]
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.50. replaced by extended event {@link sap.m.P13nColumnsPanel.html#changeColumnsItems}")]
 				public extern virtual sap.m.P13nColumnsPanel fireAddColumnsItem(sap.m.P13nColumnsPanel.AddColumnsItemInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:addColumnsItem addColumnsItem} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.50. replaced by extended event {@link sap.m.P13nColumnsPanel.html#changeColumnsItems}")]
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.50. replaced by extended event {@link sap.m.P13nColumnsPanel.html#changeColumnsItems}")]
 				public extern virtual sap.m.P13nColumnsPanel fireAddColumnsItem();
 
 				#endregion
@@ -430,11 +431,11 @@ namespace OpenUI5Sharp
 				/// 
 				/// Event raised if <code>setData</code> is called in model. The event serves the purpose of minimizing such calls since they can take up a lot of performance.
 				/// </summary>
-				[Obsolete("Deprecated since 1.50. the event <code>setData</code> is obsolete.")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.P13nColumnsPanel</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.50. the event <code>setData</code> is obsolete.")]
 				public extern virtual sap.m.P13nColumnsPanel attachSetData(object oData, sap.ui.@base.EventDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -444,10 +445,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// Event raised if <code>setData</code> is called in model. The event serves the purpose of minimizing such calls since they can take up a lot of performance.
 				/// </summary>
-				[Obsolete("Deprecated since 1.50. the event <code>setData</code> is obsolete.")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.50. the event <code>setData</code> is obsolete.")]
 				public extern virtual sap.m.P13nColumnsPanel attachSetData(object oData, sap.ui.@base.EventDelegate fnFunction);
 
 				/// <summary>
@@ -457,9 +458,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Event raised if <code>setData</code> is called in model. The event serves the purpose of minimizing such calls since they can take up a lot of performance.
 				/// </summary>
-				[Obsolete("Deprecated since 1.50. the event <code>setData</code> is obsolete.")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.50. the event <code>setData</code> is obsolete.")]
 				public extern virtual sap.m.P13nColumnsPanel attachSetData(sap.ui.@base.EventDelegate fnFunction);
 
 				/// <summary>
@@ -469,10 +470,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// Event raised if <code>setData</code> is called in model. The event serves the purpose of minimizing such calls since they can take up a lot of performance.
 				/// </summary>
-				[Obsolete("Deprecated since 1.50. the event <code>setData</code> is obsolete.")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.P13nColumnsPanel</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.50. the event <code>setData</code> is obsolete.")]
 				public extern virtual sap.m.P13nColumnsPanel attachSetData(sap.ui.@base.EventDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -480,25 +481,25 @@ namespace OpenUI5Sharp
 				/// 
 				/// The passed function and listener object must match the ones used for event registration.
 				/// </summary>
-				[Obsolete("Deprecated since 1.50. the event <code>setData</code> is obsolete.")]
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.50. the event <code>setData</code> is obsolete.")]
 				public extern virtual sap.m.P13nColumnsPanel detachSetData(sap.ui.@base.EventDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:setData setData} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.50. the event <code>setData</code> is obsolete.")]
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.50. the event <code>setData</code> is obsolete.")]
 				public extern virtual sap.m.P13nColumnsPanel fireSetData(object mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:setData setData} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.50. the event <code>setData</code> is obsolete.")]
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.50. the event <code>setData</code> is obsolete.")]
 				public extern virtual sap.m.P13nColumnsPanel fireSetData();
 
 				#endregion

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -52,6 +52,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.DateRangeSelection")]
 			public partial class DateRangeSelection : sap.m.DatePicker
 			{
 				#region Settings
@@ -66,24 +67,24 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Delimiter between start and end date. Default value is "-". If no delimiter is given, the one defined for the used locale is used.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> delimiter;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> delimiter;
 
 					/// <summary>
 					/// The end date of the range as JavaScript Date object. This is independent from any formatter.
 					/// 
 					/// <b>Note:</b> If this property is used, the <code>value</code> property should not be changed from the caller.
 					/// </summary>
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> secondDateValue;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> secondDateValue;
 
 					/// <summary>
 					/// Start date of the range.
 					/// </summary>
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> from;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> from;
 
 					/// <summary>
 					/// End date of the range.
 					/// </summary>
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> to;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> to;
 
 				}
 
@@ -227,8 +228,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Start date of the range.
 				/// </summary>
-				[Obsolete("Deprecated since 1.22.0. replaced by <code>dateValue</code> property of the {@link sap.m.DateTimeField}")]
 				/// <returns>Value of property <code>from</code></returns>
+				[Obsolete("Deprecated since 1.22.0. replaced by <code>dateValue</code> property of the {@link sap.m.DateTimeField}")]
 				public extern virtual object getFrom();
 
 				/// <summary>
@@ -238,9 +239,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// </summary>
-				[Obsolete("Deprecated since 1.22.0. replaced by <code>dateValue</code> property of the {@link sap.m.DateTimeField}")]
 				/// <param name="oFrom">New value for property <code>from</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.22.0. replaced by <code>dateValue</code> property of the {@link sap.m.DateTimeField}")]
 				public extern virtual sap.m.DateRangeSelection setFrom(object oFrom);
 
 				#endregion
@@ -252,8 +253,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// End date of the range.
 				/// </summary>
-				[Obsolete("Deprecated since 1.22.0. replaced by <code>secondDateValue</code> property")]
 				/// <returns>Value of property <code>to</code></returns>
+				[Obsolete("Deprecated since 1.22.0. replaced by <code>secondDateValue</code> property")]
 				public extern virtual object getTo();
 
 				/// <summary>
@@ -263,9 +264,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// </summary>
-				[Obsolete("Deprecated since 1.22.0. replaced by <code>secondDateValue</code> property")]
 				/// <param name="oTo">New value for property <code>to</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.22.0. replaced by <code>secondDateValue</code> property")]
 				public extern virtual sap.m.DateRangeSelection setTo(object oTo);
 
 				#endregion

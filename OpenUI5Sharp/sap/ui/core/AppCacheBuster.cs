@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.core.AppCacheBuster")]
 				public static partial class AppCacheBuster
 				{
 					#region Methods
@@ -44,7 +45,7 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Registers an application. Loads the cachebuster index file from this locations. All registered files will be considered by the cachebuster and the URLs will be prefixed with the timestamp of the index file.
 					/// </summary>
-					/// <param name="@base">URL of an application providing a cachebuster index file</param>
+					/// <param name="base">URL of an application providing a cachebuster index file</param>
 					public extern static void register(string @base);
 
 					#endregion

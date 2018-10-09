@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.ObjectNumber")]
 			public partial class ObjectNumber : sap.ui.core.Control, sap.ui.core.IFormContent
 			{
 				#region Settings
@@ -28,42 +29,42 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the number field.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> number;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> number;
 
 					/// <summary>
 					/// Defines the number units qualifier.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> numberUnit;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> numberUnit;
 
 					/// <summary>
 					/// Indicates if the object number should appear emphasized.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> emphasized;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> emphasized;
 
 					/// <summary>
 					/// Determines the object number's value state. Setting this state will cause the number to be rendered in state-specific colors.
 					/// </summary>
-					public Union<sap.ui.core.ValueState, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> state;
+					public Union<sap.ui.core.ValueState, string, sap.ui.@base.ManagedObject.BindPropertyInfo> state;
 
 					/// <summary>
 					/// Defines the number units qualifier. If numberUnit and unit are both set, the unit value is used.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> unit;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> unit;
 
 					/// <summary>
 					/// Available options for the number and unit text direction are LTR(left-to-right) and RTL(right-to-left). By default, the control inherits the text direction from its parent control.
 					/// </summary>
-					public Union<sap.ui.core.TextDirection, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> textDirection;
+					public Union<sap.ui.core.TextDirection, string, sap.ui.@base.ManagedObject.BindPropertyInfo> textDirection;
 
 					/// <summary>
 					/// Sets the horizontal alignment of the number and unit.
 					/// </summary>
-					public Union<sap.ui.core.TextAlign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> textAlign;
+					public Union<sap.ui.core.TextAlign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> textAlign;
 
 					/// <summary>
 					/// Association to controls / ids which describe this control (see WAI-ARIA attribute aria-describedby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaDescribedBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaDescribedBy;
 
 				}
 
@@ -137,8 +138,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Defines the number units qualifier.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16.1. replaced by <code>unit</code> property")]
 				/// <returns>Value of property <code>numberUnit</code></returns>
+				[Obsolete("Deprecated since 1.16.1. replaced by <code>unit</code> property")]
 				public extern virtual string getNumberUnit();
 
 				/// <summary>
@@ -148,9 +149,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// </summary>
-				[Obsolete("Deprecated since 1.16.1. replaced by <code>unit</code> property")]
 				/// <param name="sNumberUnit">New value for property <code>numberUnit</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.16.1. replaced by <code>unit</code> property")]
 				public extern virtual sap.m.ObjectNumber setNumberUnit(string sNumberUnit);
 
 				#endregion

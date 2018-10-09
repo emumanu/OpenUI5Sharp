@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.SplitContainer")]
 			public partial class SplitContainer : sap.ui.core.Control
 			{
 				#region Settings
@@ -30,77 +31,77 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Determines the type of the transition/animation to apply when to() is called without defining the transition to use. The default is "slide", other options are "fade", "show", and the names of any registered custom transitions.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> defaultTransitionNameDetail;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> defaultTransitionNameDetail;
 
 					/// <summary>
 					/// Determines the type of the transition/animation to apply when to() is called, without defining the transition to use. The default is "slide", other options are "fade", "show", and the names of any registered custom transitions.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> defaultTransitionNameMaster;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> defaultTransitionNameMaster;
 
 					/// <summary>
 					/// Defines whether the master page will always be displayed (in portrait and landscape mode - StretchCompressMode), or if it should be hidden when in portrait mode (ShowHideMode). Default is ShowHideMode. Other possible values are Hide (Master is always hidden) and Popover (master is displayed in popover).
 					/// </summary>
-					public Union<sap.m.SplitAppMode, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> mode;
+					public Union<sap.m.SplitAppMode, string, sap.ui.@base.ManagedObject.BindPropertyInfo> mode;
 
 					/// <summary>
 					/// Determines the text displayed in master button, which has a default value "Navigation". This text is only displayed in iOS platform and the icon from the current page in detail area is displayed in the master button for the other platforms. The master button is shown/hidden depending on the orientation of the device and whether the master area is opened or not. SplitContainer manages the show/hide of the master button by itself only when the pages added to the detail area are sap.m.Page with built-in header or sap.m.Page with built-in header, which is wrapped by one or several sap.ui.core.mvc.View. Otherwise, the show/hide of master button needs to be managed by the application.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> masterButtonText;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> masterButtonText;
 
 					/// <summary>
 					/// Specifies the tooltip of the master button. If the tooltip is not specified, the title of the page, which is displayed is the master part, is set as tooltip to the master button.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> masterButtonTooltip;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> masterButtonTooltip;
 
 					/// <summary>
 					/// Determines the background color of the SplitContainer. If set, this color overrides the default one, which is defined by the theme (should only be used when really required). Any configured background image will be placed above this colored background, but any theme adaptation in the Theme Designer will override this setting. Use the backgroundRepeat property to define whether this image should be stretched to cover the complete SplitContainer or whether it should be tiled.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> backgroundColor;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundColor;
 
 					/// <summary>
 					/// Sets the background image of the SplitContainer. When set, this image overrides the default background defined by the theme (should only be used when really required). This background image will be placed above any color set for the background, but any theme adaptation in the Theme Designer will override this image setting. Use the backgroundRepeat property to define whether this image should be stretched to cover the complete SplitContainer or whether it should be tiled.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> backgroundImage;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundImage;
 
 					/// <summary>
 					/// Defines whether the background image (if configured) is proportionally stretched to cover the whole SplitContainer (false) or whether it should be tiled (true).
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> backgroundRepeat;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundRepeat;
 
 					/// <summary>
 					/// Defines the opacity of the background image - between 0 (fully transparent) and 1 (fully opaque). This can be used to improve the content visibility by making the background image partly transparent.
 					/// </summary>
-					public Union<float, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> backgroundOpacity;
+					public Union<float, string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundOpacity;
 
 					/// <summary>
 					/// Determines the content entities, between which the SplitContainer navigates in master area. These can be of type sap.m.Page, sap.ui.core.View, sap.m.Carousel or any other control with fullscreen/page semantics. These aggregated controls receive navigation events like {@link sap.m.NavContainerChild#beforeShow beforeShow}, they are documented in the pseudo interface {@link sap.m.NavContainerChild sap.m.NavContainerChild}.
 					/// </summary>
-					public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> masterPages;
+					public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> masterPages;
 
 					/// <summary>
 					/// Determines the content entities, between which the SplitContainer navigates in detail area. These can be of type sap.m.Page, sap.ui.core.View, sap.m.Carousel or any other control with fullscreen/page semantics. These aggregated controls receive navigation events like {@link sap.m.NavContainerChild#beforeShow beforeShow}, they are documented in the pseudo interface {@link sap.m.NavContainerChild sap.m.NavContainerChild}.
 					/// </summary>
-					public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> detailPages;
+					public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> detailPages;
 
 					/// <summary>
 					/// Sets the initial detail page, which is displayed on application launch.
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> initialDetail;
+					public Union<sap.ui.core.Control, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> initialDetail;
 
 					/// <summary>
 					/// Sets the initial master page, which is displayed on application launch.
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> initialMaster;
+					public Union<sap.ui.core.Control, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> initialMaster;
 
 					/// <summary>
 					/// Fires when navigation between two pages in master area has been triggered. The transition (if any) to the new page has not started yet. This event can be aborted by the application with preventDefault(), which means that there will be no navigation.
 					/// </summary>
-					public sap.m.ContainerNavigateDelegate masterNavigate;
+					public sap.m.NavigateDelegate masterNavigate;
 
 					/// <summary>
 					/// Fires when navigation between two pages in master area has completed. NOTE: In case of animated transitions this event is fired with some delay after the navigate event.
 					/// </summary>
-					public sap.m.ContainerNavigateDelegate afterMasterNavigate;
+					public sap.m.NavigateDelegate afterMasterNavigate;
 
 					/// <summary>
 					/// Fires when a Master Button needs to be shown or hidden. This is necessary for custom headers when the SplitContainer control does not handle the placement of the master button automatically.
@@ -130,12 +131,12 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Fires when navigation between two pages in detail area has been triggered. The transition (if any) to the new page has not started yet. NOTE: This event can be aborted by the application with preventDefault(), which means that there will be no navigation.
 					/// </summary>
-					public sap.m.ContainerNavigateDelegate detailNavigate;
+					public sap.m.NavigateDelegate detailNavigate;
 
 					/// <summary>
 					/// Fires when navigation between two pages in detail area has completed. NOTE: In case of animated transitions this event is fired with some delay after the "navigate" event.
 					/// </summary>
-					public sap.m.ContainerNavigateDelegate afterDetailNavigate;
+					public sap.m.NavigateDelegate afterDetailNavigate;
 
 				}
 
@@ -575,7 +576,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.SplitContainer</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SplitContainer attachMasterNavigate(object oData, sap.m.ContainerNavigateDelegate fnFunction, object oListener);
+				public extern virtual sap.m.SplitContainer attachMasterNavigate(object oData, sap.m.NavigateDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:masterNavigate masterNavigate} event of this <code>sap.m.SplitContainer</code>.
@@ -587,7 +588,7 @@ namespace OpenUI5Sharp
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SplitContainer attachMasterNavigate(object oData, sap.m.ContainerNavigateDelegate fnFunction);
+				public extern virtual sap.m.SplitContainer attachMasterNavigate(object oData, sap.m.NavigateDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:masterNavigate masterNavigate} event of this <code>sap.m.SplitContainer</code>.
@@ -598,7 +599,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SplitContainer attachMasterNavigate(sap.m.ContainerNavigateDelegate fnFunction);
+				public extern virtual sap.m.SplitContainer attachMasterNavigate(sap.m.NavigateDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:masterNavigate masterNavigate} event of this <code>sap.m.SplitContainer</code>.
@@ -610,7 +611,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.SplitContainer</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SplitContainer attachMasterNavigate(sap.m.ContainerNavigateDelegate fnFunction, object oListener);
+				public extern virtual sap.m.SplitContainer attachMasterNavigate(sap.m.NavigateDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:masterNavigate masterNavigate} event of this <code>sap.m.SplitContainer</code>.
@@ -620,7 +621,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SplitContainer detachMasterNavigate(sap.m.ContainerNavigateDelegate fnFunction, object oListener);
+				public extern virtual sap.m.SplitContainer detachMasterNavigate(sap.m.NavigateDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:masterNavigate masterNavigate} to attached listeners.
@@ -629,7 +630,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Whether or not to prevent the default action</returns>
-				public extern virtual bool fireMasterNavigate(sap.m.ContainerNavigateInfo mParameters);
+				public extern virtual bool fireMasterNavigate(sap.m.NavigateInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:masterNavigate masterNavigate} to attached listeners.
@@ -654,7 +655,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.SplitContainer</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SplitContainer attachAfterMasterNavigate(object oData, sap.m.ContainerNavigateDelegate fnFunction, object oListener);
+				public extern virtual sap.m.SplitContainer attachAfterMasterNavigate(object oData, sap.m.NavigateDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:afterMasterNavigate afterMasterNavigate} event of this <code>sap.m.SplitContainer</code>.
@@ -666,7 +667,7 @@ namespace OpenUI5Sharp
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SplitContainer attachAfterMasterNavigate(object oData, sap.m.ContainerNavigateDelegate fnFunction);
+				public extern virtual sap.m.SplitContainer attachAfterMasterNavigate(object oData, sap.m.NavigateDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:afterMasterNavigate afterMasterNavigate} event of this <code>sap.m.SplitContainer</code>.
@@ -677,7 +678,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SplitContainer attachAfterMasterNavigate(sap.m.ContainerNavigateDelegate fnFunction);
+				public extern virtual sap.m.SplitContainer attachAfterMasterNavigate(sap.m.NavigateDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:afterMasterNavigate afterMasterNavigate} event of this <code>sap.m.SplitContainer</code>.
@@ -689,7 +690,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.SplitContainer</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SplitContainer attachAfterMasterNavigate(sap.m.ContainerNavigateDelegate fnFunction, object oListener);
+				public extern virtual sap.m.SplitContainer attachAfterMasterNavigate(sap.m.NavigateDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:afterMasterNavigate afterMasterNavigate} event of this <code>sap.m.SplitContainer</code>.
@@ -699,14 +700,14 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SplitContainer detachAfterMasterNavigate(sap.m.ContainerNavigateDelegate fnFunction, object oListener);
+				public extern virtual sap.m.SplitContainer detachAfterMasterNavigate(sap.m.NavigateDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:afterMasterNavigate afterMasterNavigate} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SplitContainer fireAfterMasterNavigate(sap.m.ContainerNavigateInfo mParameters);
+				public extern virtual sap.m.SplitContainer fireAfterMasterNavigate(sap.m.NavigateInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:afterMasterNavigate afterMasterNavigate} to attached listeners.
@@ -1104,7 +1105,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.SplitContainer</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SplitContainer attachDetailNavigate(object oData, sap.m.ContainerNavigateDelegate fnFunction, object oListener);
+				public extern virtual sap.m.SplitContainer attachDetailNavigate(object oData, sap.m.NavigateDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:detailNavigate detailNavigate} event of this <code>sap.m.SplitContainer</code>.
@@ -1116,7 +1117,7 @@ namespace OpenUI5Sharp
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SplitContainer attachDetailNavigate(object oData, sap.m.ContainerNavigateDelegate fnFunction);
+				public extern virtual sap.m.SplitContainer attachDetailNavigate(object oData, sap.m.NavigateDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:detailNavigate detailNavigate} event of this <code>sap.m.SplitContainer</code>.
@@ -1127,7 +1128,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SplitContainer attachDetailNavigate(sap.m.ContainerNavigateDelegate fnFunction);
+				public extern virtual sap.m.SplitContainer attachDetailNavigate(sap.m.NavigateDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:detailNavigate detailNavigate} event of this <code>sap.m.SplitContainer</code>.
@@ -1139,7 +1140,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.SplitContainer</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SplitContainer attachDetailNavigate(sap.m.ContainerNavigateDelegate fnFunction, object oListener);
+				public extern virtual sap.m.SplitContainer attachDetailNavigate(sap.m.NavigateDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:detailNavigate detailNavigate} event of this <code>sap.m.SplitContainer</code>.
@@ -1149,7 +1150,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SplitContainer detachDetailNavigate(sap.m.ContainerNavigateDelegate fnFunction, object oListener);
+				public extern virtual sap.m.SplitContainer detachDetailNavigate(sap.m.NavigateDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:detailNavigate detailNavigate} to attached listeners.
@@ -1158,7 +1159,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Whether or not to prevent the default action</returns>
-				public extern virtual bool fireDetailNavigate(sap.m.ContainerNavigateInfo mParameters);
+				public extern virtual bool fireDetailNavigate(sap.m.NavigateInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:detailNavigate detailNavigate} to attached listeners.
@@ -1183,7 +1184,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.SplitContainer</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SplitContainer attachAfterDetailNavigate(object oData, sap.m.ContainerNavigateDelegate fnFunction, object oListener);
+				public extern virtual sap.m.SplitContainer attachAfterDetailNavigate(object oData, sap.m.NavigateDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:afterDetailNavigate afterDetailNavigate} event of this <code>sap.m.SplitContainer</code>.
@@ -1195,7 +1196,7 @@ namespace OpenUI5Sharp
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SplitContainer attachAfterDetailNavigate(object oData, sap.m.ContainerNavigateDelegate fnFunction);
+				public extern virtual sap.m.SplitContainer attachAfterDetailNavigate(object oData, sap.m.NavigateDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:afterDetailNavigate afterDetailNavigate} event of this <code>sap.m.SplitContainer</code>.
@@ -1206,7 +1207,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SplitContainer attachAfterDetailNavigate(sap.m.ContainerNavigateDelegate fnFunction);
+				public extern virtual sap.m.SplitContainer attachAfterDetailNavigate(sap.m.NavigateDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:afterDetailNavigate afterDetailNavigate} event of this <code>sap.m.SplitContainer</code>.
@@ -1218,7 +1219,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.SplitContainer</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SplitContainer attachAfterDetailNavigate(sap.m.ContainerNavigateDelegate fnFunction, object oListener);
+				public extern virtual sap.m.SplitContainer attachAfterDetailNavigate(sap.m.NavigateDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:afterDetailNavigate afterDetailNavigate} event of this <code>sap.m.SplitContainer</code>.
@@ -1228,14 +1229,14 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SplitContainer detachAfterDetailNavigate(sap.m.ContainerNavigateDelegate fnFunction, object oListener);
+				public extern virtual sap.m.SplitContainer detachAfterDetailNavigate(sap.m.NavigateDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:afterDetailNavigate afterDetailNavigate} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SplitContainer fireAfterDetailNavigate(sap.m.ContainerNavigateInfo mParameters);
+				public extern virtual sap.m.SplitContainer fireAfterDetailNavigate(sap.m.NavigateInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:afterDetailNavigate afterDetailNavigate} to attached listeners.

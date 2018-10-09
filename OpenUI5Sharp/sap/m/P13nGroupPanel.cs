@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.P13nGroupPanel")]
 			public partial class P13nGroupPanel : sap.m.P13nPanel
 			{
 				#region Settings
@@ -28,22 +29,22 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the maximum number of groups.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maxGroups;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> maxGroups;
 
 					/// <summary>
 					/// Defines if <code>mediaQuery</code> or <code>ContainerResize</code> is used for a layout update. If <code>ConditionPanel</code> is used in a dialog, the property must be set to true.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> containerQuery;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> containerQuery;
 
 					/// <summary>
 					/// Can be used to control the layout behavior. Default is "" which will automatically change the layout. With "Desktop", "Table" or "Phone" you can set a fixed layout.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> layoutMode;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> layoutMode;
 
 					/// <summary>
 					/// Defined group items.
 					/// </summary>
-					public Union<sap.m.P13nGroupItem[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> groupItems;
+					public Union<sap.m.P13nGroupItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> groupItems;
 
 					/// <summary>
 					/// Event raised if a <code>GroupItem</code> has been added.

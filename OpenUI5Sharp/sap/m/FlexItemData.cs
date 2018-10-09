@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.FlexItemData")]
 			public partial class FlexItemData : sap.ui.core.LayoutData
 			{
 				#region Settings
@@ -28,57 +29,57 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Determines cross-axis alignment of individual element (not currently supported in Internet Explorer).
 					/// </summary>
-					public Union<sap.m.FlexAlignSelf, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> alignSelf;
+					public Union<sap.m.FlexAlignSelf, string, sap.ui.@base.ManagedObject.BindPropertyInfo> alignSelf;
 
 					/// <summary>
 					/// Determines the display order of flex items independent of their source code order.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> order;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> order;
 
 					/// <summary>
 					/// Determines the flexibility of the flex item when allocatable space is remaining.
 					/// </summary>
-					public Union<float, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> growFactor;
+					public Union<float, string, sap.ui.@base.ManagedObject.BindPropertyInfo> growFactor;
 
 					/// <summary>
 					/// The shrink factor determines how much the flex item will shrink relative to the rest of the flex items in the flex container when negative free space is distributed.
 					/// </summary>
-					public Union<float, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> shrinkFactor;
+					public Union<float, string, sap.ui.@base.ManagedObject.BindPropertyInfo> shrinkFactor;
 
 					/// <summary>
 					/// The base size is the initial main size of the item for the flex algorithm. If set to "auto", this will be the computed size of the item.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> baseSize;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> baseSize;
 
 					/// <summary>
 					/// The minimum height of the flex item.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> minHeight;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> minHeight;
 
 					/// <summary>
 					/// The maximum height of the flex item.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maxHeight;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> maxHeight;
 
 					/// <summary>
 					/// The minimum height of the flex item.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> minWidth;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> minWidth;
 
 					/// <summary>
 					/// The maximum height of the flex item.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maxWidth;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> maxWidth;
 
 					/// <summary>
 					/// The style class will be applied to the flex item and can be used for CSS selectors.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> styleClass;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> styleClass;
 
 					/// <summary>
 					/// Defines the background style of the flex item.
 					/// </summary>
-					public Union<sap.m.BackgroundDesign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> backgroundDesign;
+					public Union<sap.m.BackgroundDesign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundDesign;
 
 				}
 

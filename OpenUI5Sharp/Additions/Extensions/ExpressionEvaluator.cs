@@ -3,10 +3,9 @@ using Bridge;
 using System.Linq.Expressions;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp.Extensions
+namespace UI5.Extensions
 {
     [Priority(1001)]
-    [Namespace(false)]
     [FileName("openui5sharp.js")]
     public static partial class ExpressionEvaluator
     {

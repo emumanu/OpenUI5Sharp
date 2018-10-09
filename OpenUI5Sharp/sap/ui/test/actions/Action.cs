@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.test.actions.Action")]
 					public abstract partial class Action : sap.ui.@base.ManagedObject
 					{
 						#region Settings
@@ -29,7 +30,7 @@ namespace OpenUI5Sharp
 						[ObjectLiteral]
 						public partial class Settings : sap.ui.@base.ManagedObject.Settings
 						{
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> idSuffix;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> idSuffix;
 
 						}
 

@@ -14,10 +14,10 @@ sap.ui.require(System.Array.init(["sap/ui/test/opaQunit"], System.String), funct
         Given.iStartMyAppInAFrame(jQuery.sap.getResourcePath("sap/ui/demo/app/test", ".html"));
 
         //Actions
-        When.onTheAppPage.iPressTheSayHelloWithDialogButton();
+        When['WalkthroughClientScripts.Tests.OnTheAppPage'].iPressTheSayHelloWithDialogButton();
 
         // Assertions
-        Then.onTheAppPage.iShouldSeeTheHelloDialog();
-        Then.onTheAppPage.iTeardownMyAppFrame();
+        Then['WalkthroughClientScripts.Tests.OnTheAppPage'].iShouldSeeTheHelloDialog();
+        Then['WalkthroughClientScripts.Tests.OnTheAppPage'].iTeardownMyAppFrame();
     });
 });

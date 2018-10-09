@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.FlexBox")]
 			public partial class FlexBox : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,62 +29,62 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// The height of the <code>sap.m.FlexBox</code>. Note that when a percentage is given, for the height to work as expected, the height of the surrounding container must be defined.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> height;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> height;
 
 					/// <summary>
 					/// The width of the <code>sap.m.FlexBox</code>. Note that when a percentage is given, for the width to work as expected, the width of the surrounding container must be defined.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// Determines whether the <code>sap.m.FlexBox</code> is in block or inline mode.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> displayInline;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> displayInline;
 
 					/// <summary>
 					/// Determines the direction of the layout of child elements.
 					/// </summary>
-					public Union<sap.m.FlexDirection, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> direction;
+					public Union<sap.m.FlexDirection, string, sap.ui.@base.ManagedObject.BindPropertyInfo> direction;
 
 					/// <summary>
 					/// Determines whether the <code>sap.m.FlexBox</code> will be sized to completely fill its container. If the <code>sap.m.FlexBox</code> is inserted into a Page, the property 'enableScrolling' of the Page needs to be set to 'false' for the FlexBox to fit the entire viewport.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> fitContainer;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> fitContainer;
 
 					/// <summary>
 					/// Determines whether the layout is rendered as a series of divs or as an unordered list (ul).<br> <br> We recommend to use <code>Bare</code> in most cases to avoid layout issues due to browser inconsistencies.
 					/// </summary>
-					public Union<sap.m.FlexRendertype, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> renderType;
+					public Union<sap.m.FlexRendertype, string, sap.ui.@base.ManagedObject.BindPropertyInfo> renderType;
 
 					/// <summary>
 					/// Determines the layout behavior along the main axis.
 					/// </summary>
-					public Union<sap.m.FlexJustifyContent, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> justifyContent;
+					public Union<sap.m.FlexJustifyContent, string, sap.ui.@base.ManagedObject.BindPropertyInfo> justifyContent;
 
 					/// <summary>
 					/// Determines the layout behavior of items along the cross-axis. "Baseline" is not supported in Internet Explorer 10.
 					/// </summary>
-					public Union<sap.m.FlexAlignItems, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> alignItems;
+					public Union<sap.m.FlexAlignItems, string, sap.ui.@base.ManagedObject.BindPropertyInfo> alignItems;
 
 					/// <summary>
 					/// Determines the wrapping behavior of the flex container. This property has no effect in older browsers, e.g. Android Native 4.3 and below.
 					/// </summary>
-					public Union<sap.m.FlexWrap, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> wrap;
+					public Union<sap.m.FlexWrap, string, sap.ui.@base.ManagedObject.BindPropertyInfo> wrap;
 
 					/// <summary>
 					/// Determines the layout behavior of container lines when there's extra space along the cross-axis. This property has no effect in Internet Explorer 10.
 					/// </summary>
-					public Union<sap.m.FlexAlignContent, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> alignContent;
+					public Union<sap.m.FlexAlignContent, string, sap.ui.@base.ManagedObject.BindPropertyInfo> alignContent;
 
 					/// <summary>
 					/// Defines the background style of the <code>sap.m.FlexBox</code>.
 					/// </summary>
-					public Union<sap.m.BackgroundDesign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> backgroundDesign;
+					public Union<sap.m.BackgroundDesign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundDesign;
 
 					/// <summary>
 					/// Flex items within the flexible box layout
 					/// </summary>
-					public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
+					public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
 
 				}
 

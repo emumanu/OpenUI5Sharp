@@ -1,3 +1,8 @@
+/**
+ * @version 1.0.0.0
+ * @copyright Copyright ©  2018
+ * @compiler Bridge.NET 17.4.0
+ */
 Bridge.assembly("WalkthroughClientScripts", function ($asm, globals) {
     "use strict";
 
@@ -22,6 +27,6 @@ Bridge.assembly("WalkthroughClientScripts", function ($asm, globals) {
 });
 
 sap.ui.define(System.Array.init(["sap/ui/core/mvc/Controller"], System.String), function () {
-    var newObj = Glue.CreateRawClassObject(sap.ui.demo.walkthrough.controller.App);
+    var newObj = UI5.Glue.CreateRawClassObject(sap.ui.demo.walkthrough.controller.App);
     return sap.ui.core.mvc.Controller.extend("sap.ui.demo.walkthrough.controller.App", newObj);
 });

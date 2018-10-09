@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Linq.Expressions;
 using Bridge;
-using OpenUI5Sharp;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
     [External]
     public partial class sap
@@ -136,6 +135,17 @@ namespace OpenUI5Sharp
                     /// <param name="oValue">value to set the property to</param>
                     /// <returns>true if the value was set correctly and false if errors occurred like the entry was not found.</returns>
                     public extern virtual bool setProperty<T>(string sPath, T oValue);
+                }
+
+                [External]
+                public partial class Sorter
+                {
+                    /// <summary>
+                    /// Delefate for the function that calculates the group value out of the context
+                    /// </summary>
+                    /// <param name="oContext">the binding context</param>
+                    /// <returns>a primitive type value as the group key or an object containing at least a "key" property</returns>
+                    public delegate object CalculateGroupDelegate(sap.ui.model.Context oContext);
                 }
 
                 [External]

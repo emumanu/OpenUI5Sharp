@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.Popover")]
 			public partial class Popover : sap.ui.core.Control, sap.ui.core.PopupInterface
 			{
 				#region Settings
@@ -32,132 +33,132 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// This is the information about on which side will the popover be placed at. Possible values are sap.m.PlacementType.Left, sap.m.PlacementType.Right, sap.m.PlacementType.Top, sap.m.PlacementType.Bottom, sap.m.PlacementType.Horizontal, sap.m.PlacementType.HorizontalPreferredLeft, sap.m.PlacementType.HorizontalPreferredRight, sap.m.PlacementType.Vertical, sap.m.PlacementType.VerticalPreferredTop, sap.m.PlacementType.VerticalPreferredBottom, sap.m.PlacementType.Auto. The default value is sap.m.PlacementType.Right. Setting this property while popover is open won't cause any rerendering of the popover, but it will take effect when it's opened again.
 					/// </summary>
-					public Union<sap.m.PlacementType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> placement;
+					public Union<sap.m.PlacementType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> placement;
 
 					/// <summary>
 					/// If a header should be shown at the top of the popover.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showHeader;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showHeader;
 
 					/// <summary>
 					/// Title text appears in the header. This property will be ignored when showHeader is set to false.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> title;
 
 					/// <summary>
 					/// If the popover will not be closed when tapping outside the popover. It also blocks any interaction with the background. The default value is false.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> modal;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> modal;
 
 					/// <summary>
 					/// The offset for the popover placement in the x axis. It's with unit pixel.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> offsetX;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> offsetX;
 
 					/// <summary>
 					/// The offset for the popover placement in the y axis. It's with unit pixel.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> offsetY;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> offsetY;
 
 					/// <summary>
 					/// Whether Popover arrow should be visible
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showArrow;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showArrow;
 
 					/// <summary>
 					/// Set the width of the content area inside Popover. When controls which adapt their size to the parent control are added directly into Popover, for example sap.m.Page control, a size needs to be specified to the content area of the Popover. Otherwise, Popover control isn't able to display the content in the right way. This values isn't necessary for controls added to Popover directly which can decide their size by themselves, for exmaple sap.m.List, sap.m.Image etc., only needed for controls that adapt their size to the parent control.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> contentWidth;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> contentWidth;
 
 					/// <summary>
 					/// Sets the minimum width of the content area inside popover.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> contentMinWidth;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> contentMinWidth;
 
 					/// <summary>
 					/// Set the height of the content area inside Popover. When controls which adapt their size to the parent control are added directly into Popover, for example sap.m.Page control, a size needs to be specified to the content area of the Popover. Otherwise, Popover control isn't able to display the content in the right way. This values isn't necessary for controls added to Popover directly which can decide their size by themselves, for exmaple sap.m.List, sap.m.Image etc., only needed for controls that adapt their size to the parent control.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> contentHeight;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> contentHeight;
 
 					/// <summary>
 					/// This property is deprecated. Please use properties verticalScrolling and horizontalScrolling instead. If you still use this property it will be mapped on the new properties verticalScrolling and horizontalScrolling.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enableScrolling;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enableScrolling;
 
 					/// <summary>
 					/// This property indicates if user can scroll vertically inside popover when the content is bigger than the content area. However, when scrollable control (sap.m.ScrollContainer, sap.m.Page) is in the popover, this property needs to be set to false to disable the scrolling in popover in order to make the scrolling in the child control work properly. Popover detects if there's sap.m.NavContainer, sap.m.Page, or sap.m.ScrollContainer as direct child added to Popover. If there is, Popover will turn off scrolling by setting this property to false automatically ignoring the existing value of this property.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> verticalScrolling;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> verticalScrolling;
 
 					/// <summary>
 					/// This property indicates if user can scroll horizontally inside popover when the content is bigger than the content area. However, when scrollable control (sap.m.ScrollContainer, sap.m.Page) is in the popover, this property needs to be set to false to disable the scrolling in popover in order to make the scrolling in the child control work properly. Popover detects if there's sap.m.NavContainer, sap.m.Page, or sap.m.ScrollContainer as direct child added to Popover. If there is, Popover will turn off scrolling by setting this property to false automatically ignoring the existing value of this property.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> horizontalScrolling;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> horizontalScrolling;
 
 					/// <summary>
 					/// Whether bouncing is enabled.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> bounce;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> bounce;
 
 					/// <summary>
 					/// Whether resize option is enabled.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> resizable;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> resizable;
 
 					/// <summary>
 					/// The content inside the popover.
 					/// </summary>
-					public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
+					public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
 
 					/// <summary>
 					/// Any control that needed to be displayed in the header area. When this is set, the showHeader property is ignored, and only this customHeader is shown on the top of popover.
 					/// </summary>
-					public Union<sap.ui.core.Control, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> customHeader;
+					public Union<sap.ui.core.Control, string, sap.ui.@base.ManagedObject.BindAggregationInfo> customHeader;
 
 					/// <summary>
 					/// When subHeader is assigned to Popover, it's rendered directly after the main header if there is, or at the beginning of Popover when there's no main header. SubHeader is out of the content area and won't be scrolled when content's size is bigger than the content area's size.
 					/// </summary>
-					public Union<sap.ui.core.Control, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> subHeader;
+					public Union<sap.ui.core.Control, string, sap.ui.@base.ManagedObject.BindAggregationInfo> subHeader;
 
 					/// <summary>
 					/// This is optional footer which is shown on the bottom of the popover.
 					/// </summary>
-					public Union<sap.ui.core.Control, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> footer;
+					public Union<sap.ui.core.Control, string, sap.ui.@base.ManagedObject.BindAggregationInfo> footer;
 
 					/// <summary>
 					/// BeginButton is shown at the left side (right side in RTL mode) inside the header. When showHeader is set to false, the property is ignored.
 					/// </summary>
-					public Union<sap.ui.core.Control, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> beginButton;
+					public Union<sap.ui.core.Control, string, sap.ui.@base.ManagedObject.BindAggregationInfo> beginButton;
 
 					/// <summary>
 					/// EndButton is always shown at the right side (left side in RTL mode) inside the header. When showHeader is set to false, the property is ignored.
 					/// </summary>
-					public Union<sap.ui.core.Control, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> endButton;
+					public Union<sap.ui.core.Control, string, sap.ui.@base.ManagedObject.BindAggregationInfo> endButton;
 
 					/// <summary>
 					/// LeftButton is shown at the left edge of the bar in iOS, and at the right side of the bar for the other platforms. Please set this to null if you want to remove the left button from the bar. And the button is only removed from the bar, not destroyed. When showHeader is set to false, this property will be ignored.
 					/// </summary>
-					public Union<sap.m.Button, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> leftButton;
+					public Union<sap.m.Button, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> leftButton;
 
 					/// <summary>
 					/// RightButton is always shown at the right edge of the bar. Please set this to null if you want to remove the right button from the bar. And the button is only removed from the bar, not destroyed. When showHeader is set to false, this property will be ignored.
 					/// </summary>
-					public Union<sap.m.Button, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> rightButton;
+					public Union<sap.m.Button, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> rightButton;
 
 					/// <summary>
 					/// Focus is set to the popover in the sequence of leftButton and rightButton when available. But if some other control neends to get the focus other than one of those two buttons, set the initialFocus with the control which should be focused on.
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> initialFocus;
+					public Union<sap.ui.core.Control, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> initialFocus;
 
 					/// <summary>
 					/// Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 					/// <summary>
 					/// Association to controls / ids which describe this control (see WAI-ARIA attribute aria-describedby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaDescribedBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaDescribedBy;
 
 					/// <summary>
 					/// This event will be fired after the popover is opened.
@@ -486,8 +487,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>true</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.15.0. This property is deprecated. Please use properties verticalScrolling and horizontalScrolling instead. If you still use this property it will be mapped on the new properties verticalScrolling and horizontalScrolling.")]
 				/// <returns>Value of property <code>enableScrolling</code></returns>
+				[Obsolete("Deprecated since 1.15.0. This property is deprecated. Please use properties verticalScrolling and horizontalScrolling instead. If you still use this property it will be mapped on the new properties verticalScrolling and horizontalScrolling.")]
 				public extern virtual bool getEnableScrolling();
 
 				/// <summary>
@@ -499,9 +500,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>true</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.15.0. This property is deprecated. Please use properties verticalScrolling and horizontalScrolling instead. If you still use this property it will be mapped on the new properties verticalScrolling and horizontalScrolling.")]
 				/// <param name="bEnableScrolling">New value for property <code>enableScrolling</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.15.0. This property is deprecated. Please use properties verticalScrolling and horizontalScrolling instead. If you still use this property it will be mapped on the new properties verticalScrolling and horizontalScrolling.")]
 				public extern virtual sap.m.Popover setEnableScrolling(bool bEnableScrolling);
 
 				#endregion
@@ -789,16 +790,16 @@ namespace OpenUI5Sharp
 				/// <summary>
 				/// ID of the element which is the current target of the association {@link #getLeftButton leftButton}, or <code>null</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.15.1. This property has been deprecated since 1.15.1. Please use the beginButton instead.")]
 				/// <returns></returns>
+				[Obsolete("Deprecated since 1.15.1. This property has been deprecated since 1.15.1. Please use the beginButton instead.")]
 				public extern virtual sap.ui.core.ID getLeftButton();
 
 				/// <summary>
 				/// Sets the associated {@link #getLeftButton leftButton}.
 				/// </summary>
-				[Obsolete("Deprecated since 1.15.1. This property has been deprecated since 1.15.1. Please use the beginButton instead.")]
 				/// <param name="oLeftButton">ID of an element which becomes the new target of this leftButton association; alternatively, an element instance may be given</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.15.1. This property has been deprecated since 1.15.1. Please use the beginButton instead.")]
 				public extern virtual sap.m.Popover setLeftButton(Union<sap.ui.core.ID, sap.m.Button> oLeftButton);
 
 				#endregion
@@ -808,16 +809,16 @@ namespace OpenUI5Sharp
 				/// <summary>
 				/// ID of the element which is the current target of the association {@link #getRightButton rightButton}, or <code>null</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.15.1. This property has been deprecated since 1.15.1. Please use the endButton instead.")]
 				/// <returns></returns>
+				[Obsolete("Deprecated since 1.15.1. This property has been deprecated since 1.15.1. Please use the endButton instead.")]
 				public extern virtual sap.ui.core.ID getRightButton();
 
 				/// <summary>
 				/// Sets the associated {@link #getRightButton rightButton}.
 				/// </summary>
-				[Obsolete("Deprecated since 1.15.1. This property has been deprecated since 1.15.1. Please use the endButton instead.")]
 				/// <param name="oRightButton">ID of an element which becomes the new target of this rightButton association; alternatively, an element instance may be given</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.15.1. This property has been deprecated since 1.15.1. Please use the endButton instead.")]
 				public extern virtual sap.m.Popover setRightButton(Union<sap.ui.core.ID, sap.m.Button> oRightButton);
 
 				#endregion

@@ -21,7 +21,7 @@ Bridge.assembly("WalkthroughClientScripts", function ($asm, globals) {
             _onObjectMatched: function (oEvent, oData) {
                 var $t, $t1, $t2;
                 this.byId("rating").reset();
-                this.getView().bindElement({ path: decodeURIComponent(Bridge.cast(sapuibaseExtensions.getParameterFor(Bridge.global.System.Object, System.Object, oEvent, ($t = { ntype: 38, t: System.Object, n: "p" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"arguments","t":4,"rt":System.Object,"sn":"arguments"}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) }))).invoicePath, System.String)), model: "invoice" });
+                this.getView().bindElement({ path: decodeURIComponent(Bridge.cast(sapuibaseExtensions.getParameterFor(System.Object, System.Object, oEvent, ($t = { ntype: 38, t: System.Object, n: "p" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"arguments","t":4,"rt":System.Object,"sn":"arguments"}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) }))).invoicePath, System.String)), model: "invoice" });
             },
             onRatingChange: function (oEvent, oData) {
                 var fValue = oEvent.getParameter("value");
@@ -44,6 +44,6 @@ Bridge.assembly("WalkthroughClientScripts", function ($asm, globals) {
 });
 
 sap.ui.define(System.Array.init(["sap/ui/core/mvc/Controller", "sap/ui/core/routing/History", "sap/m/MessageToast", "sap/ui/model/json/JSONModel"], System.String), function () {
-    var newObj = Glue.CreateRawClassObject(sap.ui.demo.walkthrough.controller.Detail);
+    var newObj = UI5.Glue.CreateRawClassObject(sap.ui.demo.walkthrough.controller.Detail);
     return sap.ui.core.mvc.Controller.extend("sap.ui.demo.walkthrough.controller.Detail", newObj);
 });

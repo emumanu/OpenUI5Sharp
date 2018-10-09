@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.TextArea")]
 			public partial class TextArea : sap.m.InputBase
 			{
 				#region Settings
@@ -28,54 +29,54 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the number of visible text lines for the control. <b>Note:</b> The <code>height</code> property wins over the <code>rows</code> property, if both are set.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> rows;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> rows;
 
 					/// <summary>
 					/// Defines the visible width of the control, in average character widths. <b>Note:</b> The <code>width</code> property wins over the <code>cols</code> property, if both are set.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> cols;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> cols;
 
 					/// <summary>
 					/// Defines the height of the control.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> height;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> height;
 
 					/// <summary>
 					/// Defines the maximum number of characters that the <code>value</code> can be.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maxLength;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> maxLength;
 
 					/// <summary>
 					/// Determines whether the characters, exceeding the maximum allowed character count, are visible in the input field.
 					/// 
 					/// If set to <code>false</code> the user is not allowed to enter more characters than what is set in the <code>maxLength</code> property. If set to <code>true</code> the characters exceeding the <code>maxLength</code> value are selected on paste and the counter below the input field displays their number.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showExceededText;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showExceededText;
 
 					/// <summary>
 					/// Indicates how the control wraps the text, e.g. <code>Soft</code>, <code>Hard</code>, <code>Off</code>.
 					/// </summary>
-					public Union<sap.ui.core.Wrapping, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> wrapping;
+					public Union<sap.ui.core.Wrapping, string, sap.ui.@base.ManagedObject.BindPropertyInfo> wrapping;
 
 					/// <summary>
 					/// Indicates when the <code>value</code> property gets updated with the user changes. Setting it to <code>true</code> updates the <code>value</code> property whenever the user has modified the text shown on the text area.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> valueLiveUpdate;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> valueLiveUpdate;
 
 					/// <summary>
 					/// Indicates the ability of the control to automatically grow and shrink dynamically with its content. <b>Note:</b> The <code>height</code> property is ignored, if this property set to <code>true</code>.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> growing;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> growing;
 
 					/// <summary>
 					/// Defines the maximum number of lines that the control can grow.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> growingMaxLines;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> growingMaxLines;
 
 					/// <summary>
 					/// Is fired whenever the user has modified the text shown on the text area.
 					/// </summary>
-					public sap.m.SubmitOrChangeDelegate liveChange;
+					public sap.m.ValueDelegate liveChange;
 
 				}
 
@@ -379,7 +380,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.TextArea</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.TextArea attachLiveChange(object oData, sap.m.SubmitOrChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.TextArea attachLiveChange(object oData, sap.m.ValueDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:liveChange liveChange} event of this <code>sap.m.TextArea</code>.
@@ -391,7 +392,7 @@ namespace OpenUI5Sharp
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.TextArea attachLiveChange(object oData, sap.m.SubmitOrChangeDelegate fnFunction);
+				public extern virtual sap.m.TextArea attachLiveChange(object oData, sap.m.ValueDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:liveChange liveChange} event of this <code>sap.m.TextArea</code>.
@@ -402,7 +403,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.TextArea attachLiveChange(sap.m.SubmitOrChangeDelegate fnFunction);
+				public extern virtual sap.m.TextArea attachLiveChange(sap.m.ValueDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:liveChange liveChange} event of this <code>sap.m.TextArea</code>.
@@ -414,7 +415,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.TextArea</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.TextArea attachLiveChange(sap.m.SubmitOrChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.TextArea attachLiveChange(sap.m.ValueDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:liveChange liveChange} event of this <code>sap.m.TextArea</code>.
@@ -424,14 +425,14 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.TextArea detachLiveChange(sap.m.SubmitOrChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.TextArea detachLiveChange(sap.m.ValueDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:liveChange liveChange} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.TextArea fireLiveChange(sap.m.SubmitOrChangeInfo mParameters);
+				public extern virtual sap.m.TextArea fireLiveChange(sap.m.ValueInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:liveChange liveChange} to attached listeners.

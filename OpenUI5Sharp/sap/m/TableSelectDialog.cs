@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.TableSelectDialog")]
 			public partial class TableSelectDialog : sap.ui.core.Control
 			{
 				#region Settings
@@ -30,52 +31,52 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Specifies the title text in the dialog header.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> title;
 
 					/// <summary>
 					/// Specifies the text displayed when the table has no data.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> noDataText;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> noDataText;
 
 					/// <summary>
 					/// Enables the user to select several options from the table.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> multiSelect;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> multiSelect;
 
 					/// <summary>
 					/// If set to <code>true</code>, enables the growing feature of the control to load more items by requesting from the bound model (progressive loading). <b>Note:</b> This feature only works when an <code>items</code> aggregation is bound. Growing must not be used together with two-way binding. <b>Note:</b> If the property is set to true, the features <code>selected count</code> in info bar, <code>search</code> and <code>select/deselect all</code>, if present, will work only for the currently loaded items. To make sure that all items in the table are loaded at once and the above features work properly, we recommend setting the <code>growing</code> property to false.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> growing;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> growing;
 
 					/// <summary>
 					/// Determines the number of items initially displayed in the table and defines the number of items to be requested from the model for each grow. This property can only be used if the property <code>growing</code> is set to <code>true</code>.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> growingThreshold;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> growingThreshold;
 
 					/// <summary>
 					/// Determines the content width of the inner dialog. For more information, see the Dialog documentation.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> contentWidth;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> contentWidth;
 
 					/// <summary>
 					/// Controls whether the dialog clears the selection or not. When the dialog is opened multiple times in the same context to allow for corrections of previous user inputs, set this flag to "true". When the dialog should reset the selection to allow for a new selection each time set it to "false" Note: This property must be set before the Dialog is opened to have an effect.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> rememberSelections;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> rememberSelections;
 
 					/// <summary>
 					/// Specifies the content height of the inner dialog. For more information, see the Dialog documentation.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> contentHeight;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> contentHeight;
 
 					/// <summary>
 					/// The items of the table.
 					/// </summary>
-					public Union<sap.m.ColumnListItem[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
+					public Union<sap.m.ColumnListItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
 
 					/// <summary>
 					/// The columns bindings.
 					/// </summary>
-					public Union<sap.m.Column[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> columns;
+					public Union<sap.m.Column[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> columns;
 
 					/// <summary>
 					/// Fires when the dialog is confirmed by selecting an item in single-selection mode or by pressing the confirmation button in multi-selection mode. The items being selected are returned as event parameters.

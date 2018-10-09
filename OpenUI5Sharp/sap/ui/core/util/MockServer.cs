@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.util.MockServer")]
 					public partial class MockServer : sap.ui.@base.ManagedObject
 					{
 						#region Settings
@@ -34,19 +35,19 @@ namespace OpenUI5Sharp
 							/// 
 							/// Default value is empty/<code>undefined</code>. Must end with a a trailing slash ("/").
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> rootUri;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> rootUri;
 
 							/// <summary>
 							/// Whether or not the requests performed should be recorded (stored). This could be memory intense if each request is recorded. For unit testing purposes it should be set to <code>true</code> to compare requests performed otherwise this flag should be set to <code>false</code> e.g. for demonstration/app purposes.
 							/// </summary>
-							public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> recordRequests;
+							public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> recordRequests;
 
 							/// <summary>
 							/// Getter for property <code>requests</code>.
 							/// 
 							/// Default value is <code>[]</code>
 							/// </summary>
-							public Union<object[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> requests;
+							public Union<object[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> requests;
 
 						}
 
@@ -254,7 +255,7 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Attaches an event handler to be called after the built-in request processing of the mock server
 						/// </summary>
-						/// <param name="@event">type according to HTTP Method</param>
+						/// <param name="event">type according to HTTP Method</param>
 						/// <param name="fnCallback">the name of the function that will be called at this exit The callback function exposes an event with parameters, depending on the type of the request. oEvent.getParameters() lists the parameters as per the request. Examples are: oXhr : the request object; oFilteredData : the mock data entries that are about to be returned in the response; oEntry : the mock data entry that is about to be returned in the response;</param>
 						/// <param name="sEntitySet">(optional) the name of the entity set</param>
 						public extern virtual void attachAfter(string @event, object fnCallback, string sEntitySet);
@@ -262,7 +263,7 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Attaches an event handler to be called before the built-in request processing of the mock server
 						/// </summary>
-						/// <param name="@event">type according to HTTP Method</param>
+						/// <param name="event">type according to HTTP Method</param>
 						/// <param name="fnCallback">the name of the function that will be called at this exit. The callback function exposes an event with parameters, depending on the type of the request. oEvent.getParameters() lists the parameters as per the request. Examples are: oXhr : the request object; sUrlParams : the URL parameters of the request; sKeys : key properties of the requested entry; sNavProp/sNavName : name of navigation</param>
 						/// <param name="sEntitySet">(optional) the name of the entity set</param>
 						public extern virtual void attachBefore(string @event, object fnCallback, string sEntitySet);
@@ -300,7 +301,7 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Removes a previously attached event handler
 						/// </summary>
-						/// <param name="@event">type according to HTTP Method</param>
+						/// <param name="event">type according to HTTP Method</param>
 						/// <param name="fnCallback">the name of the function that will be called at this exit</param>
 						/// <param name="sEntitySet">(optional) the name of the entity set</param>
 						public extern virtual void detachAfter(string @event, object fnCallback, string sEntitySet);
@@ -308,7 +309,7 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Removes a previously attached event handler
 						/// </summary>
-						/// <param name="@event">type according to HTTP Method</param>
+						/// <param name="event">type according to HTTP Method</param>
 						/// <param name="fnCallback">the name of the function that will be called at this exit</param>
 						/// <param name="sEntitySet">(optional) the name of the entity set</param>
 						public extern virtual void detachBefore(string @event, object fnCallback, string sEntitySet);

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.touch")]
 			public static partial class touch
 			{
 				#region Methods
@@ -24,7 +25,7 @@ namespace OpenUI5Sharp
 				/// <param name="oTouchList">The list of touch objects to search.</param>
 				/// <param name="vElement">A jQuery element or an element reference or an element id.</param>
 				/// <returns>The number of touches related with the given element.</returns>
-				public extern static int countContained(object[] oTouchList, Union<jquery.JQuery<object>, dom.HTMLElement, string> vElement);
+				public extern static int countContained(object[] oTouchList, Union<jQuery, dom.HTMLElement, string> vElement);
 
 				/// <summary>
 				/// Given a list of touch objects, find the touch that matches the given one.

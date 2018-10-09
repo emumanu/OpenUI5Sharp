@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -20,6 +20,7 @@ namespace OpenUI5Sharp
 						/// </summary>
 						[External]
 						[Namespace(false)]
+						[Name("sap.ui.model.odata.v2.ODataModel")]
 						public partial class ODataModel : sap.ui.model.Model
 						{
 							#region Typed Parameters
@@ -1675,8 +1676,8 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// Returns the definition of batch groups per entity type for two-way binding changes
 							/// </summary>
-							[Obsolete("Deprecated since 1.36. use {@link #getChangeGroups} instead")]
 							/// <returns>Definition of batch groups for two-way binding changes</returns>
+							[Obsolete("Deprecated since 1.36. use {@link #getChangeGroups} instead")]
 							public extern virtual Map getChangeBatchGroups();
 
 							/// <summary>
@@ -1688,28 +1689,28 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// Return requested data as object if the data has already been loaded and stored in the model.
 							/// </summary>
-							[Obsolete("Deprecated since 1.24. please use {@link #getProperty} instead")]
 							/// <param name="sPath">A string containing the path to the data object that should be returned.</param>
 							/// <param name="oContext">The optional context which is used with the <code>sPath</code> to retrieve the requested data.</param>
 							/// <param name="bIncludeExpandEntries">This parameter should be set when a URI or custom parameter with a <code>$expand</code> system query option was used to retrieve associated entries embedded. If set to <code>true</code> then the <code>getProperty</code> function returns a desired property value or entry and includes the associated expand entries (if any). If set to <code>false</code> the associated/expanded entry properties are removed and not included in the desired entry as properties at all. This is useful for performing updates on the base entry only. Note: A copy, not a reference of the entry will be returned.</param>
 							/// <returns>Object containing the requested data if the path is valid.</returns>
+							[Obsolete("Deprecated since 1.24. please use {@link #getProperty} instead")]
 							public extern virtual object getData(string sPath, object oContext, bool bIncludeExpandEntries);
 
 							/// <summary>
 							/// Return requested data as object if the data has already been loaded and stored in the model.
 							/// </summary>
-							[Obsolete("Deprecated since 1.24. please use {@link #getProperty} instead")]
 							/// <param name="sPath">A string containing the path to the data object that should be returned.</param>
 							/// <param name="oContext">The optional context which is used with the <code>sPath</code> to retrieve the requested data.</param>
 							/// <returns>Object containing the requested data if the path is valid.</returns>
+							[Obsolete("Deprecated since 1.24. please use {@link #getProperty} instead")]
 							public extern virtual object getData(string sPath, object oContext);
 
 							/// <summary>
 							/// Return requested data as object if the data has already been loaded and stored in the model.
 							/// </summary>
-							[Obsolete("Deprecated since 1.24. please use {@link #getProperty} instead")]
 							/// <param name="sPath">A string containing the path to the data object that should be returned.</param>
 							/// <returns>Object containing the requested data if the path is valid.</returns>
+							[Obsolete("Deprecated since 1.24. please use {@link #getProperty} instead")]
 							public extern virtual object getData(string sPath);
 
 							/// <summary>
@@ -1721,8 +1722,8 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// Returns the array of batch group IDs that are set as deferred
 							/// </summary>
-							[Obsolete("Deprecated since 1.32. use {@link #getDeferredGroups} instead")]
 							/// <returns>aGroupIds The array of deferred batch group IDs</returns>
+							[Obsolete("Deprecated since 1.32. use {@link #getDeferredGroups} instead")]
 							public extern virtual object[] getDeferredBatchGroups();
 
 							/// <summary>
@@ -2045,8 +2046,8 @@ namespace OpenUI5Sharp
 							/// 
 							/// Returns a new promise which can be resolved or rejected depending on the metadata loading state.
 							/// </summary>
-							[Obsolete("Deprecated since 1.42.")]
 							/// <returns>A promise on metadata loaded state or <code>null</code> if metadata is not initialized or currently refreshed.</returns>
+							[Obsolete("Deprecated since 1.42.")]
 							public extern virtual jquery.JQueryPromise<object> refreshMetadata();
 
 							/// <summary>
@@ -2129,7 +2130,6 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// Definition of batch groups per entity type for two-way binding changes.
 							/// </summary>
-							[Obsolete("Deprecated since 1.32. Use {@link #setChangeGroups} instead")]
 							/// <param name="mGroups">A map containing the definition of batch groups for two-way binding changes. The map has the following format: <pre>
 							/// {
 							///   "EntityTypeName": {
@@ -2139,6 +2139,7 @@ namespace OpenUI5Sharp
 							///   }
 							/// }
 							/// </pre> <ul> <li><code>batchGroupId</code>: Defines the batch group for changes of the defined <i>EntityTypeName</i></li> <li><code>changeSetId</code>: ID of a <code>ChangeSet</code> which bundles the changes for the entity type.</li> <li><code>single</code>: Defines if every change will get an own change set (defaults to <code>true</code>)</li> </ul></param>
+							[Obsolete("Deprecated since 1.32. Use {@link #setChangeGroups} instead")]
 							public extern virtual void setChangeBatchGroups(Map mGroups);
 
 							/// <summary>
@@ -2172,8 +2173,8 @@ namespace OpenUI5Sharp
 							/// 
 							/// Requests that belong to a deferred batch group have to be sent by explicitly calling {@link #submitChanges}.
 							/// </summary>
-							[Obsolete("Deprecated since 1.32. use {@link #setDeferredGroups} instead")]
 							/// <param name="aGroupIds">Array of batch group IDs that should be set as deferred</param>
+							[Obsolete("Deprecated since 1.32. use {@link #setDeferredGroups} instead")]
 							public extern virtual void setDeferredBatchGroups(object[] aGroupIds);
 
 							/// <summary>

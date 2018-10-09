@@ -3,17 +3,18 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
 		public static partial class m
 		{
 			/// <summary>
-			/// <h3>Overview</h3> A SelectDialog is a dialog containing a list, search functionality to filter it and a confirmation/cancel button. The list used in the dialog is a growing list and can be filled with any kind of list item. <h3>Structure</h3> <h4>Dialog structure</h4> The select dialog has the following components: <ul> <li>Header - title of the dialog</li> <li>Search field - input field to enter search terms</li> <li>Info toolbar (only in multi-select) - displays the number of currently selected items</li> <li>Content - {@link sap.m.StandardListItem standard list items}, {@link sap.m.DisplayListItem display list items} or {@link sap.m.FeedListItem feed list items}</li> <li>Button toolbar - for confirmation/cancellation buttons </li> </ul> <h4>List structure & selection</h4> <ul> <li> The search field triggers the events <code>search</code> and <code>liveChange</code> where a filter function can be applied to the list binding. </li> <li> The growing functionality of the list does not support two-way Binding, so if you use this control with a JSON model make sure the binding mode is set to <code>OneWay</code> and that you update the selection model manually with the items passed in the <code>confirm</code> event. </li> <li> In the multi-select mode of the select dialog, checkboxes are provided for choosing multiple entries. </li> <li> You can set <code>rememberSelections</code> to true to store the current selection and load this state when the dialog is opened again. </li> <li> When cancelling the selection, the event <code>change</code> will be fired and the selection is restored to the state when the dialog was opened. </li> </ul> <h3>Usage</h3> <h4>When to use:</h4> <ul> <li>You need to select one or more entries from a comprehensive list that contains multiple attributes or values. </li> </ul> <h4>When not to use:</h4> <ul> <li> You need to pick one item from a predefined set of options. Use {@link sap.m.Select select} or {@link sap.m.ComboBox combobox} instead. </li> <li> You need to select a range of item. Use {@link sap.ui.comp.valuehelpdialog.ValueHelpDialog value help dialog instead. </li> <li> You need to be able to add your own values to an existing list. Use a {@link sap.m.Dialog dialog} instead. </li> </ul> <h3>Responsive Behavior</h3> <ul> <li> On phones, the select dialog takes up the whole screen. </li> <li> On desktop and tablet devices, the select dialog appears as a popover. </li> </ul>
+			/// <h3>Overview</h3> A SelectDialog is a dialog containing a list, search functionality to filter it and a confirmation/cancel button. The list used in the dialog is a growing list and can be filled with any kind of list item. <h3>Structure</h3> <h4>Dialog structure</h4> The select dialog has the following components: <ul> <li>Header - title of the dialog</li> <li>Search field - input field to enter search terms</li> <li>Info toolbar (only in multi-select) - displays the number of currently selected items</li> <li>Content - {@link sap.m.StandardListItem standard list items}, {@link sap.m.DisplayListItem display list items} or {@link sap.m.FeedListItem feed list items}</li> <li>Button toolbar - for confirmation/cancellation buttons </li> </ul> <h4>List structure & selection</h4> <ul> <li> The search field triggers the events <code>search</code> and <code>liveChange</code> where a filter function can be applied to the list binding. </li> <li> The growing functionality of the list does not support two-way Binding, so if you use this control with a JSON model make sure the binding mode is set to <code>OneWay</code> and that you update the selection model manually with the items passed in the <code>confirm</code> event. </li> <li> In the multi-select mode of the select dialog, checkboxes are provided for choosing multiple entries. </li> <li> You can set <code>rememberSelections</code> to true to store the current selection and load this state when the dialog is opened again. </li> <li> When cancelling the selection, the event <code>change</code> will be fired and the selection is restored to the state when the dialog was opened. </li> </ul> <h3>Usage</h3> <h4>When to use:</h4> <ul> <li>You need to select one or more entries from a comprehensive list that contains multiple attributes or values. </li> </ul> <h4>When not to use:</h4> <ul> <li> You need to pick one item from a predefined set of options. Use {@link sap.m.Select select} or {@link sap.m.ComboBox combobox} instead. </li> <li> You need to select a range of item. Use {@link sap.ui.comp.valuehelpdialog.ValueHelpDialog value help dialog instead. </li> <li> You need to be able to add your own values to an existing list. Use a {@link sap.m.Dialog dialog} instead. </li> </ul> <h4>Note:</h4> The property <code>growing</code> determines the progressive loading. If it's set to true (the default value), the <code>selected count</code> in info bar and search will work only for the currently loaded items. To make sure that all items in the list are loaded at once and the above feature works properly, we recommend setting the <code>growing</code> property to false. <h3>Responsive Behavior</h3> <ul> <li> On phones, the select dialog takes up the whole screen. </li> <li> On desktop and tablet devices, the select dialog appears as a popover. </li> </ul>
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.SelectDialog")]
 			public partial class SelectDialog : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,44 +29,49 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Determines the title text that appears in the dialog header
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> title;
 
 					/// <summary>
 					/// Determines the text shown when the list has no data
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> noDataText;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> noDataText;
 
 					/// <summary>
 					/// Determines if the user can select several options from the list
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> multiSelect;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> multiSelect;
 
 					/// <summary>
-					/// Determines the number of items initially displayed in the list. Also defines the number of items to be requested from the model for each grow.
+					/// Determines the number of items initially displayed in the list. Also defines the number of items to be requested from the model for each grow. <b>Note:</b> This property could take affect only be used if the property <code>growing</code> is set to <code>true</code>.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> growingThreshold;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> growingThreshold;
+
+					/// <summary>
+					/// If set to <code>true</code>, enables the growing feature of the control to load more items by requesting from the bound model (progressive loading). <b>Note:</b> This feature only works when an <code>items</code> aggregation is bound. <b>Note:</b> Growing property, must not be used together with two-way binding.
+					/// </summary>
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> growing;
 
 					/// <summary>
 					/// Determines the content width of the inner dialog. For more information, see the dialog documentation.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> contentWidth;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> contentWidth;
 
 					/// <summary>
 					/// This flag controls whether the dialog clears the selection after the confirm event has been fired. If the dialog needs to be opened multiple times in the same context to allow for corrections of previous user inputs, set this flag to "true".
 					/// 
 					/// <b>Note:</b> The sap.m.SelectDialog uses {@link sap.m.ListBase#rememberSelections this} property of the ListBase and therefore its limitations also apply here.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> rememberSelections;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> rememberSelections;
 
 					/// <summary>
 					/// Determines the content height of the inner dialog. For more information, see the dialog documentation.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> contentHeight;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> contentHeight;
 
 					/// <summary>
 					/// The items of the list shown in the search dialog. It is recommended to use a StandardListItem for the dialog but other combinations are also possible.
 					/// </summary>
-					public Union<sap.m.ListItemBase[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
+					public Union<sap.m.ListItemBase[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
 
 					/// <summary>
 					/// This event will be fired when the dialog is confirmed by selecting an item in single selection mode or by pressing the confirmation button in multi selection mode . The items being selected are returned as event parameters.
@@ -260,7 +266,7 @@ namespace OpenUI5Sharp
 				/// <summary>
 				/// Gets current value of property {@link #getGrowingThreshold growingThreshold}.
 				/// 
-				/// Determines the number of items initially displayed in the list. Also defines the number of items to be requested from the model for each grow.
+				/// Determines the number of items initially displayed in the list. Also defines the number of items to be requested from the model for each grow. <b>Note:</b> This property could take affect only be used if the property <code>growing</code> is set to <code>true</code>.
 				/// </summary>
 				/// <returns>Value of property <code>growingThreshold</code></returns>
 				public extern virtual int getGrowingThreshold();
@@ -271,6 +277,27 @@ namespace OpenUI5Sharp
 				/// <param name="iValue">Value for the list's growing threshold.</param>
 				/// <returns><code>this</code> pointer for chaining</returns>
 				public extern virtual sap.m.SelectDialog setGrowingThreshold(int iValue);
+
+				#endregion
+
+				#region Methods for Property growing
+
+				/// <summary>
+				/// Gets current value of property {@link #getGrowing growing}.
+				/// 
+				/// If set to <code>true</code>, enables the growing feature of the control to load more items by requesting from the bound model (progressive loading). <b>Note:</b> This feature only works when an <code>items</code> aggregation is bound. <b>Note:</b> Growing property, must not be used together with two-way binding.
+				/// 
+				/// Default value is <code>true</code>.
+				/// </summary>
+				/// <returns>Value of property <code>growing</code></returns>
+				public extern virtual bool getGrowing();
+
+				/// <summary>
+				/// Sets the growing to the internal list
+				/// </summary>
+				/// <param name="bValue">Value for the list's growing.</param>
+				/// <returns><code>this</code> pointer for chaining</returns>
+				public extern virtual sap.m.SelectDialog setGrowing(bool bValue);
 
 				#endregion
 

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.TimePickerSliders")]
 			public partial class TimePickerSliders : sap.ui.core.Control
 			{
 				#region Settings
@@ -32,59 +33,59 @@ namespace OpenUI5Sharp
 					/// 
 					/// Example: AM in the string "09:04 AM" is locale (language) dependent. The format comes from the browser language settings if not set explicitly. Used in combination with 12 hour <code>displayFormat</code> containing 'a', which stands for day period string.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> localeId;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> localeId;
 
 					/// <summary>
 					/// Defines the time <code>displayFormat</code> of the sliders. The <code>displayFormat</code> comes from the browser language settings if not set explicitly.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> displayFormat;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> displayFormat;
 
 					/// <summary>
 					/// Defines the text of the picker label.
 					/// 
 					/// It is read by screen readers. It is visible only on phone.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> labelText;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> labelText;
 
 					/// <summary>
 					/// Sets the minutes slider step. If step is less than 1, it will be automatically converted back to 1. The minutes slider is populated only by multiples of the step.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> minutesStep;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> minutesStep;
 
 					/// <summary>
 					/// Sets the seconds slider step. If step is less than 1, it will be automatically converted back to 1. The seconds slider is populated only by multiples of the step.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> secondsStep;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> secondsStep;
 
 					/// <summary>
 					/// Sets the width of the container. The minimum width is 320px.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// Sets the height of the container. If percentage value is used the parent container should have specified height
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> height;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> height;
 
 					/// <summary>
 					/// Defines the value of the control.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> value;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> value;
 
 					/// <summary>
 					/// Determines the format of the <code>value</code> property.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> valueFormat;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> valueFormat;
 
 					/// <summary>
 					/// Allows to set a value of 24:00, used to indicate the end of the day. Works only with HH or H formats. Don't use it together with am/pm.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> support2400;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> support2400;
 
 					/// <summary>
 					/// Fired when the value is changed.
 					/// </summary>
-					public sap.m.SubmitOrChangeDelegate change;
+					public sap.m.ValueDelegate change;
 
 				}
 
@@ -351,7 +352,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.TimePickerSliders</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.TimePickerSliders attachChange(object oData, sap.m.SubmitOrChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.TimePickerSliders attachChange(object oData, sap.m.ValueDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:change change} event of this <code>sap.m.TimePickerSliders</code>.
@@ -363,7 +364,7 @@ namespace OpenUI5Sharp
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.TimePickerSliders attachChange(object oData, sap.m.SubmitOrChangeDelegate fnFunction);
+				public extern virtual sap.m.TimePickerSliders attachChange(object oData, sap.m.ValueDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:change change} event of this <code>sap.m.TimePickerSliders</code>.
@@ -374,7 +375,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.TimePickerSliders attachChange(sap.m.SubmitOrChangeDelegate fnFunction);
+				public extern virtual sap.m.TimePickerSliders attachChange(sap.m.ValueDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:change change} event of this <code>sap.m.TimePickerSliders</code>.
@@ -386,7 +387,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.TimePickerSliders</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.TimePickerSliders attachChange(sap.m.SubmitOrChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.TimePickerSliders attachChange(sap.m.ValueDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:change change} event of this <code>sap.m.TimePickerSliders</code>.
@@ -396,14 +397,14 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.TimePickerSliders detachChange(sap.m.SubmitOrChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.TimePickerSliders detachChange(sap.m.ValueDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:change change} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.TimePickerSliders fireChange(sap.m.SubmitOrChangeInfo mParameters);
+				public extern virtual sap.m.TimePickerSliders fireChange(sap.m.ValueInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:change change} to attached listeners.

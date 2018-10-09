@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.core.Title")]
 				public partial class Title : sap.ui.core.Element
 				{
 					#region Settings
@@ -30,24 +31,24 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Defines the title text
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> text;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> text;
 
 						/// <summary>
 						/// Defines the URL for icon display
 						/// </summary>
-						public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> icon;
+						public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> icon;
 
 						/// <summary>
 						/// Defines the level of the title. If set to auto the level of the title is chosen by the control rendering the title.
 						/// 
 						/// Currently not all controls using the Title.control supporting this property.
 						/// </summary>
-						public Union<sap.ui.core.TitleLevel, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> level;
+						public Union<sap.ui.core.TitleLevel, string, sap.ui.@base.ManagedObject.BindPropertyInfo> level;
 
 						/// <summary>
 						/// If set the title is displayed emphasized. This feature is nor supported by all controls using the Title.control.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> emphasized;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> emphasized;
 
 					}
 

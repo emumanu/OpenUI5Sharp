@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -26,6 +26,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.MessageBox")]
 			public static partial class MessageBox
 			{
 				#region Typed Parameters
@@ -514,32 +515,33 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.m.MessageBox.Icon")]
 				public enum Icon
 				{
-						/// <summary>
-						/// Shows the error icon in the message box.
-						/// </summary>
-						ERROR,
-						/// <summary>
-						/// Shows the information icon in the message box.
-						/// </summary>
-						INFORMATION,
-						/// <summary>
-						/// Shows no icon in the message box.
-						/// </summary>
-						NONE,
-						/// <summary>
-						/// Shows the question icon in the message box.
-						/// </summary>
-						QUESTION,
-						/// <summary>
-						/// Shows the success icon in the message box.
-						/// </summary>
-						SUCCESS,
-						/// <summary>
-						/// Shows the warning icon in the message box.
-						/// </summary>
-						WARNING,
+					/// <summary>
+					/// Shows the error icon in the message box.
+					/// </summary>
+					ERROR,
+					/// <summary>
+					/// Shows the information icon in the message box.
+					/// </summary>
+					INFORMATION,
+					/// <summary>
+					/// Shows no icon in the message box.
+					/// </summary>
+					NONE,
+					/// <summary>
+					/// Shows the question icon in the message box.
+					/// </summary>
+					QUESTION,
+					/// <summary>
+					/// Shows the success icon in the message box.
+					/// </summary>
+					SUCCESS,
+					/// <summary>
+					/// Shows the warning icon in the message box.
+					/// </summary>
+					WARNING,
 				}
 				/// <summary>
 				/// Enumeration of supported actions in a MessageBox.
@@ -548,44 +550,45 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.m.MessageBox.Action")]
 				public enum Action
 				{
-						/// <summary>
-						/// Adds an "Abort" button to the message box.
-						/// </summary>
-						ABORT,
-						/// <summary>
-						/// Adds a "Cancel" button to the message box.
-						/// </summary>
-						CANCEL,
-						/// <summary>
-						/// Adds a "Close" button to the message box.
-						/// </summary>
-						CLOSE,
-						/// <summary>
-						/// Adds a "Delete" button to the message box.
-						/// </summary>
-						DELETE,
-						/// <summary>
-						/// Adds an "Ignore" button to the message box.
-						/// </summary>
-						IGNORE,
-						/// <summary>
-						/// Adds a "No" button to the message box.
-						/// </summary>
-						NO,
-						/// <summary>
-						/// Adds an "OK" button to the message box.
-						/// </summary>
-						OK,
-						/// <summary>
-						/// Adds a "Retry" button to the message box.
-						/// </summary>
-						RETRY,
-						/// <summary>
-						/// Adds a "Yes" button to the message box.
-						/// </summary>
-						YES,
+					/// <summary>
+					/// Adds an "Abort" button to the message box.
+					/// </summary>
+					ABORT,
+					/// <summary>
+					/// Adds a "Cancel" button to the message box.
+					/// </summary>
+					CANCEL,
+					/// <summary>
+					/// Adds a "Close" button to the message box.
+					/// </summary>
+					CLOSE,
+					/// <summary>
+					/// Adds a "Delete" button to the message box.
+					/// </summary>
+					DELETE,
+					/// <summary>
+					/// Adds an "Ignore" button to the message box.
+					/// </summary>
+					IGNORE,
+					/// <summary>
+					/// Adds a "No" button to the message box.
+					/// </summary>
+					NO,
+					/// <summary>
+					/// Adds an "OK" button to the message box.
+					/// </summary>
+					OK,
+					/// <summary>
+					/// Adds a "Retry" button to the message box.
+					/// </summary>
+					RETRY,
+					/// <summary>
+					/// Adds a "Yes" button to the message box.
+					/// </summary>
+					YES,
 				}
 			}
 		}

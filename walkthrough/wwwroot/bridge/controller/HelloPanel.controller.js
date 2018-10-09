@@ -15,7 +15,7 @@ Bridge.assembly("WalkthroughClientScripts", function ($asm, globals) {
                 var $t, $t1, $t2, $t3;
                 // read msg from i18n model
                 var oBundle = this.getView().getModel("i18n").getResourceBundle();
-                var sRecipient = sapuimodelModelExtensions.getPropertyFor(Bridge.global.System.Object, System.String, this.getView().getModel(), ($t = { ntype: 38, t: System.Object, n: "m" }, ($t3 = ($t2 = {"td":System.Object,"a":2,"n":"name","t":4,"rt":System.String,"sn":"name"}, { ntype: 23, t: $t2.rt, expression: ($t1 = {"td":System.Object,"a":2,"n":"recipient","t":4,"rt":System.Object,"sn":"recipient"}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), member: $t2 }), { ntype: 18, t: Function, rt: $t3.t, body: $t3, p: Bridge.toList([$t]) })));
+                var sRecipient = sapuimodelModelExtensions.getPropertyFor(System.Object, System.String, this.getView().getModel(), ($t = { ntype: 38, t: System.Object, n: "m" }, ($t3 = ($t2 = {"td":System.Object,"a":2,"n":"name","t":4,"rt":System.String,"sn":"name"}, { ntype: 23, t: $t2.rt, expression: ($t1 = {"td":System.Object,"a":2,"n":"recipient","t":4,"rt":System.Object,"sn":"recipient"}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), member: $t2 }), { ntype: 18, t: Function, rt: $t3.t, body: $t3, p: Bridge.toList([$t]) })));
                 var sMsg = oBundle.getText("helloMsg", System.Array.init([sRecipient], System.String));
                 // show message
                 sap.m.MessageToast.show(sMsg);
@@ -28,6 +28,6 @@ Bridge.assembly("WalkthroughClientScripts", function ($asm, globals) {
 });
 
 sap.ui.define(System.Array.init(["sap/ui/core/mvc/Controller", "sap/m/MessageToast"], System.String), function () {
-    var newObj = Glue.CreateRawClassObject(sap.ui.demo.walkthrough.controller.HelloPanel);
+    var newObj = UI5.Glue.CreateRawClassObject(sap.ui.demo.walkthrough.controller.HelloPanel);
     return sap.ui.core.mvc.Controller.extend("sap.ui.demo.walkthrough.controller.HelloPanel", newObj);
 });

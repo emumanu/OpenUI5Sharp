@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.RangeSlider")]
 			public partial class RangeSlider : sap.m.Slider
 			{
 				#region Settings
@@ -34,14 +35,14 @@ namespace OpenUI5Sharp
 					/// 
 					/// <b>Note:</b> If the value is not in the valid range (between <code>min</code> and <code>max</code>) it will be changed to be in the valid range. If it is smaller than <code>value</code> it will be set to the same value.
 					/// </summary>
-					public Union<float, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> value2;
+					public Union<float, string, sap.ui.@base.ManagedObject.BindPropertyInfo> value2;
 
 					/// <summary>
 					/// Determines the currently selected range on the slider.
 					/// 
 					/// If the value is lower/higher than the allowed minimum/maximum, a warning message will be output to the console.
 					/// </summary>
-					public Union<float[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> range;
+					public Union<float[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> range;
 
 				}
 

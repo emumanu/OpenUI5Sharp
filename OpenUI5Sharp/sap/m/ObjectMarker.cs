@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.ObjectMarker")]
 			public partial class ObjectMarker : sap.ui.core.Control
 			{
 				#region Settings
@@ -32,19 +33,19 @@ namespace OpenUI5Sharp
 					/// 
 					/// </ul>
 					/// </summary>
-					public Union<sap.m.ObjectMarkerType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> type;
+					public Union<sap.m.ObjectMarkerType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> type;
 
 					/// <summary>
 					/// Sets one of the visibility states. Visibility states are as follows: <ul> <li><code>IconOnly</code> - displays only icon, regardless of the screen size</li> <li><code>TextOnly</code> - displays only text, regardless of the screen size</li> <li><code>IconAndText</code> - displays both icon and text, regardless of the screen size</li> </ul>
 					/// </summary>
-					public Union<sap.m.ObjectMarkerVisibility, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visibility;
+					public Union<sap.m.ObjectMarkerVisibility, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visibility;
 
 					/// <summary>
 					/// Sets additional information to the displayed <code>type</code>.
 					/// 
 					/// <b>Note:</b> If no type is set, the additional information will not be displayed.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> additionalInfo;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> additionalInfo;
 
 					/// <summary>
 					/// Event is fired when the <code>ObjectMarker</code> is interactive and the user taps/clicks on it.

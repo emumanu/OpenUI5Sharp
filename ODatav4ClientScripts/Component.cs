@@ -1,8 +1,8 @@
 ﻿using Bridge;
 using System;
 using System.Linq;
-using OpenUI5Sharp;
-using OpenUI5Sharp.Metadata;
+using UI5;
+using UI5.Metadata;
 using System.Collections.Generic;
 
 namespace ODatav4ClientScripts
@@ -11,6 +11,10 @@ namespace ODatav4ClientScripts
     [Name("sap.ui.core.tutorial.odatav4.Component")]
     public class Component : sap.ui.core.UIComponent
     {
+        public static Metadata metadata = new Metadata() {
+            manifest = "json"
+        };
+
         public Models models;
 
         [Init(InitPosition.Bottom)]
@@ -22,11 +26,7 @@ namespace ODatav4ClientScripts
                 },
                 new Func<sap.ui.core.UIComponent, Models, object>(
                     (UIComponent, models) => {
-                        var metadata = new Metadata() {
-                            manifest = "json"
-                        };
-
-                        Component newObj = Glue.CreateRawClassObject<Component>(metadata);
+                        Component newObj = Glue.CreateRawClassObject<Component>();
                         newObj.models = models;
                         return sap.ui.core.UIComponent.extend(nameof(Component), newObj);
                     }

@@ -1,7 +1,7 @@
 ﻿using Bridge;
 using System;
 using System.Linq;
-using OpenUI5Sharp;
+using UI5;
 
 namespace WalkthroughClientScripts
 {

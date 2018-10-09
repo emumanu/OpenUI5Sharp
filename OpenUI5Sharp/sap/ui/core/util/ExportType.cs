@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.util.ExportType")]
 					public partial class ExportType : sap.ui.@base.ManagedObject
 					{
 						#region Settings
@@ -32,22 +33,22 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// File extension.
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> fileExtension;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> fileExtension;
 
 							/// <summary>
 							/// MIME type.
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> mimeType;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> mimeType;
 
 							/// <summary>
 							/// Charset.
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> charset;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> charset;
 
 							/// <summary>
 							/// Whether to prepend an unicode byte order mark when saving as a file (only applies for utf-8 charset).
 							/// </summary>
-							public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> byteOrderMark;
+							public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> byteOrderMark;
 
 						}
 

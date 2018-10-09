@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -20,6 +20,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.mvc.View")]
 					public partial class View : sap.ui.core.Control, sap.ui.core.IDScope
 					{
 						#region Settings
@@ -34,82 +35,87 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// Controller instance to use for this view.
 							/// </summary>
-							public Union<sap.ui.core.mvc.Controller, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> controller;
+							public Union<sap.ui.core.mvc.Controller, string, sap.ui.@base.ManagedObject.BindPropertyInfo> controller;
 
 							/// <summary>
 							/// Name of the controller class to use for this view. If given, it overrides the same information in the view definition (XML, HTML).
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> controllerName;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> controllerName;
 
 							/// <summary>
 							/// Preprocessors that the view can use before constructing the view.
 							/// </summary>
-							public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> preprocessors;
+							public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> preprocessors;
 
 							/// <summary>
 							/// (module) Name of a resource bundle that should be loaded for this view
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> resourceBundleName;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> resourceBundleName;
 
 							/// <summary>
 							/// URL of a resource bundle that should be loaded for this view
 							/// </summary>
-							public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> resourceBundleUrl;
+							public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> resourceBundleUrl;
 
 							/// <summary>
 							/// Locale that should be used to load a resource bundle for this view
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> resourceBundleLocale;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> resourceBundleLocale;
 
 							/// <summary>
 							/// Model name under which the resource bundle should be stored.
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> resourceBundleAlias;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> resourceBundleAlias;
 
 							/// <summary>
 							/// Type of the view
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> type;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> type;
 
 							/// <summary>
 							/// A view definition
 							/// </summary>
-							public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> viewContent;
+							public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> definition;
+
+							/// <summary>
+							/// Deprecated as of 1.56: Use <code>definition</code> instead.
+							/// </summary>
+							public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> viewContent;
 
 							/// <summary>
 							/// Additional configuration data that should be given to the view at construction time and which will be available early, even before model data or other constructor settings are applied.
 							/// </summary>
-							public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> viewData;
+							public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> viewData;
 
 							/// <summary>
 							/// Determines initialization mode of the view
 							/// </summary>
-							public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> async;
+							public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> async;
 
 							/// <summary>
 							/// The width
 							/// </summary>
-							public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+							public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 							/// <summary>
 							/// The height
 							/// </summary>
-							public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> height;
+							public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> height;
 
 							/// <summary>
 							/// Name of the View
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> viewName;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> viewName;
 
 							/// <summary>
 							/// Whether the CSS display should be set to "block". Set this to "true" if the default display "inline-block" causes a vertical scrollbar with Views that are set to 100% height. Do not set this to "true" if you want to display other content in the same HTML parent on either side of the View (setting to "true" may push that other content to the next/previous line).
 							/// </summary>
-							public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> displayBlock;
+							public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> displayBlock;
 
 							/// <summary>
 							/// Child Controls of the view
 							/// </summary>
-							public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
+							public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
 
 							/// <summary>
 							/// Fired when the View has parsed the UI description and instantiated the contained controls (/control tree).
@@ -130,6 +136,49 @@ namespace OpenUI5Sharp
 							/// Fired before this View is re-rendered. Use to unbind event handlers from HTML elements etc.
 							/// </summary>
 							public sap.ui.@base.EventDelegate beforeRendering;
+
+						}
+
+						#endregion
+
+						#region Typed Parameters
+
+						/// <summary>
+						/// Parameter to be used as Object Literal
+						/// </summary>
+						[External]
+						[ObjectLiteral]
+						public partial class CreateOptions
+						{
+							/// <summary>
+							/// Specifies an ID for the View instance. If no ID is given, an ID will be generated.
+							/// </summary>
+							public string id;
+
+							/// <summary>
+							/// Name of the view resource in module name notation (without suffix)
+							/// </summary>
+							public string viewName;
+
+							/// <summary>
+							/// Specifies what kind of view will be instantiated. All valid view types are listed in the enumeration {@link sap.ui.core.mvc.ViewType}.
+							/// </summary>
+							public sap.ui.core.mvc.ViewType type;
+
+							/// <summary>
+							/// The view data can hold user specific data. This data is available during the whole lifecycle of the view and the controller
+							/// </summary>
+							public object viewData;
+
+							/// <summary>
+							/// Can hold a map from the specified preprocessor type (e.g. "xml") to an array of preprocessor configurations; each configuration consists of a <code>preprocessor</code> property (optional when registered as on-demand preprocessor) and may contain further preprocessor-specific settings. The preprocessor can be either a module name as string implementation of {@link sap.ui.core.mvc.View.Preprocessor} or a function according to {@link sap.ui.core.mvc.View.Preprocessor.process}. Do not set properties starting with underscore like <code>_sProperty</code> property, these are reserved for internal purposes. When several preprocessors are provided for one hook, it has to be made sure that they do not conflict when being processed serially. <strong>Note</strong>: These preprocessors are only available to this instance. For global or on-demand availability use {@link sap.ui.core.mvc.XMLView.registerPreprocessor}. <strong>Note</strong>: Please note that preprocessors in general are currently only available to XMLViews
+							/// </summary>
+							public object preprocessors;
+
+							/// <summary>
+							/// Controller instance to be used for this view. The given controller instance overrides the controller defined in the view definition. Sharing a controller instance between multiple views is not supported.
+							/// </summary>
+							public sap.ui.core.mvc.Controller controller;
 
 						}
 
@@ -693,6 +742,13 @@ namespace OpenUI5Sharp
 						public extern override sap.ui.core.Element clone(object[] aLocalIds);
 
 						/// <summary>
+						/// Creates a view of the given type, name and with the given id.
+						/// </summary>
+						/// <param name="mOptions">A parameter map for the view instantiation. Specialized view types could bring in additional parameter.</param>
+						/// <returns>a Promise which resolves with the created View instance</returns>
+						public extern static jquery.JQueryPromise<object> create(sap.ui.core.mvc.View.CreateOptions mOptions);
+
+						/// <summary>
 						/// Convert the given view local element ID to a globally unique ID by prefixing it with the view ID.
 						/// </summary>
 						/// <param name="sId">View local ID of the element</param>
@@ -858,6 +914,7 @@ namespace OpenUI5Sharp
 						/// </summary>
 						[External]
 						[Namespace(false)]
+						[Name("sap.ui.core.mvc.View.Preprocessor")]
 						public partial interface Preprocessor
 						{
 							#region Methods

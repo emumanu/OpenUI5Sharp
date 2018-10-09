@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.TileContent")]
 			public partial class TileContent : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,37 +29,37 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// The footer text of the tile.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> footer;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> footer;
 
 					/// <summary>
 					/// The semantic color of the footer.
 					/// </summary>
-					public Union<sap.m.ValueColor, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> footerColor;
+					public Union<sap.m.ValueColor, string, sap.ui.@base.ManagedObject.BindPropertyInfo> footerColor;
 
 					/// <summary>
 					/// Updates the size of the tile. If it is not set, then the default size is applied based on the device tile.
 					/// </summary>
-					public Union<sap.m.Size, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> size;
+					public Union<sap.m.Size, string, sap.ui.@base.ManagedObject.BindPropertyInfo> size;
 
 					/// <summary>
 					/// The percent sign, the currency symbol, or the unit of measure.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> unit;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> unit;
 
 					/// <summary>
 					/// Disables control if true.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> disabled;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> disabled;
 
 					/// <summary>
 					/// Frame types: 1x1, 2x1, and auto.
 					/// </summary>
-					public Union<sap.m.FrameType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> frameType;
+					public Union<sap.m.FrameType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> frameType;
 
 					/// <summary>
 					/// The switchable view that depends on the tile type.
 					/// </summary>
-					public Union<sap.ui.core.Control, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
+					public Union<sap.ui.core.Control, string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
 
 				}
 
@@ -161,8 +162,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>Auto</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.38.0. The TileContent control has now a fixed size, depending on the used media (desktop, tablet or phone).")]
 				/// <returns>Value of property <code>size</code></returns>
+				[Obsolete("Deprecated since 1.38.0. The TileContent control has now a fixed size, depending on the used media (desktop, tablet or phone).")]
 				public extern virtual sap.m.Size getSize();
 
 				/// <summary>
@@ -174,9 +175,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>Auto</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.38.0. The TileContent control has now a fixed size, depending on the used media (desktop, tablet or phone).")]
 				/// <param name="sSize">New value for property <code>size</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.38.0. The TileContent control has now a fixed size, depending on the used media (desktop, tablet or phone).")]
 				public extern virtual sap.m.TileContent setSize(sap.m.Size sSize);
 
 				#endregion

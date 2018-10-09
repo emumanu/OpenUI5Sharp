@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -24,6 +24,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.core.Fragment")]
 				public partial class Fragment : sap.ui.@base.ManagedObject
 				{
 					#region Settings
@@ -35,11 +36,11 @@ namespace OpenUI5Sharp
 					[ObjectLiteral]
 					public partial class Settings : sap.ui.@base.ManagedObject.Settings
 					{
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> fragmentName;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> fragmentName;
 
-						public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> fragmentContent;
+						public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> fragmentContent;
 
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> type;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> type;
 
 					}
 

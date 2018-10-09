@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.unified.MenuItemBase")]
 				public abstract partial class MenuItemBase : sap.ui.core.Element
 				{
 					#region Settings
@@ -30,22 +31,22 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// When an item is disabled the item can not be selected by the user. The enabled property of the item has no effect when the menu of the item is disabled ({@link sap.ui.unified.Menu#getEnabled Menu#getEnabled}).
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enabled;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enabled;
 
 						/// <summary>
 						/// Invisible items do not appear in the menu.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visible;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visible;
 
 						/// <summary>
 						/// Defines whether a visual separator should be rendered before the item. <b>Note:</b> If an item is invisible also the separator of this item is not shown.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> startsSection;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> startsSection;
 
 						/// <summary>
 						/// An optional submenu of the item which is opened when the item is selected by the user.
 						/// </summary>
-						public Union<sap.ui.unified.Menu, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> submenu;
+						public Union<sap.ui.unified.Menu, string, sap.ui.@base.ManagedObject.BindAggregationInfo> submenu;
 
 						/// <summary>
 						/// Fired when the item is selected by the user. <b>Note:</b> The event is also available for items which have a submenu. In general, applications must not handle event in this case because the user selection opens the sub menu.

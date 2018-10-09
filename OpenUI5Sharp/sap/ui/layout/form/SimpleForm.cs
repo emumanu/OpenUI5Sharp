@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -20,6 +20,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.layout.form.SimpleForm")]
 					public partial class SimpleForm : sap.ui.core.Control
 					{
 						#region Settings
@@ -36,7 +37,7 @@ namespace OpenUI5Sharp
 							/// 
 							/// <b>Note:</b> If a <code>ResponsiveGridLayout</code> is used as a <code>layout</code>, this property is not used. Please use the properties <code>ColumnsL</code> and <code>ColumnsM</code> in this case.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maxContainerCols;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> maxContainerCols;
 
 							/// <summary>
 							/// The overall minimum width in pixels that is used for the <code>SimpleForm</code>.
@@ -45,12 +46,12 @@ namespace OpenUI5Sharp
 							/// 
 							/// <b>Note:</b> This property is only used if a <code>ResponsiveLayout</code> is used as a layout.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> minWidth;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> minWidth;
 
 							/// <summary>
 							/// Width of the form.
 							/// </summary>
-							public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+							public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 							/// <summary>
 							/// Applies a device-specific and theme-specific line height and label alignment to the form rows if the form has editable content. If set, all (not only the editable) rows of the form will get the line height of editable fields.
@@ -61,28 +62,30 @@ namespace OpenUI5Sharp
 							/// 
 							/// <b>Warning:</b> If this property is set wrong this could lead to visual issues, the labels are fields could be misaligned, the labels could be rendered in the wrong mode, the spacing between the single controls could be wrong and control, not fitting to the mode, could be rendered incorrect.
 							/// </summary>
-							public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> editable;
+							public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> editable;
 
 							/// <summary>
 							/// Specifies the min-width in pixels of the label in all form rows.
 							/// 
 							/// <b>Note:</b> This property is only used if a <code>ResponsiveLayout</code> is used as a layout.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> labelMinWidth;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> labelMinWidth;
 
 							/// <summary>
 							/// The <code>FormLayout</code> that is used to render the <code>SimpleForm</code>.
 							/// 
 							/// We recommend using the <code>ResponsiveGridLayout</code> for rendering a <code>SimpleForm</code>, as its responsiveness uses the space available in the best way possible.
+							/// 
+							/// <b>Note</b> If possible, set the <code>layout</code> before adding content to prevent calculations for the default layout.
 							/// </summary>
-							public Union<sap.ui.layout.form.SimpleFormLayout, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> layout;
+							public Union<sap.ui.layout.form.SimpleFormLayout, string, sap.ui.@base.ManagedObject.BindPropertyInfo> layout;
 
 							/// <summary>
 							/// Default span for labels in extra large size.
 							/// 
 							/// <b>Note:</b> This property is only used if a <code>ResponsiveGridLayout</code> is used as a layout. If the default value -1 is not overwritten with the meaningful one then the <code>labelSpanL</code> value is used (from the backward compatibility reasons).
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> labelSpanXL;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> labelSpanXL;
 
 							/// <summary>
 							/// Default span for labels in large size.
@@ -91,7 +94,7 @@ namespace OpenUI5Sharp
 							/// 
 							/// <b>Note:</b> This property is only used if <code>ResponsiveGridLayout</code> or <code>ColumnLayout</code> is used as a layout. If a <code>ColumnLayout</code> is used, this property defines the label size for large columns.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> labelSpanL;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> labelSpanL;
 
 							/// <summary>
 							/// Default span for labels in medium size.
@@ -100,14 +103,14 @@ namespace OpenUI5Sharp
 							/// 
 							/// <b>Note:</b> This property is only used if a <code>ResponsiveGridLayout</code> is used as a layout.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> labelSpanM;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> labelSpanM;
 
 							/// <summary>
 							/// Default span for labels in small size.
 							/// 
 							/// <b>Note:</b> This property is only used if a <code>ResponsiveGridLayout</code> is used as a layout.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> labelSpanS;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> labelSpanS;
 
 							/// <summary>
 							/// If set, the usage of <code>labelSpanL</code> and <code>labelSpanM</code> are dependent on the number of <code>FormContainers</code> in one row. If only one <code>FormContainer</code> is displayed in one row, <code>labelSpanM</code> is used to define the size of the label. This is the same for medium and large <code>Forms</code>. This is done to align the labels on forms where full-size <code>FormContainers</code> and multiple-column rows are used in the same <code>Form</code> (because every <code>FormContainer</code> has its own grid inside).
@@ -116,56 +119,56 @@ namespace OpenUI5Sharp
 							/// 
 							/// <b>Note:</b> This property is only used if a <code>ResponsiveGridLayout</code> is used as a layout.
 							/// </summary>
-							public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> adjustLabelSpan;
+							public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> adjustLabelSpan;
 
 							/// <summary>
 							/// Number of grid cells that are empty at the end of each line on extra large size.
 							/// 
 							/// <b>Note:</b> This property is only used if a <code>ResponsiveGridLayout</code> is used as a layout. If the default value -1 is not overwritten with the meaningful one then the <code>emptySpanL</code> value is used (from the backward compatibility reasons).
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> emptySpanXL;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> emptySpanXL;
 
 							/// <summary>
 							/// Number of grid cells that are empty at the end of each line on large size.
 							/// 
 							/// <b>Note:</b> This property is only used if a <code>ResponsiveGridLayout</code> or a <code>ColumnLayout</code> is used as a layout. If a <code>ColumnLayout</code> is used, this property defines the empty cells for large columns.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> emptySpanL;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> emptySpanL;
 
 							/// <summary>
 							/// Number of grid cells that are empty at the end of each line on medium size.
 							/// 
 							/// <b>Note:</b> This property is only used if a <code>ResponsiveGridLayout</code> is used as a layout.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> emptySpanM;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> emptySpanM;
 
 							/// <summary>
 							/// Number of grid cells that are empty at the end of each line on small size.
 							/// 
 							/// <b>Note:</b> This property is only used if a <code>ResponsiveGridLayout</code> is used as a layout.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> emptySpanS;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> emptySpanS;
 
 							/// <summary>
 							/// Form columns for extra large size. The number of columns for extra large size must not be smaller than the number of columns for large size.
 							/// 
 							/// <b>Note:</b> This property is only used if a <code>ResponsiveGridLayout</code> or a <code>ColumnLayout</code> is used as a layout. If the default value -1 is not overwritten with the meaningful one then the <code>columnsL</code> value is used (from the backward compatibility reasons).
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> columnsXL;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> columnsXL;
 
 							/// <summary>
 							/// Form columns for large size. The number of columns for large size must not be smaller than the number of columns for medium size.
 							/// 
 							/// <b>Note:</b> This property is only used if a <code>ResponsiveGridLayout</code> or a <code>ColumnLayout</code> is used as a layout.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> columnsL;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> columnsL;
 
 							/// <summary>
 							/// Form columns for medium size.
 							/// 
 							/// <b>Note:</b> This property is only used if a <code>ResponsiveGridLayout</code> or a <code>ColumnLayout</code> is used as a layout.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> columnsM;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> columnsM;
 
 							/// <summary>
 							/// If the <code>Form</code> contains only one single <code>FormContainer</code> and this property is set, the <code>FormContainer</code> is displayed using the full size of the <code>Form</code>. In this case the properties <code>columnsL</code> and <code>columnsM</code> are ignored.
@@ -174,35 +177,35 @@ namespace OpenUI5Sharp
 							/// 
 							/// <b>Note:</b> This property is only used if a <code>ResponsiveGridLayout</code> is used as a layout.
 							/// </summary>
-							public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> singleContainerFullSize;
+							public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> singleContainerFullSize;
 
 							/// <summary>
 							/// Breakpoint between Medium size and Large size.
 							/// 
 							/// <b>Note:</b> This property is only used if a <code>ResponsiveGridLayout</code> is used as a layout.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> breakpointXL;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> breakpointXL;
 
 							/// <summary>
 							/// Breakpoint between Medium size and Large size.
 							/// 
 							/// <b>Note:</b> This property is only used if a <code>ResponsiveGridLayout</code> is used as a layout.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> breakpointL;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> breakpointL;
 
 							/// <summary>
 							/// Breakpoint between Small size and Medium size.
 							/// 
 							/// <b>Note:</b> This property is only used if a <code>ResponsiveGridLayout</code> is used as a layout.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> breakpointM;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> breakpointM;
 
 							/// <summary>
 							/// Specifies the background color of the <code>SimpleForm</code> content.
 							/// 
 							/// The visualization of the different options depends on the used theme.
 							/// </summary>
-							public Union<sap.ui.layout.BackgroundDesign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> backgroundDesign;
+							public Union<sap.ui.layout.BackgroundDesign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundDesign;
 
 							/// <summary>
 							/// The content of the form is structured in the following way: <ul> <li>Add a <code>Title</code> or <code>Toolbar</code> control to start a new group (<code>FormContainer</code>).</li> <li>Add a <code>Label</code> control to start a new row (<code>FormElement</code>).</li> <li>Add controls as input fields, text fields or other as needed.</li> <li>Use <code>LayoutData</code> to influence the layout for special cases in the single controls. For example, if a <code>ResponsiveLayout</code> is used as a layout, the form content is weighted using weight 3 for the labels and weight 5 for the fields part. By default the label column is 192 pixels wide. If your input controls should influence their width, you can add <code>sap.ui.layout.ResponsiveFlowLayoutData</code> to them via <code>setLayoutData</code> method. Ensure that the sum of the weights in the <code>ResponsiveFlowLayoutData</code> is not more than 5, as this is the total width of the input control part of each form row.</li> </ul> Example for a row where the <code>Input</code> weight 4 and the second <code>Input</code> weight 1 (using <code>ResponsiveLayout</code>): <pre>
@@ -221,24 +224,24 @@ namespace OpenUI5Sharp
 							/// 
 							/// If editable controls are used as content, the <code>editable</code> property must be set to <code>true</code>, otherwise to <code>false</code>. If the <code>editable</code> property is set incorrectly, there will be visual issues like wrong label alignment or wrong spacing between the controls.
 							/// </summary>
-							public Union<sap.ui.core.Element[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
+							public Union<sap.ui.core.Element[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
 
 							/// <summary>
 							/// Title element of the <code>SimpleForm</code>. Can either be a <code>Title</code> element, or a string.
 							/// </summary>
-							public Union<sap.ui.core.Title, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+							public Union<sap.ui.core.Title, string, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
 
 							/// <summary>
 							/// Toolbar of the <code>SimpleForm</code>.
 							/// 
 							/// <b>Note:</b> If a <code>Toolbar</code> is used, the <code>Title</code> is ignored. If a title is needed inside the <code>Toolbar</code> it must be added at content to the <code>Toolbar</code>. In this case add the <code>Title</code> to the <code>ariaLabelledBy</code> association.
 							/// </summary>
-							public Union<sap.ui.core.Toolbar, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> toolbar;
+							public Union<sap.ui.core.Toolbar, string, sap.ui.@base.ManagedObject.BindAggregationInfo> toolbar;
 
 							/// <summary>
 							/// Association to controls / IDs which label this control (see WAI-ARIA attribute <code>aria-labelledby</code>).
 							/// </summary>
-							public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+							public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 						}
 
@@ -446,6 +449,8 @@ namespace OpenUI5Sharp
 						/// 
 						/// We recommend using the <code>ResponsiveGridLayout</code> for rendering a <code>SimpleForm</code>, as its responsiveness uses the space available in the best way possible.
 						/// 
+						/// <b>Note</b> If possible, set the <code>layout</code> before adding content to prevent calculations for the default layout.
+						/// 
 						/// Default value is <code>ResponsiveLayout</code>.
 						/// </summary>
 						/// <returns>Value of property <code>layout</code></returns>
@@ -457,6 +462,8 @@ namespace OpenUI5Sharp
 						/// The <code>FormLayout</code> that is used to render the <code>SimpleForm</code>.
 						/// 
 						/// We recommend using the <code>ResponsiveGridLayout</code> for rendering a <code>SimpleForm</code>, as its responsiveness uses the space available in the best way possible.
+						/// 
+						/// <b>Note</b> If possible, set the <code>layout</code> before adding content to prevent calculations for the default layout.
 						/// 
 						/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 						/// 

@@ -12,7 +12,6 @@
 
   // Set module support
   "loader": {
-    "type": "AMD",
     "manualLoading": true
   },
 

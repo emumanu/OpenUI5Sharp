@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.unified.DateTypeRange")]
 				public partial class DateTypeRange : sap.ui.unified.DateRange
 				{
 					#region Settings
@@ -30,7 +31,7 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Type of the date range.
 						/// </summary>
-						public Union<sap.ui.unified.CalendarDayType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> type;
+						public Union<sap.ui.unified.CalendarDayType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> type;
 
 					}
 

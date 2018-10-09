@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -24,6 +24,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.layout.form.ResponsiveGridLayout")]
 					public partial class ResponsiveGridLayout : sap.ui.layout.form.FormLayout
 					{
 						#region Settings
@@ -40,96 +41,96 @@ namespace OpenUI5Sharp
 							/// 
 							/// <b>Note:</b> If the default value -1 is not overwritten with the meaningful one then the <code>labelSpanL</code> value is used.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> labelSpanXL;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> labelSpanXL;
 
 							/// <summary>
 							/// Default span for labels in large size.
 							/// 
 							/// <b>Note:</b> If <code>adjustLabelSpanThis</code> is set, this property is only used if more than 1 <code>FormContainer</code> is in one line. If only 1 <code>FormContainer</code> is in the line, then the <code>labelSpanM</code> value is used.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> labelSpanL;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> labelSpanL;
 
 							/// <summary>
 							/// Default span for labels in medium size.
 							/// 
 							/// <b>Note:</b> If <code>adjustLabelSpanThis</code> is set this property is used for full-size <code>FormContainers</code>. If more than one <code>FormContainer</code> is in one line, <code>labelSpanL</code> is used.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> labelSpanM;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> labelSpanM;
 
 							/// <summary>
 							/// Default span for labels in small size.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> labelSpanS;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> labelSpanS;
 
 							/// <summary>
 							/// If set, the usage of <code>labelSpanL</code> and <code>labelSpanM</code> are dependent on the number of <code>FormContainers</code> in one row. If only one <code>FormContainer</code> is displayed in one row, <code>labelSpanM</code> is used to define the size of the label. This is the same for medium and large <code>Forms</code>. This is done to align the labels on forms where full-size <code>FormContainers</code> and multiple-column rows are used in the same <code>Form</code> (because every <code>FormContainer</code> has its own <code>Grid</code> inside).
 							/// 
 							/// If not set, the usage of <code>labelSpanL</code> and <code>labelSpanM</code> are dependent on the <code>Form</code> size. The number of <code>FormContainers</code> doesn't matter in this case.
 							/// </summary>
-							public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> adjustLabelSpan;
+							public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> adjustLabelSpan;
 
 							/// <summary>
 							/// Number of grid cells that are empty at the end of each line on extra large size.
 							/// 
 							/// <b>Note:</b> If the default value -1 is not overwritten with the meaningful one then the <code>emptySpanL</code> value is used.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> emptySpanXL;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> emptySpanXL;
 
 							/// <summary>
 							/// Number of grid cells that are empty at the end of each line on large size.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> emptySpanL;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> emptySpanL;
 
 							/// <summary>
 							/// Number of grid cells that are empty at the end of each line on medium size.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> emptySpanM;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> emptySpanM;
 
 							/// <summary>
 							/// Number of grid cells that are empty at the end of each line on small size.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> emptySpanS;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> emptySpanS;
 
 							/// <summary>
 							/// Number of columns for extra large size.
 							/// 
 							/// The number of columns for extra large size must not be smaller than the number of columns for large size. <b>Note:</b> If the default value -1 is not overwritten with the meaningful one then the <code>columnsL</code> value is used (from the backward compatibility reasons).
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> columnsXL;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> columnsXL;
 
 							/// <summary>
 							/// Number of columns for large size.
 							/// 
 							/// The number of columns for large size must not be smaller than the number of columns for medium size.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> columnsL;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> columnsL;
 
 							/// <summary>
 							/// Number of columns for medium size.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> columnsM;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> columnsM;
 
 							/// <summary>
 							/// If the <code>Form</code> contains only one single <code>FormContainer</code> and this property is set, the <code>FormContainer</code> is displayed using the full size of the <code>Form</code>. In this case the properties <code>columnsXL</code>, <code>columnsL</code> and <code>columnsM</code> are ignored.
 							/// 
 							/// In all other cases the <code>FormContainer</code> is displayed in the size of one column.
 							/// </summary>
-							public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> singleContainerFullSize;
+							public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> singleContainerFullSize;
 
 							/// <summary>
 							/// Breakpoint (in pixel) between large size and extra large (XL) size.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> breakpointXL;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> breakpointXL;
 
 							/// <summary>
 							/// Breakpoint (in pixel) between Medium size and Large size.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> breakpointL;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> breakpointL;
 
 							/// <summary>
 							/// Breakpoint (in pixel) between Small size and Medium size.
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> breakpointM;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> breakpointM;
 
 						}
 

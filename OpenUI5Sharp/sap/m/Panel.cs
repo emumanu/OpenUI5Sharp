@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.Panel")]
 			public partial class Panel : sap.ui.core.Control
 			{
 				#region Settings
@@ -30,57 +31,57 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// This property is used to set the header text of the Panel. The "headerText" is visible in both expanded and collapsed state. Note: This property is overwritten by the "headerToolbar" aggregation.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> headerText;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> headerText;
 
 					/// <summary>
 					/// Determines the Panel width.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// Determines the Panel height.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> height;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> height;
 
 					/// <summary>
 					/// Specifies whether the control is expandable. This allows for collapsing or expanding the infoToolbar (if available) and content of the Panel. Note: If expandable is set to false, the Panel will always be rendered expanded.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> expandable;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> expandable;
 
 					/// <summary>
 					/// Indicates whether the Panel is expanded or not. If expanded is set to true, then both the infoToolbar (if available) and the content are rendered. If expanded is set to false, then only the headerText or headerToolbar is rendered.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> expanded;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> expanded;
 
 					/// <summary>
 					/// Indicates whether the transition between the expanded and the collapsed state of the control is animated. By default the animation is enabled.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> expandAnimation;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> expandAnimation;
 
 					/// <summary>
 					/// This property is used to set the background color of the Panel. Depending on the theme you can change the state of the background from "Solid" over "Translucent" to "Transparent".
 					/// </summary>
-					public Union<sap.m.BackgroundDesign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> backgroundDesign;
+					public Union<sap.m.BackgroundDesign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundDesign;
 
 					/// <summary>
 					/// This property is used to set the accessible aria role of the Panel. Depending on the usage you can change the role from the default <code>Form</code> to <code>Region</code> or <code>Complementary</code>.
 					/// </summary>
-					public Union<sap.m.PanelAccessibleRole, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> accessibleRole;
+					public Union<sap.m.PanelAccessibleRole, string, sap.ui.@base.ManagedObject.BindPropertyInfo> accessibleRole;
 
 					/// <summary>
 					/// Determines the content of the Panel. The content will be visible only when the Panel is expanded.
 					/// </summary>
-					public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
+					public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
 
 					/// <summary>
 					/// This aggregation allows the use of a custom Toolbar as header for the Panel. The "headerToolbar" is visible in both expanded and collapsed state. Use it when you want to add extra controls for user interactions in the header. Note: This aggregation overwrites "headerText" property.
 					/// </summary>
-					public Union<sap.m.Toolbar, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> headerToolbar;
+					public Union<sap.m.Toolbar, string, sap.ui.@base.ManagedObject.BindAggregationInfo> headerToolbar;
 
 					/// <summary>
 					/// This aggregation allows the use of a custom Toolbar as information bar for the Panel. The "infoToolbar" is placed below the header and is visible only in expanded state. Use it when you want to show extra information to the user.
 					/// </summary>
-					public Union<sap.m.Toolbar, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> infoToolbar;
+					public Union<sap.m.Toolbar, string, sap.ui.@base.ManagedObject.BindAggregationInfo> infoToolbar;
 
 					/// <summary>
 					/// Indicates that the panel will expand or collapse.

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -18,24 +18,25 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.dnd.DropEffect")]
 					public enum DropEffect
 					{
-							/// <summary>
-							/// A copy of the source item is made at the new location.
-							/// </summary>
-							Copy,
-							/// <summary>
-							/// A link is established to the source at the new location.
-							/// </summary>
-							Link,
-							/// <summary>
-							/// An item is moved to a new location.
-							/// </summary>
-							Move,
-							/// <summary>
-							/// The item cannot be dropped.
-							/// </summary>
-							None,
+						/// <summary>
+						/// A copy of the source item is made at the new location.
+						/// </summary>
+						Copy,
+						/// <summary>
+						/// A link is established to the source at the new location.
+						/// </summary>
+						Link,
+						/// <summary>
+						/// An item is moved to a new location.
+						/// </summary>
+						Move,
+						/// <summary>
+						/// The item cannot be dropped.
+						/// </summary>
+						None,
 					}
 				}
 			}

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.search.SearchProvider")]
 					public partial class SearchProvider : sap.ui.core.Element
 					{
 						#region Settings
@@ -32,7 +33,7 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// Icon of the Search Provider
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> icon;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> icon;
 
 						}
 

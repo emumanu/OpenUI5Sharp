@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -40,6 +40,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.core.Core")]
 				public partial class Core : sap.ui.@base.Object
 				{
 					#region Typed Parameters
@@ -644,15 +645,15 @@ namespace OpenUI5Sharp
 					/// The given function will either be called as soon as the framework has been initialized or, if it has been initialized already, it will be called immediately.
 					/// </summary>
 					/// <param name="fnFunction">Function to be after initialization of the framework</param>
-					public extern virtual void attachInit(object fnFunction);
+					public extern virtual void attachInit(Action fnFunction);
 
 					/// <summary>
 					/// Registers a given function that is executed after the framework has been initialized.
 					/// 
 					/// The method is executed only once and only if the framework has not been initialized already. This could be checked by calling {@link #isInitialized}, but in most cases it is more convenient to use {@link #attachInit} instead. This guarantees that the given function is executed exactly once, independent of the state of the framework.
 					/// </summary>
-					[Obsolete("Deprecated since 1.13.2. Register with the more convenient {@link #attachInit} function instead")]
 					/// <param name="fnFunction">Function that is called after initialization of the framework</param>
+					[Obsolete("Deprecated since 1.13.2. Register with the more convenient {@link #attachInit} function instead")]
 					public extern virtual void attachInitEvent(object fnFunction);
 
 					/// <summary>
@@ -745,9 +746,9 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Creates a new sap.ui.core.UIArea.
 					/// </summary>
-					[Obsolete("Deprecated since 1.1. use {@link sap.ui.core.Control#placeAt Control#placeAt} instead!")]
 					/// <param name="oDomRef">a DOM Element or ID string of the UIArea</param>
 					/// <returns>a new UIArea</returns>
+					[Obsolete("Deprecated since 1.1. use {@link sap.ui.core.Control#placeAt Control#placeAt} instead!")]
 					public extern virtual sap.ui.core.UIArea createUIArea(Union<string, dom.HTMLElement> oDomRef);
 
 					/// <summary>
@@ -817,8 +818,8 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Returns the instance of the application (if exists).
 					/// </summary>
-					[Obsolete("Deprecated since 1.15.1. The Component class is enhanced to take care about the Application code.")]
 					/// <returns>instance of the current application</returns>
+					[Obsolete("Deprecated since 1.15.1. The Component class is enhanced to take care about the Application code.")]
 					public extern virtual sap.ui.app.Application getApplication();
 
 					/// <summary>
@@ -837,9 +838,9 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Returns the registered element for the given ID, if any.
 					/// </summary>
-					[Obsolete("Deprecated since 1.1. use <code>sap.ui.core.Core.byId</code> instead!")]
 					/// <param name="sId"></param>
 					/// <returns>the element for the given id</returns>
+					[Obsolete("Deprecated since 1.1. use <code>sap.ui.core.Core.byId</code> instead!")]
 					public extern virtual sap.ui.core.Element getControl(string sId);
 
 					/// <summary>
@@ -851,9 +852,9 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Returns the registered element for the given ID, if any.
 					/// </summary>
-					[Obsolete("Deprecated since 1.1. use <code>sap.ui.core.Core.byId</code> instead!")]
 					/// <param name="sId"></param>
 					/// <returns>the element for the given id</returns>
+					[Obsolete("Deprecated since 1.1. use <code>sap.ui.core.Core.byId</code> instead!")]
 					public extern virtual sap.ui.core.Element getElementById(string sId);
 
 					/// <summary>
@@ -1032,9 +1033,9 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Returns the registered template for the given id, if any.
 					/// </summary>
-					[Obsolete("Deprecated since 1.29.1. Require 'sap/ui/core/tmpl/Template' and use {@link sap.ui.core.tmpl.Template.byId Template.byId} instead.")]
 					/// <param name="sId"></param>
 					/// <returns>the template for the given id</returns>
+					[Obsolete("Deprecated since 1.29.1. Require 'sap/ui/core/tmpl/Template' and use {@link sap.ui.core.tmpl.Template.byId Template.byId} instead.")]
 					public extern virtual sap.ui.core.Component getTemplate(string sId);
 
 					/// <summary>
@@ -1271,9 +1272,9 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Implicitly creates a new <code>UIArea</code> (or reuses an exiting one) for the given DOM reference and adds the given control reference to the UIAreas content (existing content will be removed).
 					/// </summary>
-					[Obsolete("Deprecated since 1.1. use {@link sap.ui.core.Control#placeAt oControl.placeAt(oDomRef, 'only')} instead.")]
 					/// <param name="oDomRef">a DOM Element or Id (string) of the UIArea</param>
 					/// <param name="oControl">the Control that should be the added to the <code>UIArea</code>.</param>
+					[Obsolete("Deprecated since 1.1. use {@link sap.ui.core.Control#placeAt oControl.placeAt(oDomRef, 'only')} instead.")]
 					public extern virtual void setRoot(Union<string, dom.HTMLElement> oDomRef, Union<sap.ui.@base.Interface, sap.ui.core.Control> oControl);
 
 					/// <summary>

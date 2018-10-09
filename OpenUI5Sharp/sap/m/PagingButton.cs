@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.PagingButton")]
 			public partial class PagingButton : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,22 +29,22 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Determines the total count of items/entities that the control navigates through. The minimum number of items/entities is 1.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> count;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> count;
 
 					/// <summary>
 					/// Determines the current position in the items/entities that the control navigates through. Starting (minimum) number is 1.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> position;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> position;
 
 					/// <summary>
 					/// Determines the tooltip of the next button.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> nextButtonTooltip;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> nextButtonTooltip;
 
 					/// <summary>
 					/// Determines the tooltip of the previous button.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> previousButtonTooltip;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> previousButtonTooltip;
 
 					/// <summary>
 					/// Fired when the current position is changed.

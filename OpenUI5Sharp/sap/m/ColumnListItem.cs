@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.ColumnListItem")]
 			public partial class ColumnListItem : sap.m.ListItemBase
 			{
 				#region Settings
@@ -30,12 +31,12 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Sets the vertical alignment of all the cells within the table row (including selection and navigation). <b>Note:</b> <code>vAlign</code> property of <code>sap.m.Column</code> overrides the property for cell vertical alignment if both are set.
 					/// </summary>
-					public Union<sap.ui.core.VerticalAlign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> vAlign;
+					public Union<sap.ui.core.VerticalAlign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> vAlign;
 
 					/// <summary>
 					/// Every <code>control</code> inside the <code>cells</code> aggregation defines one cell of the row. <b>Note:</b> The order of the <code>cells</code> aggregation must match the order of the <code>columns</code> aggregation of <code>sap.m.Table</code>.
 					/// </summary>
-					public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> cells;
+					public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> cells;
 
 				}
 
@@ -229,7 +230,7 @@ namespace OpenUI5Sharp
 				/// Returns the tabbable DOM elements as a jQuery collection When popin is available this separated dom should also be included
 				/// </summary>
 				/// <returns>jQuery object</returns>
-				public extern override jquery.JQuery<object> getTabbables();
+				public extern override jQuery getTabbables();
 
 				/// <summary>
 				/// Determines whether control has pop-in or not.

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -20,6 +20,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.core.Control")]
 				public abstract partial class Control : sap.ui.core.Element
 				{
 					#region Settings
@@ -34,22 +35,22 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Whether the control is currently in blocked state.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> blocked;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> blocked;
 
 						/// <summary>
 						/// Whether the control is currently in busy state.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> busy;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> busy;
 
 						/// <summary>
 						/// The delay in milliseconds, after which the busy indicator will show up for this control.
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> busyIndicatorDelay;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> busyIndicatorDelay;
 
 						/// <summary>
 						/// The size of the BusyIndicator. For controls with a width smaller 3rem a <code>sap.ui.core.BusyIndicatorSize.Small</code> should be used. If the size could vary in width and the width could get smaller than 3rem, the <code>sap.ui.core.BusyIndicatorSize.Auto</code> option could be used. The default is set to <code>sap.ui.core.BusyIndicatorSize.Medium</code> For a full screen BusyIndicator use <code>sap.ui.core.BusyIndicatorSize.Large</code>.
 						/// </summary>
-						public Union<sap.ui.core.BusyIndicatorSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> busyIndicatorSize;
+						public Union<sap.ui.core.BusyIndicatorSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> busyIndicatorSize;
 
 						/// <summary>
 						/// Whether the control should be visible on the screen.
@@ -58,7 +59,7 @@ namespace OpenUI5Sharp
 						/// 
 						/// See {@link sap.ui.core.RenderManager#writeInvisiblePlaceholderData RenderManager#writeInvisiblePlaceholderData} for details.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visible;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visible;
 
 						/// <summary>
 						/// The IDs of a logical field group that this control belongs to.
@@ -67,7 +68,7 @@ namespace OpenUI5Sharp
 						/// 
 						/// See {@link sap.ui.core.Control#attachValidateFieldGroup}.
 						/// </summary>
-						public Union<string[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> fieldGroupIds;
+						public Union<string[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> fieldGroupIds;
 
 						/// <summary>
 						/// Event is fired if a logical field group defined by <code>fieldGroupIds</code> of a control was left or the user explicitly pressed a key combination that triggers validation.
@@ -751,8 +752,8 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Check if the control is currently in busy state.
 					/// </summary>
-					[Obsolete("Deprecated since 1.15. use {@link #getBusy} instead")]
 					/// <returns>boolean</returns>
+					[Obsolete("Deprecated since 1.15. use {@link #getBusy} instead")]
 					public extern virtual void isBusy();
 
 					/// <summary>

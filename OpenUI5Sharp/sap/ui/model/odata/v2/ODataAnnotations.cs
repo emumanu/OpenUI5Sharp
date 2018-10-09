@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -20,6 +20,7 @@ namespace OpenUI5Sharp
 						/// </summary>
 						[External]
 						[Namespace(false)]
+						[Name("sap.ui.model.odata.v2.ODataAnnotations")]
 						public partial class ODataAnnotations : sap.ui.@base.EventProvider
 						{
 							#region Typed Parameters
@@ -342,8 +343,8 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// Returns the parsed and merged annotation data object.
 							/// </summary>
-							[Obsolete("Deprecated since 1.37.0. only kept for compatibility with V1 API, use {@link #getData} instead.")]
 							/// <returns>returns annotations data</returns>
+							[Obsolete("Deprecated since 1.37.0. only kept for compatibility with V1 API, use {@link #getData} instead.")]
 							public extern virtual object getAnnotationsData();
 
 							/// <summary>

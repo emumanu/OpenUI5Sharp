@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -26,6 +26,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.Button")]
 			public partial class Button : sap.ui.core.Control, sap.ui.core.IFormContent
 			{
 				#region Settings
@@ -40,59 +41,59 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Determines the text of the <code>Button</code>.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> text;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> text;
 
 					/// <summary>
 					/// Defines the <code>Button</code> type.
 					/// </summary>
-					public Union<sap.m.ButtonType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> type;
+					public Union<sap.m.ButtonType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> type;
 
 					/// <summary>
 					/// Defines the <code>Button</code> width.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// Determines whether the <code>Button</code> is enabled (default is set to <code>true</code>). A disabled <code>Button</code> has different colors depending on the {@link sap.m.ButtonType ButtonType}.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enabled;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enabled;
 
 					/// <summary>
 					/// Defines the icon to be displayed as graphical element within the <code>Button</code>. It can be an image or an icon from the icon font.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> icon;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> icon;
 
 					/// <summary>
 					/// Determines whether the icon is displayed before the text.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> iconFirst;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> iconFirst;
 
 					/// <summary>
 					/// The source property of an alternative icon for the active (depressed) state of the button. Both active and default icon properties should be defined and have the same type: image or icon font. If the <code>icon</code> property is not set or has a different type, the active icon is not displayed.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> activeIcon;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> activeIcon;
 
 					/// <summary>
 					/// By default, this is set to true but then one or more requests are sent trying to get the density perfect version of image if this version of image doesn't exist on the server.
 					/// 
 					/// If only one version of image is provided, set this value to false to avoid the attempt of fetching density perfect image.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> iconDensityAware;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> iconDensityAware;
 
 					/// <summary>
 					/// This property specifies the element's text directionality with enumerated options. By default, the control inherits text direction from the DOM.
 					/// </summary>
-					public Union<sap.ui.core.TextDirection, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> textDirection;
+					public Union<sap.ui.core.TextDirection, string, sap.ui.@base.ManagedObject.BindPropertyInfo> textDirection;
 
 					/// <summary>
 					/// Association to controls / ids which describe this control (see WAI-ARIA attribute aria-describedby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaDescribedBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaDescribedBy;
 
 					/// <summary>
 					/// Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 					/// <summary>
 					/// Fired when the user taps the control.
@@ -438,11 +439,11 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fired when the user taps the control.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20. replaced by <code>press</code> event")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.Button</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20. replaced by <code>press</code> event")]
 				public extern virtual sap.m.Button attachTap(object oData, sap.ui.@base.EventDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -452,10 +453,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fired when the user taps the control.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20. replaced by <code>press</code> event")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20. replaced by <code>press</code> event")]
 				public extern virtual sap.m.Button attachTap(object oData, sap.ui.@base.EventDelegate fnFunction);
 
 				/// <summary>
@@ -465,9 +466,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fired when the user taps the control.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20. replaced by <code>press</code> event")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20. replaced by <code>press</code> event")]
 				public extern virtual sap.m.Button attachTap(sap.ui.@base.EventDelegate fnFunction);
 
 				/// <summary>
@@ -477,10 +478,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fired when the user taps the control.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20. replaced by <code>press</code> event")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.Button</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20. replaced by <code>press</code> event")]
 				public extern virtual sap.m.Button attachTap(sap.ui.@base.EventDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -488,25 +489,25 @@ namespace OpenUI5Sharp
 				/// 
 				/// The passed function and listener object must match the ones used for event registration.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20. replaced by <code>press</code> event")]
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20. replaced by <code>press</code> event")]
 				public extern virtual sap.m.Button detachTap(sap.ui.@base.EventDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:tap tap} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20. replaced by <code>press</code> event")]
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20. replaced by <code>press</code> event")]
 				public extern virtual sap.m.Button fireTap(object mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:tap tap} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20. replaced by <code>press</code> event")]
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20. replaced by <code>press</code> event")]
 				public extern virtual sap.m.Button fireTap();
 
 				#endregion

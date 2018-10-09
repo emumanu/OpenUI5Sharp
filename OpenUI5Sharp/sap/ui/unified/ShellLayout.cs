@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.unified.ShellLayout")]
 				[Obsolete("Deprecated since 1.44.0.")]
 				public partial class ShellLayout : sap.ui.core.Control
 				{
@@ -31,32 +32,32 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Shows / Hides the side pane.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showPane;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showPane;
 
 						/// <summary>
 						/// Whether the header can be hidden (manually or automatically). This feature is only available when touch events are supported.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> headerHiding;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> headerHiding;
 
 						/// <summary>
 						/// If set to false, no header (and no items, search, ...) is shown.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> headerVisible;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> headerVisible;
 
 						/// <summary>
 						/// The content to appear in the main canvas.
 						/// </summary>
-						public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
+						public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
 
 						/// <summary>
 						/// The content to appear in the pane area.
 						/// </summary>
-						public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> paneContent;
+						public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> paneContent;
 
 						/// <summary>
 						/// The control to appear in the header area.
 						/// </summary>
-						public Union<sap.ui.core.Control, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> header;
+						public Union<sap.ui.core.Control, string, sap.ui.@base.ManagedObject.BindAggregationInfo> header;
 
 					}
 

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -22,6 +22,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.unified.calendar.Header")]
 					public partial class Header : sap.ui.core.Control
 					{
 						#region Settings
@@ -36,74 +37,74 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// Text of the first button (normally day)
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> textButton0;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> textButton0;
 
 							/// <summary>
 							/// Additional text of the first button (normally day)
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> additionalTextButton0;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> additionalTextButton0;
 
 							/// <summary>
 							/// aria-label of the first button (normally day)
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelButton0;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelButton0;
 
 							/// <summary>
 							/// If set, the first button will be displayed
 							/// 
 							/// <b>Note:</b> The default is set to false to be compatible to older versions
 							/// </summary>
-							public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visibleButton0;
+							public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visibleButton0;
 
 							/// <summary>
 							/// Text of the second button (normally month)
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> textButton1;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> textButton1;
 
 							/// <summary>
 							/// Additional text of the second button (normally month)
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> additionalTextButton1;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> additionalTextButton1;
 
 							/// <summary>
 							/// aria-label of the second button (normally month)
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelButton1;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelButton1;
 
 							/// <summary>
 							/// If set, the second button will be displayed
 							/// </summary>
-							public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visibleButton1;
+							public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visibleButton1;
 
 							/// <summary>
 							/// Text of the third button (normally year)
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> textButton2;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> textButton2;
 
 							/// <summary>
 							/// Additional text of the third button (normally year)
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> additionalTextButton2;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> additionalTextButton2;
 
 							/// <summary>
 							/// aria-label of the third button (normally year)
 							/// </summary>
-							public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelButton2;
+							public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelButton2;
 
 							/// <summary>
 							/// If set, the third button will be displayed
 							/// </summary>
-							public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visibleButton2;
+							public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visibleButton2;
 
 							/// <summary>
 							/// Enables the previous button
 							/// </summary>
-							public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enabledPrevious;
+							public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enabledPrevious;
 
 							/// <summary>
 							/// Enables the Next button
 							/// </summary>
-							public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enabledNext;
+							public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enabledNext;
 
 							/// <summary>
 							/// Previous button pressed

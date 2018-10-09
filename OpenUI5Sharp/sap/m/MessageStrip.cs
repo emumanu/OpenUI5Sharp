@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.MessageStrip")]
 			public partial class MessageStrip : sap.ui.core.Control
 			{
 				#region Settings
@@ -32,39 +33,39 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Determines the text of the message.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> text;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> text;
 
 					/// <summary>
 					/// Determines the type of messages that are displayed in the MessageStrip. Possible values are: Information (default), Success, Warning, Error. If None is passed, the value is set to Information and a warning is displayed in the console.
 					/// </summary>
-					public Union<sap.ui.core.MessageType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> type;
+					public Union<sap.ui.core.MessageType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> type;
 
 					/// <summary>
 					/// Determines a custom icon which is displayed. If none is set, the default icon for this message type is used.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> customIcon;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> customIcon;
 
 					/// <summary>
 					/// Determines if an icon is displayed for the message.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showIcon;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showIcon;
 
 					/// <summary>
 					/// Determines if the message has a close button in the upper right corner.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showCloseButton;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showCloseButton;
 
 					/// <summary>
 					/// Determines the limited collection of HTML elements passed to the <code>text</code> property should be evaluated.
 					/// 
 					/// <b>Note:</b> If this property is set to true the string passed to <code>text</code> property can evaluate the following list of limited HTML elements. All other HTML elements and their nested content will not be rendered by the control: <ul> <li><code>a</code></li> <li><code>em</code></li> <li><code>strong</code></li> <li><code>u</code></li> </ul>
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enableFormattedText;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enableFormattedText;
 
 					/// <summary>
 					/// Adds an sap.m.Link control which will be displayed at the end of the message.
 					/// </summary>
-					public Union<sap.m.Link, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> link;
+					public Union<sap.m.Link, string, sap.ui.@base.ManagedObject.BindAggregationInfo> link;
 
 					/// <summary>
 					/// This event will be fired after the container is closed.

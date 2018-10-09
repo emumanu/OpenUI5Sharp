@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.unified.calendar.MonthPicker")]
 					public partial class MonthPicker : sap.ui.core.Control
 					{
 						#region Settings
@@ -32,22 +33,22 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// The month is initial focused and selected The value must be between 0 and 11
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> month;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> month;
 
 							/// <summary>
 							/// number of displayed months The value must be between 1 and 12
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> months;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> months;
 
 							/// <summary>
 							/// number of months in each row The value must be between 0 and 12 (0 means just to have all months in one row, independent of the number)
 							/// </summary>
-							public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> columns;
+							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> columns;
 
 							/// <summary>
 							/// If set, the calendar type is used for display. If not set, the calendar type of the global configuration is used.
 							/// </summary>
-							public Union<sap.ui.core.CalendarType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> primaryCalendarType;
+							public Union<sap.ui.core.CalendarType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> primaryCalendarType;
 
 							/// <summary>
 							/// Month selection changed

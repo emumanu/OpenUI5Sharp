@@ -1,0 +1,1026 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:n22="sap.ui.table" xmlns:n0="sap.ui.core" xmlns:n10="sap.ui.unified" elementFormDefault="qualified" targetNamespace="sap.ui.table" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="sap.ui.core" />
+  <xs:import namespace="sap.ui.unified" />
+  <xs:element name="AnalyticalColumn" substitutionGroup="n22:Column" type="n22:_AnalyticalColumnType">
+    <xs:annotation>
+      <xs:documentation>This column adds additional properties to the table column which are needed for the analytical binding and table</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_AnalyticalColumnType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n22:_ColumnType">
+        <xs:attribute name="leadingProperty" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Defines the primary model property which is used inside the Column. In case of the analytical extension this means the property which is grouped by for dimensions or the property which is summed for measures.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="summed" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If defined a sum for this column is calculated</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="inResult" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies that the dimension referred to by the column shall be included in the granularity of the data result. It allows a finer distinction between a visible/grouped/(included)inResult column.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showIfGrouped" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies whether the column is displayed within the table even if it is grouped or not. A grouped column has the same value for every rows within the group.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="groupHeaderFormatter" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>If the column is grouped, this formatter is used to format the value in the group header</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AnalyticalColumnMenu" substitutionGroup="n22:ColumnMenu" type="n22:_AnalyticalColumnMenuType">
+    <xs:annotation>
+      <xs:documentation>A column menu which is used by the analytical column</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_AnalyticalColumnMenuType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n22:_ColumnMenuType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AnalyticalTable" substitutionGroup="n22:Table" type="n22:_AnalyticalTableType">
+    <xs:annotation>
+      <xs:documentation>Table which handles analytical OData backends. The AnalyticalTable only works with an AnalyticalBinding and correctly annotated OData services. Please check on the SAP Annotations for OData Version 2.0 documentation for further details.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_AnalyticalTableType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n22:_TableType">
+        <xs:attribute name="sumOnTop" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies if the total values should be displayed in the group headers or on bottom of the row. Does not affect the total sum.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="numberOfExpandedLevels" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Number of levels, which should be opened initially (on first load of data).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="autoExpandMode" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The kind of auto expansion algorithm, e.g. optimized filter conditions, per level requests, ... Must be a value of &lt;code&gt;sap.ui.table.TreeAutoExpandMode&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="columnVisibilityMenuSorter" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Functions which is used to sort the column visibility menu entries e.g.: function(ColumnA, ColumnB) { return 0 = equals, &lt;0 lower, &gt;0 greater }; Other values than functions will be ignored.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="collapseRecursive" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Setting collapseRecursive to true means, that when collapsing a node all subsequent child nodes will also be collapsed.
+
+Calling the setter of this property only has an effect when the tables &lt;code&gt;rows&lt;/code&gt; aggregation is already bound and the binding supports this feature.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="dirty" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If dirty the content of the Table will be overlayed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Column" substitutionGroup="n0:Element" type="n22:_ColumnType">
+    <xs:annotation>
+      <xs:documentation>The column allows you to define column specific properties that will be applied when rendering the table.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ColumnType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="label">
+            <xs:annotation>
+              <xs:documentation>Label of the column which is displayed in the column header. This aggregation is for the standard behavior, where you only want to display one single row header. If a string is supplied, a default label control will be created. Which control this is depends on the loaded libraries.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="multiLabels">
+            <xs:annotation>
+              <xs:documentation>Labels of the column which are displayed in the column header. Define a control for each header row in the table. Use this aggregation if you want to use multiple headers per column.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="template">
+            <xs:annotation>
+              <xs:documentation>Template (cell renderer) of this column. A template is decoupled from the column. Each time the template's properties or aggregations have been changed, the template has to be applied again via &lt;code&gt;setTemplate&lt;/code&gt; for the changes to take effect. If a string is defined, a default text control will be created with its text property bound to the value of the string. The default template depends on the libraries loaded. If there is no template, the column will not be rendered in the table. The set of supported controls is limited. See section "{@link topic:148892ff9aea4a18b912829791e38f3e Tables: Which One Should I Choose?}" in the documentation for more details. While it is technically possible to also use other controls, doing so might lead to issues with regards to scrolling, alignment, condensed mode, screen reader support, and keyboard support.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="menu">
+            <xs:annotation>
+              <xs:documentation>The menu used by the column. By default the {@link sap.ui.table.ColumnMenu} is used.
+
+&lt;b&gt;Note:&lt;/b&gt; Applications must not use or change the default &lt;code&gt;sap.ui.table.ColumnMenu&lt;/code&gt; of a column in any way or create own instances of &lt;code&gt;sap.ui.table.ColumnMenu&lt;/code&gt;. To add a custom menu to a column, use the aggregation &lt;code&gt;menu&lt;/code&gt; with a new instance of &lt;code&gt;sap.ui.unified.Menu&lt;/code&gt;.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n10:Menu" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Width of the column in CSS units. Default value is &lt;code&gt;auto&lt;/code&gt;, see &lt;a href="https://www.w3.org/TR/CSS2/tables.html#width-layout"&gt;&lt;/a&gt; &lt;p&gt;Minimal column width is device-dependent, for example on desktop devices the column will not be smaller than 48px. &lt;p&gt;This property can be changed by the user or by the application configuration/personalization. &lt;p&gt;If a user adjusts the column width manually, the resulting value is always set in pixels. In addition, other columns with width &lt;code&gt;auto&lt;/code&gt; get a fixed minimum width and do not shrink after the resizing.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="minWidth" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Defines the minimum width of a column in pixels. &lt;p&gt;This property only has an effect if the given column width is flexible, for example with width &lt;code&gt;auto&lt;/code&gt;. &lt;p&gt;This property only influences the automatic behavior. If a user adjusts the column width manually, the column width can become smaller. &lt;p&gt;Minimal column width is device-dependent, for example on desktop devices the column will not be smaller than 48px.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="flexible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If the table is wider than the sum of widths of the visible columns, the columns will be resized proportionally to their widths that were set originally. If set to false, the column will be displayed in the original width. If all columns are set to not be flexible, an extra "dummy" column will be created at the end of the table.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="resizable" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set to true, the column can be resized either using the resize bar (by mouse) or using the keyboard (SHIFT + Left/Right Arrow keys)</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="hAlign" type="n0:_HorizontalAlignType">
+          <xs:annotation>
+            <xs:documentation>Horizontal alignment of the column content. Controls with a text align do not inherit the horizontal alignment. You have to set the text align directly on the template.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="sorted" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Indicates if the column is sorted. This property only controls if a sort indicator is displayed in the column header - it does not trigger the sort function. The column has to be sorted by calling &lt;code&gt;Column.sort()&lt;/code&gt;</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="sortOrder" type="n22:_SortOrderType">
+          <xs:annotation>
+            <xs:documentation>This property indicates the sort direction (Ascending or Descending). The corresponding icon will be rendered if the property &lt;code&gt;sorted&lt;/code&gt; is &lt;code&gt;true&lt;/code&gt;</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="sortProperty" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Specifies the binding property on which the column will sort. Since the column template may have composite bindings, it's not possible to figure out on which binding property the sort shall be applied. Therefore the binding property for sorting must be specified. For example, if the first name and last name are displayed in the same column, only one of the two can be defined as &lt;code&gt;sortProperty&lt;/code&gt;.
+
+A column menu entry for sorting can only be generated if the &lt;code&gt;sortProperty&lt;/code&gt; is set.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="filtered" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Indicates if the column is filtered. This property only controls if a filter indicator is displayed in the column header - it does not trigger the filter function. The column has to be filtered by calling &lt;code&gt;Column.sort()&lt;/code&gt;</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="filterProperty" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Specifies the binding property on which the column shall be filtered. Since the column template may have composite bindings, it's not possible to figure out on which binding property the filter shall be applied. Therefore the binding property for filtering must be specified. For example, if the first name and last name are displayed in the same column, only one of the two can be defined as &lt;code&gt;filterProperty&lt;/code&gt;.
+
+A column menu entry for filtering can only be generated if the &lt;code&gt;filterProperty&lt;/code&gt; is set. The default menu entry is a text input field.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="filterValue" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Specifies the value of the filter as string (will be converted into the proper data type). It is possible to provide a filterOperator as string, as shown here: &lt;pre&gt;
+&amp;gt; 50
+&amp;lt; 100
+&amp;gt;= 150
+&amp;lt;= 200
+= 250
+!= 300
+*something    ends with
+something*    starts with
+*something*   contains
+some..thing   between
+50..100       between
+&lt;/pre&gt;</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="filterOperator" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Filter operator to use when filtering this column.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="defaultFilterOperator" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>If this property is set, the default filter operator of the column is overridden. By default &lt;code&gt;Contains&lt;/code&gt; is used for string and &lt;code&gt;EQ&lt;/code&gt; for other types. A valid &lt;code&gt;sap.ui.model.FilterOperator&lt;/code&gt; needs to be passed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="filterType" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Type of Filter. This is used to transform the search term to the specified type, to make sure that the right columns are displayed. This should be the same as defined in binding for this column. As an alternative you can pass a function which does the conversion. The function receives the entered filter value as parameter and returns the proper value for the filter expression. Another option is to pass the class name of the type, e.g.: &lt;code&gt;sap.ui.model.type.Date&lt;/code&gt; or an expression similar to the binding syntax, e.g.: &lt;code&gt;"\{type: 'sap.ui.model.type.Date', formatOptions: \{UTC: true\}, constraints: \{\} \}"&lt;/code&gt;. Here the escaping is mandatory to avoid handling by the binding parser. By default the filter type is &lt;code&gt;sap.ui.model.type.String&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="grouped" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Indicates if the column is grouped.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="visible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Invisible controls are not rendered.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="name" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The name of the column which is used in the column visibility menu item as text. If not set as a fallback the column menu tries to get the text from the nested Label.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showFilterMenuEntry" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Defines if the filter menu entry is displayed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showSortMenuEntry" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Defines if the sort menu entries are displayed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="headerSpan" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>If this property is set, a span is applied for the header. When moving columns, all columns which are part of the header will be moved. The &lt;code&gt;headerSpan&lt;/code&gt; can be either an integer or an array of integers (if you use the multi header feature of the table). If you only specify an integer, this span is applied for all header rows, with multiple integers you can specify a separate span for each header row.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="autoResizable" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Enables auto-resizing of the column on double clicking the resize bar. The width is determined on the widest currently displayed content. It does not consider rows which are currently not scrolled into view. Currently only implemented to work with the following controls: &lt;code&gt;sap.m.Text, sap.m.Label, sap.m.Link, sap.m.Input, sap.ui.commons.TextView, sap.ui.commons.Label, sap.ui.commons.Link and sap.ui.commons.TextField, sap.ui.commons.Checkbox, sap.m.Checkbox&lt;/code&gt;</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="label" type="xs:string" />
+        <xs:attribute name="multiLabels" type="xs:string" />
+        <xs:attribute name="template" type="xs:string" />
+        <xs:attribute name="columnMenuOpen" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fires before the column menu is opened.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ColumnMenu" substitutionGroup="n10:Menu" type="n22:_ColumnMenuType">
+    <xs:annotation>
+      <xs:documentation>The column menu provides all common actions that can be performed on a column.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_ColumnMenuType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n10:_MenuType" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Row" substitutionGroup="n0:Element" type="n22:_RowType">
+    <xs:annotation>
+      <xs:documentation>The row.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_RowType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="cells">
+            <xs:annotation>
+              <xs:documentation>The controls for the cells.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="cells" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RowAction" substitutionGroup="n0:Control" type="n22:_RowActionType">
+    <xs:annotation>
+      <xs:documentation>The &lt;code&gt;RowAction&lt;/code&gt; control allows to display multiple action items which can be selected by the user. If more action items are available as the available space allows to display an overflow mechanism is provided. This control must only be used in the context of the &lt;code&gt;sap.ui.table.Table&lt;/code&gt; control to define row actions.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_RowActionType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n22:RowActionItem" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="items">
+            <xs:annotation>
+              <xs:documentation>The action items which should be displayed.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n22:RowActionItem" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="visible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Whether the control should be visible on the screen. If set to &lt;code&gt;false&lt;/code&gt;, the control is hidden.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="items" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RowActionItem" substitutionGroup="n0:Element" type="n22:_RowActionItemType">
+    <xs:annotation>
+      <xs:documentation>An action items to be displayed in a &lt;code&gt;RowAction&lt;/code&gt; control. This element must only be used in the context of the &lt;code&gt;sap.ui.table.Table&lt;/code&gt; control to define row actions.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_RowActionItemType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:attribute name="icon" type="n0:_URIType">
+          <xs:annotation>
+            <xs:documentation>The icon of the item.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="visible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Whether the item should be visible on the screen.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="text" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The text of the item. It is used as tooltip and for accessibility purposes.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="type" type="n22:_RowActionTypeType">
+          <xs:annotation>
+            <xs:documentation>The type of the item. Setting the type ensures default values for the properties &lt;code&gt;icon&lt;/code&gt; and &lt;code&gt;text&lt;/code&gt;. If an icon or text is set explicitly this setting is used.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="press" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The &lt;code&gt;press&lt;/code&gt; is fired when the user triggers the corresponding action.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RowSettings" substitutionGroup="n0:Element" type="n22:_RowSettingsType">
+    <xs:annotation>
+      <xs:documentation>The &lt;code&gt;RowSettings&lt;/code&gt; control allows you to configure a row. You can only use this control in the context of the &lt;code&gt;sap.ui.table.Table&lt;/code&gt; control to define row settings.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_RowSettingsType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ElementType">
+        <xs:attribute name="highlight" type="n0:_MessageTypeType">
+          <xs:annotation>
+            <xs:documentation>The highlight state of the rows. If the highlight is set to {@link sap.ui.core.MessageType.None} (default), no highlights are visible.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Table" substitutionGroup="n0:Control" type="n22:_TableType">
+    <xs:annotation>
+      <xs:documentation>&lt;p&gt; Provides a comprehensive set of features for displaying and dealing with vast amounts of data. The Table control supports desktop PCs and tablet devices. On tablets, special consideration should be given to the number of visible columns and rows due to the limited performance of some devices. &lt;/p&gt; &lt;p&gt; In order to keep the document DOM as lean as possible, the Table control reuses its DOM elements of the rows. When the user scrolls, only the row contexts are changed but the rendered controls remain the same. This allows the Table control to handle huge amounts of data. Nevertheless, restrictions apply regarding the number of displayed columns. Keep the number as low as possible to improve performance. Due to the nature of tables, the used control for column templates also has a big influence on the performance. &lt;/p&gt; &lt;p&gt; The Table control relies completely on data binding, and its supported feature set is tightly coupled to the data model and binding being used. &lt;/p&gt;</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_TableType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n22:Column" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
+          <xs:element minOccurs="0" name="title">
+            <xs:annotation>
+              <xs:documentation>Control or text of title section of the Table (if not set it will be hidden)</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="footer">
+            <xs:annotation>
+              <xs:documentation>Control or text of footer section of the Table (if not set it will be hidden)</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="toolbar">
+            <xs:annotation>
+              <xs:documentation>Toolbar of the Table If not set, no toolbar area will be rendered. Note: The CSS class sapMTBHeader-CTX is applied on the given toolbar.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="extension">
+            <xs:annotation>
+              <xs:documentation>Extension section of the Table. If not set, no extension area will be rendered. Note: In case a &lt;code&gt;sap.m.Toolbar&lt;/code&gt; is used as header the CSS class sapMTBHeader-CTX should be applied on this toolbar via &lt;code&gt;addStyleClass&lt;/code&gt;.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="columns">
+            <xs:annotation>
+              <xs:documentation>Columns of the Table</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n22:Column" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="rows">
+            <xs:annotation>
+              <xs:documentation>Rows of the Table</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n22:Row" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="noData">
+            <xs:annotation>
+              <xs:documentation>The value for the noData aggregation can be either a string value or a control instance. The control is shown, in case there is no data for the Table available. In case of a string value this will simply replace the no data text.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="rowActionTemplate">
+            <xs:annotation>
+              <xs:documentation>Template for row actions. A template is decoupled from the row or table. Each time the template's properties or aggregations are changed, the template has to be applied again via &lt;code&gt;setRowActionTemplate&lt;/code&gt; for the changes to take effect.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n22:RowAction" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="rowSettingsTemplate">
+            <xs:annotation>
+              <xs:documentation>Template for row settings. A template is decoupled from the row or table. Each time the template's properties or aggregations are changed, the template has to be applied again via &lt;code&gt;setRowSettingsTemplate&lt;/code&gt; for the changes to take effect.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n22:RowSettings" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="contextMenu">
+            <xs:annotation>
+              <xs:documentation>Defines the context menu for the table.
+
+&lt;b&gt;Note:&lt;/b&gt; The context menu will also be available for the row selectors as well as in the row actions cell of the table control.
+
+The custom context menu will not be shown in the group header rows and the sum row of the &lt;code&gt;AnalyticalTable&lt;/code&gt; control.
+
+If this aggregation is set, then the &lt;code&gt;enableCellFilter&lt;/code&gt; property will have no effect.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="width" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Width of the Table.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="rowHeight" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>The height of the row content in pixel. The actual row height is also influenced by other factors, such as the border width. If no value is set, a default height is applied based on the content density configuration.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="columnHeaderHeight" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Height of the column header of the Table in pixel.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="columnHeaderVisible" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Flag whether the column header is visible or not.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="visibleRowCount" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Number of visible rows of the table.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="firstVisibleRow" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>First visible row.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="selectionMode" type="n22:_SelectionModeType">
+          <xs:annotation>
+            <xs:documentation>Selection mode of the Table. This property controls whether single or multiple rows can be selected and how the selection can be extended. It may also influence the visual appearance. When the selection mode is changed, the current selection is removed. &lt;b&gt;Note:&lt;/b&gt; Since the group header visualization relies on the row selectors, the row selectors are always shown if the grouping functionality (depends on table type) is enabled, even if &lt;code&gt;sap.ui.table.SelectionMode.None&lt;/code&gt; is set.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="selectionBehavior" type="n22:_SelectionBehaviorType">
+          <xs:annotation>
+            <xs:documentation>Selection behavior of the Table. This property defines whether the row selector is displayed and whether the row, the row selector or both can be clicked to select a row. &lt;b&gt;Note:&lt;/b&gt; Since the group header visualization relies on the row selectors, the row selectors are always shown if the grouping functionality (depends on table type) is enabled, even if &lt;code&gt;sap.ui.table.SelectionBehavior.RowOnly&lt;/code&gt; is set.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="selectedIndex" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Zero-based index of selected item. Index value for no selection is -1. When multi-selection is enabled and multiple items are selected, the method returns the lead selected item. Sets the zero-based index of the currently selected item. This method removes any previous selections. When the given index is invalid, the call is ignored.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="editable" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Flag whether the controls of the Table are editable or not (currently this only controls the background color in certain themes!)</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="navigationMode" type="n22:_NavigationModeType">
+          <xs:annotation>
+            <xs:documentation>This property has been deprecated and must not be used anymore, since &lt;code&gt;Scrollbar&lt;/code&gt; is the only supported option.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="threshold" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>The &lt;code&gt;threshold&lt;/code&gt; defines how many additional (not yet visible records) shall be pre-fetched to enable smooth scrolling. The threshold is always added to the &lt;code&gt;visibleRowCount&lt;/code&gt;. If the &lt;code&gt;visibleRowCount&lt;/code&gt; is 10 and the &lt;code&gt;threshold&lt;/code&gt; is 100, there will be 110 records fetched with the initial load. If the &lt;code&gt;threshold&lt;/code&gt; is lower than the &lt;code&gt;visibleRowCount&lt;/code&gt;, the &lt;code&gt;visibleRowCount&lt;/code&gt; will be used as the &lt;code&gt;threshold&lt;/code&gt;. If the value is 0 then the thresholding is disabled.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enableColumnReordering" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Flag to enable or disable column reordering</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enableGrouping" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Enables or disables grouping. If grouping is enabled, the table is grouped by the column which is defined in the &lt;code&gt;groupBy&lt;/code&gt; association.
+
+The following restrictions apply: &lt;ul&gt; &lt;li&gt;Only client models are supported (e.g. {@link sap.ui.model.json.JSONModel}). Grouping does not work with OData models.&lt;/li&gt; &lt;li&gt;The table can only be grouped by &lt;b&gt;one&lt;/b&gt; column at a time. Grouping by another column will remove the current grouping.&lt;/li&gt; &lt;li&gt;If grouping has been done, sorting and filtering is not possible. Any existing sorting and filtering rules do no longer apply. The UI is not updated accordingly (e.g. menu items, sort and filter icons).&lt;/li&gt; &lt;li&gt;The column, by which the table is grouped, is not visible. It will become visible again only if the table is grouped by another column or grouping is disabled.&lt;/li&gt; &lt;/ul&gt;</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showColumnVisibilityMenu" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Flag to show or hide the column visibility menu. This menu will get displayed in each generated column header menu. It allows to show or hide columns</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showNoData" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Flag whether to show the no data overlay or not once the table is empty. If set to false the table will just show a grid of empty cells</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="visibleRowCountMode" type="n22:_VisibleRowCountModeType">
+          <xs:annotation>
+            <xs:documentation>This defines how the table handles the visible rows in the table. The default behavior is, that a fixed row count is defined. If you change it to auto the visibleRowCount property is changed by the table automatically. It will then adjust its maximum row count to the space it is allowed to cover (limited by the surrounding container) and its minimum row count to the value of the property minAutoRowCount (default value : 5) In manual mode the user can change the visibleRowCount interactively.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="minAutoRowCount" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>This property is used to set the minimum count of visible rows when the property visibleRowCountMode is set to Auto or Interactive. For any other visibleRowCountMode, it is ignored.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="fixedColumnCount" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Number of columns that are fixed on the left. Only columns which are not fixed can be scrolled horizontally.
+
+&lt;b&gt;Note&lt;/b&gt; &lt;ul&gt; &lt;li&gt;Fixed columns need a defined width for the feature to work.&lt;/li&gt; &lt;li&gt;The aggregated width of all fixed columns must not exceed the table width. Otherwise the table ignores the value of the property and adapts the behavior in an appropriate way to ensure that the user is still able to scroll horizontally.&lt;/li&gt; &lt;/ul&gt;</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="fixedRowCount" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Number of rows that are fix on the top. When you use a vertical scrollbar, only the rows which are not fixed, will scroll.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="fixedBottomRowCount" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Number of rows that are fix on the bottom. When you use a vertical scrollbar, only the rows which are not fixed, will scroll.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enableColumnFreeze" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Flag whether to show or hide the column menu item to freeze or unfreeze a column.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enableCellFilter" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Flag whether to enable or disable the context menu on cells to trigger a filtering with the cell value.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showOverlay" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Setting this property to true will show an overlay on top of the Table content and users cannot click anymore on the Table content.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enableSelectAll" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies if a select all button should be displayed in the top left corner. This button is only displayed if the row selector is visible and the selection mode is set to any kind of multi selection.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enableCustomFilter" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Set this parameter to true to implement your own filter behaviour. Instead of the filter input box a button will be rendered for which' press event (customFilter) you can register an event handler.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="enableBusyIndicator" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set to &lt;code&gt;true&lt;/code&gt;, the table changes its busy state, resulting in showing or hiding the busy indicator. The table will switch to busy as soon as data is retrieved to be displayed in the currently visible rows. This happens, for example, during scrolling, filtering, or sorting. As soon as the data has been retrieved, the table switches back to not busy. The busy state of the table can still be set manually by calling {@link sap.ui.core.Control#setBusy}.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="rowActionCount" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>Number of row actions made visible which determines the width of the row action column. The values &lt;code&gt;0&lt;/code&gt;, &lt;code&gt;1&lt;/code&gt; and &lt;code&gt;2&lt;/code&gt; are possible.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="alternateRowColors" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Enables alternating table row colors. Alternate row coloring is not available for the tree mode.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="title" type="xs:string" />
+        <xs:attribute name="footer" type="xs:string" />
+        <xs:attribute name="extension" type="xs:string" />
+        <xs:attribute name="columns" type="xs:string" />
+        <xs:attribute name="rows" type="xs:string" />
+        <xs:attribute name="noData" type="xs:string" />
+        <xs:attribute name="groupBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The column by which the table is grouped. Grouping will only be performed if &lt;code&gt;enableGrouping&lt;/code&gt; is set to &lt;code&gt;true&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="rowSelectionChange" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>fired when the row selection of the table has been changed (the event parameters can be used to determine selection changes - to find out the selected rows you should better use the table selection API)</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="columnSelect" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>fired when a column of the table has been selected</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="columnResize" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>fired when a table column is resized.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="columnMove" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>fired when a table column is moved.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="sort" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>fired when the table is sorted.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="filter" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>fired when the table is filtered.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="group" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>fired when the table is grouped (experimental!).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="columnVisibility" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>fired when the visibility of a table column is changed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="cellClick" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>fired when the user clicks a cell of the table (experimental!).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="cellContextmenu" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>fired when the user clicks a cell of the table.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="beforeOpenContextMenu" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired when the user requests the context menu for a table cell.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="columnFreeze" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>fired when a column of the table should be freezed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="customFilter" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This event is triggered when the custom filter item of the column menu is pressed. The column on which the event was triggered is passed as parameter.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="firstVisibleRowChanged" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This event gets fired when the first visible row is changed. It should only be used by composite controls. The event even is fired when setFirstVisibleRow is called programmatically.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="busyStateChanged" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This event gets fired when the busy state of the table changes. It should only be used by composite controls.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TreeTable" substitutionGroup="n22:Table" type="n22:_TreeTableType">
+    <xs:annotation>
+      <xs:documentation>The TreeTable control provides a comprehensive set of features to display hierarchical data.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_TreeTableType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n22:_TableType">
+        <xs:attribute name="expandFirstLevel" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Specifies whether the first level is expanded.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="useGroupMode" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If group mode is enabled nodes with subitems are rendered as if they were group headers. This can be used to do the grouping for an OData service on the backend and visualize this in a table.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="groupHeaderProperty" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>The property name of the rows data which will be displayed as a group header if the group mode is enabled</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="collapseRecursive" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Setting collapseRecursive to true means, that when collapsing a node all subsequent child nodes will also be collapsed. This property is only supported with sap.ui.model.odata.v2.ODataModel. &lt;b&gt;Note:&lt;/b&gt; collapseRecursive is currently &lt;b&gt;not&lt;/b&gt; supported if your OData service exposes the hierarchy annotation &lt;code&gt;hierarchy-descendant-count-for&lt;/code&gt;. In this case the value of the collapseRecursive property is ignored. For more information about the OData hierarchy annotations, please see the &lt;b&gt;SAP Annotations for OData Version 2.0&lt;/b&gt; specification.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="rootLevel" type="xs:int">
+          <xs:annotation>
+            <xs:documentation>The root level is the level of the topmost tree nodes, which will be used as an entry point for OData services. This property is only supported when the TreeTable uses an underlying odata services with hierarchy annotations. This property is only supported with sap.ui.model.odata.v2.ODataModel The hierarchy annotations may also be provided locally as a parameter for the ODataTreeBinding.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="toggleOpenState" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fired when a row has been expanded or collapsed by user interaction. Only available in hierarchical mode.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="_GroupEventTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="group">
+        <xs:annotation>
+          <xs:documentation>Group Column</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="hideGroupedColumn">
+        <xs:annotation>
+          <xs:documentation>Show grouped column only as group header</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="moveDown">
+        <xs:annotation>
+          <xs:documentation>Change the group order of the columns. Move column one position down in the group sequence</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="moveUp">
+        <xs:annotation>
+          <xs:documentation>Change the group order of the columns. Move column one position up in the group sequence</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="showGroupedColumn">
+        <xs:annotation>
+          <xs:documentation>Show grouped column also as a column, not just as group header</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ungroup">
+        <xs:annotation>
+          <xs:documentation>Ungroup Column</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ungroupAll">
+        <xs:annotation>
+          <xs:documentation>Ungroup All Columns</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_NavigationModeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Paginator">
+        <xs:annotation>
+          <xs:documentation>Uses the paginator control. This option must no longer be used. Using a scrollbar is the only navigation mode which is supported by the &lt;code&gt;sap.ui.table&lt;/code&gt; library. The &lt;code&gt;navigationMode&lt;/code&gt; property has always been a visual representation. No matter which navigation mode is used, data fetched from an OData service is loaded page-wise.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Scrollbar">
+        <xs:annotation>
+          <xs:documentation>Uses the scrollbar control.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_RowActionTypeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Custom">
+        <xs:annotation>
+          <xs:documentation>Custom defined Row Action.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Delete">
+        <xs:annotation>
+          <xs:documentation>Delete Row Action.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Navigation">
+        <xs:annotation>
+          <xs:documentation>Navigation Row Action.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_SelectionBehaviorType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Row">
+        <xs:annotation>
+          <xs:documentation>Rows can be selected on the complete row.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="RowOnly">
+        <xs:annotation>
+          <xs:documentation>Rows can only be selected on the row (and the selector is hidden).</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="RowSelector">
+        <xs:annotation>
+          <xs:documentation>Rows can only be selected on the row selector.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_SelectionModeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Multi">
+        <xs:annotation>
+          <xs:documentation>Select multiple rows at a time.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="MultiToggle">
+        <xs:annotation>
+          <xs:documentation>Select multiple rows at a time (toggle behavior).</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="None">
+        <xs:annotation>
+          <xs:documentation>No rows can be selected.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Single">
+        <xs:annotation>
+          <xs:documentation>Select one row at a time.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_SharedDomRefType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="HorizontalScrollBar">
+        <xs:annotation>
+          <xs:documentation>The element id of the Horizontal Scroll Bar of the sap.ui.table.Table.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="VerticalScrollBar">
+        <xs:annotation>
+          <xs:documentation>The element id of the Vertical Scroll Bar of the sap.ui.table.Table.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_SortOrderType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ascending">
+        <xs:annotation>
+          <xs:documentation>Sort Order: ascending.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Descending">
+        <xs:annotation>
+          <xs:documentation>Sort Order: descending.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_TreeAutoExpandModeType">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="_VisibleRowCountModeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Auto">
+        <xs:annotation>
+          <xs:documentation>The table automatically fills the height of the surrounding container. The visibleRowCount property is automatically changed accordingly. All rows need the same height, otherwise the auto mode doesn't always work as expected. The height of all siblings within the same layout container of the table will be subtracted from the available height. For performance reasons, it is recommended to add no siblings in the table's parent container.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Fixed">
+        <xs:annotation>
+          <xs:documentation>The table always has as many rows as defined in the visibleRowCount property.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Interactive">
+        <xs:annotation>
+          <xs:documentation>After rendering the table has as many rows as defined in visibleRowCount property. The user is able to change the visible rows by moving a grip with the mouse. The visibleRowCount property is changed accordingly.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

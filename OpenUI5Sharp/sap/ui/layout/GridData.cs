@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.layout.GridData")]
 				public partial class GridData : sap.ui.core.LayoutData
 				{
 					#region Settings
@@ -32,152 +33,152 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// A string type that represents Grid's span values for large, medium and small screens. Allowed values are separated by space Letters L, M or S followed by number of columns from 1 to 12 that the container has to take, for example: "L2 M4 S6", "M12", "s10" or "l4 m4". Note that the parameters has to be provided in the order large medium small.
 						/// </summary>
-						public Union<sap.ui.layout.GridSpan, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> span;
+						public Union<sap.ui.layout.GridSpan, string, sap.ui.@base.ManagedObject.BindPropertyInfo> span;
 
 						/// <summary>
 						/// Optional. Defines a span value for extra large screens. This value overwrites the value for extra large screens defined in the parameter "span".
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> spanXL;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> spanXL;
 
 						/// <summary>
 						/// Optional. Defines a span value for large screens. This value overwrites the value for large screens defined in the parameter "span".
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> spanL;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> spanL;
 
 						/// <summary>
 						/// Optional. Defines a span value for medium size screens. This value overwrites the value for medium screens defined in the parameter "span".
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> spanM;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> spanM;
 
 						/// <summary>
 						/// Optional. Defines a span value for small screens. This value overwrites the value for small screens defined in the parameter "span".
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> spanS;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> spanS;
 
 						/// <summary>
 						/// A string type that represents Grid's span values for large, medium and small screens. Allowed values are separated by space Letters L, M or S followed by number of columns from 1 to 12 that the container has to take, for example: "L2 M4 S6", "M12", "s10" or "l4 m4". Note that the parameters has to be provided in the order large medium small.
 						/// </summary>
-						public Union<sap.ui.layout.GridIndent, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> indent;
+						public Union<sap.ui.layout.GridIndent, string, sap.ui.@base.ManagedObject.BindPropertyInfo> indent;
 
 						/// <summary>
 						/// Optional. Defines a span value for extra large screens. This value overwrites the value for extra large screens defined in the parameter "indent".
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> indentXL;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> indentXL;
 
 						/// <summary>
 						/// Optional. Defines a span value for large screens. This value overwrites the value for large screens defined in the parameter "indent".
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> indentL;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> indentL;
 
 						/// <summary>
 						/// Optional. Defines a span value for medium size screens. This value overwrites the value for medium screens defined in the parameter "indent".
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> indentM;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> indentM;
 
 						/// <summary>
 						/// Optional. Defines a span value for small screens. This value overwrites the value for small screens defined in the parameter "indent".
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> indentS;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> indentS;
 
 						/// <summary>
 						/// Defines if this Control is visible on XL - extra Large screens.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visibleXL;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visibleXL;
 
 						/// <summary>
 						/// Defines if this Control is visible on Large screens.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visibleL;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visibleL;
 
 						/// <summary>
 						/// Defines if this Control is visible on Medium size screens.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visibleM;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visibleM;
 
 						/// <summary>
 						/// Defines if this Control is visible on small screens.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visibleS;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visibleS;
 
 						/// <summary>
 						/// Optional. Moves a cell backwards so many columns as specified.
 						/// </summary>
-						public Union<sap.ui.layout.GridIndent, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> moveBackwards;
+						public Union<sap.ui.layout.GridIndent, string, sap.ui.@base.ManagedObject.BindPropertyInfo> moveBackwards;
 
 						/// <summary>
 						/// Optional. Moves a cell forwards so many columns as specified.
 						/// </summary>
-						public Union<sap.ui.layout.GridIndent, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> moveForward;
+						public Union<sap.ui.layout.GridIndent, string, sap.ui.@base.ManagedObject.BindPropertyInfo> moveForward;
 
 						/// <summary>
 						/// Optional. If this property is set to true, the control on all-size screens causes a line break within the Grid and becomes the first within the next line.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> linebreak;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> linebreak;
 
 						/// <summary>
 						/// Optional. If this property is set to true, the control on extra large screens causes a line break within the Grid and becomes the first within the next line.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> linebreakXL;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> linebreakXL;
 
 						/// <summary>
 						/// Optional. If this property is set to true, the control on large screens causes a line break within the Grid and becomes the first within the next line.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> linebreakL;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> linebreakL;
 
 						/// <summary>
 						/// Optional. If this property is set to true, the control on medium sized screens causes a line break within the Grid and becomes the first within the next line.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> linebreakM;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> linebreakM;
 
 						/// <summary>
 						/// Optional. If this property is set to true, the control on small screens causes a line break within the Grid and becomes the first within the next line.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> linebreakS;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> linebreakS;
 
 						/// <summary>
 						/// Deprecated. Defines a span value for large screens. This value overwrites the value for large screens defined in the parameter "span".
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> spanLarge;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> spanLarge;
 
 						/// <summary>
 						/// Deprecated. Defines a span value for medium size screens. This value overwrites the value for medium screens defined in the parameter "span".
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> spanMedium;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> spanMedium;
 
 						/// <summary>
 						/// Deprecated. Defines a span value for small screens. This value overwrites the value for small screens defined in the parameter "span".
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> spanSmall;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> spanSmall;
 
 						/// <summary>
 						/// Deprecated. Defines a span value for large screens. This value overwrites the value for large screens defined in the parameter "indent".
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> indentLarge;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> indentLarge;
 
 						/// <summary>
 						/// Deprecated. Defines a span value for medium size screens. This value overwrites the value for medium screens defined in the parameter "indent".
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> indentMedium;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> indentMedium;
 
 						/// <summary>
 						/// Deprecated. Defines a span value for small screens. This value overwrites the value for small screens defined in the parameter "indent".
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> indentSmall;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> indentSmall;
 
 						/// <summary>
 						/// Deprecated. Defines if this Control is visible on Large screens.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visibleOnLarge;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visibleOnLarge;
 
 						/// <summary>
 						/// Deprecated. Defines if this Control is visible on Medium size screens.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visibleOnMedium;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visibleOnMedium;
 
 						/// <summary>
 						/// Deprecated. Defines if this Control is visible on small screens.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visibleOnSmall;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visibleOnSmall;
 
 					}
 
@@ -747,8 +748,8 @@ namespace OpenUI5Sharp
 					/// 
 					/// Deprecated. Defines a span value for large screens. This value overwrites the value for large screens defined in the parameter "span".
 					/// </summary>
-					[Obsolete("Deprecated since 1.17.1. Use spanL instead.")]
 					/// <returns>Value of property <code>spanLarge</code></returns>
+					[Obsolete("Deprecated since 1.17.1. Use spanL instead.")]
 					public extern virtual int getSpanLarge();
 
 					/// <summary>
@@ -758,9 +759,9 @@ namespace OpenUI5Sharp
 					/// 
 					/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 					/// </summary>
-					[Obsolete("Deprecated since 1.17.1. Use spanL instead.")]
 					/// <param name="iSpanLarge">New value for property <code>spanLarge</code></param>
 					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					[Obsolete("Deprecated since 1.17.1. Use spanL instead.")]
 					public extern virtual sap.ui.layout.GridData setSpanLarge(int iSpanLarge);
 
 					#endregion
@@ -772,8 +773,8 @@ namespace OpenUI5Sharp
 					/// 
 					/// Deprecated. Defines a span value for medium size screens. This value overwrites the value for medium screens defined in the parameter "span".
 					/// </summary>
-					[Obsolete("Deprecated since 1.17.1. Use spanM instead.")]
 					/// <returns>Value of property <code>spanMedium</code></returns>
+					[Obsolete("Deprecated since 1.17.1. Use spanM instead.")]
 					public extern virtual int getSpanMedium();
 
 					/// <summary>
@@ -783,9 +784,9 @@ namespace OpenUI5Sharp
 					/// 
 					/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 					/// </summary>
-					[Obsolete("Deprecated since 1.17.1. Use spanM instead.")]
 					/// <param name="iSpanMedium">New value for property <code>spanMedium</code></param>
 					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					[Obsolete("Deprecated since 1.17.1. Use spanM instead.")]
 					public extern virtual sap.ui.layout.GridData setSpanMedium(int iSpanMedium);
 
 					#endregion
@@ -797,8 +798,8 @@ namespace OpenUI5Sharp
 					/// 
 					/// Deprecated. Defines a span value for small screens. This value overwrites the value for small screens defined in the parameter "span".
 					/// </summary>
-					[Obsolete("Deprecated since 1.17.1. Use spanS instead.")]
 					/// <returns>Value of property <code>spanSmall</code></returns>
+					[Obsolete("Deprecated since 1.17.1. Use spanS instead.")]
 					public extern virtual int getSpanSmall();
 
 					/// <summary>
@@ -808,9 +809,9 @@ namespace OpenUI5Sharp
 					/// 
 					/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 					/// </summary>
-					[Obsolete("Deprecated since 1.17.1. Use spanS instead.")]
 					/// <param name="iSpanSmall">New value for property <code>spanSmall</code></param>
 					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					[Obsolete("Deprecated since 1.17.1. Use spanS instead.")]
 					public extern virtual sap.ui.layout.GridData setSpanSmall(int iSpanSmall);
 
 					#endregion
@@ -822,8 +823,8 @@ namespace OpenUI5Sharp
 					/// 
 					/// Deprecated. Defines a span value for large screens. This value overwrites the value for large screens defined in the parameter "indent".
 					/// </summary>
-					[Obsolete("Deprecated since 1.17.1. Use indentL instead.")]
 					/// <returns>Value of property <code>indentLarge</code></returns>
+					[Obsolete("Deprecated since 1.17.1. Use indentL instead.")]
 					public extern virtual int getIndentLarge();
 
 					/// <summary>
@@ -833,9 +834,9 @@ namespace OpenUI5Sharp
 					/// 
 					/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 					/// </summary>
-					[Obsolete("Deprecated since 1.17.1. Use indentL instead.")]
 					/// <param name="iIndentLarge">New value for property <code>indentLarge</code></param>
 					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					[Obsolete("Deprecated since 1.17.1. Use indentL instead.")]
 					public extern virtual sap.ui.layout.GridData setIndentLarge(int iIndentLarge);
 
 					#endregion
@@ -847,8 +848,8 @@ namespace OpenUI5Sharp
 					/// 
 					/// Deprecated. Defines a span value for medium size screens. This value overwrites the value for medium screens defined in the parameter "indent".
 					/// </summary>
-					[Obsolete("Deprecated since 1.17.1. Use indentM instead.")]
 					/// <returns>Value of property <code>indentMedium</code></returns>
+					[Obsolete("Deprecated since 1.17.1. Use indentM instead.")]
 					public extern virtual int getIndentMedium();
 
 					/// <summary>
@@ -858,9 +859,9 @@ namespace OpenUI5Sharp
 					/// 
 					/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 					/// </summary>
-					[Obsolete("Deprecated since 1.17.1. Use indentM instead.")]
 					/// <param name="iIndentMedium">New value for property <code>indentMedium</code></param>
 					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					[Obsolete("Deprecated since 1.17.1. Use indentM instead.")]
 					public extern virtual sap.ui.layout.GridData setIndentMedium(int iIndentMedium);
 
 					#endregion
@@ -872,8 +873,8 @@ namespace OpenUI5Sharp
 					/// 
 					/// Deprecated. Defines a span value for small screens. This value overwrites the value for small screens defined in the parameter "indent".
 					/// </summary>
-					[Obsolete("Deprecated since 1.17.1. Use indentS instead.")]
 					/// <returns>Value of property <code>indentSmall</code></returns>
+					[Obsolete("Deprecated since 1.17.1. Use indentS instead.")]
 					public extern virtual int getIndentSmall();
 
 					/// <summary>
@@ -883,9 +884,9 @@ namespace OpenUI5Sharp
 					/// 
 					/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 					/// </summary>
-					[Obsolete("Deprecated since 1.17.1. Use indentS instead.")]
 					/// <param name="iIndentSmall">New value for property <code>indentSmall</code></param>
 					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					[Obsolete("Deprecated since 1.17.1. Use indentS instead.")]
 					public extern virtual sap.ui.layout.GridData setIndentSmall(int iIndentSmall);
 
 					#endregion
@@ -899,8 +900,8 @@ namespace OpenUI5Sharp
 					/// 
 					/// Default value is <code>true</code>.
 					/// </summary>
-					[Obsolete("Deprecated since 1.17.1. Use visibleL instead.")]
 					/// <returns>Value of property <code>visibleOnLarge</code></returns>
+					[Obsolete("Deprecated since 1.17.1. Use visibleL instead.")]
 					public extern virtual bool getVisibleOnLarge();
 
 					/// <summary>
@@ -912,9 +913,9 @@ namespace OpenUI5Sharp
 					/// 
 					/// Default value is <code>true</code>.
 					/// </summary>
-					[Obsolete("Deprecated since 1.17.1. Use visibleL instead.")]
 					/// <param name="bVisibleOnLarge">New value for property <code>visibleOnLarge</code></param>
 					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					[Obsolete("Deprecated since 1.17.1. Use visibleL instead.")]
 					public extern virtual sap.ui.layout.GridData setVisibleOnLarge(bool bVisibleOnLarge);
 
 					#endregion
@@ -928,8 +929,8 @@ namespace OpenUI5Sharp
 					/// 
 					/// Default value is <code>true</code>.
 					/// </summary>
-					[Obsolete("Deprecated since 1.17.1. Use visibleM instead.")]
 					/// <returns>Value of property <code>visibleOnMedium</code></returns>
+					[Obsolete("Deprecated since 1.17.1. Use visibleM instead.")]
 					public extern virtual bool getVisibleOnMedium();
 
 					/// <summary>
@@ -941,9 +942,9 @@ namespace OpenUI5Sharp
 					/// 
 					/// Default value is <code>true</code>.
 					/// </summary>
-					[Obsolete("Deprecated since 1.17.1. Use visibleM instead.")]
 					/// <param name="bVisibleOnMedium">New value for property <code>visibleOnMedium</code></param>
 					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					[Obsolete("Deprecated since 1.17.1. Use visibleM instead.")]
 					public extern virtual sap.ui.layout.GridData setVisibleOnMedium(bool bVisibleOnMedium);
 
 					#endregion
@@ -957,8 +958,8 @@ namespace OpenUI5Sharp
 					/// 
 					/// Default value is <code>true</code>.
 					/// </summary>
-					[Obsolete("Deprecated since 1.17.1. Use visibleS instead.")]
 					/// <returns>Value of property <code>visibleOnSmall</code></returns>
+					[Obsolete("Deprecated since 1.17.1. Use visibleS instead.")]
 					public extern virtual bool getVisibleOnSmall();
 
 					/// <summary>
@@ -970,9 +971,9 @@ namespace OpenUI5Sharp
 					/// 
 					/// Default value is <code>true</code>.
 					/// </summary>
-					[Obsolete("Deprecated since 1.17.1. Use visibleS instead.")]
 					/// <param name="bVisibleOnSmall">New value for property <code>visibleOnSmall</code></param>
 					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					[Obsolete("Deprecated since 1.17.1. Use visibleS instead.")]
 					public extern virtual sap.ui.layout.GridData setVisibleOnSmall(bool bVisibleOnSmall);
 
 					#endregion

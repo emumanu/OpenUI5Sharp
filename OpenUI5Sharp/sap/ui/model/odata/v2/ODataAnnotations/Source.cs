@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -15,13 +15,14 @@ namespace OpenUI5Sharp
 				{
 					public static partial class v2
 					{
-						public partial class ODataAnnotations : sap.ui.@base.EventProvider
+						public partial class ODataAnnotations
 						{
 							/// <summary>
 							/// An annotation source, containing either a URL to be loaded or an XML string to be parsed.
 							/// </summary>
 							[External]
 							[Namespace(false)]
+							[Name("sap.ui.model.odata.v2.ODataAnnotations.Source")]
 							public partial class Source
 							{
 							}

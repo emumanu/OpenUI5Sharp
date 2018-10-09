@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.unified.FileUploader")]
 				public partial class FileUploader : sap.ui.core.Control, sap.ui.core.IFormContent, sap.ui.unified.IProcessableBlobs
 				{
 					#region Settings
@@ -30,149 +31,149 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Value of the path for file upload.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> value;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> value;
 
 						/// <summary>
 						/// Disabled controls have different colors, depending on customer settings.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enabled;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enabled;
 
 						/// <summary>
 						/// Used when URL address is on a remote server.
 						/// </summary>
-						public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> uploadUrl;
+						public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> uploadUrl;
 
 						/// <summary>
 						/// Unique control name for identification on the server side after sending data to the server.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> name;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> name;
 
 						/// <summary>
 						/// Specifies the displayed control width.
 						/// </summary>
-						public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+						public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 						/// <summary>
 						/// If set to "true", the upload immediately starts after file selection. With the default setting, the upload needs to be explicitly triggered.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> uploadOnChange;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> uploadOnChange;
 
 						/// <summary>
 						/// Additional data that is sent to the back end service. Data will be transmitted as value of a hidden input where the name is derived from the name property with suffix -data.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> additionalData;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> additionalData;
 
 						/// <summary>
 						/// If the FileUploader is configured to upload the file directly after the file is selected it is not allowed to upload a file with the same name again. If a user should be allowed to upload a file with the same name again this parameter has to be "true". A typical use case would be if the files have different paths.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> sameFilenameAllowed;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> sameFilenameAllowed;
 
 						/// <summary>
 						/// The Button text can be overwritten using this property.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> buttonText;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> buttonText;
 
 						/// <summary>
 						/// The chosen files will be checked against an array of file types. If at least one file does not fit the file type restriction the upload is prevented. Example: ["jpg", "png", "bmp"].
 						/// </summary>
-						public Union<string[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> fileType;
+						public Union<string[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> fileType;
 
 						/// <summary>
 						/// Allows multiple files to be chosen and uploaded from the same folder. This property is not supported by Internet Explorer 9.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> multiple;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> multiple;
 
 						/// <summary>
 						/// A file size limit in megabytes which prevents the upload if at least one file exceeds it. This property is not supported by Internet Explorer 9.
 						/// </summary>
-						public Union<float, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maximumFileSize;
+						public Union<float, string, sap.ui.@base.ManagedObject.BindPropertyInfo> maximumFileSize;
 
 						/// <summary>
 						/// The chosen files will be checked against an array of mime types. If at least one file does not fit the mime type restriction the upload is prevented. This property is not supported by Internet Explorer 9. Example: mimeType ["image/png", "image/jpeg"].
 						/// </summary>
-						public Union<string[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> mimeType;
+						public Union<string[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> mimeType;
 
 						/// <summary>
 						/// If set to "true", the request will be sent as XHR request instead of a form submit. This property is not supported by Internet Explorer 9.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> sendXHR;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> sendXHR;
 
 						/// <summary>
 						/// Placeholder for the text field.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> placeholder;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> placeholder;
 
 						/// <summary>
 						/// Style of the button. "Transparent, "Accept", "Reject", or "Emphasized" is allowed.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> style;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> style;
 
 						/// <summary>
 						/// If set to "true", the FileUploader will be rendered as Button only, without showing the InputField.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> buttonOnly;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> buttonOnly;
 
 						/// <summary>
 						/// If set to "false", the request will be sent as file only request instead of a multipart/form-data request. Only one file could be uploaded using this type of request. Required for sending such a request is to set the property "sendXHR" to "true". This property is not supported by Internet Explorer 9.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> useMultipart;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> useMultipart;
 
 						/// <summary>
 						/// The maximum length of a filename which the FileUploader will accept. If the maximum filename length is exceeded, the corresponding Event 'filenameLengthExceed' is fired.
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maximumFilenameLength;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> maximumFilenameLength;
 
 						/// <summary>
 						/// Visualizes warnings or errors related to the text field. Possible values: Warning, Error, Success, None.
 						/// </summary>
-						public Union<sap.ui.core.ValueState, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> valueState;
+						public Union<sap.ui.core.ValueState, string, sap.ui.@base.ManagedObject.BindPropertyInfo> valueState;
 
 						/// <summary>
 						/// Custom text for the value state message pop-up.
 						/// 
 						/// <b>Note:</b> If not specified, a default text, based on the value state type, will be used instead.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> valueStateText;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> valueStateText;
 
 						/// <summary>
 						/// Icon to be displayed as graphical element within the button. This can be a URI to an image or an icon font URI.
 						/// </summary>
-						public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> icon;
+						public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> icon;
 
 						/// <summary>
 						/// Icon to be displayed as graphical element within the button when it is hovered (only if also a base icon was specified). If not specified the base icon is used. If an icon font icon is used, this property is ignored.
 						/// </summary>
-						public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> iconHovered;
+						public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> iconHovered;
 
 						/// <summary>
 						/// Icon to be displayed as graphical element within the button when it is selected (only if also a base icon was specified). If not specified the base or hovered icon is used. If an icon font icon is used, this property is ignored.
 						/// </summary>
-						public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> iconSelected;
+						public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> iconSelected;
 
 						/// <summary>
 						/// If set to true (default), the display sequence is 1. icon 2. control text.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> iconFirst;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> iconFirst;
 
 						/// <summary>
 						/// If set to true, the button is displayed without any text.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> iconOnly;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> iconOnly;
 
 						/// <summary>
 						/// The parameters for the FileUploader which are rendered as a hidden inputfield.
 						/// </summary>
-						public Union<sap.ui.unified.FileUploaderParameter[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> parameters;
+						public Union<sap.ui.unified.FileUploaderParameter[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> parameters;
 
 						/// <summary>
 						/// The header parameters for the FileUploader which are only submitted with XHR requests. Header parameters are not supported by Internet Explorer 9.
 						/// </summary>
-						public Union<sap.ui.unified.FileUploaderParameter[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> headerParameters;
+						public Union<sap.ui.unified.FileUploaderParameter[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> headerParameters;
 
 						/// <summary>
 						/// Settings for the <code>XMLHttpRequest</code> object. <b>Note:</b> This aggregation is only used when the <code>sendXHR</code> property is set to <code>true</code>.
 						/// </summary>
-						public Union<sap.ui.unified.FileUploaderXHRSettings, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> xhrSettings;
+						public Union<sap.ui.unified.FileUploaderXHRSettings, string, sap.ui.@base.ManagedObject.BindAggregationInfo> xhrSettings;
 
 						/// <summary>
 						/// Event is fired when the value of the file path has been changed.

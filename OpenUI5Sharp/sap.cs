@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	/// <summary>
 	/// Root namespace for JavaScript functionality provided by SAP SE.
@@ -12,6 +12,7 @@ namespace OpenUI5Sharp
 	/// </summary>
 	[External]
 	[Namespace(false)]
+	[Name("sap")]
 	public partial class sap
 	{
 	}

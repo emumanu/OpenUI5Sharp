@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.SlideTile")]
 			public partial class SlideTile : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,27 +29,27 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// The time of the slide display in milliseconds.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> displayTime;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> displayTime;
 
 					/// <summary>
 					/// The time of the slide changing in milliseconds.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> transitionTime;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> transitionTime;
 
 					/// <summary>
 					/// Changes the visualization in order to enable additional actions with the SlideTile control.
 					/// </summary>
-					public Union<sap.m.GenericTileScope, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> scope;
+					public Union<sap.m.GenericTileScope, string, sap.ui.@base.ManagedObject.BindPropertyInfo> scope;
 
 					/// <summary>
 					/// If set to <code>TileSizeBehavior.Small</code>, the tile size is the same as it would be on a small-screened phone (374px wide and lower), regardless of the screen size of the actual device being used. If set to <code>TileSizeBehavior.Responsive</code>, the tile size adapts to the size of the screen. This property has to be set consistently for the <code>SlideTile</code> along with all its inner <code>GenericTile</code> elements, so that they match one another visually.
 					/// </summary>
-					public Union<sap.m.TileSizeBehavior, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> sizeBehavior;
+					public Union<sap.m.TileSizeBehavior, string, sap.ui.@base.ManagedObject.BindPropertyInfo> sizeBehavior;
 
 					/// <summary>
 					/// The set of Generic Tiles to be shown in the control.
 					/// </summary>
-					public Union<sap.m.GenericTile[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> tiles;
+					public Union<sap.m.GenericTile[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> tiles;
 
 					/// <summary>
 					/// The event is fired when the user chooses the tile. The event is available only in Actions scope.

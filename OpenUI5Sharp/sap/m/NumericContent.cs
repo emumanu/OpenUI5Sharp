@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.NumericContent")]
 			public partial class NumericContent : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,72 +29,72 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// If set to true, the change of the value will be animated.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> animateTextChange;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> animateTextChange;
 
 					/// <summary>
 					/// If set to true, the value parameter contains a numeric value and scale. If set to false (default), the value parameter contains a numeric value only.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> formatterValue;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> formatterValue;
 
 					/// <summary>
 					/// The icon to be displayed as a graphical element within the control. This can be an image or an icon from the icon font.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> icon;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> icon;
 
 					/// <summary>
 					/// Description of an icon that is used in the tooltip.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> iconDescription;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> iconDescription;
 
 					/// <summary>
 					/// The indicator arrow that shows value deviation.
 					/// </summary>
-					public Union<sap.m.DeviationIndicator, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> indicator;
+					public Union<sap.m.DeviationIndicator, string, sap.ui.@base.ManagedObject.BindPropertyInfo> indicator;
 
 					/// <summary>
 					/// If set to true, the omitted value property is set to 0.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> nullifyValue;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> nullifyValue;
 
 					/// <summary>
 					/// The scaling prefix. Financial characters can be used for currencies and counters. The SI prefixes can be used for units. If the scaling prefix contains more than three characters, only the first three characters are displayed.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> scale;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> scale;
 
 					/// <summary>
 					/// Updates the size of the control. If not set, then the default size is applied based on the device tile.
 					/// </summary>
-					public Union<sap.m.Size, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> size;
+					public Union<sap.m.Size, string, sap.ui.@base.ManagedObject.BindPropertyInfo> size;
 
 					/// <summary>
 					/// The number of characters of the <code>value</code> property to display.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> truncateValueTo;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> truncateValueTo;
 
 					/// <summary>
 					/// The actual value.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> value;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> value;
 
 					/// <summary>
 					/// The semantic color of the value.
 					/// </summary>
-					public Union<sap.m.ValueColor, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> valueColor;
+					public Union<sap.m.ValueColor, string, sap.ui.@base.ManagedObject.BindPropertyInfo> valueColor;
 
 					/// <summary>
 					/// The width of the control. If it is not set, the size of the control is defined by the 'size' property.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// If the value is set to false, the content is adjusted to the whole size of the control.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> withMargin;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> withMargin;
 
 					/// <summary>
 					/// Indicates the load status.
 					/// </summary>
-					public Union<sap.m.LoadState, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> state;
+					public Union<sap.m.LoadState, string, sap.ui.@base.ManagedObject.BindPropertyInfo> state;
 
 					/// <summary>
 					/// The event is fired when the user chooses the numeric content.
@@ -328,8 +329,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>Auto</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.38.0. The NumericContent control has now a fixed size, depending on the used media (desktop, tablet or phone).")]
 				/// <returns>Value of property <code>size</code></returns>
+				[Obsolete("Deprecated since 1.38.0. The NumericContent control has now a fixed size, depending on the used media (desktop, tablet or phone).")]
 				public extern virtual sap.m.Size getSize();
 
 				/// <summary>
@@ -341,9 +342,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>Auto</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.38.0. The NumericContent control has now a fixed size, depending on the used media (desktop, tablet or phone).")]
 				/// <param name="sSize">New value for property <code>size</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.38.0. The NumericContent control has now a fixed size, depending on the used media (desktop, tablet or phone).")]
 				public extern virtual sap.m.NumericContent setSize(sap.m.Size sSize);
 
 				#endregion

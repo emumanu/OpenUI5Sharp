@@ -2,7 +2,8 @@ using Bridge;
 using System;
 using System.Linq;
 using static Retyped.qunit;
-using OpenUI5Sharp;
+using UI5;
+using UI5.Tests;
 
 namespace WalkthroughClientScripts.Tests
 {
@@ -18,17 +19,17 @@ namespace WalkthroughClientScripts.Tests
                 new Action(() => {
                     QUnit.module("Navigation");
 
-                    Globals.opaTest("Should open the hello dialog", 
+                    TestsGlobals.opaTest("Should open the hello dialog", 
                         (sap.ui.test.Opa5 Given, Map<sap.ui.test.Opa5> When, Map<sap.ui.test.Opa5> Then) => {
                             // Arrangements
                             Given.iStartMyAppInAFrame(jQuery.sap.getResourcePath("sap/ui/demo/app/test", ".html"));
 
                             //Actions
-                            When["onTheAppPage"].As<onTheAppPageAction>().iPressTheSayHelloWithDialogButton();
+                            When.Get<OnTheAppPage>().iPressTheSayHelloWithDialogButton();
 
                             // Assertions
-                            Then["onTheAppPage"].As<onTheAppPageAssertion>().iShouldSeeTheHelloDialog();
-                            Then["onTheAppPage"].As<onTheAppPageAssertion>().iTeardownMyAppFrame();
+                            Then.Get<OnTheAppPage>().iShouldSeeTheHelloDialog();
+                            Then.Get<OnTheAppPage>().iTeardownMyAppFrame();
                         }
                     );
                 })

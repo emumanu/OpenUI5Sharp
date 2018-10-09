@@ -44,6 +44,6 @@ Bridge.assembly("WalkthroughClientScripts", function ($asm, globals) {
 });
 
 sap.ui.define(System.Array.init(["sap/ui/base/ManagedObject"], System.String), function () {
-    var newObj = Glue.CreateRawClassObject(sap.ui.demo.walkthrough.controller.HelloDialog);
+    var newObj = UI5.Glue.CreateRawClassObject(sap.ui.demo.walkthrough.controller.HelloDialog);
     return sap.ui.base.ManagedObject.extend("sap.ui.demo.walkthrough.controller.HelloDialog", newObj);
 });

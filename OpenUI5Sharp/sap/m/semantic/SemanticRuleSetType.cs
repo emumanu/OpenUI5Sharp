@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,16 +16,17 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.m.semantic.SemanticRuleSetType")]
 				public enum SemanticRuleSetType
 				{
-						/// <summary>
-						/// The default ruleset type, for which the Share Menu is always in the footer of the page.
-						/// </summary>
-						Classic,
-						/// <summary>
-						/// Offers an optimized user experience, with displaying the Share Menu in the header, rather than the footer, for Fullscreen mode.
-						/// </summary>
-						Optimized,
+					/// <summary>
+					/// The default ruleset type, for which the Share Menu is always in the footer of the page.
+					/// </summary>
+					Classic,
+					/// <summary>
+					/// Offers an optimized user experience, with displaying the Share Menu in the header, rather than the footer, for Fullscreen mode.
+					/// </summary>
+					Optimized,
 				}
 			}
 		}

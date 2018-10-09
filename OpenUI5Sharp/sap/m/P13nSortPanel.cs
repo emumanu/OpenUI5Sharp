@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.P13nSortPanel")]
 			public partial class P13nSortPanel : sap.m.P13nPanel
 			{
 				#region Settings
@@ -28,17 +29,17 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// defines if the mediaQuery or a ContainerResize will be used for layout update. When the ConditionPanel is used on a dialog the property should be set to true!
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> containerQuery;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> containerQuery;
 
 					/// <summary>
 					/// can be used to control the layout behavior. Default is "" which will automatically change the layout. With "Desktop", "Table" or "Phone" you can set a fixed layout.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> layoutMode;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> layoutMode;
 
 					/// <summary>
 					/// defined Sort Items
 					/// </summary>
-					public Union<sap.m.P13nSortItem[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> sortItems;
+					public Union<sap.m.P13nSortItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> sortItems;
 
 					/// <summary>
 					/// event raised when a SortItem was added

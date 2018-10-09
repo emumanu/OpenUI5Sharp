@@ -1,8 +1,8 @@
 ﻿using Bridge;
 using System;
 using System.Linq;
-using OpenUI5Sharp;
-using OpenUI5Sharp.Metadata;
+using UI5;
+using UI5.Metadata;
 using System.Collections.Generic;
 
 namespace WalkthroughClientScripts
@@ -11,6 +11,55 @@ namespace WalkthroughClientScripts
     [Name("sap.ui.demo.walkthrough.Component")]
     public class Component : sap.ui.core.UIComponent
     {
+        public static Metadata metadata = new Metadata() {
+            routing = new ComponentRouting() {
+                config = new ComponentRouterConfig() {
+                    routerClass = "sap.m.routing.Router",
+                    viewType = "XML",
+                    viewPath = "sap.ui.demo.walkthrough.view",
+                    controlId = "app",
+                    controlAggregation = "pages",
+                    async = true
+                },
+                routes = new sap.ui.core.routing.Route.RouteConfig[] {
+                                    new sap.ui.core.routing.Route.RouteConfig() {
+                                        name = "overview",
+                                        pattern = "",
+                                        target = "overview"
+                                    },
+                                    new sap.ui.core.routing.Route.RouteConfig() {
+                                        name = "detail",
+                                        pattern = "detail/{invoicePath}",
+                                        target = "detail"
+                                    }
+                                },
+                targets = new Map<sap.ui.core.routing.Targets.TargetInfo>() {
+                                    { "overview",
+                                        new sap.ui.core.routing.Targets.TargetInfo() {
+                                            viewId = "overview",
+                                            viewName = "Overview"
+                                        }
+                                    },
+                                    { "detail",
+                                        new sap.ui.core.routing.Targets.TargetInfo() {
+                                            viewId = "detail",
+                                            viewName = "Detail"
+                                        }
+                                    }
+                                }
+            },
+            rootView = new sap.ui.ViewInfo() {
+                viewName = "sap.ui.demo.walkthrough.view.App",
+                type = sap.ui.core.mvc.ViewType.XML,
+                async = true,
+                id = "app"
+            },
+            //contentDensities = new {
+            //    compact = true,
+            //    cozy = true
+            //}
+        };
+
         [ObjectLiteral]
         public class ViewModel
         {
@@ -38,56 +87,7 @@ namespace WalkthroughClientScripts
                 },
                 new Func<object>(
                     () => {
-                        var metadata = new Metadata() {
-                            routing = new ComponentRouting() {
-                                config = new ComponentRouterConfig() {
-                                    routerClass = "sap.m.routing.Router",
-                                    viewType = "XML",
-                                    viewPath = "sap.ui.demo.walkthrough.view",
-                                    controlId = "app",
-                                    controlAggregation = "pages",
-                                    async = true
-                                },
-                                routes = new sap.ui.core.routing.Route.RouteConfig[] {
-                                    new sap.ui.core.routing.Route.RouteConfig() {
-                                        name = "overview",
-                                        pattern = "",
-                                        target = "overview"
-                                    },
-                                    new sap.ui.core.routing.Route.RouteConfig() {
-                                        name = "detail",
-                                        pattern = "detail/{invoicePath}",
-                                        target = "detail"
-                                    }
-                                },
-                                targets = new Map<sap.ui.core.routing.Targets.TargetInfo>() {
-                                    { "overview",
-                                        new sap.ui.core.routing.Targets.TargetInfo() {
-                                            viewId = "overview",
-                                            viewName = "Overview"
-                                        }
-                                    },
-                                    { "detail",
-                                        new sap.ui.core.routing.Targets.TargetInfo() {
-                                            viewId = "detail",
-                                            viewName = "Detail"
-                                        }
-                                    }
-                                }
-                            },
-                            rootView = new sap.ui.ViewInfo() {
-                                viewName = "sap.ui.demo.walkthrough.view.App",
-                                type = sap.ui.core.mvc.ViewType.XML,
-                                async = true,
-                                id = "app"
-                            },
-                            //contentDensities = new {
-                            //    compact = true,
-                            //    cozy = true
-                            //}
-                        };
-
-                        Component newObj = Glue.CreateRawClassObject<Component>(metadata);
+                        Component newObj = Glue.CreateRawClassObject<Component>();
                         return sap.ui.core.UIComponent.extend(nameof(Component), newObj);
                     }
                 )
@@ -138,7 +138,7 @@ namespace WalkthroughClientScripts
         public virtual string getContentDensityClass()
         {
             if (_sContentDensityClass == null) {
-                if (!sap.ui.Device.support.touch) {
+                if (!sap.ui.Device.Singleton.support.touch) {
                     _sContentDensityClass = "sapUiSizeCompact";
                 } else {
                     _sContentDensityClass = "sapUiSizeCozy";

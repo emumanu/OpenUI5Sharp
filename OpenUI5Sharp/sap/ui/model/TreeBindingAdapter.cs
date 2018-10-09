@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -13,6 +13,7 @@ namespace OpenUI5Sharp
 			{
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.model.TreeBindingAdapter")]
 				public partial class TreeBindingAdapter
 				{
 					#region Constructor
@@ -29,9 +30,9 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Calculate the request length based on the given information
 					/// </summary>
-					[Obsolete("Deprecated since 1.52. This method is marked as 'protected' which was meant to be overwritten by its subclasses. It may be renamed or deleted and should only be called from this class or its subclasses.")]
 					/// <param name="iMaxGroupSize">the maximum group size</param>
 					/// <param name="oSection">the information of the current section</param>
+					[Obsolete("Deprecated since 1.52. This method is marked as 'protected' which was meant to be overwritten by its subclasses. It may be renamed or deleted and should only be called from this class or its subclasses.")]
 					public extern virtual void _calculateRequestLength(int iMaxGroupSize, object oSection);
 
 					/// <summary>

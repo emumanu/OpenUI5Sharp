@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -18,24 +18,25 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.layout.form.SimpleFormLayout")]
 					public enum SimpleFormLayout
 					{
-							/// <summary>
-							/// Uses the <code>ColumnLayout</code> layout to render the <code>SimpleForm</code> control
-							/// </summary>
-							ColumnLayout,
-							/// <summary>
-							/// Uses the <code>GridLayout</code> layout to render the <code>SimpleForm</code> control
-							/// </summary>
-							GridLayout,
-							/// <summary>
-							/// Uses the <code>ResponsiveGridLayout</code> layout to render the <code>SimpleForm</code> control
-							/// </summary>
-							ResponsiveGridLayout,
-							/// <summary>
-							/// Uses the <code>ResponsiveLayout</code> layout to render the <code>SimpleForm</code> control
-							/// </summary>
-							ResponsiveLayout,
+						/// <summary>
+						/// Uses the <code>ColumnLayout</code> layout to render the <code>SimpleForm</code> control
+						/// </summary>
+						ColumnLayout,
+						/// <summary>
+						/// Uses the <code>GridLayout</code> layout to render the <code>SimpleForm</code> control
+						/// </summary>
+						GridLayout,
+						/// <summary>
+						/// Uses the <code>ResponsiveGridLayout</code> layout to render the <code>SimpleForm</code> control
+						/// </summary>
+						ResponsiveGridLayout,
+						/// <summary>
+						/// Uses the <code>ResponsiveLayout</code> layout to render the <code>SimpleForm</code> control
+						/// </summary>
+						ResponsiveLayout,
 					}
 				}
 			}

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.P13nDimMeasurePanel")]
 			public partial class P13nDimMeasurePanel : sap.m.P13nPanel
 			{
 				#region Settings
@@ -28,17 +29,17 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Specifies a chart type key.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> chartTypeKey;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> chartTypeKey;
 
 					/// <summary>
 					/// List of columns that has been changed.
 					/// </summary>
-					public Union<sap.m.P13nDimMeasureItem[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> dimMeasureItems;
+					public Union<sap.m.P13nDimMeasureItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> dimMeasureItems;
 
 					/// <summary>
 					/// Specifies available chart types.
 					/// </summary>
-					public Union<sap.ui.core.Item[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> availableChartTypes;
+					public Union<sap.ui.core.Item[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> availableChartTypes;
 
 					/// <summary>
 					/// Event raised when one or more <code>DimMeasureItems</code> has been updated. Aggregation <code>DimMeasureItems</code> should be updated outside...

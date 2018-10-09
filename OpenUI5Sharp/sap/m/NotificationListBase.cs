@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.NotificationListBase")]
 			public partial class NotificationListBase : sap.m.ListItemBase
 			{
 				#region Settings
@@ -30,42 +31,42 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Determines the priority of the Notification.
 					/// </summary>
-					public Union<sap.ui.core.Priority, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> priority;
+					public Union<sap.ui.core.Priority, string, sap.ui.@base.ManagedObject.BindPropertyInfo> priority;
 
 					/// <summary>
 					/// Determines the title of the NotificationListBase item.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> title;
 
 					/// <summary>
 					/// Determines the due date of the NotificationListItem.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> datetime;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> datetime;
 
 					/// <summary>
 					/// Determines the action buttons visibility.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showButtons;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showButtons;
 
 					/// <summary>
 					/// Determines the visibility of the close button.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showCloseButton;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showCloseButton;
 
 					/// <summary>
 					/// Determines the notification group's author name.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> authorName;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> authorName;
 
 					/// <summary>
 					/// Determines the URL of the notification group's author picture.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> authorPicture;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> authorPicture;
 
 					/// <summary>
 					/// Action buttons.
 					/// </summary>
-					public Union<sap.m.Button[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> buttons;
+					public Union<sap.m.Button[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> buttons;
 
 					/// <summary>
 					/// Fired when the close button of the notification is pressed.<br><b>Note:</b> Pressing the close button doesn't destroy the notification automatically.

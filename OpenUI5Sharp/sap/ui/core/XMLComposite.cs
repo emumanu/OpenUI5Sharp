@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.core.XMLComposite")]
 				public abstract partial class XMLComposite : sap.ui.core.Control
 				{
 					#region Settings
@@ -30,17 +31,17 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// The width
 						/// </summary>
-						public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+						public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 						/// <summary>
 						/// The height
 						/// </summary>
-						public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> height;
+						public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> height;
 
 						/// <summary>
 						/// Whether the CSS display should be set to "block".
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> displayBlock;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> displayBlock;
 
 					}
 
@@ -51,7 +52,7 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// XMLComposite is the base class for composite controls that use a XML fragment representation for their visual parts. From a user perspective such controls appear as any other control, but internally the rendering part is added as a fragment. The fragment that is used should appear in the same folder as the control's JS implementation with the file extension <code>.control.xml</code>. The fragment's content can access the interface data from the XMLComposite control via bindings. Currently only aggregations and properties can be used with bindings inside a fragment. The exposed model that is used for internal bindings in the fragment has the default name <code>$this</code>. The name will always start with an <code>$</code>. The metadata of the derived control can define the alias with its metadata. A code example can be found below.
 					/// 
-					/// As XMLComposites compose other controls, they are only invalidated and re-rendered if explicitly defined. Additional metadata for invalidation can be given for properties and aggregation. The default invalidation is <code>"none"</code>. Setting invalidate to <code>true</code> for properties and aggregations sets the complete XMLComposite to invalidate and rerender. For templating scenarios the XMLComposite can also be forced to re-template completely. In such case set invalidate of the corresponding property to <code>"template"</code>
+					/// As XMLComposites compose other controls, they are only invalidated and re-rendered if explicitly defined. Additional metadata for invalidation can be given for properties and aggregation. The default invalidation is <code>"none"</code>. Setting invalidate to <code>true</code> for properties and aggregations sets the complete XMLComposite to invalidate and rerender.</code>
 					/// 
 					/// Example: <pre>
 					/// XMLComposite.extend("sap.mylib.MyXMLComposite", {
@@ -71,11 +72,6 @@ namespace OpenUI5Sharp
 					///          type: "string",
 					///          defaultValue: "",
 					///          invalidate: true
-					///       },
-					///       progress: { //changing this property will re-template the XMLComposite as it defines invalidate: true
-					///          type: "int",
-					///          defaultValue: "",
-					///          invalidate: "template"
 					///       }
 					///     },
 					///     defaultProperty : "text",
@@ -268,6 +264,14 @@ namespace OpenUI5Sharp
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
 					public extern static sap.ui.@base.Metadata getMetadata();
+
+					/// <summary>
+					/// Returns the resource bundle of the resource model
+					/// 
+					/// Sample: this.getResourceBundle().then(function(oBundle) {oBundle.getText(<messagebundle_key>)})
+					/// </summary>
+					/// <returns>loaded resource bundle or ECMA Script 6 Promise in asynchronous case</returns>
+					public extern virtual Union<jQuery.sap.util.ResourceBundle, jquery.JQueryPromise<object>> getResourceBundle();
 
 					#endregion
 

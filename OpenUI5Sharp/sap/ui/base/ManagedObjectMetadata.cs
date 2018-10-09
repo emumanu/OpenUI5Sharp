@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -30,6 +30,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.base.ManagedObjectMetadata")]
 				public partial class ManagedObjectMetadata
 				{
 					#region Constructor
@@ -48,6 +49,14 @@ namespace OpenUI5Sharp
 					#endregion
 
 					#region Methods
+
+					/// <summary>
+					/// Adds information to the given oAggregatedObject about its original API parent (or a subsequent API parent in case of multiple forwarding).
+					/// </summary>
+					/// <param name="oAggregatedObject">Object to which the new API parent info should be added</param>
+					/// <param name="oParent">Object that is a new API parent</param>
+					/// <param name="sAggregationName">the name of the aggregation under which oAggregatedObject is aggregated by the API parent</param>
+					public extern static void addAPIParentInfo(sap.ui.@base.ManagedObject oAggregatedObject, sap.ui.@base.ManagedObject oParent, string sAggregationName);
 
 					/// <summary>
 					/// Defines that an aggregation <code>sForwardedSourceAggregation</code> of the ManagedObject described by this metadata should be "forwarded" to an aggregation of an internal element within the composite.

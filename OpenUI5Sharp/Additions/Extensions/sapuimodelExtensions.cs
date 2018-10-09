@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq.Expressions;
 using Bridge;
-using OpenUI5Sharp;
+using UI5;
 
-namespace OpenUI5Sharp.Extensions
+namespace UI5.Extensions
 {
     [Namespace(false)]
     [FileName("openui5sharp.js")]
@@ -138,7 +138,7 @@ namespace OpenUI5Sharp.Extensions
     }
 }
 
-namespace OpenUI5Sharp
+namespace UI5
 {
     [External]
     public partial class sap
@@ -174,6 +174,29 @@ namespace OpenUI5Sharp
                     /// <returns>oModel</returns>
                     [Name("getModel")]
                     public virtual extern sap.ui.model.Model<TModel> getModelFor<TModel>();
+
+                    /// <summary>
+                    /// Get the model to be used for data bindings with the given model name. If the object does not have a model set on itself, it will use the first model defined in its parent hierarchy.
+                    /// 
+                    /// The name can be omitted to reference the default model or it must be a non-empty string.
+                    /// 
+                    /// <b>Note:</b> to be compatible with future versions of this API, you must not use the following model names: <ul> <li><code>null</code></li> <li>empty string <code>""</code></li> <li>string literals <code>"null"</code> or <code>"undefined"</code></li> </ul> Omitting the model name (or using the value <code>undefined</code>) is explicitly allowed and refers to the default model.
+                    /// </summary>
+                    /// <param name="sName">name of the model to be retrieved</param>
+                    /// <returns>oModel</returns>
+                    [Name("getModel")]
+                    public virtual extern sap.ui.model.json.JSONModel<TModel> getJSONModelFor<TModel>(object sName);
+
+                    /// <summary>
+                    /// Get the model to be used for data bindings with the given model name. If the object does not have a model set on itself, it will use the first model defined in its parent hierarchy.
+                    /// 
+                    /// The name can be omitted to reference the default model or it must be a non-empty string.
+                    /// 
+                    /// <b>Note:</b> to be compatible with future versions of this API, you must not use the following model names: <ul> <li><code>null</code></li> <li>empty string <code>""</code></li> <li>string literals <code>"null"</code> or <code>"undefined"</code></li> </ul> Omitting the model name (or using the value <code>undefined</code>) is explicitly allowed and refers to the default model.
+                    /// </summary>
+                    /// <returns>oModel</returns>
+                    [Name("getModel")]
+                    public virtual extern sap.ui.model.json.JSONModel<TModel> getJSONModelFor<TModel>();
                 }
             }
 
@@ -181,6 +204,8 @@ namespace OpenUI5Sharp
             public static partial class model
             {
                 [External]
+                [IgnoreGeneric]
+                [Name("sap.ui.model.Model")]
                 public partial class Model<TModel> : sap.ui.model.Model
                 {
                 }
@@ -193,9 +218,37 @@ namespace OpenUI5Sharp
                 }
 
                 [External]
+                [IgnoreGeneric]
+                [Name("sap.ui.model.Context")]
                 public partial class Context<TModel> : sap.ui.model.Context
                 {
                     public extern Context(Model oModel, string sPath);
+
+                    /// <summary>
+					/// Getter for model
+					/// </summary>
+					/// <returns>the model</returns>
+                    [Name("getModel")]
+                    public extern virtual Model<TModel> getModelFor();
+                }
+
+                [External]
+                public static partial class json
+                {
+                    [External]
+                    [IgnoreGeneric]
+                    [Name("sap.ui.model.json.JSONModel")]
+                    public partial class JSONModel<TModel> : sap.ui.model.json.JSONModel
+                    {
+                        /// <summary>
+						/// Constructor for a new JSONModel.
+						/// 
+						/// The observation feature is experimental! When observation is activated, the application can directly change the JS objects without the need to call setData, setProperty or refresh. Observation does only work for existing properties in the JSON, it cannot detect new properties or new array entries.
+						/// </summary>
+						/// <param name="oData">Either the URL where to load the JSON from or a JS object</param>
+						/// <param name="bObserve">Whether to observe the JSON data for property changes (experimental)</param>
+                        public extern JSONModel(Union<object, string> oData, bool bObserve = false);
+                    }
                 }
             }
         }

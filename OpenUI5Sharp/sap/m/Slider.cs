@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -26,6 +26,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.Slider")]
 			public partial class Slider : sap.ui.core.Control, sap.ui.core.IFormContent
 			{
 				#region Settings
@@ -40,27 +41,27 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the width of the control.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// Indicates whether the user can change the value.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enabled;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enabled;
 
 					/// <summary>
 					/// The name property to be used in the HTML code for the slider (e.g. for HTML forms that send data to the server via submit).
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> name;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> name;
 
 					/// <summary>
 					/// The minimum value.
 					/// </summary>
-					public Union<float, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> min;
+					public Union<float, string, sap.ui.@base.ManagedObject.BindPropertyInfo> min;
 
 					/// <summary>
 					/// The maximum value.
 					/// </summary>
-					public Union<float, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> max;
+					public Union<float, string, sap.ui.@base.ManagedObject.BindPropertyInfo> max;
 
 					/// <summary>
 					/// Define the amount of units to change the slider when adjusting by drag and drop.
@@ -69,64 +70,64 @@ namespace OpenUI5Sharp
 					/// 
 					/// The step must be positive, if a negative number is provided, the default value will be used instead. If the width of the slider converted to pixels is less than the range (max - min), the value will be rounded to multiples of the step size.
 					/// </summary>
-					public Union<float, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> step;
+					public Union<float, string, sap.ui.@base.ManagedObject.BindPropertyInfo> step;
 
 					/// <summary>
 					/// Indicate whether a progress bar indicator is shown.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> progress;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> progress;
 
 					/// <summary>
 					/// Define the value.
 					/// 
 					/// If the value is lower/higher than the allowed minimum/maximum, the value of the properties <code>min</code>/<code>max</code> are used instead.
 					/// </summary>
-					public Union<float, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> value;
+					public Union<float, string, sap.ui.@base.ManagedObject.BindPropertyInfo> value;
 
 					/// <summary>
 					/// Indicate whether the handle tooltip is shown.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showHandleTooltip;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showHandleTooltip;
 
 					/// <summary>
 					/// Indicate whether the handle's advanced tooltip is shown. <b>Note:</b> Setting this option to <code>true</code> will ignore the value set in <code>showHandleTooltips</code>. This will cause only the advanced tooltip to be shown.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showAdvancedTooltip;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showAdvancedTooltip;
 
 					/// <summary>
 					/// Indicates whether input fields should be used as tooltips for the handles. <b>Note:</b> Setting this option to <code>true</code> will only work if <code>showAdvancedTooltips</code> is set to <code>true</code>.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> inputsAsTooltips;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> inputsAsTooltips;
 
 					/// <summary>
 					/// Enables tickmarks visualisation
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enableTickmarks;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enableTickmarks;
 
 					/// <summary>
 					/// Scale for visualisation of tickmarks and labels
 					/// </summary>
-					public Union<sap.m.IScale, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> scale;
+					public Union<sap.m.IScale, string, sap.ui.@base.ManagedObject.BindAggregationInfo> scale;
 
 					/// <summary>
 					/// Aggregation for user-defined tooltips. <b>Note:</b> In case of Slider, only the first tooltip of the aggregation is used. In the RangeSlider case - the first two. If no custom tooltips are provided, the default are used
 					/// </summary>
-					public Union<sap.m.SliderTooltipBase[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> customTooltips;
+					public Union<sap.m.SliderTooltipBase[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> customTooltips;
 
 					/// <summary>
 					/// Association to controls / IDs which label this control (see WAI-ARIA attribute <code>aria-labelledby</code>).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 					/// <summary>
 					/// This event is triggered after the end user finishes interacting, if there is any change.
 					/// </summary>
-					public sap.m.SliderChangeDelegate change;
+					public sap.m.SubmitOrChangeDelegate change;
 
 					/// <summary>
 					/// This event is triggered during the dragging period, each time the slider value changes.
 					/// </summary>
-					public sap.m.SliderChangeDelegate liveChange;
+					public sap.m.SubmitOrChangeDelegate liveChange;
 
 				}
 
@@ -640,7 +641,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.Slider</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Slider attachChange(object oData, sap.m.SliderChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.Slider attachChange(object oData, sap.m.SubmitOrChangeDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:change change} event of this <code>sap.m.Slider</code>.
@@ -652,7 +653,7 @@ namespace OpenUI5Sharp
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Slider attachChange(object oData, sap.m.SliderChangeDelegate fnFunction);
+				public extern virtual sap.m.Slider attachChange(object oData, sap.m.SubmitOrChangeDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:change change} event of this <code>sap.m.Slider</code>.
@@ -663,7 +664,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Slider attachChange(sap.m.SliderChangeDelegate fnFunction);
+				public extern virtual sap.m.Slider attachChange(sap.m.SubmitOrChangeDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:change change} event of this <code>sap.m.Slider</code>.
@@ -675,7 +676,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.Slider</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Slider attachChange(sap.m.SliderChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.Slider attachChange(sap.m.SubmitOrChangeDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:change change} event of this <code>sap.m.Slider</code>.
@@ -685,14 +686,14 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Slider detachChange(sap.m.SliderChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.Slider detachChange(sap.m.SubmitOrChangeDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:change change} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Slider fireChange(sap.m.SliderChangeInfo mParameters);
+				public extern virtual sap.m.Slider fireChange(sap.m.SubmitOrChangeInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:change change} to attached listeners.
@@ -715,7 +716,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.Slider</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Slider attachLiveChange(object oData, sap.m.SliderChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.Slider attachLiveChange(object oData, sap.m.SubmitOrChangeDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:liveChange liveChange} event of this <code>sap.m.Slider</code>.
@@ -727,7 +728,7 @@ namespace OpenUI5Sharp
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Slider attachLiveChange(object oData, sap.m.SliderChangeDelegate fnFunction);
+				public extern virtual sap.m.Slider attachLiveChange(object oData, sap.m.SubmitOrChangeDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:liveChange liveChange} event of this <code>sap.m.Slider</code>.
@@ -738,7 +739,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Slider attachLiveChange(sap.m.SliderChangeDelegate fnFunction);
+				public extern virtual sap.m.Slider attachLiveChange(sap.m.SubmitOrChangeDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:liveChange liveChange} event of this <code>sap.m.Slider</code>.
@@ -750,7 +751,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.Slider</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Slider attachLiveChange(sap.m.SliderChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.Slider attachLiveChange(sap.m.SubmitOrChangeDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:liveChange liveChange} event of this <code>sap.m.Slider</code>.
@@ -760,14 +761,14 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Slider detachLiveChange(sap.m.SliderChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.Slider detachLiveChange(sap.m.SubmitOrChangeDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:liveChange liveChange} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Slider fireLiveChange(sap.m.SliderChangeInfo mParameters);
+				public extern virtual sap.m.Slider fireLiveChange(sap.m.SubmitOrChangeInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:liveChange liveChange} to attached listeners.
@@ -882,7 +883,7 @@ namespace OpenUI5Sharp
 				/// Handles change of Tooltip's inputs.
 				/// </summary>
 				/// <param name="oEvent"></param>
-				public extern virtual void handleTooltipChange(jQuery.Event oEvent);
+				public extern virtual void handleTooltipChange(jquery.JQuery.Event oEvent);
 
 				/// <summary>
 				/// Assigns tooltips and forwards properties to them

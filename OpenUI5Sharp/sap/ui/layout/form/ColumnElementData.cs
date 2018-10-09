@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -20,6 +20,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.layout.form.ColumnElementData")]
 					public partial class ColumnElementData : sap.ui.core.LayoutData
 					{
 						#region Settings
@@ -36,14 +37,14 @@ namespace OpenUI5Sharp
 							/// 
 							/// If set to <code>12</code>, the full size of the <code>FormElement</code> element is used.
 							/// </summary>
-							public Union<sap.ui.layout.form.ColumnCells, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> cellsLarge;
+							public Union<sap.ui.layout.form.ColumnCells, string, sap.ui.@base.ManagedObject.BindPropertyInfo> cellsLarge;
 
 							/// <summary>
 							/// Number of cells used by a field if the <code>FormElement</code> element is small. The label is then above the fields per default.
 							/// 
 							/// If set to <code>12</code>, the full size of the <code>FormElement</code> is used.
 							/// </summary>
-							public Union<sap.ui.layout.form.ColumnCells, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> cellsSmall;
+							public Union<sap.ui.layout.form.ColumnCells, string, sap.ui.@base.ManagedObject.BindPropertyInfo> cellsSmall;
 
 						}
 

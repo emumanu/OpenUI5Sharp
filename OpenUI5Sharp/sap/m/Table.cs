@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.Table")]
 			public partial class Table : sap.m.ListBase
 			{
 				#region Settings
@@ -30,45 +31,43 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Sets the background style of the table. Depending on the theme, you can change the state of the background from <code>Solid</code> to <code>Translucent</code> or to <code>Transparent</code>.
 					/// </summary>
-					public Union<sap.m.BackgroundDesign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> backgroundDesign;
+					public Union<sap.m.BackgroundDesign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundDesign;
 
 					/// <summary>
 					/// Defines the algorithm to be used to layout the table cells, rows, and columns. By default, a table is rendered with fixed layout algorithm. This means the horizontal layout only depends on the table's width and the width of the columns, not the contents of the cells. Cells in subsequent rows do not affect column widths. This allows a browser to layout the table faster than the auto table layout since the browser can begin to display the table once the first row has been analyzed.
 					/// 
 					/// When this property is set to <code>false</code>, <code>sap.m.Table</code> is rendered with auto layout algorithm. This means, the width of the table and its cells depends on the contents of the cells. The column width is set by the widest unbreakable content inside the cells. This can make the rendering slow, since the browser needs to read through all the content in the table before determining the final layout. <b>Note:</b> Since <code>sap.m.Table</code> does not have its own scrollbars, setting <code>fixedLayout</code> to false can force the table to overflow, which may cause visual problems. It is suggested to use this property when a table has a few columns in wide screens or within the horizontal scroll container (e.g <code>sap.m.Dialog</code>) to handle overflow. In auto layout mode the <code>width</code> property of <code>sap.m.Column</code> is taken into account as a minimum width.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> fixedLayout;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> fixedLayout;
 
 					/// <summary>
 					/// Setting this property to <code>true</code> will show an overlay on top of the table content and prevents the user interaction with it.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showOverlay;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showOverlay;
 
 					/// <summary>
 					/// Enables alternating table row colors. <b>Note:</b> This property can only be used with the Belize and Belize Deep themes. Alternate row coloring is not available for the High Contrast Black/White themes.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> alternateRowColors;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> alternateRowColors;
 
 					/// <summary>
 					/// Defines the layout in which the table pop-in rows are rendered. <b>Note:</b> The <code>demandPopin</code> and <code>minScreenWidth</code> properties of the <code>Column</code> control must be configured appropriately.
 					/// </summary>
-					public Union<sap.m.PopinLayout, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> popinLayout;
+					public Union<sap.m.PopinLayout, string, sap.ui.@base.ManagedObject.BindPropertyInfo> popinLayout;
 
 					/// <summary>
 					/// Defines the section of the <code>sap.m.Table</code> control that remains fixed at the top of the page during vertical scrolling as long as the table is in the viewport.
 					/// 
-					/// <b>Note:</b> There is limited browser support, hence the API is in experimental state. Browsers that currently support this feature are Chrome (desktop and mobile), Safari (desktop and mobile) and Edge 41.
+					/// <b>Note:</b> There is limited browser support. Browsers that do not support this feature are listed below: <ul> <li>IE.</li> <li>Edge lower than version 41 (EdgeHTML 16).</li> <li>Firefox lower than version 59.</li> </ul>
 					/// 
-					/// There are also some known issues with respect to the scrolling behavior. A few are given below: <ul> <li>If the table is placed in certain layout containers, for example, the <code>sap.ui.layout.Grid</code> control, the column headers are not fixed at the top of the viewport. The table behaves in a similar way when placed within the <code>sap.m.ObjectPage</code> control.</li> <li>If the sticky column headers are enabled in the table, setting focus on the column headers will let the table scroll to the top.</li> </ul>
-					/// 
-					/// This API should not be used in a productive environment.
+					/// There are also some known limitations with respect to the scrolling behavior. A few are given below: <ul> <li>If the table is placed in certain layout containers, for example, the <code>sap.ui.layout.Grid</code> control, the column headers are not fixed at the top of the viewport. The table behaves in a similar way when placed within the <code>sap.m.ObjectPage</code> control.</li> <li>If the sticky column headers are enabled in the table, setting focus on the column headers will let the table scroll to the top.</li> </ul>
 					/// </summary>
-					public Union<sap.m.Sticky[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> sticky;
+					public Union<sap.m.Sticky[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> sticky;
 
 					/// <summary>
 					/// Defines the columns of the table.
 					/// </summary>
-					public Union<sap.m.Column[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> columns;
+					public Union<sap.m.Column[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> columns;
 
 					/// <summary>
 					/// Fired when the context menu is opened. When the context menu is opened, the binding context of the item is set to the given <code>contextMenu</code>.
@@ -292,11 +291,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Defines the section of the <code>sap.m.Table</code> control that remains fixed at the top of the page during vertical scrolling as long as the table is in the viewport.
 				/// 
-				/// <b>Note:</b> There is limited browser support, hence the API is in experimental state. Browsers that currently support this feature are Chrome (desktop and mobile), Safari (desktop and mobile) and Edge 41.
+				/// <b>Note:</b> There is limited browser support. Browsers that do not support this feature are listed below: <ul> <li>IE.</li> <li>Edge lower than version 41 (EdgeHTML 16).</li> <li>Firefox lower than version 59.</li> </ul>
 				/// 
-				/// There are also some known issues with respect to the scrolling behavior. A few are given below: <ul> <li>If the table is placed in certain layout containers, for example, the <code>sap.ui.layout.Grid</code> control, the column headers are not fixed at the top of the viewport. The table behaves in a similar way when placed within the <code>sap.m.ObjectPage</code> control.</li> <li>If the sticky column headers are enabled in the table, setting focus on the column headers will let the table scroll to the top.</li> </ul>
-				/// 
-				/// This API should not be used in a productive environment.
+				/// There are also some known limitations with respect to the scrolling behavior. A few are given below: <ul> <li>If the table is placed in certain layout containers, for example, the <code>sap.ui.layout.Grid</code> control, the column headers are not fixed at the top of the viewport. The table behaves in a similar way when placed within the <code>sap.m.ObjectPage</code> control.</li> <li>If the sticky column headers are enabled in the table, setting focus on the column headers will let the table scroll to the top.</li> </ul>
 				/// </summary>
 				/// <returns>Value of property <code>sticky</code></returns>
 				public extern virtual sap.m.Sticky[] getSticky();
@@ -306,11 +303,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Defines the section of the <code>sap.m.Table</code> control that remains fixed at the top of the page during vertical scrolling as long as the table is in the viewport.
 				/// 
-				/// <b>Note:</b> There is limited browser support, hence the API is in experimental state. Browsers that currently support this feature are Chrome (desktop and mobile), Safari (desktop and mobile) and Edge 41.
+				/// <b>Note:</b> There is limited browser support. Browsers that do not support this feature are listed below: <ul> <li>IE.</li> <li>Edge lower than version 41 (EdgeHTML 16).</li> <li>Firefox lower than version 59.</li> </ul>
 				/// 
-				/// There are also some known issues with respect to the scrolling behavior. A few are given below: <ul> <li>If the table is placed in certain layout containers, for example, the <code>sap.ui.layout.Grid</code> control, the column headers are not fixed at the top of the viewport. The table behaves in a similar way when placed within the <code>sap.m.ObjectPage</code> control.</li> <li>If the sticky column headers are enabled in the table, setting focus on the column headers will let the table scroll to the top.</li> </ul>
-				/// 
-				/// This API should not be used in a productive environment.
+				/// There are also some known limitations with respect to the scrolling behavior. A few are given below: <ul> <li>If the table is placed in certain layout containers, for example, the <code>sap.ui.layout.Grid</code> control, the column headers are not fixed at the top of the viewport. The table behaves in a similar way when placed within the <code>sap.m.ObjectPage</code> control.</li> <li>If the sticky column headers are enabled in the table, setting focus on the column headers will let the table scroll to the top.</li> </ul>
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// </summary>

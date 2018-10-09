@@ -3,7 +3,21 @@ Bridge.assembly("WalkthroughClientScripts", function ($asm, globals) {
 
     Bridge.define("sap.ui.demo.walkthrough.Component", {
         inherits: [sap.ui.core.UIComponent],
-        $metadata : function () { return {"nested":[System.Object],"att":1048577,"a":2,"m":[{"a":2,"n":".ctor","t":1,"p":[System.String,System.Object],"pi":[{"n":"sId","pt":System.String,"ps":0},{"n":"mSettings","pt":System.Object,"ps":1}],"sn":"ctor"},{"a":2,"n":"Script","is":true,"t":8,"sn":"Script","rt":System.Void},{"ov":true,"a":2,"n":"exit","t":8,"sn":"exit","rt":System.Void},{"v":true,"a":2,"n":"getContentDensityClass","t":8,"sn":"getContentDensityClass","rt":System.String},{"ov":true,"a":2,"n":"init","t":8,"sn":"init","rt":System.Void},{"a":2,"n":"openHelloDialog","t":8,"sn":"openHelloDialog","rt":System.Void},{"a":2,"n":"_sContentDensityClass","t":4,"rt":System.String,"sn":"_sContentDensityClass"},{"a":2,"n":"helloDialog","t":4,"rt":sap.ui.demo.walkthrough.controller.HelloDialog,"sn":"helloDialog"}]}; },
+        $metadata : function () { return {"nested":[System.Object],"att":1048577,"a":2,"m":[{"a":2,"n":".ctor","t":1,"p":[System.String,System.Object],"pi":[{"n":"sId","pt":System.String,"ps":0},{"n":"mSettings","pt":System.Object,"ps":1}],"sn":"ctor"},{"a":2,"n":"Script","is":true,"t":8,"sn":"Script","rt":System.Void},{"ov":true,"a":2,"n":"exit","t":8,"sn":"exit","rt":System.Void},{"v":true,"a":2,"n":"getContentDensityClass","t":8,"sn":"getContentDensityClass","rt":System.String},{"ov":true,"a":2,"n":"init","t":8,"sn":"init","rt":System.Void},{"a":2,"n":"openHelloDialog","t":8,"sn":"openHelloDialog","rt":System.Void},{"a":2,"n":"_sContentDensityClass","t":4,"rt":System.String,"sn":"_sContentDensityClass"},{"a":2,"n":"helloDialog","t":4,"rt":sap.ui.demo.walkthrough.controller.HelloDialog,"sn":"helloDialog"},{"a":2,"n":"metadata","is":true,"t":4,"rt":System.Object,"sn":"metadata"}]}; },
+        statics: {
+            fields: {
+                metadata: null
+            },
+            ctors: {
+                init: function () {
+                    this.metadata = { routing: { config: { routerClass: "sap.m.routing.Router", viewType: "XML", viewPath: "sap.ui.demo.walkthrough.view", controlId: "app", controlAggregation: "pages", async: true }, routes: System.Array.init([{ name: "overview", pattern: "", target: "overview" }, { name: "detail", pattern: "detail/{invoicePath}", target: "detail" }], System.Object), targets: function (_o1) {
+                            _o1["overview"] = { viewId: "overview", viewName: "Overview" };
+                            _o1["detail"] = { viewId: "detail", viewName: "Detail" };
+                            return _o1;
+                        }({ }) }, rootView: { viewName: "sap.ui.demo.walkthrough.view.App", type: sap.ui.core.mvc.ViewType.XML, async: true, id: "app" } };
+                }
+            }
+        },
         fields: {
             _sContentDensityClass: null,
             helloDialog: null
@@ -66,12 +80,6 @@ Bridge.assembly("WalkthroughClientScripts", function ($asm, globals) {
 });
 
 sap.ui.define(System.Array.init(["sap/ui/Device", "sap/ui/core/UIComponent", "sap/ui/model/json/JSONModel", "sap/ui/model/resource/ResourceModel", "sap/ui/demo/walkthrough/controller/HelloDialog"], System.String), function () {
-    var metadata = { routing: { config: { routerClass: "sap.m.routing.Router", viewType: "XML", viewPath: "sap.ui.demo.walkthrough.view", controlId: "app", controlAggregation: "pages", async: true }, routes: System.Array.init([{ name: "overview", pattern: "", target: "overview" }, { name: "detail", pattern: "detail/{invoicePath}", target: "detail" }], System.Object), targets: function (_o1) {
-        _o1["overview"] = { viewId: "overview", viewName: "Overview" };
-        _o1["detail"] = { viewId: "detail", viewName: "Detail" };
-        return _o1;
-    }({ }) }, rootView: { viewName: "sap.ui.demo.walkthrough.view.App", type: sap.ui.core.mvc.ViewType.XML, async: true, id: "app" } };
-
-    var newObj = Glue.CreateRawClassObject(sap.ui.demo.walkthrough.Component, metadata);
+    var newObj = UI5.Glue.CreateRawClassObject(sap.ui.demo.walkthrough.Component);
     return sap.ui.core.UIComponent.extend("sap.ui.demo.walkthrough.Component", newObj);
 });

@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Bridge;
-using OpenUI5Sharp;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
     public partial class sap
     {

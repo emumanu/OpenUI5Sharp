@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.core.CustomData")]
 				public partial class CustomData : sap.ui.core.Element
 				{
 					#region Settings
@@ -30,17 +31,17 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// The key of the data in this CustomData object. When the data is just stored, it can be any string, but when it is to be written to HTML (writeToDom == true) then it must also be a valid HTML attribute name (it must conform to the sap.ui.core.ID type and may contain no colon) to avoid collisions, it also may not start with "sap-ui". When written to HTML, the key is prefixed with "data-". If any restriction is violated, a warning will be logged and nothing will be written to the DOM.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> key;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> key;
 
 						/// <summary>
 						/// The data stored in this CustomData object. When the data is just stored, it can be any JS type, but when it is to be written to HTML (writeToDom == true) then it must be a string. If this restriction is violated, a warning will be logged and nothing will be written to the DOM.
 						/// </summary>
-						public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> value;
+						public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> value;
 
 						/// <summary>
 						/// If set to "true" and the value is of type "string" and the key conforms to the documented restrictions, this custom data is written to the HTML root element of the control as a "data-*" attribute. If the key is "abc" and the value is "cde", the HTML will look as follows: &lt;SomeTag ... data-abc="cde" ... &gt; Thus the application can provide stable attributes by data binding which can be used for styling or identification purposes. ATTENTION: use carefully to not create huge attributes or a large number of them.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> writeToDom;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> writeToDom;
 
 					}
 

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.MessagePopover")]
 			public partial class MessagePopover : sap.ui.core.Control
 			{
 				#region Settings
@@ -30,32 +31,32 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Callback function for resolving a promise after description has been asynchronously loaded inside this function
 					/// </summary>
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> asyncDescriptionHandler;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> asyncDescriptionHandler;
 
 					/// <summary>
 					/// Callback function for resolving a promise after a link has been asynchronously validated inside this function
 					/// </summary>
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> asyncURLHandler;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> asyncURLHandler;
 
 					/// <summary>
 					/// Determines the position, where the control will appear on the screen. Possible values are: sap.m.VerticalPlacementType.Top, sap.m.VerticalPlacementType.Bottom and sap.m.VerticalPlacementType.Vertical. The default value is sap.m.VerticalPlacementType.Vertical. Setting this property while the control is open, will not cause any re-rendering and changing of the position. Changes will only be applied with the next interaction.
 					/// </summary>
-					public Union<sap.m.VerticalPlacementType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> placement;
+					public Union<sap.m.VerticalPlacementType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> placement;
 
 					/// <summary>
 					/// Sets the initial state of the control - expanded or collapsed. By default the control opens as expanded.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> initiallyExpanded;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> initiallyExpanded;
 
 					/// <summary>
 					/// A list with message items
 					/// </summary>
-					public Union<sap.m.MessageItem[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
+					public Union<sap.m.MessageItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
 
 					/// <summary>
 					/// A custom header button
 					/// </summary>
-					public Union<sap.m.Button, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> headerButton;
+					public Union<sap.m.Button, string, sap.ui.@base.ManagedObject.BindAggregationInfo> headerButton;
 
 					/// <summary>
 					/// This event will be fired after the popover is opened

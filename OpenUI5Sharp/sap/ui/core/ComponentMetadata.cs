@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -13,6 +13,7 @@ namespace OpenUI5Sharp
 			{
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.core.ComponentMetadata")]
 				public partial class ComponentMetadata
 				{
 					#region Constructor
@@ -45,40 +46,40 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Returns array of components specified in the metadata of the Component. If not specified or the array is empty, the return value is null. <p> <b>Important:</b></br> If a Component is loaded using the manifest URL (or according the "manifest first" strategy), this function ignores the entries of the manifest file! It returns only the entries which have been defined in the Component metadata or in the proper Component manifest.
 					/// </summary>
-					[Obsolete("Deprecated since 1.27.1. Please use {@link sap.ui.core.Component#getManifestEntry}('/sap.ui5/dependencies/components')")]
 					/// <returns>Required Components.</returns>
+					[Obsolete("Deprecated since 1.27.1. Please use {@link sap.ui.core.Component#getManifestEntry}('/sap.ui5/dependencies/components')")]
 					public extern virtual string[] getComponents();
 
 					/// <summary>
 					/// Returns a copy of the configuration property to disallow modifications. If no key is specified it returns the complete configuration property
 					/// </summary>
-					[Obsolete("Deprecated since 1.27.1. Please use {@link sap.ui.core.Component#getManifestEntry}('/sap.ui5/config')")]
 					/// <param name="sKey">Key of the configuration property</param>
 					/// <param name="bDoNotMerge">If set to <code>true</code>, only the local configuration is returned</param>
 					/// <returns>the value of the configuration property</returns>
+					[Obsolete("Deprecated since 1.27.1. Please use {@link sap.ui.core.Component#getManifestEntry}('/sap.ui5/config')")]
 					public extern virtual object getConfig(string sKey, bool bDoNotMerge);
 
 					/// <summary>
 					/// Returns a copy of the configuration property to disallow modifications. If no key is specified it returns the complete configuration property
 					/// </summary>
-					[Obsolete("Deprecated since 1.27.1. Please use {@link sap.ui.core.Component#getManifestEntry}('/sap.ui5/config')")]
 					/// <param name="sKey">Key of the configuration property</param>
 					/// <returns>the value of the configuration property</returns>
+					[Obsolete("Deprecated since 1.27.1. Please use {@link sap.ui.core.Component#getManifestEntry}('/sap.ui5/config')")]
 					public extern virtual object getConfig(string sKey);
 
 					/// <summary>
 					/// Returns a copy of the configuration property to disallow modifications. If no key is specified it returns the complete configuration property
 					/// </summary>
-					[Obsolete("Deprecated since 1.27.1. Please use {@link sap.ui.core.Component#getManifestEntry}('/sap.ui5/config')")]
 					/// <returns>the value of the configuration property</returns>
+					[Obsolete("Deprecated since 1.27.1. Please use {@link sap.ui.core.Component#getManifestEntry}('/sap.ui5/config')")]
 					public extern virtual object getConfig();
 
 					/// <summary>
 					/// Returns a copy of the configuration property to disallow modifications. If no key is specified it returns the complete configuration property
 					/// </summary>
-					[Obsolete("Deprecated since 1.27.1. Please use {@link sap.ui.core.Component#getManifestEntry}('/sap.ui5/config')")]
 					/// <param name="bDoNotMerge">If set to <code>true</code>, only the local configuration is returned</param>
 					/// <returns>the value of the configuration property</returns>
+					[Obsolete("Deprecated since 1.27.1. Please use {@link sap.ui.core.Component#getManifestEntry}('/sap.ui5/config')")]
 					public extern virtual object getConfig(bool bDoNotMerge);
 
 					/// <summary>
@@ -88,38 +89,38 @@ namespace OpenUI5Sharp
 					/// 
 					/// The configuration above can be accessed via <code>sample.Component.getMetadata().getCustomEntry("my.custom.config")</code>.
 					/// </summary>
-					[Obsolete("Deprecated since 1.27.1. Please use the sap.ui.core.ComponentMetadata#getManifestEntry")]
 					/// <param name="sKey">Key of the custom configuration (must be prefixed with a namespace)</param>
 					/// <param name="bMerged">Indicates whether the custom configuration is merged with the parent custom configuration of the Component.</param>
 					/// <returns>custom Component configuration with the specified key.</returns>
+					[Obsolete("Deprecated since 1.27.1. Please use the sap.ui.core.ComponentMetadata#getManifestEntry")]
 					public extern virtual object getCustomEntry(string sKey, bool bMerged);
 
 					/// <summary>
 					/// Returns the dependencies defined in the metadata of the Component. If not specified, the return value is null. <p> <b>Important:</b></br> If a Component is loaded using the manifest URL (or according the "manifest first" strategy), this function ignores the entries of the manifest file! It returns only the entries which have been defined in the Component metadata or in the proper Component manifest.
 					/// </summary>
-					[Obsolete("Deprecated since 1.27.1. Please use {@link sap.ui.core.Component#getManifestEntry}('/sap.ui5/dependencies')")]
 					/// <returns>Component dependencies.</returns>
+					[Obsolete("Deprecated since 1.27.1. Please use {@link sap.ui.core.Component#getManifestEntry}('/sap.ui5/dependencies')")]
 					public extern virtual object getDependencies();
 
 					/// <summary>
 					/// Returns the array of the included files that the Component requires such as CSS and JavaScript. If not specified or the array is empty, the return value is null. <p> <b>Important:</b></br> If a Component is loaded using the manifest URL (or according the "manifest first" strategy), this function ignores the entries of the manifest file! It returns only the entries which have been defined in the Component metadata or in the proper Component manifest.
 					/// </summary>
-					[Obsolete("Deprecated since 1.27.1. Please use {@link sap.ui.core.Component#getManifestEntry}('/sap.ui5/resources')")]
 					/// <returns>Included files.</returns>
+					[Obsolete("Deprecated since 1.27.1. Please use {@link sap.ui.core.Component#getManifestEntry}('/sap.ui5/resources')")]
 					public extern virtual string[] getIncludes();
 
 					/// <summary>
 					/// Returns array of libraries specified in metadata of the Component, that are automatically loaded when an instance of the component is created. If not specified or the array is empty, the return value is null. <p> <b>Important:</b></br> If a Component is loaded using the manifest URL (or according the "manifest first" strategy), this function ignores the entries of the manifest file! It returns only the entries which have been defined in the Component metadata or in the proper Component manifest.
 					/// </summary>
-					[Obsolete("Deprecated since 1.27.1. Please use {@link sap.ui.core.Component#getManifestEntry}('/sap.ui5/dependencies/libs')")]
 					/// <returns>Required libraries.</returns>
+					[Obsolete("Deprecated since 1.27.1. Please use {@link sap.ui.core.Component#getManifestEntry}('/sap.ui5/dependencies/libs')")]
 					public extern virtual string[] getLibs();
 
 					/// <summary>
 					/// Returns the manifest defined in the metadata of the Component. If not specified, the return value is null.
 					/// </summary>
-					[Obsolete("Deprecated since 1.33.0. Please use the sap.ui.core.Component#getManifest")]
 					/// <returns>manifest.</returns>
+					[Obsolete("Deprecated since 1.33.0. Please use the sap.ui.core.Component#getManifest")]
 					public extern virtual object getManifest();
 
 					/// <summary>
@@ -131,10 +132,10 @@ namespace OpenUI5Sharp
 					/// 
 					/// By section/namespace returns the configuration for the specified manifest section and by path allows to specify a concrete path to a dedicated entry inside the manifest. The path syntax always starts with a slash (/).
 					/// </summary>
-					[Obsolete("Deprecated since 1.33.0. Please use the sap.ui.core.Component#getManifest")]
 					/// <param name="sKey">Either the manifest section name (namespace) or a concrete path</param>
 					/// <param name="bMerged">Indicates whether the custom configuration is merged with the parent custom configuration of the Component.</param>
 					/// <returns>Value of the manifest section or the key (could be any kind of value)</returns>
+					[Obsolete("Deprecated since 1.33.0. Please use the sap.ui.core.Component#getManifest")]
 					public extern virtual object getManifestEntry(string sKey, bool bMerged);
 
 					/// <summary>
@@ -146,9 +147,9 @@ namespace OpenUI5Sharp
 					/// 
 					/// By section/namespace returns the configuration for the specified manifest section and by path allows to specify a concrete path to a dedicated entry inside the manifest. The path syntax always starts with a slash (/).
 					/// </summary>
-					[Obsolete("Deprecated since 1.33.0. Please use the sap.ui.core.Component#getManifest")]
 					/// <param name="sKey">Either the manifest section name (namespace) or a concrete path</param>
 					/// <returns>Value of the manifest section or the key (could be any kind of value)</returns>
+					[Obsolete("Deprecated since 1.33.0. Please use the sap.ui.core.Component#getManifest")]
 					public extern virtual object getManifestEntry(string sKey);
 
 					/// <summary>
@@ -166,22 +167,22 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Returns the raw manifest defined in the metadata of the Component. If not specified, the return value is null.
 					/// </summary>
-					[Obsolete("Deprecated since 1.33.0. Please use the sap.ui.core.Component#getManifest")]
 					/// <returns>manifest</returns>
+					[Obsolete("Deprecated since 1.33.0. Please use the sap.ui.core.Component#getManifest")]
 					public extern virtual object getRawManifest();
 
 					/// <summary>
 					/// Returns the required version of SAPUI5 defined in the metadata of the Component. If returned value is null, then no special UI5 version is required. <p> <b>Important:</b></br> If a Component is loaded using the manifest URL (or according the "manifest first" strategy), this function ignores the entries of the manifest file! It returns only the entries which have been defined in the Component metadata or in the proper Component manifest.
 					/// </summary>
-					[Obsolete("Deprecated since 1.27.1. Please use {@link sap.ui.core.Component#getManifestEntry}('/sap.ui5/dependencies/minUI5Version')")]
 					/// <returns>Required version of UI5 or if not specified then null.</returns>
+					[Obsolete("Deprecated since 1.27.1. Please use {@link sap.ui.core.Component#getManifestEntry}('/sap.ui5/dependencies/minUI5Version')")]
 					public extern virtual string getUI5Version();
 
 					/// <summary>
 					/// Returns the version of the component. If not specified, the return value is null. <p> <b>Important:</b></br> If a Component is loaded using the manifest URL (or according the "manifest first" strategy), this function ignores the entries of the manifest file! It returns only the entries which have been defined in the Component metadata or in the proper Component manifest.
 					/// </summary>
-					[Obsolete("Deprecated since 1.34.2. Please use {@link sap.ui.core.Component#getManifestEntry}('/sap.app/applicationVersion/version')")]
 					/// <returns>The version of the component.</returns>
+					[Obsolete("Deprecated since 1.34.2. Please use {@link sap.ui.core.Component#getManifestEntry}('/sap.app/applicationVersion/version')")]
 					public extern virtual string getVersion();
 
 					/// <summary>

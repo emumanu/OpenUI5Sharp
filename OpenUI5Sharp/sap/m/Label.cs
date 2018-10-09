@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.Label")]
 			public partial class Label : sap.ui.core.Control, sap.ui.core.Label, sap.ui.core.IShrinkable, sap.m.IOverflowToolbarContent
 			{
 				#region Settings
@@ -30,54 +31,54 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Sets the design of a Label to either Standard or Bold.
 					/// </summary>
-					public Union<sap.m.LabelDesign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> design;
+					public Union<sap.m.LabelDesign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> design;
 
 					/// <summary>
 					/// Determines the Label text to be displayed.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> text;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> text;
 
 					/// <summary>
 					/// Available alignment settings are "Begin", "Center", "End", "Left", and "Right".
 					/// </summary>
-					public Union<sap.ui.core.TextAlign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> textAlign;
+					public Union<sap.ui.core.TextAlign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> textAlign;
 
 					/// <summary>
 					/// Options for the text direction are RTL and LTR. Alternatively, the control can inherit the text direction from its parent container.
 					/// </summary>
-					public Union<sap.ui.core.TextDirection, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> textDirection;
+					public Union<sap.ui.core.TextDirection, string, sap.ui.@base.ManagedObject.BindPropertyInfo> textDirection;
 
 					/// <summary>
 					/// Determines the width of the label.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// Indicates that user input is required for input control labeled by the sap.m.Label. When the property is set to true and associated input field is empty an asterisk character is added to the label text.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> required;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> required;
 
 					/// <summary>
 					/// Determines if the label is in displayOnly mode. Controls in this mode are neither interactive, nor editable, nor focusable, and not in the tab chain.
 					/// 
 					/// <b>Note:</b> This property should be used only in Form controls in preview mode.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> displayOnly;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> displayOnly;
 
 					/// <summary>
 					/// Determines the wrapping of the text within the <code>Label</code>. If set to true the <code>Label</code> will wrap, when set to false the <code>Label</code> will be truncated and replaced with ellipsis which is the default behavior.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> wrapping;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> wrapping;
 
 					/// <summary>
 					/// Specifies the vertical alignment of the <code>Label</code> related to the tallest and lowest element on the line.
 					/// </summary>
-					public Union<sap.ui.core.VerticalAlign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> vAlign;
+					public Union<sap.ui.core.VerticalAlign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> vAlign;
 
 					/// <summary>
 					/// Association to the labeled control. By default the label set the for attribute to the ID of the labeled control. This can be changed by implementing the function getIdForLabel on the labelled control.
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> labelFor;
+					public Union<sap.ui.core.Control, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> labelFor;
 
 				}
 

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -18,6 +18,8 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.tmpl.HandlebarsTemplate")]
+					[Obsolete("Deprecated since 1.56.")]
 					public abstract partial class HandlebarsTemplate : sap.ui.core.tmpl.Template
 					{
 						#region Settings

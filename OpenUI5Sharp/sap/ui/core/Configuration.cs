@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -24,6 +24,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.core.Configuration")]
 				public partial class Configuration : sap.ui.@base.Object
 				{
 					#region Constructor
@@ -87,8 +88,8 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Returns whether the animations are globally used.
 					/// </summary>
-					[Obsolete("Deprecated since 1.50.0. replaced by {@link sap.ui.core.Configuration#getAnimationMode}")]
 					/// <returns>whether the animations are globally used</returns>
+					[Obsolete("Deprecated since 1.50.0. replaced by {@link sap.ui.core.Configuration#getAnimationMode}")]
 					public extern virtual bool getAnimation();
 
 					/// <summary>
@@ -118,8 +119,8 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// The name of the application to start or empty.
 					/// </summary>
-					[Obsolete("Deprecated since 1.15.1. Please use the rootComponent configuration option {@link sap.ui.core.Configuration#getRootComponent}.")]
 					/// <returns>name of the application</returns>
+					[Obsolete("Deprecated since 1.15.1. Please use the rootComponent configuration option {@link sap.ui.core.Configuration#getRootComponent}.")]
 					public extern virtual string getApplication();
 
 					/// <summary>
@@ -413,24 +414,25 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.Configuration.AnimationMode")]
 					public enum AnimationMode
 					{
-							/// <summary>
-							/// <code>basic</code> can be used for a reduced, more light-weight set of animations.
-							/// </summary>
-							basic,
-							/// <summary>
-							/// <code>full</code> represents a mode with unrestricted animation capabilities.
-							/// </summary>
-							full,
-							/// <summary>
-							/// <code>minimal</code> includes animations of fundamental functionality.
-							/// </summary>
-							minimal,
-							/// <summary>
-							/// <code>none</code> deactivates the animation completely.
-							/// </summary>
-							none,
+						/// <summary>
+						/// <code>basic</code> can be used for a reduced, more light-weight set of animations.
+						/// </summary>
+						basic,
+						/// <summary>
+						/// <code>full</code> represents a mode with unrestricted animation capabilities.
+						/// </summary>
+						full,
+						/// <summary>
+						/// <code>minimal</code> includes animations of fundamental functionality.
+						/// </summary>
+						minimal,
+						/// <summary>
+						/// <code>none</code> deactivates the animation completely.
+						/// </summary>
+						none,
 					}
 				}
 			}

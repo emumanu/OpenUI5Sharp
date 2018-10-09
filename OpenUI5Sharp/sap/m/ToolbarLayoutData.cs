@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.ToolbarLayoutData")]
 			public partial class ToolbarLayoutData : sap.ui.core.LayoutData
 			{
 				#region Settings
@@ -32,17 +33,17 @@ namespace OpenUI5Sharp
 					/// 
 					/// Note: Nested layout controls should not be shrinkable.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> shrinkable;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> shrinkable;
 
 					/// <summary>
 					/// Sets the minimum width of the toolbar item.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> minWidth;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> minWidth;
 
 					/// <summary>
 					/// Sets the maximum width of the toolbar item.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maxWidth;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> maxWidth;
 
 				}
 

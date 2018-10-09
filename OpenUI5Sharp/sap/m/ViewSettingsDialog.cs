@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -30,6 +30,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.ViewSettingsDialog")]
 			public partial class ViewSettingsDialog : sap.ui.core.Control
 			{
 				#region Settings
@@ -44,64 +45,64 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the title of the dialog. If not set and there is only one active tab, the dialog uses the default "View" or "Sort", "Group", "Filter" respectively.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> title;
 
 					/// <summary>
 					/// Determines whether the sort order is descending or ascending (default).
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> sortDescending;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> sortDescending;
 
 					/// <summary>
 					/// Determines whether the group order is descending or ascending (default).
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> groupDescending;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> groupDescending;
 
 					/// <summary>
 					/// Provides a string filter operator which is used when the user searches items in filter details page. Possible operators are: <code>AnyWordStartsWith</code>, <code>Contains</code>, <code>StartsWith</code>, <code>Equals</code>. This property will be ignored if a custom callback is provided through <code>setFilterSearchCallback</code> method.
 					/// </summary>
-					public Union<sap.m.StringFilterOperator, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> filterSearchOperator;
+					public Union<sap.m.StringFilterOperator, string, sap.ui.@base.ManagedObject.BindPropertyInfo> filterSearchOperator;
 
 					/// <summary>
 					/// The list of items with key and value that can be sorted over (for example, a list of columns for a table).
 					/// </summary>
-					public Union<sap.m.ViewSettingsItem[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> sortItems;
+					public Union<sap.m.ViewSettingsItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> sortItems;
 
 					/// <summary>
 					/// The list of items with key and value that can be grouped on (for example, a list of columns for a table).
 					/// </summary>
-					public Union<sap.m.ViewSettingsItem[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> groupItems;
+					public Union<sap.m.ViewSettingsItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> groupItems;
 
 					/// <summary>
 					/// The list of items with key and value that can be filtered on (for example, a list of columns for a table). A filterItem is associated with one or more detail filters.
 					/// 
 					/// <b>Note:</b> It is recommended to use the <code>sap.m.ViewSettingsFilterItem</code> as it fits best at the filter page.
 					/// </summary>
-					public Union<sap.m.ViewSettingsItem[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> filterItems;
+					public Union<sap.m.ViewSettingsItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> filterItems;
 
 					/// <summary>
 					/// The list of preset filter items that allows the selection of more complex or custom filters. These entries are displayed at the top of the filter tab.
 					/// </summary>
-					public Union<sap.m.ViewSettingsItem[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> presetFilterItems;
+					public Union<sap.m.ViewSettingsItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> presetFilterItems;
 
 					/// <summary>
 					/// The list of all the custom tabs.
 					/// </summary>
-					public Union<sap.m.ViewSettingsCustomTab[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> customTabs;
+					public Union<sap.m.ViewSettingsCustomTab[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> customTabs;
 
 					/// <summary>
 					/// The sort item that is selected. It can be set by either passing a key or the item itself to the function setSelectedSortItem.
 					/// </summary>
-					public Union<sap.m.ViewSettingsItem, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedSortItem;
+					public Union<sap.m.ViewSettingsItem, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> selectedSortItem;
 
 					/// <summary>
 					/// The group item that is selected. It can be set by either passing a key or the item itself to the function setSelectedGroupItem. By default 'None' is selected. You can restore back to 'None' by setting this association to empty value.
 					/// </summary>
-					public Union<sap.m.ViewSettingsItem, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedGroupItem;
+					public Union<sap.m.ViewSettingsItem, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> selectedGroupItem;
 
 					/// <summary>
 					/// The preset filter item that is selected. It can be set by either passing a key or the item itself to the function setSelectedPresetFilterItem. Note that either a preset filter OR multiple detail filters can be active at the same time.
 					/// </summary>
-					public Union<sap.m.ViewSettingsItem, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedPresetFilterItem;
+					public Union<sap.m.ViewSettingsItem, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> selectedPresetFilterItem;
 
 					/// <summary>
 					/// Indicates that the user has pressed the OK button and the selected sort, group, and filter settings should be applied to the data on this page. </br></br><b>Note:</b> Custom tabs are not converted to event parameters automatically. For custom tabs, you have to read the state of your controls inside the callback of this event.
@@ -1115,8 +1116,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// It can be used to create matching sorters and filters to apply the selected settings to the data.
 				/// </summary>
-				[Obsolete("Deprecated since 1.42. replaced by <code>getSelectedFilterCompoundKeys</code> method")]
 				/// <returns>An object with item and sub-item keys</returns>
+				[Obsolete("Deprecated since 1.42. replaced by <code>getSelectedFilterCompoundKeys</code> method")]
 				public extern virtual object getSelectedFilterKeys();
 
 				/// <summary>
@@ -1174,9 +1175,9 @@ namespace OpenUI5Sharp
 				/// <summary>
 				/// Sets the selected filter object in format {key: boolean}. <b>Note:</b> Do not use duplicated item keys with this method.
 				/// </summary>
-				[Obsolete("Deprecated since 1.42. replaced by <code>setSelectedFilterCompoundKeys</code> method")]
 				/// <param name="oSelectedFilterKeys">A configuration object with filter item and sub item keys in the format: { key: boolean }. Setting boolean to true will set the filter to true, false or omitting an entry will set the filter to false. It can be used to set the dialog state based on presets.</param>
 				/// <returns>this pointer for chaining</returns>
+				[Obsolete("Deprecated since 1.42. replaced by <code>setSelectedFilterCompoundKeys</code> method")]
 				public extern virtual sap.m.ViewSettingsDialog setSelectedFilterKeys(object oSelectedFilterKeys);
 
 				/// <summary>

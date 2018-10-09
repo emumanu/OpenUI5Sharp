@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -22,6 +22,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.base.DataType")]
 				public partial class DataType
 				{
 					#region Typed Parameters
@@ -81,7 +82,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					/// <param name="sName">Unique qualified name of the new type</param>
 					/// <param name="mSettings">Settings for the new type</param>
-					/// <param name="@base">Base type for the new type</param>
+					/// <param name="base">Base type for the new type</param>
 					/// <returns>The newly created type object</returns>
 					public extern static sap.ui.@base.DataType createType(string sName, sap.ui.@base.DataType.CreateTypeInfo mSettings, Union<sap.ui.@base.DataType, string> @base);
 

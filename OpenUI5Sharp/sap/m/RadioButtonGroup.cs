@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.RadioButtonGroup")]
 			public partial class RadioButtonGroup : sap.ui.core.Control, sap.ui.core.IFormContent
 			{
 				#region Settings
@@ -28,83 +29,59 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Specifies the width of the RadioButtonGroup.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// Specifies the maximum number of radio buttons displayed in one line.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> columns;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> columns;
 
 					/// <summary>
 					/// Specifies whether the user can change the selected value of the RadioButtonGroup. When the property is set to false, the control obtains visual styles different from its visual styles for the normal and the disabled state. Additionally, the control is no longer interactive, but can receive focus.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> editable;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> editable;
 
 					/// <summary>
 					/// The value state to be displayed for the radio button. Possible values are: sap.ui.core.ValueState.Error, sap.ui.core.ValueState.Warning, sap.ui.core.ValueState.Success and sap.ui.core.ValueState.None. Note: Setting this attribute to sap.ui.core.ValueState.Error when the accessibility feature is enabled, sets the value of the invalid property for the whole RadioButtonGroup to "true".
 					/// </summary>
-					public Union<sap.ui.core.ValueState, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> valueState;
+					public Union<sap.ui.core.ValueState, string, sap.ui.@base.ManagedObject.BindPropertyInfo> valueState;
 
 					/// <summary>
 					/// Determines the index of the selected/checked RadioButton. Default is 0. If no radio button is selected, the selectedIndex property will return -1.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedIndex;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> selectedIndex;
 
 					/// <summary>
 					/// Switches the enabled state of the control. All Radio Buttons inside a disabled group are disabled. Default value is "true".
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enabled;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enabled;
 
 					/// <summary>
 					/// This property specifies the element's text directionality with enumerated options. By default, the control inherits text direction from the DOM.
 					/// </summary>
-					public Union<sap.ui.core.TextDirection, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> textDirection;
+					public Union<sap.ui.core.TextDirection, string, sap.ui.@base.ManagedObject.BindPropertyInfo> textDirection;
 
 					/// <summary>
 					/// Returns a list of the RadioButtons in a RadioButtonGroup
 					/// </summary>
-					public Union<sap.m.RadioButton[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> buttons;
+					public Union<sap.m.RadioButton[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> buttons;
 
 					/// <summary>
 					/// Association to controls / IDs which describe this control (see WAI-ARIA attribute aria-describedby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaDescribedBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaDescribedBy;
 
 					/// <summary>
 					/// Association to controls / IDs which label this control (see WAI-ARIA attribute aria-labelledby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 					/// <summary>
 					/// Fires when selection is changed by user interaction.
 					/// </summary>
-					public sap.m.RadioButtonGroup.SelectDelegate select;
+					public sap.m.RadioButtonGroupDelegate select;
 
 				}
-
-				#endregion
-
-				#region Typed Parameters
-
-				/// <summary>
-				/// Parameter to be used as Object Literal
-				/// </summary>
-				[External]
-				[ObjectLiteral]
-				public partial class SelectInfo
-				{
-					/// <summary>
-					/// Index of the selected RadioButton.
-					/// </summary>
-					public int selectedIndex;
-
-				}
-
-				#endregion
-
-				#region Delegates
-
-				public delegate void SelectDelegate(sap.ui.@base.Event<sap.m.RadioButtonGroup.SelectInfo> oEvent, object oData);
 
 				#endregion
 
@@ -447,7 +424,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.RadioButtonGroup</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.RadioButtonGroup attachSelect(object oData, sap.m.RadioButtonGroup.SelectDelegate fnFunction, object oListener);
+				public extern virtual sap.m.RadioButtonGroup attachSelect(object oData, sap.m.RadioButtonGroupDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:select select} event of this <code>sap.m.RadioButtonGroup</code>.
@@ -459,7 +436,7 @@ namespace OpenUI5Sharp
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.RadioButtonGroup attachSelect(object oData, sap.m.RadioButtonGroup.SelectDelegate fnFunction);
+				public extern virtual sap.m.RadioButtonGroup attachSelect(object oData, sap.m.RadioButtonGroupDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:select select} event of this <code>sap.m.RadioButtonGroup</code>.
@@ -470,7 +447,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.RadioButtonGroup attachSelect(sap.m.RadioButtonGroup.SelectDelegate fnFunction);
+				public extern virtual sap.m.RadioButtonGroup attachSelect(sap.m.RadioButtonGroupDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:select select} event of this <code>sap.m.RadioButtonGroup</code>.
@@ -482,7 +459,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.RadioButtonGroup</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.RadioButtonGroup attachSelect(sap.m.RadioButtonGroup.SelectDelegate fnFunction, object oListener);
+				public extern virtual sap.m.RadioButtonGroup attachSelect(sap.m.RadioButtonGroupDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:select select} event of this <code>sap.m.RadioButtonGroup</code>.
@@ -492,14 +469,14 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.RadioButtonGroup detachSelect(sap.m.RadioButtonGroup.SelectDelegate fnFunction, object oListener);
+				public extern virtual sap.m.RadioButtonGroup detachSelect(sap.m.RadioButtonGroupDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:select select} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.RadioButtonGroup fireSelect(sap.m.RadioButtonGroup.SelectInfo mParameters);
+				public extern virtual sap.m.RadioButtonGroup fireSelect(sap.m.RadioButtonGroupInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:select select} to attached listeners.

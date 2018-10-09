@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -29,6 +29,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.MessageToast")]
 			public static partial class MessageToast
 			{
 				#region Typed Parameters
@@ -63,7 +64,7 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Specifies the reference element to which the message toast should be aligned, by default it is aligned to the browser visual viewport.
 					/// </summary>
-					public Union<sap.ui.core.Control, dom.HTMLElement, jquery.JQuery<object>, dom.Window> of;
+					public Union<sap.ui.core.Control, dom.HTMLElement, jQuery, dom.Window> of;
 
 					/// <summary>
 					/// The offset relative to the docking point, specified as a string with space-separated pixel values (e.g. "0 10" to move the message toast 10 pixels to the right).

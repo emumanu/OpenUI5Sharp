@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.ListItemBase")]
 			public partial class ListItemBase : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,37 +29,37 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the visual indication and behavior of the list items, e.g. <code>Active</code>, <code>Navigation</code>, <code>Detail</code>.
 					/// </summary>
-					public Union<sap.m.ListType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> type;
+					public Union<sap.m.ListType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> type;
 
 					/// <summary>
 					/// Whether the control should be visible on the screen. If set to false, a placeholder is rendered instead of the real control.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visible;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visible;
 
 					/// <summary>
 					/// Activates the unread indicator for the list item, if set to <code>true</code>. <b>Note:</b> This flag is ignored when the <code>showUnread</code> property of the parent is set to <code>false</code>.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> unread;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> unread;
 
 					/// <summary>
 					/// Defines the selected state of the list items. <b>Note:</b> Binding the <code>selected</code> property in single selection modes may cause unwanted results if you have more than one selected items in your binding.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selected;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> selected;
 
 					/// <summary>
 					/// Defines the counter value of the list items.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> counter;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> counter;
 
 					/// <summary>
 					/// Defines the highlight state of the list items.
 					/// </summary>
-					public Union<sap.ui.core.MessageType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> highlight;
+					public Union<sap.ui.core.MessageType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> highlight;
 
 					/// <summary>
 					/// Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 					/// <summary>
 					/// Fires when the user taps on the control.
@@ -328,11 +329,11 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fires when the user taps on the control.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. Instead, use <code>press</code> event.")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.ListItemBase</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20.0. Instead, use <code>press</code> event.")]
 				public extern virtual sap.m.ListItemBase attachTap(object oData, sap.ui.@base.EventDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -342,10 +343,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fires when the user taps on the control.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. Instead, use <code>press</code> event.")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20.0. Instead, use <code>press</code> event.")]
 				public extern virtual sap.m.ListItemBase attachTap(object oData, sap.ui.@base.EventDelegate fnFunction);
 
 				/// <summary>
@@ -355,9 +356,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fires when the user taps on the control.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. Instead, use <code>press</code> event.")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20.0. Instead, use <code>press</code> event.")]
 				public extern virtual sap.m.ListItemBase attachTap(sap.ui.@base.EventDelegate fnFunction);
 
 				/// <summary>
@@ -367,10 +368,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fires when the user taps on the control.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. Instead, use <code>press</code> event.")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.ListItemBase</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20.0. Instead, use <code>press</code> event.")]
 				public extern virtual sap.m.ListItemBase attachTap(sap.ui.@base.EventDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -378,25 +379,25 @@ namespace OpenUI5Sharp
 				/// 
 				/// The passed function and listener object must match the ones used for event registration.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. Instead, use <code>press</code> event.")]
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20.0. Instead, use <code>press</code> event.")]
 				public extern virtual sap.m.ListItemBase detachTap(sap.ui.@base.EventDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:tap tap} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. Instead, use <code>press</code> event.")]
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20.0. Instead, use <code>press</code> event.")]
 				public extern virtual sap.m.ListItemBase fireTap(object mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:tap tap} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. Instead, use <code>press</code> event.")]
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20.0. Instead, use <code>press</code> event.")]
 				public extern virtual sap.m.ListItemBase fireTap();
 
 				#endregion
@@ -410,11 +411,11 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fires when the user taps on the detail button of the control.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. Instead, use <code>detailPress</code> event.")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.ListItemBase</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20.0. Instead, use <code>detailPress</code> event.")]
 				public extern virtual sap.m.ListItemBase attachDetailTap(object oData, sap.ui.@base.EventDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -424,10 +425,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fires when the user taps on the detail button of the control.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. Instead, use <code>detailPress</code> event.")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20.0. Instead, use <code>detailPress</code> event.")]
 				public extern virtual sap.m.ListItemBase attachDetailTap(object oData, sap.ui.@base.EventDelegate fnFunction);
 
 				/// <summary>
@@ -437,9 +438,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fires when the user taps on the detail button of the control.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. Instead, use <code>detailPress</code> event.")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20.0. Instead, use <code>detailPress</code> event.")]
 				public extern virtual sap.m.ListItemBase attachDetailTap(sap.ui.@base.EventDelegate fnFunction);
 
 				/// <summary>
@@ -449,10 +450,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fires when the user taps on the detail button of the control.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. Instead, use <code>detailPress</code> event.")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.ListItemBase</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20.0. Instead, use <code>detailPress</code> event.")]
 				public extern virtual sap.m.ListItemBase attachDetailTap(sap.ui.@base.EventDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -460,25 +461,25 @@ namespace OpenUI5Sharp
 				/// 
 				/// The passed function and listener object must match the ones used for event registration.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. Instead, use <code>detailPress</code> event.")]
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20.0. Instead, use <code>detailPress</code> event.")]
 				public extern virtual sap.m.ListItemBase detachDetailTap(sap.ui.@base.EventDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:detailTap detailTap} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. Instead, use <code>detailPress</code> event.")]
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20.0. Instead, use <code>detailPress</code> event.")]
 				public extern virtual sap.m.ListItemBase fireDetailTap(object mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:detailTap detailTap} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. Instead, use <code>detailPress</code> event.")]
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20.0. Instead, use <code>detailPress</code> event.")]
 				public extern virtual sap.m.ListItemBase fireDetailTap();
 
 				#endregion
@@ -683,7 +684,7 @@ namespace OpenUI5Sharp
 				/// Returns the tabbable DOM elements as a jQuery collection
 				/// </summary>
 				/// <returns>jQuery object</returns>
-				public extern virtual jquery.JQuery<object> getTabbables();
+				public extern virtual jQuery getTabbables();
 
 				#endregion
 

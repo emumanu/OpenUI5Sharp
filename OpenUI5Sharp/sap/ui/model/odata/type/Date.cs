@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -19,9 +19,12 @@ namespace OpenUI5Sharp
 						/// This class represents the OData V4 primitive type <code>Edm.Date</code>.
 						/// 
 						/// In {@link sap.ui.model.odata.v4.ODataModel} this type is represented as a <code>string</code> in the format "yyyy-mm-dd".
+						/// 
+						/// <b>Note: For an OData V2 service use {@link sap.ui.model.odata.type.DateTime} with the constraint <code>displayFormat: "Date"</code> to display only a date.</b>
 						/// </summary>
 						[External]
 						[Namespace(false)]
+						[Name("sap.ui.model.odata.type.Date")]
 						public partial class Date : sap.ui.model.odata.type.ODataType
 						{
 							#region Constructor
@@ -81,10 +84,10 @@ namespace OpenUI5Sharp
 							/// <summary>
 							/// Formats the given value to the given target type.
 							/// </summary>
-							/// <param name="sValue">the value to be formatted</param>
+							/// <param name="vValue">the value to be formatted</param>
 							/// <param name="sTargetType">the target type; may be "any", "string", or a type with one of these types as its {@link sap.ui.base.DataType#getPrimitiveType primitive type}. See {@link sap.ui.model.odata.type} for more information.</param>
 							/// <returns>the formatted output value in the target type; <code>undefined</code> or <code>null</code> are formatted to <code>null</code></returns>
-							public extern virtual string formatValue(string sValue, string sTargetType);
+							public extern virtual string formatValue(Union<string, System.DateTime> vValue, string sTargetType);
 
 							/// <summary>
 							/// Returns a metadata object for class sap.ui.model.odata.type.Date.

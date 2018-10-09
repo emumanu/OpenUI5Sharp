@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.layout.form.FormContainer")]
 					public partial class FormContainer : sap.ui.core.Element
 					{
 						#region Settings
@@ -34,45 +35,45 @@ namespace OpenUI5Sharp
 							/// 
 							/// <b>Note:</b> This property only works if <code>expandable</code> is set to <code>true</code>.
 							/// </summary>
-							public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> expanded;
+							public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> expanded;
 
 							/// <summary>
 							/// Defines if the <code>FormContainer</code> is expandable.
 							/// 
 							/// <b>Note:</b> The expander icon will only be shown if a <code>title</code> is set for the <code>FormContainer</code>.
 							/// </summary>
-							public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> expandable;
+							public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> expandable;
 
 							/// <summary>
 							/// If set to <code>false</code>, the <code>FormContainer</code> is not rendered.
 							/// </summary>
-							public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visible;
+							public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visible;
 
 							/// <summary>
 							/// The <code>FormElements</code> contain the content (labels and fields) of the <code>FormContainers</code>.
 							/// </summary>
-							public Union<sap.ui.layout.form.FormElement[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> formElements;
+							public Union<sap.ui.layout.form.FormElement[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> formElements;
 
 							/// <summary>
 							/// Title of the <code>FormContainer</code>. Can either be a <code>Title</code> element or a string. If a <code>Title</code> element is used, the style of the title can be set.
 							/// 
 							/// <b>Note:</b> If a <code>Toolbar</code> is used, the <code>Title</code> is ignored.
 							/// </summary>
-							public Union<sap.ui.core.Title, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+							public Union<sap.ui.core.Title, string, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
 
 							/// <summary>
 							/// Toolbar of the <code>FormContainer</code>.
 							/// 
 							/// <b>Note:</b> If a <code>Toolbar</code> is used, the <code>Title</code> is ignored. If a title is needed inside the <code>Toolbar</code> it must be added at content to the <code>Toolbar</code>. In this case add the <code>Title</code> to the <code>ariaLabelledBy</code> association.
 							/// </summary>
-							public Union<sap.ui.core.Toolbar, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> toolbar;
+							public Union<sap.ui.core.Toolbar, string, sap.ui.@base.ManagedObject.BindAggregationInfo> toolbar;
 
 							/// <summary>
 							/// Association to controls / IDs that label this control (see WAI-ARIA attribute <code>aria-labelledby</code>).
 							/// 
 							/// <b>Note:</b> This attribute is only rendered if the <code>FormContainer</code> has it's own DOM representation in the used <code>FormLayout</code>.
 							/// </summary>
-							public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+							public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 						}
 

@@ -43,12 +43,12 @@ Bridge.assembly("RoutingClientScripts", function ($asm, globals) {
             _onRouteMatched: function (oEvent, oData) {
                 var $t, $t1, $t2;
                 // save the current query state
-                var oRouterArgs = sapuibaseExtensions.getParameterFor(Bridge.global.System.Object, System.Object, oEvent, ($t = { ntype: 38, t: System.Object, n: "p" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"arguments","t":4,"rt":System.Object,"sn":"arguments"}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })));
+                var oRouterArgs = sapuibaseExtensions.getParameterFor(System.Object, System.Object, oEvent, ($t = { ntype: 38, t: System.Object, n: "p" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"arguments","t":4,"rt":System.Object,"sn":"arguments"}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })));
                 this._oRouterArgs = oRouterArgs["?query"] || { };
                 if (this._oRouterArgs != null) {
                     // convert string to boolean
-                    this._oRouterArgs.sortDescending = Glue.ToBoolean(this._oRouterArgs.sortDescending);
-                    this._oRouterArgs.showDialog = Glue.ToBoolean(this._oRouterArgs.showDialog);
+                    this._oRouterArgs.sortDescending = UI5.Glue.ToBoolean(this._oRouterArgs.sortDescending);
+                    this._oRouterArgs.showDialog = UI5.Glue.ToBoolean(this._oRouterArgs.showDialog);
 
                     // search/filter via URL hash
                     this._applySearchFilter(this._oRouterArgs.search);
@@ -81,9 +81,9 @@ Bridge.assembly("RoutingClientScripts", function ($asm, globals) {
 
                 confirmFunction = Bridge.fn.bind(this, function (oEvent, oData) {
                     var $t, $t1, $t2, $t3, $t4, $t5;
-                    var oSortItem = sapuibaseExtensions.getParameterFor(Bridge.global.System.Object, Bridge.global.sap.m.ViewSettingsItem, oEvent, ($t = { ntype: 38, t: System.Object, n: "e" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"sortItem","t":4,"rt":sap.m.ViewSettingsItem,"sn":"sortItem"}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })));
+                    var oSortItem = sapuibaseExtensions.getParameterFor(System.Object, sap.m.ViewSettingsItem, oEvent, ($t = { ntype: 38, t: System.Object, n: "e" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"sortItem","t":4,"rt":sap.m.ViewSettingsItem,"sn":"sortItem"}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })));
                     this._oRouterArgs.sortField = oSortItem.getKey();
-                    this._oRouterArgs.sortDescending = sapuibaseExtensions.getParameterFor(Bridge.global.System.Object, System.Boolean, oEvent, ($t3 = { ntype: 38, t: System.Object, n: "e" }, ($t5 = ($t4 = {"td":System.Object,"a":2,"n":"sortDescending","t":4,"rt":System.Boolean,"sn":"sortDescending","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}}, { ntype: 23, t: $t4.rt, expression: $t3, member: $t4 }), { ntype: 18, t: Function, rt: $t5.t, body: $t5, p: Bridge.toList([$t3]) })));
+                    this._oRouterArgs.sortDescending = sapuibaseExtensions.getParameterFor(System.Object, System.Boolean, oEvent, ($t3 = { ntype: 38, t: System.Object, n: "e" }, ($t5 = ($t4 = {"td":System.Object,"a":2,"n":"sortDescending","t":4,"rt":System.Boolean,"sn":"sortDescending","box":function ($v) { return Bridge.box($v, System.Boolean, System.Boolean.toString);}}, { ntype: 23, t: $t4.rt, expression: $t3, member: $t4 }), { ntype: 18, t: Function, rt: $t5.t, body: $t5, p: Bridge.toList([$t3]) })));
                     this._oRouterArgs.showDialog = false;
                     oRouter.navTo("employeeOverview", { query: this._oRouterArgs }, true);
                 });

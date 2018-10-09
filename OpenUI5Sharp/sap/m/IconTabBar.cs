@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.IconTabBar")]
 			public partial class IconTabBar : sap.ui.core.Control, sap.m.ObjectHeaderContainer
 			{
 				#region Settings
@@ -32,80 +33,87 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines whether the current selection should be visualized.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showSelection;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showSelection;
 
 					/// <summary>
 					/// Defines if the tabs are collapsible and expandable.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> expandable;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> expandable;
 
 					/// <summary>
 					/// Indicates if the actual tab content is expanded or not.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> expanded;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> expanded;
 
 					/// <summary>
 					/// Key of the selected tab item.
 					/// 
 					/// If the key has no corresponding aggregated item, no changes will apply. If duplicate keys exists the first item matching the key is used.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedKey;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> selectedKey;
 
 					/// <summary>
 					/// Determines whether the text of the icon tab filter (not the count) is displayed in uppercase.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> upperCase;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> upperCase;
 
 					/// <summary>
 					/// Determines whether the IconTabBar height is stretched to the maximum possible height of its parent container. As a prerequisite, the height of the parent container must be defined as a fixed value.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> stretchContentHeight;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> stretchContentHeight;
 
 					/// <summary>
 					/// Determines whether the IconTabBar content fits to the full area. The paddings are removed if it's set to false.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> applyContentPadding;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> applyContentPadding;
 
 					/// <summary>
 					/// Specifies the background color of the IconTabBar.
 					/// 
 					/// Depending on the theme, you can change the state of the background color to "Solid", "Translucent", or "Transparent". Default is "Solid".
 					/// </summary>
-					public Union<sap.m.BackgroundDesign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> backgroundDesign;
+					public Union<sap.m.BackgroundDesign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundDesign;
 
 					/// <summary>
 					/// Specifies the header mode. <b>Note:</b> The Inline mode works only if no icons are set.
 					/// </summary>
-					public Union<sap.m.IconTabHeaderMode, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> headerMode;
+					public Union<sap.m.IconTabHeaderMode, string, sap.ui.@base.ManagedObject.BindPropertyInfo> headerMode;
 
 					/// <summary>
 					/// Specifies if the overflow select list is displayed.
 					/// 
 					/// The overflow select list represents a list, where all tab filters are displayed, so the user can select specific tab filter easier.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showOverflowSelectList;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showOverflowSelectList;
 
 					/// <summary>
 					/// Specifies the background color of the header.
 					/// 
 					/// Depending on the theme, you can change the state of the background color to "Solid", "Translucent", or "Transparent". Default is "Solid".
 					/// </summary>
-					public Union<sap.m.BackgroundDesign, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> headerBackgroundDesign;
+					public Union<sap.m.BackgroundDesign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> headerBackgroundDesign;
 
 					/// <summary>
 					/// Specifies whether tab reordering is enabled. Relevant only for desktop devices. The {@link sap.m.IconTabSeparator sap.m.IconTabSeparator} cannot be dragged and dropped Items can be moved around {@link sap.m.IconTabSeparator sap.m.IconTabSeparator}
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enableTabReordering;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enableTabReordering;
+
+					/// <summary>
+					/// Specifies the visual density mode of the tabs.
+					/// 
+					/// The values that can be applied are <code>Cozy</code>, <code>Compact</code> and <code>Inherit</code>. <code>Cozy</code> and <code>Compact</code> render the control in one of these modes independent of the global density settings. The <code>Inherit</code> value follows the global density settings which are applied. For compatibility reasons, the default value is <code>Cozy</code>.
+					/// </summary>
+					public Union<sap.m.IconTabDensityMode, string, sap.ui.@base.ManagedObject.BindPropertyInfo> tabDensityMode;
 
 					/// <summary>
 					/// The items displayed in the IconTabBar.
 					/// </summary>
-					public Union<sap.m.IconTab[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
+					public Union<sap.m.IconTab[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
 
 					/// <summary>
 					/// Represents the contents displayed below the IconTabBar. If there are multiple contents, they are rendered after each other. The developer has to manage to display the right one or use the content aggregation inside the IconTabFilter (which will be displayed instead if it is set).
 					/// </summary>
-					public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
+					public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
 
 					/// <summary>
 					/// Fires when an item is selected.
@@ -492,6 +500,29 @@ namespace OpenUI5Sharp
 				/// <param name="value">New value for enableTabReordering.</param>
 				/// <returns>this IconTabBar reference for chaining.</returns>
 				public extern virtual sap.m.IconTabBar setEnableTabReordering(bool value);
+
+				#endregion
+
+				#region Methods for Property tabDensityMode
+
+				/// <summary>
+				/// Gets current value of property {@link #getTabDensityMode tabDensityMode}.
+				/// 
+				/// Specifies the visual density mode of the tabs.
+				/// 
+				/// The values that can be applied are <code>Cozy</code>, <code>Compact</code> and <code>Inherit</code>. <code>Cozy</code> and <code>Compact</code> render the control in one of these modes independent of the global density settings. The <code>Inherit</code> value follows the global density settings which are applied. For compatibility reasons, the default value is <code>Cozy</code>.
+				/// 
+				/// Default value is <code>Cozy</code>.
+				/// </summary>
+				/// <returns>Value of property <code>tabDensityMode</code></returns>
+				public extern virtual sap.m.IconTabDensityMode getTabDensityMode();
+
+				/// <summary>
+				/// Sets the tab density mode.
+				/// </summary>
+				/// <param name="mode">New parameter value.</param>
+				/// <returns>this IconTabBar reference for chaining.</returns>
+				public extern virtual sap.m.IconTabBar setTabDensityMode(sap.m.IconTabHeaderMode mode);
 
 				#endregion
 

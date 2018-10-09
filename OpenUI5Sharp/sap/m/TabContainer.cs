@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -30,6 +30,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.TabContainer")]
 			public partial class TabContainer : sap.ui.core.Control
 			{
 				#region Settings
@@ -44,17 +45,17 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines whether an <i>Add New Tab</i> button is displayed in the <code>TabStrip</code>.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showAddNewButton;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showAddNewButton;
 
 					/// <summary>
 					/// The items displayed in the <code>TabContainer</code>.
 					/// </summary>
-					public Union<sap.m.TabContainerItem[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
+					public Union<sap.m.TabContainerItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
 
 					/// <summary>
 					/// Sets or retrieves the selected item from the <code>items</code> aggregation.
 					/// </summary>
-					public Union<sap.m.TabContainerItem, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selectedItem;
+					public Union<sap.m.TabContainerItem, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> selectedItem;
 
 					/// <summary>
 					/// Fired when an item is closed.

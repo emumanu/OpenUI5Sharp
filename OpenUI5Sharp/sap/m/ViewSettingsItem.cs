@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.ViewSettingsItem")]
 			public partial class ViewSettingsItem : sap.ui.core.Item
 			{
 				#region Settings
@@ -28,7 +29,7 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Selected state of the item. If set to "true", the item will be displayed as selected in the view settings dialog.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selected;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> selected;
 
 					/// <summary>
 					/// Let the outside world know that some of its properties has changed.

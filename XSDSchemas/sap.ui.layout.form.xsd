@@ -697,7 +697,9 @@ The labels inside the form will be rendered by default in the according mode.
           <xs:annotation>
             <xs:documentation>The &lt;code&gt;FormLayout&lt;/code&gt; that is used to render the &lt;code&gt;SimpleForm&lt;/code&gt;.
 
-We recommend using the &lt;code&gt;ResponsiveGridLayout&lt;/code&gt; for rendering a &lt;code&gt;SimpleForm&lt;/code&gt;, as its responsiveness uses the space available in the best way possible.</xs:documentation>
+We recommend using the &lt;code&gt;ResponsiveGridLayout&lt;/code&gt; for rendering a &lt;code&gt;SimpleForm&lt;/code&gt;, as its responsiveness uses the space available in the best way possible.
+
+&lt;b&gt;Note&lt;/b&gt; If possible, set the &lt;code&gt;layout&lt;/code&gt; before adding content to prevent calculations for the default layout.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="labelSpanXL" type="xs:int">

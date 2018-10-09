@@ -2,14 +2,34 @@
 using Bridge;
 using static Retyped.sinon.Sinon;
 
-namespace OpenUI5Sharp
+namespace UI5.Tests
 {
     /// <summary>
     /// Base class for Unit Tests with Qunit and SinonJS
     /// </summary>
+    /// <remarks>You should add "sap/ui/thirdparty/sinon" and "sap/ui/thirdparty/sinon-qunit" as a dependency when you inherit from this class</remarks>
     [FileName("openui5sharp-test.js")]
     public partial class BaseUnitTest
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public BaseUnitTest()
+        {
+            Configure();
+        }
+
+        /// <summary>
+        /// As sinon adds a lot of stuff to a unit test, we configure it to add those stuff to this instance
+        /// </summary>
+        public virtual void Configure()
+        {
+            Retyped.dom.window["sinon"]["config"]["injectIntoThis"] = false;
+            Retyped.dom.window["sinon"]["config"]["injectInto"] = this;
+        }
+
+        // these methods get injected by sinon
+
         [External]
         public extern virtual SinonSpy spy();
         [External]

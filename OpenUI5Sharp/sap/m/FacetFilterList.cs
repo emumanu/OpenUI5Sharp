@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.FacetFilterList")]
 			public partial class FacetFilterList : sap.m.List
 			{
 				#region Settings
@@ -32,57 +33,57 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the title of the facet. The facet title is displayed on the facet button when the FacetFilter type is set to <code>Simple</code>. It is also displayed as a list item in the facet page of the dialog.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> title;
 
 					/// <summary>
 					/// If set to <code>true</code>, the item text wraps when it is too long.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> wordWrap;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> wordWrap;
 
 					/// <summary>
 					/// Specifies whether multiple or single selection is used.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> multiSelect;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> multiSelect;
 
 					/// <summary>
 					/// Indicates that the list is displayed as a button when the FacetFilter type is set to <code>Simple</code>.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> active;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> active;
 
 					/// <summary>
 					/// If set to <code>true</code>, enables case-insensitive search for OData.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enableCaseInsensitiveSearch;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enableCaseInsensitiveSearch;
 
 					/// <summary>
 					/// Determines the number of objects that match this item in the target data set when all filter items are selected.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> allCount;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> allCount;
 
 					/// <summary>
 					/// Sequence that determines the order in which FacetFilterList is shown on the FacetFilter. Lists are rendered by ascending order of sequence.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> sequence;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> sequence;
 
 					/// <summary>
 					/// Unique identifier for this filter list.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> key;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> key;
 
 					/// <summary>
 					/// Specifies whether remove icon for facet is visible or hidden.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showRemoveFacetIcon;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showRemoveFacetIcon;
 
 					/// <summary>
 					/// Retains the list sequence if it is inactive and made active again.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> retainListSequence;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> retainListSequence;
 
 					/// <summary>
 					/// FacetFilterList data type. Only String data type will provide search function.
 					/// </summary>
-					public Union<sap.m.FacetFilterListDataType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> dataType;
+					public Union<sap.m.FacetFilterListDataType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> dataType;
 
 					/// <summary>
 					/// Fired before the filter list is opened.
@@ -229,8 +230,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>true</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. replaced by <code>setMode</code> method. <code>FacetFilterList</code> overrides the <code>setMode</code> method to restrict the possible modes to <code>MultiSelect</code> and <code>SingleSelectMaster</code>. All other modes are ignored and will not be set.")]
 				/// <returns>Value of property <code>multiSelect</code></returns>
+				[Obsolete("Deprecated since 1.20.0. replaced by <code>setMode</code> method. <code>FacetFilterList</code> overrides the <code>setMode</code> method to restrict the possible modes to <code>MultiSelect</code> and <code>SingleSelectMaster</code>. All other modes are ignored and will not be set.")]
 				public extern virtual bool getMultiSelect();
 
 				/// <summary>
@@ -242,9 +243,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>true</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. replaced by <code>setMode</code> method. <code>FacetFilterList</code> overrides the <code>setMode</code> method to restrict the possible modes to <code>MultiSelect</code> and <code>SingleSelectMaster</code>. All other modes are ignored and will not be set.")]
 				/// <param name="bMultiSelect">New value for property <code>multiSelect</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20.0. replaced by <code>setMode</code> method. <code>FacetFilterList</code> overrides the <code>setMode</code> method to restrict the possible modes to <code>MultiSelect</code> and <code>SingleSelectMaster</code>. All other modes are ignored and will not be set.")]
 				public extern virtual sap.m.FacetFilterList setMultiSelect(bool bMultiSelect);
 
 				#endregion

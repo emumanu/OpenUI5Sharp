@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.Carousel")]
 			public partial class Carousel : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,47 +29,47 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// The height of the carousel. Note that when a percentage value is used, the height of the surrounding container must be defined.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> height;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> height;
 
 					/// <summary>
 					/// The width of the carousel. Note that when a percentage value is used, the height of the surrounding container must be defined.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// Defines whether the carousel should loop, i.e show the first page after the last page is reached and vice versa.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> loop;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> loop;
 
 					/// <summary>
 					/// Show or hide carousel's page indicator.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showPageIndicator;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showPageIndicator;
 
 					/// <summary>
 					/// Defines where the carousel's page indicator is displayed. Possible values are sap.m.PlacementType.Top, sap.m.PlacementType.Bottom. Other values are ignored and the default value will be applied. The default value is sap.m.PlacementType.Bottom.
 					/// </summary>
-					public Union<sap.m.PlacementType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> pageIndicatorPlacement;
+					public Union<sap.m.PlacementType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> pageIndicatorPlacement;
 
 					/// <summary>
 					/// Show or hide busy indicator in the carousel when loading pages after swipe.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showBusyIndicator;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showBusyIndicator;
 
 					/// <summary>
 					/// Defines where the carousel's arrows are placed. Default is <code>sap.m.CarouselArrowsPlacement.Content</code> used to place the arrows on the sides of the carousel. Alternatively <code>sap.m.CarouselArrowsPlacement.PageIndicator</code> can be used to place the arrows on the sides of the page indicator.
 					/// </summary>
-					public Union<sap.m.CarouselArrowsPlacement, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> arrowsPlacement;
+					public Union<sap.m.CarouselArrowsPlacement, string, sap.ui.@base.ManagedObject.BindPropertyInfo> arrowsPlacement;
 
 					/// <summary>
 					/// The content which the carousel displays.
 					/// </summary>
-					public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> pages;
+					public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> pages;
 
 					/// <summary>
 					/// Provides getter and setter for the currently displayed page. For the setter, argument may be the control itself, which must be member of the carousel's page list, or the control's id. The getter will return the control id
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> activePage;
+					public Union<sap.ui.core.Control, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> activePage;
 
 					/// <summary>
 					/// Carousel requires a new page to be loaded. This event may be used to fill the content of that page
@@ -316,8 +317,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>true</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded. Therefore busy indicator is not necessary any longer.")]
 				/// <returns>Value of property <code>showBusyIndicator</code></returns>
+				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded. Therefore busy indicator is not necessary any longer.")]
 				public extern virtual bool getShowBusyIndicator();
 
 				/// <summary>
@@ -329,9 +330,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Default value is <code>true</code>.
 				/// </summary>
-				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded. Therefore busy indicator is not necessary any longer.")]
 				/// <param name="bShowBusyIndicator">New value for property <code>showBusyIndicator</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded. Therefore busy indicator is not necessary any longer.")]
 				public extern virtual sap.m.Carousel setShowBusyIndicator(bool bShowBusyIndicator);
 
 				#endregion
@@ -444,11 +445,11 @@ namespace OpenUI5Sharp
 				/// 
 				/// Carousel requires a new page to be loaded. This event may be used to fill the content of that page
 				/// </summary>
-				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.Carousel</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded")]
 				public extern virtual sap.m.Carousel attachLoadPage(object oData, sap.m.Carousel.LoadPageDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -458,10 +459,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// Carousel requires a new page to be loaded. This event may be used to fill the content of that page
 				/// </summary>
-				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded")]
 				public extern virtual sap.m.Carousel attachLoadPage(object oData, sap.m.Carousel.LoadPageDelegate fnFunction);
 
 				/// <summary>
@@ -471,9 +472,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Carousel requires a new page to be loaded. This event may be used to fill the content of that page
 				/// </summary>
-				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded")]
 				public extern virtual sap.m.Carousel attachLoadPage(sap.m.Carousel.LoadPageDelegate fnFunction);
 
 				/// <summary>
@@ -483,10 +484,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// Carousel requires a new page to be loaded. This event may be used to fill the content of that page
 				/// </summary>
-				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.Carousel</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded")]
 				public extern virtual sap.m.Carousel attachLoadPage(sap.m.Carousel.LoadPageDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -494,25 +495,25 @@ namespace OpenUI5Sharp
 				/// 
 				/// The passed function and listener object must match the ones used for event registration.
 				/// </summary>
-				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded")]
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded")]
 				public extern virtual sap.m.Carousel detachLoadPage(sap.m.Carousel.LoadPageDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:loadPage loadPage} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded")]
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded")]
 				public extern virtual sap.m.Carousel fireLoadPage(sap.m.Carousel.LoadPageInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:loadPage loadPage} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded")]
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded")]
 				public extern virtual sap.m.Carousel fireLoadPage();
 
 				#endregion
@@ -526,11 +527,11 @@ namespace OpenUI5Sharp
 				/// 
 				/// Carousel does not display a page any longer and unloads it. This event may be used to clean up the content of that page.
 				/// </summary>
-				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.Carousel</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded")]
 				public extern virtual sap.m.Carousel attachUnloadPage(object oData, sap.m.Carousel.LoadPageDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -540,10 +541,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// Carousel does not display a page any longer and unloads it. This event may be used to clean up the content of that page.
 				/// </summary>
-				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded")]
 				public extern virtual sap.m.Carousel attachUnloadPage(object oData, sap.m.Carousel.LoadPageDelegate fnFunction);
 
 				/// <summary>
@@ -553,9 +554,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Carousel does not display a page any longer and unloads it. This event may be used to clean up the content of that page.
 				/// </summary>
-				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded")]
 				public extern virtual sap.m.Carousel attachUnloadPage(sap.m.Carousel.LoadPageDelegate fnFunction);
 
 				/// <summary>
@@ -565,10 +566,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// Carousel does not display a page any longer and unloads it. This event may be used to clean up the content of that page.
 				/// </summary>
-				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.Carousel</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded")]
 				public extern virtual sap.m.Carousel attachUnloadPage(sap.m.Carousel.LoadPageDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -576,25 +577,25 @@ namespace OpenUI5Sharp
 				/// 
 				/// The passed function and listener object must match the ones used for event registration.
 				/// </summary>
-				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded")]
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded")]
 				public extern virtual sap.m.Carousel detachUnloadPage(sap.m.Carousel.LoadPageDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:unloadPage unloadPage} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded")]
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded")]
 				public extern virtual sap.m.Carousel fireUnloadPage(sap.m.Carousel.LoadPageInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:unloadPage unloadPage} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded")]
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.18.7. Since 1.18.7 pages are no longer loaded or unloaded")]
 				public extern virtual sap.m.Carousel fireUnloadPage();
 
 				#endregion

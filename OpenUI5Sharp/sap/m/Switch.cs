@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.Switch")]
 			public partial class Switch : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,41 +29,41 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// A boolean value indicating whether the switch is on or off.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> state;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> state;
 
 					/// <summary>
 					/// Custom text for the "ON" state.
 					/// 
 					/// "ON" translated to the current language is the default value. Beware that the given text will be cut off if available space is exceeded.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> customTextOn;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> customTextOn;
 
 					/// <summary>
 					/// Custom text for the "OFF" state.
 					/// 
 					/// "OFF" translated to the current language is the default value. Beware that the given text will be cut off if available space is exceeded.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> customTextOff;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> customTextOff;
 
 					/// <summary>
 					/// Whether the switch is enabled.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enabled;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enabled;
 
 					/// <summary>
 					/// The name to be used in the HTML code for the switch (e.g. for HTML forms that send data to the server via submit).
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> name;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> name;
 
 					/// <summary>
 					/// Type of a Switch. Possibles values "Default", "AcceptReject".
 					/// </summary>
-					public Union<sap.m.SwitchType, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> type;
+					public Union<sap.m.SwitchType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> type;
 
 					/// <summary>
 					/// Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 					/// <summary>
 					/// Triggered when a switch changes the state.

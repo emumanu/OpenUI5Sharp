@@ -34,7 +34,7 @@ Bridge.assembly("RoutingClientScripts", function ($asm, globals) {
             },
             _onRouteMatched: function (oEvent, oData) {
                 var $t, $t1, $t2, $t3, $t4, $t5;
-                var oArgs = sapuibaseExtensions.getParameterFor(Bridge.global.System.Object, System.Object, oEvent, ($t = { ntype: 38, t: System.Object, n: "p" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"arguments","t":4,"rt":System.Object,"sn":"arguments"}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })));
+                var oArgs = sapuibaseExtensions.getParameterFor(System.Object, System.Object, oEvent, ($t = { ntype: 38, t: System.Object, n: "p" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"arguments","t":4,"rt":System.Object,"sn":"arguments"}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })));
                 var oView = this.getView();
                 var employeeId = oArgs.employeeId;
 
@@ -45,8 +45,8 @@ Bridge.assembly("RoutingClientScripts", function ($asm, globals) {
                 } } });
 
                 var oQuery = oArgs["?query"];
-                if (!Glue.IsNullOrUndefined(oQuery) && System.Array.contains(sap.ui.demo.nav.controller.employee.Resume._aValidTabKeys, oQuery.tab, System.Object)) {
-                    sapuimodelModelExtensions.setPropertyFor(Bridge.global.System.Object, System.Object, oView.getModel("view"), ($t3 = { ntype: 38, t: System.Object, n: "m" }, ($t5 = { ntype: 10, t: System.Object, operand: ($t4 = {"td":System.Object,"a":2,"n":"selectedTabKey","t":4,"rt":System.String,"sn":"selectedTabKey"}, { ntype: 23, t: $t4.rt, expression: $t3, member: $t4 }) }, { ntype: 18, t: Function, rt: $t5.t, body: $t5, p: Bridge.toList([$t3]) })), oQuery.tab);
+                if (!UI5.Glue.IsNullOrUndefined(oQuery) && System.Array.contains(sap.ui.demo.nav.controller.employee.Resume._aValidTabKeys, oQuery.tab, System.Object)) {
+                    sapuimodelModelExtensions.setPropertyFor(System.Object, System.Object, oView.getModel("view"), ($t3 = { ntype: 38, t: System.Object, n: "m" }, ($t5 = { ntype: 10, t: System.Object, operand: ($t4 = {"td":System.Object,"a":2,"n":"selectedTabKey","t":4,"rt":System.String,"sn":"selectedTabKey"}, { ntype: 23, t: $t4.rt, expression: $t3, member: $t4 }) }, { ntype: 18, t: Function, rt: $t5.t, body: $t5, p: Bridge.toList([$t3]) })), oQuery.tab);
 
                     // support lazy loading for the hobbies and notes tab
                     if (Bridge.referenceEquals(oQuery.tab, "Hobbies") || Bridge.referenceEquals(oQuery.tab, "Notes")) {
@@ -67,7 +67,7 @@ Bridge.assembly("RoutingClientScripts", function ($asm, globals) {
             onTabSelect: function (oEvent, oData) {
                 var $t, $t1, $t2;
                 var oCtx = this.getView().getBindingContext();
-                this.getRouter().navTo("employeeResume", { employeeId: sapuimodelContextExtensions.getPropertyFor(Bridge.global.System.Object, System.Int32, oCtx, ($t = { ntype: 38, t: System.Object, n: "e" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"EmployeeID","t":16,"rt":System.Int32,"g":{"td":System.Object,"a":2,"n":"get_EmployeeID","t":8,"rt":System.Int32,"fg":"EmployeeID","box":function ($v) { return Bridge.box($v, System.Int32);}},"s":{"td":System.Object,"a":2,"n":"set_EmployeeID","t":8,"p":[System.Int32],"rt":System.Void,"fs":"EmployeeID"},"fn":"EmployeeID"}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })), false), query: { tab: oEvent.getParameter("selectedKey") } }, true);
+                this.getRouter().navTo("employeeResume", { employeeId: sapuimodelContextExtensions.getPropertyFor(System.Object, System.Int32, oCtx, ($t = { ntype: 38, t: System.Object, n: "e" }, ($t2 = ($t1 = {"td":System.Object,"a":2,"n":"EmployeeID","t":16,"rt":System.Int32,"g":{"td":System.Object,"a":2,"n":"get_EmployeeID","t":8,"rt":System.Int32,"fg":"EmployeeID","box":function ($v) { return Bridge.box($v, System.Int32);}},"s":{"td":System.Object,"a":2,"n":"set_EmployeeID","t":8,"p":[System.Int32],"rt":System.Void,"fs":"EmployeeID"},"fn":"EmployeeID"}, { ntype: 23, t: $t1.rt, expression: $t, member: $t1 }), { ntype: 18, t: Function, rt: $t2.t, body: $t2, p: Bridge.toList([$t]) })), false), query: { tab: oEvent.getParameter("selectedKey") } }, true);
             }
         }
     });

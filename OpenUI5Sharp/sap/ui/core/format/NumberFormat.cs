@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					[External]
 					[Namespace(false)]
+					[Name("sap.ui.core.format.NumberFormat")]
 					public partial class NumberFormat : sap.ui.@base.Object
 					{
 						#region Methods
@@ -307,40 +308,41 @@ namespace OpenUI5Sharp
 						/// </summary>
 						[External]
 						[Namespace(false)]
+						[Name("sap.ui.core.format.NumberFormat.RoundingMode")]
 						public enum RoundingMode
 						{
-								/// <summary>
-								/// Rounding mode to round away from zero
-								/// </summary>
-								AWAY_FROM_ZERO,
-								/// <summary>
-								/// Rounding mode to round towards positive infinity
-								/// </summary>
-								CEILING,
-								/// <summary>
-								/// Rounding mode to round towards negative infinity
-								/// </summary>
-								FLOOR,
-								/// <summary>
-								/// Rounding mode to round towards the nearest neighbor unless both neighbors are equidistant, in which case round away from zero.
-								/// </summary>
-								HALF_AWAY_FROM_ZERO,
-								/// <summary>
-								/// Rounding mode to round towards the nearest neighbor unless both neighbors are equidistant, in which case round towards positive infinity.
-								/// </summary>
-								HALF_CEILING,
-								/// <summary>
-								/// Rounding mode to round towards the nearest neighbor unless both neighbors are equidistant, in which case round towards negative infinity.
-								/// </summary>
-								HALF_FLOOR,
-								/// <summary>
-								/// Rounding mode to round towards the nearest neighbor unless both neighbors are equidistant, in which case round towards zero.
-								/// </summary>
-								HALF_TOWARDS_ZERO,
-								/// <summary>
-								/// Rounding mode to round towards zero
-								/// </summary>
-								TOWARDS_ZERO,
+							/// <summary>
+							/// Rounding mode to round away from zero
+							/// </summary>
+							AWAY_FROM_ZERO,
+							/// <summary>
+							/// Rounding mode to round towards positive infinity
+							/// </summary>
+							CEILING,
+							/// <summary>
+							/// Rounding mode to round towards negative infinity
+							/// </summary>
+							FLOOR,
+							/// <summary>
+							/// Rounding mode to round towards the nearest neighbor unless both neighbors are equidistant, in which case round away from zero.
+							/// </summary>
+							HALF_AWAY_FROM_ZERO,
+							/// <summary>
+							/// Rounding mode to round towards the nearest neighbor unless both neighbors are equidistant, in which case round towards positive infinity.
+							/// </summary>
+							HALF_CEILING,
+							/// <summary>
+							/// Rounding mode to round towards the nearest neighbor unless both neighbors are equidistant, in which case round towards negative infinity.
+							/// </summary>
+							HALF_FLOOR,
+							/// <summary>
+							/// Rounding mode to round towards the nearest neighbor unless both neighbors are equidistant, in which case round towards zero.
+							/// </summary>
+							HALF_TOWARDS_ZERO,
+							/// <summary>
+							/// Rounding mode to round towards zero
+							/// </summary>
+							TOWARDS_ZERO,
 						}
 					}
 				}

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.core.Locale")]
 				public partial class Locale : sap.ui.@base.Object
 				{
 					#region Constructor
@@ -121,8 +122,8 @@ namespace OpenUI5Sharp
 					/// 
 					/// Note that the conversion also returns a result for languages that are not supported by the default set of SAP languages. This method has no knowledge about the concrete languages of any given backend system.
 					/// </summary>
-					[Obsolete("Deprecated since 1.44. use {@link sap.ui.core.Configuration#getSAPLogonLanguage} instead as that class allows to configure an SAP Logon language.")]
 					/// <returns>a language code that should</returns>
+					[Obsolete("Deprecated since 1.44. use {@link sap.ui.core.Configuration#getSAPLogonLanguage} instead as that class allows to configure an SAP Logon language.")]
 					public extern virtual string getSAPLogonLanguage();
 
 					/// <summary>

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.QuickViewGroup")]
 			public partial class QuickViewGroup : sap.ui.core.Element
 			{
 				#region Settings
@@ -28,17 +29,17 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Determines whether the group is visible on the screen.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visible;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visible;
 
 					/// <summary>
 					/// The title of the group
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> heading;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> heading;
 
 					/// <summary>
 					/// A combination of one label and another control (Link or Text) associated to this label.
 					/// </summary>
-					public Union<sap.m.QuickViewGroupElement[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> elements;
+					public Union<sap.m.QuickViewGroupElement[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> elements;
 
 				}
 

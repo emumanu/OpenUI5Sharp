@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.MultiInput")]
 			public partial class MultiInput : sap.m.Input
 			{
 				#region Settings
@@ -28,17 +29,17 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// If set to true, the MultiInput will be displayed in multi-line display mode. In multi-line display mode, all tokens can be fully viewed and easily edited in the MultiInput. The default value is false. <b>Note:</b> This property does not take effect on smartphones or when the editable property is set to false. <b>Caution:</b> Do not enable multi-line mode in tables and forms.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enableMultiLineMode;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enableMultiLineMode;
 
 					/// <summary>
 					/// The max number of tokens that is allowed in MultiInput.
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maxTokens;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> maxTokens;
 
 					/// <summary>
 					/// The currently displayed tokens
 					/// </summary>
-					public Union<sap.m.Token[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> tokens;
+					public Union<sap.m.Token[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> tokens;
 
 					/// <summary>
 					/// Fired when the tokens aggregation changed (add / remove token)
@@ -204,11 +205,11 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fired when the tokens aggregation changed (add / remove token)
 				/// </summary>
-				[Obsolete("Deprecated since 1.46. Please use the new event tokenUpdate.")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.MultiInput</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.46. Please use the new event tokenUpdate.")]
 				public extern virtual sap.m.MultiInput attachTokenChange(object oData, sap.m.TokenChangeDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -218,10 +219,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fired when the tokens aggregation changed (add / remove token)
 				/// </summary>
-				[Obsolete("Deprecated since 1.46. Please use the new event tokenUpdate.")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.46. Please use the new event tokenUpdate.")]
 				public extern virtual sap.m.MultiInput attachTokenChange(object oData, sap.m.TokenChangeDelegate fnFunction);
 
 				/// <summary>
@@ -231,9 +232,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fired when the tokens aggregation changed (add / remove token)
 				/// </summary>
-				[Obsolete("Deprecated since 1.46. Please use the new event tokenUpdate.")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.46. Please use the new event tokenUpdate.")]
 				public extern virtual sap.m.MultiInput attachTokenChange(sap.m.TokenChangeDelegate fnFunction);
 
 				/// <summary>
@@ -243,10 +244,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fired when the tokens aggregation changed (add / remove token)
 				/// </summary>
-				[Obsolete("Deprecated since 1.46. Please use the new event tokenUpdate.")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.MultiInput</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.46. Please use the new event tokenUpdate.")]
 				public extern virtual sap.m.MultiInput attachTokenChange(sap.m.TokenChangeDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -254,25 +255,25 @@ namespace OpenUI5Sharp
 				/// 
 				/// The passed function and listener object must match the ones used for event registration.
 				/// </summary>
-				[Obsolete("Deprecated since 1.46. Please use the new event tokenUpdate.")]
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.46. Please use the new event tokenUpdate.")]
 				public extern virtual sap.m.MultiInput detachTokenChange(sap.m.TokenChangeDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:tokenChange tokenChange} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.46. Please use the new event tokenUpdate.")]
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.46. Please use the new event tokenUpdate.")]
 				public extern virtual sap.m.MultiInput fireTokenChange(sap.m.TokenChangeInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:tokenChange tokenChange} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.46. Please use the new event tokenUpdate.")]
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.46. Please use the new event tokenUpdate.")]
 				public extern virtual sap.m.MultiInput fireTokenChange();
 
 				#endregion
@@ -430,19 +431,19 @@ namespace OpenUI5Sharp
 				/// Focus is on MultiInput
 				/// </summary>
 				/// <param name="oEvent">The event object</param>
-				public extern override void onfocusin(jQuery.Event oEvent);
+				public extern override void onfocusin(jquery.JQuery.Event oEvent);
 
 				/// <summary>
 				/// When press ESC, deselect all tokens and all texts
 				/// </summary>
 				/// <param name="oEvent">The event object</param>
-				public extern override void onsapescape(jQuery.Event oEvent);
+				public extern override void onsapescape(jquery.JQuery.Event oEvent);
 
 				/// <summary>
 				/// When tap on text field, deselect all tokens
 				/// </summary>
 				/// <param name="oEvent">The event object</param>
-				public extern override void ontap(jQuery.Event oEvent);
+				public extern override void ontap(jquery.JQuery.Event oEvent);
 
 				/// <summary>
 				/// Expand multi-line MultiInput in multi-line mode

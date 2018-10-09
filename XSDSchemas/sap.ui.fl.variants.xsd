@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:n20="sap.ui.fl.variants" xmlns:n0="sap.ui.core" elementFormDefault="qualified" targetNamespace="sap.ui.fl.variants" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="sap.ui.core" />
+  <xs:element name="VariantManagement" substitutionGroup="n0:Control" type="n20:_VariantManagementType">
+    <xs:annotation>
+      <xs:documentation>The VariantManagement control can be used to manage variants, such as filter bar variants or table variants.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="_VariantManagementType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="n0:_ControlType">
+        <xs:attribute name="showExecuteOnSelection" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Indicates that Execute on Selection is visible in the Save Variant and the Manage Variants dialogs.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showSetAsDefault" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Indicates that set as default is visible in the Save Variant and the Manage Variants dialogs.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="manualVariantKey" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set to&lt;code&gt;true&lt;/code&gt;, the key for a vendor variant will be added manually.&lt;br&gt; &lt;b&gt;Node:&lt;/b&gt;This flag is only used internally in the app variant scenarios.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="inErrorState" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Indicates that the control is in error state. If set to &lt;code&gt;true&lt;/code&gt; error message will be displayed whenever the variant is opened.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="editable" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Indicates that the control is in edit state. If set to &lt;code&gt;false&lt;/code&gt; the footer of the views list will be hidden.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="modelName" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Determines the name of the model. The binding context will be defined by the current ID. &lt;p&gt; &lt;b&gt;Note:&lt;/b&gt; In a UI adaptation scenario, this property is not used at all because the model name is &lt;i&gt;$FlexVariants&lt;/i&gt;</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="updateVariantInURL" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines the intention of setting the current variant based on passed information. &lt;p&gt; &lt;b&gt;Note:&lt;/b&gt; The VariantManagement control does not react in any way to this property.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="for" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Contains the controls, for which the variant management is responsible.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="save" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This event is fired when the Save Variant dialog is closed with OK for a variant.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="manage" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This event is fired when users apply changes to variants in the Manage Variants dialog.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="initialized" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This event is fired when the model and context are set.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="select" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This event is fired when a new variant is selected.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

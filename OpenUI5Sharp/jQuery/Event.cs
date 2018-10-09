@@ -3,15 +3,16 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
-	public partial class jQuery
+	public abstract partial class jQuery
 	{
 		/// <summary>
 		/// Check the jQuery.Event class documentation available under "http://www.jquery.com"<br/> and "http://api.jquery.com/category/events/event-object/" for details.
 		/// </summary>
 		[External]
 		[Namespace(false)]
+		[Name("jQuery.Event")]
 		public partial class Event
 		{
 			#region Constructor

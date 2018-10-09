@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.test.Opa5")]
 				public partial class Opa5 : sap.ui.test.Opa
 				{
 					#region Typed Parameters
@@ -378,7 +379,7 @@ namespace OpenUI5Sharp
 					/// Returns the jQuery object in the current context. If an IFrame is launched, it will return the IFrame's jQuery object.
 					/// </summary>
 					/// <returns>The jQuery object</returns>
-					public extern static jquery.JQuery<object> getJQuery();
+					public extern static jQuery getJQuery();
 
 					/// <summary>
 					/// Returns the Opa plugin used for retrieving controls. If an IFrame is launched, it will return the IFrame's plugin.

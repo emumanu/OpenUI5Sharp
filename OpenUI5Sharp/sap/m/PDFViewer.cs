@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.PDFViewer")]
 			public partial class PDFViewer : sap.ui.core.Control
 			{
 				#region Settings
@@ -28,52 +29,52 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the height of the PDF viewer control, respective to the height of the parent container. Can be set to a percent, pixel, or em value.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> height;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> height;
 
 					/// <summary>
 					/// Defines the width of the PDF viewer control, respective to the width of the parent container. Can be set to a percent, pixel, or em value.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> width;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
 					/// Specifies the path to the PDF file to display. Can be set to a relative or an absolute path.<br> Optionally, this property can also be set to a data URI path or a blob URL in all major web browsers except Internet Explorer and Microsoft Edge, provided that this data URI or blob URL is whitelisted in advance.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> source;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> source;
 
 					/// <summary>
 					/// A custom error message that is displayed when the PDF file cannot be loaded.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> errorMessage;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> errorMessage;
 
 					/// <summary>
 					/// A custom text that is displayed instead of the PDF file content when the PDF file cannot be loaded.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> errorPlaceholderMessage;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> errorPlaceholderMessage;
 
 					/// <summary>
 					/// A custom title for the PDF viewer popup dialog. Works only if the PDF viewer is set to open in a popup dialog.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> popupHeaderTitle;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> popupHeaderTitle;
 
 					/// <summary>
 					/// A custom title for the PDF viewer.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> title;
 
 					/// <summary>
 					/// Shows or hides the download button.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showDownloadButton;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showDownloadButton;
 
 					/// <summary>
 					/// A custom control that can be used instead of the error message specified by the errorPlaceholderMessage property.
 					/// </summary>
-					public Union<sap.ui.core.Control, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> errorPlaceholder;
+					public Union<sap.ui.core.Control, string, sap.ui.@base.ManagedObject.BindAggregationInfo> errorPlaceholder;
 
 					/// <summary>
 					/// A multiple aggregation for buttons that can be added to the footer of the popup dialog. Works only if the PDF viewer is set to open in a popup dialog.
 					/// </summary>
-					public Union<sap.m.Button[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> popupButtons;
+					public Union<sap.m.Button[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> popupButtons;
 
 					/// <summary>
 					/// This event is fired when a PDF file is loaded. If the PDF is loaded in smaller chunks, this event is fired as often as defined by the browser's plugin. This may happen after a couple chunks are processed.
@@ -216,8 +217,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// A custom error message that is displayed when the PDF file cannot be loaded.
 				/// </summary>
-				[Obsolete("Deprecated since 1.50.0. replaced by {@link sap.m.PDFViewer#getErrorPlaceholderMessage}.")]
 				/// <returns>Value of property <code>errorMessage</code></returns>
+				[Obsolete("Deprecated since 1.50.0. replaced by {@link sap.m.PDFViewer#getErrorPlaceholderMessage}.")]
 				public extern virtual string getErrorMessage();
 
 				/// <summary>
@@ -227,9 +228,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// </summary>
-				[Obsolete("Deprecated since 1.50.0. replaced by {@link sap.m.PDFViewer#getErrorPlaceholderMessage}.")]
 				/// <param name="sErrorMessage">New value for property <code>errorMessage</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.50.0. replaced by {@link sap.m.PDFViewer#getErrorPlaceholderMessage}.")]
 				public extern virtual sap.m.PDFViewer setErrorMessage(string sErrorMessage);
 
 				#endregion
@@ -264,8 +265,8 @@ namespace OpenUI5Sharp
 				/// 
 				/// A custom title for the PDF viewer popup dialog. Works only if the PDF viewer is set to open in a popup dialog.
 				/// </summary>
-				[Obsolete("Deprecated since 1.50.0. replaced by {@link sap.m.PDFViewer#getTitle}.")]
 				/// <returns>Value of property <code>popupHeaderTitle</code></returns>
+				[Obsolete("Deprecated since 1.50.0. replaced by {@link sap.m.PDFViewer#getTitle}.")]
 				public extern virtual string getPopupHeaderTitle();
 
 				/// <summary>
@@ -275,9 +276,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// </summary>
-				[Obsolete("Deprecated since 1.50.0. replaced by {@link sap.m.PDFViewer#getTitle}.")]
 				/// <param name="sPopupHeaderTitle">New value for property <code>popupHeaderTitle</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.50.0. replaced by {@link sap.m.PDFViewer#getTitle}.")]
 				public extern virtual sap.m.PDFViewer setPopupHeaderTitle(string sPopupHeaderTitle);
 
 				#endregion

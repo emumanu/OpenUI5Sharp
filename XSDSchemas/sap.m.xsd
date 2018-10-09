@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:n6="sap.m" xmlns:n0="sap.ui.core" xmlns:n1="sap.ui.core.dnd" xmlns:n10="sap.ui.unified" elementFormDefault="qualified" targetNamespace="sap.m" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:n6="sap.m" xmlns:n0="sap.ui.core" xmlns:n10="sap.ui.unified" elementFormDefault="qualified" targetNamespace="sap.m" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="sap.ui.core" />
-  <xs:import namespace="sap.ui.core.dnd" />
   <xs:import namespace="sap.ui.unified" />
   <xs:element name="ActionListItem" substitutionGroup="n6:ListItemBase" type="n6:_ActionListItemType">
     <xs:annotation>
@@ -860,7 +859,7 @@ See section "{@link topic:6f778a805bc3453dbb66e246d8271839 Defining Column Width
           <xs:annotation>
             <xs:documentation>Defines the horizontal alignment of the column content.
 
-NOTE: Text controls with a &lt;code&gt;textAlign&lt;/code&gt; property inherits the horizontal alignment.</xs:documentation>
+&lt;b&gt;Note:&lt;/b&gt; Text controls with a &lt;code&gt;textAlign&lt;/code&gt; property inherits the horizontal alignment.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="vAlign" type="n0:_VerticalAlignType">
@@ -880,11 +879,7 @@ NOTE: Text controls with a &lt;code&gt;textAlign&lt;/code&gt; property inherits 
         </xs:attribute>
         <xs:attribute name="minScreenWidth" type="xs:string">
           <xs:annotation>
-            <xs:documentation>By default column is always shown. If you set this property, control checks the minimum width of the screen to show or hide this column. As you can give specific CSS sizes(e.g: "480px" or "40em"), you can also use sap.m.ScreenSize enumeration(e.g: "Phone", "Tablet", "Desktop", "Small", "Medium", "Large", ....).
-
-sap.m.Column.MediaQuery1-&gt;Range1 = 199
-
-This property can be used for responsive design. e.g: "40em"(or "640px" or "Tablet") setting shows this column in iPad(and Desktop) but hides in iPhone. Please also see "demandPopin" property</xs:documentation>
+            <xs:documentation>Defines the minimum screen width to show or hide this column. By default column is always shown. The responsive behavior of the &lt;code&gt;sap.m.Table&lt;/code&gt; is determined by this property. As an example by setting &lt;code&gt;minScreenWidth&lt;/code&gt; property to "40em" (or "640px" or "Tablet") shows this column on tablet (and desktop) but hides on mobile. As you can give specific CSS sizes (e.g: "480px" or "40em"), you can also use the {@link sap.m.ScreenSize} enumeration (e.g: "Phone", "Tablet", "Desktop", "Small", "Medium", "Large", ....). Please also see &lt;code&gt;demandPopin&lt;/code&gt; property for further responsive design options.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="demandPopin" type="xs:boolean">
@@ -896,7 +891,7 @@ This property can be used for responsive design. e.g: "40em"(or "640px" or "Tabl
           <xs:annotation>
             <xs:documentation>Horizontal alignment of the pop-in content. Available alignment settings are "Begin", "Center", "End", "Left", and "Right".
 
-NOTE: Controls with a text align do not inherit the horizontal alignment.</xs:documentation>
+&lt;b&gt;Note:&lt;/b&gt; Controls with a text align do not inherit the horizontal alignment.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="popinDisplay" type="n6:_PopinDisplayType">
@@ -906,12 +901,12 @@ NOTE: Controls with a text align do not inherit the horizontal alignment.</xs:do
         </xs:attribute>
         <xs:attribute name="mergeDuplicates" type="xs:boolean">
           <xs:annotation>
-            <xs:documentation>Set "true" to merge repeating cells(duplicates) into one cell block. Please see "mergeFunctionName" property to customize this property. Note: This feature must not be used together with two-way binding. This property is ignored if a column is shown in the pop-in.</xs:documentation>
+            <xs:documentation>Set &lt;code&gt;true&lt;/code&gt; to merge repeating/duplicate cells into one cell block. See &lt;code&gt;mergeFunctionName&lt;/code&gt; property to customize. &lt;b&gt;Note:&lt;/b&gt; Merging only happens at the rendering of the &lt;code&gt;sap.m.Table&lt;/code&gt; control, subsequent changes on the cell or item do not have any effect on the merged state of the cells, therefore this feature should not be used together with two-way binding. This property is ignored if any column is configured to be shown as a pop-in.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="mergeFunctionName" type="xs:string">
           <xs:annotation>
-            <xs:documentation>Defines the value getter(serialization) function if "mergeDuplicates" property is set "true" Control itself uses this function to compare values of two repeating cells. Default value "getText" is suitable for Label and Text control. e.g. For "Icon" control "getSrc" can be used. Note: You can pass one string parameter to given function after "#" sign. e.g. "data#myparameter"</xs:documentation>
+            <xs:documentation>Defines the control serialization function if &lt;code&gt;mergeDuplicates&lt;code&gt; property is set to &lt;code&gt;true&lt;/code&gt;. The control itself uses this function to compare values of two repeating cells. Default value "getText" is suitable for &lt;code&gt;sap.m.Label&lt;/code&gt; and &lt;code&gt;sap.m.Text&lt;/code&gt; controls but for the &lt;code&gt;sap.ui.core.Icon&lt;/code&gt; control "getSrc" function should be used to merge icons. &lt;b&gt;Note:&lt;/b&gt; You can pass one string parameter to given function after "#" sign. e.g. "data#myparameter"</xs:documentation>
           </xs:annotation>
         </xs:attribute>
       </xs:extension>
@@ -2811,6 +2806,13 @@ Depending on the theme, you can change the state of the background color to "Sol
             <xs:documentation>Specifies whether tab reordering is enabled. Relevant only for desktop devices. The {@link sap.m.IconTabSeparator sap.m.IconTabSeparator} cannot be dragged and dropped Items can be moved around {@link sap.m.IconTabSeparator sap.m.IconTabSeparator}</xs:documentation>
           </xs:annotation>
         </xs:attribute>
+        <xs:attribute name="tabDensityMode" type="n6:_IconTabDensityModeType">
+          <xs:annotation>
+            <xs:documentation>Specifies the visual density mode of the tabs.
+
+The values that can be applied are &lt;code&gt;Cozy&lt;/code&gt;, &lt;code&gt;Compact&lt;/code&gt; and &lt;code&gt;Inherit&lt;/code&gt;. &lt;code&gt;Cozy&lt;/code&gt; and &lt;code&gt;Compact&lt;/code&gt; render the control in one of these modes independent of the global density settings. The &lt;code&gt;Inherit&lt;/code&gt; value follows the global density settings which are applied. For compatibility reasons, the default value is &lt;code&gt;Cozy&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
         <xs:attribute name="items" type="xs:string" />
         <xs:attribute name="content" type="xs:string" />
         <xs:attribute name="select" type="xs:string">
@@ -2863,7 +2865,7 @@ If this content is set, it is displayed instead of the general content inside th
         </xs:attribute>
         <xs:attribute name="showAll" type="xs:boolean">
           <xs:annotation>
-            <xs:documentation>Enables special visualization for disabled filter (show all items). &lt;b&gt;Note:&lt;/b&gt; You can use this property when you use &lt;code&gt;IconTabBar&lt;/code&gt; as a filter. In order for it to be displayed correctly, the other tabs in the filter should consist of an icon, text and an optional count. It can be set to true for the first tab filter. You can find more detailed guidelines at https://experience.sap.com/fiori-design-web/icontabbar/#tabs-as-filters.</xs:documentation>
+            <xs:documentation>Enables special visualization for disabled filter (show all items). &lt;b&gt;Note:&lt;/b&gt; You can use this property when you use &lt;code&gt;IconTabBar&lt;/code&gt; as a filter. In order for it to be displayed correctly, the other tabs in the filter should consist of an icon, text and an optional count. It can be set to true for the first tab filter. You can find more detailed information in the {@link https://experience.sap.com/fiori-design-web/icontabbar/#tabs-as-filters UX Guidelines}.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="icon" type="n0:_URIType">
@@ -2921,19 +2923,6 @@ If bandwidth is key for the application, set this value to false.</xs:documentat
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-          <xs:element minOccurs="0" name="dragDropConfig">
-            <xs:annotation>
-              <xs:documentation>Defines the drag-and-drop configuration via {@link sap.ui.core.dnd.DragDropInfo} This configuration is set internally by the control FOR INTERNAL USE ONLY</xs:documentation>
-            </xs:annotation>
-            <xs:complexType>
-              <xs:sequence>
-                <xs:choice minOccurs="0" maxOccurs="unbounded">
-                  <xs:element ref="n1:DragDropBase" />
-                  <xs:element ref="n0:Fragment" />
-                </xs:choice>
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
         </xs:sequence>
         <xs:attribute name="showSelection" type="xs:boolean">
           <xs:annotation>
@@ -2976,8 +2965,14 @@ Depending on the theme, you can change the state of the background color to "Sol
             <xs:documentation>Specifies whether tab reordering is enabled. Relevant only for desktop devices. The {@link sap.m.IconTabSeparator sap.m.IconTabSeparator} cannot be dragged and dropped Items can be moved around {@link sap.m.IconTabSeparator sap.m.IconTabSeparator}</xs:documentation>
           </xs:annotation>
         </xs:attribute>
+        <xs:attribute name="tabDensityMode" type="n6:_IconTabDensityModeType">
+          <xs:annotation>
+            <xs:documentation>Specifies the visual density mode of the tabs.
+
+The values that can be applied are &lt;code&gt;Cozy&lt;/code&gt;, &lt;code&gt;Compact&lt;/code&gt; and &lt;code&gt;Inherit&lt;/code&gt;. &lt;code&gt;Cozy&lt;/code&gt; and &lt;code&gt;Compact&lt;/code&gt; render the control in one of these modes independent of the global density settings. The &lt;code&gt;Inherit&lt;/code&gt; value follows the global density settings which are applied. For compatibility reasons, the default value is &lt;code&gt;Cozy&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
         <xs:attribute name="items" type="xs:string" />
-        <xs:attribute name="dragDropConfig" type="xs:string" />
         <xs:attribute name="select" type="xs:string">
           <xs:annotation>
             <xs:documentation>Fires when an item is selected.</xs:documentation>
@@ -3846,19 +3841,6 @@ See section "{@link topic:295e44b2d0144318bcb7bdd56bfa5189 List, List Item, and 
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-          <xs:element minOccurs="0" name="dragDropConfig">
-            <xs:annotation>
-              <xs:documentation>Defines the drag-and-drop configuration.</xs:documentation>
-            </xs:annotation>
-            <xs:complexType>
-              <xs:sequence>
-                <xs:choice minOccurs="0" maxOccurs="unbounded">
-                  <xs:element ref="n1:DragDropBase" />
-                  <xs:element ref="n0:Fragment" />
-                </xs:choice>
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
           <xs:element minOccurs="0" name="contextMenu">
             <xs:annotation>
               <xs:documentation>Defines the context menu of the items.</xs:documentation>
@@ -3979,7 +3961,6 @@ See section "{@link topic:295e44b2d0144318bcb7bdd56bfa5189 List, List Item, and 
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="items" type="xs:string" />
-        <xs:attribute name="dragDropConfig" type="xs:string" />
         <xs:attribute name="ariaLabelledBy" type="xs:string">
           <xs:annotation>
             <xs:documentation>Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).</xs:documentation>
@@ -6292,7 +6273,7 @@ value='\{&amp;quot;columns&amp;quot;:\{&amp;quot;visible&amp;quot;: true, &amp;q
         </xs:sequence>
         <xs:attribute name="initialVisiblePanelType" type="xs:string">
           <xs:annotation>
-            <xs:documentation>This property determines which panel is initially shown when dialog is opened. Due to extensibility reason the type should be &lt;code&gt;string&lt;/code&gt;. So it is feasible to add a custom panel without expanding the type.</xs:documentation>
+            <xs:documentation>This property determines which panel is initially shown when dialog is opened. If not defined then the first visible panel of &lt;code&gt;panels&lt;/code&gt; aggregation is taken. Setting value after the dialog is opened has no effect anymore. Due to extensibility reason the type should be &lt;code&gt;string&lt;/code&gt;. So it is feasible to add a custom panel without expanding the type.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="showReset" type="xs:boolean">
@@ -6704,7 +6685,7 @@ value='\{&amp;quot;columns&amp;quot;:\{&amp;quot;visible&amp;quot;: true, &amp;q
   </xs:complexType>
   <xs:element name="P13nPanel" substitutionGroup="n0:Control" type="n6:_P13nPanelType">
     <xs:annotation>
-      <xs:documentation>Base type for &lt;code&gt;panels&lt;/code&gt; aggregation in &lt;code&gt;P13nDialog&lt;/code&gt; control.</xs:documentation>
+      <xs:documentation>An abstract base type for &lt;code&gt;panels&lt;/code&gt; aggregation in &lt;code&gt;P13nDialog&lt;/code&gt; control.</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="_P13nPanelType">
@@ -7646,9 +7627,9 @@ This API should not be used in production environment.</xs:documentation>
   </xs:complexType>
   <xs:element name="PlanningCalendarRow" substitutionGroup="n0:Element" type="n6:_PlanningCalendarRowType">
     <xs:annotation>
-      <xs:documentation>Row in the {@link sap.m.PlanningCalendar}.
+      <xs:documentation>Represents a row in the {@link sap.m.PlanningCalendar}.
 
-This element holds the data of one row in the {@link sap.m.PlanningCalendar}. Once the header information (for example, person information) is assigned, the appointments are assigned.</xs:documentation>
+This element holds the data of one row in the {@link sap.m.PlanningCalendar}. Once the header information (for example, person information) is assigned, the appointments are assigned. The &lt;code&gt;sap.m.PlanningCalendarRow&lt;/code&gt; allows you to modify appointments at row level.</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="_PlanningCalendarRowType">
@@ -7687,14 +7668,16 @@ Keep in mind that the &lt;code&gt;intervalHeaders&lt;/code&gt; should always fil
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-          <xs:element minOccurs="0" name="dragDropConfig">
+          <xs:element minOccurs="0" name="specialDates">
             <xs:annotation>
-              <xs:documentation>Defines the drag-and-drop configuration via {@link sap.ui.core.dnd.DragDropInfo}</xs:documentation>
+              <xs:documentation>Holds the special dates in the context of a row. A single date or a date range can be set.
+
+&lt;b&gt;Note&lt;/&gt; Only date or date ranges of type &lt;code&gt;sap.ui.unified.CalendarDayType.NonWorking&lt;/code&gt; will be visualized in the &lt;code&gt;PlanningCalendarRow&lt;/code&gt;. If the aggregation is set as another type, the date or date range will be ignored and will not be displayed in the control.</xs:documentation>
             </xs:annotation>
             <xs:complexType>
               <xs:sequence>
                 <xs:choice minOccurs="0" maxOccurs="unbounded">
-                  <xs:element ref="n1:DragDropBase" />
+                  <xs:element ref="n10:DateTypeRange" />
                   <xs:element ref="n0:Fragment" />
                 </xs:choice>
               </xs:sequence>
@@ -7789,7 +7772,7 @@ See {@link #property:enableAppointmentsResize enableAppointmentsResize} for the 
         </xs:attribute>
         <xs:attribute name="appointments" type="xs:string" />
         <xs:attribute name="intervalHeaders" type="xs:string" />
-        <xs:attribute name="dragDropConfig" type="xs:string" />
+        <xs:attribute name="specialDates" type="xs:string" />
         <xs:attribute name="appointmentDrop" type="xs:string">
           <xs:annotation>
             <xs:documentation>Fired if an appointment is dropped.</xs:documentation>
@@ -8733,6 +8716,11 @@ If the value is lower/higher than the allowed minimum/maximum, a warning message
     <xs:complexContent mixed="false">
       <xs:extension base="n0:_ControlType">
         <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
           <xs:element minOccurs="0" name="content">
             <xs:annotation>
               <xs:documentation>Content is supported by both variants. Please see the documentation on sap.m.Popover#content and sap.m.Dialog#content</xs:documentation>
@@ -9364,7 +9352,7 @@ The &lt;code&gt;SegmentedButton&lt;/code&gt; shows a group of buttons. When the 
   </xs:complexType>
   <xs:element name="SelectDialog" substitutionGroup="n0:Control" type="n6:_SelectDialogType">
     <xs:annotation>
-      <xs:documentation>&lt;h3&gt;Overview&lt;/h3&gt; A SelectDialog is a dialog containing a list, search functionality to filter it and a confirmation/cancel button. The list used in the dialog is a growing list and can be filled with any kind of list item. &lt;h3&gt;Structure&lt;/h3&gt; &lt;h4&gt;Dialog structure&lt;/h4&gt; The select dialog has the following components: &lt;ul&gt; &lt;li&gt;Header - title of the dialog&lt;/li&gt; &lt;li&gt;Search field - input field to enter search terms&lt;/li&gt; &lt;li&gt;Info toolbar (only in multi-select) - displays the number of currently selected items&lt;/li&gt; &lt;li&gt;Content - {@link sap.m.StandardListItem standard list items}, {@link sap.m.DisplayListItem display list items} or {@link sap.m.FeedListItem feed list items}&lt;/li&gt; &lt;li&gt;Button toolbar - for confirmation/cancellation buttons &lt;/li&gt; &lt;/ul&gt; &lt;h4&gt;List structure &amp; selection&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; The search field triggers the events &lt;code&gt;search&lt;/code&gt; and &lt;code&gt;liveChange&lt;/code&gt; where a filter function can be applied to the list binding. &lt;/li&gt; &lt;li&gt; The growing functionality of the list does not support two-way Binding, so if you use this control with a JSON model make sure the binding mode is set to &lt;code&gt;OneWay&lt;/code&gt; and that you update the selection model manually with the items passed in the &lt;code&gt;confirm&lt;/code&gt; event. &lt;/li&gt; &lt;li&gt; In the multi-select mode of the select dialog, checkboxes are provided for choosing multiple entries. &lt;/li&gt; &lt;li&gt; You can set &lt;code&gt;rememberSelections&lt;/code&gt; to true to store the current selection and load this state when the dialog is opened again. &lt;/li&gt; &lt;li&gt; When cancelling the selection, the event &lt;code&gt;change&lt;/code&gt; will be fired and the selection is restored to the state when the dialog was opened. &lt;/li&gt; &lt;/ul&gt; &lt;h3&gt;Usage&lt;/h3&gt; &lt;h4&gt;When to use:&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;You need to select one or more entries from a comprehensive list that contains multiple attributes or values. &lt;/li&gt; &lt;/ul&gt; &lt;h4&gt;When not to use:&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; You need to pick one item from a predefined set of options. Use {@link sap.m.Select select} or {@link sap.m.ComboBox combobox} instead. &lt;/li&gt; &lt;li&gt; You need to select a range of item. Use {@link sap.ui.comp.valuehelpdialog.ValueHelpDialog value help dialog instead. &lt;/li&gt; &lt;li&gt; You need to be able to add your own values to an existing list. Use a {@link sap.m.Dialog dialog} instead. &lt;/li&gt; &lt;/ul&gt; &lt;h3&gt;Responsive Behavior&lt;/h3&gt; &lt;ul&gt; &lt;li&gt; On phones, the select dialog takes up the whole screen. &lt;/li&gt; &lt;li&gt; On desktop and tablet devices, the select dialog appears as a popover. &lt;/li&gt; &lt;/ul&gt;</xs:documentation>
+      <xs:documentation>&lt;h3&gt;Overview&lt;/h3&gt; A SelectDialog is a dialog containing a list, search functionality to filter it and a confirmation/cancel button. The list used in the dialog is a growing list and can be filled with any kind of list item. &lt;h3&gt;Structure&lt;/h3&gt; &lt;h4&gt;Dialog structure&lt;/h4&gt; The select dialog has the following components: &lt;ul&gt; &lt;li&gt;Header - title of the dialog&lt;/li&gt; &lt;li&gt;Search field - input field to enter search terms&lt;/li&gt; &lt;li&gt;Info toolbar (only in multi-select) - displays the number of currently selected items&lt;/li&gt; &lt;li&gt;Content - {@link sap.m.StandardListItem standard list items}, {@link sap.m.DisplayListItem display list items} or {@link sap.m.FeedListItem feed list items}&lt;/li&gt; &lt;li&gt;Button toolbar - for confirmation/cancellation buttons &lt;/li&gt; &lt;/ul&gt; &lt;h4&gt;List structure &amp; selection&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; The search field triggers the events &lt;code&gt;search&lt;/code&gt; and &lt;code&gt;liveChange&lt;/code&gt; where a filter function can be applied to the list binding. &lt;/li&gt; &lt;li&gt; The growing functionality of the list does not support two-way Binding, so if you use this control with a JSON model make sure the binding mode is set to &lt;code&gt;OneWay&lt;/code&gt; and that you update the selection model manually with the items passed in the &lt;code&gt;confirm&lt;/code&gt; event. &lt;/li&gt; &lt;li&gt; In the multi-select mode of the select dialog, checkboxes are provided for choosing multiple entries. &lt;/li&gt; &lt;li&gt; You can set &lt;code&gt;rememberSelections&lt;/code&gt; to true to store the current selection and load this state when the dialog is opened again. &lt;/li&gt; &lt;li&gt; When cancelling the selection, the event &lt;code&gt;change&lt;/code&gt; will be fired and the selection is restored to the state when the dialog was opened. &lt;/li&gt; &lt;/ul&gt; &lt;h3&gt;Usage&lt;/h3&gt; &lt;h4&gt;When to use:&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;You need to select one or more entries from a comprehensive list that contains multiple attributes or values. &lt;/li&gt; &lt;/ul&gt; &lt;h4&gt;When not to use:&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; You need to pick one item from a predefined set of options. Use {@link sap.m.Select select} or {@link sap.m.ComboBox combobox} instead. &lt;/li&gt; &lt;li&gt; You need to select a range of item. Use {@link sap.ui.comp.valuehelpdialog.ValueHelpDialog value help dialog instead. &lt;/li&gt; &lt;li&gt; You need to be able to add your own values to an existing list. Use a {@link sap.m.Dialog dialog} instead. &lt;/li&gt; &lt;/ul&gt; &lt;h4&gt;Note:&lt;/h4&gt; The property &lt;code&gt;growing&lt;/code&gt; determines the progressive loading. If it's set to true (the default value), the &lt;code&gt;selected count&lt;/code&gt; in info bar and search will work only for the currently loaded items. To make sure that all items in the list are loaded at once and the above feature works properly, we recommend setting the &lt;code&gt;growing&lt;/code&gt; property to false. &lt;h3&gt;Responsive Behavior&lt;/h3&gt; &lt;ul&gt; &lt;li&gt; On phones, the select dialog takes up the whole screen. &lt;/li&gt; &lt;li&gt; On desktop and tablet devices, the select dialog appears as a popover. &lt;/li&gt; &lt;/ul&gt;</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="_SelectDialogType">
@@ -9407,7 +9395,12 @@ The &lt;code&gt;SegmentedButton&lt;/code&gt; shows a group of buttons. When the 
         </xs:attribute>
         <xs:attribute name="growingThreshold" type="xs:int">
           <xs:annotation>
-            <xs:documentation>Determines the number of items initially displayed in the list. Also defines the number of items to be requested from the model for each grow.</xs:documentation>
+            <xs:documentation>Determines the number of items initially displayed in the list. Also defines the number of items to be requested from the model for each grow. &lt;b&gt;Note:&lt;/b&gt; This property could take affect only be used if the property &lt;code&gt;growing&lt;/code&gt; is set to &lt;code&gt;true&lt;/code&gt;.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="growing" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>If set to &lt;code&gt;true&lt;/code&gt;, enables the growing feature of the control to load more items by requesting from the bound model (progressive loading). &lt;b&gt;Note:&lt;/b&gt; This feature only works when an &lt;code&gt;items&lt;/code&gt; aggregation is bound. &lt;b&gt;Note:&lt;/b&gt; Growing property, must not be used together with two-way binding.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="contentWidth" type="n0:_CSSSizeType">
@@ -10564,11 +10557,9 @@ When this property is set to &lt;code&gt;false&lt;/code&gt;, &lt;code&gt;sap.m.T
           <xs:annotation>
             <xs:documentation>Defines the section of the &lt;code&gt;sap.m.Table&lt;/code&gt; control that remains fixed at the top of the page during vertical scrolling as long as the table is in the viewport.
 
-&lt;b&gt;Note:&lt;/b&gt; There is limited browser support, hence the API is in experimental state. Browsers that currently support this feature are Chrome (desktop and mobile), Safari (desktop and mobile) and Edge 41.
+&lt;b&gt;Note:&lt;/b&gt; There is limited browser support. Browsers that do not support this feature are listed below: &lt;ul&gt; &lt;li&gt;IE.&lt;/li&gt; &lt;li&gt;Edge lower than version 41 (EdgeHTML 16).&lt;/li&gt; &lt;li&gt;Firefox lower than version 59.&lt;/li&gt; &lt;/ul&gt;
 
-There are also some known issues with respect to the scrolling behavior. A few are given below: &lt;ul&gt; &lt;li&gt;If the table is placed in certain layout containers, for example, the &lt;code&gt;sap.ui.layout.Grid&lt;/code&gt; control, the column headers are not fixed at the top of the viewport. The table behaves in a similar way when placed within the &lt;code&gt;sap.m.ObjectPage&lt;/code&gt; control.&lt;/li&gt; &lt;li&gt;If the sticky column headers are enabled in the table, setting focus on the column headers will let the table scroll to the top.&lt;/li&gt; &lt;/ul&gt;
-
-This API should not be used in a productive environment.</xs:documentation>
+There are also some known limitations with respect to the scrolling behavior. A few are given below: &lt;ul&gt; &lt;li&gt;If the table is placed in certain layout containers, for example, the &lt;code&gt;sap.ui.layout.Grid&lt;/code&gt; control, the column headers are not fixed at the top of the viewport. The table behaves in a similar way when placed within the &lt;code&gt;sap.m.ObjectPage&lt;/code&gt; control.&lt;/li&gt; &lt;li&gt;If the sticky column headers are enabled in the table, setting focus on the column headers will let the table scroll to the top.&lt;/li&gt; &lt;/ul&gt;</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="columns" type="xs:string" />
@@ -10690,7 +10681,7 @@ The selected items can be stored for later editing when the &lt;code&gt;remember
   </xs:complexType>
   <xs:element name="Text" substitutionGroup="n0:Control" type="n6:_TextType">
     <xs:annotation>
-      <xs:documentation>The &lt;code&gt;Text&lt;/code&gt; control can be used for embedding longer text paragraphs, that need text wrapping, into your app. If the configured text value contains HTML code or script tags, those will be escaped.&lt;br&gt; &lt;b&gt;Note: &lt;/b&gt;Line breaks (\r\n, \n\r, \r, \n) will always be visualized except when the &lt;code&gt;wrapping&lt;/code&gt; property is set to &lt;code&gt;false&lt;/code&gt;. In addition, tabs (\t) and whitespace (" ") can be preserved by setting the &lt;code&gt;renderWhitespace&lt;/code&gt; property to &lt;code&gt;true&lt;/code&gt;</xs:documentation>
+      <xs:documentation>The &lt;code&gt;Text&lt;/code&gt; control can be used for embedding longer text paragraphs, that need text wrapping, into your app. If the configured text value contains HTML code or script tags, those will be escaped.&lt;br&gt; &lt;b&gt;Note: &lt;/b&gt;Line breaks will always be visualized except when the &lt;code&gt;wrapping&lt;/code&gt; property is set to &lt;code&gt;false&lt;/code&gt;. In addition, tabs and whitespace can be preserved by setting the &lt;code&gt;renderWhitespace&lt;/code&gt; property to &lt;code&gt;true&lt;/code&gt;</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="_TextType">
@@ -10730,9 +10721,7 @@ The selected items can be stored for later editing when the &lt;code&gt;remember
         </xs:attribute>
         <xs:attribute name="renderWhitespace" type="xs:boolean">
           <xs:annotation>
-            <xs:documentation>Specifies how whitespace and tabs inside the control are handled. If true, whitespace will be preserved by the browser. Depending on wrapping property text will either only wrap on line breaks or wrap when necessary, and on line breaks.
-
-&lt;b&gt;Note:&lt;/b&gt; Special characters that can be used are : \t , \n and " " respectively Tab, New line and Space.</xs:documentation>
+            <xs:documentation>Specifies how whitespace and tabs inside the control are handled. If true, whitespace will be preserved by the browser. Depending on wrapping property text will either only wrap on line breaks or wrap when necessary, and on line breaks.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
       </xs:extension>
@@ -12886,6 +12875,9 @@ The popover dialog appears as a modal window on desktop and tablet screen sizes,
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_IconTabDensityModeType">
+    <xs:restriction base="xs:string" />
   </xs:simpleType>
   <xs:simpleType name="_IconTabFilterDesignType">
     <xs:restriction base="xs:string">

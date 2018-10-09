@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -18,6 +18,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.m.semantic.MasterPage")]
 				public partial class MasterPage : sap.m.semantic.SemanticPage
 				{
 					#region Settings
@@ -32,72 +33,72 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Add action
 						/// </summary>
-						public Union<sap.m.semantic.AddAction, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> addAction;
+						public Union<sap.m.semantic.AddAction, string, sap.ui.@base.ManagedObject.BindAggregationInfo> addAction;
 
 						/// <summary>
 						/// Main action
 						/// </summary>
-						public Union<sap.m.semantic.MainAction, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> mainAction;
+						public Union<sap.m.semantic.MainAction, string, sap.ui.@base.ManagedObject.BindAggregationInfo> mainAction;
 
 						/// <summary>
 						/// Positive action
 						/// </summary>
-						public Union<sap.m.semantic.PositiveAction, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> positiveAction;
+						public Union<sap.m.semantic.PositiveAction, string, sap.ui.@base.ManagedObject.BindAggregationInfo> positiveAction;
 
 						/// <summary>
 						/// Negative action
 						/// </summary>
-						public Union<sap.m.semantic.NegativeAction, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> negativeAction;
+						public Union<sap.m.semantic.NegativeAction, string, sap.ui.@base.ManagedObject.BindAggregationInfo> negativeAction;
 
 						/// <summary>
 						/// MultiSelect action
 						/// </summary>
-						public Union<sap.m.semantic.MultiSelectAction, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> multiSelectAction;
+						public Union<sap.m.semantic.MultiSelectAction, string, sap.ui.@base.ManagedObject.BindAggregationInfo> multiSelectAction;
 
 						/// <summary>
 						/// Forward action
 						/// </summary>
-						public Union<sap.m.semantic.ForwardAction, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> forwardAction;
+						public Union<sap.m.semantic.ForwardAction, string, sap.ui.@base.ManagedObject.BindAggregationInfo> forwardAction;
 
 						/// <summary>
 						/// Edit action
 						/// </summary>
-						public Union<sap.m.semantic.EditAction, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> editAction;
+						public Union<sap.m.semantic.EditAction, string, sap.ui.@base.ManagedObject.BindAggregationInfo> editAction;
 
 						/// <summary>
 						/// Save action
 						/// </summary>
-						public Union<sap.m.semantic.SaveAction, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> saveAction;
+						public Union<sap.m.semantic.SaveAction, string, sap.ui.@base.ManagedObject.BindAggregationInfo> saveAction;
 
 						/// <summary>
 						/// Delete action
 						/// </summary>
-						public Union<sap.m.semantic.DeleteAction, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> deleteAction;
+						public Union<sap.m.semantic.DeleteAction, string, sap.ui.@base.ManagedObject.BindAggregationInfo> deleteAction;
 
 						/// <summary>
 						/// Cancel action
 						/// </summary>
-						public Union<sap.m.semantic.CancelAction, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> cancelAction;
+						public Union<sap.m.semantic.CancelAction, string, sap.ui.@base.ManagedObject.BindAggregationInfo> cancelAction;
 
 						/// <summary>
 						/// Sort action
 						/// </summary>
-						public Union<sap.m.semantic.ISort, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> sort;
+						public Union<sap.m.semantic.ISort, string, sap.ui.@base.ManagedObject.BindAggregationInfo> sort;
 
 						/// <summary>
 						/// Filter action
 						/// </summary>
-						public Union<sap.m.semantic.IFilter, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> filter;
+						public Union<sap.m.semantic.IFilter, string, sap.ui.@base.ManagedObject.BindAggregationInfo> filter;
 
 						/// <summary>
 						/// Group action
 						/// </summary>
-						public Union<sap.m.semantic.IGroup, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> group;
+						public Union<sap.m.semantic.IGroup, string, sap.ui.@base.ManagedObject.BindAggregationInfo> group;
 
 						/// <summary>
 						/// MessagesIndicator
 						/// </summary>
-						public Union<sap.m.semantic.MessagesIndicator, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> messagesIndicator;
+						public Union<sap.m.semantic.MessagesIndicator, string, sap.ui.@base.ManagedObject.BindAggregationInfo> messagesIndicator;
 
 					}
 

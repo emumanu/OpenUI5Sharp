@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.layout.BlockLayoutCellData")]
 				public partial class BlockLayoutCellData : sap.ui.core.LayoutData
 				{
 					#region Settings
@@ -30,22 +31,22 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Sets the width of the cell for S size of the BlockLayout.
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> sSize;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> sSize;
 
 						/// <summary>
 						/// Sets the width of the cell for M size of the BlockLayout.
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> mSize;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> mSize;
 
 						/// <summary>
 						/// Sets the width of the cell for L size of the BlockLayout.
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> lSize;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> lSize;
 
 						/// <summary>
 						/// Sets the width of the cell for XL size of the BlockLayout.
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> xlSize;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> xlSize;
 
 					}
 

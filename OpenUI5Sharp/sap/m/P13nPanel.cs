@@ -3,18 +3,19 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
 		public static partial class m
 		{
 			/// <summary>
-			/// Base type for <code>panels</code> aggregation in <code>P13nDialog</code> control.
+			/// An abstract base type for <code>panels</code> aggregation in <code>P13nDialog</code> control.
 			/// </summary>
 			[External]
 			[Namespace(false)]
-			public partial class P13nPanel : sap.ui.core.Control
+			[Name("sap.m.P13nPanel")]
+			public abstract partial class P13nPanel : sap.ui.core.Control
 			{
 				#region Settings
 
@@ -28,42 +29,42 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Title text appears in the panel.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> title;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> title;
 
 					/// <summary>
 					/// Large title text appears e.g. in dialog header in case that only one panel is shown.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> titleLarge;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> titleLarge;
 
 					/// <summary>
 					/// Panel type for generic use. Due to extensibility reason the type of <code>type</code> property should be <code>string</code>. So it is feasible to add a custom panel without expanding the type.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> type;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> type;
 
 					/// <summary>
 					/// Enables the vertical Scrolling on the <code>P13nDialog</code> when the panel is shown.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> verticalScrolling;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> verticalScrolling;
 
 					/// <summary>
 					/// Callback method which is called in order to validate end user entry.
 					/// </summary>
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> validationExecutor;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> validationExecutor;
 
 					/// <summary>
 					/// Callback method which is called in order to register for validation result.
 					/// </summary>
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> validationListener;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> validationListener;
 
 					/// <summary>
 					/// Callback which notifies a change on this panel.
 					/// </summary>
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> changeNotifier;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> changeNotifier;
 
 					/// <summary>
 					/// Defines personalization items (e.g. columns in the <code>P13nColumnsPanel</code>).
 					/// </summary>
-					public Union<sap.m.P13nItem[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
+					public Union<sap.m.P13nItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
 
 					/// <summary>
 					/// Due to performance the data of the panel can be requested in lazy mode e.g. when the panel is displayed
@@ -468,8 +469,8 @@ namespace OpenUI5Sharp
 				/// <summary>
 				/// This method can be overwritten by subclass in order to return a payload for Ok action
 				/// </summary>
-				[Obsolete("Deprecated since 1.50. replaced by the event of the respective inherited control, for example {@link sap.m.P13nColumnsPanel.html#changeColumnsItems} of <code>P13nColumnsPanel</code> control.")]
 				/// <returns>Object which describes the state after Ok has been pressed</returns>
+				[Obsolete("Deprecated since 1.50. replaced by the event of the respective inherited control, for example {@link sap.m.P13nColumnsPanel.html#changeColumnsItems} of <code>P13nColumnsPanel</code> control.")]
 				public extern virtual object getOkPayload();
 
 				/// <summary>

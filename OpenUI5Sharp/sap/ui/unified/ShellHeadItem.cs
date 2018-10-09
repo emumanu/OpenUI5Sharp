@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.unified.ShellHeadItem")]
 				[Obsolete("Deprecated since 1.44.0.")]
 				public partial class ShellHeadItem : sap.ui.core.Element
 				{
@@ -31,42 +32,42 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// If set to true, a divider is displayed before the item.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> startsSection;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> startsSection;
 
 						/// <summary>
 						/// If set to true, a separator is displayed after the item.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showSeparator;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showSeparator;
 
 						/// <summary>
 						/// Defines the toggle state in case the item represents a toggle button (see also property <code>toggleEnabled</code>).
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> selected;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> selected;
 
 						/// <summary>
 						/// If set to true, the item represents a toggle button. The <code>selected</code> property can the be used to define the toggle state. Otherwise the item is displayed as action button. In this case the <code>selected</code> property is ignored.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> toggleEnabled;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> toggleEnabled;
 
 						/// <summary>
 						/// If set to true, a theme dependent marker is shown on the item.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> showMarker;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showMarker;
 
 						/// <summary>
 						/// The icon of the item, either defined in the sap.ui.core.IconPool or a URI to a custom image. An icon must be set.
 						/// </summary>
-						public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> icon;
+						public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> icon;
 
 						/// <summary>
 						/// Invisible items are not shown on the UI.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visible;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visible;
 
 						/// <summary>
 						/// Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).
 						/// </summary>
-						public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+						public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 						/// <summary>
 						/// Event is fired when the user presses the item.
@@ -124,8 +125,8 @@ namespace OpenUI5Sharp
 					/// 
 					/// Default value is <code>false</code>.
 					/// </summary>
-					[Obsolete("Deprecated since 1.18. Dividers are not supported anymore.")]
 					/// <returns>Value of property <code>startsSection</code></returns>
+					[Obsolete("Deprecated since 1.18. Dividers are not supported anymore.")]
 					public extern virtual bool getStartsSection();
 
 					/// <summary>
@@ -137,9 +138,9 @@ namespace OpenUI5Sharp
 					/// 
 					/// Default value is <code>false</code>.
 					/// </summary>
-					[Obsolete("Deprecated since 1.18. Dividers are not supported anymore.")]
 					/// <param name="bStartsSection">New value for property <code>startsSection</code></param>
 					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					[Obsolete("Deprecated since 1.18. Dividers are not supported anymore.")]
 					public extern virtual sap.ui.unified.ShellHeadItem setStartsSection(bool bStartsSection);
 
 					#endregion
@@ -234,8 +235,8 @@ namespace OpenUI5Sharp
 					/// 
 					/// Default value is <code>false</code>.
 					/// </summary>
-					[Obsolete("Deprecated since 1.18. Markers should not be used anymore.")]
 					/// <returns>Value of property <code>showMarker</code></returns>
+					[Obsolete("Deprecated since 1.18. Markers should not be used anymore.")]
 					public extern virtual bool getShowMarker();
 
 					/// <summary>
@@ -247,9 +248,9 @@ namespace OpenUI5Sharp
 					/// 
 					/// Default value is <code>false</code>.
 					/// </summary>
-					[Obsolete("Deprecated since 1.18. Markers should not be used anymore.")]
 					/// <param name="bShowMarker">New value for property <code>showMarker</code></param>
 					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					[Obsolete("Deprecated since 1.18. Markers should not be used anymore.")]
 					public extern virtual sap.ui.unified.ShellHeadItem setShowMarker(bool bShowMarker);
 
 					#endregion

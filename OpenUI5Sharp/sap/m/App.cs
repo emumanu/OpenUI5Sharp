@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -24,6 +24,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.App")]
 			public partial class App : sap.m.NavContainer
 			{
 				#region Settings
@@ -52,27 +53,27 @@ namespace OpenUI5Sharp
 					/// 
 					/// On Android these icons may or may not be used by the device. Apparently chances can be improved by adding glare effect and rounded corners, setting the file name so it ends with "-precomposed.png" and setting the "homeIconPrecomposed" property to "true".
 					/// </summary>
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> homeIcon;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> homeIcon;
 
 					/// <summary>
 					/// Background color of the App. If set, this color will override the default background defined by the theme. So this should only be set when really required. Any configured background image will be placed above this colored background. But any theme adaptation in the Theme Designer will override this setting. Use the "backgroundRepeat" property to define whether this image should be stretched to cover the complete App or whether it should be tiled.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> backgroundColor;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundColor;
 
 					/// <summary>
 					/// Background image of the App. If set, this image will override the default background defined by the theme. So this should only be set when really required. This background image will be placed above any color set for the background. But any theme adaptation in the Theme Designer will override this image setting. Use the "backgroundRepeat" property to define whether this image should be stretched to cover the complete App or whether it should be tiled.
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> backgroundImage;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundImage;
 
 					/// <summary>
 					/// Whether the background image (if configured) should be proportionally stretched to cover the whole App (false) or whether it should be tiled (true).
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> backgroundRepeat;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundRepeat;
 
 					/// <summary>
 					/// Opacity of the background image. The opacity can be set between 0 (fully transparent) and 1 fully opaque). This can be used to make the application content better readable by making the background image partly transparent.
 					/// </summary>
-					public Union<float, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> backgroundOpacity;
+					public Union<float, string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundOpacity;
 
 					/// <summary>
 					/// Fired when the orientation (portrait/landscape) of the device is changed.
@@ -305,11 +306,11 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fired when the orientation (portrait/landscape) of the device is changed.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. use sap.ui.Device.orientation.attachHandler(...)")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.App</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20.0. use sap.ui.Device.orientation.attachHandler(...)")]
 				public extern virtual sap.m.App attachOrientationChange(object oData, sap.m.App.AppOrientationChangeDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -319,10 +320,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fired when the orientation (portrait/landscape) of the device is changed.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. use sap.ui.Device.orientation.attachHandler(...)")]
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20.0. use sap.ui.Device.orientation.attachHandler(...)")]
 				public extern virtual sap.m.App attachOrientationChange(object oData, sap.m.App.AppOrientationChangeDelegate fnFunction);
 
 				/// <summary>
@@ -332,9 +333,9 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fired when the orientation (portrait/landscape) of the device is changed.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. use sap.ui.Device.orientation.attachHandler(...)")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20.0. use sap.ui.Device.orientation.attachHandler(...)")]
 				public extern virtual sap.m.App attachOrientationChange(sap.m.App.AppOrientationChangeDelegate fnFunction);
 
 				/// <summary>
@@ -344,10 +345,10 @@ namespace OpenUI5Sharp
 				/// 
 				/// Fired when the orientation (portrait/landscape) of the device is changed.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. use sap.ui.Device.orientation.attachHandler(...)")]
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.App</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20.0. use sap.ui.Device.orientation.attachHandler(...)")]
 				public extern virtual sap.m.App attachOrientationChange(sap.m.App.AppOrientationChangeDelegate fnFunction, object oListener);
 
 				/// <summary>
@@ -355,25 +356,25 @@ namespace OpenUI5Sharp
 				/// 
 				/// The passed function and listener object must match the ones used for event registration.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. use sap.ui.Device.orientation.attachHandler(...)")]
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20.0. use sap.ui.Device.orientation.attachHandler(...)")]
 				public extern virtual sap.m.App detachOrientationChange(sap.m.App.AppOrientationChangeDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:orientationChange orientationChange} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. use sap.ui.Device.orientation.attachHandler(...)")]
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20.0. use sap.ui.Device.orientation.attachHandler(...)")]
 				public extern virtual sap.m.App fireOrientationChange(sap.m.App.AppOrientationChangeInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:orientationChange orientationChange} to attached listeners.
 				/// </summary>
-				[Obsolete("Deprecated since 1.20.0. use sap.ui.Device.orientation.attachHandler(...)")]
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				[Obsolete("Deprecated since 1.20.0. use sap.ui.Device.orientation.attachHandler(...)")]
 				public extern virtual sap.m.App fireOrientationChange();
 
 				#endregion

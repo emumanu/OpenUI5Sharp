@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.SplitApp")]
 			public partial class SplitApp : sap.m.SplitContainer
 			{
 				#region Settings
@@ -38,7 +39,7 @@ namespace OpenUI5Sharp
 					/// 
 					/// On Android, these icons may or may not be used by the device. Chances can be improved by adding glare effect, rounded corners, setting the file name to end with "-precomposed.png", and setting the homeIconPrecomposed property to true.
 					/// </summary>
-					public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> homeIcon;
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> homeIcon;
 
 					/// <summary>
 					/// Fires when orientation (portrait/landscape) is changed.

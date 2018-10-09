@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.MaskInputRule")]
 			public partial class MaskInputRule : sap.ui.core.Element
 			{
 				#region Settings
@@ -28,12 +29,12 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the symbol used in the mask format which will accept a certain range of characters.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maskFormatSymbol;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> maskFormatSymbol;
 
 					/// <summary>
 					/// Defines the allowed characters as a regular expression.
 					/// </summary>
-					public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> regex;
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> regex;
 
 				}
 

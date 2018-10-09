@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.layout.ResponsiveFlowLayoutData")]
 				public partial class ResponsiveFlowLayoutData : sap.ui.core.LayoutData
 				{
 					#region Settings
@@ -30,27 +31,27 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Defines the minimal size in px of a ResponsiveFlowLayout element. The element will be shrunk down to this value.
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> minWidth;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> minWidth;
 
 						/// <summary>
 						/// Defines the weight of the element, that influences the resulting width. If there are several elements within a row of the ResponsiveFlowLayout, each element could have another weight. The bigger the weight of a single element, the wider it will be stretched, i.e. a bigger weight results in a larger width.
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> weight;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> weight;
 
 						/// <summary>
 						/// If this property is set, the control in which the LayoutData is added, will always cause a line break within the ResponsiveFlowLayout.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> linebreak;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> linebreak;
 
 						/// <summary>
 						/// Prevents any margin of the element if set to false.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> margin;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> margin;
 
 						/// <summary>
 						/// Shows if an element can be wrapped into a new row. If this value is set to false, the min-width will be set to 0 and the wrapping is up to the previous element.
 						/// </summary>
-						public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> linebreakable;
+						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> linebreakable;
 
 					}
 

@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.app.Application")]
 				[Obsolete("Deprecated since 1.15.1. The Component class is enhanced to take care about the Application code.")]
 				public abstract partial class Application : sap.ui.core.Component
 				{
@@ -28,11 +29,11 @@ namespace OpenUI5Sharp
 					[ObjectLiteral]
 					public partial class Settings : sap.ui.core.Component.Settings
 					{
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> root;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> root;
 
-						public Union<object, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> config;
+						public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> config;
 
-						public Union<sap.ui.core.UIComponent, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> rootComponent;
+						public Union<sap.ui.core.UIComponent, string, sap.ui.@base.ManagedObject.BindAggregationInfo> rootComponent;
 
 					}
 

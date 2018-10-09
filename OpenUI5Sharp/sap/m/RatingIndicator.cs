@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -14,6 +14,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.RatingIndicator")]
 			public partial class RatingIndicator : sap.ui.core.Control, sap.ui.core.IFormContent
 			{
 				#region Settings
@@ -28,98 +29,74 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Value "true" is required to let the user rate with this control. It is recommended to set this parameter to "false" for the "Small" size which is meant for indicating a value only
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> enabled;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> enabled;
 
 					/// <summary>
 					/// The number of displayed rating symbols
 					/// </summary>
-					public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> maxValue;
+					public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> maxValue;
 
 					/// <summary>
 					/// The indicated value of the rating
 					/// </summary>
-					public Union<float, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> value;
+					public Union<float, string, sap.ui.@base.ManagedObject.BindPropertyInfo> value;
 
 					/// <summary>
 					/// The Size of the image or icon to be displayed. The default value depends on the theme. Please be sure that the size is corresponding to a full pixel value as some browsers don't support subpixel calculations. Recommended size is 1.375rem (22px) for normal, 1rem (16px) for small, and 2rem (32px) for large icons correspondingly.
 					/// </summary>
-					public Union<sap.ui.core.CSSSize, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> iconSize;
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> iconSize;
 
 					/// <summary>
 					/// The URI to the icon font icon or image that will be displayed for selected rating symbols. A star icon will be used if the property is not set
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> iconSelected;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> iconSelected;
 
 					/// <summary>
 					/// The URI to the icon font icon or image that will be displayed for all unselected rating symbols. A star icon will be used if the property is not set
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> iconUnselected;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> iconUnselected;
 
 					/// <summary>
 					/// The URI to the icon font icon or image that will be displayed for hovered rating symbols. A star icon will be used if the property is not set
 					/// </summary>
-					public Union<sap.ui.core.URI, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> iconHovered;
+					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> iconHovered;
 
 					/// <summary>
 					/// Defines how float values are visualized: Full, Half (see enumeration RatingIndicatorVisualMode)
 					/// </summary>
-					public Union<sap.m.RatingIndicatorVisualMode, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> visualMode;
+					public Union<sap.m.RatingIndicatorVisualMode, string, sap.ui.@base.ManagedObject.BindPropertyInfo> visualMode;
 
 					/// <summary>
 					/// The RatingIndicator in displayOnly mode is not interactive, not editable, not focusable, and not in the tab chain. This setting is used for forms in review mode.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> displayOnly;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> displayOnly;
 
 					/// <summary>
 					/// Defines whether the user is allowed to edit the RatingIndicator. If editable is false the control is focusable, and in the tab chain but not interactive.
 					/// </summary>
-					public Union<bool, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> editable;
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> editable;
 
 					/// <summary>
 					/// Association to controls / ids which describe this control (see WAI-ARIA attribute aria-describedby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaDescribedBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaDescribedBy;
 
 					/// <summary>
 					/// Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).
 					/// </summary>
-					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> ariaLabelledBy;
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 					/// <summary>
 					/// The event is fired when the user has done a rating.
 					/// </summary>
-					public sap.m.RatingIndicator.ChangeDelegate change;
+					public sap.m.RatingIndicatorDelegate change;
 
 					/// <summary>
 					/// This event is triggered during the dragging period, each time the rating value changes.
 					/// </summary>
-					public sap.m.SliderChangeDelegate liveChange;
+					public sap.m.SubmitOrChangeDelegate liveChange;
 
 				}
-
-				#endregion
-
-				#region Typed Parameters
-
-				/// <summary>
-				/// Parameter to be used as Object Literal
-				/// </summary>
-				[External]
-				[ObjectLiteral]
-				public partial class ChangeInfo
-				{
-					/// <summary>
-					/// The rated value
-					/// </summary>
-					public int value;
-
-				}
-
-				#endregion
-
-				#region Delegates
-
-				public delegate void ChangeDelegate(sap.ui.@base.Event<sap.m.RatingIndicator.ChangeInfo> oEvent, object oData);
 
 				#endregion
 
@@ -493,7 +470,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.RatingIndicator</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.RatingIndicator attachChange(object oData, sap.m.RatingIndicator.ChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.RatingIndicator attachChange(object oData, sap.m.RatingIndicatorDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:change change} event of this <code>sap.m.RatingIndicator</code>.
@@ -505,7 +482,7 @@ namespace OpenUI5Sharp
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.RatingIndicator attachChange(object oData, sap.m.RatingIndicator.ChangeDelegate fnFunction);
+				public extern virtual sap.m.RatingIndicator attachChange(object oData, sap.m.RatingIndicatorDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:change change} event of this <code>sap.m.RatingIndicator</code>.
@@ -516,7 +493,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.RatingIndicator attachChange(sap.m.RatingIndicator.ChangeDelegate fnFunction);
+				public extern virtual sap.m.RatingIndicator attachChange(sap.m.RatingIndicatorDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:change change} event of this <code>sap.m.RatingIndicator</code>.
@@ -528,7 +505,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.RatingIndicator</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.RatingIndicator attachChange(sap.m.RatingIndicator.ChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.RatingIndicator attachChange(sap.m.RatingIndicatorDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:change change} event of this <code>sap.m.RatingIndicator</code>.
@@ -538,14 +515,14 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.RatingIndicator detachChange(sap.m.RatingIndicator.ChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.RatingIndicator detachChange(sap.m.RatingIndicatorDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:change change} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.RatingIndicator fireChange(sap.m.RatingIndicator.ChangeInfo mParameters);
+				public extern virtual sap.m.RatingIndicator fireChange(sap.m.RatingIndicatorInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:change change} to attached listeners.
@@ -568,7 +545,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.RatingIndicator</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.RatingIndicator attachLiveChange(object oData, sap.m.SliderChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.RatingIndicator attachLiveChange(object oData, sap.m.SubmitOrChangeDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:liveChange liveChange} event of this <code>sap.m.RatingIndicator</code>.
@@ -580,7 +557,7 @@ namespace OpenUI5Sharp
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.RatingIndicator attachLiveChange(object oData, sap.m.SliderChangeDelegate fnFunction);
+				public extern virtual sap.m.RatingIndicator attachLiveChange(object oData, sap.m.SubmitOrChangeDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:liveChange liveChange} event of this <code>sap.m.RatingIndicator</code>.
@@ -591,7 +568,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.RatingIndicator attachLiveChange(sap.m.SliderChangeDelegate fnFunction);
+				public extern virtual sap.m.RatingIndicator attachLiveChange(sap.m.SubmitOrChangeDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:liveChange liveChange} event of this <code>sap.m.RatingIndicator</code>.
@@ -603,7 +580,7 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.RatingIndicator</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.RatingIndicator attachLiveChange(sap.m.SliderChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.RatingIndicator attachLiveChange(sap.m.SubmitOrChangeDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:liveChange liveChange} event of this <code>sap.m.RatingIndicator</code>.
@@ -613,14 +590,14 @@ namespace OpenUI5Sharp
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.RatingIndicator detachLiveChange(sap.m.SliderChangeDelegate fnFunction, object oListener);
+				public extern virtual sap.m.RatingIndicator detachLiveChange(sap.m.SubmitOrChangeDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:liveChange liveChange} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.RatingIndicator fireLiveChange(sap.m.SliderChangeInfo mParameters);
+				public extern virtual sap.m.RatingIndicator fireLiveChange(sap.m.SubmitOrChangeInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:liveChange liveChange} to attached listeners.

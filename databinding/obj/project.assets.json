@@ -12573,11 +12573,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\OpenUI5Sharp\\ddd\\OpenUI5Sharp\\databinding\\databinding.csproj",
+      "projectUniqueName": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\OpenUI5Sharp\\remote\\OpenUI5Sharp\\databinding\\databinding.csproj",
       "projectName": "databinding",
-      "projectPath": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\OpenUI5Sharp\\ddd\\OpenUI5Sharp\\databinding\\databinding.csproj",
+      "projectPath": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\OpenUI5Sharp\\remote\\OpenUI5Sharp\\databinding\\databinding.csproj",
       "packagesPath": "C:\\Users\\Manu\\.nuget\\packages\\",
-      "outputPath": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\OpenUI5Sharp\\ddd\\OpenUI5Sharp\\databinding\\obj\\",
+      "outputPath": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\OpenUI5Sharp\\remote\\OpenUI5Sharp\\databinding\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12596,8 +12596,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\OpenUI5Sharp\\ddd\\OpenUI5Sharp\\DatabindingClientScripts\\DatabindingClientScripts.csproj": {
-              "projectPath": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\OpenUI5Sharp\\ddd\\OpenUI5Sharp\\DatabindingClientScripts\\DatabindingClientScripts.csproj"
+            "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\OpenUI5Sharp\\remote\\OpenUI5Sharp\\DatabindingClientScripts\\DatabindingClientScripts.csproj": {
+              "projectPath": "D:\\Manu\\Documents\\Visual Studio 2017\\Projects\\OpenUI5Sharp\\remote\\OpenUI5Sharp\\DatabindingClientScripts\\DatabindingClientScripts.csproj"
             }
           }
         }

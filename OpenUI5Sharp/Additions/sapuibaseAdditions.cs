@@ -1,8 +1,7 @@
 ﻿using System;
 using Bridge;
-using OpenUI5Sharp;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
     [External]
     public partial class sap
@@ -16,6 +15,21 @@ namespace OpenUI5Sharp
                 [External]
                 public partial class ManagedObject
                 {
+                    /// <summary>
+                    /// Delegate for the factory function. The factory function is called for each list entry to create the controls necessary to represent the current entry. The developer can decide, whether it is the same control with different properties or even a completely different control for each entry
+                    /// </summary>
+                    /// <param name="sId">identifier of the created control</param>
+                    /// <param name="oContext">a data item from model list</param>
+                    /// <returns>The created element</returns>
+                    public delegate sap.ui.core.Element FactoryDelegate(string sId, sap.ui.model.Context oContext);
+
+                    /// <summary>
+                    /// Delegate for the a factory function to generate custom group visualization
+                    /// </summary>
+                    /// <param name="oGroup">the group to process</param>
+                    /// <returns>the created element</returns>
+                    public delegate sap.ui.core.Element GroupHeaderFactoryDelegate(object oGroup);
+
                     /// <summary>
 					/// Returns the aggregated object(s) for the named aggregation of this ManagedObject.
 					/// 
@@ -133,6 +147,54 @@ namespace OpenUI5Sharp
                     /// <param name="oValue">value to set the property to</param>
                     /// <returns>Returns <code>this</code> to allow method chaining</returns>
                     public extern virtual sap.ui.@base.ManagedObject setProperty<T>(string sPropertyName, T oValue);
+                }
+
+                /// <summary>
+                /// Exception class
+                /// 
+                /// This is the base exception class. In contrary to the Error an Exception
+                /// should be thrown in cases, where the exception can, and should, be handled
+                /// within the framework, instead of causing the application to exit.
+                /// 
+                /// 
+                /// The try/catch statement in JavaScript cannot catch specific exceptions, so
+                /// when catching internal exceptions you should make sure to rethrow other errors:
+                /// 
+                /// try {
+                ///     ...
+                /// }
+                /// catch (oException) {
+                ///     if (oException instanceof sap.ui.base.Exception) {
+                ///         ...handle exception...
+                ///     }
+                ///     else {
+                ///         throw oException;
+                ///     }
+                /// }
+                /// </summary>
+                [External]
+                [Namespace(false)]
+                [Name("sap.ui.base.Exception")]
+                public partial class Exception : System.Exception
+                {
+                    public string name;
+
+                    /// <summary>
+                    /// Message explaining what went wrong
+                    /// </summary>
+                    public string message;
+
+                    #region Constructor
+
+                    /// <summary>
+                    /// Constructor for a new Exception.
+                    /// </summary>
+                    /// <param name="message">Message explaining what went wrong</param>
+                    public extern Exception(string message);
+
+                    #endregion
+
+                    // TODO: try to hide properties of System.Exception with Obsolete and System.ComponentModel.EditorBrowsable(EditorBrowsableState.Never)
                 }
 
                 [External]

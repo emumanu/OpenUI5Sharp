@@ -30,6 +30,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "routing", "Routing\routing.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutingClientScripts", "RoutingClientScripts\RoutingClientScripts.csproj", "{010704B7-418B-4987-A69C-76AF6269863F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolPageApp", "ToolPageApp\ToolPageApp.csproj", "{23896E8D-89B3-42D7-8A8A-6933DA5EA7FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolPageAppClientScripts", "ToolPageAppClientScripts\ToolPageAppClientScripts.csproj", "{16FD4A9A-ACBA-422A-8CBC-D91CEE8661AE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,6 +76,14 @@ Global
 		{010704B7-418B-4987-A69C-76AF6269863F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{010704B7-418B-4987-A69C-76AF6269863F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{010704B7-418B-4987-A69C-76AF6269863F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23896E8D-89B3-42D7-8A8A-6933DA5EA7FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23896E8D-89B3-42D7-8A8A-6933DA5EA7FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23896E8D-89B3-42D7-8A8A-6933DA5EA7FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23896E8D-89B3-42D7-8A8A-6933DA5EA7FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16FD4A9A-ACBA-422A-8CBC-D91CEE8661AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16FD4A9A-ACBA-422A-8CBC-D91CEE8661AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16FD4A9A-ACBA-422A-8CBC-D91CEE8661AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16FD4A9A-ACBA-422A-8CBC-D91CEE8661AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

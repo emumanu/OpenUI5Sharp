@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.unified.ContentSwitcher")]
 				[Obsolete("Deprecated since 1.44.0.")]
 				public partial class ContentSwitcher : sap.ui.core.Control
 				{
@@ -31,22 +32,22 @@ namespace OpenUI5Sharp
 						/// <summary>
 						/// Set the used animation when changing content. This just sets a CSS-class named "sapUiUnifiedACSwitcherAnimation" + this value on the root element of the control. The animation has to be implemented in CSS. This also enables applications to implement their own animations via CSS by reacting to the parent class. See the types sap.ui.unified.ContentSwitcherAnimation for default implementations.
 						/// </summary>
-						public Union<string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> animation;
+						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> animation;
 
 						/// <summary>
 						/// The number of the currently active content (1 or 2).
 						/// </summary>
-						public Union<int, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> activeContent;
+						public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> activeContent;
 
 						/// <summary>
 						/// The controls that should be shown in the first content
 						/// </summary>
-						public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content1;
+						public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> content1;
 
 						/// <summary>
 						/// The controls that should be shown in the second content
 						/// </summary>
-						public Union<sap.ui.core.Control[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> content2;
+						public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> content2;
 
 					}
 

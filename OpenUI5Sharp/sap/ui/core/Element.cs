@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public partial class sap
 	{
@@ -16,6 +16,7 @@ namespace OpenUI5Sharp
 				/// </summary>
 				[External]
 				[Namespace(false)]
+				[Name("sap.ui.core.Element")]
 				public abstract partial class Element : sap.ui.@base.ManagedObject
 				{
 					#region Settings
@@ -32,22 +33,29 @@ namespace OpenUI5Sharp
 						/// 
 						/// Can either be an instance of a TooltipBase subclass or a simple string.
 						/// </summary>
-						public Union<sap.ui.core.TooltipBase, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> tooltip;
+						public Union<sap.ui.core.TooltipBase, string, sap.ui.@base.ManagedObject.BindAggregationInfo> tooltip;
 
 						/// <summary>
 						/// Custom Data, a data structure like a map containing arbitrary key value pairs.
 						/// </summary>
-						public Union<sap.ui.core.CustomData[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> customData;
+						public Union<sap.ui.core.CustomData[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> customData;
 
 						/// <summary>
 						/// Defines the layout constraints for this control when it is used inside a Layout. LayoutData classes are typed classes and must match the embedding Layout. See VariantLayoutData for aggregating multiple alternative LayoutData instances to a single Element.
 						/// </summary>
-						public Union<sap.ui.core.LayoutData, string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> layoutData;
+						public Union<sap.ui.core.LayoutData, string, sap.ui.@base.ManagedObject.BindAggregationInfo> layoutData;
 
 						/// <summary>
 						/// Dependents are not rendered, but their databinding context and lifecycle are bound to the aggregating Element.
 						/// </summary>
-						public Union<sap.ui.core.Element[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> dependents;
+						public Union<sap.ui.core.Element[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> dependents;
+
+						/// <summary>
+						/// Defines the drag-and-drop configuration.
+						/// 
+						/// This aggregation is provided exclusively to test drag-and-drop functionality of all controls. It might be removed or the functionality might be limited due to control {@link sap.ui.core.Element.extend metadata} restrictions.
+						/// </summary>
+						public Union<sap.ui.core.dnd.DragDropBase[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> dragDropConfig;
 
 					}
 
@@ -363,6 +371,63 @@ namespace OpenUI5Sharp
 
 					#endregion
 
+					#region Methods for Aggregation dragDropConfig
+
+					/// <summary>
+					/// Gets content of aggregation {@link #getDragDropConfig dragDropConfig}.
+					/// 
+					/// Defines the drag-and-drop configuration.
+					/// 
+					/// This aggregation is provided exclusively to test drag-and-drop functionality of all controls. It might be removed or the functionality might be limited due to control {@link sap.ui.core.Element.extend metadata} restrictions.
+					/// </summary>
+					/// <returns></returns>
+					public extern virtual sap.ui.core.dnd.DragDropBase[] getDragDropConfig();
+
+					/// <summary>
+					/// Destroys all the dragDropConfig in the aggregation {@link #getDragDropConfig dragDropConfig}.
+					/// </summary>
+					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					public extern virtual sap.ui.core.Element destroyDragDropConfig();
+
+					/// <summary>
+					/// Inserts a dragDropConfig into the aggregation {@link #getDragDropConfig dragDropConfig}.
+					/// </summary>
+					/// <param name="oDragDropConfig">The dragDropConfig to insert; if empty, nothing is inserted</param>
+					/// <param name="iIndex">The <code>0</code>-based index the dragDropConfig should be inserted at; for a negative value of <code>iIndex</code>, the dragDropConfig is inserted at position 0; for a value greater than the current size of the aggregation, the dragDropConfig is inserted at the last position</param>
+					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					public extern virtual sap.ui.core.Element insertDragDropConfig(sap.ui.core.dnd.DragDropBase oDragDropConfig, int iIndex);
+
+					/// <summary>
+					/// Adds some dragDropConfig to the aggregation {@link #getDragDropConfig dragDropConfig}.
+					/// </summary>
+					/// <param name="oDragDropConfig">The dragDropConfig to add; if empty, nothing is inserted</param>
+					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					public extern virtual sap.ui.core.Element addDragDropConfig(sap.ui.core.dnd.DragDropBase oDragDropConfig);
+
+					/// <summary>
+					/// Removes a dragDropConfig from the aggregation {@link #getDragDropConfig dragDropConfig}.
+					/// </summary>
+					/// <param name="vDragDropConfig">The dragDropConfig to remove or its index or id</param>
+					/// <returns>The removed dragDropConfig or <code>null</code></returns>
+					public extern virtual sap.ui.core.dnd.DragDropBase removeDragDropConfig(Union<int, string, sap.ui.core.dnd.DragDropBase> vDragDropConfig);
+
+					/// <summary>
+					/// Checks for the provided <code>sap.ui.core.dnd.DragDropBase</code> in the aggregation {@link #getDragDropConfig dragDropConfig}. and returns its index if found or -1 otherwise.
+					/// </summary>
+					/// <param name="oDragDropConfig">The dragDropConfig whose index is looked for</param>
+					/// <returns>The index of the provided control in the aggregation if found, or -1 otherwise</returns>
+					public extern virtual int indexOfDragDropConfig(sap.ui.core.dnd.DragDropBase oDragDropConfig);
+
+					/// <summary>
+					/// Removes all the controls from the aggregation {@link #getDragDropConfig dragDropConfig}.
+					/// 
+					/// Additionally, it unregisters them from the hosting UIArea.
+					/// </summary>
+					/// <returns>An array of the removed elements (might be empty)</returns>
+					public extern virtual sap.ui.core.dnd.DragDropBase[] removeAllDragDropConfig();
+
+					#endregion
+
 					#region Other methods
 
 					/// <summary>
@@ -373,7 +438,7 @@ namespace OpenUI5Sharp
 					/// <param name="sSuffix">ID suffix to get a jQuery object for</param>
 					/// <returns>The jQuery wrapped element's DOM reference</returns>
 					[Name("$")]
-					public extern virtual jquery.JQuery<object> dollar(string sSuffix);
+					public extern virtual jquery.JQuery<dom.HTMLElement> dollar(string sSuffix);
 
 					/// <summary>
 					/// Returns the best suitable DOM node that represents this Element wrapped as jQuery object. I.e. the element returned by {@link sap.ui.core.Element#getDomRef} is wrapped and returned.
@@ -382,7 +447,7 @@ namespace OpenUI5Sharp
 					/// </summary>
 					/// <returns>The jQuery wrapped element's DOM reference</returns>
 					[Name("$")]
-					public extern virtual jquery.JQuery<object> dollar();
+					public extern virtual jquery.JQuery<dom.HTMLElement> dollar();
 
 					/// <summary>
 					/// Registers the given event handler to change events of the screen width/closest media container width, based on the range set with the specified name.
@@ -523,9 +588,9 @@ namespace OpenUI5Sharp
 					/// 
 					/// If <code>vData</code> is an Element already, that element is returned. If <code>vData</code> is an object (literal), then a new element is created with <code>vData</code> as settings. The type of the element is either determined by a property named <code>Type</code> in the <code>vData</code> or by a type information in the <code>oKeyInfo</code> object
 					/// </summary>
-					[Obsolete("Deprecated since 1.44. use the more flexible {@link sap.ui.base.ManagedObject.create}.")]
 					/// <param name="vData">Data to create the element from</param>
 					/// <param name="oKeyInfo">An entity information (e.g. aggregation info)</param>
+					[Obsolete("Deprecated since 1.44. use the more flexible {@link sap.ui.base.ManagedObject.create}.")]
 					public extern static void create(Union<sap.ui.core.Element, object> vData, sap.ui.core.Element.CreateInfo oKeyInfo);
 
 					/// <summary>
@@ -533,27 +598,27 @@ namespace OpenUI5Sharp
 					/// 
 					/// If <code>vData</code> is an Element already, that element is returned. If <code>vData</code> is an object (literal), then a new element is created with <code>vData</code> as settings. The type of the element is either determined by a property named <code>Type</code> in the <code>vData</code> or by a type information in the <code>oKeyInfo</code> object
 					/// </summary>
-					[Obsolete("Deprecated since 1.44. use the more flexible {@link sap.ui.base.ManagedObject.create}.")]
 					/// <param name="vData">Data to create the element from</param>
+					[Obsolete("Deprecated since 1.44. use the more flexible {@link sap.ui.base.ManagedObject.create}.")]
 					public extern static void create(Union<sap.ui.core.Element, object> vData);
 
 					/// <summary>
 					/// Creates metadata for a UI Element by extending the Object Metadata.
 					/// </summary>
-					[Obsolete("Deprecated since 1.3.1. Use the static <code>extend</code> method of the desired base class (e.g. {@link sap.ui.core.Element.extend})")]
 					/// <param name="sClassName">name of the class to build the metadata for</param>
 					/// <param name="oStaticInfo">static information used to build the metadata</param>
 					/// <param name="fnMetaImpl">constructor to be used for the metadata</param>
 					/// <returns>the created metadata</returns>
+					[Obsolete("Deprecated since 1.3.1. Use the static <code>extend</code> method of the desired base class (e.g. {@link sap.ui.core.Element.extend})")]
 					public extern static object defineClass(string sClassName, object oStaticInfo, object fnMetaImpl);
 
 					/// <summary>
 					/// Creates metadata for a UI Element by extending the Object Metadata.
 					/// </summary>
-					[Obsolete("Deprecated since 1.3.1. Use the static <code>extend</code> method of the desired base class (e.g. {@link sap.ui.core.Element.extend})")]
 					/// <param name="sClassName">name of the class to build the metadata for</param>
 					/// <param name="oStaticInfo">static information used to build the metadata</param>
 					/// <returns>the created metadata</returns>
+					[Obsolete("Deprecated since 1.3.1. Use the static <code>extend</code> method of the desired base class (e.g. {@link sap.ui.core.Element.extend})")]
 					public extern static object defineClass(string sClassName, object oStaticInfo);
 
 					/// <summary>
@@ -595,34 +660,38 @@ namespace OpenUI5Sharp
 					public extern virtual void exit();
 
 					/// <summary>
-					/// Creates a new subclass of class sap.ui.core.Element with name <code>sClassName</code> and enriches it with the information contained in <code>oClassInfo</code>.
+					/// Defines a new subclass of Element with the name <code>sClassName</code> and enriches it with the information contained in <code>oClassInfo</code>.
 					/// 
-					/// <code>oClassInfo</code> might contain the same kind of information as described in {@link sap.ui.base.ManagedObject.extend}.
-					/// </summary>
-					/// <param name="sClassName">Name of the class being created</param>
-					/// <param name="oClassInfo">Object literal with information about the class</param>
-					/// <param name="FNMetaImpl">Constructor function for the metadata object; if not given, it defaults to <code>sap.ui.core.ElementMetadata</code></param>
-					/// <returns>Created class / constructor function</returns>
-					public extern static object extend(string sClassName, object oClassInfo, object FNMetaImpl);
-
-					/// <summary>
-					/// Creates a new subclass of class sap.ui.core.Element with name <code>sClassName</code> and enriches it with the information contained in <code>oClassInfo</code>.
+					/// <code>oClassInfo</code> can contain the same information that {@link sap.ui.base.ManagedObject.extend} already accepts, plus the following <code>dnd</code> property to configure drag-and-drop behavior in the metadata object literal:
 					/// 
-					/// <code>oClassInfo</code> might contain the same kind of information as described in {@link sap.ui.base.ManagedObject.extend}.
-					/// </summary>
-					/// <param name="sClassName">Name of the class being created</param>
-					/// <param name="oClassInfo">Object literal with information about the class</param>
-					/// <returns>Created class / constructor function</returns>
-					public extern static object extend(string sClassName, object oClassInfo);
-
-					/// <summary>
-					/// Creates a new subclass of class sap.ui.core.Element with name <code>sClassName</code> and enriches it with the information contained in <code>oClassInfo</code>.
+					/// Example: <pre>
+					/// Element.extend('sap.mylib.MyElement', {
+					///   metadata : {
+					///     library : 'sap.mylib',
+					///     properties : {
+					///       value : 'string',
+					///       width : 'sap.ui.core.CSSSize'
+					///     },
+					///     dnd : { draggable: true, droppable: false },
+					///     aggregations : {
+					///       items : { type: 'sap.ui.core.Control', multiple : true, dnd : {draggable: false, dropppable: true, layout: "Horizontal" } },
+					///       header : {type : "sap.ui.core.Control", multiple : false, dnd : false },
+					///     }
+					///   }
+					/// });
+					/// </pre>
 					/// 
-					/// <code>oClassInfo</code> might contain the same kind of information as described in {@link sap.ui.base.ManagedObject.extend}.
+					/// <h3><code>dnd</code> key as a metadata property</h3>
+					/// 
+					/// <b>dnd</b>: <i>object|boolean</i><br> Defines draggable and droppable configuration of the element. The following keys can be provided via <code>dnd</code> object literal to configure drag-and-drop behavior of the element: <ul> <li><code>[draggable=true]: <i>boolean</i></code>Defines whether the element is draggable or not.</li> <li><code>[droppable=true]: <i>boolean</i></code>Defines whether the element is droppable (it allows being dropped on by a draggable element) or not.</li> </ul> If <code>dnd</code> property is of type Boolean, then the <code>draggable</code> and <code>droppable</code> configuration are set to this Boolean value.
+					/// 
+					/// <h3><code>dnd</code> key as an aggregation metadata property</h3>
+					/// 
+					/// <b>dnd</b>: <i>object|boolean</i><br> In addition to draggable and droppable configuration, the layout of the aggregation can be defined as a hint at the drop position indicator. Default behavior of draggable and droppable depends on the multiplicity of the aggregation: <ul> <li><code>[draggable]: <i>boolean</i></code>Defines whether this aggregation is draggable or not. The default value is <code>false</code> for the aggregation with multiplicity 0..n (<code>multiple: true</code>), otherwise <code>true<code>.</li> <li><code>[droppable]: <i>boolean</i></code>Defines whether dropping is allowed on and/or between the aggregation. The default value is <code>false</code> for the aggregation with multiplicity 0..n (<code>multiple: true</code>), otherwise <code>true<code>.</li> <li><code>[layout="Vertical"]: <i>boolean</i></code>The arrangement of the items in this aggregation. This setting is recommended for the aggregation with multiplicity 0..n (<code>multiple: true</code>). Possible values are <code>Vertical</code>(e.g. rows in a table) and <code>Horizontal</code>(e.g. buttons in a toolbar). It is recommended to use <code>Horizontal</code> layout if the arrangement is multidimensional.</li> </ul> If <code>dnd</code> property is of type Boolean, then the <code>draggable</code> and <code>droppable</code> configuration are set to this Boolean value.
 					/// </summary>
-					/// <param name="sClassName">Name of the class being created</param>
-					/// <returns>Created class / constructor function</returns>
-					public extern static object extend(string sClassName);
+					/// <param name="sClassName">fully qualified name of the class that is described by this metadata object</param>
+					/// <param name="oStaticInfo">static info to construct the metadata from</param>
+					public extern static void extend(string sClassName, object oStaticInfo);
 
 					/// <summary>
 					/// Searches and returns an array of child elements and controls which are referenced within an aggregation or aggregations of child elements/controls. This can be either done recursive or not.
@@ -745,18 +814,18 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// This function either calls set[sPropertyName] or get[sPropertyName] with the specified property name depending if an <code>oValue</code> is provided or not.
 					/// </summary>
-					[Obsolete("Deprecated since 1.28.0. The contract of this method is not fully defined and its write capabilities overlap with applySettings")]
 					/// <param name="sPropertyName">name of the property to set</param>
 					/// <param name="oValue">value to set the property to</param>
 					/// <returns>Returns <code>this</code> to allow method chaining in case of setter and the property value in case of getter</returns>
+					[Obsolete("Deprecated since 1.28.0. The contract of this method is not fully defined and its write capabilities overlap with applySettings")]
 					public extern virtual sap.ui.core.Element prop(string sPropertyName, object oValue);
 
 					/// <summary>
 					/// This function either calls set[sPropertyName] or get[sPropertyName] with the specified property name depending if an <code>oValue</code> is provided or not.
 					/// </summary>
-					[Obsolete("Deprecated since 1.28.0. The contract of this method is not fully defined and its write capabilities overlap with applySettings")]
 					/// <param name="sPropertyName">name of the property to set</param>
 					/// <returns>Returns <code>this</code> to allow method chaining in case of setter and the property value in case of getter</returns>
+					[Obsolete("Deprecated since 1.28.0. The contract of this method is not fully defined and its write capabilities overlap with applySettings")]
 					public extern virtual sap.ui.core.Element prop(string sPropertyName);
 
 					/// <summary>

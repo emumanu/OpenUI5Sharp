@@ -3,7 +3,7 @@ using Bridge;
 using Retyped;
 using System.Collections.Generic;
 
-namespace OpenUI5Sharp
+namespace UI5
 {
 	public static partial class sap
 	{
@@ -24,6 +24,7 @@ namespace OpenUI5Sharp
 			/// </summary>
 			[External]
 			[Namespace(false)]
+			[Name("sap.m.ColorPalette")]
 			public partial class ColorPalette : sap.ui.core.Control
 			{
 				#region Settings
@@ -38,7 +39,7 @@ namespace OpenUI5Sharp
 					/// <summary>
 					/// Defines the List of colors displayed in the palette. Minimum is 2 colors, maximum is 15 colors.
 					/// </summary>
-					public Union<sap.ui.core.CSSColor[], string, sap.ui.core.Element.BindElementInfo, sap.ui.@base.ManagedObject.BindAggregationInfo> colors;
+					public Union<sap.ui.core.CSSColor[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> colors;
 
 					/// <summary>
 					/// Fired when the user selects a color.
