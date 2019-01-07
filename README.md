@@ -1,3 +1,4 @@
+
 # OpenUI5Sharp
 
 [![Built with Bridge.NET](https://img.shields.io/badge/built%20with-Bridge.NET-blue.svg)](http://bridge.net/)
@@ -60,20 +61,20 @@ This javascript code gets/sets properties of a JSONModel:
 
 ```js
 onSort : function () {
-	var oView = this.getView(),
-		aStates = [undefined, "asc", "desc"],
-		aStateTextIds = ["sortNone", "sortAscending", "sortDescending"],
-		sMessage,
-		iOrder = oView.getModel("appView").getProperty("/order");
+    var oView = this.getView(),
+        aStates = [undefined, "asc", "desc"],
+        aStateTextIds = ["sortNone", "sortAscending", "sortDescending"],
+        sMessage,
+        iOrder = oView.getModel("appView").getProperty("/order");
 
-	iOrder = (iOrder + 1) % aStates.length;
-	var sOrder = aStates[iOrder];
+    iOrder = (iOrder + 1) % aStates.length;
+    var sOrder = aStates[iOrder];
 
-	oView.getModel("appView").setProperty("/order", iOrder);
-	oView.byId("peopleList").getBinding("items").sort(sOrder && new Sorter("LastName", sOrder === "desc"));
+    oView.getModel("appView").setProperty("/order", iOrder);
+    oView.byId("peopleList").getBinding("items").sort(sOrder && new Sorter("LastName", sOrder === "desc"));
 
-	sMessage = this._getText("sortMessage", [this._getText(aStateTextIds[iOrder])]);
-	MessageToast.show(sMessage);
+    sMessage = this._getText("sortMessage", [this._getText(aStateTextIds[iOrder])]);
+    MessageToast.show(sMessage);
 },
 ```
 The equivalent code in OpenUI5Sharp uses a strongly typed JSONModel with no magic strings and type conversions for the properties:
@@ -214,7 +215,7 @@ Also notice that event parameters are generated automatically from the class `Ra
 
 ## History
 
-2019/01/07 - v1.2.0 - Beta 2 version. 
+**2019/01/07 - v1.2.0 - Beta 2 version.** 
 
 What's new in this release:
 - Updated OpenUI5 verstion to 1.58.4.
@@ -229,7 +230,8 @@ What's new in this release:
 This is the last version with manual dependency resolution. The next version of OpenUI5Sharp will use Bridge.net modules with automatic dependency resolution and will not require a modified bridge.js file.
 Also, OpenUI5Sharp will have an associated nuget package for easier integration.
 
-2018/10/09 - v1.1.0 - Beta 1 version. 
+
+**2018/10/09 - v1.1.0 - Beta 1 version.** 
 
 What's new in this release:
 - Added support for the rest of OpenUI5 libraries.
@@ -238,7 +240,8 @@ What's new in this release:
 - A lot of minor fixes and API improvements.
 - Improved unit and integration test support.
 
-2018/06/15 - v1.0.0 - Initial version.
+
+**2018/06/15 - v1.0.0 - Initial version.**
 
 ## Contact
 
