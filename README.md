@@ -215,33 +215,31 @@ Also notice that event parameters are generated automatically from the class `Ra
 
 ## History
 
-**2019/01/07 - v1.2.0 - Beta 2 version.** 
+#### 2019/01/07 - v1.2.0 - Beta 2 version
+
+*This is the last version with manual dependency resolution. The next version of OpenUI5Sharp will use Bridge.net modules with automatic dependency resolution and will not require a modified bridge.js file.
+Also, OpenUI5Sharp will have an associated nuget package for easier integration*
 
 What's new in this release:
-- Updated OpenUI5 verstion to 1.58.4.
-- Added strongly typed parameters to binding aggregations and bind properties related methods.
-- Added lots of strongly typed parameters to sap.m.P13n*.
-- Added proper inheritance chain for metadata classes.
-- Switched from jquery.JQueryPromise<object> to es5.Promise<object>, as it is a lot easier to work with.
-- Better Bridge class to OpenUI5 class conversion.
-- The samples are move to their own [repository](https://github.com/emumanu/OpenUI5Sharp-samples)
-- Lots of minor improvements.
+* Updated OpenUI5 verstion to 1.58.4.
+* Added strongly typed parameters to binding aggregations and bind properties related methods.
+* Added lots of strongly typed parameters to sap.m.P13n*.
+* Added proper inheritance chain for metadata classes.
+* Switched from jquery.JQueryPromise<object> to es5.Promise<object>, as it is a lot easier to work with.
+* Better Bridge class to OpenUI5 class conversion.
+* The samples are move to their own [repository](https://github.com/emumanu/OpenUI5Sharp-samples).
+* Lots of minor improvements.
 
-This is the last version with manual dependency resolution. The next version of OpenUI5Sharp will use Bridge.net modules with automatic dependency resolution and will not require a modified bridge.js file.
-Also, OpenUI5Sharp will have an associated nuget package for easier integration.
-
-
-**2018/10/09 - v1.1.0 - Beta 1 version.** 
+#### 2018/10/09 - v1.1.0 - Beta 1 version
 
 What's new in this release:
-- Added support for the rest of OpenUI5 libraries.
-- Renamed the parent namespace to UI5 in case some day SAPUI5Sharp gets released.
-- Added Shop Administration Tool demo application.
-- A lot of minor fixes and API improvements.
-- Improved unit and integration test support.
+* Added support for the rest of OpenUI5 libraries.
+* Renamed the parent namespace to UI5 in case some day SAPUI5Sharp gets released.
+* Added Shop Administration Tool demo application.
+* A lot of minor fixes and API improvements.
+* Improved unit and integration test support.
 
-
-**2018/06/15 - v1.0.0 - Initial version.**
+#### 2018/06/15 - v1.0.0 - Initial version
 
 ## Contact
 
