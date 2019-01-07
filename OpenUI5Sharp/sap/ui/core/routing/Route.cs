@@ -371,10 +371,11 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.core.routing.Route.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
-						/// Return the pattern of the route. If there are multiple patterns, the first pattern is returned
+						/// Returns the pattern of the route. If there are multiple patterns, the first pattern is returned
 						/// </summary>
 						/// <returns>the routes pattern</returns>
 						public extern virtual string getPattern();
@@ -385,6 +386,13 @@ namespace UI5
 						/// <param name="oParameters">Parameters for the route</param>
 						/// <returns>the unencoded pattern with interpolated arguments</returns>
 						public extern virtual string getURL(object oParameters);
+
+						/// <summary>
+						/// Returns whether the given hash can be matched by the Route
+						/// </summary>
+						/// <param name="hash">which will be tested by the Route</param>
+						/// <returns>whether the hash can be matched</returns>
+						public extern virtual bool match(string hash);
 
 						#endregion
 

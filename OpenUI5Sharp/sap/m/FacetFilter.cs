@@ -578,13 +578,20 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.FacetFilter.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Opens the FacetFilter dialog.
 				/// </summary>
 				/// <returns>this pointer for chaining</returns>
 				public extern virtual sap.m.FacetFilter openFilterDialog();
+
+				/// <summary>
+				/// This method refreshes the internal model for thr FacetList. It should be called everytime when the model of FacetFilter is changed and update to the FacetList is needed
+				/// </summary>
+				/// <returns></returns>
+				private extern sap.m.FacetFilter refreshFacetList();
 
 				#endregion
 

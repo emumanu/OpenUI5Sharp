@@ -1451,49 +1451,41 @@
             <param name = "callbackfn">A function that accepts up to four arguments. The reduceRight method calls the callbackfn function one time for each element in the array.</param>
             <param name = "initialValue">If initialValue is specified, it is used as the initial value to start the accumulation. The first call to the callbackfn function provides this value as an argument instead of an array value.</param>
         </member>
-        <member name="M:Retyped.es5.PromiseLike`1.then">
+        <member name="M:Retyped.es5.PromiseLike`1.then``2">
             <summary>
             Attaches callbacks for the resolution and/or rejection of the Promise.
             </summary>
             <returns>A Promise for the completion of which ever callback is executed.</returns>
         </member>
-        <member name="M:Retyped.es5.PromiseLike`1.then(System.Action{`0})">
-            <summary>
-            Attaches callbacks for the resolution and/or rejection of the Promise.
-            </summary>
-            <param name = "onfulfilled">The callback to execute when the Promise is resolved.</param>
-            <returns>A Promise for the completion of which ever callback is executed.</returns>
-        </member>
-        <member name="M:Retyped.es5.PromiseLike`1.then``1(System.Func{`0,``0})">
+        <member name="M:Retyped.es5.PromiseLike`1.then``2(Bridge.Union{Retyped.es5.PromiseLike{`0}.thenFn{``0,``1},Retyped.Primitive.Undefined,Retyped.Primitive.Null})">
             <summary>
             Attaches callbacks for the resolution and/or rejection of the Promise.
             </summary>
             <param name = "onfulfilled">The callback to execute when the Promise is resolved.</param>
             <returns>A Promise for the completion of which ever callback is executed.</returns>
         </member>
-        <member name="M:Retyped.es5.PromiseLike`1.then``1(System.Func{`0,Retyped.es5.Promise{``0}})">
+        <member name="M:Retyped.es5.PromiseLike`1.then``2(Retyped.es5.PromiseLike{`0}.thenFn{``0,``1})">
             <summary>
             Attaches callbacks for the resolution and/or rejection of the Promise.
             </summary>
             <param name = "onfulfilled">The callback to execute when the Promise is resolved.</param>
             <returns>A Promise for the completion of which ever callback is executed.</returns>
         </member>
-        <member name="M:Retyped.es5.PromiseLike`1.then``1(System.Func{`0,Retyped.es5.PromiseLike{``0}})">
+        <member name="M:Retyped.es5.PromiseLike`1.then``2(Retyped.Primitive.Undefined)">
             <summary>
             Attaches callbacks for the resolution and/or rejection of the Promise.
             </summary>
             <param name = "onfulfilled">The callback to execute when the Promise is resolved.</param>
             <returns>A Promise for the completion of which ever callback is executed.</returns>
         </member>
-        <member name="M:Retyped.es5.PromiseLike`1.then``2(System.Func{`0,``0},System.Func{System.Object,``1})">
+        <member name="M:Retyped.es5.PromiseLike`1.then``2(Retyped.Primitive.Null)">
             <summary>
             Attaches callbacks for the resolution and/or rejection of the Promise.
             </summary>
             <param name = "onfulfilled">The callback to execute when the Promise is resolved.</param>
-            <param name = "onrejected">The callback to execute when the Promise is rejected.</param>
             <returns>A Promise for the completion of which ever callback is executed.</returns>
         </member>
-        <member name="M:Retyped.es5.PromiseLike`1.then``2(System.Func{`0,Retyped.es5.Promise{``0}},System.Func{System.Object,Retyped.es5.Promise{``1}})">
+        <member name="M:Retyped.es5.PromiseLike`1.then``2(Bridge.Union{Retyped.es5.PromiseLike{`0}.thenFn{``0,``1},Retyped.Primitive.Undefined,Retyped.Primitive.Null},Bridge.Union{Retyped.es5.PromiseLike{`0}.thenFn2{``0,``1},Retyped.Primitive.Undefined,Retyped.Primitive.Null})">
             <summary>
             Attaches callbacks for the resolution and/or rejection of the Promise.
             </summary>
@@ -1501,7 +1493,7 @@
             <param name = "onrejected">The callback to execute when the Promise is rejected.</param>
             <returns>A Promise for the completion of which ever callback is executed.</returns>
         </member>
-        <member name="M:Retyped.es5.PromiseLike`1.then``2(System.Func{`0,Retyped.es5.PromiseLike{``0}},System.Func{System.Object,Retyped.es5.PromiseLike{``1}})">
+        <member name="M:Retyped.es5.PromiseLike`1.then``2(Retyped.es5.PromiseLike{`0}.thenFn{``0,``1},Retyped.es5.PromiseLike{`0}.thenFn2{``0,``1})">
             <summary>
             Attaches callbacks for the resolution and/or rejection of the Promise.
             </summary>
@@ -1509,59 +1501,110 @@
             <param name = "onrejected">The callback to execute when the Promise is rejected.</param>
             <returns>A Promise for the completion of which ever callback is executed.</returns>
         </member>
-        <member name="M:Retyped.es5.PromiseLike`1.ToTask">
+        <member name="M:Retyped.es5.PromiseLike`1.then``2(Retyped.es5.PromiseLike{`0}.thenFn{``0,``1},Retyped.Primitive.Undefined)">
             <summary>
-            Converts the Promise to .NET Task object.
+            Attaches callbacks for the resolution and/or rejection of the Promise.
             </summary>
+            <param name = "onfulfilled">The callback to execute when the Promise is resolved.</param>
+            <param name = "onrejected">The callback to execute when the Promise is rejected.</param>
+            <returns>A Promise for the completion of which ever callback is executed.</returns>
+        </member>
+        <member name="M:Retyped.es5.PromiseLike`1.then``2(Retyped.es5.PromiseLike{`0}.thenFn{``0,``1},Retyped.Primitive.Null)">
+            <summary>
+            Attaches callbacks for the resolution and/or rejection of the Promise.
+            </summary>
+            <param name = "onfulfilled">The callback to execute when the Promise is resolved.</param>
+            <param name = "onrejected">The callback to execute when the Promise is rejected.</param>
+            <returns>A Promise for the completion of which ever callback is executed.</returns>
+        </member>
+        <member name="M:Retyped.es5.PromiseLike`1.then``2(Retyped.Primitive.Undefined,Retyped.es5.PromiseLike{`0}.thenFn2{``0,``1})">
+            <summary>
+            Attaches callbacks for the resolution and/or rejection of the Promise.
+            </summary>
+            <param name = "onfulfilled">The callback to execute when the Promise is resolved.</param>
+            <param name = "onrejected">The callback to execute when the Promise is rejected.</param>
+            <returns>A Promise for the completion of which ever callback is executed.</returns>
+        </member>
+        <member name="M:Retyped.es5.PromiseLike`1.then``2(Retyped.Primitive.Undefined,Retyped.Primitive.Undefined)">
+            <summary>
+            Attaches callbacks for the resolution and/or rejection of the Promise.
+            </summary>
+            <param name = "onfulfilled">The callback to execute when the Promise is resolved.</param>
+            <param name = "onrejected">The callback to execute when the Promise is rejected.</param>
+            <returns>A Promise for the completion of which ever callback is executed.</returns>
+        </member>
+        <member name="M:Retyped.es5.PromiseLike`1.then``2(Retyped.Primitive.Undefined,Retyped.Primitive.Null)">
+            <summary>
+            Attaches callbacks for the resolution and/or rejection of the Promise.
+            </summary>
+            <param name = "onfulfilled">The callback to execute when the Promise is resolved.</param>
+            <param name = "onrejected">The callback to execute when the Promise is rejected.</param>
+            <returns>A Promise for the completion of which ever callback is executed.</returns>
+        </member>
+        <member name="M:Retyped.es5.PromiseLike`1.then``2(Retyped.Primitive.Null,Retyped.es5.PromiseLike{`0}.thenFn2{``0,``1})">
+            <summary>
+            Attaches callbacks for the resolution and/or rejection of the Promise.
+            </summary>
+            <param name = "onfulfilled">The callback to execute when the Promise is resolved.</param>
+            <param name = "onrejected">The callback to execute when the Promise is rejected.</param>
+            <returns>A Promise for the completion of which ever callback is executed.</returns>
+        </member>
+        <member name="M:Retyped.es5.PromiseLike`1.then``2(Retyped.Primitive.Null,Retyped.Primitive.Undefined)">
+            <summary>
+            Attaches callbacks for the resolution and/or rejection of the Promise.
+            </summary>
+            <param name = "onfulfilled">The callback to execute when the Promise is resolved.</param>
+            <param name = "onrejected">The callback to execute when the Promise is rejected.</param>
+            <returns>A Promise for the completion of which ever callback is executed.</returns>
+        </member>
+        <member name="M:Retyped.es5.PromiseLike`1.then``2(Retyped.Primitive.Null,Retyped.Primitive.Null)">
+            <summary>
+            Attaches callbacks for the resolution and/or rejection of the Promise.
+            </summary>
+            <param name = "onfulfilled">The callback to execute when the Promise is resolved.</param>
+            <param name = "onrejected">The callback to execute when the Promise is rejected.</param>
+            <returns>A Promise for the completion of which ever callback is executed.</returns>
         </member>
         <member name="T:Retyped.es5.Promise`1">
             <summary>
             Represents the completion of an asynchronous operation
             </summary>
         </member>
-        <member name="M:Retyped.es5.Promise`1.then">
+        <member name="M:Retyped.es5.Promise`1.then``2">
             <summary>
             Attaches callbacks for the resolution and/or rejection of the Promise.
             </summary>
             <returns>A Promise for the completion of which ever callback is executed.</returns>
         </member>
-        <member name="M:Retyped.es5.Promise`1.then(System.Action{`0})">
-            <summary>
-            Attaches callbacks for the resolution and/or rejection of the Promise.
-            </summary>
-            <param name = "onfulfilled">The callback to execute when the Promise is resolved.</param>
-            <returns>A Promise for the completion of which ever callback is executed.</returns>
-        </member>
-        <member name="M:Retyped.es5.Promise`1.then``1(System.Func{`0,``0})">
+        <member name="M:Retyped.es5.Promise`1.then``2(Bridge.Union{Retyped.es5.Promise{`0}.thenFn{``0,``1},Retyped.Primitive.Undefined,Retyped.Primitive.Null})">
             <summary>
             Attaches callbacks for the resolution and/or rejection of the Promise.
             </summary>
             <param name = "onfulfilled">The callback to execute when the Promise is resolved.</param>
             <returns>A Promise for the completion of which ever callback is executed.</returns>
         </member>
-        <member name="M:Retyped.es5.Promise`1.then``1(System.Func{`0,Retyped.es5.Promise{``0}})">
+        <member name="M:Retyped.es5.Promise`1.then``2(Retyped.es5.Promise{`0}.thenFn{``0,``1})">
             <summary>
             Attaches callbacks for the resolution and/or rejection of the Promise.
             </summary>
             <param name = "onfulfilled">The callback to execute when the Promise is resolved.</param>
             <returns>A Promise for the completion of which ever callback is executed.</returns>
         </member>
-        <member name="M:Retyped.es5.Promise`1.then``1(System.Func{`0,Retyped.es5.PromiseLike{``0}})">
+        <member name="M:Retyped.es5.Promise`1.then``2(Retyped.Primitive.Undefined)">
             <summary>
             Attaches callbacks for the resolution and/or rejection of the Promise.
             </summary>
             <param name = "onfulfilled">The callback to execute when the Promise is resolved.</param>
             <returns>A Promise for the completion of which ever callback is executed.</returns>
         </member>
-        <member name="M:Retyped.es5.Promise`1.then``2(System.Func{`0,``0},System.Func{System.Object,``1})">
+        <member name="M:Retyped.es5.Promise`1.then``2(Retyped.Primitive.Null)">
             <summary>
             Attaches callbacks for the resolution and/or rejection of the Promise.
             </summary>
             <param name = "onfulfilled">The callback to execute when the Promise is resolved.</param>
-            <param name = "onrejected">The callback to execute when the Promise is rejected.</param>
             <returns>A Promise for the completion of which ever callback is executed.</returns>
         </member>
-        <member name="M:Retyped.es5.Promise`1.then``2(System.Func{`0,Retyped.es5.Promise{``0}},System.Func{System.Object,Retyped.es5.Promise{``1}})">
+        <member name="M:Retyped.es5.Promise`1.then``2(Bridge.Union{Retyped.es5.Promise{`0}.thenFn{``0,``1},Retyped.Primitive.Undefined,Retyped.Primitive.Null},Bridge.Union{Retyped.es5.Promise{`0}.thenFn2{``0,``1},Retyped.Primitive.Undefined,Retyped.Primitive.Null})">
             <summary>
             Attaches callbacks for the resolution and/or rejection of the Promise.
             </summary>
@@ -1569,7 +1612,7 @@
             <param name = "onrejected">The callback to execute when the Promise is rejected.</param>
             <returns>A Promise for the completion of which ever callback is executed.</returns>
         </member>
-        <member name="M:Retyped.es5.Promise`1.then``2(System.Func{`0,Retyped.es5.PromiseLike{``0}},System.Func{System.Object,Retyped.es5.PromiseLike{``1}})">
+        <member name="M:Retyped.es5.Promise`1.then``2(Retyped.es5.Promise{`0}.thenFn{``0,``1},Retyped.es5.Promise{`0}.thenFn2{``0,``1})">
             <summary>
             Attaches callbacks for the resolution and/or rejection of the Promise.
             </summary>
@@ -1577,65 +1620,103 @@
             <param name = "onrejected">The callback to execute when the Promise is rejected.</param>
             <returns>A Promise for the completion of which ever callback is executed.</returns>
         </member>
-        <member name="M:Retyped.es5.Promise`1.catch">
+        <member name="M:Retyped.es5.Promise`1.then``2(Retyped.es5.Promise{`0}.thenFn{``0,``1},Retyped.Primitive.Undefined)">
+            <summary>
+            Attaches callbacks for the resolution and/or rejection of the Promise.
+            </summary>
+            <param name = "onfulfilled">The callback to execute when the Promise is resolved.</param>
+            <param name = "onrejected">The callback to execute when the Promise is rejected.</param>
+            <returns>A Promise for the completion of which ever callback is executed.</returns>
+        </member>
+        <member name="M:Retyped.es5.Promise`1.then``2(Retyped.es5.Promise{`0}.thenFn{``0,``1},Retyped.Primitive.Null)">
+            <summary>
+            Attaches callbacks for the resolution and/or rejection of the Promise.
+            </summary>
+            <param name = "onfulfilled">The callback to execute when the Promise is resolved.</param>
+            <param name = "onrejected">The callback to execute when the Promise is rejected.</param>
+            <returns>A Promise for the completion of which ever callback is executed.</returns>
+        </member>
+        <member name="M:Retyped.es5.Promise`1.then``2(Retyped.Primitive.Undefined,Retyped.es5.Promise{`0}.thenFn2{``0,``1})">
+            <summary>
+            Attaches callbacks for the resolution and/or rejection of the Promise.
+            </summary>
+            <param name = "onfulfilled">The callback to execute when the Promise is resolved.</param>
+            <param name = "onrejected">The callback to execute when the Promise is rejected.</param>
+            <returns>A Promise for the completion of which ever callback is executed.</returns>
+        </member>
+        <member name="M:Retyped.es5.Promise`1.then``2(Retyped.Primitive.Undefined,Retyped.Primitive.Undefined)">
+            <summary>
+            Attaches callbacks for the resolution and/or rejection of the Promise.
+            </summary>
+            <param name = "onfulfilled">The callback to execute when the Promise is resolved.</param>
+            <param name = "onrejected">The callback to execute when the Promise is rejected.</param>
+            <returns>A Promise for the completion of which ever callback is executed.</returns>
+        </member>
+        <member name="M:Retyped.es5.Promise`1.then``2(Retyped.Primitive.Undefined,Retyped.Primitive.Null)">
+            <summary>
+            Attaches callbacks for the resolution and/or rejection of the Promise.
+            </summary>
+            <param name = "onfulfilled">The callback to execute when the Promise is resolved.</param>
+            <param name = "onrejected">The callback to execute when the Promise is rejected.</param>
+            <returns>A Promise for the completion of which ever callback is executed.</returns>
+        </member>
+        <member name="M:Retyped.es5.Promise`1.then``2(Retyped.Primitive.Null,Retyped.es5.Promise{`0}.thenFn2{``0,``1})">
+            <summary>
+            Attaches callbacks for the resolution and/or rejection of the Promise.
+            </summary>
+            <param name = "onfulfilled">The callback to execute when the Promise is resolved.</param>
+            <param name = "onrejected">The callback to execute when the Promise is rejected.</param>
+            <returns>A Promise for the completion of which ever callback is executed.</returns>
+        </member>
+        <member name="M:Retyped.es5.Promise`1.then``2(Retyped.Primitive.Null,Retyped.Primitive.Undefined)">
+            <summary>
+            Attaches callbacks for the resolution and/or rejection of the Promise.
+            </summary>
+            <param name = "onfulfilled">The callback to execute when the Promise is resolved.</param>
+            <param name = "onrejected">The callback to execute when the Promise is rejected.</param>
+            <returns>A Promise for the completion of which ever callback is executed.</returns>
+        </member>
+        <member name="M:Retyped.es5.Promise`1.then``2(Retyped.Primitive.Null,Retyped.Primitive.Null)">
+            <summary>
+            Attaches callbacks for the resolution and/or rejection of the Promise.
+            </summary>
+            <param name = "onfulfilled">The callback to execute when the Promise is resolved.</param>
+            <param name = "onrejected">The callback to execute when the Promise is rejected.</param>
+            <returns>A Promise for the completion of which ever callback is executed.</returns>
+        </member>
+        <member name="M:Retyped.es5.Promise`1.catch``1">
             <summary>
             Attaches a callback for only the rejection of the Promise.
             </summary>
             <returns>A Promise for the completion of the callback.</returns>
         </member>
-        <member name="M:Retyped.es5.Promise`1.catch(System.Action{System.Object})">
+        <member name="M:Retyped.es5.Promise`1.catch``1(Bridge.Union{Retyped.es5.Promise{`0}.catchFn{``0},Retyped.Primitive.Undefined,Retyped.Primitive.Null})">
             <summary>
             Attaches a callback for only the rejection of the Promise.
             </summary>
             <param name = "onrejected">The callback to execute when the Promise is rejected.</param>
             <returns>A Promise for the completion of the callback.</returns>
         </member>
-        <member name="M:Retyped.es5.Promise`1.catch(System.Func{System.Object,`0})">
+        <member name="M:Retyped.es5.Promise`1.catch``1(Retyped.es5.Promise{`0}.catchFn{``0})">
             <summary>
             Attaches a callback for only the rejection of the Promise.
             </summary>
             <param name = "onrejected">The callback to execute when the Promise is rejected.</param>
             <returns>A Promise for the completion of the callback.</returns>
         </member>
-        <member name="M:Retyped.es5.Promise`1.catch(System.Func{System.Object,Retyped.es5.Promise{`0}})">
+        <member name="M:Retyped.es5.Promise`1.catch``1(Retyped.Primitive.Undefined)">
             <summary>
             Attaches a callback for only the rejection of the Promise.
             </summary>
             <param name = "onrejected">The callback to execute when the Promise is rejected.</param>
             <returns>A Promise for the completion of the callback.</returns>
         </member>
-        <member name="M:Retyped.es5.Promise`1.catch(System.Func{System.Object,Retyped.es5.PromiseLike{`0}})">
+        <member name="M:Retyped.es5.Promise`1.catch``1(Retyped.Primitive.Null)">
             <summary>
             Attaches a callback for only the rejection of the Promise.
             </summary>
             <param name = "onrejected">The callback to execute when the Promise is rejected.</param>
             <returns>A Promise for the completion of the callback.</returns>
-        </member>
-        <member name="M:Retyped.es5.Promise`1.catch``1(System.Func{System.Object,``0})">
-            <summary>
-            Attaches a callback for only the rejection of the Promise.
-            </summary>
-            <param name = "onrejected">The callback to execute when the Promise is rejected.</param>
-            <returns>A Promise for the completion of the callback.</returns>
-        </member>
-        <member name="M:Retyped.es5.Promise`1.catch``1(System.Func{System.Object,Retyped.es5.Promise{``0}})">
-            <summary>
-            Attaches a callback for only the rejection of the Promise.
-            </summary>
-            <param name = "onrejected">The callback to execute when the Promise is rejected.</param>
-            <returns>A Promise for the completion of the callback.</returns>
-        </member>
-        <member name="M:Retyped.es5.Promise`1.catch``1(System.Func{System.Object,Retyped.es5.PromiseLike{``0}})">
-            <summary>
-            Attaches a callback for only the rejection of the Promise.
-            </summary>
-            <param name = "onrejected">The callback to execute when the Promise is rejected.</param>
-            <returns>A Promise for the completion of the callback.</returns>
-        </member>
-        <member name="M:Retyped.es5.Promise`1.ToTask">
-            <summary>
-            Converts the Promise to .NET Task object.
-            </summary>
         </member>
         <member name="T:Retyped.es5.ThisType`1">
             <summary>
@@ -1647,12 +1728,12 @@
             Read-only. The length of the ArrayBuffer (in bytes).
             </summary>
         </member>
-        <member name="M:Retyped.es5.ArrayBuffer.slice(System.Int32)">
+        <member name="M:Retyped.es5.ArrayBuffer.slice(System.Double)">
             <summary>
             Returns a section of an ArrayBuffer.
             </summary>
         </member>
-        <member name="M:Retyped.es5.ArrayBuffer.slice(System.Int32,System.Int32)">
+        <member name="M:Retyped.es5.ArrayBuffer.slice(System.Double,System.Double)">
             <summary>
             Returns a section of an ArrayBuffer.
             </summary>
@@ -1677,112 +1758,112 @@
             The offset in bytes of the array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.DataView.getFloat32(System.UInt32)">
+        <member name="M:Retyped.es5.DataView.getFloat32(System.Double)">
             <summary>
             Gets the Float32 value at the specified byte offset from the start of the view. There is
             no alignment constraint; multi-byte values may be fetched from any offset.
             </summary>
             <param name = "byteOffset">The place in the buffer at which the value should be retrieved.</param>
         </member>
-        <member name="M:Retyped.es5.DataView.getFloat32(System.UInt32,System.Boolean)">
+        <member name="M:Retyped.es5.DataView.getFloat32(System.Double,System.Boolean)">
             <summary>
             Gets the Float32 value at the specified byte offset from the start of the view. There is
             no alignment constraint; multi-byte values may be fetched from any offset.
             </summary>
             <param name = "byteOffset">The place in the buffer at which the value should be retrieved.</param>
         </member>
-        <member name="M:Retyped.es5.DataView.getFloat64(System.UInt32)">
+        <member name="M:Retyped.es5.DataView.getFloat64(System.Double)">
             <summary>
             Gets the Float64 value at the specified byte offset from the start of the view. There is
             no alignment constraint; multi-byte values may be fetched from any offset.
             </summary>
             <param name = "byteOffset">The place in the buffer at which the value should be retrieved.</param>
         </member>
-        <member name="M:Retyped.es5.DataView.getFloat64(System.UInt32,System.Boolean)">
+        <member name="M:Retyped.es5.DataView.getFloat64(System.Double,System.Boolean)">
             <summary>
             Gets the Float64 value at the specified byte offset from the start of the view. There is
             no alignment constraint; multi-byte values may be fetched from any offset.
             </summary>
             <param name = "byteOffset">The place in the buffer at which the value should be retrieved.</param>
         </member>
-        <member name="M:Retyped.es5.DataView.getInt8(System.UInt32)">
+        <member name="M:Retyped.es5.DataView.getInt8(System.Double)">
             <summary>
             Gets the Int8 value at the specified byte offset from the start of the view. There is
             no alignment constraint; multi-byte values may be fetched from any offset.
             </summary>
             <param name = "byteOffset">The place in the buffer at which the value should be retrieved.</param>
         </member>
-        <member name="M:Retyped.es5.DataView.getInt16(System.UInt32)">
+        <member name="M:Retyped.es5.DataView.getInt16(System.Double)">
             <summary>
             Gets the Int16 value at the specified byte offset from the start of the view. There is
             no alignment constraint; multi-byte values may be fetched from any offset.
             </summary>
             <param name = "byteOffset">The place in the buffer at which the value should be retrieved.</param>
         </member>
-        <member name="M:Retyped.es5.DataView.getInt16(System.UInt32,System.Boolean)">
+        <member name="M:Retyped.es5.DataView.getInt16(System.Double,System.Boolean)">
             <summary>
             Gets the Int16 value at the specified byte offset from the start of the view. There is
             no alignment constraint; multi-byte values may be fetched from any offset.
             </summary>
             <param name = "byteOffset">The place in the buffer at which the value should be retrieved.</param>
         </member>
-        <member name="M:Retyped.es5.DataView.getInt32(System.UInt32)">
+        <member name="M:Retyped.es5.DataView.getInt32(System.Double)">
             <summary>
             Gets the Int32 value at the specified byte offset from the start of the view. There is
             no alignment constraint; multi-byte values may be fetched from any offset.
             </summary>
             <param name = "byteOffset">The place in the buffer at which the value should be retrieved.</param>
         </member>
-        <member name="M:Retyped.es5.DataView.getInt32(System.UInt32,System.Boolean)">
+        <member name="M:Retyped.es5.DataView.getInt32(System.Double,System.Boolean)">
             <summary>
             Gets the Int32 value at the specified byte offset from the start of the view. There is
             no alignment constraint; multi-byte values may be fetched from any offset.
             </summary>
             <param name = "byteOffset">The place in the buffer at which the value should be retrieved.</param>
         </member>
-        <member name="M:Retyped.es5.DataView.getUint8(System.UInt32)">
+        <member name="M:Retyped.es5.DataView.getUint8(System.Double)">
             <summary>
             Gets the Uint8 value at the specified byte offset from the start of the view. There is
             no alignment constraint; multi-byte values may be fetched from any offset.
             </summary>
             <param name = "byteOffset">The place in the buffer at which the value should be retrieved.</param>
         </member>
-        <member name="M:Retyped.es5.DataView.getUint16(System.UInt32)">
+        <member name="M:Retyped.es5.DataView.getUint16(System.Double)">
             <summary>
             Gets the Uint16 value at the specified byte offset from the start of the view. There is
             no alignment constraint; multi-byte values may be fetched from any offset.
             </summary>
             <param name = "byteOffset">The place in the buffer at which the value should be retrieved.</param>
         </member>
-        <member name="M:Retyped.es5.DataView.getUint16(System.UInt32,System.Boolean)">
+        <member name="M:Retyped.es5.DataView.getUint16(System.Double,System.Boolean)">
             <summary>
             Gets the Uint16 value at the specified byte offset from the start of the view. There is
             no alignment constraint; multi-byte values may be fetched from any offset.
             </summary>
             <param name = "byteOffset">The place in the buffer at which the value should be retrieved.</param>
         </member>
-        <member name="M:Retyped.es5.DataView.getUint32(System.UInt32)">
+        <member name="M:Retyped.es5.DataView.getUint32(System.Double)">
             <summary>
             Gets the Uint32 value at the specified byte offset from the start of the view. There is
             no alignment constraint; multi-byte values may be fetched from any offset.
             </summary>
             <param name = "byteOffset">The place in the buffer at which the value should be retrieved.</param>
         </member>
-        <member name="M:Retyped.es5.DataView.getUint32(System.UInt32,System.Boolean)">
+        <member name="M:Retyped.es5.DataView.getUint32(System.Double,System.Boolean)">
             <summary>
             Gets the Uint32 value at the specified byte offset from the start of the view. There is
             no alignment constraint; multi-byte values may be fetched from any offset.
             </summary>
             <param name = "byteOffset">The place in the buffer at which the value should be retrieved.</param>
         </member>
-        <member name="M:Retyped.es5.DataView.setFloat32(System.UInt32,System.Single)">
+        <member name="M:Retyped.es5.DataView.setFloat32(System.Double,System.Double)">
             <summary>
             Stores an Float32 value at the specified byte offset from the start of the view.
             </summary>
             <param name = "byteOffset">The place in the buffer at which the value should be set.</param>
             <param name = "value">The value to set.</param>
         </member>
-        <member name="M:Retyped.es5.DataView.setFloat32(System.UInt32,System.Single,System.Boolean)">
+        <member name="M:Retyped.es5.DataView.setFloat32(System.Double,System.Double,System.Boolean)">
             <summary>
             Stores an Float32 value at the specified byte offset from the start of the view.
             </summary>
@@ -1793,14 +1874,14 @@
             otherwise a little-endian value should be written.
             </param>
         </member>
-        <member name="M:Retyped.es5.DataView.setFloat64(System.UInt32,System.Double)">
+        <member name="M:Retyped.es5.DataView.setFloat64(System.Double,System.Double)">
             <summary>
             Stores an Float64 value at the specified byte offset from the start of the view.
             </summary>
             <param name = "byteOffset">The place in the buffer at which the value should be set.</param>
             <param name = "value">The value to set.</param>
         </member>
-        <member name="M:Retyped.es5.DataView.setFloat64(System.UInt32,System.Double,System.Boolean)">
+        <member name="M:Retyped.es5.DataView.setFloat64(System.Double,System.Double,System.Boolean)">
             <summary>
             Stores an Float64 value at the specified byte offset from the start of the view.
             </summary>
@@ -1811,21 +1892,21 @@
             otherwise a little-endian value should be written.
             </param>
         </member>
-        <member name="M:Retyped.es5.DataView.setInt8(System.UInt32,System.SByte)">
+        <member name="M:Retyped.es5.DataView.setInt8(System.Double,System.Double)">
             <summary>
             Stores an Int8 value at the specified byte offset from the start of the view.
             </summary>
             <param name = "byteOffset">The place in the buffer at which the value should be set.</param>
             <param name = "value">The value to set.</param>
         </member>
-        <member name="M:Retyped.es5.DataView.setInt16(System.UInt32,System.Int16)">
+        <member name="M:Retyped.es5.DataView.setInt16(System.Double,System.Double)">
             <summary>
             Stores an Int16 value at the specified byte offset from the start of the view.
             </summary>
             <param name = "byteOffset">The place in the buffer at which the value should be set.</param>
             <param name = "value">The value to set.</param>
         </member>
-        <member name="M:Retyped.es5.DataView.setInt16(System.UInt32,System.Int16,System.Boolean)">
+        <member name="M:Retyped.es5.DataView.setInt16(System.Double,System.Double,System.Boolean)">
             <summary>
             Stores an Int16 value at the specified byte offset from the start of the view.
             </summary>
@@ -1836,14 +1917,14 @@
             otherwise a little-endian value should be written.
             </param>
         </member>
-        <member name="M:Retyped.es5.DataView.setInt32(System.UInt32,System.Int32)">
+        <member name="M:Retyped.es5.DataView.setInt32(System.Double,System.Double)">
             <summary>
             Stores an Int32 value at the specified byte offset from the start of the view.
             </summary>
             <param name = "byteOffset">The place in the buffer at which the value should be set.</param>
             <param name = "value">The value to set.</param>
         </member>
-        <member name="M:Retyped.es5.DataView.setInt32(System.UInt32,System.Int32,System.Boolean)">
+        <member name="M:Retyped.es5.DataView.setInt32(System.Double,System.Double,System.Boolean)">
             <summary>
             Stores an Int32 value at the specified byte offset from the start of the view.
             </summary>
@@ -1854,21 +1935,21 @@
             otherwise a little-endian value should be written.
             </param>
         </member>
-        <member name="M:Retyped.es5.DataView.setUint8(System.UInt32,System.Byte)">
+        <member name="M:Retyped.es5.DataView.setUint8(System.Double,System.Double)">
             <summary>
             Stores an Uint8 value at the specified byte offset from the start of the view.
             </summary>
             <param name = "byteOffset">The place in the buffer at which the value should be set.</param>
             <param name = "value">The value to set.</param>
         </member>
-        <member name="M:Retyped.es5.DataView.setUint16(System.UInt32,System.UInt16)">
+        <member name="M:Retyped.es5.DataView.setUint16(System.Double,System.Double)">
             <summary>
             Stores an Uint16 value at the specified byte offset from the start of the view.
             </summary>
             <param name = "byteOffset">The place in the buffer at which the value should be set.</param>
             <param name = "value">The value to set.</param>
         </member>
-        <member name="M:Retyped.es5.DataView.setUint16(System.UInt32,System.UInt16,System.Boolean)">
+        <member name="M:Retyped.es5.DataView.setUint16(System.Double,System.Double,System.Boolean)">
             <summary>
             Stores an Uint16 value at the specified byte offset from the start of the view.
             </summary>
@@ -1879,14 +1960,14 @@
             otherwise a little-endian value should be written.
             </param>
         </member>
-        <member name="M:Retyped.es5.DataView.setUint32(System.UInt32,System.UInt32)">
+        <member name="M:Retyped.es5.DataView.setUint32(System.Double,System.Double)">
             <summary>
             Stores an Uint32 value at the specified byte offset from the start of the view.
             </summary>
             <param name = "byteOffset">The place in the buffer at which the value should be set.</param>
             <param name = "value">The value to set.</param>
         </member>
-        <member name="M:Retyped.es5.DataView.setUint32(System.UInt32,System.UInt32,System.Boolean)">
+        <member name="M:Retyped.es5.DataView.setUint32(System.Double,System.Double,System.Boolean)">
             <summary>
             Stores an Uint32 value at the specified byte offset from the start of the view.
             </summary>
@@ -1917,7 +1998,7 @@
             The offset in bytes of the array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Int8Array.copyWithin(System.Int64,System.Int64)">
+        <member name="M:Retyped.es5.Int8Array.copyWithin(System.Double,System.Double)">
             <summary>
             Returns the this object after copying a section of the array identified by start and end
             to the same array starting at position target
@@ -1931,7 +2012,7 @@
             is treated as length+end.
             </param>
         </member>
-        <member name="M:Retyped.es5.Int8Array.copyWithin(System.Int64,System.Int64,System.Int64)">
+        <member name="M:Retyped.es5.Int8Array.copyWithin(System.Double,System.Double,System.Double)">
             <summary>
             Returns the this object after copying a section of the array identified by start and end
             to the same array starting at position target
@@ -1970,13 +2051,13 @@
             If thisArg is omitted, undefined is used as the this value.
             </param>
         </member>
-        <member name="M:Retyped.es5.Int8Array.fill(System.SByte)">
+        <member name="M:Retyped.es5.Int8Array.fill(System.Double)">
             <summary>
             Returns the this object after filling the section identified by start and end with value
             </summary>
             <param name = "value">value to fill array section with</param>
         </member>
-        <member name="M:Retyped.es5.Int8Array.fill(System.SByte,System.UInt32)">
+        <member name="M:Retyped.es5.Int8Array.fill(System.Double,System.Double)">
             <summary>
             Returns the this object after filling the section identified by start and end with value
             </summary>
@@ -1986,7 +2067,7 @@
             length+start where length is the length of the array.
             </param>
         </member>
-        <member name="M:Retyped.es5.Int8Array.fill(System.SByte,System.UInt32,System.UInt32)">
+        <member name="M:Retyped.es5.Int8Array.fill(System.Double,System.Double,System.Double)">
             <summary>
             Returns the this object after filling the section identified by start and end with value
             </summary>
@@ -2096,13 +2177,13 @@
             If thisArg is omitted, undefined is used as the this value.
             </param>
         </member>
-        <member name="M:Retyped.es5.Int8Array.indexOf(System.SByte)">
+        <member name="M:Retyped.es5.Int8Array.indexOf(System.Double)">
             <summary>
             Returns the index of the first occurrence of a value in an array.
             </summary>
             <param name = "searchElement">The value to locate in the array.</param>
         </member>
-        <member name="M:Retyped.es5.Int8Array.indexOf(System.SByte,System.UInt32)">
+        <member name="M:Retyped.es5.Int8Array.indexOf(System.Double,System.Double)">
             <summary>
             Returns the index of the first occurrence of a value in an array.
             </summary>
@@ -2126,13 +2207,13 @@
             resulting String. If omitted, the array elements are separated with a comma.
             </param>
         </member>
-        <member name="M:Retyped.es5.Int8Array.lastIndexOf(System.SByte)">
+        <member name="M:Retyped.es5.Int8Array.lastIndexOf(System.Double)">
             <summary>
             Returns the index of the last occurrence of a value in an array.
             </summary>
             <param name = "searchElement">The value to locate in the array.</param>
         </member>
-        <member name="M:Retyped.es5.Int8Array.lastIndexOf(System.SByte,System.UInt32)">
+        <member name="M:Retyped.es5.Int8Array.lastIndexOf(System.Double,System.Double)">
             <summary>
             Returns the index of the last occurrence of a value in an array.
             </summary>
@@ -2183,7 +2264,7 @@
             callbackfn function one time for each element in the array.
             </param>
         </member>
-        <member name="M:Retyped.es5.Int8Array.reduce(Retyped.es5.Int8Array.reduceFn,System.Int64)">
+        <member name="M:Retyped.es5.Int8Array.reduce(Retyped.es5.Int8Array.reduceFn,System.Double)">
             <summary>
             Calls the specified callback function for all the elements in an array. The return value of
             the callback function is the accumulated result, and is provided as an argument in the next
@@ -2227,7 +2308,7 @@
             the callbackfn function one time for each element in the array.
             </param>
         </member>
-        <member name="M:Retyped.es5.Int8Array.reduceRight(Retyped.es5.Int8Array.reduceRightFn,System.Int64)">
+        <member name="M:Retyped.es5.Int8Array.reduceRight(Retyped.es5.Int8Array.reduceRightFn,System.Double)">
             <summary>
             Calls the specified callback function for all the elements in an array, in descending order.
             The return value of the callback function is the accumulated result, and is provided as an
@@ -2264,13 +2345,13 @@
             Reverses the elements in an Array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Int8Array.set(Retyped.es5.ArrayLike{System.SByte})">
+        <member name="M:Retyped.es5.Int8Array.set(Retyped.es5.ArrayLike{System.Double})">
             <summary>
             Sets a value or an array of values.
             </summary>
             <param name = "array">A typed or untyped array of values to set.</param>
         </member>
-        <member name="M:Retyped.es5.Int8Array.set(Retyped.es5.ArrayLike{System.SByte},System.UInt32)">
+        <member name="M:Retyped.es5.Int8Array.set(Retyped.es5.ArrayLike{System.Double},System.Double)">
             <summary>
             Sets a value or an array of values.
             </summary>
@@ -2282,13 +2363,13 @@
             Returns a section of an array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Int8Array.slice(System.UInt32)">
+        <member name="M:Retyped.es5.Int8Array.slice(System.Double)">
             <summary>
             Returns a section of an array.
             </summary>
             <param name = "start">The beginning of the specified portion of the array.</param>
         </member>
-        <member name="M:Retyped.es5.Int8Array.slice(System.UInt32,System.UInt32)">
+        <member name="M:Retyped.es5.Int8Array.slice(System.Double,System.Double)">
             <summary>
             Returns a section of an array.
             </summary>
@@ -2333,14 +2414,14 @@
             omitted, the elements are sorted in ascending, ASCII character order.
             </param>
         </member>
-        <member name="M:Retyped.es5.Int8Array.subarray(System.UInt32)">
+        <member name="M:Retyped.es5.Int8Array.subarray(System.Double)">
             <summary>
             Gets a new Int8Array view of the ArrayBuffer store for this array, referencing the elements
             at begin, inclusive, up to end, exclusive.
             </summary>
             <param name = "begin">The index of the beginning of the array.</param>
         </member>
-        <member name="M:Retyped.es5.Int8Array.subarray(System.UInt32,System.Int32)">
+        <member name="M:Retyped.es5.Int8Array.subarray(System.Double,System.Double)">
             <summary>
             Gets a new Int8Array view of the ArrayBuffer store for this array, referencing the elements
             at begin, inclusive, up to end, exclusive.
@@ -2363,26 +2444,26 @@
             The size in bytes of each element in the array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Int8ArrayConstructor.of(System.SByte[])">
+        <member name="M:Retyped.es5.Int8ArrayConstructor.of(System.Double[])">
             <summary>
             Returns a new array from a set of elements.
             </summary>
             <param name = "items">A set of elements to include in the new array object.</param>
         </member>
-        <member name="M:Retyped.es5.Int8ArrayConstructor.from(Retyped.es5.ArrayLike{System.SByte})">
+        <member name="M:Retyped.es5.Int8ArrayConstructor.from(Retyped.es5.ArrayLike{System.Double})">
             <summary>
             Creates an array from an array-like or iterable object.
             </summary>
             <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
         </member>
-        <member name="M:Retyped.es5.Int8ArrayConstructor.from(Retyped.es5.ArrayLike{System.SByte},Retyped.es5.Int8ArrayConstructor.fromFn)">
+        <member name="M:Retyped.es5.Int8ArrayConstructor.from(Retyped.es5.ArrayLike{System.Double},Retyped.es5.Int8ArrayConstructor.fromFn)">
             <summary>
             Creates an array from an array-like or iterable object.
             </summary>
             <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
             <param name = "mapfn">A mapping function to call on every element of the array.</param>
         </member>
-        <member name="M:Retyped.es5.Int8ArrayConstructor.from(Retyped.es5.ArrayLike{System.SByte},Retyped.es5.Int8ArrayConstructor.fromFn,System.Object)">
+        <member name="M:Retyped.es5.Int8ArrayConstructor.from(Retyped.es5.ArrayLike{System.Double},Retyped.es5.Int8ArrayConstructor.fromFn,System.Object)">
             <summary>
             Creates an array from an array-like or iterable object.
             </summary>
@@ -2410,7 +2491,7 @@
             The offset in bytes of the array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Uint8Array.copyWithin(System.Int64,System.Int64)">
+        <member name="M:Retyped.es5.Uint8Array.copyWithin(System.Double,System.Double)">
             <summary>
             Returns the this object after copying a section of the array identified by start and end
             to the same array starting at position target
@@ -2424,7 +2505,7 @@
             is treated as length+end.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint8Array.copyWithin(System.Int64,System.Int64,System.Int64)">
+        <member name="M:Retyped.es5.Uint8Array.copyWithin(System.Double,System.Double,System.Double)">
             <summary>
             Returns the this object after copying a section of the array identified by start and end
             to the same array starting at position target
@@ -2463,13 +2544,13 @@
             If thisArg is omitted, undefined is used as the this value.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint8Array.fill(System.Byte)">
+        <member name="M:Retyped.es5.Uint8Array.fill(System.Double)">
             <summary>
             Returns the this object after filling the section identified by start and end with value
             </summary>
             <param name = "value">value to fill array section with</param>
         </member>
-        <member name="M:Retyped.es5.Uint8Array.fill(System.Byte,System.UInt32)">
+        <member name="M:Retyped.es5.Uint8Array.fill(System.Double,System.Double)">
             <summary>
             Returns the this object after filling the section identified by start and end with value
             </summary>
@@ -2479,7 +2560,7 @@
             length+start where length is the length of the array.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint8Array.fill(System.Byte,System.UInt32,System.UInt32)">
+        <member name="M:Retyped.es5.Uint8Array.fill(System.Double,System.Double,System.Double)">
             <summary>
             Returns the this object after filling the section identified by start and end with value
             </summary>
@@ -2589,13 +2670,13 @@
             If thisArg is omitted, undefined is used as the this value.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint8Array.indexOf(System.Byte)">
+        <member name="M:Retyped.es5.Uint8Array.indexOf(System.Double)">
             <summary>
             Returns the index of the first occurrence of a value in an array.
             </summary>
             <param name = "searchElement">The value to locate in the array.</param>
         </member>
-        <member name="M:Retyped.es5.Uint8Array.indexOf(System.Byte,System.UInt32)">
+        <member name="M:Retyped.es5.Uint8Array.indexOf(System.Double,System.Double)">
             <summary>
             Returns the index of the first occurrence of a value in an array.
             </summary>
@@ -2619,13 +2700,13 @@
             resulting String. If omitted, the array elements are separated with a comma.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint8Array.lastIndexOf(System.Byte)">
+        <member name="M:Retyped.es5.Uint8Array.lastIndexOf(System.Double)">
             <summary>
             Returns the index of the last occurrence of a value in an array.
             </summary>
             <param name = "searchElement">The value to locate in the array.</param>
         </member>
-        <member name="M:Retyped.es5.Uint8Array.lastIndexOf(System.Byte,System.UInt32)">
+        <member name="M:Retyped.es5.Uint8Array.lastIndexOf(System.Double,System.Double)">
             <summary>
             Returns the index of the last occurrence of a value in an array.
             </summary>
@@ -2676,7 +2757,7 @@
             callbackfn function one time for each element in the array.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint8Array.reduce(Retyped.es5.Uint8Array.reduceFn,System.Int64)">
+        <member name="M:Retyped.es5.Uint8Array.reduce(Retyped.es5.Uint8Array.reduceFn,System.Double)">
             <summary>
             Calls the specified callback function for all the elements in an array. The return value of
             the callback function is the accumulated result, and is provided as an argument in the next
@@ -2720,7 +2801,7 @@
             the callbackfn function one time for each element in the array.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint8Array.reduceRight(Retyped.es5.Uint8Array.reduceRightFn,System.Int64)">
+        <member name="M:Retyped.es5.Uint8Array.reduceRight(Retyped.es5.Uint8Array.reduceRightFn,System.Double)">
             <summary>
             Calls the specified callback function for all the elements in an array, in descending order.
             The return value of the callback function is the accumulated result, and is provided as an
@@ -2757,13 +2838,13 @@
             Reverses the elements in an Array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Uint8Array.set(Retyped.es5.ArrayLike{System.Byte})">
+        <member name="M:Retyped.es5.Uint8Array.set(Retyped.es5.ArrayLike{System.Double})">
             <summary>
             Sets a value or an array of values.
             </summary>
             <param name = "array">A typed or untyped array of values to set.</param>
         </member>
-        <member name="M:Retyped.es5.Uint8Array.set(Retyped.es5.ArrayLike{System.Byte},System.UInt32)">
+        <member name="M:Retyped.es5.Uint8Array.set(Retyped.es5.ArrayLike{System.Double},System.Double)">
             <summary>
             Sets a value or an array of values.
             </summary>
@@ -2775,13 +2856,13 @@
             Returns a section of an array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Uint8Array.slice(System.UInt32)">
+        <member name="M:Retyped.es5.Uint8Array.slice(System.Double)">
             <summary>
             Returns a section of an array.
             </summary>
             <param name = "start">The beginning of the specified portion of the array.</param>
         </member>
-        <member name="M:Retyped.es5.Uint8Array.slice(System.UInt32,System.UInt32)">
+        <member name="M:Retyped.es5.Uint8Array.slice(System.Double,System.Double)">
             <summary>
             Returns a section of an array.
             </summary>
@@ -2826,14 +2907,14 @@
             omitted, the elements are sorted in ascending, ASCII character order.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint8Array.subarray(System.UInt32)">
+        <member name="M:Retyped.es5.Uint8Array.subarray(System.Double)">
             <summary>
             Gets a new Uint8Array view of the ArrayBuffer store for this array, referencing the elements
             at begin, inclusive, up to end, exclusive.
             </summary>
             <param name = "begin">The index of the beginning of the array.</param>
         </member>
-        <member name="M:Retyped.es5.Uint8Array.subarray(System.UInt32,System.Int32)">
+        <member name="M:Retyped.es5.Uint8Array.subarray(System.Double,System.Double)">
             <summary>
             Gets a new Uint8Array view of the ArrayBuffer store for this array, referencing the elements
             at begin, inclusive, up to end, exclusive.
@@ -2856,26 +2937,26 @@
             The size in bytes of each element in the array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Uint8ArrayConstructor.of(System.Byte[])">
+        <member name="M:Retyped.es5.Uint8ArrayConstructor.of(System.Double[])">
             <summary>
             Returns a new array from a set of elements.
             </summary>
             <param name = "items">A set of elements to include in the new array object.</param>
         </member>
-        <member name="M:Retyped.es5.Uint8ArrayConstructor.from(Retyped.es5.ArrayLike{System.Byte})">
+        <member name="M:Retyped.es5.Uint8ArrayConstructor.from(Retyped.es5.ArrayLike{System.Double})">
             <summary>
             Creates an array from an array-like or iterable object.
             </summary>
             <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
         </member>
-        <member name="M:Retyped.es5.Uint8ArrayConstructor.from(Retyped.es5.ArrayLike{System.Byte},Retyped.es5.Uint8ArrayConstructor.fromFn)">
+        <member name="M:Retyped.es5.Uint8ArrayConstructor.from(Retyped.es5.ArrayLike{System.Double},Retyped.es5.Uint8ArrayConstructor.fromFn)">
             <summary>
             Creates an array from an array-like or iterable object.
             </summary>
             <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
             <param name = "mapfn">A mapping function to call on every element of the array.</param>
         </member>
-        <member name="M:Retyped.es5.Uint8ArrayConstructor.from(Retyped.es5.ArrayLike{System.Byte},Retyped.es5.Uint8ArrayConstructor.fromFn,System.Object)">
+        <member name="M:Retyped.es5.Uint8ArrayConstructor.from(Retyped.es5.ArrayLike{System.Double},Retyped.es5.Uint8ArrayConstructor.fromFn,System.Object)">
             <summary>
             Creates an array from an array-like or iterable object.
             </summary>
@@ -2903,7 +2984,7 @@
             The offset in bytes of the array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Uint8ClampedArray.copyWithin(System.Int64,System.Int64)">
+        <member name="M:Retyped.es5.Uint8ClampedArray.copyWithin(System.Double,System.Double)">
             <summary>
             Returns the this object after copying a section of the array identified by start and end
             to the same array starting at position target
@@ -2917,7 +2998,7 @@
             is treated as length+end.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint8ClampedArray.copyWithin(System.Int64,System.Int64,System.Int64)">
+        <member name="M:Retyped.es5.Uint8ClampedArray.copyWithin(System.Double,System.Double,System.Double)">
             <summary>
             Returns the this object after copying a section of the array identified by start and end
             to the same array starting at position target
@@ -2956,13 +3037,13 @@
             If thisArg is omitted, undefined is used as the this value.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint8ClampedArray.fill(System.Byte)">
+        <member name="M:Retyped.es5.Uint8ClampedArray.fill(System.Double)">
             <summary>
             Returns the this object after filling the section identified by start and end with value
             </summary>
             <param name = "value">value to fill array section with</param>
         </member>
-        <member name="M:Retyped.es5.Uint8ClampedArray.fill(System.Byte,System.UInt32)">
+        <member name="M:Retyped.es5.Uint8ClampedArray.fill(System.Double,System.Double)">
             <summary>
             Returns the this object after filling the section identified by start and end with value
             </summary>
@@ -2972,7 +3053,7 @@
             length+start where length is the length of the array.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint8ClampedArray.fill(System.Byte,System.UInt32,System.UInt32)">
+        <member name="M:Retyped.es5.Uint8ClampedArray.fill(System.Double,System.Double,System.Double)">
             <summary>
             Returns the this object after filling the section identified by start and end with value
             </summary>
@@ -3082,13 +3163,13 @@
             If thisArg is omitted, undefined is used as the this value.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint8ClampedArray.indexOf(System.Byte)">
+        <member name="M:Retyped.es5.Uint8ClampedArray.indexOf(System.Double)">
             <summary>
             Returns the index of the first occurrence of a value in an array.
             </summary>
             <param name = "searchElement">The value to locate in the array.</param>
         </member>
-        <member name="M:Retyped.es5.Uint8ClampedArray.indexOf(System.Byte,System.UInt32)">
+        <member name="M:Retyped.es5.Uint8ClampedArray.indexOf(System.Double,System.Double)">
             <summary>
             Returns the index of the first occurrence of a value in an array.
             </summary>
@@ -3112,13 +3193,13 @@
             resulting String. If omitted, the array elements are separated with a comma.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint8ClampedArray.lastIndexOf(System.Byte)">
+        <member name="M:Retyped.es5.Uint8ClampedArray.lastIndexOf(System.Double)">
             <summary>
             Returns the index of the last occurrence of a value in an array.
             </summary>
             <param name = "searchElement">The value to locate in the array.</param>
         </member>
-        <member name="M:Retyped.es5.Uint8ClampedArray.lastIndexOf(System.Byte,System.UInt32)">
+        <member name="M:Retyped.es5.Uint8ClampedArray.lastIndexOf(System.Double,System.Double)">
             <summary>
             Returns the index of the last occurrence of a value in an array.
             </summary>
@@ -3169,7 +3250,7 @@
             callbackfn function one time for each element in the array.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint8ClampedArray.reduce(Retyped.es5.Uint8ClampedArray.reduceFn,System.Int64)">
+        <member name="M:Retyped.es5.Uint8ClampedArray.reduce(Retyped.es5.Uint8ClampedArray.reduceFn,System.Double)">
             <summary>
             Calls the specified callback function for all the elements in an array. The return value of
             the callback function is the accumulated result, and is provided as an argument in the next
@@ -3213,7 +3294,7 @@
             the callbackfn function one time for each element in the array.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint8ClampedArray.reduceRight(Retyped.es5.Uint8ClampedArray.reduceRightFn,System.Int64)">
+        <member name="M:Retyped.es5.Uint8ClampedArray.reduceRight(Retyped.es5.Uint8ClampedArray.reduceRightFn,System.Double)">
             <summary>
             Calls the specified callback function for all the elements in an array, in descending order.
             The return value of the callback function is the accumulated result, and is provided as an
@@ -3250,13 +3331,13 @@
             Reverses the elements in an Array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Uint8ClampedArray.set(Retyped.es5.ArrayLike{System.Byte})">
+        <member name="M:Retyped.es5.Uint8ClampedArray.set(Retyped.es5.ArrayLike{System.Double})">
             <summary>
             Sets a value or an array of values.
             </summary>
             <param name = "array">A typed or untyped array of values to set.</param>
         </member>
-        <member name="M:Retyped.es5.Uint8ClampedArray.set(Retyped.es5.ArrayLike{System.Byte},System.UInt32)">
+        <member name="M:Retyped.es5.Uint8ClampedArray.set(Retyped.es5.ArrayLike{System.Double},System.Double)">
             <summary>
             Sets a value or an array of values.
             </summary>
@@ -3268,13 +3349,13 @@
             Returns a section of an array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Uint8ClampedArray.slice(System.UInt32)">
+        <member name="M:Retyped.es5.Uint8ClampedArray.slice(System.Double)">
             <summary>
             Returns a section of an array.
             </summary>
             <param name = "start">The beginning of the specified portion of the array.</param>
         </member>
-        <member name="M:Retyped.es5.Uint8ClampedArray.slice(System.UInt32,System.UInt32)">
+        <member name="M:Retyped.es5.Uint8ClampedArray.slice(System.Double,System.Double)">
             <summary>
             Returns a section of an array.
             </summary>
@@ -3319,14 +3400,14 @@
             omitted, the elements are sorted in ascending, ASCII character order.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint8ClampedArray.subarray(System.UInt32)">
+        <member name="M:Retyped.es5.Uint8ClampedArray.subarray(System.Double)">
             <summary>
             Gets a new Uint8ClampedArray view of the ArrayBuffer store for this array, referencing the elements
             at begin, inclusive, up to end, exclusive.
             </summary>
             <param name = "begin">The index of the beginning of the array.</param>
         </member>
-        <member name="M:Retyped.es5.Uint8ClampedArray.subarray(System.UInt32,System.Int32)">
+        <member name="M:Retyped.es5.Uint8ClampedArray.subarray(System.Double,System.Double)">
             <summary>
             Gets a new Uint8ClampedArray view of the ArrayBuffer store for this array, referencing the elements
             at begin, inclusive, up to end, exclusive.
@@ -3349,26 +3430,26 @@
             The size in bytes of each element in the array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Uint8ClampedArrayConstructor.of(System.Byte[])">
+        <member name="M:Retyped.es5.Uint8ClampedArrayConstructor.of(System.Double[])">
             <summary>
             Returns a new array from a set of elements.
             </summary>
             <param name = "items">A set of elements to include in the new array object.</param>
         </member>
-        <member name="M:Retyped.es5.Uint8ClampedArrayConstructor.from(Retyped.es5.ArrayLike{System.Byte})">
+        <member name="M:Retyped.es5.Uint8ClampedArrayConstructor.from(Retyped.es5.ArrayLike{System.Double})">
             <summary>
             Creates an array from an array-like or iterable object.
             </summary>
             <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
         </member>
-        <member name="M:Retyped.es5.Uint8ClampedArrayConstructor.from(Retyped.es5.ArrayLike{System.Byte},Retyped.es5.Uint8ClampedArrayConstructor.fromFn)">
+        <member name="M:Retyped.es5.Uint8ClampedArrayConstructor.from(Retyped.es5.ArrayLike{System.Double},Retyped.es5.Uint8ClampedArrayConstructor.fromFn)">
             <summary>
             Creates an array from an array-like or iterable object.
             </summary>
             <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
             <param name = "mapfn">A mapping function to call on every element of the array.</param>
         </member>
-        <member name="M:Retyped.es5.Uint8ClampedArrayConstructor.from(Retyped.es5.ArrayLike{System.Byte},Retyped.es5.Uint8ClampedArrayConstructor.fromFn,System.Object)">
+        <member name="M:Retyped.es5.Uint8ClampedArrayConstructor.from(Retyped.es5.ArrayLike{System.Double},Retyped.es5.Uint8ClampedArrayConstructor.fromFn,System.Object)">
             <summary>
             Creates an array from an array-like or iterable object.
             </summary>
@@ -3396,7 +3477,7 @@
             The offset in bytes of the array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Int16Array.copyWithin(System.Int64,System.Int64)">
+        <member name="M:Retyped.es5.Int16Array.copyWithin(System.Double,System.Double)">
             <summary>
             Returns the this object after copying a section of the array identified by start and end
             to the same array starting at position target
@@ -3410,7 +3491,7 @@
             is treated as length+end.
             </param>
         </member>
-        <member name="M:Retyped.es5.Int16Array.copyWithin(System.Int64,System.Int64,System.Int64)">
+        <member name="M:Retyped.es5.Int16Array.copyWithin(System.Double,System.Double,System.Double)">
             <summary>
             Returns the this object after copying a section of the array identified by start and end
             to the same array starting at position target
@@ -3449,13 +3530,13 @@
             If thisArg is omitted, undefined is used as the this value.
             </param>
         </member>
-        <member name="M:Retyped.es5.Int16Array.fill(System.Int16)">
+        <member name="M:Retyped.es5.Int16Array.fill(System.Double)">
             <summary>
             Returns the this object after filling the section identified by start and end with value
             </summary>
             <param name = "value">value to fill array section with</param>
         </member>
-        <member name="M:Retyped.es5.Int16Array.fill(System.Int16,System.UInt32)">
+        <member name="M:Retyped.es5.Int16Array.fill(System.Double,System.Double)">
             <summary>
             Returns the this object after filling the section identified by start and end with value
             </summary>
@@ -3465,7 +3546,7 @@
             length+start where length is the length of the array.
             </param>
         </member>
-        <member name="M:Retyped.es5.Int16Array.fill(System.Int16,System.UInt32,System.UInt32)">
+        <member name="M:Retyped.es5.Int16Array.fill(System.Double,System.Double,System.Double)">
             <summary>
             Returns the this object after filling the section identified by start and end with value
             </summary>
@@ -3575,13 +3656,13 @@
             If thisArg is omitted, undefined is used as the this value.
             </param>
         </member>
-        <member name="M:Retyped.es5.Int16Array.indexOf(System.Int16)">
+        <member name="M:Retyped.es5.Int16Array.indexOf(System.Double)">
             <summary>
             Returns the index of the first occurrence of a value in an array.
             </summary>
             <param name = "searchElement">The value to locate in the array.</param>
         </member>
-        <member name="M:Retyped.es5.Int16Array.indexOf(System.Int16,System.UInt32)">
+        <member name="M:Retyped.es5.Int16Array.indexOf(System.Double,System.Double)">
             <summary>
             Returns the index of the first occurrence of a value in an array.
             </summary>
@@ -3605,13 +3686,13 @@
             resulting String. If omitted, the array elements are separated with a comma.
             </param>
         </member>
-        <member name="M:Retyped.es5.Int16Array.lastIndexOf(System.Int16)">
+        <member name="M:Retyped.es5.Int16Array.lastIndexOf(System.Double)">
             <summary>
             Returns the index of the last occurrence of a value in an array.
             </summary>
             <param name = "searchElement">The value to locate in the array.</param>
         </member>
-        <member name="M:Retyped.es5.Int16Array.lastIndexOf(System.Int16,System.UInt32)">
+        <member name="M:Retyped.es5.Int16Array.lastIndexOf(System.Double,System.Double)">
             <summary>
             Returns the index of the last occurrence of a value in an array.
             </summary>
@@ -3662,7 +3743,7 @@
             callbackfn function one time for each element in the array.
             </param>
         </member>
-        <member name="M:Retyped.es5.Int16Array.reduce(Retyped.es5.Int16Array.reduceFn,System.Int64)">
+        <member name="M:Retyped.es5.Int16Array.reduce(Retyped.es5.Int16Array.reduceFn,System.Double)">
             <summary>
             Calls the specified callback function for all the elements in an array. The return value of
             the callback function is the accumulated result, and is provided as an argument in the next
@@ -3706,7 +3787,7 @@
             the callbackfn function one time for each element in the array.
             </param>
         </member>
-        <member name="M:Retyped.es5.Int16Array.reduceRight(Retyped.es5.Int16Array.reduceRightFn,System.Int64)">
+        <member name="M:Retyped.es5.Int16Array.reduceRight(Retyped.es5.Int16Array.reduceRightFn,System.Double)">
             <summary>
             Calls the specified callback function for all the elements in an array, in descending order.
             The return value of the callback function is the accumulated result, and is provided as an
@@ -3743,13 +3824,13 @@
             Reverses the elements in an Array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Int16Array.set(Retyped.es5.ArrayLike{System.Int16})">
+        <member name="M:Retyped.es5.Int16Array.set(Retyped.es5.ArrayLike{System.Double})">
             <summary>
             Sets a value or an array of values.
             </summary>
             <param name = "array">A typed or untyped array of values to set.</param>
         </member>
-        <member name="M:Retyped.es5.Int16Array.set(Retyped.es5.ArrayLike{System.Int16},System.UInt32)">
+        <member name="M:Retyped.es5.Int16Array.set(Retyped.es5.ArrayLike{System.Double},System.Double)">
             <summary>
             Sets a value or an array of values.
             </summary>
@@ -3761,13 +3842,13 @@
             Returns a section of an array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Int16Array.slice(System.UInt32)">
+        <member name="M:Retyped.es5.Int16Array.slice(System.Double)">
             <summary>
             Returns a section of an array.
             </summary>
             <param name = "start">The beginning of the specified portion of the array.</param>
         </member>
-        <member name="M:Retyped.es5.Int16Array.slice(System.UInt32,System.UInt32)">
+        <member name="M:Retyped.es5.Int16Array.slice(System.Double,System.Double)">
             <summary>
             Returns a section of an array.
             </summary>
@@ -3812,14 +3893,14 @@
             omitted, the elements are sorted in ascending, ASCII character order.
             </param>
         </member>
-        <member name="M:Retyped.es5.Int16Array.subarray(System.UInt32)">
+        <member name="M:Retyped.es5.Int16Array.subarray(System.Double)">
             <summary>
             Gets a new Int16Array view of the ArrayBuffer store for this array, referencing the elements
             at begin, inclusive, up to end, exclusive.
             </summary>
             <param name = "begin">The index of the beginning of the array.</param>
         </member>
-        <member name="M:Retyped.es5.Int16Array.subarray(System.UInt32,System.Int32)">
+        <member name="M:Retyped.es5.Int16Array.subarray(System.Double,System.Double)">
             <summary>
             Gets a new Int16Array view of the ArrayBuffer store for this array, referencing the elements
             at begin, inclusive, up to end, exclusive.
@@ -3842,26 +3923,26 @@
             The size in bytes of each element in the array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Int16ArrayConstructor.of(System.Int16[])">
+        <member name="M:Retyped.es5.Int16ArrayConstructor.of(System.Double[])">
             <summary>
             Returns a new array from a set of elements.
             </summary>
             <param name = "items">A set of elements to include in the new array object.</param>
         </member>
-        <member name="M:Retyped.es5.Int16ArrayConstructor.from(Retyped.es5.ArrayLike{System.Int16})">
+        <member name="M:Retyped.es5.Int16ArrayConstructor.from(Retyped.es5.ArrayLike{System.Double})">
             <summary>
             Creates an array from an array-like or iterable object.
             </summary>
             <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
         </member>
-        <member name="M:Retyped.es5.Int16ArrayConstructor.from(Retyped.es5.ArrayLike{System.Int16},Retyped.es5.Int16ArrayConstructor.fromFn)">
+        <member name="M:Retyped.es5.Int16ArrayConstructor.from(Retyped.es5.ArrayLike{System.Double},Retyped.es5.Int16ArrayConstructor.fromFn)">
             <summary>
             Creates an array from an array-like or iterable object.
             </summary>
             <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
             <param name = "mapfn">A mapping function to call on every element of the array.</param>
         </member>
-        <member name="M:Retyped.es5.Int16ArrayConstructor.from(Retyped.es5.ArrayLike{System.Int16},Retyped.es5.Int16ArrayConstructor.fromFn,System.Object)">
+        <member name="M:Retyped.es5.Int16ArrayConstructor.from(Retyped.es5.ArrayLike{System.Double},Retyped.es5.Int16ArrayConstructor.fromFn,System.Object)">
             <summary>
             Creates an array from an array-like or iterable object.
             </summary>
@@ -3889,7 +3970,7 @@
             The offset in bytes of the array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Uint16Array.copyWithin(System.Int64,System.Int64)">
+        <member name="M:Retyped.es5.Uint16Array.copyWithin(System.Double,System.Double)">
             <summary>
             Returns the this object after copying a section of the array identified by start and end
             to the same array starting at position target
@@ -3903,7 +3984,7 @@
             is treated as length+end.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint16Array.copyWithin(System.Int64,System.Int64,System.Int64)">
+        <member name="M:Retyped.es5.Uint16Array.copyWithin(System.Double,System.Double,System.Double)">
             <summary>
             Returns the this object after copying a section of the array identified by start and end
             to the same array starting at position target
@@ -3942,13 +4023,13 @@
             If thisArg is omitted, undefined is used as the this value.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint16Array.fill(System.UInt16)">
+        <member name="M:Retyped.es5.Uint16Array.fill(System.Double)">
             <summary>
             Returns the this object after filling the section identified by start and end with value
             </summary>
             <param name = "value">value to fill array section with</param>
         </member>
-        <member name="M:Retyped.es5.Uint16Array.fill(System.UInt16,System.UInt32)">
+        <member name="M:Retyped.es5.Uint16Array.fill(System.Double,System.Double)">
             <summary>
             Returns the this object after filling the section identified by start and end with value
             </summary>
@@ -3958,7 +4039,7 @@
             length+start where length is the length of the array.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint16Array.fill(System.UInt16,System.UInt32,System.UInt32)">
+        <member name="M:Retyped.es5.Uint16Array.fill(System.Double,System.Double,System.Double)">
             <summary>
             Returns the this object after filling the section identified by start and end with value
             </summary>
@@ -4068,13 +4149,13 @@
             If thisArg is omitted, undefined is used as the this value.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint16Array.indexOf(System.UInt16)">
+        <member name="M:Retyped.es5.Uint16Array.indexOf(System.Double)">
             <summary>
             Returns the index of the first occurrence of a value in an array.
             </summary>
             <param name = "searchElement">The value to locate in the array.</param>
         </member>
-        <member name="M:Retyped.es5.Uint16Array.indexOf(System.UInt16,System.UInt32)">
+        <member name="M:Retyped.es5.Uint16Array.indexOf(System.Double,System.Double)">
             <summary>
             Returns the index of the first occurrence of a value in an array.
             </summary>
@@ -4098,13 +4179,13 @@
             resulting String. If omitted, the array elements are separated with a comma.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint16Array.lastIndexOf(System.UInt16)">
+        <member name="M:Retyped.es5.Uint16Array.lastIndexOf(System.Double)">
             <summary>
             Returns the index of the last occurrence of a value in an array.
             </summary>
             <param name = "searchElement">The value to locate in the array.</param>
         </member>
-        <member name="M:Retyped.es5.Uint16Array.lastIndexOf(System.UInt16,System.UInt32)">
+        <member name="M:Retyped.es5.Uint16Array.lastIndexOf(System.Double,System.Double)">
             <summary>
             Returns the index of the last occurrence of a value in an array.
             </summary>
@@ -4155,7 +4236,7 @@
             callbackfn function one time for each element in the array.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint16Array.reduce(Retyped.es5.Uint16Array.reduceFn,System.Int64)">
+        <member name="M:Retyped.es5.Uint16Array.reduce(Retyped.es5.Uint16Array.reduceFn,System.Double)">
             <summary>
             Calls the specified callback function for all the elements in an array. The return value of
             the callback function is the accumulated result, and is provided as an argument in the next
@@ -4199,7 +4280,7 @@
             the callbackfn function one time for each element in the array.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint16Array.reduceRight(Retyped.es5.Uint16Array.reduceRightFn,System.Int64)">
+        <member name="M:Retyped.es5.Uint16Array.reduceRight(Retyped.es5.Uint16Array.reduceRightFn,System.Double)">
             <summary>
             Calls the specified callback function for all the elements in an array, in descending order.
             The return value of the callback function is the accumulated result, and is provided as an
@@ -4236,13 +4317,13 @@
             Reverses the elements in an Array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Uint16Array.set(Retyped.es5.ArrayLike{System.UInt16})">
+        <member name="M:Retyped.es5.Uint16Array.set(Retyped.es5.ArrayLike{System.Double})">
             <summary>
             Sets a value or an array of values.
             </summary>
             <param name = "array">A typed or untyped array of values to set.</param>
         </member>
-        <member name="M:Retyped.es5.Uint16Array.set(Retyped.es5.ArrayLike{System.UInt16},System.UInt32)">
+        <member name="M:Retyped.es5.Uint16Array.set(Retyped.es5.ArrayLike{System.Double},System.Double)">
             <summary>
             Sets a value or an array of values.
             </summary>
@@ -4254,13 +4335,13 @@
             Returns a section of an array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Uint16Array.slice(System.UInt32)">
+        <member name="M:Retyped.es5.Uint16Array.slice(System.Double)">
             <summary>
             Returns a section of an array.
             </summary>
             <param name = "start">The beginning of the specified portion of the array.</param>
         </member>
-        <member name="M:Retyped.es5.Uint16Array.slice(System.UInt32,System.UInt32)">
+        <member name="M:Retyped.es5.Uint16Array.slice(System.Double,System.Double)">
             <summary>
             Returns a section of an array.
             </summary>
@@ -4305,14 +4386,14 @@
             omitted, the elements are sorted in ascending, ASCII character order.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint16Array.subarray(System.UInt32)">
+        <member name="M:Retyped.es5.Uint16Array.subarray(System.Double)">
             <summary>
             Gets a new Uint16Array view of the ArrayBuffer store for this array, referencing the elements
             at begin, inclusive, up to end, exclusive.
             </summary>
             <param name = "begin">The index of the beginning of the array.</param>
         </member>
-        <member name="M:Retyped.es5.Uint16Array.subarray(System.UInt32,System.Int32)">
+        <member name="M:Retyped.es5.Uint16Array.subarray(System.Double,System.Double)">
             <summary>
             Gets a new Uint16Array view of the ArrayBuffer store for this array, referencing the elements
             at begin, inclusive, up to end, exclusive.
@@ -4335,26 +4416,26 @@
             The size in bytes of each element in the array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Uint16ArrayConstructor.of(System.UInt16[])">
+        <member name="M:Retyped.es5.Uint16ArrayConstructor.of(System.Double[])">
             <summary>
             Returns a new array from a set of elements.
             </summary>
             <param name = "items">A set of elements to include in the new array object.</param>
         </member>
-        <member name="M:Retyped.es5.Uint16ArrayConstructor.from(Retyped.es5.ArrayLike{System.UInt16})">
+        <member name="M:Retyped.es5.Uint16ArrayConstructor.from(Retyped.es5.ArrayLike{System.Double})">
             <summary>
             Creates an array from an array-like or iterable object.
             </summary>
             <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
         </member>
-        <member name="M:Retyped.es5.Uint16ArrayConstructor.from(Retyped.es5.ArrayLike{System.UInt16},Retyped.es5.Uint16ArrayConstructor.fromFn)">
+        <member name="M:Retyped.es5.Uint16ArrayConstructor.from(Retyped.es5.ArrayLike{System.Double},Retyped.es5.Uint16ArrayConstructor.fromFn)">
             <summary>
             Creates an array from an array-like or iterable object.
             </summary>
             <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
             <param name = "mapfn">A mapping function to call on every element of the array.</param>
         </member>
-        <member name="M:Retyped.es5.Uint16ArrayConstructor.from(Retyped.es5.ArrayLike{System.UInt16},Retyped.es5.Uint16ArrayConstructor.fromFn,System.Object)">
+        <member name="M:Retyped.es5.Uint16ArrayConstructor.from(Retyped.es5.ArrayLike{System.Double},Retyped.es5.Uint16ArrayConstructor.fromFn,System.Object)">
             <summary>
             Creates an array from an array-like or iterable object.
             </summary>
@@ -4382,7 +4463,7 @@
             The offset in bytes of the array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Int32Array.copyWithin(System.Int64,System.Int64)">
+        <member name="M:Retyped.es5.Int32Array.copyWithin(System.Double,System.Double)">
             <summary>
             Returns the this object after copying a section of the array identified by start and end
             to the same array starting at position target
@@ -4396,7 +4477,7 @@
             is treated as length+end.
             </param>
         </member>
-        <member name="M:Retyped.es5.Int32Array.copyWithin(System.Int64,System.Int64,System.Int64)">
+        <member name="M:Retyped.es5.Int32Array.copyWithin(System.Double,System.Double,System.Double)">
             <summary>
             Returns the this object after copying a section of the array identified by start and end
             to the same array starting at position target
@@ -4435,13 +4516,13 @@
             If thisArg is omitted, undefined is used as the this value.
             </param>
         </member>
-        <member name="M:Retyped.es5.Int32Array.fill(System.Int32)">
+        <member name="M:Retyped.es5.Int32Array.fill(System.Double)">
             <summary>
             Returns the this object after filling the section identified by start and end with value
             </summary>
             <param name = "value">value to fill array section with</param>
         </member>
-        <member name="M:Retyped.es5.Int32Array.fill(System.Int32,System.UInt32)">
+        <member name="M:Retyped.es5.Int32Array.fill(System.Double,System.Double)">
             <summary>
             Returns the this object after filling the section identified by start and end with value
             </summary>
@@ -4451,7 +4532,7 @@
             length+start where length is the length of the array.
             </param>
         </member>
-        <member name="M:Retyped.es5.Int32Array.fill(System.Int32,System.UInt32,System.UInt32)">
+        <member name="M:Retyped.es5.Int32Array.fill(System.Double,System.Double,System.Double)">
             <summary>
             Returns the this object after filling the section identified by start and end with value
             </summary>
@@ -4561,13 +4642,13 @@
             If thisArg is omitted, undefined is used as the this value.
             </param>
         </member>
-        <member name="M:Retyped.es5.Int32Array.indexOf(System.Int32)">
+        <member name="M:Retyped.es5.Int32Array.indexOf(System.Double)">
             <summary>
             Returns the index of the first occurrence of a value in an array.
             </summary>
             <param name = "searchElement">The value to locate in the array.</param>
         </member>
-        <member name="M:Retyped.es5.Int32Array.indexOf(System.Int32,System.UInt32)">
+        <member name="M:Retyped.es5.Int32Array.indexOf(System.Double,System.Double)">
             <summary>
             Returns the index of the first occurrence of a value in an array.
             </summary>
@@ -4591,13 +4672,13 @@
             resulting String. If omitted, the array elements are separated with a comma.
             </param>
         </member>
-        <member name="M:Retyped.es5.Int32Array.lastIndexOf(System.Int32)">
+        <member name="M:Retyped.es5.Int32Array.lastIndexOf(System.Double)">
             <summary>
             Returns the index of the last occurrence of a value in an array.
             </summary>
             <param name = "searchElement">The value to locate in the array.</param>
         </member>
-        <member name="M:Retyped.es5.Int32Array.lastIndexOf(System.Int32,System.UInt32)">
+        <member name="M:Retyped.es5.Int32Array.lastIndexOf(System.Double,System.Double)">
             <summary>
             Returns the index of the last occurrence of a value in an array.
             </summary>
@@ -4648,7 +4729,7 @@
             callbackfn function one time for each element in the array.
             </param>
         </member>
-        <member name="M:Retyped.es5.Int32Array.reduce(Retyped.es5.Int32Array.reduceFn,System.Int64)">
+        <member name="M:Retyped.es5.Int32Array.reduce(Retyped.es5.Int32Array.reduceFn,System.Double)">
             <summary>
             Calls the specified callback function for all the elements in an array. The return value of
             the callback function is the accumulated result, and is provided as an argument in the next
@@ -4692,7 +4773,7 @@
             the callbackfn function one time for each element in the array.
             </param>
         </member>
-        <member name="M:Retyped.es5.Int32Array.reduceRight(Retyped.es5.Int32Array.reduceRightFn,System.Int64)">
+        <member name="M:Retyped.es5.Int32Array.reduceRight(Retyped.es5.Int32Array.reduceRightFn,System.Double)">
             <summary>
             Calls the specified callback function for all the elements in an array, in descending order.
             The return value of the callback function is the accumulated result, and is provided as an
@@ -4729,13 +4810,13 @@
             Reverses the elements in an Array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Int32Array.set(Retyped.es5.ArrayLike{System.Int32})">
+        <member name="M:Retyped.es5.Int32Array.set(Retyped.es5.ArrayLike{System.Double})">
             <summary>
             Sets a value or an array of values.
             </summary>
             <param name = "array">A typed or untyped array of values to set.</param>
         </member>
-        <member name="M:Retyped.es5.Int32Array.set(Retyped.es5.ArrayLike{System.Int32},System.UInt32)">
+        <member name="M:Retyped.es5.Int32Array.set(Retyped.es5.ArrayLike{System.Double},System.Double)">
             <summary>
             Sets a value or an array of values.
             </summary>
@@ -4747,13 +4828,13 @@
             Returns a section of an array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Int32Array.slice(System.UInt32)">
+        <member name="M:Retyped.es5.Int32Array.slice(System.Double)">
             <summary>
             Returns a section of an array.
             </summary>
             <param name = "start">The beginning of the specified portion of the array.</param>
         </member>
-        <member name="M:Retyped.es5.Int32Array.slice(System.UInt32,System.UInt32)">
+        <member name="M:Retyped.es5.Int32Array.slice(System.Double,System.Double)">
             <summary>
             Returns a section of an array.
             </summary>
@@ -4798,14 +4879,14 @@
             omitted, the elements are sorted in ascending, ASCII character order.
             </param>
         </member>
-        <member name="M:Retyped.es5.Int32Array.subarray(System.UInt32)">
+        <member name="M:Retyped.es5.Int32Array.subarray(System.Double)">
             <summary>
             Gets a new Int32Array view of the ArrayBuffer store for this array, referencing the elements
             at begin, inclusive, up to end, exclusive.
             </summary>
             <param name = "begin">The index of the beginning of the array.</param>
         </member>
-        <member name="M:Retyped.es5.Int32Array.subarray(System.UInt32,System.Int32)">
+        <member name="M:Retyped.es5.Int32Array.subarray(System.Double,System.Double)">
             <summary>
             Gets a new Int32Array view of the ArrayBuffer store for this array, referencing the elements
             at begin, inclusive, up to end, exclusive.
@@ -4828,26 +4909,26 @@
             The size in bytes of each element in the array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Int32ArrayConstructor.of(System.Int32[])">
+        <member name="M:Retyped.es5.Int32ArrayConstructor.of(System.Double[])">
             <summary>
             Returns a new array from a set of elements.
             </summary>
             <param name = "items">A set of elements to include in the new array object.</param>
         </member>
-        <member name="M:Retyped.es5.Int32ArrayConstructor.from(Retyped.es5.ArrayLike{System.Int32})">
+        <member name="M:Retyped.es5.Int32ArrayConstructor.from(Retyped.es5.ArrayLike{System.Double})">
             <summary>
             Creates an array from an array-like or iterable object.
             </summary>
             <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
         </member>
-        <member name="M:Retyped.es5.Int32ArrayConstructor.from(Retyped.es5.ArrayLike{System.Int32},Retyped.es5.Int32ArrayConstructor.fromFn)">
+        <member name="M:Retyped.es5.Int32ArrayConstructor.from(Retyped.es5.ArrayLike{System.Double},Retyped.es5.Int32ArrayConstructor.fromFn)">
             <summary>
             Creates an array from an array-like or iterable object.
             </summary>
             <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
             <param name = "mapfn">A mapping function to call on every element of the array.</param>
         </member>
-        <member name="M:Retyped.es5.Int32ArrayConstructor.from(Retyped.es5.ArrayLike{System.Int32},Retyped.es5.Int32ArrayConstructor.fromFn,System.Object)">
+        <member name="M:Retyped.es5.Int32ArrayConstructor.from(Retyped.es5.ArrayLike{System.Double},Retyped.es5.Int32ArrayConstructor.fromFn,System.Object)">
             <summary>
             Creates an array from an array-like or iterable object.
             </summary>
@@ -4875,7 +4956,7 @@
             The offset in bytes of the array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Uint32Array.copyWithin(System.Int64,System.Int64)">
+        <member name="M:Retyped.es5.Uint32Array.copyWithin(System.Double,System.Double)">
             <summary>
             Returns the this object after copying a section of the array identified by start and end
             to the same array starting at position target
@@ -4889,7 +4970,7 @@
             is treated as length+end.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint32Array.copyWithin(System.Int64,System.Int64,System.Int64)">
+        <member name="M:Retyped.es5.Uint32Array.copyWithin(System.Double,System.Double,System.Double)">
             <summary>
             Returns the this object after copying a section of the array identified by start and end
             to the same array starting at position target
@@ -4928,13 +5009,13 @@
             If thisArg is omitted, undefined is used as the this value.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint32Array.fill(System.UInt32)">
+        <member name="M:Retyped.es5.Uint32Array.fill(System.Double)">
             <summary>
             Returns the this object after filling the section identified by start and end with value
             </summary>
             <param name = "value">value to fill array section with</param>
         </member>
-        <member name="M:Retyped.es5.Uint32Array.fill(System.UInt32,System.UInt32)">
+        <member name="M:Retyped.es5.Uint32Array.fill(System.Double,System.Double)">
             <summary>
             Returns the this object after filling the section identified by start and end with value
             </summary>
@@ -4944,7 +5025,7 @@
             length+start where length is the length of the array.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint32Array.fill(System.UInt32,System.UInt32,System.UInt32)">
+        <member name="M:Retyped.es5.Uint32Array.fill(System.Double,System.Double,System.Double)">
             <summary>
             Returns the this object after filling the section identified by start and end with value
             </summary>
@@ -5054,13 +5135,13 @@
             If thisArg is omitted, undefined is used as the this value.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint32Array.indexOf(System.UInt32)">
+        <member name="M:Retyped.es5.Uint32Array.indexOf(System.Double)">
             <summary>
             Returns the index of the first occurrence of a value in an array.
             </summary>
             <param name = "searchElement">The value to locate in the array.</param>
         </member>
-        <member name="M:Retyped.es5.Uint32Array.indexOf(System.UInt32,System.UInt32)">
+        <member name="M:Retyped.es5.Uint32Array.indexOf(System.Double,System.Double)">
             <summary>
             Returns the index of the first occurrence of a value in an array.
             </summary>
@@ -5084,13 +5165,13 @@
             resulting String. If omitted, the array elements are separated with a comma.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint32Array.lastIndexOf(System.UInt32)">
+        <member name="M:Retyped.es5.Uint32Array.lastIndexOf(System.Double)">
             <summary>
             Returns the index of the last occurrence of a value in an array.
             </summary>
             <param name = "searchElement">The value to locate in the array.</param>
         </member>
-        <member name="M:Retyped.es5.Uint32Array.lastIndexOf(System.UInt32,System.UInt32)">
+        <member name="M:Retyped.es5.Uint32Array.lastIndexOf(System.Double,System.Double)">
             <summary>
             Returns the index of the last occurrence of a value in an array.
             </summary>
@@ -5141,7 +5222,7 @@
             callbackfn function one time for each element in the array.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint32Array.reduce(Retyped.es5.Uint32Array.reduceFn,System.Int64)">
+        <member name="M:Retyped.es5.Uint32Array.reduce(Retyped.es5.Uint32Array.reduceFn,System.Double)">
             <summary>
             Calls the specified callback function for all the elements in an array. The return value of
             the callback function is the accumulated result, and is provided as an argument in the next
@@ -5185,7 +5266,7 @@
             the callbackfn function one time for each element in the array.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint32Array.reduceRight(Retyped.es5.Uint32Array.reduceRightFn,System.Int64)">
+        <member name="M:Retyped.es5.Uint32Array.reduceRight(Retyped.es5.Uint32Array.reduceRightFn,System.Double)">
             <summary>
             Calls the specified callback function for all the elements in an array, in descending order.
             The return value of the callback function is the accumulated result, and is provided as an
@@ -5222,13 +5303,13 @@
             Reverses the elements in an Array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Uint32Array.set(Retyped.es5.ArrayLike{System.UInt32})">
+        <member name="M:Retyped.es5.Uint32Array.set(Retyped.es5.ArrayLike{System.Double})">
             <summary>
             Sets a value or an array of values.
             </summary>
             <param name = "array">A typed or untyped array of values to set.</param>
         </member>
-        <member name="M:Retyped.es5.Uint32Array.set(Retyped.es5.ArrayLike{System.UInt32},System.UInt32)">
+        <member name="M:Retyped.es5.Uint32Array.set(Retyped.es5.ArrayLike{System.Double},System.Double)">
             <summary>
             Sets a value or an array of values.
             </summary>
@@ -5240,13 +5321,13 @@
             Returns a section of an array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Uint32Array.slice(System.UInt32)">
+        <member name="M:Retyped.es5.Uint32Array.slice(System.Double)">
             <summary>
             Returns a section of an array.
             </summary>
             <param name = "start">The beginning of the specified portion of the array.</param>
         </member>
-        <member name="M:Retyped.es5.Uint32Array.slice(System.UInt32,System.UInt32)">
+        <member name="M:Retyped.es5.Uint32Array.slice(System.Double,System.Double)">
             <summary>
             Returns a section of an array.
             </summary>
@@ -5291,14 +5372,14 @@
             omitted, the elements are sorted in ascending, ASCII character order.
             </param>
         </member>
-        <member name="M:Retyped.es5.Uint32Array.subarray(System.UInt32)">
+        <member name="M:Retyped.es5.Uint32Array.subarray(System.Double)">
             <summary>
             Gets a new Uint32Array view of the ArrayBuffer store for this array, referencing the elements
             at begin, inclusive, up to end, exclusive.
             </summary>
             <param name = "begin">The index of the beginning of the array.</param>
         </member>
-        <member name="M:Retyped.es5.Uint32Array.subarray(System.UInt32,System.Int32)">
+        <member name="M:Retyped.es5.Uint32Array.subarray(System.Double,System.Double)">
             <summary>
             Gets a new Uint32Array view of the ArrayBuffer store for this array, referencing the elements
             at begin, inclusive, up to end, exclusive.
@@ -5321,26 +5402,26 @@
             The size in bytes of each element in the array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Uint32ArrayConstructor.of(System.UInt32[])">
+        <member name="M:Retyped.es5.Uint32ArrayConstructor.of(System.Double[])">
             <summary>
             Returns a new array from a set of elements.
             </summary>
             <param name = "items">A set of elements to include in the new array object.</param>
         </member>
-        <member name="M:Retyped.es5.Uint32ArrayConstructor.from(Retyped.es5.ArrayLike{System.UInt32})">
+        <member name="M:Retyped.es5.Uint32ArrayConstructor.from(Retyped.es5.ArrayLike{System.Double})">
             <summary>
             Creates an array from an array-like or iterable object.
             </summary>
             <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
         </member>
-        <member name="M:Retyped.es5.Uint32ArrayConstructor.from(Retyped.es5.ArrayLike{System.UInt32},Retyped.es5.Uint32ArrayConstructor.fromFn)">
+        <member name="M:Retyped.es5.Uint32ArrayConstructor.from(Retyped.es5.ArrayLike{System.Double},Retyped.es5.Uint32ArrayConstructor.fromFn)">
             <summary>
             Creates an array from an array-like or iterable object.
             </summary>
             <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
             <param name = "mapfn">A mapping function to call on every element of the array.</param>
         </member>
-        <member name="M:Retyped.es5.Uint32ArrayConstructor.from(Retyped.es5.ArrayLike{System.UInt32},Retyped.es5.Uint32ArrayConstructor.fromFn,System.Object)">
+        <member name="M:Retyped.es5.Uint32ArrayConstructor.from(Retyped.es5.ArrayLike{System.Double},Retyped.es5.Uint32ArrayConstructor.fromFn,System.Object)">
             <summary>
             Creates an array from an array-like or iterable object.
             </summary>
@@ -5368,7 +5449,7 @@
             The offset in bytes of the array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Float32Array.copyWithin(System.Int64,System.Int64)">
+        <member name="M:Retyped.es5.Float32Array.copyWithin(System.Double,System.Double)">
             <summary>
             Returns the this object after copying a section of the array identified by start and end
             to the same array starting at position target
@@ -5382,7 +5463,7 @@
             is treated as length+end.
             </param>
         </member>
-        <member name="M:Retyped.es5.Float32Array.copyWithin(System.Int64,System.Int64,System.Int64)">
+        <member name="M:Retyped.es5.Float32Array.copyWithin(System.Double,System.Double,System.Double)">
             <summary>
             Returns the this object after copying a section of the array identified by start and end
             to the same array starting at position target
@@ -5421,13 +5502,13 @@
             If thisArg is omitted, undefined is used as the this value.
             </param>
         </member>
-        <member name="M:Retyped.es5.Float32Array.fill(System.Single)">
+        <member name="M:Retyped.es5.Float32Array.fill(System.Double)">
             <summary>
             Returns the this object after filling the section identified by start and end with value
             </summary>
             <param name = "value">value to fill array section with</param>
         </member>
-        <member name="M:Retyped.es5.Float32Array.fill(System.Single,System.UInt32)">
+        <member name="M:Retyped.es5.Float32Array.fill(System.Double,System.Double)">
             <summary>
             Returns the this object after filling the section identified by start and end with value
             </summary>
@@ -5437,7 +5518,7 @@
             length+start where length is the length of the array.
             </param>
         </member>
-        <member name="M:Retyped.es5.Float32Array.fill(System.Single,System.UInt32,System.UInt32)">
+        <member name="M:Retyped.es5.Float32Array.fill(System.Double,System.Double,System.Double)">
             <summary>
             Returns the this object after filling the section identified by start and end with value
             </summary>
@@ -5547,13 +5628,13 @@
             If thisArg is omitted, undefined is used as the this value.
             </param>
         </member>
-        <member name="M:Retyped.es5.Float32Array.indexOf(System.Single)">
+        <member name="M:Retyped.es5.Float32Array.indexOf(System.Double)">
             <summary>
             Returns the index of the first occurrence of a value in an array.
             </summary>
             <param name = "searchElement">The value to locate in the array.</param>
         </member>
-        <member name="M:Retyped.es5.Float32Array.indexOf(System.Single,System.UInt32)">
+        <member name="M:Retyped.es5.Float32Array.indexOf(System.Double,System.Double)">
             <summary>
             Returns the index of the first occurrence of a value in an array.
             </summary>
@@ -5577,13 +5658,13 @@
             resulting String. If omitted, the array elements are separated with a comma.
             </param>
         </member>
-        <member name="M:Retyped.es5.Float32Array.lastIndexOf(System.Single)">
+        <member name="M:Retyped.es5.Float32Array.lastIndexOf(System.Double)">
             <summary>
             Returns the index of the last occurrence of a value in an array.
             </summary>
             <param name = "searchElement">The value to locate in the array.</param>
         </member>
-        <member name="M:Retyped.es5.Float32Array.lastIndexOf(System.Single,System.UInt32)">
+        <member name="M:Retyped.es5.Float32Array.lastIndexOf(System.Double,System.Double)">
             <summary>
             Returns the index of the last occurrence of a value in an array.
             </summary>
@@ -5634,7 +5715,7 @@
             callbackfn function one time for each element in the array.
             </param>
         </member>
-        <member name="M:Retyped.es5.Float32Array.reduce(Retyped.es5.Float32Array.reduceFn,System.Int64)">
+        <member name="M:Retyped.es5.Float32Array.reduce(Retyped.es5.Float32Array.reduceFn,System.Double)">
             <summary>
             Calls the specified callback function for all the elements in an array. The return value of
             the callback function is the accumulated result, and is provided as an argument in the next
@@ -5678,7 +5759,7 @@
             the callbackfn function one time for each element in the array.
             </param>
         </member>
-        <member name="M:Retyped.es5.Float32Array.reduceRight(Retyped.es5.Float32Array.reduceRightFn,System.Int64)">
+        <member name="M:Retyped.es5.Float32Array.reduceRight(Retyped.es5.Float32Array.reduceRightFn,System.Double)">
             <summary>
             Calls the specified callback function for all the elements in an array, in descending order.
             The return value of the callback function is the accumulated result, and is provided as an
@@ -5715,13 +5796,13 @@
             Reverses the elements in an Array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Float32Array.set(Retyped.es5.ArrayLike{System.Single})">
+        <member name="M:Retyped.es5.Float32Array.set(Retyped.es5.ArrayLike{System.Double})">
             <summary>
             Sets a value or an array of values.
             </summary>
             <param name = "array">A typed or untyped array of values to set.</param>
         </member>
-        <member name="M:Retyped.es5.Float32Array.set(Retyped.es5.ArrayLike{System.Single},System.UInt32)">
+        <member name="M:Retyped.es5.Float32Array.set(Retyped.es5.ArrayLike{System.Double},System.Double)">
             <summary>
             Sets a value or an array of values.
             </summary>
@@ -5733,13 +5814,13 @@
             Returns a section of an array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Float32Array.slice(System.UInt32)">
+        <member name="M:Retyped.es5.Float32Array.slice(System.Double)">
             <summary>
             Returns a section of an array.
             </summary>
             <param name = "start">The beginning of the specified portion of the array.</param>
         </member>
-        <member name="M:Retyped.es5.Float32Array.slice(System.UInt32,System.UInt32)">
+        <member name="M:Retyped.es5.Float32Array.slice(System.Double,System.Double)">
             <summary>
             Returns a section of an array.
             </summary>
@@ -5784,14 +5865,14 @@
             omitted, the elements are sorted in ascending, ASCII character order.
             </param>
         </member>
-        <member name="M:Retyped.es5.Float32Array.subarray(System.UInt32)">
+        <member name="M:Retyped.es5.Float32Array.subarray(System.Double)">
             <summary>
             Gets a new Float32Array view of the ArrayBuffer store for this array, referencing the elements
             at begin, inclusive, up to end, exclusive.
             </summary>
             <param name = "begin">The index of the beginning of the array.</param>
         </member>
-        <member name="M:Retyped.es5.Float32Array.subarray(System.UInt32,System.Int32)">
+        <member name="M:Retyped.es5.Float32Array.subarray(System.Double,System.Double)">
             <summary>
             Gets a new Float32Array view of the ArrayBuffer store for this array, referencing the elements
             at begin, inclusive, up to end, exclusive.
@@ -5814,26 +5895,26 @@
             The size in bytes of each element in the array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Float32ArrayConstructor.of(System.Single[])">
+        <member name="M:Retyped.es5.Float32ArrayConstructor.of(System.Double[])">
             <summary>
             Returns a new array from a set of elements.
             </summary>
             <param name = "items">A set of elements to include in the new array object.</param>
         </member>
-        <member name="M:Retyped.es5.Float32ArrayConstructor.from(Retyped.es5.ArrayLike{System.Single})">
+        <member name="M:Retyped.es5.Float32ArrayConstructor.from(Retyped.es5.ArrayLike{System.Double})">
             <summary>
             Creates an array from an array-like or iterable object.
             </summary>
             <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
         </member>
-        <member name="M:Retyped.es5.Float32ArrayConstructor.from(Retyped.es5.ArrayLike{System.Single},Retyped.es5.Float32ArrayConstructor.fromFn)">
+        <member name="M:Retyped.es5.Float32ArrayConstructor.from(Retyped.es5.ArrayLike{System.Double},Retyped.es5.Float32ArrayConstructor.fromFn)">
             <summary>
             Creates an array from an array-like or iterable object.
             </summary>
             <param name = "arrayLike">An array-like or iterable object to convert to an array.</param>
             <param name = "mapfn">A mapping function to call on every element of the array.</param>
         </member>
-        <member name="M:Retyped.es5.Float32ArrayConstructor.from(Retyped.es5.ArrayLike{System.Single},Retyped.es5.Float32ArrayConstructor.fromFn,System.Object)">
+        <member name="M:Retyped.es5.Float32ArrayConstructor.from(Retyped.es5.ArrayLike{System.Double},Retyped.es5.Float32ArrayConstructor.fromFn,System.Object)">
             <summary>
             Creates an array from an array-like or iterable object.
             </summary>
@@ -5861,7 +5942,7 @@
             The offset in bytes of the array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Float64Array.copyWithin(System.Int64,System.Int64)">
+        <member name="M:Retyped.es5.Float64Array.copyWithin(System.Double,System.Double)">
             <summary>
             Returns the this object after copying a section of the array identified by start and end
             to the same array starting at position target
@@ -5875,7 +5956,7 @@
             is treated as length+end.
             </param>
         </member>
-        <member name="M:Retyped.es5.Float64Array.copyWithin(System.Int64,System.Int64,System.Int64)">
+        <member name="M:Retyped.es5.Float64Array.copyWithin(System.Double,System.Double,System.Double)">
             <summary>
             Returns the this object after copying a section of the array identified by start and end
             to the same array starting at position target
@@ -5920,7 +6001,7 @@
             </summary>
             <param name = "value">value to fill array section with</param>
         </member>
-        <member name="M:Retyped.es5.Float64Array.fill(System.Double,System.UInt32)">
+        <member name="M:Retyped.es5.Float64Array.fill(System.Double,System.Double)">
             <summary>
             Returns the this object after filling the section identified by start and end with value
             </summary>
@@ -5930,7 +6011,7 @@
             length+start where length is the length of the array.
             </param>
         </member>
-        <member name="M:Retyped.es5.Float64Array.fill(System.Double,System.UInt32,System.UInt32)">
+        <member name="M:Retyped.es5.Float64Array.fill(System.Double,System.Double,System.Double)">
             <summary>
             Returns the this object after filling the section identified by start and end with value
             </summary>
@@ -6046,7 +6127,7 @@
             </summary>
             <param name = "searchElement">The value to locate in the array.</param>
         </member>
-        <member name="M:Retyped.es5.Float64Array.indexOf(System.Double,System.UInt32)">
+        <member name="M:Retyped.es5.Float64Array.indexOf(System.Double,System.Double)">
             <summary>
             Returns the index of the first occurrence of a value in an array.
             </summary>
@@ -6076,7 +6157,7 @@
             </summary>
             <param name = "searchElement">The value to locate in the array.</param>
         </member>
-        <member name="M:Retyped.es5.Float64Array.lastIndexOf(System.Double,System.UInt32)">
+        <member name="M:Retyped.es5.Float64Array.lastIndexOf(System.Double,System.Double)">
             <summary>
             Returns the index of the last occurrence of a value in an array.
             </summary>
@@ -6127,7 +6208,7 @@
             callbackfn function one time for each element in the array.
             </param>
         </member>
-        <member name="M:Retyped.es5.Float64Array.reduce(Retyped.es5.Float64Array.reduceFn,System.Int64)">
+        <member name="M:Retyped.es5.Float64Array.reduce(Retyped.es5.Float64Array.reduceFn,System.Double)">
             <summary>
             Calls the specified callback function for all the elements in an array. The return value of
             the callback function is the accumulated result, and is provided as an argument in the next
@@ -6171,7 +6252,7 @@
             the callbackfn function one time for each element in the array.
             </param>
         </member>
-        <member name="M:Retyped.es5.Float64Array.reduceRight(Retyped.es5.Float64Array.reduceRightFn,System.Int64)">
+        <member name="M:Retyped.es5.Float64Array.reduceRight(Retyped.es5.Float64Array.reduceRightFn,System.Double)">
             <summary>
             Calls the specified callback function for all the elements in an array, in descending order.
             The return value of the callback function is the accumulated result, and is provided as an
@@ -6214,7 +6295,7 @@
             </summary>
             <param name = "array">A typed or untyped array of values to set.</param>
         </member>
-        <member name="M:Retyped.es5.Float64Array.set(Retyped.es5.ArrayLike{System.Double},System.UInt32)">
+        <member name="M:Retyped.es5.Float64Array.set(Retyped.es5.ArrayLike{System.Double},System.Double)">
             <summary>
             Sets a value or an array of values.
             </summary>
@@ -6226,13 +6307,13 @@
             Returns a section of an array.
             </summary>
         </member>
-        <member name="M:Retyped.es5.Float64Array.slice(System.UInt32)">
+        <member name="M:Retyped.es5.Float64Array.slice(System.Double)">
             <summary>
             Returns a section of an array.
             </summary>
             <param name = "start">The beginning of the specified portion of the array.</param>
         </member>
-        <member name="M:Retyped.es5.Float64Array.slice(System.UInt32,System.UInt32)">
+        <member name="M:Retyped.es5.Float64Array.slice(System.Double,System.Double)">
             <summary>
             Returns a section of an array.
             </summary>
@@ -6277,14 +6358,14 @@
             omitted, the elements are sorted in ascending, ASCII character order.
             </param>
         </member>
-        <member name="M:Retyped.es5.Float64Array.subarray(System.UInt32)">
+        <member name="M:Retyped.es5.Float64Array.subarray(System.Double)">
             <summary>
             Gets a new Float64Array view of the ArrayBuffer store for this array, referencing the elements
             at begin, inclusive, up to end, exclusive.
             </summary>
             <param name = "begin">The index of the beginning of the array.</param>
         </member>
-        <member name="M:Retyped.es5.Float64Array.subarray(System.UInt32,System.Int32)">
+        <member name="M:Retyped.es5.Float64Array.subarray(System.Double,System.Double)">
             <summary>
             Gets a new Float64Array view of the ArrayBuffer store for this array, referencing the elements
             at begin, inclusive, up to end, exclusive.

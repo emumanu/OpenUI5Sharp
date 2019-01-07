@@ -8,6 +8,7 @@ using UI5;
 namespace UI5.Metadata
 {
     [FileName("openui5sharp.js")]
+    [Name("UI5.Metadata.TypedMetadata")]
     public static partial class TypedMetadata
     {
         public static sap.ui.@base.ManagedObject.EventInfo CreateUI5EventInfo<T>()

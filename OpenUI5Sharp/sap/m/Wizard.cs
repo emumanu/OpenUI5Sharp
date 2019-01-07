@@ -180,7 +180,7 @@ namespace UI5
 				public extern virtual bool getShowNextButton();
 
 				/// <summary>
-				/// Sets the visiblity of the next button.
+				/// Sets the visibility of the next button.
 				/// </summary>
 				/// <param name="value">True to show the button or false to hide it.</param>
 				/// <returns>Reference to the control instance for chaining.</returns>
@@ -488,7 +488,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.Wizard.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Returns the number of the last activated step in the Wizard.

@@ -12,6 +12,7 @@ namespace UI5
 			[External]
 			[Namespace(false)]
 			[Name("jQuery.sap.interaction")]
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/trace/Interaction} instead")]
 			public static partial class interaction
 			{
 				#region Methods

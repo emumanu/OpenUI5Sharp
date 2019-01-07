@@ -16,7 +16,7 @@ namespace UI5
 			/// 
 			/// The control visualizes text information without user interaction. The text inside the control is always in upper case. It can have smaller or larger side paddings which can be specified by the <code>renderMode</code> property. The text-background color pair can be changed by setting a digit between 1 and 9 that corresponds to the 9 predefined color combinations of the <code>colorScheme</code> property. The control is designed to be vertically aligned with UI5 Input and Button control families. When using <code>InfoLabel</code> in non-editable <code>Forms</code>, <code>Tables</code>, etc., set <code>displayOnly=true</code> for best visual results.
 			/// 
-			/// <h3>Limitations</h3> <ul> <li>If the text is longer than the width of the control, it doesn’t wrap. Instead, it’s represented as ellipsis. </li> <li>When truncated, the full text in the control is not visible. Therefore, it’s recommended to make more space for longer items to be fully displayed.</li> <li>Colors are not semantic and have no visual representation in sap_belize_hcb and sap_belize_hcw themes.</li> <li>The control shows plain text only, formatting is not visualized.</li> </ul>
+			/// <h3>Usage Guidelines</h3> <ul> <li>If the text is longer than the width of the control, it doesn’t wrap. Instead, it’s represented as ellipsis. </li> <li>When truncated, the full text in the control is not visible. Therefore, it’s recommended to make more space for longer items to be fully displayed.</li> <li>Colors are not semantic and have no visual representation in sap_belize_hcb and sap_belize_hcw themes.</li> <li>The control shows plain text only, formatting is not visualized.</li> </ul>
 			/// </summary>
 			[External]
 			[Namespace(false)]
@@ -136,7 +136,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oBindingInfo">The binding information</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.tnt.InfoLabel bindText(object oBindingInfo);
+				public extern virtual sap.tnt.InfoLabel bindText(sap.ui.@base.ManagedObject.BindPropertyInfo oBindingInfo);
 
 				/// <summary>
 				/// Unbinds property {@link #getText text} from model data.
@@ -313,7 +313,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.tnt.InfoLabel.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				#endregion
 

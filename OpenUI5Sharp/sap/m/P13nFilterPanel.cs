@@ -54,19 +54,82 @@ namespace UI5
 					/// <summary>
 					/// Event raised if a filter item has been added.
 					/// </summary>
-					public sap.ui.@base.EventDelegate addFilterItem;
+					public sap.m.P13nFilterPanel.FilterItemDelegate addFilterItem;
 
 					/// <summary>
 					/// Event raised if a filter item has been removed.
 					/// </summary>
-					public sap.ui.@base.EventDelegate removeFilterItem;
+					public sap.m.P13nRemoveItemDelegate removeFilterItem;
 
 					/// <summary>
 					/// Event raised if a filter item has been updated.
 					/// </summary>
-					public sap.ui.@base.EventDelegate updateFilterItem;
+					public sap.m.P13nFilterPanel.FilterItemDelegate updateFilterItem;
+
+					/// <summary>
+					/// Event raised if a filter item has been changed. reason can be added, updated or removed.
+					/// </summary>
+					public sap.m.P13nFilterPanel.FilterItemChangedDelegate filterItemChanged;
 
 				}
+
+				#endregion
+
+				#region Typed Parameters
+
+				/// <summary>
+				/// Parameter to be used as Object Literal
+				/// </summary>
+				[External]
+				[ObjectLiteral]
+				public partial class FilterItemInfo
+				{
+					public string id;
+
+					public int index;
+
+					public string key;
+
+					public sap.m.P13nFilterItem filterItemData;
+
+				}
+
+				/// <summary>
+				/// Parameter to be used as Object Literal
+				/// </summary>
+				[External]
+				[ObjectLiteral]
+				public partial class FilterItemChangedInfo
+				{
+					/// <summary>
+					/// reason for the changeFilterItem event. Value can be added, updated or removed.
+					/// </summary>
+					public string reason;
+
+					/// <summary>
+					/// key of the changed filterItem
+					/// </summary>
+					public string key;
+
+					/// <summary>
+					/// index of the changed filterItem
+					/// </summary>
+					public int index;
+
+					/// <summary>
+					/// JSON object of the changed filterItem instance (in case of reason=="removed" the itemData parameter does not exist)
+					/// </summary>
+					public object itemData;
+
+				}
+
+				#endregion
+
+				#region Delegates
+
+				public delegate void FilterItemDelegate(sap.ui.@base.Event<sap.m.P13nFilterPanel.FilterItemInfo> oEvent, object oData);
+
+				public delegate void FilterItemChangedDelegate(sap.ui.@base.Event<sap.m.P13nFilterPanel.FilterItemChangedInfo> oEvent, object oData);
 
 				#endregion
 
@@ -276,7 +339,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oBindingInfo">The binding information</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nFilterPanel bindFilterItems(object oBindingInfo);
+				public extern virtual sap.m.P13nFilterPanel bindFilterItems(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 				/// <summary>
 				/// Unbinds aggregation {@link #getFilterItems filterItems} from model data.
@@ -299,7 +362,7 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.P13nFilterPanel</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nFilterPanel attachAddFilterItem(object oData, sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nFilterPanel attachAddFilterItem(object oData, sap.m.P13nFilterPanel.FilterItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:addFilterItem addFilterItem} event of this <code>sap.m.P13nFilterPanel</code>.
@@ -311,7 +374,7 @@ namespace UI5
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nFilterPanel attachAddFilterItem(object oData, sap.ui.@base.EventDelegate fnFunction);
+				public extern virtual sap.m.P13nFilterPanel attachAddFilterItem(object oData, sap.m.P13nFilterPanel.FilterItemDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:addFilterItem addFilterItem} event of this <code>sap.m.P13nFilterPanel</code>.
@@ -322,7 +385,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nFilterPanel attachAddFilterItem(sap.ui.@base.EventDelegate fnFunction);
+				public extern virtual sap.m.P13nFilterPanel attachAddFilterItem(sap.m.P13nFilterPanel.FilterItemDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:addFilterItem addFilterItem} event of this <code>sap.m.P13nFilterPanel</code>.
@@ -334,7 +397,7 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.P13nFilterPanel</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nFilterPanel attachAddFilterItem(sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nFilterPanel attachAddFilterItem(sap.m.P13nFilterPanel.FilterItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:addFilterItem addFilterItem} event of this <code>sap.m.P13nFilterPanel</code>.
@@ -344,14 +407,14 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nFilterPanel detachAddFilterItem(sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nFilterPanel detachAddFilterItem(sap.m.P13nFilterPanel.FilterItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:addFilterItem addFilterItem} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nFilterPanel fireAddFilterItem(object mParameters);
+				public extern virtual sap.m.P13nFilterPanel fireAddFilterItem(sap.m.P13nFilterPanel.FilterItemInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:addFilterItem addFilterItem} to attached listeners.
@@ -374,7 +437,7 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.P13nFilterPanel</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nFilterPanel attachRemoveFilterItem(object oData, sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nFilterPanel attachRemoveFilterItem(object oData, sap.m.P13nRemoveItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:removeFilterItem removeFilterItem} event of this <code>sap.m.P13nFilterPanel</code>.
@@ -386,7 +449,7 @@ namespace UI5
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nFilterPanel attachRemoveFilterItem(object oData, sap.ui.@base.EventDelegate fnFunction);
+				public extern virtual sap.m.P13nFilterPanel attachRemoveFilterItem(object oData, sap.m.P13nRemoveItemDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:removeFilterItem removeFilterItem} event of this <code>sap.m.P13nFilterPanel</code>.
@@ -397,7 +460,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nFilterPanel attachRemoveFilterItem(sap.ui.@base.EventDelegate fnFunction);
+				public extern virtual sap.m.P13nFilterPanel attachRemoveFilterItem(sap.m.P13nRemoveItemDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:removeFilterItem removeFilterItem} event of this <code>sap.m.P13nFilterPanel</code>.
@@ -409,7 +472,7 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.P13nFilterPanel</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nFilterPanel attachRemoveFilterItem(sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nFilterPanel attachRemoveFilterItem(sap.m.P13nRemoveItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:removeFilterItem removeFilterItem} event of this <code>sap.m.P13nFilterPanel</code>.
@@ -419,14 +482,14 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nFilterPanel detachRemoveFilterItem(sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nFilterPanel detachRemoveFilterItem(sap.m.P13nRemoveItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:removeFilterItem removeFilterItem} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nFilterPanel fireRemoveFilterItem(object mParameters);
+				public extern virtual sap.m.P13nFilterPanel fireRemoveFilterItem(sap.m.P13nRemoveItemInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:removeFilterItem removeFilterItem} to attached listeners.
@@ -449,7 +512,7 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.P13nFilterPanel</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nFilterPanel attachUpdateFilterItem(object oData, sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nFilterPanel attachUpdateFilterItem(object oData, sap.m.P13nFilterPanel.FilterItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:updateFilterItem updateFilterItem} event of this <code>sap.m.P13nFilterPanel</code>.
@@ -461,7 +524,7 @@ namespace UI5
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nFilterPanel attachUpdateFilterItem(object oData, sap.ui.@base.EventDelegate fnFunction);
+				public extern virtual sap.m.P13nFilterPanel attachUpdateFilterItem(object oData, sap.m.P13nFilterPanel.FilterItemDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:updateFilterItem updateFilterItem} event of this <code>sap.m.P13nFilterPanel</code>.
@@ -472,7 +535,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nFilterPanel attachUpdateFilterItem(sap.ui.@base.EventDelegate fnFunction);
+				public extern virtual sap.m.P13nFilterPanel attachUpdateFilterItem(sap.m.P13nFilterPanel.FilterItemDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:updateFilterItem updateFilterItem} event of this <code>sap.m.P13nFilterPanel</code>.
@@ -484,7 +547,7 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.P13nFilterPanel</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nFilterPanel attachUpdateFilterItem(sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nFilterPanel attachUpdateFilterItem(sap.m.P13nFilterPanel.FilterItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:updateFilterItem updateFilterItem} event of this <code>sap.m.P13nFilterPanel</code>.
@@ -494,20 +557,95 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nFilterPanel detachUpdateFilterItem(sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nFilterPanel detachUpdateFilterItem(sap.m.P13nFilterPanel.FilterItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:updateFilterItem updateFilterItem} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nFilterPanel fireUpdateFilterItem(object mParameters);
+				public extern virtual sap.m.P13nFilterPanel fireUpdateFilterItem(sap.m.P13nFilterPanel.FilterItemInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:updateFilterItem updateFilterItem} to attached listeners.
 				/// </summary>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
 				public extern virtual sap.m.P13nFilterPanel fireUpdateFilterItem();
+
+				#endregion
+
+				#region Methods for Event filterItemChanged
+
+				/// <summary>
+				/// Attaches event handler <code>fnFunction</code> to the {@link #event:filterItemChanged filterItemChanged} event of this <code>sap.m.P13nFilterPanel</code>.
+				/// 
+				/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.m.P13nFilterPanel</code> itself.
+				/// 
+				/// Event raised if a filter item has been changed. reason can be added, updated or removed.
+				/// </summary>
+				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
+				/// <param name="fnFunction">The function to be called when the event occurs</param>
+				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.P13nFilterPanel</code> itself</param>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.P13nFilterPanel attachFilterItemChanged(object oData, sap.m.P13nFilterPanel.FilterItemChangedDelegate fnFunction, object oListener);
+
+				/// <summary>
+				/// Attaches event handler <code>fnFunction</code> to the {@link #event:filterItemChanged filterItemChanged} event of this <code>sap.m.P13nFilterPanel</code>.
+				/// 
+				/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.m.P13nFilterPanel</code> itself.
+				/// 
+				/// Event raised if a filter item has been changed. reason can be added, updated or removed.
+				/// </summary>
+				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
+				/// <param name="fnFunction">The function to be called when the event occurs</param>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.P13nFilterPanel attachFilterItemChanged(object oData, sap.m.P13nFilterPanel.FilterItemChangedDelegate fnFunction);
+
+				/// <summary>
+				/// Attaches event handler <code>fnFunction</code> to the {@link #event:filterItemChanged filterItemChanged} event of this <code>sap.m.P13nFilterPanel</code>.
+				/// 
+				/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.m.P13nFilterPanel</code> itself.
+				/// 
+				/// Event raised if a filter item has been changed. reason can be added, updated or removed.
+				/// </summary>
+				/// <param name="fnFunction">The function to be called when the event occurs</param>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.P13nFilterPanel attachFilterItemChanged(sap.m.P13nFilterPanel.FilterItemChangedDelegate fnFunction);
+
+				/// <summary>
+				/// Attaches event handler <code>fnFunction</code> to the {@link #event:filterItemChanged filterItemChanged} event of this <code>sap.m.P13nFilterPanel</code>.
+				/// 
+				/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.m.P13nFilterPanel</code> itself.
+				/// 
+				/// Event raised if a filter item has been changed. reason can be added, updated or removed.
+				/// </summary>
+				/// <param name="fnFunction">The function to be called when the event occurs</param>
+				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.P13nFilterPanel</code> itself</param>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.P13nFilterPanel attachFilterItemChanged(sap.m.P13nFilterPanel.FilterItemChangedDelegate fnFunction, object oListener);
+
+				/// <summary>
+				/// Detaches event handler <code>fnFunction</code> from the {@link #event:filterItemChanged filterItemChanged} event of this <code>sap.m.P13nFilterPanel</code>.
+				/// 
+				/// The passed function and listener object must match the ones used for event registration.
+				/// </summary>
+				/// <param name="fnFunction">The function to be called, when the event occurs</param>
+				/// <param name="oListener">Context object on which the given function had to be called</param>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.P13nFilterPanel detachFilterItemChanged(sap.m.P13nFilterPanel.FilterItemChangedDelegate fnFunction, object oListener);
+
+				/// <summary>
+				/// Fires event {@link #event:filterItemChanged filterItemChanged} to attached listeners.
+				/// </summary>
+				/// <param name="mParameters">Parameters to pass along with the event</param>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.P13nFilterPanel fireFilterItemChanged(sap.m.P13nFilterPanel.FilterItemChangedInfo mParameters);
+
+				/// <summary>
+				/// Fires event {@link #event:filterItemChanged filterItemChanged} to attached listeners.
+				/// </summary>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.P13nFilterPanel fireFilterItemChanged();
 
 				#endregion
 
@@ -546,7 +684,8 @@ namespace UI5
 				/// <summary>
 				/// Returns the array of conditions.
 				/// </summary>
-				public extern virtual void getConditions();
+				/// <returns>array of Conditions</returns>
+				public extern virtual sap.m.P13nCondition[] getConditions();
 
 				/// <summary>
 				/// Getter for the exclude operations.
@@ -558,15 +697,16 @@ namespace UI5
 				/// <summary>
 				/// Getter for the include operations.
 				/// </summary>
-				/// <param name="the">type for which the operations are defined</param>
+				/// <param name="sType">for which the operations are defined</param>
 				/// <returns>array of operations [<code>sap.m.P13nConditionOperation.BT</code>, <code>sap.m.P13nConditionOperation.EQ</code>]</returns>
-				public extern virtual sap.m.P13nConditionOperation getIncludeOperations(string the);
+				public extern virtual sap.m.P13nConditionOperation getIncludeOperations(string sType);
 
 				/// <summary>
 				/// Returns a metadata object for class sap.m.P13nFilterPanel.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Removes all invalid conditions.

@@ -10,9 +10,9 @@ namespace UI5
 		public static partial class m
 		{
 			/// <summary>
-			/// A popup that interrupts the current processing and prompts the user for an action or an input, in a modal mode. <h3>Overview</h3> The Dialog control is used to prompt the user for an action or a confirmation. It interrupts the current app processing as it is the only focused UI element and the main screen is dimmed/blocked. The content of the dialog is fully customizable. <h3>Structure</h3> A dialog consists of a title, optional subtitle, content area and a footer for action buttons. The dialog is usually displayed at the center of the screen. Its size and position can be changed by the user. To enable this, you need to set the properties <code>resizable</code> and <code>draggable</code> accordingly.
+			/// A popup that interrupts the current processing and prompts the user for an action or an input in a modal mode. <h3>Overview</h3> The Dialog control is used to prompt the user for an action or a confirmation. It interrupts the current app processing as it is the only focused UI element and the main screen is dimmed/blocked. The content of the Dialog is fully customizable. <h3>Structure</h3> A Dialog consists of a title, optional subtitle, content area and a footer for action buttons. The Dialog is usually displayed at the center of the screen. Its size and position can be changed by the user. To enable this, you need to set the properties <code>resizable</code> and <code>draggable</code> accordingly.
 			/// 
-			/// There are other specialized types of dialogs: <ul> <li>{@link sap.m.P13nDialog Personalization dialog} - used for personalizing sorting, filtering and grouping in tables</li> <li>{@link sap.m.SelectDialog Select dialog} - used to select one or more items from a comprehensive list</li> <li>{@link sap.m.TableSelectDialog Table select dialog} - used to make a selection from a comprehensive table containing multiple attributes or values</li> <li>{@link sap.ui.comp.valuehelpdialog.ValueHelpDialog Value help dialog} - used to help the user find and select single and multiple values</li> <li>{@link sap.m.ViewSettingsDialog View settings dialog} - used to sort, filter, or group data within a (master) list or a table</li> <li>{@link sap.m.BusyDialog Busy dialog} - used to block the screen and inform the user about an ongoing operation</li> </ul> <h3>Usage</h3> <h4>When to use:</h4> <ul> <li>You want to display a system message.</li> <li>You want to interrupt the user’s action.</li> <li>You want to show a message with a short and a long description.</li> </ul> <h4>When not to use:</h4> <ul> <li>You just want to confirm a successful action.</li> </ul> <h3>Responsive Behavior</h3> <ul> <li>If the <code>stretch</code> property is set to true, the dialog displays on full screen.</li> <li>If the <code>contentWidth</code> and/or <code>contentHeight</code> properties are set, the dialog will try to fill those sizes.</li> <li>If there is no specific sizing, the dialog will try to adjust its size to its content.</li> </ul> <h4>Smartphones</h4> If the dialog has one or two actions they will cover the entire footer. If there are more actions, they will overflow. <h4>Tablets</h4> The action buttons in the toolbar are <b>right-aligned</b>. Use <b>cozy</b> mode on tablet devices. <h4>Desktop</h4> The action buttons in the toolbar are <b>right-aligned</b>. Use <b>compact</b> mode on desktop.
+			/// There are other specialized types of dialogs: <ul> <li>{@link sap.m.P13nDialog Personalization Dialog} - used for personalizing sorting, filtering and grouping in tables</li> <li>{@link sap.m.SelectDialog Select Dialog} - used to select one or more items from a comprehensive list</li> <li>{@link sap.m.TableSelectDialog Table Select Dialog} - used to make a selection from a comprehensive table containing multiple attributes or values</li> <li>{@link sap.ui.comp.valuehelpdialog.ValueHelpDialog Value Help Dialog} - used to help the user find and select single and multiple values</li> <li>{@link sap.m.ViewSettingsDialog View Settings Dialog} - used to sort, filter, or group data within a (master) list or a table</li> <li>{@link sap.m.BusyDialog Busy Dialog} - used to block the screen and inform the user about an ongoing operation</li> </ul> <h3>Usage</h3> <h4>When to use:</h4> <ul> <li>You want to display a system message.</li> <li>You want to interrupt the user’s action.</li> <li>You want to show a message with a short and a long description.</li> </ul> <h4>When not to use:</h4> <ul> <li>You just want to confirm a successful action.</li> </ul> <h3>Responsive Behavior</h3> <ul> <li>If the <code>stretch</code> property is set to <code>true</code>, the Dialog displays on full screen.</li> <li>If the <code>contentWidth</code> and/or <code>contentHeight</code> properties are set, the Dialog will try to fill those sizes.</li> <li>If there is no specific sizing, the Dialog will try to adjust its size to its content.</li> </ul> <h4>Smartphones</h4> If the Dialog has one or two actions, they will cover the entire footer. If there are more actions, they will overflow. <h4>Tablets</h4> The action buttons in the toolbar are <b>right-aligned</b>. Use <b>cozy</b> mode on tablet devices. <h4>Desktop</h4> The action buttons in the toolbar are <b>right-aligned</b>. Use <b>compact</b> mode on desktop.
 			/// </summary>
 			[External]
 			[Namespace(false)]
@@ -29,147 +29,147 @@ namespace UI5
 				public partial class Settings : sap.ui.core.Control.Settings
 				{
 					/// <summary>
-					/// Icon displayed in the dialog's header. This icon is invisible on the iOS platform and it's density aware. You can use the density convention (@2, @1.5, etc.) to provide higher resolution image for higher density screen.
+					/// Icon displayed in the Dialog header. This <code>icon</code> is invisible on the iOS platform and it is density-aware. You can use the density convention (@2, @1.5, etc.) to provide higher resolution image for higher density screen.
 					/// </summary>
 					public Union<sap.ui.core.URI, string, sap.ui.@base.ManagedObject.BindPropertyInfo> icon;
 
 					/// <summary>
-					/// Title text appears in the dialog header.
+					/// Title text appears in the Dialog header.
 					/// </summary>
 					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> title;
 
 					/// <summary>
-					/// Determines whether the header is shown inside the dialog. If this property is set to true, the text and icon property are ignored. This property has a default value true.
+					/// Determines whether the header is shown inside the Dialog. If this property is set to <code>true</code>, the <code>text</code> and <code>icon</code> properties are ignored. This property has a default value <code>true</code>.
 					/// </summary>
 					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showHeader;
 
 					/// <summary>
-					/// The type of the dialog. In some themes, the type "message" will limit the dialog's width within 480px on tablet and desktop.
+					/// The <code>type</code> of the Dialog. In some themes, the type Message will limit the Dialog width within 480px on tablet and desktop.
 					/// </summary>
 					public Union<sap.m.DialogType, string, sap.ui.@base.ManagedObject.BindPropertyInfo> type;
 
 					/// <summary>
-					/// The state affects the icon and the title color. If other than "None" is set, a predefined icon will be added to the dialog. Setting icon property will overwrite the predefined icon. The default value is "None" which doesn't add any icon to the Dialog control. This property is by now only supported by blue crystal theme.
+					/// Affects the <code>icon</code> and the <code>title</code> color. If other than <code>none</code> is set, a predefined icon will be added to the Dialog. Setting the <code>icon</code> property will overwrite the predefined icon. The default value is <code>none</code> which doesn't add any icon to the Dialog control. This property is by now only supported by the blue crystal theme.
 					/// </summary>
 					public Union<sap.ui.core.ValueState, string, sap.ui.@base.ManagedObject.BindPropertyInfo> state;
 
 					/// <summary>
-					/// Determines whether the dialog will displayed on full screen on a phone.
+					/// Determines whether the Dialog will be displayed on full screen on a phone.
 					/// </summary>
 					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> stretchOnPhone;
 
 					/// <summary>
-					/// Determines if the dialog will be stretched to full screen on mobile, when on desktop the dialog will be stretched to 93% of the viewport. This property is only applicable to standard dialog and message type dialog ignores this property.
+					/// Determines if the Dialog will be stretched to full screen on mobile. On desktop, the Dialog will be stretched to 93% of the viewport. This property is only applicable to a Standard Dialog. Message-type Dialog ignores it.
 					/// </summary>
 					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> stretch;
 
 					/// <summary>
-					/// Preferred width of content in Dialog. This property affects the width of dialog on phone in landscape mode, tablet or desktop, because the dialog has a fixed width on phone in portrait mode. If the preferred width is less than the minimum width of the dialog or more than the available width of the screen, it will be overwritten by the min or max value. The current mininum value of dialog width on tablet is 400px.
+					/// Preferred width of the content in the Dialog. This property affects the width of the Dialog on a phone in landscape mode, a tablet or a desktop, because the Dialog has a fixed width on a phone in portrait mode. If the preferred width is less than the minimum width of the Dialog or more than the available width of the screen, it will be overwritten by the min or max value. The current mininum value of the Dialog width on tablet is 400px.
 					/// </summary>
 					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> contentWidth;
 
 					/// <summary>
-					/// Preferred height of content in Dialog. If the preferred height is bigger than the available space on screen, it will be overwritten by the maximum available height on screen in order to make sure that dialog isn't cut off.
+					/// Preferred height of the content in the Dialog. If the preferred height is bigger than the available space on a screen, it will be overwritten by the maximum available height on a screen in order to make sure that the Dialog isn't cut off.
 					/// </summary>
 					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> contentHeight;
 
 					/// <summary>
-					/// Indicates if user can scroll horizontally inside dialog when the content is bigger than the content area. Dialog detects if there's sap.m.NavContainer, sap.m.Page, sap.m.ScrollContainer or sap.m.SplitContainer as direct child added to dialog. If there is, dialog will turn off scrolling by setting this property to false automatically ignoring the existing value of this property.
+					/// Indicates if the user can scroll horizontally inside the Dialog when the content is bigger than the content area. The Dialog detects if there's <code>sap.m.NavContainer</code>, <code>sap.m.Page</code>, <code>sap.m.ScrollContainer</code> or <code>sap.m.SplitContainer</code> as a direct child added to the Dialog. If there is, the Dialog will turn off <code>scrolling</code> by setting this property to <code>false</code>, automatically ignoring the existing value of the property.
 					/// </summary>
 					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> horizontalScrolling;
 
 					/// <summary>
-					/// Indicates if user can scroll vertically inside dialog when the content is bigger than the content area. Dialog detects if there's sap.m.NavContainer, sap.m.Page, sap.m.ScrollContainer or sap.m.SplitContainer as direct child added to dialog. If there is, dialog will turn off scrolling by setting this property to false automatically ignoring the existing value of this property.
+					/// Indicates if the user can scroll vertically inside the Dialog when the content is bigger than the content area. The Dialog detects if there's <code>sap.m.NavContainer</code>, <code>sap.m.Page</code>, <code>sap.m.ScrollContainer</code> or <code>sap.m.SplitContainer</code> as a direct child added to the Dialog. If there is, the Dialog will turn off <code>scrolling</code> by setting this property to <code>false</code>, automatically ignoring the existing value of this property.
 					/// </summary>
 					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> verticalScrolling;
 
 					/// <summary>
-					/// Indicates whether the dialog is resizable. the dialog is resizable. If this property is set to true, the dialog will have a resize handler in it's bottom right corner. This property has a default value false. The Dialog can be resizable only in desktop mode.
+					/// Indicates whether the Dialog is resizable. If this property is set to <code>true</code>, the Dialog will have a resize handler in its bottom right corner. This property has a default value <code>false</code>. The Dialog can be resizable only in desktop mode.
 					/// </summary>
 					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> resizable;
 
 					/// <summary>
-					/// Indicates whether the dialog is draggable. If this property is set to true, the dialog will be draggable by it's header. This property has a default value false. The Dialog can be draggable only in desktop mode.
+					/// Indicates whether the Dialog is draggable. If this property is set to <code>true</code>, the Dialog will be draggable by its header. This property has a default value <code>false</code>. The Dialog can be draggable only in desktop mode.
 					/// </summary>
 					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> draggable;
 
 					/// <summary>
-					/// This property expects a function with one parameter of type <code>Promise</code>. In the function you should call either <code>resolve()</code> or <code>reject()</code> on the <code>Promise</code> object.<br/> The function allows you to define custom behaviour which will be executed when the ESCAPE key is pressed. By default when the ESCAPE key is pressed the Dialog is immediately closed.
+					/// This property expects a function with one parameter of type Promise. In the function, you should call either <code>resolve()</code> or <code>reject()</code> on the Promise object.<br/> The function allows you to define custom behavior which will be executed when the Escape key is pressed. By default, when the Escape key is pressed, the Dialog is immediately closed.
 					/// </summary>
 					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> escapeHandler;
 
 					/// <summary>
-					/// The content inside the dialog.<br/><b>Note:</b> When the content of the <code>Dialog</code> is comprised of controls that use <code>position: absolute</code>, such as <code>SplitContainer</code>, the dialog has to have either <code>stretch: true</code> or <code>contentHeight</code> set.
+					/// The content inside the Dialog.<br/><b>Note:</b> When the content of the Dialog is comprised of controls that use <code>position: absolute</code>, such as <code>SplitContainer</code>, the Dialog has to have either <code>stretch: true</code> or <code>contentHeight</code> set.
 					/// </summary>
 					public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
 
 					/// <summary>
-					/// When subHeader is assigned to Dialog, it's rendered directly after the main header in Dialog. SubHeader is out of the content area and won't be scrolled when content's size is bigger than the content area's size.
+					/// When a <code>subHeader</code> is assigned to the Dialog, it's rendered directly after the main header in the Dialog. The <code>subHeader</code> is out of the content area and won't be scrolled when the content size is bigger than the content area size.
 					/// </summary>
 					public Union<sap.m.IBar, string, sap.ui.@base.ManagedObject.BindAggregationInfo> subHeader;
 
 					/// <summary>
-					/// CustomHeader is only supported in some themes. When it's set, the icon, title and showHeader are properties ignored. Only the customHeader is shown as the header of the dialog.
+					/// When it is set, the <code>icon</code>, <code>title</code> and <code>showHeader</code> properties are ignored. Only the <code>customHeader</code> is shown as the header of the Dialog.
 					/// </summary>
 					public Union<sap.m.IBar, string, sap.ui.@base.ManagedObject.BindAggregationInfo> customHeader;
 
 					/// <summary>
-					/// The button which is rendered to the left side (right side in RTL mode) of the endButton in the footer area inside the dialog. From UI5 version 1.21.1, there's a new aggregation "buttons" created with which more than 2 buttons can be added to the footer area of dialog. If the new "buttons" aggregation is set, any change made to this aggregation has no effect anymore. When runs on the phone, this button (and the endButton together when set) is (are) rendered at the center of the footer area. When runs on the other platforms, this button (and the endButton together when set) is (are) rendered at the right side (left side in RTL mode) of the footer area.
+					/// The button which is rendered to the left side (right side in RTL mode) of the <code>endButton</code> in the footer area inside the Dialog. As of version 1.21.1, there's a new aggregation <code>buttons</code> created with which more than 2 buttons can be added to the footer area of the Dialog. If the new <code>buttons</code> aggregation is set, any change made to this aggregation has no effect anymore. When running on a phone, this <code>button</code> (and the <code>endButton</code> together when set) is (are) rendered at the center of the footer area. When running on other platforms, this <code>button</code> (and the <code>endButton</code> together when set) is (are) rendered at the right side (left side in RTL mode) of the footer area.
 					/// </summary>
 					public Union<sap.m.Button, string, sap.ui.@base.ManagedObject.BindAggregationInfo> beginButton;
 
 					/// <summary>
-					/// The button which is rendered to the right side (left side in RTL mode) of the beginButton in the footer area inside the dialog. From UI5 version 1.21.1, there's a new aggregation "buttons" created with which more than 2 buttons can be added to the footer area of dialog. If the new "buttons" aggregation is set, any change made to this aggregation has no effect anymore. When runs on the phone, this button (and the beginButton together when set) is (are) rendered at the center of the footer area. When runs on the other platforms, this button (and the beginButton together when set) is (are) rendered at the right side (left side in RTL mode) of the footer area.
+					/// The button which is rendered to the right side (left side in RTL mode) of the <code>beginButton</code> in the footer area inside the Dialog. As of version 1.21.1, there's a new aggregation <code>buttons<code> created with which more than 2 buttons can be added to the footer area of Dialog. If the new <code>buttons</code> aggregation is set, any change made to this aggregation has no effect anymore. When running on a phone, this <code>button</code> (and the <code>beginButton</code> together when set) is (are) rendered at the center of the footer area. When running on other platforms, this <code>button</code> (and the <code>beginButton</code> together when set) is (are) rendered at the right side (left side in RTL mode) of the footer area.
 					/// </summary>
 					public Union<sap.m.Button, string, sap.ui.@base.ManagedObject.BindAggregationInfo> endButton;
 
 					/// <summary>
-					/// Buttons can be added to the footer area of dialog through this aggregation. When this aggregation is set, any change to beginButton and endButton has no effect anymore. Buttons which are inside this aggregation are aligned at the right side (left side in RTL mode) of the footer instead of in the middle of the footer.
+					/// Buttons can be added to the footer area of the Dialog through this aggregation. When this aggregation is set, any change to the <code>beginButton</code> and <code>endButton</code> has no effect anymore. Buttons which are inside this aggregation are aligned at the right side (left side in RTL mode) of the footer instead of in the middle of the footer.
 					/// </summary>
 					public Union<sap.m.Button[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> buttons;
 
 					/// <summary>
-					/// LeftButton is shown at the left edge of the bar in iOS, and at the right side of the bar for the other platforms. Please set this to null if you want to remove the left button from the bar. And the button is only removed from the bar, not destroyed. When showHeader is set to false, this property will be ignored. Setting leftButton will also set the beginButton internally.
+					/// <code>LeftButton</code> is shown at the left edge of the bar in iOS, and at the right side of the bar for the other platforms. Please set this to <code>null</code> if you want to remove the Left button from the bar. And the button is only removed from the bar, not destroyed. When <code>showHeader</code> is set to <code>false</code>, this property will be ignored. Setting <code>leftButton</code> will also set the <code>beginButton</code> internally.
 					/// </summary>
 					public Union<sap.m.Button, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> leftButton;
 
 					/// <summary>
-					/// RightButton is always shown at the right edge of the bar. Please set this to null if you want to remove the right button from the bar. And the button is only removed from the bar, not destroyed. When showHeader is set to false, this property will be ignored. Setting rightButton will also set the endButton internally.
+					/// <code>RightButton</code> is always shown at the right edge of the bar. Please set this to null if you want to remove the Right button from the bar. And the button is only removed from the bar, not destroyed. When <code>showHeader</code> is set to false, this property will be ignored. Setting <code>rightButton</code> will also set the <code>endButton</code> internally.
 					/// </summary>
 					public Union<sap.m.Button, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> rightButton;
 
 					/// <summary>
-					/// Focus is set to the dialog in the sequence of leftButton and rightButton when available. But if some other control needs to get the focus other than one of those two buttons, set the initialFocus with the control which should be focused on. Setting initialFocus to input controls doesn't open the on screen keyboard on mobile device, this is due to the browser limitation that the on screen keyboard can't be opened with javascript code. The opening of on screen keyboard must be triggered by real user action.
+					/// In the Dialog focus is set first on the <code>leftButton</code> and then on <code>rightButton</code>, when available. If another control needs to get the focus, set the <code>initialFocus</code> with the control which should be focused on. Setting <code>initialFocus</code> to input controls doesn't open the On-Screen keyboard on mobile device as, due to browser limitation, the On-Screen keyboard can't be opened with JavaScript code. The opening of On-Screen keyboard must be triggered by real user action.
 					/// </summary>
 					public Union<sap.ui.core.Control, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> initialFocus;
 
 					/// <summary>
-					/// Association to controls / ids which describe this control (see WAI-ARIA attribute aria-describedby).
+					/// Association to controls/IDs which describe this control (see WAI-ARIA attribute aria-describedby).
 					/// </summary>
 					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaDescribedBy;
 
 					/// <summary>
-					/// Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).
+					/// Association to controls/IDs which label this control (see WAI-ARIA attribute aria-labelledby).
 					/// </summary>
 					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
 
 					/// <summary>
-					/// This event will be fired before the dialog is opened.
+					/// This event will be fired before the Dialog is opened.
 					/// </summary>
 					public sap.ui.@base.EventDelegate beforeOpen;
 
 					/// <summary>
-					/// This event will be fired after the dialog is opened.
+					/// This event will be fired after the Dialog is opened.
 					/// </summary>
 					public sap.ui.@base.EventDelegate afterOpen;
 
 					/// <summary>
-					/// This event will be fired before the dialog is closed.
+					/// This event will be fired before the Dialog is closed.
 					/// </summary>
 					public sap.m.Dialog.CloseDelegate beforeClose;
 
 					/// <summary>
-					/// This event will be fired after the dialog is closed.
+					/// This event will be fired after the Dialog is closed.
 					/// </summary>
 					public sap.m.Dialog.CloseDelegate afterClose;
 
@@ -187,7 +187,7 @@ namespace UI5
 				public partial class CloseInfo
 				{
 					/// <summary>
-					/// This indicates the trigger of closing the dialog. If dialog is closed by either leftButton or rightButton, the button that closes the dialog is set to this parameter. Otherwise this parameter is set to null.
+					/// This indicates the trigger of closing the Dialog. If the Dialog is closed by either the <code>leftButton</code> or the <code>rightButton</code>, the button that closes the Dialog is set to this parameter. Otherwise, the parameter is set to <code>null</code>.
 					/// </summary>
 					public sap.m.Button origin;
 
@@ -244,7 +244,7 @@ namespace UI5
 				/// <summary>
 				/// Gets current value of property {@link #getIcon icon}.
 				/// 
-				/// Icon displayed in the dialog's header. This icon is invisible on the iOS platform and it's density aware. You can use the density convention (@2, @1.5, etc.) to provide higher resolution image for higher density screen.
+				/// Icon displayed in the Dialog header. This <code>icon</code> is invisible on the iOS platform and it is density-aware. You can use the density convention (@2, @1.5, etc.) to provide higher resolution image for higher density screen.
 				/// </summary>
 				/// <returns>Value of property <code>icon</code></returns>
 				public extern virtual sap.ui.core.URI getIcon();
@@ -252,7 +252,7 @@ namespace UI5
 				/// <summary>
 				/// Sets a new value for property {@link #getIcon icon}.
 				/// 
-				/// Icon displayed in the dialog's header. This icon is invisible on the iOS platform and it's density aware. You can use the density convention (@2, @1.5, etc.) to provide higher resolution image for higher density screen.
+				/// Icon displayed in the Dialog header. This <code>icon</code> is invisible on the iOS platform and it is density-aware. You can use the density convention (@2, @1.5, etc.) to provide higher resolution image for higher density screen.
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// </summary>
@@ -267,7 +267,7 @@ namespace UI5
 				/// <summary>
 				/// Gets current value of property {@link #getTitle title}.
 				/// 
-				/// Title text appears in the dialog header.
+				/// Title text appears in the Dialog header.
 				/// </summary>
 				/// <returns>Value of property <code>title</code></returns>
 				public extern virtual string getTitle();
@@ -275,7 +275,7 @@ namespace UI5
 				/// <summary>
 				/// Sets a new value for property {@link #getTitle title}.
 				/// 
-				/// Title text appears in the dialog header.
+				/// Title text appears in the Dialog header.
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// </summary>
@@ -290,7 +290,7 @@ namespace UI5
 				/// <summary>
 				/// Gets current value of property {@link #getShowHeader showHeader}.
 				/// 
-				/// Determines whether the header is shown inside the dialog. If this property is set to true, the text and icon property are ignored. This property has a default value true.
+				/// Determines whether the header is shown inside the Dialog. If this property is set to <code>true</code>, the <code>text</code> and <code>icon</code> properties are ignored. This property has a default value <code>true</code>.
 				/// 
 				/// Default value is <code>true</code>.
 				/// </summary>
@@ -300,7 +300,7 @@ namespace UI5
 				/// <summary>
 				/// Sets a new value for property {@link #getShowHeader showHeader}.
 				/// 
-				/// Determines whether the header is shown inside the dialog. If this property is set to true, the text and icon property are ignored. This property has a default value true.
+				/// Determines whether the header is shown inside the Dialog. If this property is set to <code>true</code>, the <code>text</code> and <code>icon</code> properties are ignored. This property has a default value <code>true</code>.
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// 
@@ -317,7 +317,7 @@ namespace UI5
 				/// <summary>
 				/// Gets current value of property {@link #getType type}.
 				/// 
-				/// The type of the dialog. In some themes, the type "message" will limit the dialog's width within 480px on tablet and desktop.
+				/// The <code>type</code> of the Dialog. In some themes, the type Message will limit the Dialog width within 480px on tablet and desktop.
 				/// 
 				/// Default value is <code>Standard</code>.
 				/// </summary>
@@ -327,7 +327,7 @@ namespace UI5
 				/// <summary>
 				/// Sets a new value for property {@link #getType type}.
 				/// 
-				/// The type of the dialog. In some themes, the type "message" will limit the dialog's width within 480px on tablet and desktop.
+				/// The <code>type</code> of the Dialog. In some themes, the type Message will limit the Dialog width within 480px on tablet and desktop.
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// 
@@ -344,7 +344,7 @@ namespace UI5
 				/// <summary>
 				/// Gets current value of property {@link #getState state}.
 				/// 
-				/// The state affects the icon and the title color. If other than "None" is set, a predefined icon will be added to the dialog. Setting icon property will overwrite the predefined icon. The default value is "None" which doesn't add any icon to the Dialog control. This property is by now only supported by blue crystal theme.
+				/// Affects the <code>icon</code> and the <code>title</code> color. If other than <code>none</code> is set, a predefined icon will be added to the Dialog. Setting the <code>icon</code> property will overwrite the predefined icon. The default value is <code>none</code> which doesn't add any icon to the Dialog control. This property is by now only supported by the blue crystal theme.
 				/// 
 				/// Default value is <code>None</code>.
 				/// </summary>
@@ -354,7 +354,7 @@ namespace UI5
 				/// <summary>
 				/// Sets a new value for property {@link #getState state}.
 				/// 
-				/// The state affects the icon and the title color. If other than "None" is set, a predefined icon will be added to the dialog. Setting icon property will overwrite the predefined icon. The default value is "None" which doesn't add any icon to the Dialog control. This property is by now only supported by blue crystal theme.
+				/// Affects the <code>icon</code> and the <code>title</code> color. If other than <code>none</code> is set, a predefined icon will be added to the Dialog. Setting the <code>icon</code> property will overwrite the predefined icon. The default value is <code>none</code> which doesn't add any icon to the Dialog control. This property is by now only supported by the blue crystal theme.
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// 
@@ -371,18 +371,18 @@ namespace UI5
 				/// <summary>
 				/// Gets current value of property {@link #getStretchOnPhone stretchOnPhone}.
 				/// 
-				/// Determines whether the dialog will displayed on full screen on a phone.
+				/// Determines whether the Dialog will be displayed on full screen on a phone.
 				/// 
 				/// Default value is <code>false</code>.
 				/// </summary>
 				/// <returns>Value of property <code>stretchOnPhone</code></returns>
-				[Obsolete("Deprecated since 1.13.1. Please use the new stretch property instead. This enables a stretched dialog even on tablet and desktop. If you want to achieve the same effect as stretchOnPhone, please set the stretch with jQuery.device.is.phone, then dialog is only stretched when runs on phone.")]
+				[Obsolete("Deprecated since 1.13.1. Please use the new stretch property instead. This enables a stretched Dialog even on tablet and desktop. If you want to achieve the same effect as <code>stretchOnPhone</code>, please set the stretch with jQuery.device.is.phone, then the Dialog is only stretched when it runs on a phone.")]
 				public extern virtual bool getStretchOnPhone();
 
 				/// <summary>
 				/// Sets a new value for property {@link #getStretchOnPhone stretchOnPhone}.
 				/// 
-				/// Determines whether the dialog will displayed on full screen on a phone.
+				/// Determines whether the Dialog will be displayed on full screen on a phone.
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// 
@@ -390,7 +390,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="bStretchOnPhone">New value for property <code>stretchOnPhone</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				[Obsolete("Deprecated since 1.13.1. Please use the new stretch property instead. This enables a stretched dialog even on tablet and desktop. If you want to achieve the same effect as stretchOnPhone, please set the stretch with jQuery.device.is.phone, then dialog is only stretched when runs on phone.")]
+				[Obsolete("Deprecated since 1.13.1. Please use the new stretch property instead. This enables a stretched Dialog even on tablet and desktop. If you want to achieve the same effect as <code>stretchOnPhone</code>, please set the stretch with jQuery.device.is.phone, then the Dialog is only stretched when it runs on a phone.")]
 				public extern virtual sap.m.Dialog setStretchOnPhone(bool bStretchOnPhone);
 
 				#endregion
@@ -400,7 +400,7 @@ namespace UI5
 				/// <summary>
 				/// Gets current value of property {@link #getStretch stretch}.
 				/// 
-				/// Determines if the dialog will be stretched to full screen on mobile, when on desktop the dialog will be stretched to 93% of the viewport. This property is only applicable to standard dialog and message type dialog ignores this property.
+				/// Determines if the Dialog will be stretched to full screen on mobile. On desktop, the Dialog will be stretched to 93% of the viewport. This property is only applicable to a Standard Dialog. Message-type Dialog ignores it.
 				/// 
 				/// Default value is <code>false</code>.
 				/// </summary>
@@ -410,7 +410,7 @@ namespace UI5
 				/// <summary>
 				/// Sets a new value for property {@link #getStretch stretch}.
 				/// 
-				/// Determines if the dialog will be stretched to full screen on mobile, when on desktop the dialog will be stretched to 93% of the viewport. This property is only applicable to standard dialog and message type dialog ignores this property.
+				/// Determines if the Dialog will be stretched to full screen on mobile. On desktop, the Dialog will be stretched to 93% of the viewport. This property is only applicable to a Standard Dialog. Message-type Dialog ignores it.
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// 
@@ -427,7 +427,7 @@ namespace UI5
 				/// <summary>
 				/// Gets current value of property {@link #getContentWidth contentWidth}.
 				/// 
-				/// Preferred width of content in Dialog. This property affects the width of dialog on phone in landscape mode, tablet or desktop, because the dialog has a fixed width on phone in portrait mode. If the preferred width is less than the minimum width of the dialog or more than the available width of the screen, it will be overwritten by the min or max value. The current mininum value of dialog width on tablet is 400px.
+				/// Preferred width of the content in the Dialog. This property affects the width of the Dialog on a phone in landscape mode, a tablet or a desktop, because the Dialog has a fixed width on a phone in portrait mode. If the preferred width is less than the minimum width of the Dialog or more than the available width of the screen, it will be overwritten by the min or max value. The current mininum value of the Dialog width on tablet is 400px.
 				/// </summary>
 				/// <returns>Value of property <code>contentWidth</code></returns>
 				public extern virtual sap.ui.core.CSSSize getContentWidth();
@@ -435,7 +435,7 @@ namespace UI5
 				/// <summary>
 				/// Sets a new value for property {@link #getContentWidth contentWidth}.
 				/// 
-				/// Preferred width of content in Dialog. This property affects the width of dialog on phone in landscape mode, tablet or desktop, because the dialog has a fixed width on phone in portrait mode. If the preferred width is less than the minimum width of the dialog or more than the available width of the screen, it will be overwritten by the min or max value. The current mininum value of dialog width on tablet is 400px.
+				/// Preferred width of the content in the Dialog. This property affects the width of the Dialog on a phone in landscape mode, a tablet or a desktop, because the Dialog has a fixed width on a phone in portrait mode. If the preferred width is less than the minimum width of the Dialog or more than the available width of the screen, it will be overwritten by the min or max value. The current mininum value of the Dialog width on tablet is 400px.
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// </summary>
@@ -450,7 +450,7 @@ namespace UI5
 				/// <summary>
 				/// Gets current value of property {@link #getContentHeight contentHeight}.
 				/// 
-				/// Preferred height of content in Dialog. If the preferred height is bigger than the available space on screen, it will be overwritten by the maximum available height on screen in order to make sure that dialog isn't cut off.
+				/// Preferred height of the content in the Dialog. If the preferred height is bigger than the available space on a screen, it will be overwritten by the maximum available height on a screen in order to make sure that the Dialog isn't cut off.
 				/// </summary>
 				/// <returns>Value of property <code>contentHeight</code></returns>
 				public extern virtual sap.ui.core.CSSSize getContentHeight();
@@ -458,7 +458,7 @@ namespace UI5
 				/// <summary>
 				/// Sets a new value for property {@link #getContentHeight contentHeight}.
 				/// 
-				/// Preferred height of content in Dialog. If the preferred height is bigger than the available space on screen, it will be overwritten by the maximum available height on screen in order to make sure that dialog isn't cut off.
+				/// Preferred height of the content in the Dialog. If the preferred height is bigger than the available space on a screen, it will be overwritten by the maximum available height on a screen in order to make sure that the Dialog isn't cut off.
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// </summary>
@@ -473,7 +473,7 @@ namespace UI5
 				/// <summary>
 				/// Gets current value of property {@link #getHorizontalScrolling horizontalScrolling}.
 				/// 
-				/// Indicates if user can scroll horizontally inside dialog when the content is bigger than the content area. Dialog detects if there's sap.m.NavContainer, sap.m.Page, sap.m.ScrollContainer or sap.m.SplitContainer as direct child added to dialog. If there is, dialog will turn off scrolling by setting this property to false automatically ignoring the existing value of this property.
+				/// Indicates if the user can scroll horizontally inside the Dialog when the content is bigger than the content area. The Dialog detects if there's <code>sap.m.NavContainer</code>, <code>sap.m.Page</code>, <code>sap.m.ScrollContainer</code> or <code>sap.m.SplitContainer</code> as a direct child added to the Dialog. If there is, the Dialog will turn off <code>scrolling</code> by setting this property to <code>false</code>, automatically ignoring the existing value of the property.
 				/// 
 				/// Default value is <code>true</code>.
 				/// </summary>
@@ -483,7 +483,7 @@ namespace UI5
 				/// <summary>
 				/// Sets a new value for property {@link #getHorizontalScrolling horizontalScrolling}.
 				/// 
-				/// Indicates if user can scroll horizontally inside dialog when the content is bigger than the content area. Dialog detects if there's sap.m.NavContainer, sap.m.Page, sap.m.ScrollContainer or sap.m.SplitContainer as direct child added to dialog. If there is, dialog will turn off scrolling by setting this property to false automatically ignoring the existing value of this property.
+				/// Indicates if the user can scroll horizontally inside the Dialog when the content is bigger than the content area. The Dialog detects if there's <code>sap.m.NavContainer</code>, <code>sap.m.Page</code>, <code>sap.m.ScrollContainer</code> or <code>sap.m.SplitContainer</code> as a direct child added to the Dialog. If there is, the Dialog will turn off <code>scrolling</code> by setting this property to <code>false</code>, automatically ignoring the existing value of the property.
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// 
@@ -500,7 +500,7 @@ namespace UI5
 				/// <summary>
 				/// Gets current value of property {@link #getVerticalScrolling verticalScrolling}.
 				/// 
-				/// Indicates if user can scroll vertically inside dialog when the content is bigger than the content area. Dialog detects if there's sap.m.NavContainer, sap.m.Page, sap.m.ScrollContainer or sap.m.SplitContainer as direct child added to dialog. If there is, dialog will turn off scrolling by setting this property to false automatically ignoring the existing value of this property.
+				/// Indicates if the user can scroll vertically inside the Dialog when the content is bigger than the content area. The Dialog detects if there's <code>sap.m.NavContainer</code>, <code>sap.m.Page</code>, <code>sap.m.ScrollContainer</code> or <code>sap.m.SplitContainer</code> as a direct child added to the Dialog. If there is, the Dialog will turn off <code>scrolling</code> by setting this property to <code>false</code>, automatically ignoring the existing value of this property.
 				/// 
 				/// Default value is <code>true</code>.
 				/// </summary>
@@ -510,7 +510,7 @@ namespace UI5
 				/// <summary>
 				/// Sets a new value for property {@link #getVerticalScrolling verticalScrolling}.
 				/// 
-				/// Indicates if user can scroll vertically inside dialog when the content is bigger than the content area. Dialog detects if there's sap.m.NavContainer, sap.m.Page, sap.m.ScrollContainer or sap.m.SplitContainer as direct child added to dialog. If there is, dialog will turn off scrolling by setting this property to false automatically ignoring the existing value of this property.
+				/// Indicates if the user can scroll vertically inside the Dialog when the content is bigger than the content area. The Dialog detects if there's <code>sap.m.NavContainer</code>, <code>sap.m.Page</code>, <code>sap.m.ScrollContainer</code> or <code>sap.m.SplitContainer</code> as a direct child added to the Dialog. If there is, the Dialog will turn off <code>scrolling</code> by setting this property to <code>false</code>, automatically ignoring the existing value of this property.
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// 
@@ -527,7 +527,7 @@ namespace UI5
 				/// <summary>
 				/// Gets current value of property {@link #getResizable resizable}.
 				/// 
-				/// Indicates whether the dialog is resizable. the dialog is resizable. If this property is set to true, the dialog will have a resize handler in it's bottom right corner. This property has a default value false. The Dialog can be resizable only in desktop mode.
+				/// Indicates whether the Dialog is resizable. If this property is set to <code>true</code>, the Dialog will have a resize handler in its bottom right corner. This property has a default value <code>false</code>. The Dialog can be resizable only in desktop mode.
 				/// 
 				/// Default value is <code>false</code>.
 				/// </summary>
@@ -537,7 +537,7 @@ namespace UI5
 				/// <summary>
 				/// Sets a new value for property {@link #getResizable resizable}.
 				/// 
-				/// Indicates whether the dialog is resizable. the dialog is resizable. If this property is set to true, the dialog will have a resize handler in it's bottom right corner. This property has a default value false. The Dialog can be resizable only in desktop mode.
+				/// Indicates whether the Dialog is resizable. If this property is set to <code>true</code>, the Dialog will have a resize handler in its bottom right corner. This property has a default value <code>false</code>. The Dialog can be resizable only in desktop mode.
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// 
@@ -554,7 +554,7 @@ namespace UI5
 				/// <summary>
 				/// Gets current value of property {@link #getDraggable draggable}.
 				/// 
-				/// Indicates whether the dialog is draggable. If this property is set to true, the dialog will be draggable by it's header. This property has a default value false. The Dialog can be draggable only in desktop mode.
+				/// Indicates whether the Dialog is draggable. If this property is set to <code>true</code>, the Dialog will be draggable by its header. This property has a default value <code>false</code>. The Dialog can be draggable only in desktop mode.
 				/// 
 				/// Default value is <code>false</code>.
 				/// </summary>
@@ -564,7 +564,7 @@ namespace UI5
 				/// <summary>
 				/// Sets a new value for property {@link #getDraggable draggable}.
 				/// 
-				/// Indicates whether the dialog is draggable. If this property is set to true, the dialog will be draggable by it's header. This property has a default value false. The Dialog can be draggable only in desktop mode.
+				/// Indicates whether the Dialog is draggable. If this property is set to <code>true</code>, the Dialog will be draggable by its header. This property has a default value <code>false</code>. The Dialog can be draggable only in desktop mode.
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// 
@@ -581,7 +581,7 @@ namespace UI5
 				/// <summary>
 				/// Gets current value of property {@link #getEscapeHandler escapeHandler}.
 				/// 
-				/// This property expects a function with one parameter of type <code>Promise</code>. In the function you should call either <code>resolve()</code> or <code>reject()</code> on the <code>Promise</code> object.<br/> The function allows you to define custom behaviour which will be executed when the ESCAPE key is pressed. By default when the ESCAPE key is pressed the Dialog is immediately closed.
+				/// This property expects a function with one parameter of type Promise. In the function, you should call either <code>resolve()</code> or <code>reject()</code> on the Promise object.<br/> The function allows you to define custom behavior which will be executed when the Escape key is pressed. By default, when the Escape key is pressed, the Dialog is immediately closed.
 				/// </summary>
 				/// <returns>Value of property <code>escapeHandler</code></returns>
 				public extern virtual object getEscapeHandler();
@@ -589,7 +589,7 @@ namespace UI5
 				/// <summary>
 				/// Sets a new value for property {@link #getEscapeHandler escapeHandler}.
 				/// 
-				/// This property expects a function with one parameter of type <code>Promise</code>. In the function you should call either <code>resolve()</code> or <code>reject()</code> on the <code>Promise</code> object.<br/> The function allows you to define custom behaviour which will be executed when the ESCAPE key is pressed. By default when the ESCAPE key is pressed the Dialog is immediately closed.
+				/// This property expects a function with one parameter of type Promise. In the function, you should call either <code>resolve()</code> or <code>reject()</code> on the Promise object.<br/> The function allows you to define custom behavior which will be executed when the Escape key is pressed. By default, when the Escape key is pressed, the Dialog is immediately closed.
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// </summary>
@@ -604,7 +604,7 @@ namespace UI5
 				/// <summary>
 				/// Gets content of aggregation {@link #getContent content}.
 				/// 
-				/// The content inside the dialog.<br/><b>Note:</b> When the content of the <code>Dialog</code> is comprised of controls that use <code>position: absolute</code>, such as <code>SplitContainer</code>, the dialog has to have either <code>stretch: true</code> or <code>contentHeight</code> set.
+				/// The content inside the Dialog.<br/><b>Note:</b> When the content of the Dialog is comprised of controls that use <code>position: absolute</code>, such as <code>SplitContainer</code>, the Dialog has to have either <code>stretch: true</code> or <code>contentHeight</code> set.
 				/// </summary>
 				/// <returns></returns>
 				public extern virtual sap.ui.core.Control[] getContent();
@@ -659,7 +659,7 @@ namespace UI5
 				/// <summary>
 				/// Gets content of aggregation {@link #getSubHeader subHeader}.
 				/// 
-				/// When subHeader is assigned to Dialog, it's rendered directly after the main header in Dialog. SubHeader is out of the content area and won't be scrolled when content's size is bigger than the content area's size.
+				/// When a <code>subHeader</code> is assigned to the Dialog, it's rendered directly after the main header in the Dialog. The <code>subHeader</code> is out of the content area and won't be scrolled when the content size is bigger than the content area size.
 				/// </summary>
 				/// <returns></returns>
 				public extern virtual sap.m.IBar getSubHeader();
@@ -684,7 +684,7 @@ namespace UI5
 				/// <summary>
 				/// Gets content of aggregation {@link #getCustomHeader customHeader}.
 				/// 
-				/// CustomHeader is only supported in some themes. When it's set, the icon, title and showHeader are properties ignored. Only the customHeader is shown as the header of the dialog.
+				/// When it is set, the <code>icon</code>, <code>title</code> and <code>showHeader</code> properties are ignored. Only the <code>customHeader</code> is shown as the header of the Dialog.
 				/// </summary>
 				/// <returns></returns>
 				public extern virtual sap.m.IBar getCustomHeader();
@@ -709,7 +709,7 @@ namespace UI5
 				/// <summary>
 				/// Gets content of aggregation {@link #getBeginButton beginButton}.
 				/// 
-				/// The button which is rendered to the left side (right side in RTL mode) of the endButton in the footer area inside the dialog. From UI5 version 1.21.1, there's a new aggregation "buttons" created with which more than 2 buttons can be added to the footer area of dialog. If the new "buttons" aggregation is set, any change made to this aggregation has no effect anymore. When runs on the phone, this button (and the endButton together when set) is (are) rendered at the center of the footer area. When runs on the other platforms, this button (and the endButton together when set) is (are) rendered at the right side (left side in RTL mode) of the footer area.
+				/// The button which is rendered to the left side (right side in RTL mode) of the <code>endButton</code> in the footer area inside the Dialog. As of version 1.21.1, there's a new aggregation <code>buttons</code> created with which more than 2 buttons can be added to the footer area of the Dialog. If the new <code>buttons</code> aggregation is set, any change made to this aggregation has no effect anymore. When running on a phone, this <code>button</code> (and the <code>endButton</code> together when set) is (are) rendered at the center of the footer area. When running on other platforms, this <code>button</code> (and the <code>endButton</code> together when set) is (are) rendered at the right side (left side in RTL mode) of the footer area.
 				/// </summary>
 				/// <returns></returns>
 				public extern virtual sap.m.Button getBeginButton();
@@ -734,7 +734,7 @@ namespace UI5
 				/// <summary>
 				/// Gets content of aggregation {@link #getEndButton endButton}.
 				/// 
-				/// The button which is rendered to the right side (left side in RTL mode) of the beginButton in the footer area inside the dialog. From UI5 version 1.21.1, there's a new aggregation "buttons" created with which more than 2 buttons can be added to the footer area of dialog. If the new "buttons" aggregation is set, any change made to this aggregation has no effect anymore. When runs on the phone, this button (and the beginButton together when set) is (are) rendered at the center of the footer area. When runs on the other platforms, this button (and the beginButton together when set) is (are) rendered at the right side (left side in RTL mode) of the footer area.
+				/// The button which is rendered to the right side (left side in RTL mode) of the <code>beginButton</code> in the footer area inside the Dialog. As of version 1.21.1, there's a new aggregation <code>buttons<code> created with which more than 2 buttons can be added to the footer area of Dialog. If the new <code>buttons</code> aggregation is set, any change made to this aggregation has no effect anymore. When running on a phone, this <code>button</code> (and the <code>beginButton</code> together when set) is (are) rendered at the center of the footer area. When running on other platforms, this <code>button</code> (and the <code>beginButton</code> together when set) is (are) rendered at the right side (left side in RTL mode) of the footer area.
 				/// </summary>
 				/// <returns></returns>
 				public extern virtual sap.m.Button getEndButton();
@@ -759,7 +759,7 @@ namespace UI5
 				/// <summary>
 				/// Gets content of aggregation {@link #getButtons buttons}.
 				/// 
-				/// Buttons can be added to the footer area of dialog through this aggregation. When this aggregation is set, any change to beginButton and endButton has no effect anymore. Buttons which are inside this aggregation are aligned at the right side (left side in RTL mode) of the footer instead of in the middle of the footer.
+				/// Buttons can be added to the footer area of the Dialog through this aggregation. When this aggregation is set, any change to the <code>beginButton</code> and <code>endButton</code> has no effect anymore. Buttons which are inside this aggregation are aligned at the right side (left side in RTL mode) of the footer instead of in the middle of the footer.
 				/// </summary>
 				/// <returns></returns>
 				public extern virtual sap.m.Button[] getButtons();
@@ -835,7 +835,7 @@ namespace UI5
 				/// ID of the element which is the current target of the association {@link #getLeftButton leftButton}, or <code>null</code>.
 				/// </summary>
 				/// <returns></returns>
-				[Obsolete("Deprecated since 1.15.1. LeftButton has been deprecated since 1.15.1. Please use the beginButton instead which is more RTL friendly.")]
+				[Obsolete("Deprecated since 1.15.1. <code>LeftButton</code> has been deprecated since 1.15.1. Please use the <code>beginButton</code> instead which is more RTL friendly.")]
 				public extern virtual sap.ui.core.ID getLeftButton();
 
 				/// <summary>
@@ -843,7 +843,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oLeftButton">ID of an element which becomes the new target of this leftButton association; alternatively, an element instance may be given</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				[Obsolete("Deprecated since 1.15.1. LeftButton has been deprecated since 1.15.1. Please use the beginButton instead which is more RTL friendly.")]
+				[Obsolete("Deprecated since 1.15.1. <code>LeftButton</code> has been deprecated since 1.15.1. Please use the <code>beginButton</code> instead which is more RTL friendly.")]
 				public extern virtual sap.m.Dialog setLeftButton(Union<sap.ui.core.ID, sap.m.Button> oLeftButton);
 
 				#endregion
@@ -854,7 +854,7 @@ namespace UI5
 				/// ID of the element which is the current target of the association {@link #getRightButton rightButton}, or <code>null</code>.
 				/// </summary>
 				/// <returns></returns>
-				[Obsolete("Deprecated since 1.15.1. RightButton has been deprecated since 1.15.1. Please use the endButton instead which is more RTL friendly.")]
+				[Obsolete("Deprecated since 1.15.1. <code>RightButton</code> has been deprecated since 1.15.1. Please use the <code>endButton</code> instead which is more RTL friendly.")]
 				public extern virtual sap.ui.core.ID getRightButton();
 
 				/// <summary>
@@ -862,7 +862,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oRightButton">ID of an element which becomes the new target of this rightButton association; alternatively, an element instance may be given</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				[Obsolete("Deprecated since 1.15.1. RightButton has been deprecated since 1.15.1. Please use the endButton instead which is more RTL friendly.")]
+				[Obsolete("Deprecated since 1.15.1. <code>RightButton</code> has been deprecated since 1.15.1. Please use the <code>endButton</code> instead which is more RTL friendly.")]
 				public extern virtual sap.m.Dialog setRightButton(Union<sap.ui.core.ID, sap.m.Button> oRightButton);
 
 				#endregion
@@ -951,7 +951,7 @@ namespace UI5
 				/// 
 				/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.m.Dialog</code> itself.
 				/// 
-				/// This event will be fired before the dialog is opened.
+				/// This event will be fired before the Dialog is opened.
 				/// </summary>
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
@@ -964,7 +964,7 @@ namespace UI5
 				/// 
 				/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.m.Dialog</code> itself.
 				/// 
-				/// This event will be fired before the dialog is opened.
+				/// This event will be fired before the Dialog is opened.
 				/// </summary>
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
@@ -976,7 +976,7 @@ namespace UI5
 				/// 
 				/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.m.Dialog</code> itself.
 				/// 
-				/// This event will be fired before the dialog is opened.
+				/// This event will be fired before the Dialog is opened.
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
@@ -987,7 +987,7 @@ namespace UI5
 				/// 
 				/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.m.Dialog</code> itself.
 				/// 
-				/// This event will be fired before the dialog is opened.
+				/// This event will be fired before the Dialog is opened.
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.Dialog</code> itself</param>
@@ -1026,7 +1026,7 @@ namespace UI5
 				/// 
 				/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.m.Dialog</code> itself.
 				/// 
-				/// This event will be fired after the dialog is opened.
+				/// This event will be fired after the Dialog is opened.
 				/// </summary>
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
@@ -1039,7 +1039,7 @@ namespace UI5
 				/// 
 				/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.m.Dialog</code> itself.
 				/// 
-				/// This event will be fired after the dialog is opened.
+				/// This event will be fired after the Dialog is opened.
 				/// </summary>
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
@@ -1051,7 +1051,7 @@ namespace UI5
 				/// 
 				/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.m.Dialog</code> itself.
 				/// 
-				/// This event will be fired after the dialog is opened.
+				/// This event will be fired after the Dialog is opened.
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
@@ -1062,7 +1062,7 @@ namespace UI5
 				/// 
 				/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.m.Dialog</code> itself.
 				/// 
-				/// This event will be fired after the dialog is opened.
+				/// This event will be fired after the Dialog is opened.
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.Dialog</code> itself</param>
@@ -1101,7 +1101,7 @@ namespace UI5
 				/// 
 				/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.m.Dialog</code> itself.
 				/// 
-				/// This event will be fired before the dialog is closed.
+				/// This event will be fired before the Dialog is closed.
 				/// </summary>
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
@@ -1114,7 +1114,7 @@ namespace UI5
 				/// 
 				/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.m.Dialog</code> itself.
 				/// 
-				/// This event will be fired before the dialog is closed.
+				/// This event will be fired before the Dialog is closed.
 				/// </summary>
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
@@ -1126,7 +1126,7 @@ namespace UI5
 				/// 
 				/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.m.Dialog</code> itself.
 				/// 
-				/// This event will be fired before the dialog is closed.
+				/// This event will be fired before the Dialog is closed.
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
@@ -1137,7 +1137,7 @@ namespace UI5
 				/// 
 				/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.m.Dialog</code> itself.
 				/// 
-				/// This event will be fired before the dialog is closed.
+				/// This event will be fired before the Dialog is closed.
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.Dialog</code> itself</param>
@@ -1176,7 +1176,7 @@ namespace UI5
 				/// 
 				/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.m.Dialog</code> itself.
 				/// 
-				/// This event will be fired after the dialog is closed.
+				/// This event will be fired after the Dialog is closed.
 				/// </summary>
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
@@ -1189,7 +1189,7 @@ namespace UI5
 				/// 
 				/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.m.Dialog</code> itself.
 				/// 
-				/// This event will be fired after the dialog is closed.
+				/// This event will be fired after the Dialog is closed.
 				/// </summary>
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
@@ -1201,7 +1201,7 @@ namespace UI5
 				/// 
 				/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.m.Dialog</code> itself.
 				/// 
-				/// This event will be fired after the dialog is closed.
+				/// This event will be fired after the Dialog is closed.
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
@@ -1212,7 +1212,7 @@ namespace UI5
 				/// 
 				/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.m.Dialog</code> itself.
 				/// 
-				/// This event will be fired after the dialog is closed.
+				/// This event will be fired after the Dialog is closed.
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.Dialog</code> itself</param>
@@ -1247,7 +1247,7 @@ namespace UI5
 				#region Other methods
 
 				/// <summary>
-				/// Returns the custom header instance when the customHeader aggregation is set. Otherwise it returns the internal managed header instance. This method can be called within composite controls which use sap.m.Dialog inside.
+				/// Returns the custom header instance when the <code>customHeader</code> aggregation is set. Otherwise, it returns the internal managed header instance. This method can be called within composite controls which use <code>sap.m.Dialog<code> inside.
 				/// </summary>
 				public extern virtual void _getAnyHeader();
 
@@ -1290,10 +1290,11 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.Dialog.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
-				/// The method checks if the Dialog is open. It returns true when the Dialog is currently open (this includes opening and closing animations), otherwise it returns false.
+				/// The method checks if the Dialog is open. It returns <code>true</code> when the Dialog is currently open (this includes opening and closing animations), otherwise it returns <code>false</code>.
 				/// </summary>
 				/// <returns>boolean</returns>
 				public extern virtual bool isOpen();

@@ -30,8 +30,14 @@ namespace UI5
 							/// </summary>
 							[External]
 							[ObjectLiteral]
-							public partial class ContextAndSchemaInfo
+							public partial class Info
 							{
+								/// <summary>
+								/// Whether a <code>Promise</code> may be returned if the needed metadata is not yet loaded (since 1.57.0)
+								/// </summary>
+								[Name("$$valueAsPromise")]
+								public bool dollardollarvalueAsPromise;
+
 								/// <summary>
 								/// Points to the given path, that is <code>oDetails.context.getProperty("") === vRawValue</code>
 								/// </summary>
@@ -49,7 +55,27 @@ namespace UI5
 							/// </summary>
 							[External]
 							[ObjectLiteral]
-							public partial class ContextInfo
+							public partial class LabelInfo
+							{
+								/// <summary>
+								/// Whether a <code>Promise</code> may be returned if the needed metadata is not yet loaded (since 1.57.0)
+								/// </summary>
+								[Name("$$valueAsPromise")]
+								public bool dollardollarvalueAsPromise;
+
+								/// <summary>
+								/// Points to the given raw value, that is <code>oDetails.context.getProperty("") === vRawValue</code>
+								/// </summary>
+								public sap.ui.model.Context context;
+
+							}
+
+							/// <summary>
+							/// Parameter to be used as Object Literal
+							/// </summary>
+							[External]
+							[ObjectLiteral]
+							public partial class ValueInfo
 							{
 								/// <summary>
 								/// Points to the given raw value, that is <code>oDetails.context.getProperty("") === vRawValue</code>
@@ -81,8 +107,8 @@ namespace UI5
 							/// </summary>
 							/// <param name="vRawValue">The raw value from the meta model; must be either a property or a path pointing to a property (relative to <code>oDetails.schemaChildName</code>)</param>
 							/// <param name="oDetails">The details object</param>
-							/// <returns>The type of the value list</returns>
-							public extern static sap.ui.model.odata.v4.ValueListType getValueListType(object vRawValue, sap.ui.model.odata.v4.AnnotationHelper.ContextAndSchemaInfo oDetails);
+							/// <returns>The type of the value list or a <code>Promise</code> resolving with the type of the value list or rejected if the property cannot be found in the metadata</returns>
+							public extern static Union<sap.ui.model.odata.v4.ValueListType, es5.Promise<object>> getValueListType(object vRawValue, sap.ui.model.odata.v4.AnnotationHelper.Info oDetails);
 
 							/// <summary>
 							/// A function that helps to interpret OData V4 annotations. It knows about the syntax of the path value used by the following dynamic expressions: <ul> <li>"14.5.2 Expression edm:AnnotationPath"</li> <li>"14.5.11 Expression edm:NavigationPropertyPath"</li> <li>"14.5.12 Expression edm:Path"</li> <li>"14.5.13 Expression edm:PropertyPath"</li> </ul> It returns the information whether the given path ends with "$count" or with a multi-valued structural or navigation property. Term casts and annotations of navigation properties are ignored.
@@ -93,8 +119,8 @@ namespace UI5
 							/// </summary>
 							/// <param name="sPath">The path value from the meta model, for example "ToSupplier/@com.sap.vocabularies.Communication.v1.Address" or "@com.sap.vocabularies.UI.v1.FieldGroup#Dimensions"</param>
 							/// <param name="oDetails">The details object</param>
-							/// <returns><code>true</code> if the given path ends with "$count" or with a multi-valued structural or navigation property, <code>false</code> otherwise</returns>
-							public extern static bool isMultiple(string sPath, sap.ui.model.odata.v4.AnnotationHelper.ContextAndSchemaInfo oDetails);
+							/// <returns><code>true</code> if the given path ends with "$count" or with a multi-valued structural or navigation property, <code>false</code> otherwise. If <code>oDetails.$$valueAsPromise</code> is <code>true</code> a <code>Promise</code> may be returned resolving with the boolean value.</returns>
+							public extern static Union<bool, es5.Promise<object>> isMultiple(string sPath, sap.ui.model.odata.v4.AnnotationHelper.Info oDetails);
 
 							/// <summary>
 							/// Returns the value for the label of a <code>com.sap.vocabularies.UI.v1.DataFieldAbstract</code> from the meta model. If no <code>Label</code> property is available, but the data field has a <code>Value</code> property with an <code>edm:Path</code> expression as value, the label will be taken from the <code>com.sap.vocabularies.Common.v1.Label</code> annotation of the path's target property.
@@ -105,8 +131,8 @@ namespace UI5
 							/// </summary>
 							/// <param name="vRawValue">The raw value from the meta model</param>
 							/// <param name="oDetails">The details object</param>
-							/// <returns>A data binding or a fixed text or a sequence thereof or <code>undefined</code></returns>
-							public extern static string label(object vRawValue, sap.ui.model.odata.v4.AnnotationHelper.ContextInfo oDetails);
+							/// <returns>A data binding or a fixed text or a sequence thereof or <code>undefined</code>. If <code>oDetails.$$valueAsPromise</code> is <code>true</code> a <code>Promise</code> may be returned resolving with the value for the label.</returns>
+							public extern static Union<string, es5.Promise<object>> label(object vRawValue, sap.ui.model.odata.v4.AnnotationHelper.LabelInfo oDetails);
 
 							/// <summary>
 							/// A function that helps to interpret OData V4 annotations. It knows about <ul> <li> the "14.4 Constant Expressions" for "edm:Bool", "edm:Date", "edm:DateTimeOffset", "edm:Decimal", "edm:Float", "edm:Guid", "edm:Int", "edm:TimeOfDay". <li> the constant "14.4.11 Expression edm:String": This is turned into a fixed text (e.g. <code>"Width"</code>). String constants that contain a simple binding <code>"{@i18n>...}"</code> to the hard-coded model name "@i18n" with arbitrary path are not turned into a fixed text, but kept as a data binding expression; this allows local annotation files to refer to a resource bundle for internationalization. <li> the dynamic "14.5.1 Comparison and Logical Operators": These are turned into expression bindings to perform the operations at run-time. <li> the dynamic "14.5.3 Expression edm:Apply": <ul> <li> "14.5.3.1.1 Function odata.concat": This is turned into a data binding expression. <li> "14.5.3.1.2 Function odata.fillUriTemplate": This is turned into an expression binding to fill the template at run-time. <li> "14.5.3.1.3 Function odata.uriEncode": This is turned into an expression binding to encode the parameter at run-time. <li> Apply functions may be nested arbitrarily. </ul> <li> the dynamic "14.5.6 Expression edm:If": This is turned into an expression binding to be evaluated at run-time. The expression is a conditional expression like <code>"{=condition ? expression1 : expression2}"</code>. <li> the dynamic "14.5.10 Expression edm:Null": This is turned into a <code>null</code> value. In <code>odata.concat</code> it is ignored. <li> the dynamic "14.5.12 Expression edm:Path" and "14.5.13 Expression edm:PropertyPath": This is turned into a simple data binding, e.g. <code>"{Name}"</code>. </ul> Unsupported or incorrect values are turned into a string nevertheless, but indicated as such. An error describing the problem is logged to the console in such a case.
@@ -118,7 +144,7 @@ namespace UI5
 							/// <param name="vRawValue">The raw value from the meta model</param>
 							/// <param name="oDetails">The details object</param>
 							/// <returns>A data binding or a fixed text or a sequence thereof</returns>
-							public extern static string value(object vRawValue, sap.ui.model.odata.v4.AnnotationHelper.ContextInfo oDetails);
+							public extern static string value(object vRawValue, sap.ui.model.odata.v4.AnnotationHelper.ValueInfo oDetails);
 
 							#endregion
 

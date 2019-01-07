@@ -96,7 +96,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.f.semantic.CloseAction.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					#endregion
 

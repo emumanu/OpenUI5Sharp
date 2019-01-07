@@ -437,7 +437,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.table.TreeTable.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Retrieves the lead selection index. The lead selection index is, among other things, used to determine the start/end of a selection range, when using Shift-Click to select multiple entries at once.

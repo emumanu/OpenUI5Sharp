@@ -25,6 +25,15 @@ namespace UI5
 							[Name("sap.ui.model.odata.v2.ODataAnnotations.successParameters")]
 							public partial class successParameters
 							{
+								#region Fields
+
+								/// <summary>
+								/// The source type. Either "url" or "xml".
+								/// </summary>
+								public sap.ui.model.odata.v2.ODataAnnotations.Source result;
+
+								#endregion
+
 							}
 						}
 					}

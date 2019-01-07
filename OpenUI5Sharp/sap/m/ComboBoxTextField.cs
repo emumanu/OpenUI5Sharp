@@ -169,10 +169,17 @@ namespace UI5
 				public extern static object extend(string sClassName);
 
 				/// <summary>
+				/// Returns the arrow icon
+				/// </summary>
+				/// <returns>Icon</returns>
+				public extern virtual sap.ui.core.Icon getIcon();
+
+				/// <summary>
 				/// Returns a metadata object for class sap.m.ComboBoxTextField.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Gets the <code>value</code>.

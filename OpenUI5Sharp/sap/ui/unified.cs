@@ -212,6 +212,27 @@ namespace UI5
 					Expanded,
 				}
 				/// <summary>
+				/// Types of a color picker display mode
+				/// </summary>
+				[External]
+				[Namespace(false)]
+				[Name("sap.ui.unified.ColorPickerDisplayMode")]
+				public enum ColorPickerDisplayMode
+				{
+					/// <summary>
+					/// Default display mode.
+					/// </summary>
+					Default,
+					/// <summary>
+					/// Large display mode.
+					/// </summary>
+					Large,
+					/// <summary>
+					/// Simplified display mode.
+					/// </summary>
+					Simplified,
+				}
+				/// <summary>
 				/// Predefined animations for the ContentSwitcher
 				/// </summary>
 				[External]

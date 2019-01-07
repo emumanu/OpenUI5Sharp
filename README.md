@@ -5,11 +5,11 @@
 OpenUI5Sharp is a C# Wrapper for [OpenUI5](https://github.com/SAP/openui5), that uses [Bridge.net](https://bridge.net/) to generate Javascript code, allowing you to generate OpenUI5 code using C#. OpenUI5Sharp also adds some features like typed object literals, typed parameters and other improvements thanks to the C# & Bridge combination.
 
 ## Current Status
-The current wrapper is based on OpenUI5 1.54.6 using Bridge.net 17.4.0 and the latest Retyped packages for libraries used by OpenUI5 (JQuery, QUnit, Sinon...).
+The current wrapper is based on OpenUI5 1.58.4 using Bridge.net 17.4.0 and the latest Retyped packages for libraries used by OpenUI5 (JQuery, QUnit, Sinon...).
 
 OpenUI5 is quite large but all the libraries have been converted. 
 
-The following tutorials from the [documentation](https://openui5.hana.ondemand.com/#/topic/8b49fc198bf04b2d9800fc37fecbb218) are fully working and have been included as a reference on how to use OpenUI5Sharp:
+The following tutorials from the [documentation](https://openui5.hana.ondemand.com/#/topic/8b49fc198bf04b2d9800fc37fecbb218) are fully working and are available in the [samples](https://github.com/emumanu/OpenUI5Sharp-samples) as a reference on how to use OpenUI5Sharp:
   - Walkthrough (including unit and integration testing)
   - Data Binding
   - OData V4
@@ -17,20 +17,18 @@ The following tutorials from the [documentation](https://openui5.hana.ondemand.c
 
 Also, the Shop Administration Tool demo application is fully working.
 
-Bridge.net does not support OpenUI5 module loading (and probably never will) so currently we have to use a workaround for that. 
-
 ## XSD Schemas
-
-SAP does **not** produces valid XSD schemas to have intellisense when editing XML views in Visual Studio or other editors that support XSD schemas. As it is really painful to work without valid XSD schemas, you can find my non official XSD schemas that work properly with Visual Studio 2017 in the folder XSDSchemas. However, keep in mind that OpenUI5 aggregations and associations **do not** work with a namespace different than the parent object making XML views sometimes invalid, but having the XSD schema is a big help. 
+SAP does **not** produces valid XSD schemas to have intellisense when editing XML views in Visual Studio or other editors that support XSD schemas. As it is really painful to work without valid XSD schemas, you can find my non official XSD schemas that work properly with Visual Studio 2017 in the folder XSDSchemas. However, keep in mind that OpenUI5 aggregations and associations **do not** work with a namespace different than the parent object making XML views sometimes invalid. In any case, having the XSD schema is a big help. 
 
 A custom Visual Studio plugin will be needed to handle the validation properly (and also for things like binding expressions support, non sequencial schema elements, method generation, etc) but that is out of the scope of this project.
 
 ## Examples
-You can use OpenUI5Sharp with its more than 800 strongly typed object literals and its more than 200 strongly typed events and delegates, extra features like `getPropertyFor`, `setPropertyFor`, `getParameterFor`, etc by adding openui5sharp.min.js (11 KB to the page) and including the OpenUI5Sharp assembly to a project that uses Bridge.net.
+You can use OpenUI5Sharp with its more than 800 strongly typed object literals and its more than 200 strongly typed events and delegates, extra features like `getPropertyFor`, `setPropertyFor`, `getParameterFor`, etc by adding openui5sharp.min.js (20 KB to the page) and including the OpenUI5Sharp assembly to a project that uses Bridge.net.
 
+![Example of OpenUI5Sharp in action](https://raw.githubusercontent.com/emumanu/OpenUI5Sharp/master/openui5sharp.jpg)
 
-Take a look at the four samples in the repository. They are straight conversions from the tutorials/demos of OpenUI5. There are two projects per tutorial. One is a web application and the other is the C# project that creates the realted client scripts using OpenUI5Sharp and Bridge.
-However, this samples only scratch the surface of what you can do with OpenUI5Sharp. The true potential of OpenUI5Sharp can be achieved with dynamically generated XML Views using `ASP.NET`, `RESTier` for OData V4, etc.
+Take a look at the samples in the repository. They are straight conversions from the tutorials/demos of OpenUI5. There are two projects per tutorial. One is a web application and the other is the C# project that creates the realted client scripts using OpenUI5Sharp and Bridge.
+However, this samples only scratch the surface of what you can do with OpenUI5Sharp. The true potential of OpenUI5Sharp can be achieved with dynamically generated XML Views using `ASP.NET`, `OData v4`, etc.
 
 For those who want to see some sample code without downloading anything, here you have 3 pieces of code, first in Javascript using OpenUI5 and then in C# using OpenUI5Sharp.
 
@@ -216,9 +214,22 @@ Also notice that event parameters are generated automatically from the class `Ra
 
 ## History
 
-2018/06/15 - v1.0.0 - Initial version.
+2019/01/07 - v1.2.0 - Beta 2 version. 
 
-2018/10/09 - v1.1.0 - Beta version. 
+What's new in this release:
+- Updated OpenUI5 verstion to 1.58.4.
+- Added strongly typed parameters to binding aggregations and bind properties related methods.
+- Added lots of strongly typed parameters to sap.m.P13n*.
+- Added proper inheritance chain for metadata classes.
+- Switched from jquery.JQueryPromise<object> to es5.Promise<object>, as it is a lot easier to work with.
+- Better Bridge class to OpenUI5 class conversion.
+- The samples are move to their own [repository](https://github.com/emumanu/OpenUI5Sharp-samples)
+- Lots of minor improvements.
+
+This is the last version with manual dependency resolution. The next version of OpenUI5Sharp will use Bridge.net modules with automatic dependency resolution and will not require a modified bridge.js file.
+Also, OpenUI5Sharp will have an associated nuget package for easier integration.
+
+2018/10/09 - v1.1.0 - Beta 1 version. 
 
 What's new in this release:
 - Added support for the rest of OpenUI5 libraries.
@@ -226,6 +237,8 @@ What's new in this release:
 - Added Shop Administration Tool demo application.
 - A lot of minor fixes and API improvements.
 - Improved unit and integration test support.
+
+2018/06/15 - v1.0.0 - Initial version.
 
 ## Contact
 

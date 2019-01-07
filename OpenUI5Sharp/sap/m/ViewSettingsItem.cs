@@ -10,7 +10,7 @@ namespace UI5
 		public static partial class m
 		{
 			/// <summary>
-			/// ViewSettingsItem is used for modelling filter behaviour in the ViewSettingsDialog. It is derived from a core Item, but does not support the base class properties "textDirection" and "enabled", setting these properties will not have any effects.
+			/// ViewSettingsItem is used for modelling filter behaviour in the ViewSettingsDialog. It is derived from a core Item, but does not support the base class properties "textDirection" and "enabled", setting these properties will not have any effects. Apps should use the core Item's property <code>key/</code> and provide a unique value for it. Not providing a key may lead to unexpected behavior of the sap.m.ViewSettingsDialog.
 			/// </summary>
 			[External]
 			[Namespace(false)]
@@ -250,7 +250,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.ViewSettingsItem.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				#endregion
 

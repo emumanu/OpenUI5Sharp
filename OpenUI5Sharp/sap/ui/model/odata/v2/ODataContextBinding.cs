@@ -118,7 +118,8 @@ namespace UI5
 							/// Returns a metadata object for class sap.ui.model.odata.v2.ODataContextBinding.
 							/// </summary>
 							/// <returns>Metadata object describing this class</returns>
-							public extern static sap.ui.@base.Metadata getMetadata();
+							[Name("getMetadata")]
+							public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 							/// <param name="bForceUpdate">Update the bound control even if no data has been changed</param>
 							/// <param name="sGroupId">The group Id for the refresh</param>

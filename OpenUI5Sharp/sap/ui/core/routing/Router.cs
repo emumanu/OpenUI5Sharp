@@ -93,8 +93,9 @@ namespace UI5
 							/// <pre>
 							/// <code>
 							/// // Some code you execute before you display the taget named 'detailWelcome':
-							/// var oView = sap.ui.view(({ viewName : "Welcome", type : sap.ui.core.mvc.ViewType.XML});
-							/// oTargets.getViews().setView("WelcomeWithAlias", oView)
+							/// View.create({ viewName : "Welcome", type : sap.ui.core.mvc.ViewType.XML}).then(function(oView) {
+							///     oTargets.getViews().setView("WelcomeWithAlias", oView);
+							/// });
 							/// 
 							/// {
 							///     targets: {
@@ -714,6 +715,21 @@ namespace UI5
 						#region Other methods
 
 						/// <summary>
+						/// Tracks <code>routeMatched</code> event. This method is meant for private usages. Apps are not supposed to used it. It is created for an experimental purpose. Implementation should be injected by outside(i.e. sap.ui.core.delegate.UsageAnalytics).
+						/// </summary>
+						/// <param name="sControlId">the name of the control</param>
+						/// <param name="oRouter">The instance of the router</param>
+						/// <param name="mArguments">the arguments passed along with the event.</param>
+						private extern static void _trackRouteMatched(string sControlId, sap.ui.core.routing.Router oRouter, object mArguments);
+
+						/// <summary>
+						/// Tracks <code>routeMatched</code> event. This method is meant for private usages. Apps are not supposed to used it. It is created for an experimental purpose. Implementation should be injected by outside(i.e. sap.ui.core.delegate.UsageAnalytics).
+						/// </summary>
+						/// <param name="sControlId">the name of the control</param>
+						/// <param name="oRouter">The instance of the router</param>
+						private extern static void _trackRouteMatched(string sControlId, sap.ui.core.routing.Router oRouter);
+
+						/// <summary>
 						/// Adds a route to the router
 						/// </summary>
 						/// <param name="oConfig">configuration object for the route @see sap.ui.core.routing.Route#constructor</param>
@@ -813,7 +829,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.core.routing.Router.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// Returns the Route with a name, if no route is found undefined is returned
@@ -828,6 +845,13 @@ namespace UI5
 						/// <param name="sName">Name of the router</param>
 						/// <returns>The router with the specified name, else undefined</returns>
 						public extern static sap.ui.core.routing.Router getRouter(string sName);
+
+						/// <summary>
+						/// Returns a target by its name (if you pass myTarget: { view: "myView" }) in the config myTarget is the name. See {@link sap.ui.core.routing.Targets#getTarget}
+						/// </summary>
+						/// <param name="vName">the name of a single target or the name of multiple targets</param>
+						/// <returns>The target with the corresponding name or undefined. If an array way passed as name this will return an array with all found targets. Non existing targets will not be returned but will log an error.</returns>
+						public extern virtual Union<sap.ui.core.routing.Target, sap.ui.core.routing.Target[]> getTarget(Union<string, string[]> vName);
 
 						/// <summary>
 						/// Returns the instance of Targets, if you pass a targets config to the router
@@ -880,6 +904,13 @@ namespace UI5
 						/// <param name="bIgnoreInitialHash">@since 1.48.0 whether the current url hash shouldn't be parsed after the router is initialized</param>
 						/// <returns>this for chaining.</returns>
 						public extern virtual sap.ui.core.routing.Router initialize(bool bIgnoreInitialHash = false);
+
+						/// <summary>
+						/// Returns whether the given hash can be matched by any one of the Route in the Router.
+						/// </summary>
+						/// <param name="hash">which will be tested by the Router</param>
+						/// <returns>whether the hash can be matched</returns>
+						public extern virtual bool match(string hash);
 
 						/// <summary>
 						/// Navigates to a specific route defining a set of parameters. The Parameters will be URI encoded - the characters ; , / ? : @ & = + $ are reserved and will not be encoded. If you want to use special characters in your oParameters, you have to encode them (encodeURIComponent).

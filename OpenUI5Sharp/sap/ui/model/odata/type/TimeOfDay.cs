@@ -53,18 +53,24 @@ namespace UI5
 							/// </summary>
 							/// <param name="oFormatOptions">Format options as defined in {@link sap.ui.core.format.DateFormat}</param>
 							/// <param name="oConstraints">Constraints; {@link #validateValue validateValue} throws an error if any constraint is violated</param>
-							public extern TimeOfDay(object oFormatOptions, sap.ui.model.odata.type.TimeOfDay.TimeOfDayInfo oConstraints);
+							public extern TimeOfDay(sap.ui.core.format.DateFormat.FormatOptions oFormatOptions, sap.ui.model.odata.type.TimeOfDay.TimeOfDayInfo oConstraints);
 
 							/// <summary>
 							/// Constructor for an OData primitive type <code>Edm.TimeOfDay</code>.
 							/// </summary>
 							/// <param name="oFormatOptions">Format options as defined in {@link sap.ui.core.format.DateFormat}</param>
-							public extern TimeOfDay(object oFormatOptions);
+							public extern TimeOfDay(sap.ui.core.format.DateFormat.FormatOptions oFormatOptions);
 
 							/// <summary>
 							/// Constructor for an OData primitive type <code>Edm.TimeOfDay</code>.
 							/// </summary>
 							public extern TimeOfDay();
+
+							/// <summary>
+							/// Constructor for an OData primitive type <code>Edm.TimeOfDay</code>.
+							/// </summary>
+							/// <param name="oConstraints">Constraints; {@link #validateValue validateValue} throws an error if any constraint is violated</param>
+							public extern TimeOfDay(sap.ui.model.odata.type.TimeOfDay.TimeOfDayInfo oConstraints);
 
 							#endregion
 
@@ -112,7 +118,8 @@ namespace UI5
 							/// Returns a metadata object for class sap.ui.model.odata.type.TimeOfDay.
 							/// </summary>
 							/// <returns>Metadata object describing this class</returns>
-							public extern static sap.ui.@base.Metadata getMetadata();
+							[Name("getMetadata")]
+							public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 							/// <summary>
 							/// Returns the type's name.

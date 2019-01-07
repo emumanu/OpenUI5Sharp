@@ -134,6 +134,13 @@ namespace UI5
 						public extern virtual object[] getFilterablePropertyNames();
 
 						/// <summary>
+						/// Returns the filter information as an abstract syntax tree. Consumers must not rely on the origin information to be available, future filter implementations will not provide this information.
+						/// </summary>
+						/// <param name="bIncludeOrigin">whether to include information about the filter objects from which the tree has been created</param>
+						/// <returns>The AST of the filter tree or null if no filters are set</returns>
+						private extern object getFilterInfo(bool bIncludeOrigin = false);
+
+						/// <summary>
 						/// Gets a printable name for a group.
 						/// 
 						/// The printable name follows the pattern is <code>&lt;label&gt;:&lt;key-value&gt;[-&lt;text-value&gt;]</code>, where <code>label</code> is the label of the dimension property used at the aggregation level for the group, <code>key-value</code> is the key value of that dimension for the group, and <code>text-value</code> is the value of the associated text property, if it is also used in the binding.
@@ -165,7 +172,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.model.analytics.AnalyticalBinding.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// Gets child contexts for a specified parent context.

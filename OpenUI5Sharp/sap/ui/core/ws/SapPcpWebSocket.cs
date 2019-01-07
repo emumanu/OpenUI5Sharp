@@ -122,7 +122,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.core.ws.SapPcpWebSocket.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// Sends a message and optional pcp-header-fields using the pcp-protocol.<br> <br> If the connection is not yet opened, the message will be queued and sent when the connection is established.
@@ -130,14 +131,14 @@ namespace UI5
 						/// <param name="message">message to send</param>
 						/// <param name="oPcpFields">additional pcp-fields as key-value map</param>
 						/// <returns><code>this</code> to allow method chaining</returns>
-						public extern virtual sap.ui.core.ws.SapPcpWebSocket send(Union<string, dom.Blob, es5.ArrayBuffer> message, object oPcpFields);
+						public extern virtual sap.ui.core.ws.SapPcpWebSocket send(Union<string, Retyped.dom.Blob, es5.ArrayBuffer> message, object oPcpFields);
 
 						/// <summary>
 						/// Sends a message and optional pcp-header-fields using the pcp-protocol.<br> <br> If the connection is not yet opened, the message will be queued and sent when the connection is established.
 						/// </summary>
 						/// <param name="message">message to send</param>
 						/// <returns><code>this</code> to allow method chaining</returns>
-						public extern virtual sap.ui.core.ws.SapPcpWebSocket send(Union<string, dom.Blob, es5.ArrayBuffer> message);
+						public extern virtual sap.ui.core.ws.SapPcpWebSocket send(Union<string, Retyped.dom.Blob, es5.ArrayBuffer> message);
 
 						#endregion
 

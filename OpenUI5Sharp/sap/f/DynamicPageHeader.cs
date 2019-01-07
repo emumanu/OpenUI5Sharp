@@ -46,6 +46,13 @@ namespace UI5
 					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> pinnable;
 
 					/// <summary>
+					/// Determines the background color of the <code>DynamicPageHeader</code>.
+					/// 
+					/// <b>Note:</b> The default value of <code>backgroundDesign</code> property is null. If the property is not set, the color of the background is <code>@sapUiObjectHeaderBackground</code>, which depends on the specific theme.
+					/// </summary>
+					public Union<sap.m.BackgroundDesign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundDesign;
+
+					/// <summary>
 					/// The content of the header.
 					/// </summary>
 					public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
@@ -116,6 +123,27 @@ namespace UI5
 				/// <param name="bPinnable">New value for property <code>pinnable</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
 				public extern virtual sap.f.DynamicPageHeader setPinnable(bool bPinnable);
+
+				#endregion
+
+				#region Methods for Property backgroundDesign
+
+				/// <summary>
+				/// Gets current value of property {@link #getBackgroundDesign backgroundDesign}.
+				/// 
+				/// Determines the background color of the <code>DynamicPageHeader</code>.
+				/// 
+				/// <b>Note:</b> The default value of <code>backgroundDesign</code> property is null. If the property is not set, the color of the background is <code>@sapUiObjectHeaderBackground</code>, which depends on the specific theme.
+				/// </summary>
+				/// <returns>Value of property <code>backgroundDesign</code></returns>
+				public extern virtual sap.m.BackgroundDesign getBackgroundDesign();
+
+				/// <summary>
+				/// Sets the value of the <code>backgroundDesign</code> property.
+				/// </summary>
+				/// <param name="sBackgroundDesign">new value of the <code>backgroundDesign</code></param>
+				/// <returns><code>this</code> to allow method chaining</returns>
+				public extern virtual sap.f.DynamicPageHeader setBackgroundDesign(sap.m.BackgroundDesign sBackgroundDesign);
 
 				#endregion
 
@@ -218,7 +246,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.f.DynamicPageHeader.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				#endregion
 

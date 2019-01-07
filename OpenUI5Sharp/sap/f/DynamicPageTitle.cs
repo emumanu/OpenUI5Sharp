@@ -65,6 +65,13 @@ namespace UI5
 					public Union<sap.f.DynamicPageTitleShrinkRatio, string, sap.ui.@base.ManagedObject.BindPropertyInfo> areaShrinkRatio;
 
 					/// <summary>
+					/// Determines the background color of the <code>DynamicPageTitle</code>.
+					/// 
+					/// <b>Note:</b> The default value of <code>backgroundDesign</code> property is null. If the property is not set, the color of the background is <code>@sapUiObjectHeaderBackground</code>, which depends on the specific theme.
+					/// </summary>
+					public Union<sap.m.BackgroundDesign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundDesign;
+
+					/// <summary>
 					/// The <code>heading</code> is positioned in the <code>DynamicPageTitle</code> left area and is displayed in both expanded and collapsed (snapped) states of the header. Use this aggregation to display a title (or any other UI5 control that serves as a heading) that has to be present in both expanded and collapsed states of the header.
 					/// 
 					/// <b>Note:</b> <code>heading</code> is mutually exclusive with <code>snappedHeading</code> and <code>expandedHeading</code>. If <code>heading</code> is provided, both <code>snappedHeading</code> and <code>expandedHeading</code> are ignored. <code>heading</code> is useful when the content of <code>snappedHeading</code> and <code>expandedHeading</code> needs to be the same as it replaces them both.
@@ -249,6 +256,27 @@ namespace UI5
 				/// <param name="sAreaShrinkRatio">new value of the <code>areaShrinkRatio</code></param>
 				/// <returns><code>this</code> to allow method chaining</returns>
 				public extern virtual sap.f.DynamicPageTitle setAreaShrinkRatio(sap.f.DynamicPageTitleShrinkRatio sAreaShrinkRatio);
+
+				#endregion
+
+				#region Methods for Property backgroundDesign
+
+				/// <summary>
+				/// Gets current value of property {@link #getBackgroundDesign backgroundDesign}.
+				/// 
+				/// Determines the background color of the <code>DynamicPageTitle</code>.
+				/// 
+				/// <b>Note:</b> The default value of <code>backgroundDesign</code> property is null. If the property is not set, the color of the background is <code>@sapUiObjectHeaderBackground</code>, which depends on the specific theme.
+				/// </summary>
+				/// <returns>Value of property <code>backgroundDesign</code></returns>
+				public extern virtual sap.m.BackgroundDesign getBackgroundDesign();
+
+				/// <summary>
+				/// Sets the value of the <code>backgroundDesign</code> property.
+				/// </summary>
+				/// <param name="sBackgroundDesign">new value of the <code>backgroundDesign</code></param>
+				/// <returns><code>this</code> to allow method chaining</returns>
+				public extern virtual sap.f.DynamicPageTitle setBackgroundDesign(sap.m.BackgroundDesign sBackgroundDesign);
 
 				#endregion
 
@@ -770,7 +798,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.f.DynamicPageTitle.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				#endregion
 

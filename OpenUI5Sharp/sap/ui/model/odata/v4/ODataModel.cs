@@ -22,6 +22,8 @@ namespace UI5
 						/// 
 						/// Note that the OData V4 model has its own {@link sap.ui.model.odata.v4.Context} class. Bindings which are relative to such a V4 context depend on their corresponding parent binding and do not access data with their own service requests unless parameters are provided.
 						/// 
+						/// <b>Group IDs</b> control the model's use of batch requests. Valid group IDs are: <ul> <li><b>$auto</b> and <b>$auto.*</b>: Bundles requests from the model in a batch request which is sent automatically before rendering. You can use different '$auto.*' group IDs to use different batch requests. The suffix may be any non-empty string consisting of alphanumeric characters from the basic Latin alphabet, including the underscore. The submit mode for these group IDs is always {@link sap.ui.model.odata.v4.SubmitMode#Auto}. </li> <li><b>$direct</b>: Sends requests directly without batch. The submit mode for this group ID is always {@link sap.ui.model.odata.v4.SubmitMode#Direct}. </li> <li>An application group ID, which is a non-empty string consisting of alphanumeric characters from the basic Latin alphabet, including the underscore. By default, an application group has the submit mode {@link sap.ui.model.odata.v4.SubmitMode#API}. It is possible to use a different submit mode; for details see <code>mParameters.groupProperties</code>. </li> </ul>
+						/// 
 						/// <b>Note: The model does not support any public events; attaching an event handler leads to an error.</b>
 						/// </summary>
 						[External]
@@ -89,7 +91,7 @@ namespace UI5
 								public string synchronizationMode;
 
 								/// <summary>
-								/// The group ID that is used for update requests. If no update group ID is specified, <code> mParameters.groupId</code> is used. Valid update group IDs are <code>undefined</code>, '$auto', '$direct' or an application group ID, which is a non-empty string consisting of alphanumeric characters from the basic Latin alphabet, including the underscore.
+								/// The group ID that is used for update requests. If no update group ID is specified, <code> mParameters.groupId</code> is used. Valid update group IDs are <code>undefined</code>, '$auto', '$direct' or an application group ID.
 								/// </summary>
 								public string updateGroupId;
 
@@ -103,7 +105,7 @@ namespace UI5
 							public partial class BindContextInfo
 							{
 								/// <summary>
-								/// The group ID to be used for <b>read</b> requests triggered by this binding; if not specified, either the parent binding's group ID (if the binding is relative) or the model's group ID is used, see {@link sap.ui.model.odata.v4.ODataModel#constructor}. Valid values are <code>undefined</code>, '$auto', '$direct' or application group IDs as specified in {@link #submitBatch}.
+								/// The group ID to be used for <b>read</b> requests triggered by this binding; if not specified, either the parent binding's group ID (if the binding is relative) or the model's group ID is used, see {@link sap.ui.model.odata.v4.ODataModel#constructor}. Valid values are <code>undefined</code>, '$auto', '$auto.*', '$direct' or application group IDs as specified in {@link sap.ui.model.odata.v4.ODataModel}.
 								/// </summary>
 								[Name("$$groupId")]
 								public string dollardollargroupId;
@@ -147,7 +149,7 @@ namespace UI5
 								public object dollardollaraggregation;
 
 								/// <summary>
-								/// The group ID to be used for <b>read</b> requests triggered by this binding; if not specified, either the parent binding's group ID (if the binding is relative) or the model's group ID is used, see {@link sap.ui.model.odata.v4.ODataModel#constructor}. Valid values are <code>undefined</code>, '$auto', '$direct' or application group IDs as specified in {@link #submitBatch}.
+								/// The group ID to be used for <b>read</b> requests triggered by this binding; if not specified, either the parent binding's group ID (if the binding is relative) or the model's group ID is used, see {@link sap.ui.model.odata.v4.ODataModel#constructor}. Valid values are <code>undefined</code>, '$auto', '$auto.*', '$direct' or application group IDs as specified in {@link sap.ui.model.odata.v4.ODataModel}.
 								/// </summary>
 								[Name("$$groupId")]
 								public string dollardollargroupId;
@@ -174,7 +176,7 @@ namespace UI5
 							public partial class BindPropertyInfo
 							{
 								/// <summary>
-								/// The group ID to be used for <b>read</b> requests triggered by this binding; if not specified, either the parent binding's group ID (if the binding is relative) or the model's group ID is used, see {@link sap.ui.model.odata.v4.ODataModel#constructor}. Valid values are <code>undefined</code>, '$auto', '$direct' or application group IDs as specified in {@link #submitBatch}.
+								/// The group ID to be used for <b>read</b> requests triggered by this binding; if not specified, either the parent binding's group ID (if the binding is relative) or the model's group ID is used, see {@link sap.ui.model.odata.v4.ODataModel#constructor}. Valid values are <code>undefined</code>, '$auto', '$auto.*', '$direct' or application group IDs as specified in {@link sap.ui.model.odata.v4.ODataModel}.
 								/// </summary>
 								[Name("$$groupId")]
 								public string dollardollargroupId;
@@ -376,7 +378,8 @@ namespace UI5
 							/// Returns a metadata object for class sap.ui.model.odata.v4.ODataModel.
 							/// </summary>
 							/// <returns>Metadata object describing this class</returns>
-							public extern static sap.ui.@base.Metadata getMetadata();
+							[Name("getMetadata")]
+							public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 							/// <summary>
 							/// Returns the meta model for this ODataModel.
@@ -424,7 +427,7 @@ namespace UI5
 							/// 
 							/// If there are pending changes, an error is thrown. Use {@link #hasPendingChanges} to check if there are pending changes. If there are changes, call {@link #submitBatch} to submit the changes or {@link #resetChanges} to reset the changes before calling {@link #refresh}.
 							/// </summary>
-							/// <param name="sGroupId">The group ID to be used for refresh; valid values are <code>undefined</code>, '$auto', '$direct' or application group IDs as specified in {@link #submitBatch}</param>
+							/// <param name="sGroupId">The group ID to be used for refresh; valid values are <code>undefined</code>, '$auto', '$auto.*', '$direct' or application group IDs as specified in {@link sap.ui.model.odata.v4.ODataModel}</param>
 							public extern virtual void refresh(string sGroupId);
 
 							/// <summary>
@@ -442,12 +445,12 @@ namespace UI5
 							/// <param name="oEntityContext">A context in this model which must point to a non-contained OData entity</param>
 							/// <returns>A promise which is resolved with the canonical path (e.g. "/SalesOrderList('0500000000')") in case of success, or rejected with an instance of <code>Error</code> in case of failure, e.g. when the given context does not point to an entity</returns>
 							[Obsolete("Deprecated since 1.39.0. Use {@link sap.ui.model.odata.v4.Context#requestCanonicalPath} instead.")]
-							public extern virtual jquery.JQueryPromise<object> requestCanonicalPath(sap.ui.model.odata.v4.Context oEntityContext);
+							public extern virtual es5.Promise<object> requestCanonicalPath(sap.ui.model.odata.v4.Context oEntityContext);
 
 							/// <summary>
 							/// Resets all property changes and created entities associated with the given group ID which have not been successfully submitted via {@link #submitBatch}. Resets also invalid user input for the same group ID. This function does not reset the deletion of entities (see {@link sap.ui.model.odata.v4.Context#delete}) and the execution of OData operations (see {@link sap.ui.model.odata.v4.ODataContextBinding#execute}).
 							/// </summary>
-							/// <param name="sGroupId">The application group ID, which is a non-empty string consisting of alphanumeric characters from the basic Latin alphabet, including the underscore. If it is <code>undefined</code>, the model's <code>updateGroupId</code> is used. Note that the default <code>updateGroupId</code> is '$auto', which is invalid here.</param>
+							/// <param name="sGroupId">The application group ID as specified in {@link sap.ui.model.odata.v4.ODataModel}. If it is <code>undefined</code>, the model's <code>updateGroupId</code> is used. Note that the default <code>updateGroupId</code> is '$auto', which is invalid here.</param>
 							public extern virtual void resetChanges(string sGroupId);
 
 							/// <summary>
@@ -463,9 +466,9 @@ namespace UI5
 							/// <summary>
 							/// Submits the requests associated with the given application group ID in one batch request.
 							/// </summary>
-							/// <param name="sGroupId">The application group ID, which is a non-empty string consisting of alphanumeric characters from the basic Latin alphabet, including the underscore.</param>
+							/// <param name="sGroupId">The application group ID as specified in {@link sap.ui.model.odata.v4.ODataModel}.</param>
 							/// <returns>A promise on the outcome of the HTTP request resolving with <code>undefined</code>; it is rejected with an error if the batch request itself fails</returns>
-							public extern virtual jquery.JQueryPromise<object> submitBatch(string sGroupId);
+							public extern virtual es5.Promise<object> submitBatch(string sGroupId);
 
 							/// <summary>
 							/// Returns a string representation of this object including the service URL.

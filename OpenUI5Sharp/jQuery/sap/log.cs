@@ -25,6 +25,7 @@ namespace UI5
 			[External]
 			[Namespace(false)]
 			[Name("jQuery.sap.log")]
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/Log} instead")]
 			public static partial class log
 			{
 				#region Methods
@@ -274,6 +275,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("jQuery.sap.log.Level")]
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/base/Log.Level} instead")]
 				public enum Level
 				{
 					/// <summary>

@@ -10,7 +10,7 @@ namespace UI5
 		public static partial class m
 		{
 			/// <summary>
-			/// <code>sap.m.Table</code> control provides a set of sophisticated and convenience functions for responsive table design. To render the <code>sap.m.Table</code> properly, the order of the <code>columns</code> aggregation should match with the order of the items <code>cells</code> aggregation. Also <code>sap.m.Table</code> requires at least one visible <code>sap.m.Column</code> in <code>columns</code> aggregation. For mobile devices, the recommended limit of table rows is 100 (based on 4 columns) to assure proper performance. To improve initial rendering on large tables, use the <code>growing</code> feature.
+			/// <code>sap.m.Table</code> control provides a set of sophisticated and convenience functions for responsive table design. To render the <code>sap.m.Table</code> properly, the order of the <code>columns</code> aggregation should match with the order of the items <code>cells</code> aggregation (<code>sap.m.ColumnListItem</code>). Also <code>sap.m.Table</code> requires at least one visible <code>sap.m.Column</code> in <code>columns</code> aggregation. For mobile devices, the recommended limit of table rows is 100 (based on 4 columns) to assure proper performance. To improve initial rendering on large tables, use the <code>growing</code> feature.
 			/// 
 			/// See section "{@link topic:5eb6f63e0cc547d0bdc934d3652fdc9b Creating Tables}" and "{@link topic:38855e06486f4910bfa6f4485f7c2bac Configuring Responsive Behavior of a Table}" in the documentation for an introduction to <code>sap.m.Table</code> control.
 			/// </summary>
@@ -54,15 +54,6 @@ namespace UI5
 					/// Defines the layout in which the table pop-in rows are rendered. <b>Note:</b> The <code>demandPopin</code> and <code>minScreenWidth</code> properties of the <code>Column</code> control must be configured appropriately.
 					/// </summary>
 					public Union<sap.m.PopinLayout, string, sap.ui.@base.ManagedObject.BindPropertyInfo> popinLayout;
-
-					/// <summary>
-					/// Defines the section of the <code>sap.m.Table</code> control that remains fixed at the top of the page during vertical scrolling as long as the table is in the viewport.
-					/// 
-					/// <b>Note:</b> There is limited browser support. Browsers that do not support this feature are listed below: <ul> <li>IE.</li> <li>Edge lower than version 41 (EdgeHTML 16).</li> <li>Firefox lower than version 59.</li> </ul>
-					/// 
-					/// There are also some known limitations with respect to the scrolling behavior. A few are given below: <ul> <li>If the table is placed in certain layout containers, for example, the <code>sap.ui.layout.Grid</code> control, the column headers are not fixed at the top of the viewport. The table behaves in a similar way when placed within the <code>sap.m.ObjectPage</code> control.</li> <li>If the sticky column headers are enabled in the table, setting focus on the column headers will let the table scroll to the top.</li> </ul>
-					/// </summary>
-					public Union<sap.m.Sticky[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> sticky;
 
 					/// <summary>
 					/// Defines the columns of the table.
@@ -284,37 +275,6 @@ namespace UI5
 
 				#endregion
 
-				#region Methods for Property sticky
-
-				/// <summary>
-				/// Gets current value of property {@link #getSticky sticky}.
-				/// 
-				/// Defines the section of the <code>sap.m.Table</code> control that remains fixed at the top of the page during vertical scrolling as long as the table is in the viewport.
-				/// 
-				/// <b>Note:</b> There is limited browser support. Browsers that do not support this feature are listed below: <ul> <li>IE.</li> <li>Edge lower than version 41 (EdgeHTML 16).</li> <li>Firefox lower than version 59.</li> </ul>
-				/// 
-				/// There are also some known limitations with respect to the scrolling behavior. A few are given below: <ul> <li>If the table is placed in certain layout containers, for example, the <code>sap.ui.layout.Grid</code> control, the column headers are not fixed at the top of the viewport. The table behaves in a similar way when placed within the <code>sap.m.ObjectPage</code> control.</li> <li>If the sticky column headers are enabled in the table, setting focus on the column headers will let the table scroll to the top.</li> </ul>
-				/// </summary>
-				/// <returns>Value of property <code>sticky</code></returns>
-				public extern virtual sap.m.Sticky[] getSticky();
-
-				/// <summary>
-				/// Sets a new value for property {@link #getSticky sticky}.
-				/// 
-				/// Defines the section of the <code>sap.m.Table</code> control that remains fixed at the top of the page during vertical scrolling as long as the table is in the viewport.
-				/// 
-				/// <b>Note:</b> There is limited browser support. Browsers that do not support this feature are listed below: <ul> <li>IE.</li> <li>Edge lower than version 41 (EdgeHTML 16).</li> <li>Firefox lower than version 59.</li> </ul>
-				/// 
-				/// There are also some known limitations with respect to the scrolling behavior. A few are given below: <ul> <li>If the table is placed in certain layout containers, for example, the <code>sap.ui.layout.Grid</code> control, the column headers are not fixed at the top of the viewport. The table behaves in a similar way when placed within the <code>sap.m.ObjectPage</code> control.</li> <li>If the sticky column headers are enabled in the table, setting focus on the column headers will let the table scroll to the top.</li> </ul>
-				/// 
-				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
-				/// </summary>
-				/// <param name="sSticky">New value for property <code>sticky</code></param>
-				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Table setSticky(sap.m.Sticky[] sSticky);
-
-				#endregion
-
 				#region Methods for Aggregation columns
 
 				/// <summary>
@@ -497,7 +457,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.Table.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				#endregion
 

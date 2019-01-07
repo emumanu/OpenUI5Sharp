@@ -29,20 +29,6 @@ namespace UI5
 					public extern static string addRule(object oSettings);
 
 					/// <summary>
-					/// Adds all previously created temporary rules to the current library rules.
-					/// </summary>
-					/// <param name="oLibraries">The loaded libraries and their rules</param>
-					/// <param name="aTempRules">The temporary rules previously created by the user</param>
-					public extern static void addToTempRules(object oLibraries, string[] aTempRules);
-
-					/// <summary>
-					/// Adds all previously created temporary rules to the current library rules.
-					/// </summary>
-					/// <param name="oLibraries">The loaded libraries and their rules</param>
-					/// <param name="aTempRules">The temporary rules previously created by the user</param>
-					public extern static void addToTempRules(object oLibraries, object[] aTempRules);
-
-					/// <summary>
 					/// Clears all rulesets inside the RuleSet.
 					/// </summary>
 					public extern static void clearAllRuleSets();
@@ -58,6 +44,12 @@ namespace UI5
 					/// </summary>
 					/// <param name="aLibraries">The current loaded libraries and their rules</param>
 					public extern static void loadSelectionOfRules(object[] aLibraries);
+
+					/// <summary>
+					/// Remove rule from RuleSet.
+					/// </summary>
+					/// <param name="oRule">Rule object that will be removed</param>
+					public extern static void removeRule(object oRule);
 
 					/// <summary>
 					/// Stores which rules are selected to be run by the analyzer on the next check

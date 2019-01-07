@@ -32,31 +32,11 @@ namespace UI5
 							#region Constructor
 
 							/// <summary>
-							/// Do <strong>NOT</strong> call this private constructor. In the OData V4 model you cannot create contexts at will: retrieve them from a binding or a view element instead.
+							/// Constructor for Context class.
 							/// </summary>
-							/// <param name="oModel">The model</param>
-							/// <param name="oBinding">A binding that belongs to the model</param>
-							/// <param name="sPath">An absolute path without trailing slash</param>
-							/// <param name="iIndex">Index of item (within the collection addressed by <code>sPath</code>) represented by this context; used by list bindings, not context bindings</param>
-							/// <param name="oCreatePromise">Promise returned by {@link #created}</param>
-							public extern Context(sap.ui.model.odata.v4.ODataModel oModel, Union<sap.ui.model.odata.v4.ODataContextBinding, sap.ui.model.odata.v4.ODataListBinding> oBinding, string sPath, int iIndex, jquery.JQueryPromise<object> oCreatePromise);
-
-							/// <summary>
-							/// Do <strong>NOT</strong> call this private constructor. In the OData V4 model you cannot create contexts at will: retrieve them from a binding or a view element instead.
-							/// </summary>
-							/// <param name="oModel">The model</param>
-							/// <param name="oBinding">A binding that belongs to the model</param>
-							/// <param name="sPath">An absolute path without trailing slash</param>
-							/// <param name="iIndex">Index of item (within the collection addressed by <code>sPath</code>) represented by this context; used by list bindings, not context bindings</param>
-							public extern Context(sap.ui.model.odata.v4.ODataModel oModel, Union<sap.ui.model.odata.v4.ODataContextBinding, sap.ui.model.odata.v4.ODataListBinding> oBinding, string sPath, int iIndex);
-
-							/// <summary>
-							/// Do <strong>NOT</strong> call this private constructor. In the OData V4 model you cannot create contexts at will: retrieve them from a binding or a view element instead.
-							/// </summary>
-							/// <param name="oModel">The model</param>
-							/// <param name="oBinding">A binding that belongs to the model</param>
-							/// <param name="sPath">An absolute path without trailing slash</param>
-							public extern Context(sap.ui.model.odata.v4.ODataModel oModel, Union<sap.ui.model.odata.v4.ODataContextBinding, sap.ui.model.odata.v4.ODataListBinding> oBinding, string sPath);
+							/// <param name="oModel">the model</param>
+							/// <param name="sPath">the binding path</param>
+							public extern Context(sap.ui.model.Model oModel, string sPath);
 
 							#endregion
 
@@ -68,7 +48,7 @@ namespace UI5
 							/// As long as the promise is not yet resolved or rejected, the entity represented by this context is transient.
 							/// </summary>
 							/// <returns>A promise that is resolved without data when the entity represented by this context has been created in the backend. It is rejected with an <code>Error</code> instance where <code>oError.canceled === true</code> if the transient entity is deleted before it is created in the backend, for example via {@link sap.ui.model.odata.v4.Context#delete}, {@link sap.ui.model.odata.v4.ODataListBinding#resetChanges} or {@link sap.ui.model.odata.v4.ODataModel#resetChanges}. Returns <code>undefined</code> if the context has not been created using {@link sap.ui.model.odata.v4.ODataListBinding#create}.</returns>
-							public extern virtual jquery.JQueryPromise<object> created();
+							public extern virtual es5.Promise<object> created();
 
 							/// <summary>
 							/// Deletes the OData entity this context points to.
@@ -77,7 +57,7 @@ namespace UI5
 							/// </summary>
 							/// <param name="sGroupId">The group ID to be used for the DELETE request; if not specified, the update group ID for the context's binding is used, see {@link sap.ui.model.odata.v4.ODataModel#bindContext} and {@link sap.ui.model.odata.v4.ODataModel#bindList}; the resulting group ID must not have {@link sap.ui.model.odata.v4.SubmitMode.API}.</param>
 							/// <returns>A promise which is resolved without a result in case of success, or rejected with an instance of <code>Error</code> in case of failure, e.g. if the given context does not point to an entity, if it is not part of a list binding, if there are pending changes for the context's binding, if the resulting group ID has SubmitMode.API, or if the deletion on the server fails. <p> The error instance is flagged with <code>isConcurrentModification</code> in case a concurrent modification (e.g. by another user) of the entity between loading and deletion has been detected; this should be shown to the user who needs to decide whether to try deletion again. If the entity does not exist, we assume it has already been deleted by someone else and report success.</returns>
-							public extern virtual jquery.JQueryPromise<object> delete(string sGroupId);
+							public extern virtual es5.Promise<object> delete(string sGroupId);
 
 							/// <summary>
 							/// Deletes the OData entity this context points to.
@@ -85,7 +65,7 @@ namespace UI5
 							/// The context must not be used anymore after successful deletion.
 							/// </summary>
 							/// <returns>A promise which is resolved without a result in case of success, or rejected with an instance of <code>Error</code> in case of failure, e.g. if the given context does not point to an entity, if it is not part of a list binding, if there are pending changes for the context's binding, if the resulting group ID has SubmitMode.API, or if the deletion on the server fails. <p> The error instance is flagged with <code>isConcurrentModification</code> in case a concurrent modification (e.g. by another user) of the entity between loading and deletion has been detected; this should be shown to the user who needs to decide whether to try deletion again. If the entity does not exist, we assume it has already been deleted by someone else and report success.</returns>
-							public extern virtual jquery.JQueryPromise<object> delete();
+							public extern virtual es5.Promise<object> delete();
 
 							/// <summary>
 							/// Destroys this context, that is, it removes this context from all dependent bindings and drops references to binding and model, so that the context cannot be used anymore; it keeps path and index for debugging purposes.
@@ -144,19 +124,20 @@ namespace UI5
 							/// Returns a metadata object for class sap.ui.model.odata.v4.Context.
 							/// </summary>
 							/// <returns>Metadata object describing this class</returns>
-							public extern static sap.ui.@base.Metadata getMetadata();
+							[Name("getMetadata")]
+							public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 							/// <summary>
 							/// Returns the value for the given path relative to this context. The function allows access to the complete data the context points to (if <code>sPath</code> is "") or any part thereof. The data is a JSON structure as described in <a href="http://docs.oasis-open.org/odata/odata-json-format/v4.0/odata-json-format-v4.0.html"> "OData JSON Format Version 4.0"</a>. Note that the function clones the result. Modify values via {@link sap.ui.model.odata.v4.ODataPropertyBinding#setValue}.
 							/// 
-							/// Returns <code>undefined</code> if the data is not (yet) available. Use {@link #requestObject} for asynchronous access.
+							/// Returns <code>undefined</code> if the data is not (yet) available; no request is triggered. Use {@link #requestObject} for asynchronous access.
 							/// </summary>
 							/// <param name="sPath">A relative path within the JSON structure</param>
 							/// <returns>The requested value</returns>
 							public extern virtual object getObject(string sPath = "");
 
 							/// <summary>
-							/// Returns the property value for the given path relative to this context. The path is expected to point to a structural property with primitive type. Returns <code>undefined</code> if the data is not (yet) available. Use {@link #requestProperty} for asynchronous access.
+							/// Returns the property value for the given path relative to this context. The path is expected to point to a structural property with primitive type. Returns <code>undefined</code> if the data is not (yet) available; no request is triggered. Use {@link #requestProperty} for asynchronous access.
 							/// </summary>
 							/// <param name="sPath">A relative path within the JSON structure</param>
 							/// <param name="bExternalFormat">If <code>true</code>, the value is returned in external format using a UI5 type for the given property path that formats corresponding to the property's EDM type and constraints. If the type is not yet available, <code>undefined</code> is returned.</param>
@@ -203,7 +184,7 @@ namespace UI5
 							/// Returns a promise for the "canonical path" of the entity for this context. According to "4.3.1 Canonical URL" of the specification "OData Version 4.0 Part 2: URL Conventions", this is the "name of the entity set associated with the entity followed by the key predicate identifying the entity within the collection". Use the canonical path in {@link sap.ui.core.Element#bindElement} to create an element binding. Note: For a transient context (see {@link #isTransient}) a wrong path is returned unless all key properties are available within the initial data.
 							/// </summary>
 							/// <returns>A promise which is resolved with the canonical path (e.g. "/SalesOrderList('0500000000')") in case of success, or rejected with an instance of <code>Error</code> in case of failure, e.g. if the given context does not point to an entity</returns>
-							public extern virtual jquery.JQueryPromise<object> requestCanonicalPath();
+							public extern virtual es5.Promise<object> requestCanonicalPath();
 
 							/// <summary>
 							/// Returns a promise on the value for the given path relative to this context. The function allows access to the complete data the context points to (if <code>sPath</code> is "") or any part thereof. The data is a JSON structure as described in <a href="http://docs.oasis-open.org/odata/odata-json-format/v4.0/odata-json-format-v4.0.html"> "OData JSON Format Version 4.0"</a>. Note that the function clones the result. Modify values via {@link sap.ui.model.odata.v4.ODataPropertyBinding#setValue}.
@@ -212,7 +193,7 @@ namespace UI5
 							/// </summary>
 							/// <param name="sPath">A relative path within the JSON structure</param>
 							/// <returns>A promise on the requested value</returns>
-							public extern virtual jquery.JQueryPromise<object> requestObject(string sPath = "");
+							public extern virtual es5.Promise<object> requestObject(string sPath = "");
 
 							/// <summary>
 							/// Returns a promise on the property value for the given path relative to this context. The path is expected to point to a structural property with primitive type.
@@ -220,27 +201,27 @@ namespace UI5
 							/// <param name="sPath">A relative path within the JSON structure</param>
 							/// <param name="bExternalFormat">If <code>true</code>, the value is returned in external format using a UI5 type for the given property path that formats corresponding to the property's EDM type and constraints.</param>
 							/// <returns>A promise on the requested value; it is rejected if the value is not primitive</returns>
-							public extern virtual jquery.JQueryPromise<object> requestProperty(string sPath, bool bExternalFormat = false);
+							public extern virtual es5.Promise<object> requestProperty(string sPath, bool bExternalFormat = false);
 
 							/// <summary>
 							/// Returns a promise on the property value for the given path relative to this context. The path is expected to point to a structural property with primitive type.
 							/// </summary>
 							/// <param name="sPath">A relative path within the JSON structure</param>
 							/// <returns>A promise on the requested value; it is rejected if the value is not primitive</returns>
-							public extern virtual jquery.JQueryPromise<object> requestProperty(string sPath);
+							public extern virtual es5.Promise<object> requestProperty(string sPath);
 
 							/// <summary>
 							/// Returns a promise on the property value for the given path relative to this context. The path is expected to point to a structural property with primitive type.
 							/// </summary>
 							/// <returns>A promise on the requested value; it is rejected if the value is not primitive</returns>
-							public extern virtual jquery.JQueryPromise<object> requestProperty();
+							public extern virtual es5.Promise<object> requestProperty();
 
 							/// <summary>
 							/// Returns a promise on the property value for the given path relative to this context. The path is expected to point to a structural property with primitive type.
 							/// </summary>
 							/// <param name="bExternalFormat">If <code>true</code>, the value is returned in external format using a UI5 type for the given property path that formats corresponding to the property's EDM type and constraints.</param>
 							/// <returns>A promise on the requested value; it is rejected if the value is not primitive</returns>
-							public extern virtual jquery.JQueryPromise<object> requestProperty(bool bExternalFormat = false);
+							public extern virtual es5.Promise<object> requestProperty(bool bExternalFormat = false);
 
 							/// <summary>
 							/// Returns a string representation of this object including the binding path.

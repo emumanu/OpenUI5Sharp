@@ -69,6 +69,11 @@ namespace UI5
 					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> contentHeight;
 
 					/// <summary>
+					/// This flag controls whether the Clear button is shown. When set to <code>true</code>, it provides a way to clear selection mode in Select Dialog. We recommended enabling of the Clear button in the following cases, where a mechanism to clear the value is needed: In case of single selection mode(default mode) for Select Dialog and <code>rememberSelections</code> is set to <code>true</code>. Clear button needs to be enabled in order to allow users to clear the selection. In case of using <code>sap.m.Input</code> with <code>valueHepOnly</code> set to <code>true</code>, Clear button could be used for clearing selection. In case the application stores a value and uses only Select Dialog to edit/maintain it. <b>Note:</b>When used with oData, only the loaded selections will be cleared.
+					/// </summary>
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showClearButton;
+
+					/// <summary>
 					/// The items of the list shown in the search dialog. It is recommended to use a StandardListItem for the dialog but other combinations are also possible.
 					/// </summary>
 					public Union<sap.m.ListItemBase[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
@@ -363,6 +368,27 @@ namespace UI5
 				/// <param name="sHeight">The new content width value for the dialog</param>
 				/// <returns><code>this</code> pointer for chaining</returns>
 				public extern virtual sap.m.SelectDialog setContentHeight(sap.ui.core.CSSSize sHeight);
+
+				#endregion
+
+				#region Methods for Property showClearButton
+
+				/// <summary>
+				/// Gets current value of property {@link #getShowClearButton showClearButton}.
+				/// 
+				/// This flag controls whether the Clear button is shown. When set to <code>true</code>, it provides a way to clear selection mode in Select Dialog. We recommended enabling of the Clear button in the following cases, where a mechanism to clear the value is needed: In case of single selection mode(default mode) for Select Dialog and <code>rememberSelections</code> is set to <code>true</code>. Clear button needs to be enabled in order to allow users to clear the selection. In case of using <code>sap.m.Input</code> with <code>valueHepOnly</code> set to <code>true</code>, Clear button could be used for clearing selection. In case the application stores a value and uses only Select Dialog to edit/maintain it. <b>Note:</b>When used with oData, only the loaded selections will be cleared.
+				/// 
+				/// Default value is <code>false</code>.
+				/// </summary>
+				/// <returns>Value of property <code>showClearButton</code></returns>
+				public extern virtual bool getShowClearButton();
+
+				/// <summary>
+				/// Sets the Clear button visible state
+				/// </summary>
+				/// <param name="bVisible">Value for the Clear button visible state.</param>
+				/// <returns><code>this</code> pointer for chaining</returns>
+				public extern virtual sap.m.SelectDialog setShowClearButton(bool bVisible);
 
 				#endregion
 
@@ -767,13 +793,14 @@ namespace UI5
 				/// Forward method to the inner dialog: getDomRef
 				/// </summary>
 				/// <returns>The Element's DOM Element sub DOM Element or null</returns>
-				public extern virtual dom.HTMLElement getDomRef();
+				public extern virtual Retyped.dom.HTMLElement getDomRef();
 
 				/// <summary>
 				/// Returns a metadata object for class sap.m.SelectDialog.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Forward method to the inner dialog: hasStyleClass
@@ -805,6 +832,13 @@ namespace UI5
 				/// </summary>
 				/// <returns><code>this</code> pointer for chaining</returns>
 				public extern virtual sap.m.SelectDialog removeStyleClass();
+
+				/// <summary>
+				/// Sets the busyIndicatorDelay value to the internal list
+				/// </summary>
+				/// <param name="iValue">Value for the busyIndicatorDelay.</param>
+				/// <returns>this pointer for chaining</returns>
+				public extern virtual sap.m.SelectDialog setBusyIndicatorDelay(int iValue);
 
 				/// <summary>
 				/// Forward method to the inner dialog: toggleStyleClass

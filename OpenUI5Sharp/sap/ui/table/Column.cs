@@ -1058,7 +1058,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.table.Column.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Returns a column template clone. It either finds an unused clone or clones a new one from the column template.

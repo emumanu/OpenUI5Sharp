@@ -32,7 +32,7 @@ namespace UI5
 					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> label;
 
 					/// <summary>
-					/// The value of the line, for example the value of the currently selected measure. Expected type is a string or a plain object, including date and time properties of type string.
+					/// The value of the line, for example the value of the currently selected measure. Expected type is a string, number or a plain object, including date and time properties of type string.
 					/// </summary>
 					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> value;
 
@@ -121,7 +121,7 @@ namespace UI5
 				/// <summary>
 				/// Gets current value of property {@link #getValue value}.
 				/// 
-				/// The value of the line, for example the value of the currently selected measure. Expected type is a string or a plain object, including date and time properties of type string.
+				/// The value of the line, for example the value of the currently selected measure. Expected type is a string, number or a plain object, including date and time properties of type string.
 				/// </summary>
 				/// <returns>Value of property <code>value</code></returns>
 				public extern virtual object getValue();
@@ -129,7 +129,7 @@ namespace UI5
 				/// <summary>
 				/// Sets a new value for property {@link #getValue value}.
 				/// 
-				/// The value of the line, for example the value of the currently selected measure. Expected type is a string or a plain object, including date and time properties of type string.
+				/// The value of the line, for example the value of the currently selected measure. Expected type is a string, number or a plain object, including date and time properties of type string.
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// </summary>
@@ -244,7 +244,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.SelectionDetailsItemLine.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				#endregion
 

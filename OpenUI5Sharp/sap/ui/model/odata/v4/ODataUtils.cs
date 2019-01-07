@@ -47,21 +47,29 @@ namespace UI5
 							/// </summary>
 							/// <param name="sDate">The "Edm.Date" value to parse</param>
 							/// <returns>The JavaScript <code>Date</code> value</returns>
-							public extern static System.DateTime parseDate(string sDate);
+							public extern static DateTime parseDate(string sDate);
 
 							/// <summary>
 							/// Parses an "Edm.DateTimeOffset" value and returns the corresponding JavaScript <code>Date</code> value.
 							/// </summary>
 							/// <param name="sDateTimeOffset">The "Edm.DateTimeOffset" value to parse</param>
 							/// <returns>The JavaScript <code>Date</code> value</returns>
-							public extern static System.DateTime parseDateTimeOffset(string sDateTimeOffset);
+							public extern static DateTime parseDateTimeOffset(string sDateTimeOffset);
 
 							/// <summary>
 							/// Parses an "Edm.TimeOfDay" value and returns the corresponding JavaScript <code>Date</code> value (UTC with a date value of "1970-01-01").
 							/// </summary>
 							/// <param name="sTimeOfDay">The "Edm.TimeOfDay" value to parse</param>
 							/// <returns>The JavaScript <code>Date</code> value</returns>
-							public extern static System.DateTime parseTimeOfDay(string sTimeOfDay);
+							public extern static DateTime parseTimeOfDay(string sTimeOfDay);
+
+							/// <summary>
+							/// Formats the given OData value into a literal suitable for usage in URLs.
+							/// </summary>
+							/// <param name="vValue">The value according to "OData JSON Format Version 4.0" section "7.1 Primitive Value"</param>
+							/// <param name="sType">The OData primitive type, e.g. "Edm.String"</param>
+							/// <returns>The literal according to "OData Version 4.0 Part 2: URL Conventions" section* "5.1.1.6.1 Primitive Literals"</returns>
+							public extern static string formatLiteral(object vValue, string sType);
 
 							#endregion
 

@@ -31,7 +31,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.base.ManagedObjectMetadata")]
-				public partial class ManagedObjectMetadata
+				public partial class ManagedObjectMetadata : sap.ui.@base.Metadata
 				{
 					#region Constructor
 
@@ -51,12 +51,20 @@ namespace UI5
 					#region Methods
 
 					/// <summary>
-					/// Adds information to the given oAggregatedObject about its original API parent (or a subsequent API parent in case of multiple forwarding).
+					/// Adds information to the given oAggregatedObject about its original API parent (or a subsequent API parent in case of multiple forwarding). MUST be called before an element is forwarded to another internal aggregation (in case forwarding is done explicitly/manually without using the declarative mechanism introduced in UI5 1.56).
+					/// 
+					/// CAUTION: ManagedObjectMetadata.addAPIParentInfoEnd(...) MUST be called AFTER the element has been forwarded (set to an aggregation of an internal control). These two calls must wrap the forwarding.
 					/// </summary>
 					/// <param name="oAggregatedObject">Object to which the new API parent info should be added</param>
 					/// <param name="oParent">Object that is a new API parent</param>
 					/// <param name="sAggregationName">the name of the aggregation under which oAggregatedObject is aggregated by the API parent</param>
-					public extern static void addAPIParentInfo(sap.ui.@base.ManagedObject oAggregatedObject, sap.ui.@base.ManagedObject oParent, string sAggregationName);
+					public extern static void addAPIParentInfoBegin(sap.ui.@base.ManagedObject oAggregatedObject, sap.ui.@base.ManagedObject oParent, string sAggregationName);
+
+					/// <summary>
+					/// Completes the information about the original API parent of the given element. MUST be called after an element is forwarded to another internal aggregation. For every call to ManagedObjectMetadata.addAPIParentInfoBegin(...) this method here must be called as well.
+					/// </summary>
+					/// <param name="oAggregatedObject">Object to which the new API parent info should be added</param>
+					public extern static void addAPIParentInfoEnd(sap.ui.@base.ManagedObject oAggregatedObject);
 
 					/// <summary>
 					/// Defines that an aggregation <code>sForwardedSourceAggregation</code> of the ManagedObject described by this metadata should be "forwarded" to an aggregation of an internal element within the composite.
@@ -321,7 +329,7 @@ namespace UI5
 					/// <param name="oManagedObject">instance that could have instance specific design time metadata</param>
 					/// <param name="sScopeKey">scope name for which metadata will be resolved, see sap.ui.base.ManagedObjectMetadataScope</param>
 					/// <returns>A promise which will return the loaded design time metadata</returns>
-					private extern jquery.JQueryPromise<object> loadDesignTime(sap.ui.@base.ManagedObject oManagedObject, string sScopeKey);
+					private extern es5.Promise<object> loadDesignTime(sap.ui.@base.ManagedObject oManagedObject, string sScopeKey);
 
 					/// <summary>
 					/// Load and returns the design time metadata asynchronously. It inherits/merges parent design time metadata and if provided merges also instance specific design time metadata that was provided via the dt namespace.
@@ -330,7 +338,7 @@ namespace UI5
 					/// </summary>
 					/// <param name="oManagedObject">instance that could have instance specific design time metadata</param>
 					/// <returns>A promise which will return the loaded design time metadata</returns>
-					private extern jquery.JQueryPromise<object> loadDesignTime(sap.ui.@base.ManagedObject oManagedObject);
+					private extern es5.Promise<object> loadDesignTime(sap.ui.@base.ManagedObject oManagedObject);
 
 					/// <summary>
 					/// Load and returns the design time metadata asynchronously. It inherits/merges parent design time metadata and if provided merges also instance specific design time metadata that was provided via the dt namespace.
@@ -338,7 +346,7 @@ namespace UI5
 					/// Be aware that ManagedObjects do not ensure to have unique IDs. This may lead to issues if you would like to persist DesignTime based information. In that case you need to take care of identification yourself.
 					/// </summary>
 					/// <returns>A promise which will return the loaded design time metadata</returns>
-					private extern jquery.JQueryPromise<object> loadDesignTime();
+					private extern es5.Promise<object> loadDesignTime();
 
 					/// <summary>
 					/// Load and returns the design time metadata asynchronously. It inherits/merges parent design time metadata and if provided merges also instance specific design time metadata that was provided via the dt namespace.
@@ -347,7 +355,7 @@ namespace UI5
 					/// </summary>
 					/// <param name="sScopeKey">scope name for which metadata will be resolved, see sap.ui.base.ManagedObjectMetadataScope</param>
 					/// <returns>A promise which will return the loaded design time metadata</returns>
-					private extern jquery.JQueryPromise<object> loadDesignTime(string sScopeKey);
+					private extern es5.Promise<object> loadDesignTime(string sScopeKey);
 
 					/// <summary>
 					/// Calculates a new ID for an instance of this class.

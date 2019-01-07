@@ -408,7 +408,7 @@ namespace UI5
 					/// </summary>
 					/// <param name="oBindingInfo">The binding information</param>
 					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-					public extern virtual sap.ui.commons.Carousel bindContent(object oBindingInfo);
+					public extern virtual sap.ui.commons.Carousel bindContent(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 					/// <summary>
 					/// Unbinds aggregation {@link #getContent content} from model data.
@@ -465,7 +465,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.commons.Carousel.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// If the device supports touch gestures and left swipe is triggered shows the next carousel item

@@ -396,20 +396,21 @@ namespace UI5
 
 					/// <param name="sSuffix">Suffix of the Element to be retrieved or empty</param>
 					/// <returns>The element's DOM reference or null</returns>
-					public extern override dom.HTMLElement getDomRef(string sSuffix = "");
+					public extern override Retyped.dom.HTMLElement getDomRef(string sSuffix = "");
 
 					/// <summary>
 					/// Returns a metadata object for class sap.ui.core.HTML.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Sets some new DOM content for this HTML control. The content will replace the existing content after the next rendering. Properties are not modified, but preferDOM should be set to true.
 					/// </summary>
 					/// <param name="oDom">the new DOM content</param>
 					/// <returns><code>this</code> to facilitate method chaining</returns>
-					public extern virtual sap.ui.core.HTML setDOMContent(dom.HTMLElement oDom);
+					public extern virtual sap.ui.core.HTML setDOMContent(Retyped.dom.HTMLElement oDom);
 
 					#endregion
 

@@ -533,7 +533,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oBindingInfo">The binding information</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.GenericTile bindTileContent(object oBindingInfo);
+				public extern virtual sap.m.GenericTile bindTileContent(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 				/// <summary>
 				/// Unbinds aggregation {@link #getTileContent tileContent} from model data.
@@ -696,7 +696,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.GenericTile.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Provides an interface to switch on or off the tile's press event. Used in SlideTile for Actions scope.

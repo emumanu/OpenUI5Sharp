@@ -170,7 +170,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.core.tmpl.Template.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// parses the given path and extracts the model and path
@@ -187,7 +188,7 @@ namespace UI5
 						/// <param name="vPosition">Describes the position where the control should be put into the container</param>
 						/// <param name="bInline"></param>
 						/// <returns>the created control instance</returns>
-						public extern virtual sap.ui.core.tmpl.TemplateControl placeAt(Union<string, dom.HTMLElement> oRef, object oContext, Union<string, int> vPosition, bool bInline);
+						public extern virtual sap.ui.core.tmpl.TemplateControl placeAt(Union<string, Retyped.dom.HTMLElement> oRef, object oContext, Union<string, int> vPosition, bool bInline);
 
 						#endregion
 

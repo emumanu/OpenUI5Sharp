@@ -96,7 +96,7 @@ namespace UI5
 							/// <summary>
 							/// The underlying browser event
 							/// </summary>
-							public dom.Event browserEvent;
+							public Retyped.dom.Event browserEvent;
 
 						}
 
@@ -130,7 +130,7 @@ namespace UI5
 							/// <summary>
 							/// The underlying browser event
 							/// </summary>
-							public dom.Event browserEvent;
+							public Retyped.dom.Event browserEvent;
 
 						}
 
@@ -551,7 +551,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.core.dnd.DropInfo.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						#endregion
 

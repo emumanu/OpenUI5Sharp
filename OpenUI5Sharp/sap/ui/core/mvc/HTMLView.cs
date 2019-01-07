@@ -111,7 +111,7 @@ namespace UI5
 						/// </summary>
 						/// <param name="mOptions">A map containig the view configuration options.</param>
 						/// <returns>A Promise which resolves with the created HTMLView instance</returns>
-						public extern static jquery.JQueryPromise<object> create(Map mOptions);
+						public extern static es5.Promise<object> create(Map mOptions);
 
 						/// <summary>
 						/// Creates a new subclass of class sap.ui.core.mvc.HTMLView with name <code>sClassName</code> and enriches it with the information contained in <code>oClassInfo</code>.
@@ -147,7 +147,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.core.mvc.HTMLView.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						#endregion
 

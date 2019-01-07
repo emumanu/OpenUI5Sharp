@@ -768,7 +768,7 @@ namespace UI5
 					/// </summary>
 					/// <param name="sSelectionMode">the selection mode, see sap.ui.table.SelectionMode</param>
 					/// <returns>a reference on the table for chaining</returns>
-					public extern virtual void setSelectionMode(string sSelectionMode);
+					public extern virtual void setSelectionMode(sap.ui.table.SelectionMode sSelectionMode);
 
 					#endregion
 
@@ -1561,7 +1561,7 @@ namespace UI5
 					/// </summary>
 					/// <param name="oBindingInfo">The binding information</param>
 					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-					public extern virtual sap.ui.table.Table bindColumns(object oBindingInfo);
+					public extern virtual sap.ui.table.Table bindColumns(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 					/// <summary>
 					/// Unbinds aggregation {@link #getColumns columns} from model data.
@@ -1631,7 +1631,7 @@ namespace UI5
 					/// </summary>
 					/// <param name="oBindingInfo">The binding information</param>
 					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-					public extern virtual sap.ui.table.Table bindRows(object oBindingInfo);
+					public extern virtual sap.ui.table.Table bindRows(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 					/// <summary>
 					/// Unbinds aggregation {@link #getRows rows} from model data.
@@ -3087,7 +3087,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.table.Table.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Zero-based indices of selected items, wrapped in an array. An empty array means "no selection".

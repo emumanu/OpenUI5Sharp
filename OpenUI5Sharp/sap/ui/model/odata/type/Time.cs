@@ -55,18 +55,24 @@ namespace UI5
 							/// </summary>
 							/// <param name="oFormatOptions">format options as defined in {@link sap.ui.core.format.DateFormat}</param>
 							/// <param name="oConstraints">constraints; {@link #validateValue validateValue} throws an error if any constraint is violated</param>
-							public extern Time(object oFormatOptions, sap.ui.model.odata.type.ConstraintsInfo oConstraints);
+							public extern Time(sap.ui.core.format.DateFormat.FormatOptions oFormatOptions, sap.ui.model.odata.type.ConstraintsInfo oConstraints);
 
 							/// <summary>
 							/// Constructor for an OData primitive type <code>Edm.Time</code>.
 							/// </summary>
 							/// <param name="oFormatOptions">format options as defined in {@link sap.ui.core.format.DateFormat}</param>
-							public extern Time(object oFormatOptions);
+							public extern Time(sap.ui.core.format.DateFormat.FormatOptions oFormatOptions);
 
 							/// <summary>
 							/// Constructor for an OData primitive type <code>Edm.Time</code>.
 							/// </summary>
 							public extern Time();
+
+							/// <summary>
+							/// Constructor for an OData primitive type <code>Edm.Time</code>.
+							/// </summary>
+							/// <param name="oConstraints">constraints; {@link #validateValue validateValue} throws an error if any constraint is violated</param>
+							public extern Time(sap.ui.model.odata.type.ConstraintsInfo oConstraints);
 
 							#endregion
 
@@ -114,7 +120,8 @@ namespace UI5
 							/// Returns a metadata object for class sap.ui.model.odata.type.Time.
 							/// </summary>
 							/// <returns>Metadata object describing this class</returns>
-							public extern static sap.ui.@base.Metadata getMetadata();
+							[Name("getMetadata")]
+							public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 							/// <summary>
 							/// Returns the type's name.

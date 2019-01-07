@@ -12,7 +12,7 @@ namespace UI5
 			/// <summary>
 			/// A dialog to select items in a table containing multiple values and attributes. <h3>Overview</h3> The table select dialog helps users select items in a table-like structure with several attributes and values per item. A search fields helps narrow down the results. <h3>Structure</h3> The table select dialog consists of the following elements: <ul> <li> Search field - used to search enter search terms for a specific item.</li> <li> Info toolbar (only in multi-select mode) - displays the number of currently selected items.</li> <li> Content - the table with the items.</li> <li> Footer (optional) - a toolbar for actions.</li> </ul> Table select dialog supports multi-selection when the <code>multiSelect</code> property is set.
 			/// 
-			/// The selected items can be stored for later editing when the <code>rememberSelections</code> property is set. <b>Note:</b> This property has to be set before the dialog is opened. <h3>Usage</h3> <h4>When to use:</h4> <ul> <li>You need to select one or more items from a comprehensive list that contains multiple attributes or values.</li> </ul> <h4>When not to use:</h4> <ul> <li>You need to select one item from a predefined set of options that contains only one value. Use a {@link sap.m.Select switch} control instead.</li> <li>You need to select items within a query-based range. Use a {@link sap.ui.comp.valuehelpdialog.ValueHelpDialog value help} control instead.</li> <li>You need to only filter a set of items. Use a {@link sap.ui.comp.filterbar.FilterBar filter bar} control instead.</li> </ul> <h4>Note:</h4> The property <code>growing</code> determines the progressive loading. If it's set to true (the default value), the features <code>selected count</code> in info bar, <code>search</code> and <code>select/deselect all</code>, if present, will work only for the currently loaded items. To make sure that all items in the table are loaded at once and the above features work properly, we recommend setting the <code>growing</code> property to false. <h3>Responsive Behavior</h3> <ul> <li>On smaller screens, the columns of the table wrap and build a list that shows all the information.</li> </ul>
+			/// The selected items can be stored for later editing when the <code>rememberSelections</code> property is set. <b>Note:</b> This property has to be set before the dialog is opened. <h3>Usage</h3> <h4>When to use:</h4> <ul> <li>You need to select one or more items from a comprehensive list that contains multiple attributes or values.</li> </ul> <h4>When not to use:</h4> <ul> <li>You need to select only one item from a predefined list of single-value options. Use the {@link sap.m.Select Select} control instead.</li> <li>You need to display complex content without having the user navigate away from the current page or you want to prompt the user for an action. Use the {@link sap.m.Dialog Dialog} control instead.</li> <li>You need to select items within a query-based range. Use the {@link https://experience.sap.com/fiori-design-web/value-help-dialog/ Value Help Dialog} control instead.</li> <li>You need to filter a set of items without any selection. Use the {@link https://experience.sap.com/fiori-design-web/filter-bar/ Filter Bar} control instead.</li> </ul> <h4>Notes:</h4> <ul> <li>The property <code>growing</code> must not be used together with two-way binding. <li>When the property <code>growing</code> is set to <code>true</code> (default value), the features <code>selected count</code> in info bar, <code>search</code> and <code>select/deselect all</code>, if present, work only for the currently loaded items. To make sure that all items in the table are loaded at once and the above features work properly, set the property to <code>false</code>. <li>Since version 1.58, the columns headers and the info toolbar are sticky (remain fixed on top when scrolling). This feature is not supported in all browsers. For more information on browser support limitations, you can refer to the {@link sap.m.ListBase sap.m.ListBase} <code>sticky</code> property. </ul> <h3>Responsive Behavior</h3> <ul> <li>On smaller screens, the columns of the table wrap and build a list that shows all the information.</li> </ul>
 			/// </summary>
 			[External]
 			[Namespace(false)]
@@ -44,7 +44,7 @@ namespace UI5
 					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> multiSelect;
 
 					/// <summary>
-					/// If set to <code>true</code>, enables the growing feature of the control to load more items by requesting from the bound model (progressive loading). <b>Note:</b> This feature only works when an <code>items</code> aggregation is bound. Growing must not be used together with two-way binding. <b>Note:</b> If the property is set to true, the features <code>selected count</code> in info bar, <code>search</code> and <code>select/deselect all</code>, if present, will work only for the currently loaded items. To make sure that all items in the table are loaded at once and the above features work properly, we recommend setting the <code>growing</code> property to false.
+					/// Determines the progressive loading. When set to <code>true</code>, enables the growing feature of the control to load more items by requesting from the bound model. <b>Note:</b> This feature only works when an <code>items</code> aggregation is bound. Growing must not be used together with two-way binding. <b>Note:</b> If the property is set to true, the features <code>selected count</code> in info bar, <code>search</code> and <code>select/deselect all</code>, if present, work only for the currently loaded items. To make sure that all items in the table are loaded at once and the above features work properly, we recommend setting the <code>growing</code> property to false.
 					/// </summary>
 					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> growing;
 
@@ -67,6 +67,17 @@ namespace UI5
 					/// Specifies the content height of the inner dialog. For more information, see the Dialog documentation.
 					/// </summary>
 					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> contentHeight;
+
+					/// <summary>
+					/// This flag controls whether the Clear button is shown. When set to <code>true</code>, it provides a way to clear a selection made in Table Select Dialog.
+					/// 
+					/// We recommend enabling of the Clear button in the following cases, where a mechanism to clear the value is needed: In case the Table Select Dialog is in single-selection mode (default mode) and <code>rememberSelections</code> is set to <code>true</code>. The Clear button needs to be enabled in order to allow users to clear the selection. In case of using <code>sap.m.Input</code> with <code>valueHelpOnly</code> set to <code>true</code>, the Clear button can be used for clearing the selection. In case the application stores a value and uses only Table Select Dialog to edit/maintain it.
+					/// 
+					/// Optional: In case <code>multiSelect</code> is set to <code>true</code>, the selection can be easily cleared with one click.
+					/// 
+					/// <b>Note:</b> When used with oData, only the loaded selections will be cleared.
+					/// </summary>
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showClearButton;
 
 					/// <summary>
 					/// The items of the table.
@@ -210,7 +221,7 @@ namespace UI5
 				/// <summary>
 				/// Gets current value of property {@link #getGrowing growing}.
 				/// 
-				/// If set to <code>true</code>, enables the growing feature of the control to load more items by requesting from the bound model (progressive loading). <b>Note:</b> This feature only works when an <code>items</code> aggregation is bound. Growing must not be used together with two-way binding. <b>Note:</b> If the property is set to true, the features <code>selected count</code> in info bar, <code>search</code> and <code>select/deselect all</code>, if present, will work only for the currently loaded items. To make sure that all items in the table are loaded at once and the above features work properly, we recommend setting the <code>growing</code> property to false.
+				/// Determines the progressive loading. When set to <code>true</code>, enables the growing feature of the control to load more items by requesting from the bound model. <b>Note:</b> This feature only works when an <code>items</code> aggregation is bound. Growing must not be used together with two-way binding. <b>Note:</b> If the property is set to true, the features <code>selected count</code> in info bar, <code>search</code> and <code>select/deselect all</code>, if present, work only for the currently loaded items. To make sure that all items in the table are loaded at once and the above features work properly, we recommend setting the <code>growing</code> property to false.
 				/// 
 				/// Default value is <code>true</code>.
 				/// </summary>
@@ -306,6 +317,33 @@ namespace UI5
 
 				#endregion
 
+				#region Methods for Property showClearButton
+
+				/// <summary>
+				/// Gets current value of property {@link #getShowClearButton showClearButton}.
+				/// 
+				/// This flag controls whether the Clear button is shown. When set to <code>true</code>, it provides a way to clear a selection made in Table Select Dialog.
+				/// 
+				/// We recommend enabling of the Clear button in the following cases, where a mechanism to clear the value is needed: In case the Table Select Dialog is in single-selection mode (default mode) and <code>rememberSelections</code> is set to <code>true</code>. The Clear button needs to be enabled in order to allow users to clear the selection. In case of using <code>sap.m.Input</code> with <code>valueHelpOnly</code> set to <code>true</code>, the Clear button can be used for clearing the selection. In case the application stores a value and uses only Table Select Dialog to edit/maintain it.
+				/// 
+				/// Optional: In case <code>multiSelect</code> is set to <code>true</code>, the selection can be easily cleared with one click.
+				/// 
+				/// <b>Note:</b> When used with oData, only the loaded selections will be cleared.
+				/// 
+				/// Default value is <code>false</code>.
+				/// </summary>
+				/// <returns>Value of property <code>showClearButton</code></returns>
+				public extern virtual bool getShowClearButton();
+
+				/// <summary>
+				/// Sets the Clear button visible state
+				/// </summary>
+				/// <param name="bVisible">Value for the Clear button visible state.</param>
+				/// <returns>this pointer for chaining</returns>
+				public extern virtual sap.m.TableSelectDialog setShowClearButton(bool bVisible);
+
+				#endregion
+
 				#region Methods for Aggregation items
 
 				/// <summary>
@@ -366,7 +404,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oBindingInfo">The binding information</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.TableSelectDialog bindItems(object oBindingInfo);
+				public extern virtual sap.m.TableSelectDialog bindItems(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 				/// <summary>
 				/// Unbinds aggregation {@link #getItems items} from model data.
@@ -440,7 +478,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oBindingInfo">The binding information</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.TableSelectDialog bindColumns(object oBindingInfo);
+				public extern virtual sap.m.TableSelectDialog bindColumns(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 				/// <summary>
 				/// Unbinds aggregation {@link #getColumns columns} from model data.
@@ -798,13 +836,14 @@ namespace UI5
 				/// Transfers method to the inner dialog: getDomRef
 				/// </summary>
 				/// <returns>The Element's DOM Element sub DOM Element or null</returns>
-				public extern virtual dom.HTMLElement getDomRef();
+				public extern virtual Retyped.dom.HTMLElement getDomRef();
 
 				/// <summary>
 				/// Returns a metadata object for class sap.m.TableSelectDialog.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Transfers method to the inner dialog: hasStyleClass

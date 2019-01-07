@@ -168,7 +168,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.SuggestionItem.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Return suggestion text. By default, it is the value of the <code>text</code> property.

@@ -267,6 +267,7 @@ namespace UI5
 					[External]
 					[Namespace(false)]
 					[Name("sap.ui.commons.MessageBox.Icon")]
+					[Obsolete("Deprecated since 1.38.")]
 					public enum Icon
 					{
 						/// <summary>
@@ -306,6 +307,7 @@ namespace UI5
 					[External]
 					[Namespace(false)]
 					[Name("sap.ui.commons.MessageBox.Action")]
+					[Obsolete("Deprecated since 1.38.")]
 					public enum Action
 					{
 						/// <summary>

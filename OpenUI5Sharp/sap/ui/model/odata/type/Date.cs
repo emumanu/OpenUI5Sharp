@@ -34,18 +34,24 @@ namespace UI5
 							/// </summary>
 							/// <param name="oFormatOptions">format options as defined in {@link sap.ui.core.format.DateFormat}</param>
 							/// <param name="oConstraints">constraints; {@link #validateValue validateValue} throws an error if any constraint is violated</param>
-							public extern Date(object oFormatOptions, sap.ui.model.odata.type.ConstraintsInfo oConstraints);
+							public extern Date(sap.ui.core.format.DateFormat.FormatOptions oFormatOptions, sap.ui.model.odata.type.ConstraintsInfo oConstraints);
 
 							/// <summary>
 							/// Constructor for an OData primitive type <code>Edm.Date</code>.
 							/// </summary>
 							/// <param name="oFormatOptions">format options as defined in {@link sap.ui.core.format.DateFormat}</param>
-							public extern Date(object oFormatOptions);
+							public extern Date(sap.ui.core.format.DateFormat.FormatOptions oFormatOptions);
 
 							/// <summary>
 							/// Constructor for an OData primitive type <code>Edm.Date</code>.
 							/// </summary>
 							public extern Date();
+
+							/// <summary>
+							/// Constructor for an OData primitive type <code>Edm.Date</code>.
+							/// </summary>
+							/// <param name="oConstraints">constraints; {@link #validateValue validateValue} throws an error if any constraint is violated</param>
+							public extern Date(sap.ui.model.odata.type.ConstraintsInfo oConstraints);
 
 							#endregion
 
@@ -87,13 +93,14 @@ namespace UI5
 							/// <param name="vValue">the value to be formatted</param>
 							/// <param name="sTargetType">the target type; may be "any", "string", or a type with one of these types as its {@link sap.ui.base.DataType#getPrimitiveType primitive type}. See {@link sap.ui.model.odata.type} for more information.</param>
 							/// <returns>the formatted output value in the target type; <code>undefined</code> or <code>null</code> are formatted to <code>null</code></returns>
-							public extern virtual string formatValue(Union<string, System.DateTime> vValue, string sTargetType);
+							public extern virtual string formatValue(Union<string, DateTime> vValue, string sTargetType);
 
 							/// <summary>
 							/// Returns a metadata object for class sap.ui.model.odata.type.Date.
 							/// </summary>
 							/// <returns>Metadata object describing this class</returns>
-							public extern static sap.ui.@base.Metadata getMetadata();
+							[Name("getMetadata")]
+							public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 							/// <summary>
 							/// Returns the type's name.

@@ -74,7 +74,7 @@ namespace UI5
 							/// </summary>
 							/// <param name="vSource">One or several annotation source(s). Can be either a string or a map of the type <code>sap.ui.model.odata.v2.ODataAnnotations.Source</code> or an array containing several (either strings or source objects).</param>
 							/// <returns>The promise to (load,) parse and merge the given source(s). The Promise resolves on success with an array of maps containing properties <code>source</code> and <code>data</code>. See the parameters of the <code>success</code> event for more details. The promise fails in case at least one source could not be (loaded,) parsed or merged with an array of objects containing Errors and/or Success objects.</returns>
-							public extern virtual jquery.JQueryPromise<object> addSource(Union<string, string[], sap.ui.model.odata.v2.ODataAnnotations.Source, sap.ui.model.odata.v2.ODataAnnotations.Source[]> vSource);
+							public extern virtual es5.Promise<object> addSource(Union<string, string[], sap.ui.model.odata.v2.ODataAnnotations.Source, sap.ui.model.odata.v2.ODataAnnotations.Source[]> vSource);
 
 							/// <summary>
 							/// This event exists for compatibility with the old Annotation loader Attaches the given callback to the <code>allFailed</code> event. This event is fired when no annotation from a group of sources was successfully (loaded,) parsed and merged. The parameter <code>result</code> will be set on the event argument and contains an array of Errors in the order in which the sources had been added.
@@ -354,16 +354,23 @@ namespace UI5
 							public extern virtual object getData();
 
 							/// <summary>
+							/// Returns a map of custom headers that are sent with every request to an annotation URL.
+							/// </summary>
+							/// <returns>A map of all custom headers.</returns>
+							public extern virtual Map getHeaders();
+
+							/// <summary>
 							/// Returns a metadata object for class sap.ui.model.odata.v2.ODataAnnotations.
 							/// </summary>
 							/// <returns>Metadata object describing this class</returns>
-							public extern static sap.ui.@base.Metadata getMetadata();
+							[Name("getMetadata")]
+							public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 							/// <summary>
 							/// Returns a promise that resolves when the annotation sources that were added up to this point were successfully (loaded,) parsed and merged
 							/// </summary>
 							/// <returns>The Promise that resolves/rejects after the last added sources have been processed</returns>
-							public extern virtual jquery.JQueryPromise<object> loaded();
+							public extern virtual es5.Promise<object> loaded();
 
 							/// <summary>
 							/// Set custom headers which are provided in a key/value map. These headers are used for all requests. The "Accept-Language" header cannot be modified and is set using the core's language setting.

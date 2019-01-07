@@ -436,7 +436,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.unified.Menu.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Opens the menu at the specified position.
@@ -452,7 +453,7 @@ namespace UI5
 					/// <param name="of">The menu is positioned relatively to this element based on the given dock locations</param>
 					/// <param name="offset">The offset relative to the docking point, specified as a string with space-separated pixel values (e.g. "0 10" to move the popup 10 pixels to the right)</param>
 					/// <param name="collision">The collision defines how the position of the menu should be adjusted in case it overflows the window in some direction</param>
-					public extern virtual void open(bool bWithKeyboard, Union<sap.ui.core.Element, dom.HTMLElement> oOpenerRef, sap.ui.core.Dock my, sap.ui.core.Dock at, Union<sap.ui.core.Element, dom.HTMLElement> of, string offset, sap.ui.core.Collision collision);
+					public extern virtual void open(bool bWithKeyboard, Union<sap.ui.core.Element, Retyped.dom.HTMLElement> oOpenerRef, sap.ui.core.Dock my, sap.ui.core.Dock at, Union<sap.ui.core.Element, Retyped.dom.HTMLElement> of, string offset, sap.ui.core.Collision collision);
 
 					/// <summary>
 					/// Opens the menu at the specified position.
@@ -467,7 +468,7 @@ namespace UI5
 					/// <param name="at">The 'of' element's reference docking location for positioning the menu on the screen</param>
 					/// <param name="of">The menu is positioned relatively to this element based on the given dock locations</param>
 					/// <param name="offset">The offset relative to the docking point, specified as a string with space-separated pixel values (e.g. "0 10" to move the popup 10 pixels to the right)</param>
-					public extern virtual void open(bool bWithKeyboard, Union<sap.ui.core.Element, dom.HTMLElement> oOpenerRef, sap.ui.core.Dock my, sap.ui.core.Dock at, Union<sap.ui.core.Element, dom.HTMLElement> of, string offset);
+					public extern virtual void open(bool bWithKeyboard, Union<sap.ui.core.Element, Retyped.dom.HTMLElement> oOpenerRef, sap.ui.core.Dock my, sap.ui.core.Dock at, Union<sap.ui.core.Element, Retyped.dom.HTMLElement> of, string offset);
 
 					/// <summary>
 					/// Opens the menu at the specified position.
@@ -481,7 +482,7 @@ namespace UI5
 					/// <param name="my">The reference docking location of the menu for positioning the menu on the screen</param>
 					/// <param name="at">The 'of' element's reference docking location for positioning the menu on the screen</param>
 					/// <param name="of">The menu is positioned relatively to this element based on the given dock locations</param>
-					public extern virtual void open(bool bWithKeyboard, Union<sap.ui.core.Element, dom.HTMLElement> oOpenerRef, sap.ui.core.Dock my, sap.ui.core.Dock at, Union<sap.ui.core.Element, dom.HTMLElement> of);
+					public extern virtual void open(bool bWithKeyboard, Union<sap.ui.core.Element, Retyped.dom.HTMLElement> oOpenerRef, sap.ui.core.Dock my, sap.ui.core.Dock at, Union<sap.ui.core.Element, Retyped.dom.HTMLElement> of);
 
 					#endregion
 

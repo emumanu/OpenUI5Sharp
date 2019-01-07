@@ -71,7 +71,7 @@ namespace UI5
 							/// <summary>
 							/// a promise which is resolved by the OData model once metadata and annotations have been fully loaded
 							/// </summary>
-							public jquery.JQueryPromise<object> annotationsLoadedPromise;
+							public es5.Promise<object> annotationsLoadedPromise;
 
 						}
 
@@ -151,7 +151,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.model.odata.ODataMetaModel.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// Returns the OData association end corresponding to the given entity type's navigation property of given name.
@@ -245,13 +246,13 @@ namespace UI5
 						/// </summary>
 						/// <param name="oPropertyContext">a model context for a structural property of an entity type or a complex type, as returned by {@link #getMetaContext getMetaContext}</param>
 						/// <returns>a Promise that gets resolved as soon as the value lists as well as the required model elements have been loaded</returns>
-						public extern virtual jquery.JQueryPromise<object> getODataValueLists(sap.ui.model.Context oPropertyContext);
+						public extern virtual es5.Promise<object> getODataValueLists(sap.ui.model.Context oPropertyContext);
 
 						/// <summary>
 						/// Returns a promise which is fulfilled once the meta model data is loaded and can be used.
 						/// </summary>
 						/// <returns>a Promise</returns>
-						public extern virtual jquery.JQueryPromise<object> loaded();
+						public extern virtual es5.Promise<object> loaded();
 
 						/// <summary>
 						/// Refresh not supported by OData meta model!

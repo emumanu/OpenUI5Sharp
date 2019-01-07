@@ -88,53 +88,16 @@ namespace UI5
 						/// <param name="oOptions"></param>
 						public extern Views(sap.ui.core.routing.Views.ViewsOptions oOptions);
 
+						/// <summary>
+						/// Instantiates a view repository that creates and caches views. If it is destroyed, all the Views it created are destroyed. Usually you do not have to create instances of this class, it is used by the {@link sap.ui.core.routing.Router}. If you are using {@link sap.ui.core.routing.Targets} without using a {@link sap.ui.core.UIComponent} you have to create an instance of this class. They will create an instance on their own, or if they are used with a {@link sap.ui.core.UIComponent} they will share the same instance of Views.
+						/// </summary>
+						public extern Views();
+
 						#endregion
 
 						#region Methods
 
 						#region Methods for event created
-
-						/// <summary>
-						/// Attach event-handler <code>fnFunction</code> to the 'created' event of this <code>sap.ui.core.routing.Views</code>.<br/>
-						/// </summary>
-						/// <param name="oData">The object, that should be passed along with the event-object when firing the event.</param>
-						/// <param name="fnFunction">The function to call, when the event occurs. This function will be called on the oListener-instance (if present) or in a 'static way'.</param>
-						/// <param name="oListener">Object on which to call the given function.</param>
-						/// <returns><code>this</code> to allow method chaining</returns>
-						public extern virtual sap.ui.core.routing.Views attachCreated(object oData, sap.ui.core.routing.Views.CreatedDelegate fnFunction, object oListener);
-
-						/// <summary>
-						/// Attach event-handler <code>fnFunction</code> to the 'created' event of this <code>sap.ui.core.routing.Views</code>.<br/>
-						/// </summary>
-						/// <param name="oData">The object, that should be passed along with the event-object when firing the event.</param>
-						/// <param name="fnFunction">The function to call, when the event occurs. This function will be called on the oListener-instance (if present) or in a 'static way'.</param>
-						/// <returns><code>this</code> to allow method chaining</returns>
-						public extern virtual sap.ui.core.routing.Views attachCreated(object oData, sap.ui.core.routing.Views.CreatedDelegate fnFunction);
-
-						/// <summary>
-						/// Attach event-handler <code>fnFunction</code> to the 'created' event of this <code>sap.ui.core.routing.Views</code>.<br/>
-						/// </summary>
-						/// <param name="fnFunction">The function to call, when the event occurs. This function will be called on the oListener-instance (if present) or in a 'static way'.</param>
-						/// <returns><code>this</code> to allow method chaining</returns>
-						public extern virtual sap.ui.core.routing.Views attachCreated(sap.ui.core.routing.Views.CreatedDelegate fnFunction);
-
-						/// <summary>
-						/// Attach event-handler <code>fnFunction</code> to the 'created' event of this <code>sap.ui.core.routing.Views</code>.<br/>
-						/// </summary>
-						/// <param name="fnFunction">The function to call, when the event occurs. This function will be called on the oListener-instance (if present) or in a 'static way'.</param>
-						/// <param name="oListener">Object on which to call the given function.</param>
-						/// <returns><code>this</code> to allow method chaining</returns>
-						public extern virtual sap.ui.core.routing.Views attachCreated(sap.ui.core.routing.Views.CreatedDelegate fnFunction, object oListener);
-
-						/// <summary>
-						/// Detach event-handler <code>fnFunction</code> from the 'created' event of this <code>sap.ui.core.routing.Views</code>.<br/>
-						/// 
-						/// The passed function and listener object must match the ones previously used for event registration.
-						/// </summary>
-						/// <param name="fnFunction">The function to call, when the event occurs.</param>
-						/// <param name="oListener">Object on which the given function had to be called.</param>
-						/// <returns><code>this</code> to allow method chaining</returns>
-						public extern virtual sap.ui.core.routing.Views detachCreated(sap.ui.core.routing.Views.CreatedDelegate fnFunction, object oListener);
 
 						/// <summary>
 						/// Fire event created to attached listeners.
@@ -187,14 +150,15 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.core.routing.Views.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// Returns a cached view, for a given name. If it does not exist yet, it will create the view with the provided options. If you provide a viewId, it will be prefixed with the viewId of the component.
 						/// </summary>
 						/// <param name="oOptions">see {@link sap.ui.view} for the documentation. The viewId you pass into the options will be prefixed with the id of the component you pass into the constructor. So you can retrieve the view later by calling the {@link sap.ui.core.UIComponent#byId} function of the UIComponent.</param>
 						/// <returns>A promise that is resolved when the view is loaded {@link sap.ui.core.mvc.View#loaded}. The view instance will be passed to the promise.</returns>
-						public extern virtual jquery.JQueryPromise<object> getView(sap.ui.core.routing.Views.GetViewOptions oOptions);
+						public extern virtual es5.Promise<object> getView(sap.ui.core.routing.Views.GetViewOptions oOptions);
 
 						/// <summary>
 						/// Adds or overwrites a view in the cache of the Views instance. The viewName serves as a key for caching.

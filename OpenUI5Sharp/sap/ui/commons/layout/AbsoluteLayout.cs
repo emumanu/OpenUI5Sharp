@@ -291,7 +291,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.commons.layout.AbsoluteLayout.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// Checks for the provided sap.ui.core.Control in the aggregated position containers, and returns the index of the container in the positions aggregation if found, or '-1' otherwise.

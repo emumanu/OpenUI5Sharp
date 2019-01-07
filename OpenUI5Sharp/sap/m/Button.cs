@@ -626,13 +626,14 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.Button.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Defines to which DOM reference the Popup should be docked
 				/// </summary>
 				/// <returns>the DOM reference that Popup should dock to</returns>
-				public extern virtual dom.HTMLElement getPopupAnchorDomRef();
+				public extern virtual Retyped.dom.HTMLElement getPopupAnchorDomRef();
 
 				#endregion
 

@@ -89,6 +89,16 @@ namespace UI5
 					public Union<sap.m.Menu, string, sap.ui.@base.ManagedObject.BindAggregationInfo> menu;
 
 					/// <summary>
+					/// Association to controls / ids which describe this control (see WAI-ARIA attribute aria-describedby).
+					/// </summary>
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaDescribedBy;
+
+					/// <summary>
+					/// Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).
+					/// </summary>
+					public Union<sap.ui.core.Control, sap.ui.core.ID[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> ariaLabelledBy;
+
+					/// <summary>
 					/// Fired when the <code>buttonMode</code> is set to <code>Split</code> and the user presses the main button unless <code>useDefaultActionOnly</code> is set to <code>false</code> and another action from the menu has been selected previously.
 					/// </summary>
 					public sap.ui.@base.EventDelegate defaultAction;
@@ -443,6 +453,66 @@ namespace UI5
 
 				#endregion
 
+				#region Methods for Association ariaDescribedBy
+
+				/// <summary>
+				/// Returns array of IDs of the elements which are the current targets of the association {@link #getAriaDescribedBy ariaDescribedBy}.
+				/// </summary>
+				/// <returns></returns>
+				public extern virtual sap.ui.core.ID[] getAriaDescribedBy();
+
+				/// <summary>
+				/// Adds some ariaDescribedBy into the association {@link #getAriaDescribedBy ariaDescribedBy}.
+				/// </summary>
+				/// <param name="vAriaDescribedBy">The ariaDescribedBy to add; if empty, nothing is inserted</param>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.MenuButton addAriaDescribedBy(Union<sap.ui.core.ID, sap.ui.core.Control> vAriaDescribedBy);
+
+				/// <summary>
+				/// Removes an ariaDescribedBy from the association named {@link #getAriaDescribedBy ariaDescribedBy}.
+				/// </summary>
+				/// <param name="vAriaDescribedBy">The ariaDescribedBy to be removed or its index or ID</param>
+				/// <returns>The removed ariaDescribedBy or <code>null</code></returns>
+				public extern virtual sap.ui.core.ID removeAriaDescribedBy(Union<int, sap.ui.core.ID, sap.ui.core.Control> vAriaDescribedBy);
+
+				/// <summary>
+				/// Removes all the controls in the association named {@link #getAriaDescribedBy ariaDescribedBy}.
+				/// </summary>
+				/// <returns>An array of the removed elements (might be empty)</returns>
+				public extern virtual sap.ui.core.ID[] removeAllAriaDescribedBy();
+
+				#endregion
+
+				#region Methods for Association ariaLabelledBy
+
+				/// <summary>
+				/// Returns array of IDs of the elements which are the current targets of the association {@link #getAriaLabelledBy ariaLabelledBy}.
+				/// </summary>
+				/// <returns></returns>
+				public extern virtual sap.ui.core.ID[] getAriaLabelledBy();
+
+				/// <summary>
+				/// Adds some ariaLabelledBy into the association {@link #getAriaLabelledBy ariaLabelledBy}.
+				/// </summary>
+				/// <param name="vAriaLabelledBy">The ariaLabelledBy to add; if empty, nothing is inserted</param>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.MenuButton addAriaLabelledBy(Union<sap.ui.core.ID, sap.ui.core.Control> vAriaLabelledBy);
+
+				/// <summary>
+				/// Removes an ariaLabelledBy from the association named {@link #getAriaLabelledBy ariaLabelledBy}.
+				/// </summary>
+				/// <param name="vAriaLabelledBy">The ariaLabelledBy to be removed or its index or ID</param>
+				/// <returns>The removed ariaLabelledBy or <code>null</code></returns>
+				public extern virtual sap.ui.core.ID removeAriaLabelledBy(Union<int, sap.ui.core.ID, sap.ui.core.Control> vAriaLabelledBy);
+
+				/// <summary>
+				/// Removes all the controls in the association named {@link #getAriaLabelledBy ariaLabelledBy}.
+				/// </summary>
+				/// <returns>An array of the removed elements (might be empty)</returns>
+				public extern virtual sap.ui.core.ID[] removeAllAriaLabelledBy();
+
+				#endregion
+
 				#region Methods for Event defaultAction
 
 				/// <summary>
@@ -554,7 +624,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.MenuButton.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Initializes the control.

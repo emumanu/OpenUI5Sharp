@@ -278,6 +278,11 @@ This aggregation is provided exclusively to test drag-and-drop functionality of 
         <xs:documentation>The unique identifier within a page, either configured or automatically generated.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
+    <xs:attribute name="class" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>The CSS class to use with this element</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
     <xs:attribute name="tooltip" type="xs:string" />
     <xs:attribute name="customData" type="xs:string" />
     <xs:attribute name="dependents" type="xs:string" />
@@ -360,17 +365,23 @@ A set of built in Icons is available and they can be fetched by calling sap.ui.c
         </xs:attribute>
         <xs:attribute name="color" type="xs:string">
           <xs:annotation>
-            <xs:documentation>The color of the Icon. If color is not defined here, the Icon inherits the color from its DOM parent.</xs:documentation>
+            <xs:documentation>The color of the Icon. If color is not defined here, the Icon inherits the color from its DOM parent.
+
+The property can be set with {@link sap.ui.core.CSSColor CSS Color} or {@link sap.ui.core.IconColor Semantic Icon Color}.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="hoverColor" type="xs:string">
           <xs:annotation>
-            <xs:documentation>This color is shown when icon is hovered. This property has no visual effect when run on mobile device.</xs:documentation>
+            <xs:documentation>This color is shown when icon is hovered. This property has no visual effect when run on mobile device.
+
+The property can be set with {@link sap.ui.core.CSSColor CSS Color} or {@link sap.ui.core.IconColor Semantic Icon Color}.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="activeColor" type="xs:string">
           <xs:annotation>
-            <xs:documentation>This color is shown when icon is pressed/activated by the user.</xs:documentation>
+            <xs:documentation>This color is shown when icon is pressed/activated by the user.
+
+The property can be set with {@link sap.ui.core.CSSColor CSS Color} or {@link sap.ui.core.IconColor Semantic Icon Color}.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="width" type="n0:_CSSSizeType">
@@ -385,17 +396,23 @@ A set of built in Icons is available and they can be fetched by calling sap.ui.c
         </xs:attribute>
         <xs:attribute name="backgroundColor" type="xs:string">
           <xs:annotation>
-            <xs:documentation>Background color of the Icon in normal state.</xs:documentation>
+            <xs:documentation>Background color of the Icon in normal state.
+
+The property can be set with {@link sap.ui.core.CSSColor CSS Color} or {@link sap.ui.core.IconColor Semantic Icon Color}.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="hoverBackgroundColor" type="xs:string">
           <xs:annotation>
-            <xs:documentation>Background color for Icon in hover state. This property has no visual effect when run on mobile device.</xs:documentation>
+            <xs:documentation>Background color for Icon in hover state. This property has no visual effect when run on mobile device.
+
+The property can be set with {@link sap.ui.core.CSSColor CSS Color} or {@link sap.ui.core.IconColor Semantic Icon Color}.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="activeBackgroundColor" type="xs:string">
           <xs:annotation>
-            <xs:documentation>Background color for Icon in active state.</xs:documentation>
+            <xs:documentation>Background color for Icon in active state.
+
+The property can be set with {@link sap.ui.core.CSSColor CSS Color} or {@link sap.ui.core.IconColor Semantic Icon Color}.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="decorative" type="xs:boolean">
@@ -1192,6 +1209,11 @@ A region that contains a collection of items and objects that, as a whole, combi
   </xs:simpleType>
   <xs:simpleType name="_CalendarTypeType">
     <xs:restriction base="xs:string">
+      <xs:enumeration value="Buddhist">
+        <xs:annotation>
+          <xs:documentation>The Thai buddhist calendar</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="Gregorian">
         <xs:annotation>
           <xs:documentation>The Gregorian calendar</xs:documentation>
@@ -1278,6 +1300,11 @@ A region that contains a collection of items and objects that, as a whole, combi
   </xs:simpleType>
   <xs:simpleType name="_IconColorType">
     <xs:restriction base="xs:string">
+      <xs:enumeration value="Contrast">
+        <xs:annotation>
+          <xs:documentation>Contrast color.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="Critical">
         <xs:annotation>
           <xs:documentation>Critical color</xs:documentation>

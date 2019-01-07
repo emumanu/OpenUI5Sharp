@@ -16,7 +16,7 @@ namespace UI5
 					public static partial class v4
 					{
 						/// <summary>
-						/// Context binding for an OData V4 model. An event handler can only be attached to this binding for the following events: 'change', 'dataReceived', and 'dataRequested'. For other events, an error is thrown.
+						/// Context binding for an OData V4 model. An event handler can only be attached to this binding for the following events: 'AggregatedDataStateChange', 'change', 'dataReceived', 'dataRequested', and 'DataStateChange'. For other events, an error is thrown.
 						/// 
 						/// A context binding can also be used as an <i>operation binding</i> to support bound actions, action imports, bound functions and function imports. If you want to control the execution time of an operation, for example a function import named "GetNumberOfAvailableItems", create a context binding for the path "/GetNumberOfAvailableItems(...)" (as specified here, including the three dots). Such an operation binding is <i>deferred</i>, meaning that it does not request automatically, but only when you call {@link #execute}. {@link #refresh} is always ignored for actions and action imports. For bound functions and function imports, it is ignored if {@link #execute} has not yet been called. Afterwards it results in another call of the function with the parameter values of the last execute.
 						/// 
@@ -36,28 +36,31 @@ namespace UI5
 							#region Constructor
 
 							/// <summary>
-							/// Do <strong>NOT</strong> call this private constructor, but rather use {@link sap.ui.model.odata.v4.ODataModel#bindContext} instead!
+							/// Constructor for ContextBinding
 							/// </summary>
-							/// <param name="oModel">The OData V4 model</param>
-							/// <param name="sPath">The binding path in the model; must not end with a slash</param>
-							/// <param name="oContext">The context which is required as base for a relative path</param>
-							/// <param name="mParameters">Map of binding parameters</param>
-							public extern ODataContextBinding(sap.ui.model.odata.v4.ODataModel oModel, string sPath, sap.ui.model.Context oContext, object mParameters);
+							/// <param name="oModel"></param>
+							/// <param name="sPath"></param>
+							/// <param name="oContext"></param>
+							/// <param name="mParameters"></param>
+							/// <param name="oEvents">object defining event handlers</param>
+							public extern ODataContextBinding(sap.ui.model.Model oModel, string sPath, sap.ui.model.Context oContext, object mParameters, object oEvents);
 
 							/// <summary>
-							/// Do <strong>NOT</strong> call this private constructor, but rather use {@link sap.ui.model.odata.v4.ODataModel#bindContext} instead!
+							/// Constructor for ContextBinding
 							/// </summary>
-							/// <param name="oModel">The OData V4 model</param>
-							/// <param name="sPath">The binding path in the model; must not end with a slash</param>
-							/// <param name="oContext">The context which is required as base for a relative path</param>
-							public extern ODataContextBinding(sap.ui.model.odata.v4.ODataModel oModel, string sPath, sap.ui.model.Context oContext);
+							/// <param name="oModel"></param>
+							/// <param name="sPath"></param>
+							/// <param name="oContext"></param>
+							/// <param name="mParameters"></param>
+							public extern ODataContextBinding(sap.ui.model.Model oModel, string sPath, sap.ui.model.Context oContext, object mParameters);
 
 							/// <summary>
-							/// Do <strong>NOT</strong> call this private constructor, but rather use {@link sap.ui.model.odata.v4.ODataModel#bindContext} instead!
+							/// Constructor for ContextBinding
 							/// </summary>
-							/// <param name="oModel">The OData V4 model</param>
-							/// <param name="sPath">The binding path in the model; must not end with a slash</param>
-							public extern ODataContextBinding(sap.ui.model.odata.v4.ODataModel oModel, string sPath);
+							/// <param name="oModel"></param>
+							/// <param name="sPath"></param>
+							/// <param name="oContext"></param>
+							public extern ODataContextBinding(sap.ui.model.Model oModel, string sPath, sap.ui.model.Context oContext);
 
 							#endregion
 
@@ -85,9 +88,9 @@ namespace UI5
 							/// 
 							/// The value of this binding is the result of the operation. To access a result of primitive type, bind a control to the path "value", for example <code>&lt;Text text="{value}"/></code>. If the result has a complex or entity type, you can bind properties as usual, for example <code>&lt;Text text="{street}"/></code>.
 							/// </summary>
-							/// <param name="sGroupId">The group ID to be used for the request; if not specified, the group ID for this binding is used, see {@link sap.ui.model.odata.v4.ODataContextBinding#constructor}. Valid values are <code>undefined</code>, '$auto', '$direct' or application group IDs as specified in {@link sap.ui.model.odata.v4.ODataModel#submitBatch}.</param>
+							/// <param name="sGroupId">The group ID to be used for the request; if not specified, the group ID for this binding is used, see {@link sap.ui.model.odata.v4.ODataContextBinding#constructor}. Valid values are <code>undefined</code>, '$auto', '$auto.*', '$direct' or application group IDs as specified in {@link sap.ui.model.odata.v4.ODataModel}.</param>
 							/// <returns>A promise that is resolved without data or a return value context when the operation call succeeded, or rejected with an instance of <code>Error</code> in case of failure, for instance if the operation metadata is not found, if overloading is not supported, or if a collection-valued function parameter is encountered. A return value context is a {@link sap.ui.model.odata.v4.Context} which represents a bound operation response. It is created only if the operation is bound and has a single entity return value from the same entity set as the operation's binding parameter and has a parent context which is a {@link sap.ui.model.odata.v4.Context} and points to an entity from an entity set.</returns>
-							public extern virtual jquery.JQueryPromise<object> execute(string sGroupId);
+							public extern virtual es5.Promise<object> execute(string sGroupId);
 
 							/// <summary>
 							/// Calls the OData operation that corresponds to this operation binding.
@@ -97,7 +100,7 @@ namespace UI5
 							/// The value of this binding is the result of the operation. To access a result of primitive type, bind a control to the path "value", for example <code>&lt;Text text="{value}"/></code>. If the result has a complex or entity type, you can bind properties as usual, for example <code>&lt;Text text="{street}"/></code>.
 							/// </summary>
 							/// <returns>A promise that is resolved without data or a return value context when the operation call succeeded, or rejected with an instance of <code>Error</code> in case of failure, for instance if the operation metadata is not found, if overloading is not supported, or if a collection-valued function parameter is encountered. A return value context is a {@link sap.ui.model.odata.v4.Context} which represents a bound operation response. It is created only if the operation is bound and has a single entity return value from the same entity set as the operation's binding parameter and has a parent context which is a {@link sap.ui.model.odata.v4.Context} and points to an entity from an entity set.</returns>
-							public extern virtual jquery.JQueryPromise<object> execute();
+							public extern virtual es5.Promise<object> execute();
 
 							/// <summary>
 							/// Creates a new subclass of class sap.ui.model.odata.v4.ODataContextBinding with name <code>sClassName</code> and enriches it with the information contained in <code>oClassInfo</code>.
@@ -139,7 +142,8 @@ namespace UI5
 							/// Returns a metadata object for class sap.ui.model.odata.v4.ODataContextBinding.
 							/// </summary>
 							/// <returns>Metadata object describing this class</returns>
-							public extern static sap.ui.@base.Metadata getMetadata();
+							[Name("getMetadata")]
+							public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 							/// <summary>
 							/// Returns the root binding of this binding's hierarchy, see binding {@link topic:54e0ddf695af4a6c978472cecb01c64d Initialization and Read Requests}.
@@ -174,7 +178,7 @@ namespace UI5
 							/// </summary>
 							/// <param name="sGroupId">The group ID to be used for refresh; if not specified, the group ID for this binding is used.
 							/// 
-							/// Valid values are <code>undefined</code>, '$auto', '$direct' or application group IDs as specified in {@link sap.ui.model.odata.v4.ODataModel#submitBatch}.</param>
+							/// Valid values are <code>undefined</code>, '$auto', '$auto.*', '$direct' or application group IDs as specified in {@link sap.ui.model.odata.v4.ODataModel}.</param>
 							public extern virtual void refresh(string sGroupId);
 
 							/// <summary>

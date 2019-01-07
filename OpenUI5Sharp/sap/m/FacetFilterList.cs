@@ -644,7 +644,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.FacetFilterList.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Returns the keys of the selected elements as an associative array. An empty object is returned if no items are selected.

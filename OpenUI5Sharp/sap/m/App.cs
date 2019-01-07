@@ -76,6 +76,15 @@ namespace UI5
 					public Union<float, string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundOpacity;
 
 					/// <summary>
+					/// Determines whether the <code>App</code> is displayed without address bar when opened from an exported home screen icon on a mobile device.
+					/// 
+					/// Keep in mind that if enabled, there is no back button provided by the browser and the app must provide own navigation on all displayed pages to avoid dead ends.
+					/// 
+					/// <b>Note</b> The property can be toggled, but it doesn't take effect in real time. It takes the set value at the moment when the home screen icon is exported by the user. For example, if the icon is exported while the property is set to <code>true</code>, the <code>App</code> will have no address bar when opened from that same icon regardless of a changed property value to <code>false</code> at a later time.
+					/// </summary>
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> mobileWebAppCapable;
+
+					/// <summary>
 					/// Fired when the orientation (portrait/landscape) of the device is changed.
 					/// </summary>
 					public sap.m.App.AppOrientationChangeDelegate orientationChange;
@@ -297,6 +306,41 @@ namespace UI5
 
 				#endregion
 
+				#region Methods for Property mobileWebAppCapable
+
+				/// <summary>
+				/// Gets current value of property {@link #getMobileWebAppCapable mobileWebAppCapable}.
+				/// 
+				/// Determines whether the <code>App</code> is displayed without address bar when opened from an exported home screen icon on a mobile device.
+				/// 
+				/// Keep in mind that if enabled, there is no back button provided by the browser and the app must provide own navigation on all displayed pages to avoid dead ends.
+				/// 
+				/// <b>Note</b> The property can be toggled, but it doesn't take effect in real time. It takes the set value at the moment when the home screen icon is exported by the user. For example, if the icon is exported while the property is set to <code>true</code>, the <code>App</code> will have no address bar when opened from that same icon regardless of a changed property value to <code>false</code> at a later time.
+				/// 
+				/// Default value is <code>true</code>.
+				/// </summary>
+				/// <returns>Value of property <code>mobileWebAppCapable</code></returns>
+				public extern virtual bool getMobileWebAppCapable();
+
+				/// <summary>
+				/// Sets a new value for property {@link #getMobileWebAppCapable mobileWebAppCapable}.
+				/// 
+				/// Determines whether the <code>App</code> is displayed without address bar when opened from an exported home screen icon on a mobile device.
+				/// 
+				/// Keep in mind that if enabled, there is no back button provided by the browser and the app must provide own navigation on all displayed pages to avoid dead ends.
+				/// 
+				/// <b>Note</b> The property can be toggled, but it doesn't take effect in real time. It takes the set value at the moment when the home screen icon is exported by the user. For example, if the icon is exported while the property is set to <code>true</code>, the <code>App</code> will have no address bar when opened from that same icon regardless of a changed property value to <code>false</code> at a later time.
+				/// 
+				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
+				/// 
+				/// Default value is <code>true</code>.
+				/// </summary>
+				/// <param name="bMobileWebAppCapable">New value for property <code>mobileWebAppCapable</code></param>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.App setMobileWebAppCapable(bool bMobileWebAppCapable);
+
+				#endregion
+
 				#region Methods for Event orientationChange
 
 				/// <summary>
@@ -415,7 +459,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.App.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				#endregion
 

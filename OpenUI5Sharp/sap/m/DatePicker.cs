@@ -24,7 +24,7 @@ namespace UI5
 			/// 
 			/// On app level, there are two options to provide a date for the <code>DatePicker</code> - as a string to the <code>value</code> property or as a JavaScript Date object to the <code>dateValue</code> property (only one of these properties should be used at a time):
 			/// 
-			/// <ul><li>Use the <code>value</code> property if you want to bind the <code>DatePicker</code> to a model using the <code>sap.ui.model.type.Date</code></li> <li>Use the <code>value</code> property if the date is provided as a string from the backend or inside the app (for example, as ABAP type DATS field)</li> <li>Use the <code>dateValue</code> property if the date is already provided as a JavaScript Date object or you want to work with a JavaScript Date object</li></ul>
+			/// <ul><li>Use the <code>value</code> property if you want to bind the <code>DatePicker</code> to a model using the <code>sap.ui.model.type.Date</code></li> <li>Use the <code>value</code> property if the date is provided as a string from the backend or inside the app (for example, as ABAP type DATS field)</li> <li>Use the <code>dateValue</code> property if the date is already provided as a JavaScript Date object or you want to work with a JavaScript Date object. Use <code>dateValue</code> as a helper property to easily obtain the day, month and year of the chosen date. Although possible to bind it, the recommendation is not to do it. When binding is needed, use <code>value</code> property instead</li></ul>
 			/// 
 			/// <h3>Formatting</h3>
 			/// 
@@ -500,7 +500,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.DatePicker.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Getter for property <code>value</code>.
@@ -525,6 +526,12 @@ namespace UI5
 				/// </summary>
 				/// <returns>the value of property <code>valueFormat</code></returns>
 				public extern override string getValueFormat();
+
+				/// <summary>
+				/// Checks if the picker is open
+				/// </summary>
+				/// <returns></returns>
+				public extern virtual bool isOpen();
 
 				/// <summary>
 				/// Setter for property <code>value</code>.

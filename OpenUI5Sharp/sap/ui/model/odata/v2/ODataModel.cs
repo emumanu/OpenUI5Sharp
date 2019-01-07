@@ -1347,7 +1347,7 @@ namespace UI5
 							/// </summary>
 							/// <param name="vUrl">Either one URL as string or an array of URL strings</param>
 							/// <returns>The Promise to load the given URL(s), resolved if all URLs have been loaded, rejected if at least one fails to load. If this promise resolves it returns an object with the following properties: <code>annotations</code>: The annotation object <code>entitySets</code>: An array of EntitySet objects containing the newly merged EntitySets from a <code>$metadata</code> requests. The structure is the same as in the metadata object reached by the <code>getServiceMetadata()</code> method. For non-<code>$metadata</code> requests the array will be empty.</returns>
-							public extern virtual jquery.JQueryPromise<object> addAnnotationUrl(Union<string, string[]> vUrl);
+							public extern virtual es5.Promise<object> addAnnotationUrl(Union<string, string[]> vUrl);
 
 							/// <summary>
 							/// Adds new XML content to be parsed for OData annotations, which are then merged into the annotations object which can be retrieved by calling the {@link #getServiceAnnotations}-method.
@@ -1355,7 +1355,7 @@ namespace UI5
 							/// <param name="sXMLContent">The string that should be parsed as annotation XML</param>
 							/// <param name="bSuppressEvents">Whether not to fire annotationsLoaded event on the annotationParser</param>
 							/// <returns>The Promise to parse the given XML-String, resolved if parsed without errors, rejected if errors occur</returns>
-							public extern virtual jquery.JQueryPromise<object> addAnnotationXML(string sXMLContent, bool bSuppressEvents = false);
+							public extern virtual es5.Promise<object> addAnnotationXML(string sXMLContent, bool bSuppressEvents = false);
 
 							/// <summary>
 							/// Returns a promise that resolves with an array containing information about the initially loaded annotations.
@@ -1363,7 +1363,7 @@ namespace UI5
 							/// <b>Important</b>: This covers the annotations that were given to the model constructor, not the ones that might have been added later on using the protected API method {@link #addAnnotationUrl}. In order to get information about those, the event <code>annotationsLoaded</code> can be used.
 							/// </summary>
 							/// <returns>A promise to load the annotation URLs that were given to the model on instantiation</returns>
-							public extern virtual jquery.JQueryPromise<object> annotationsLoaded();
+							public extern virtual es5.Promise<object> annotationsLoaded();
 
 							/// <summary>
 							/// Creates new context binding for this model.
@@ -1801,7 +1801,8 @@ namespace UI5
 							/// Returns a metadata object for class sap.ui.model.odata.v2.ODataModel.
 							/// </summary>
 							/// <returns>Metadata object describing this class</returns>
-							public extern static sap.ui.@base.Metadata getMetadata();
+							[Name("getMetadata")]
+							public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 							/// <summary>
 							/// Returns an instance of an OData meta model which offers a unified access to both OData V2 metadata and V4 annotations. It uses the existing {@link sap.ui.model.odata.ODataMetadata} as a foundation and merges V4 annotations from the existing {@link sap.ui.model.odata.v2.ODataAnnotations} directly into the corresponding model element.
@@ -1984,7 +1985,7 @@ namespace UI5
 							/// The promise won't get rejected in case the metadata loading failed but is only resolved if the metadata is loaded successfully. If <code>refreshMetadata</code> function is called after this promise is already resolved you should rely on the promise returned by <code>refreshMetadata</code> to get information about the refreshed metadata loaded state.
 							/// </summary>
 							/// <returns>A promise on metadata loaded state</returns>
-							public extern virtual jquery.JQueryPromise<object> metadataLoaded();
+							public extern virtual es5.Promise<object> metadataLoaded();
 
 							/// <summary>
 							/// Trigger a <code>GET</code> request to the OData service that was specified in the model constructor.
@@ -2048,7 +2049,7 @@ namespace UI5
 							/// </summary>
 							/// <returns>A promise on metadata loaded state or <code>null</code> if metadata is not initialized or currently refreshed.</returns>
 							[Obsolete("Deprecated since 1.42.")]
-							public extern virtual jquery.JQueryPromise<object> refreshMetadata();
+							public extern virtual es5.Promise<object> refreshMetadata();
 
 							/// <summary>
 							/// Refresh XSRF token by performing a GET request against the service root URL.
@@ -2125,7 +2126,7 @@ namespace UI5
 							/// Returns a promise, which will resolve with the security token as soon as it is available.
 							/// </summary>
 							/// <returns>A promise on the CSRF security token</returns>
-							public extern virtual jquery.JQueryPromise<object> securityTokenAvailable();
+							public extern virtual es5.Promise<object> securityTokenAvailable();
 
 							/// <summary>
 							/// Definition of batch groups per entity type for two-way binding changes.

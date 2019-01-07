@@ -229,7 +229,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.core.UIArea.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Returns the content control of this <code>UIArea</code> at the specified index. If no index is given the first content control is returned.
@@ -243,7 +244,7 @@ namespace UI5
 					/// Returns the Root Node hosting this instance of <code>UIArea</code>.
 					/// </summary>
 					/// <returns>the Root Node hosting this instance of <code>UIArea</code>.</returns>
-					public extern virtual dom.HTMLElement getRootNode();
+					public extern virtual Retyped.dom.HTMLElement getRootNode();
 
 					/// <summary>
 					/// Returns this UI area. Needed to stop recursive calls from an element to its parent.

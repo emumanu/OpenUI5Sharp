@@ -59,7 +59,7 @@ namespace UI5
 						/// <param name="oTransportInfo">object containing the package name and the transport</param>
 						/// <param name="aAllLocalChanges">array that includes all local changes</param>
 						/// <returns>Returns a Promise which resolves without parameters</returns>
-						public extern virtual jquery.JQueryPromise<object> _prepareChangesForTransport(object oTransportInfo, object[] aAllLocalChanges);
+						public extern virtual es5.Promise<object> _prepareChangesForTransport(object oTransportInfo, object[] aAllLocalChanges);
 
 						/// <summary>
 						/// Checks transport info object
@@ -80,14 +80,14 @@ namespace UI5
 						/// <param name="oChange">the change for which the transport information should be retrieved</param>
 						/// <param name="oControl"></param>
 						/// <returns>promise that resolves</returns>
-						public extern virtual jquery.JQueryPromise<object> openTransportSelection(object oChange, object oControl);
+						public extern virtual es5.Promise<object> openTransportSelection(object oChange, object oControl);
 
 						/// <summary>
 						/// Opens the transport selection dialog
 						/// </summary>
 						/// <param name="oControl"></param>
 						/// <returns>promise that resolves</returns>
-						public extern virtual jquery.JQueryPromise<object> openTransportSelection(object oControl);
+						public extern virtual es5.Promise<object> openTransportSelection(object oControl);
 
 						/// <summary>
 						/// Selects a transport request for a given LREP object. First checks if the Adaptation Transport Organizer (ATO) is enabled If ATO is enabled and the layered repository object is in the CUSTOMER layer, the request 'ATO_NOTIFICATION' has to be used. This request triggers in the back end that the change is added to an ATO collection. If ATO is not enabled or LREP object not in CUSTOMER layer: If the LREP object is already assigned to an open transport request or the LREP object is assigned to a local ABAP package, no dialog to select a transport is started. Instead the success callback is invoked directly. The transport dialog is shown if a package or a transport request has still to be selected, so if more than one transport request is available for the current user and the LREP object is not locked in an open transport request.
@@ -105,7 +105,7 @@ namespace UI5
 						/// <param name="aChanges">array of {sap.ui.fl.Change}</param>
 						/// <param name="oControl">object of the root control for the transport</param>
 						/// <returns>promise that resolves without parameters</returns>
-						public extern virtual jquery.JQueryPromise<object> setTransports(object[] aChanges, object oControl);
+						public extern virtual es5.Promise<object> setTransports(object[] aChanges, object oControl);
 
 						#endregion
 

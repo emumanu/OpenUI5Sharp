@@ -4,7 +4,7 @@ using Bridge;
 namespace UI5
 {
     [External]
-    public partial class jQuery
+    public abstract partial class jQuery
     {
         [External]
         public static partial class sap

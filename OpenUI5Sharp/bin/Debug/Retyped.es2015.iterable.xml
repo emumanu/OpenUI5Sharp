@@ -36,18 +36,6 @@
             </summary>
             <param name = "iterable">An iterable object to convert to an array.</param>
         </member>
-        <member name="M:Retyped.es2015_iterable.ArrayConstructor.from``1(Retyped.es2015_iterable.Iterable{``0})">
-            <summary>
-            Creates an array from an iterable object.
-            </summary>
-            <param name = "iterable">An iterable object to convert to an array.</param>
-        </member>
-        <member name="M:Retyped.es2015_iterable.ArrayConstructor.from``1(Retyped.es5.ArrayLike{``0})">
-            <summary>
-            Creates an array from an iterable object.
-            </summary>
-            <param name = "iterable">An iterable object to convert to an array.</param>
-        </member>
         <member name="M:Retyped.es2015_iterable.ArrayConstructor.from``2(Bridge.Union{Retyped.es2015_iterable.Iterable{``0},Retyped.es5.ArrayLike{``0}},Retyped.es2015_iterable.ArrayConstructor.fromFn{``0,``1})">
             <summary>
             Creates an array from an iterable object.
@@ -55,37 +43,7 @@
             <param name = "iterable">An iterable object to convert to an array.</param>
             <param name = "mapfn">A mapping function to call on every element of the array.</param>
         </member>
-        <member name="M:Retyped.es2015_iterable.ArrayConstructor.from``2(Retyped.es2015_iterable.Iterable{``0},Retyped.es2015_iterable.ArrayConstructor.fromFn{``0,``1})">
-            <summary>
-            Creates an array from an iterable object.
-            </summary>
-            <param name = "iterable">An iterable object to convert to an array.</param>
-            <param name = "mapfn">A mapping function to call on every element of the array.</param>
-        </member>
-        <member name="M:Retyped.es2015_iterable.ArrayConstructor.from``2(Retyped.es5.ArrayLike{``0},Retyped.es2015_iterable.ArrayConstructor.fromFn{``0,``1})">
-            <summary>
-            Creates an array from an iterable object.
-            </summary>
-            <param name = "iterable">An iterable object to convert to an array.</param>
-            <param name = "mapfn">A mapping function to call on every element of the array.</param>
-        </member>
         <member name="M:Retyped.es2015_iterable.ArrayConstructor.from``2(Bridge.Union{Retyped.es2015_iterable.Iterable{``0},Retyped.es5.ArrayLike{``0}},Retyped.es2015_iterable.ArrayConstructor.fromFn{``0,``1},System.Object)">
-            <summary>
-            Creates an array from an iterable object.
-            </summary>
-            <param name = "iterable">An iterable object to convert to an array.</param>
-            <param name = "mapfn">A mapping function to call on every element of the array.</param>
-            <param name = "thisArg">Value of 'this' used to invoke the mapfn.</param>
-        </member>
-        <member name="M:Retyped.es2015_iterable.ArrayConstructor.from``2(Retyped.es2015_iterable.Iterable{``0},Retyped.es2015_iterable.ArrayConstructor.fromFn{``0,``1},System.Object)">
-            <summary>
-            Creates an array from an iterable object.
-            </summary>
-            <param name = "iterable">An iterable object to convert to an array.</param>
-            <param name = "mapfn">A mapping function to call on every element of the array.</param>
-            <param name = "thisArg">Value of 'this' used to invoke the mapfn.</param>
-        </member>
-        <member name="M:Retyped.es2015_iterable.ArrayConstructor.from``2(Retyped.es5.ArrayLike{``0},Retyped.es2015_iterable.ArrayConstructor.fromFn{``0,``1},System.Object)">
             <summary>
             Creates an array from an iterable object.
             </summary>

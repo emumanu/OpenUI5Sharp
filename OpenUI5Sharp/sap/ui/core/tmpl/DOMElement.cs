@@ -297,7 +297,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.core.tmpl.DOMElement.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// Removes the DOM attribute for the given name and returns the reference to this DOM element to support method chaining.

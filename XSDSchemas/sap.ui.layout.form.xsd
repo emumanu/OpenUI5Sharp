@@ -207,7 +207,7 @@ The labels inside the form will be rendered by default in the according mode.
 
 &lt;b&gt;Note:&lt;/b&gt; The setting of this property does not change the content of the form. For example, &lt;code&gt;Input&lt;/code&gt; controls in a form with &lt;code&gt;editable&lt;/code&gt; set to false are still editable.
 
-&lt;b&gt;Warning:&lt;/b&gt; If this property is set wrong this could lead to visual issues, the labels are fields could be misaligned, the labels could be rendered in the wrong mode, the spacing between the single controls could be wrong and control, not fitting to the mode, could be rendered incorrect.</xs:documentation>
+&lt;b&gt;Warning:&lt;/b&gt; If this property is wrongly set, this might lead to visual issues. The labels and fields might be misaligned, the labels might be rendered in the wrong mode, and the spacing between the single controls might be wrong. Also, controls that do not fit the mode might be rendered incorrectly.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="formContainers" type="xs:string" />
@@ -476,14 +476,14 @@ This control cannot be used stand-alone, it just renders a &lt;code&gt;Form&lt;/
           <xs:annotation>
             <xs:documentation>Default span for labels in large size.
 
-&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;adjustLabelSpanThis&lt;/code&gt; is set, this property is only used if more than 1 &lt;code&gt;FormContainer&lt;/code&gt; is in one line. If only 1 &lt;code&gt;FormContainer&lt;/code&gt; is in the line, then the &lt;code&gt;labelSpanM&lt;/code&gt; value is used.</xs:documentation>
+&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;adjustLabelSpan&lt;/code&gt; is set, this property is only used if more than 1 &lt;code&gt;FormContainer&lt;/code&gt; is in one line. If only 1 &lt;code&gt;FormContainer&lt;/code&gt; is in the line, then the &lt;code&gt;labelSpanM&lt;/code&gt; value is used.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="labelSpanM" type="xs:int">
           <xs:annotation>
             <xs:documentation>Default span for labels in medium size.
 
-&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;adjustLabelSpanThis&lt;/code&gt; is set this property is used for full-size &lt;code&gt;FormContainers&lt;/code&gt;. If more than one &lt;code&gt;FormContainer&lt;/code&gt; is in one line, &lt;code&gt;labelSpanL&lt;/code&gt; is used.</xs:documentation>
+&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;adjustLabelSpan&lt;/code&gt; is set this property is used for full-size &lt;code&gt;FormContainers&lt;/code&gt;. If more than one &lt;code&gt;FormContainer&lt;/code&gt; is in one line, &lt;code&gt;labelSpanL&lt;/code&gt; is used.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="labelSpanS" type="xs:int">
@@ -683,7 +683,7 @@ The labels inside the form will be rendered by default in the according mode.
 
 &lt;b&gt;Note:&lt;/b&gt; The setting of this property does not change the content of the form. For example, &lt;code&gt;Input&lt;/code&gt; controls in a form with &lt;code&gt;editable&lt;/code&gt; set to false are still editable.
 
-&lt;b&gt;Warning:&lt;/b&gt; If this property is set wrong this could lead to visual issues, the labels are fields could be misaligned, the labels could be rendered in the wrong mode, the spacing between the single controls could be wrong and control, not fitting to the mode, could be rendered incorrect.</xs:documentation>
+&lt;b&gt;Warning:&lt;/b&gt; If this property is wrongly set, this might lead to visual issues. The labels and fields might be misaligned, the labels might be rendered in the wrong mode, and the spacing between the single controls might be wrong. Also, controls that do not fit the mode might be rendered incorrectly.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="labelMinWidth" type="xs:int">
@@ -713,7 +713,7 @@ We recommend using the &lt;code&gt;ResponsiveGridLayout&lt;/code&gt; for renderi
           <xs:annotation>
             <xs:documentation>Default span for labels in large size.
 
-&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;adjustLabelSpanThis&lt;/code&gt; is set, this property is only used if more than 1 &lt;code&gt;FormContainer&lt;/code&gt; is in one line. If only 1 &lt;code&gt;FormContainer&lt;/code&gt; is in the line, then the &lt;code&gt;labelSpanM&lt;/code&gt; value is used.
+&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;adjustLabelSpan&lt;/code&gt; is set, this property is only used if more than 1 &lt;code&gt;FormContainer&lt;/code&gt; is in one line. If only 1 &lt;code&gt;FormContainer&lt;/code&gt; is in the line, then the &lt;code&gt;labelSpanM&lt;/code&gt; value is used.
 
 &lt;b&gt;Note:&lt;/b&gt; This property is only used if &lt;code&gt;ResponsiveGridLayout&lt;/code&gt; or &lt;code&gt;ColumnLayout&lt;/code&gt; is used as a layout. If a &lt;code&gt;ColumnLayout&lt;/code&gt; is used, this property defines the label size for large columns.</xs:documentation>
           </xs:annotation>
@@ -722,7 +722,7 @@ We recommend using the &lt;code&gt;ResponsiveGridLayout&lt;/code&gt; for renderi
           <xs:annotation>
             <xs:documentation>Default span for labels in medium size.
 
-&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;adjustLabelSpanThis&lt;/code&gt; is set, this property is used for full-size &lt;code&gt;FormContainers&lt;/code&gt;. If more than one &lt;code&gt;FormContainer&lt;/code&gt; is in one line, &lt;code&gt;labelSpanL&lt;/code&gt; is used.
+&lt;b&gt;Note:&lt;/b&gt; If &lt;code&gt;adjustLabelSpan&lt;/code&gt; is set, this property is used for full-size &lt;code&gt;FormContainers&lt;/code&gt;. If more than one &lt;code&gt;FormContainer&lt;/code&gt; is in one line, &lt;code&gt;labelSpanL&lt;/code&gt; is used.
 
 &lt;b&gt;Note:&lt;/b&gt; This property is only used if a &lt;code&gt;ResponsiveGridLayout&lt;/code&gt; is used as a layout.</xs:documentation>
           </xs:annotation>

@@ -145,6 +145,12 @@ namespace UI5
 				public extern virtual string getText(bool bNormalize);
 
 				/// <summary>
+				/// Gets the text.
+				/// </summary>
+				/// <returns>Text value.</returns>
+				public extern virtual string getText();
+
+				/// <summary>
 				/// Sets the text.
 				/// </summary>
 				/// <param name="sText">Text value.</param>
@@ -158,7 +164,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oBindingInfo">The binding information</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Text bindText(object oBindingInfo);
+				public extern virtual sap.m.Text bindText(sap.ui.@base.ManagedObject.BindPropertyInfo oBindingInfo);
 
 				/// <summary>
 				/// Unbinds property {@link #getText text} from model data.
@@ -341,7 +347,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oDomRef">DOM reference of the text container.</param>
 				/// <returns>Calculated max height value.</returns>
-				public extern virtual int clampHeight(dom.HTMLElement oDomRef);
+				public extern virtual int clampHeight(Retyped.dom.HTMLElement oDomRef);
 
 				/// <summary>
 				/// Sets the max height to support <code>maxLines</code> property.
@@ -356,7 +362,7 @@ namespace UI5
 				/// <param name="iStartPos">Start point of the ellipsis search.</param>
 				/// <param name="iEndPos">End point of the ellipsis search.</param>
 				/// <returns>Returns found ellipsis position or undefined.</returns>
-				public extern virtual int? clampText(dom.HTMLElement oDomRef, int iStartPos, int iEndPos);
+				public extern virtual int? clampText(Retyped.dom.HTMLElement oDomRef, int iStartPos, int iEndPos);
 
 				/// <summary>
 				/// Clamps the wrapping text according to max lines and returns the found ellipsis position. Parameters can be used for better performance.
@@ -364,14 +370,14 @@ namespace UI5
 				/// <param name="oDomRef">DOM reference of the text container.</param>
 				/// <param name="iStartPos">Start point of the ellipsis search.</param>
 				/// <returns>Returns found ellipsis position or undefined.</returns>
-				public extern virtual int? clampText(dom.HTMLElement oDomRef, int iStartPos);
+				public extern virtual int? clampText(Retyped.dom.HTMLElement oDomRef, int iStartPos);
 
 				/// <summary>
 				/// Clamps the wrapping text according to max lines and returns the found ellipsis position. Parameters can be used for better performance.
 				/// </summary>
 				/// <param name="oDomRef">DOM reference of the text container.</param>
 				/// <returns>Returns found ellipsis position or undefined.</returns>
-				public extern virtual int? clampText(dom.HTMLElement oDomRef);
+				public extern virtual int? clampText(Retyped.dom.HTMLElement oDomRef);
 
 				/// <summary>
 				/// Clamps the wrapping text according to max lines and returns the found ellipsis position. Parameters can be used for better performance.
@@ -435,7 +441,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oDomRef">DOM reference of the text container.</param>
 				/// <returns>The clamp height of the text.</returns>
-				public extern virtual int getClampHeight(dom.HTMLElement oDomRef);
+				public extern virtual int getClampHeight(Retyped.dom.HTMLElement oDomRef);
 
 				/// <summary>
 				/// Returns the max height according to max lines and line height calculation. This is not calculated max height!
@@ -448,7 +454,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oDomRef">DOM reference of the text container.</param>
 				/// <returns>returns calculated line height</returns>
-				public extern virtual int getLineHeight(dom.HTMLElement oDomRef);
+				public extern virtual int getLineHeight(Retyped.dom.HTMLElement oDomRef);
 
 				/// <summary>
 				/// Caches and returns the computed line height of the text.
@@ -460,19 +466,20 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.Text.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Returns the text node container's DOM reference. This can be different from <code>getDomRef</code> when inner wrapper is needed.
 				/// </summary>
 				/// <returns>DOM reference of the text.</returns>
-				public extern virtual dom.HTMLElement getTextDomRef();
+				public extern virtual Retyped.dom.HTMLElement getTextDomRef();
 
 				/// <summary>
 				/// Determines whether max lines should be rendered or not.
 				/// </summary>
 				/// <returns>Max lines of the text.</returns>
-				public extern virtual dom.HTMLElement hasMaxLines();
+				public extern virtual Retyped.dom.HTMLElement hasMaxLines();
 
 				/// <summary>
 				/// Overwrites onAfterRendering
@@ -484,13 +491,13 @@ namespace UI5
 				/// </summary>
 				/// <param name="oDomRef">DOM reference of the text node container.</param>
 				/// <param name="sNodeValue">new Node value.</param>
-				public extern static void setNodeValue(dom.HTMLElement oDomRef, string sNodeValue);
+				public extern static void setNodeValue(Retyped.dom.HTMLElement oDomRef, string sNodeValue);
 
 				/// <summary>
 				/// To prevent from the layout thrashing of the <code>textContent</code> call, this method first tries to set the <code>nodeValue</code> of the first child if it exists.
 				/// </summary>
 				/// <param name="oDomRef">DOM reference of the text node container.</param>
-				public extern static void setNodeValue(dom.HTMLElement oDomRef);
+				public extern static void setNodeValue(Retyped.dom.HTMLElement oDomRef);
 
 				#endregion
 

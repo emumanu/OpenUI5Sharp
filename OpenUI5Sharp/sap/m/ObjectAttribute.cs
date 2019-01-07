@@ -51,7 +51,7 @@ namespace UI5
 					public Union<sap.ui.core.TextDirection, string, sap.ui.@base.ManagedObject.BindPropertyInfo> textDirection;
 
 					/// <summary>
-					/// When the aggregation is set, it replaces the text, active and textDirection properties. This also ignores the press event. The provided control is displayed as an active link. <b>Note:</b> It will only allow sap.m.Text and sap.m.Link controls.
+					/// When the aggregation is set, it replaces the text, active and textDirection properties. This also ignores the press event. The provided control is displayed as an active link in case it is a sap.m.Link. <b>Note:</b> It will only allow sap.m.Text and sap.m.Link controls.
 					/// </summary>
 					public Union<sap.ui.core.Control, string, sap.ui.@base.ManagedObject.BindAggregationInfo> customContent;
 
@@ -207,7 +207,7 @@ namespace UI5
 				/// <summary>
 				/// Gets content of aggregation {@link #getCustomContent customContent}.
 				/// 
-				/// When the aggregation is set, it replaces the text, active and textDirection properties. This also ignores the press event. The provided control is displayed as an active link. <b>Note:</b> It will only allow sap.m.Text and sap.m.Link controls.
+				/// When the aggregation is set, it replaces the text, active and textDirection properties. This also ignores the press event. The provided control is displayed as an active link in case it is a sap.m.Link. <b>Note:</b> It will only allow sap.m.Text and sap.m.Link controls.
 				/// </summary>
 				/// <returns></returns>
 				public extern virtual sap.ui.core.Control getCustomContent();
@@ -342,13 +342,14 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.ObjectAttribute.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Defines to which DOM reference the Popup should be docked.
 				/// </summary>
 				/// <returns>The DOM reference that Popup should dock to</returns>
-				public extern virtual dom.HTMLElement getPopupAnchorDomRef();
+				public extern virtual Retyped.dom.HTMLElement getPopupAnchorDomRef();
 
 				#endregion
 

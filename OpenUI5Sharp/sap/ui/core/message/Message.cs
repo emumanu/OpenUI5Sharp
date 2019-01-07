@@ -28,7 +28,7 @@ namespace UI5
 						public partial class MessageInfo
 						{
 							/// <summary>
-							/// The message id: will be defaulted if no id is set
+							/// The message id: will be generated if no id is set
 							/// </summary>
 							public string id;
 
@@ -93,7 +93,7 @@ namespace UI5
 						/// <summary>
 						/// Constructor for a new Message.
 						/// </summary>
-						/// <param name="mParameters">(optional) a map which contains the following parameter properties:</param>
+						/// <param name="mParameters">a map which contains the following parameter properties:</param>
 						public extern Message(sap.ui.core.message.Message.MessageInfo mParameters);
 
 						/// <summary>
@@ -197,7 +197,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.core.message.Message.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// Returns the if Message is persistent
@@ -250,8 +251,8 @@ namespace UI5
 						/// <summary>
 						/// Set message description URL which should be used to download the description content
 						/// </summary>
-						/// <param name="sDescription">The URL pointing to the description long text</param>
-						public extern virtual void setDescriptionUrl(string sDescription);
+						/// <param name="sDescriptionUrl">The URL pointing to the description long text</param>
+						public extern virtual void setDescriptionUrl(string sDescriptionUrl);
 
 						/// <summary>
 						/// Set message text

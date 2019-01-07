@@ -32,6 +32,26 @@ namespace UI5
 							/// </summary>
 							[External]
 							[ObjectLiteral]
+							public partial class BindPropertyInfo
+							{
+								/// <summary>
+								/// Whether {@link sap.ui.model.PropertyBinding#getValue} may return a <code>Promise</code> resolving with the value (since 1.57.0)
+								/// </summary>
+								[Name("$$valueAsPromise")]
+								public bool dollardollarvalueAsPromise;
+
+								/// <summary>
+								/// Optional scope for lookup of aliases for computed annotations (since 1.43.0)
+								/// </summary>
+								public object scope;
+
+							}
+
+							/// <summary>
+							/// Parameter to be used as Object Literal
+							/// </summary>
+							[External]
+							[ObjectLiteral]
 							public partial class ObjectInfo
 							{
 								/// <summary>
@@ -40,29 +60,6 @@ namespace UI5
 								public object scope;
 
 							}
-
-							#endregion
-
-							#region Constructor
-
-							/// <summary>
-							/// Do <strong>NOT</strong> call this private constructor, but rather use {@link sap.ui.model.odata.v4.ODataModel#getMetaModel} instead.
-							/// </summary>
-							/// <param name="oRequestor">The metadata requestor</param>
-							/// <param name="sUrl">The URL to the $metadata document of the service</param>
-							/// <param name="vAnnotationUri">The URL (or an array of URLs) from which the annotation metadata are loaded Supported since 1.41.0</param>
-							/// <param name="oModel">The model this meta model is related to</param>
-							/// <param name="bSupportReferences">Whether <code>&lt;edmx:Reference></code> and <code>&lt;edmx:Include></code> directives are supported in order to load schemas on demand from other $metadata documents and include them into the current service ("cross-service references").</param>
-							public extern ODataMetaModel(object oRequestor, string sUrl, Union<string, string[]> vAnnotationUri, sap.ui.model.odata.v4.ODataModel oModel, bool bSupportReferences = true);
-
-							/// <summary>
-							/// Do <strong>NOT</strong> call this private constructor, but rather use {@link sap.ui.model.odata.v4.ODataModel#getMetaModel} instead.
-							/// </summary>
-							/// <param name="oRequestor">The metadata requestor</param>
-							/// <param name="sUrl">The URL to the $metadata document of the service</param>
-							/// <param name="vAnnotationUri">The URL (or an array of URLs) from which the annotation metadata are loaded Supported since 1.41.0</param>
-							/// <param name="oModel">The model this meta model is related to</param>
-							public extern ODataMetaModel(object oRequestor, string sUrl, Union<string, string[]> vAnnotationUri, sap.ui.model.odata.v4.ODataModel oModel);
 
 							#endregion
 
@@ -125,7 +122,7 @@ namespace UI5
 							/// <param name="oContext">The context to be used as a starting point in case of a relative path</param>
 							/// <param name="mParameters">Optional binding parameters that are passed to {@link #getObject} to compute the binding's value; if they are given, <code>oContext</code> cannot be omitted</param>
 							/// <returns>A property binding for this meta data model</returns>
-							public extern virtual sap.ui.model.PropertyBinding bindProperty(string sPath, sap.ui.model.Context oContext, sap.ui.model.odata.v4.ODataMetaModel.ObjectInfo mParameters);
+							public extern virtual sap.ui.model.PropertyBinding bindProperty(string sPath, sap.ui.model.Context oContext, sap.ui.model.odata.v4.ODataMetaModel.BindPropertyInfo mParameters);
 
 							/// <summary>
 							/// Creates a property binding for this meta data model which refers to the content from the given path (relative to the given context).
@@ -188,7 +185,7 @@ namespace UI5
 							/// </summary>
 							/// <returns>The maximum value of all "Last-Modified" (or, as a fallback, "Date") response headers seen so far when loading $metadata or annotation files. It is <code>new Date(0)</code> initially as long as no such files have been loaded. It becomes <code>new Date()</code> as soon as a file without such a header is loaded. Note that this value may change due to load-on-demand of "cross-service references" (see parameter <code>supportReferences</code> of {@link sap.ui.model.odata.v4.ODataModel#constructor}).</returns>
 							[Obsolete("Deprecated since 1.51.0. use {@link #getETags} instead because modifications to old files may be shadowed by a new file in certain scenarios.")]
-							public extern virtual System.DateTime getLastModified();
+							public extern virtual DateTime getLastModified();
 
 							/// <summary>
 							/// Returns the OData metadata model context corresponding to the given OData data model path.
@@ -201,7 +198,8 @@ namespace UI5
 							/// Returns a metadata object for class sap.ui.model.odata.v4.ODataMetaModel.
 							/// </summary>
 							/// <returns>Metadata object describing this class</returns>
-							public extern static sap.ui.@base.Metadata getMetadata();
+							[Name("getMetadata")]
+							public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 							/// <summary>
 							/// Returns the metadata object for the given path relative to the given context. Returns <code>undefined</code> in case the metadata is not (yet) available. Use {@link #requestObject} for asynchronous access.
@@ -290,7 +288,7 @@ namespace UI5
 							/// 
 							/// Annotations of an annotation are addressed not by two separate segments, but by a single segment like "@com.sap.vocabularies.Common.v1.Text@com.sap.vocabularies.Common.v1.TextArrangement". Each annotation can have a qualifier, for example "@first#foo@second#bar". Note: If the first annotation's value is a record, a separate segment addresses an annotation of that record, not an annotation of the first annotation itself. In a similar way, annotations of "7.2 Element edm:ReferentialConstraint", "7.3 Element edm:OnDelete", "10.2 Element edm:Member" and "14.5.14.2 Element edm:PropertyValue" are addressed by segments like "&lt;7.2.1 Attribute Property>@...", "$OnDelete@...", "&lt;10.2.1 Attribute Name>@..." and "&lt;14.5.14.2.1 Attribute Property>@..." (where angle brackets denote a variable part and sections refer to specification "OData Version 4.0 Part 3: Common Schema Definition Language").
 							/// 
-							/// Annotations starting with "@@", for example "@@sap.ui.model.odata.v4.AnnotationHelper.isMultiple" or "@@.AH.isMultiple" or "@@.isMultiple", represent computed annotations. Their name without the "@@" prefix must refer to a function either in the global namespace (in case of an absolute name) or in <code>mParameters.scope</code> (in case of a relative name starting with a dot, which is stripped before lookup; see the <code>&lt;template:alias></code> instruction for XML Templating). This function is called with the current object (or primitive value) and additional details and returns the result of this {@link #requestObject} call. The additional details are given as an object with the following properties: <ul> <li><code>{@link sap.ui.model.Context} context</code> Points to the current object <li><code>{string} schemaChildName</code> The qualified name of the schema child where the computed annotation has been found </ul> Computed annotations cannot be iterated by "@". The path must not continue after a computed annotation.
+							/// Annotations starting with "@@", for example "@@sap.ui.model.odata.v4.AnnotationHelper.isMultiple" or "@@.AH.isMultiple" or "@@.isMultiple", represent computed annotations. Their name without the "@@" prefix must refer to a function in <code>mParameters.scope</code> in case of a relative name starting with a dot, which is stripped before lookup; see the <code>&lt;template:alias></code> instruction for XML Templating. In case of an absolute name, it is searched in <code>mParameters.scope</code> first and then in the global namespace. This function is called with the current object (or primitive value) and additional details and returns the result of this {@link #requestObject} call. The additional details are given as an object with the following properties: <ul> <li><code>{boolean} $$valueAsPromise</code> Whether the computed annotation may return a <code>Promise</code> resolving with its value (since 1.57.0) <li><code>{@link sap.ui.model.Context} context</code> Points to the current object <li><code>{string} schemaChildName</code> The qualified name of the schema child where the computed annotation has been found </ul> Computed annotations cannot be iterated by "@". The path must not continue after a computed annotation.
 							/// 
 							/// A segment which represents an OData qualified name is looked up in the global scope ("scope lookup") and thus determines a schema child which is used later on. Unknown qualified names are invalid. This way, "/acme.DefaultContainer/EMPLOYEES" addresses the "EMPLOYEES" child of the schema child named "acme.DefaultContainer". This also works indirectly ("/$EntityContainer/EMPLOYEES") and implicitly ("/EMPLOYEES", see below).
 							/// 
@@ -306,7 +304,7 @@ namespace UI5
 							/// <param name="oContext">The context to be used as a starting point in case of a relative path</param>
 							/// <param name="mParameters">Optional (binding) parameters; if they are given, <code>oContext</code> cannot be omitted</param>
 							/// <returns>A promise which is resolved with the requested metadata value as soon as it is available</returns>
-							public extern virtual jquery.JQueryPromise<object> requestObject(string sPath, sap.ui.model.Context oContext, sap.ui.model.odata.v4.ODataMetaModel.ObjectInfo mParameters);
+							public extern virtual es5.Promise<object> requestObject(string sPath, sap.ui.model.Context oContext, sap.ui.model.odata.v4.ODataMetaModel.ObjectInfo mParameters);
 
 							/// <summary>
 							/// Requests the metadata value for the given path relative to the given context. Returns a <code>Promise</code> which is resolved with the requested metadata value or rejected with an error (only in case metadata cannot be loaded). An invalid path leads to an <code>undefined</code> result and a warning is logged. Use {@link #getObject} for synchronous access.
@@ -344,7 +342,7 @@ namespace UI5
 							/// 
 							/// Annotations of an annotation are addressed not by two separate segments, but by a single segment like "@com.sap.vocabularies.Common.v1.Text@com.sap.vocabularies.Common.v1.TextArrangement". Each annotation can have a qualifier, for example "@first#foo@second#bar". Note: If the first annotation's value is a record, a separate segment addresses an annotation of that record, not an annotation of the first annotation itself. In a similar way, annotations of "7.2 Element edm:ReferentialConstraint", "7.3 Element edm:OnDelete", "10.2 Element edm:Member" and "14.5.14.2 Element edm:PropertyValue" are addressed by segments like "&lt;7.2.1 Attribute Property>@...", "$OnDelete@...", "&lt;10.2.1 Attribute Name>@..." and "&lt;14.5.14.2.1 Attribute Property>@..." (where angle brackets denote a variable part and sections refer to specification "OData Version 4.0 Part 3: Common Schema Definition Language").
 							/// 
-							/// Annotations starting with "@@", for example "@@sap.ui.model.odata.v4.AnnotationHelper.isMultiple" or "@@.AH.isMultiple" or "@@.isMultiple", represent computed annotations. Their name without the "@@" prefix must refer to a function either in the global namespace (in case of an absolute name) or in <code>mParameters.scope</code> (in case of a relative name starting with a dot, which is stripped before lookup; see the <code>&lt;template:alias></code> instruction for XML Templating). This function is called with the current object (or primitive value) and additional details and returns the result of this {@link #requestObject} call. The additional details are given as an object with the following properties: <ul> <li><code>{@link sap.ui.model.Context} context</code> Points to the current object <li><code>{string} schemaChildName</code> The qualified name of the schema child where the computed annotation has been found </ul> Computed annotations cannot be iterated by "@". The path must not continue after a computed annotation.
+							/// Annotations starting with "@@", for example "@@sap.ui.model.odata.v4.AnnotationHelper.isMultiple" or "@@.AH.isMultiple" or "@@.isMultiple", represent computed annotations. Their name without the "@@" prefix must refer to a function in <code>mParameters.scope</code> in case of a relative name starting with a dot, which is stripped before lookup; see the <code>&lt;template:alias></code> instruction for XML Templating. In case of an absolute name, it is searched in <code>mParameters.scope</code> first and then in the global namespace. This function is called with the current object (or primitive value) and additional details and returns the result of this {@link #requestObject} call. The additional details are given as an object with the following properties: <ul> <li><code>{boolean} $$valueAsPromise</code> Whether the computed annotation may return a <code>Promise</code> resolving with its value (since 1.57.0) <li><code>{@link sap.ui.model.Context} context</code> Points to the current object <li><code>{string} schemaChildName</code> The qualified name of the schema child where the computed annotation has been found </ul> Computed annotations cannot be iterated by "@". The path must not continue after a computed annotation.
 							/// 
 							/// A segment which represents an OData qualified name is looked up in the global scope ("scope lookup") and thus determines a schema child which is used later on. Unknown qualified names are invalid. This way, "/acme.DefaultContainer/EMPLOYEES" addresses the "EMPLOYEES" child of the schema child named "acme.DefaultContainer". This also works indirectly ("/$EntityContainer/EMPLOYEES") and implicitly ("/EMPLOYEES", see below).
 							/// 
@@ -359,7 +357,7 @@ namespace UI5
 							/// <param name="sPath">A relative or absolute path within the metadata model</param>
 							/// <param name="oContext">The context to be used as a starting point in case of a relative path</param>
 							/// <returns>A promise which is resolved with the requested metadata value as soon as it is available</returns>
-							public extern virtual jquery.JQueryPromise<object> requestObject(string sPath, sap.ui.model.Context oContext);
+							public extern virtual es5.Promise<object> requestObject(string sPath, sap.ui.model.Context oContext);
 
 							/// <summary>
 							/// Requests the metadata value for the given path relative to the given context. Returns a <code>Promise</code> which is resolved with the requested metadata value or rejected with an error (only in case metadata cannot be loaded). An invalid path leads to an <code>undefined</code> result and a warning is logged. Use {@link #getObject} for synchronous access.
@@ -397,7 +395,7 @@ namespace UI5
 							/// 
 							/// Annotations of an annotation are addressed not by two separate segments, but by a single segment like "@com.sap.vocabularies.Common.v1.Text@com.sap.vocabularies.Common.v1.TextArrangement". Each annotation can have a qualifier, for example "@first#foo@second#bar". Note: If the first annotation's value is a record, a separate segment addresses an annotation of that record, not an annotation of the first annotation itself. In a similar way, annotations of "7.2 Element edm:ReferentialConstraint", "7.3 Element edm:OnDelete", "10.2 Element edm:Member" and "14.5.14.2 Element edm:PropertyValue" are addressed by segments like "&lt;7.2.1 Attribute Property>@...", "$OnDelete@...", "&lt;10.2.1 Attribute Name>@..." and "&lt;14.5.14.2.1 Attribute Property>@..." (where angle brackets denote a variable part and sections refer to specification "OData Version 4.0 Part 3: Common Schema Definition Language").
 							/// 
-							/// Annotations starting with "@@", for example "@@sap.ui.model.odata.v4.AnnotationHelper.isMultiple" or "@@.AH.isMultiple" or "@@.isMultiple", represent computed annotations. Their name without the "@@" prefix must refer to a function either in the global namespace (in case of an absolute name) or in <code>mParameters.scope</code> (in case of a relative name starting with a dot, which is stripped before lookup; see the <code>&lt;template:alias></code> instruction for XML Templating). This function is called with the current object (or primitive value) and additional details and returns the result of this {@link #requestObject} call. The additional details are given as an object with the following properties: <ul> <li><code>{@link sap.ui.model.Context} context</code> Points to the current object <li><code>{string} schemaChildName</code> The qualified name of the schema child where the computed annotation has been found </ul> Computed annotations cannot be iterated by "@". The path must not continue after a computed annotation.
+							/// Annotations starting with "@@", for example "@@sap.ui.model.odata.v4.AnnotationHelper.isMultiple" or "@@.AH.isMultiple" or "@@.isMultiple", represent computed annotations. Their name without the "@@" prefix must refer to a function in <code>mParameters.scope</code> in case of a relative name starting with a dot, which is stripped before lookup; see the <code>&lt;template:alias></code> instruction for XML Templating. In case of an absolute name, it is searched in <code>mParameters.scope</code> first and then in the global namespace. This function is called with the current object (or primitive value) and additional details and returns the result of this {@link #requestObject} call. The additional details are given as an object with the following properties: <ul> <li><code>{boolean} $$valueAsPromise</code> Whether the computed annotation may return a <code>Promise</code> resolving with its value (since 1.57.0) <li><code>{@link sap.ui.model.Context} context</code> Points to the current object <li><code>{string} schemaChildName</code> The qualified name of the schema child where the computed annotation has been found </ul> Computed annotations cannot be iterated by "@". The path must not continue after a computed annotation.
 							/// 
 							/// A segment which represents an OData qualified name is looked up in the global scope ("scope lookup") and thus determines a schema child which is used later on. Unknown qualified names are invalid. This way, "/acme.DefaultContainer/EMPLOYEES" addresses the "EMPLOYEES" child of the schema child named "acme.DefaultContainer". This also works indirectly ("/$EntityContainer/EMPLOYEES") and implicitly ("/EMPLOYEES", see below).
 							/// 
@@ -411,14 +409,14 @@ namespace UI5
 							/// </summary>
 							/// <param name="sPath">A relative or absolute path within the metadata model</param>
 							/// <returns>A promise which is resolved with the requested metadata value as soon as it is available</returns>
-							public extern virtual jquery.JQueryPromise<object> requestObject(string sPath);
+							public extern virtual es5.Promise<object> requestObject(string sPath);
 
 							/// <summary>
 							/// Requests the UI5 type for the given property path that formats and parses corresponding to the property's EDM type and constraints. The property's type must be a primitive type. Use {@link #getUI5Type} for synchronous access.
 							/// </summary>
 							/// <param name="sPath">An absolute path to an OData property within the OData data model</param>
 							/// <returns>A promise that gets resolved with the corresponding UI5 type from {@link sap.ui.model.odata.type}; if no specific type can be determined, a warning is logged and {@link sap.ui.model.odata.type.Raw} is used</returns>
-							public extern virtual jquery.JQueryPromise<object> requestUI5Type(string sPath);
+							public extern virtual es5.Promise<object> requestUI5Type(string sPath);
 
 							/// <summary>
 							/// Requests information to retrieve a value list for the property given by <code>sPropertyPath</code>.
@@ -431,14 +429,14 @@ namespace UI5
 							/// The promise is rejected with an error if there is no value list information available for the given property path. Use {@link #getValueListType} to determine if value list information exists. It is also rejected with an error if the value list metadata is inconsistent.
 							/// 
 							/// An inconsistency can result from one of the following reasons: <ul> <li> There is a reference, but the referenced service does not contain mappings for the property. <li> The referenced service contains annotation targets in the namespace of the data service that are not mappings for the property. <li> Two different referenced services contain a mapping using the same qualifier. <li> A service is referenced twice. <li> No mappings have been found. <li> There are multiple mappings for a fixed value list. </ul></returns>
-							public extern virtual jquery.JQueryPromise<object> requestValueListInfo(string sPropertyPath);
+							public extern virtual es5.Promise<object> requestValueListInfo(string sPropertyPath);
 
 							/// <summary>
 							/// Determines which type of value list exists for the given property.
 							/// </summary>
 							/// <param name="sPropertyPath">An absolute path to an OData property within the OData data model</param>
 							/// <returns>A promise that is resolved with the type of the value list, a constant of the enumeration {@link sap.ui.model.odata.v4.ValueListType}. The promise is rejected if the property cannot be found in the metadata.</returns>
-							public extern virtual jquery.JQueryPromise<object> requestValueListType(string sPropertyPath);
+							public extern virtual es5.Promise<object> requestValueListType(string sPropertyPath);
 
 							/// <summary>
 							/// Method not supported

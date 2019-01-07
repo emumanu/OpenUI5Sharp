@@ -17,6 +17,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("jQuery.sap.log.Logger")]
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/base/Log.getLogger} instead")]
 				public partial class Logger
 				{
 					#region Constructor

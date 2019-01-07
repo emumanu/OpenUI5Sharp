@@ -39,6 +39,11 @@ namespace UI5
 					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> width;
 
 					/// <summary>
+					/// Defines the maximum width of the Tokenizer.
+					/// </summary>
+					public Union<sap.ui.core.CSSSize, string, sap.ui.@base.ManagedObject.BindPropertyInfo> maxWidth;
+
+					/// <summary>
 					/// the currently displayed tokens
 					/// </summary>
 					public Union<sap.m.Token[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> tokens;
@@ -152,6 +157,26 @@ namespace UI5
 				/// <param name="sWidth">New value for property <code>width</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
 				public extern virtual sap.m.Tokenizer setWidth(sap.ui.core.CSSSize sWidth);
+
+				#endregion
+
+				#region Methods for Property maxWidth
+
+				/// <summary>
+				/// Gets current value of property {@link #getMaxWidth maxWidth}.
+				/// 
+				/// Defines the maximum width of the Tokenizer.
+				/// 
+				/// Default value is <code>100%</code>.
+				/// </summary>
+				/// <returns>Value of property <code>maxWidth</code></returns>
+				public extern virtual sap.ui.core.CSSSize getMaxWidth();
+
+				/// <summary>
+				/// Function sets the maximum width of the Tokenizer.
+				/// </summary>
+				/// <param name="nWidth">The new maximal width</param>
+				public extern virtual void setMaxWidth(int nWidth);
 
 				#endregion
 
@@ -431,10 +456,28 @@ namespace UI5
 				#region Other methods
 
 				/// <summary>
+				/// Function gets whether the tokens visibility should be adjusted
+				/// </summary>
+				/// <returns>If true the the tokenizer should adjust the tokens visibility</returns>
+				public extern virtual bool _getAdjustable();
+
+				/// <summary>
+				/// Function returns whether the n-more indicator is visible
+				/// </summary>
+				/// <param name="If">true the indicator is visible</param>
+				public extern virtual void _getIndicatorVisibility(bool If);
+
+				/// <summary>
 				/// Function removes all selected tokens
 				/// </summary>
 				/// <returns>this instance for method chaining</returns>
 				public extern virtual sap.m.Tokenizer _removeSelectedTokens();
+
+				/// <summary>
+				/// Function sets whether the tokens visibility should be adjusted
+				/// </summary>
+				/// <param name="If">true the the tokenizer should adjust the tokens visibility</param>
+				public extern virtual void _setAdjustable(bool If);
 
 				/// <summary>
 				/// Function validates the given text and adds a new token if validation was successful
@@ -482,7 +525,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.Tokenizer.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Function returns the internally used scroll delegate
@@ -507,6 +551,12 @@ namespace UI5
 				/// </summary>
 				/// <returns>Returns the InvisibleText control id</returns>
 				public extern virtual string getTokensInfoId();
+
+				/// <summary>
+				/// Handle the focus event on the control
+				/// </summary>
+				/// <param name="oEvent">The occuring event</param>
+				public extern virtual void onclick(jquery.JQuery.Event oEvent);
 
 				/// <summary>
 				/// Function removes all validation callbacks

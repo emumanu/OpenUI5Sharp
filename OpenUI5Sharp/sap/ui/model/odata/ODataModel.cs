@@ -403,7 +403,7 @@ namespace UI5
 						/// </summary>
 						/// <param name="vUrl">Either one URL as string or an array or URL strings</param>
 						/// <returns>The Promise to load the given URL(s), resolved if all URLs have been loaded, rejected if at least one fails to load. If this promise resolves it returns the following parameters: annotations: The annotation object entitySets: An array of EntitySet objects containing the newly merged EntitySets from a $metadata requests. the structure is the same as in the metadata object reached by the getServiceMetadata() method. For non $metadata requests the array will be empty.</returns>
-						public extern virtual jquery.JQueryPromise<object> addAnnotationUrl(Union<string, string[]> vUrl);
+						public extern virtual es5.Promise<object> addAnnotationUrl(Union<string, string[]> vUrl);
 
 						/// <summary>
 						/// Adds new xml content to be parsed for OData annotations, which are then merged into the annotations object which can be retrieved by calling the getServiceAnnotations()-method.
@@ -411,7 +411,7 @@ namespace UI5
 						/// <param name="sXMLContent">The string that should be parsed as annotation XML</param>
 						/// <param name="bSuppressEvents">Whether not to fire annotationsLoaded event on the annotationParser</param>
 						/// <returns>The Promise to parse the given XML-String, resolved if parsed without errors, rejected if errors occur</returns>
-						public extern virtual jquery.JQueryPromise<object> addAnnotationXML(string sXMLContent, bool bSuppressEvents = false);
+						public extern virtual es5.Promise<object> addAnnotationXML(string sXMLContent, bool bSuppressEvents = false);
 
 						/// <summary>
 						/// Appends the change batch operations to the end of the batch stack. Only PUT, POST or DELETE batch operations should be included in the specified array. The operations in the array will be included in a single changeset. To embed change operations in different change sets call this method with the corresponding change operations again. If an illegal batch operation is added to the change set nothing will be performed and false will be returned.
@@ -840,7 +840,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.model.odata.ODataModel.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// Returns an instance of an OData meta model which offers a unified access to both OData V2 metadata and V4 annotations. It uses the existing {@link sap.ui.model.odata.ODataMetadata} as a foundation and merges V4 annotations from the existing {@link sap.ui.model.odata.ODataAnnotations} directly into the corresponding model element.
@@ -1163,6 +1164,21 @@ namespace UI5
 						/// </summary>
 						/// <returns>an object which has an <code>abort</code> function to abort the current request.</returns>
 						public extern virtual object submitChanges();
+
+						/// <summary>
+						/// Submits the collected changes which were collected by the setProperty method. A MERGE request will be triggered to only update the changed properties. If a URI with a $expand System Query Option was used then the expand entries will be removed from the collected changes. Changes to this entries should be done on the entry itself. So no deep updates are supported.
+						/// </summary>
+						/// <param name="fnError">a callback function which is called when the request failed. The handler can have the parameter: oError which contains additional error information</param>
+						/// <param name="oParameters">optional parameter for additional information introduced in SAPUI5 1.9.1</param>
+						/// <returns>an object which has an <code>abort</code> function to abort the current request.</returns>
+						public extern virtual object submitChanges(object fnError, sap.ui.model.odata.ODataModel.OperationInfo oParameters);
+
+						/// <summary>
+						/// Submits the collected changes which were collected by the setProperty method. A MERGE request will be triggered to only update the changed properties. If a URI with a $expand System Query Option was used then the expand entries will be removed from the collected changes. Changes to this entries should be done on the entry itself. So no deep updates are supported.
+						/// </summary>
+						/// <param name="oParameters">optional parameter for additional information introduced in SAPUI5 1.9.1</param>
+						/// <returns>an object which has an <code>abort</code> function to abort the current request.</returns>
+						public extern virtual object submitChanges(sap.ui.model.odata.ODataModel.OperationInfo oParameters);
 
 						/// <summary>
 						/// Trigger a PUT/MERGE request to the odata service that was specified in the model constructor. Please note that deep updates are not supported and may not work. These should be done seperate on the entry directly.

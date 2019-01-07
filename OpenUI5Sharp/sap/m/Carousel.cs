@@ -711,7 +711,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.Carousel.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Call this method to display the next page (corresponds to a swipe right). Returns 'this' for method chaining.

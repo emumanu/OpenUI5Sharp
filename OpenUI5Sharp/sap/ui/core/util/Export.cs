@@ -172,7 +172,7 @@ namespace UI5
 						/// </summary>
 						/// <param name="oBindingInfo">The binding information</param>
 						/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-						public extern virtual sap.ui.core.util.Export bindColumns(object oBindingInfo);
+						public extern virtual sap.ui.core.util.Export bindColumns(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 						/// <summary>
 						/// Unbinds aggregation {@link #getColumns columns} from model data.
@@ -242,7 +242,7 @@ namespace UI5
 						/// </summary>
 						/// <param name="oBindingInfo">The binding information</param>
 						/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-						public extern virtual sap.ui.core.util.Export bindRows(object oBindingInfo);
+						public extern virtual sap.ui.core.util.Export bindRows(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 						/// <summary>
 						/// Unbinds aggregation {@link #getRows rows} from model data.
@@ -294,13 +294,14 @@ namespace UI5
 						/// <p><b>Please note: The return value was changed from jQuery Promises to standard ES6 Promises. jQuery specific Promise methods ('done', 'fail', 'always', 'pipe' and 'state') are still available but should not be used. Please use only the standard methods 'then' and 'catch'!</b></p>
 						/// </summary>
 						/// <returns>Promise object</returns>
-						public extern virtual jquery.JQueryPromise<object> generate();
+						public extern virtual es5.Promise<object> generate();
 
 						/// <summary>
 						/// Returns a metadata object for class sap.ui.core.util.Export.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// Generates the file content, triggers a download / save action and returns a Promise with the instance as context (this).<br> The promise will be resolved with the generated content as a string. <p><b>For information about browser support, see <code>sap.ui.core.util.File.save</code></b></p>
@@ -309,7 +310,7 @@ namespace UI5
 						/// </summary>
 						/// <param name="sFileName">file name, defaults to 'data'</param>
 						/// <returns>Promise object</returns>
-						public extern virtual jquery.JQueryPromise<object> saveFile(string sFileName);
+						public extern virtual es5.Promise<object> saveFile(string sFileName);
 
 						/// <summary>
 						/// Generates the file content, triggers a download / save action and returns a Promise with the instance as context (this).<br> The promise will be resolved with the generated content as a string. <p><b>For information about browser support, see <code>sap.ui.core.util.File.save</code></b></p>
@@ -317,7 +318,7 @@ namespace UI5
 						/// <p><b>Please note: The return value was changed from jQuery Promises to standard ES6 Promises. jQuery specific Promise methods ('done', 'fail', 'always', 'pipe' and 'state') are still available but should not be used. Please use only the standard methods 'then' and 'catch'!</b></p>
 						/// </summary>
 						/// <returns>Promise object</returns>
-						public extern virtual jquery.JQueryPromise<object> saveFile();
+						public extern virtual es5.Promise<object> saveFile();
 
 						#endregion
 

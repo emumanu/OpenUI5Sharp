@@ -107,6 +107,20 @@ namespace UI5
 			/// </summary>
 			[External]
 			[ObjectLiteral]
+			public partial class MessageActiveTitlePressInfo
+			{
+				/// <summary>
+				/// Refers to the message item that contains the active Title
+				/// </summary>
+				public sap.m.MessageItem item;
+
+			}
+
+			/// <summary>
+			/// Parameter to be used as Object Literal
+			/// </summary>
+			[External]
+			[ObjectLiteral]
 			public partial class AfterOpenCloseBeforeInfo
 			{
 				/// <summary>
@@ -272,6 +286,21 @@ namespace UI5
 				/// Dom reference of the object header' icon to be used for positioning.
 				/// </summary>
 				public object domRef;
+
+			}
+
+			/// <summary>
+			/// Parameter to be used as Object Literal
+			/// </summary>
+			[External]
+			[ObjectLiteral]
+			public partial class P13nRemoveItemInfo
+			{
+				public string id;
+
+				public int index;
+
+				public string key;
 
 			}
 
@@ -692,6 +721,8 @@ namespace UI5
 
 			public delegate void TilePressDelegate(sap.ui.@base.Event<sap.m.TilePressInfo> oEvent, object oData);
 
+			public delegate void MessageActiveTitlePressDelegate(sap.ui.@base.Event<sap.m.MessageActiveTitlePressInfo> oEvent, object oData);
+
 			public delegate void AfterOpenCloseBeforeDelegate(sap.ui.@base.Event<sap.m.AfterOpenCloseBeforeInfo> oEvent, object oData);
 
 			public delegate void MessageListSelectDelegate(sap.ui.@base.Event<sap.m.MessageListSelectInfo> oEvent, object oData);
@@ -705,6 +736,8 @@ namespace UI5
 			public delegate void ObjectPressDelegate(sap.ui.@base.Event<sap.m.ObjectPressInfo> oEvent, object oData);
 
 			public delegate void ObjectHeaderPressDelegate(sap.ui.@base.Event<sap.m.ObjectHeaderPressInfo> oEvent, object oData);
+
+			public delegate void P13nRemoveItemDelegate(sap.ui.@base.Event<sap.m.P13nRemoveItemInfo> oEvent, object oData);
 
 			public delegate void CalendarSelectDelegate(sap.ui.@base.Event<sap.m.CalendarSelectInfo> oEvent, object oData);
 
@@ -727,21 +760,6 @@ namespace UI5
 			#region Fields
 
 			/// <summary>
-			/// Hide the soft keyboard.
-			/// </summary>
-			public static object closeKeyboard;
-
-			/// <summary>
-			/// Search given control's parents and try to find iScroll.
-			/// </summary>
-			public static object getIScroll;
-
-			/// <summary>
-			/// Search given control's parents and try to find a ScrollDelegate.
-			/// </summary>
-			public static object getScrollDelegate;
-
-			/// <summary>
 			/// <pre>
 			/// <code>sap.m.Support</code> shows the technical information for SAPUI5 Mobile Applications.
 			/// This technical information includes
@@ -757,14 +775,14 @@ namespace UI5
 			/// 
 			/// NOTE: This class is internal and all its functions must not be used by an application
 			/// 
-			/// As <code>sap.m.Support</code> is a static class, a <code>jQuery.sap.require("sap.m.Support");</code>
+			/// As <code>sap.m.Support</code> is a static class, a <code>sap.ui.requireSync("sap/m/Support");</code>
 			/// statement must be implicitly executed before the class is used.
 			/// 
 			/// 
 			/// Enable Support:
 			/// --------------------------------------------------
 			/// //import library
-			/// jQuery.sap.require("sap.m.Support");
+			/// sap.ui.requireSync("sap/m/Support");
 			/// 
 			/// //By default after require, support is enabled but implicitly we can call
 			/// sap.m.Support.on();
@@ -781,29 +799,51 @@ namespace UI5
 			#region Methods
 
 			/// <summary>
+			/// Hide the soft keyboard.
+			/// </summary>
+			public extern static void closeKeyboard();
+
+			/// <summary>
 			/// Returns invalid date value of UI5.
 			/// </summary>
-			/// <returns></returns>
+			/// <returns><code>null</code> as value for an invalid date</returns>
 			[Obsolete("Deprecated since 1.12. UI5 returns null for invalid date")]
 			public extern static object getInvalidDate();
 
 			/// <summary>
-			/// Finds default locale settings once and returns always the same. We should not need to create new instance to get same locale settings This method keep the locale instance in the scope and returns the same after first run
+			/// Search given control's parents and try to find iScroll.
 			/// </summary>
-			/// <returns>sap.ui.core.Locale instane</returns>
-			public extern static object getLocale();
+			/// <param name="oControl">Control to start the search at</param>
+			/// <returns>iScroll reference or undefined if cannot find</returns>
+			public extern static object getIScroll(sap.ui.core.Control oControl);
+
+			/// <summary>
+			/// Finds default locale settings once and returns always the same.
+			/// 
+			/// We should not need to create new instance to get same locale settings This method keeps the locale instance in the scope and returns the same after first run
+			/// </summary>
+			/// <returns>Locale instance</returns>
+			public extern static sap.ui.core.Locale getLocale();
 
 			/// <summary>
 			/// Finds default locale data once and returns always the same.
 			/// </summary>
-			/// <returns>sap.ui.core.LocaleData instance</returns>
-			public extern static object getLocaleData();
+			/// <returns>LocaleData instance</returns>
+			public extern static sap.ui.core.LocaleData getLocaleData();
+
+			/// <summary>
+			/// Search given control's parents and try to find a ScrollDelegate.
+			/// </summary>
+			/// <param name="oControl">Starting point for the search</param>
+			/// <param name="bGlobal">Whether the search should stop on component level (<code>false</code>) or not</param>
+			/// <returns>ScrollDelegate or undefined if it cannot be found</returns>
+			public extern static object getScrollDelegate(sap.ui.core.Control oControl, bool bGlobal);
 
 			/// <summary>
 			/// Checks if the given parameter is a valid JsDate Object.
 			/// </summary>
 			/// <param name="value">Any variable to test.</param>
-			/// <returns></returns>
+			/// <returns>Whether the given parameter is a valid JsDate Object.</returns>
 			public extern static bool isDate(object value);
 
 			#endregion
@@ -858,6 +898,10 @@ namespace UI5
 			[Name("sap.m.IScale")]
 			public partial interface IScale
 			{
+				#region Methods
+
+				#endregion
+
 			}
 			/// <summary>
 			/// Defines which area of the control remains fixed at the top of the page during vertical scrolling as long as the control is in the viewport.
@@ -881,7 +925,7 @@ namespace UI5
 				InfoToolbar,
 			}
 			/// <summary>
-			/// Represents an interface for controls, which are suitable as items for the sap.m.IconTabBar. The classes which implement this interface are: - sap.m.IconTabFilter - sap.m.IconTabSeparator
+			/// Represents an interface for controls, which are suitable as items for the sap.m.IconTabBar.
 			/// </summary>
 			[External]
 			[Namespace(false)]
@@ -1040,7 +1084,9 @@ namespace UI5
 				Image,
 			}
 			/// <summary>
-			/// A subset of input types that fits to a simple API returning one string. Not available on purpose: button, checkbox, hidden, image, password, radio, range, reset, search, submit.
+			/// A subset of input types that fits to a simple API returning one string.
+			/// 
+			/// Not available on purpose: button, checkbox, hidden, image, password, radio, range, reset, search, submit.
 			/// </summary>
 			[External]
 			[Namespace(false)]
@@ -1175,11 +1221,13 @@ namespace UI5
 			public enum DialogType
 			{
 				/// <summary>
-				/// Dialog with type Message looks the same as the Stardard Dialog in Android. And it puts the left, right buttons to the bottom of the Dialog in iOS.
+				/// Dialog with type Message looks the same as the Standard Dialog in Android. It puts the Left and the Right buttons at the bottom of the Dialog in iOS.
 				/// </summary>
 				Message,
 				/// <summary>
-				/// This is the default value for Dialog type. Stardard dialog in iOS has a header on the top and the left, right buttons are put inside the header. In android, the left, right buttons are put to the bottom of the Dialog.
+				/// This is the default value for Dialog type.
+				/// 
+				/// The Standard Dialog in iOS has a header on the top. The Left and the Right buttons are put inside the header. In Android, the Left and the Right buttons are put at the bottom of the Dialog.
 				/// </summary>
 				Standard,
 			}
@@ -1250,7 +1298,7 @@ namespace UI5
 				IconOnly,
 			}
 			/// <summary>
-			/// Enumaration for different switch types.
+			/// Enumeration for different switch types.
 			/// </summary>
 			[External]
 			[Namespace(false)]
@@ -1409,7 +1457,7 @@ namespace UI5
 				/// </summary>
 				Block,
 				/// <summary>
-				/// Inside the table popin, cell content is displayed next to the header in the same line. Note: If there is not enough space for the cell content then it jumps to the next line.
+				/// Inside the table popin, cell content is displayed next to the header in the same line. <b>Note:</b> If there is not enough space for the cell content then it jumps to the next line.
 				/// </summary>
 				Inline,
 				/// <summary>
@@ -1426,7 +1474,9 @@ namespace UI5
 			public enum SplitAppMode
 			{
 				/// <summary>
-				/// Master area is hidden initially both in portrait and landscape. Master area can be opened by clicking on the top left corner button or swiping right. Swipe is only enabled on mobile devices. Master will keep the open state when changing the orientation of the device.
+				/// Master area is hidden initially both in portrait and landscape.
+				/// 
+				/// Master area can be opened by clicking on the top left corner button or swiping right. Swipe is only enabled on mobile devices. Master will keep the open state when changing the orientation of the device.
 				/// </summary>
 				HideMode,
 				/// <summary>
@@ -1478,7 +1528,9 @@ namespace UI5
 				/// </summary>
 				Auto,
 				/// <summary>
-				/// If the flex item's inline axis is the same as the cross axis, this value is identical to "Start". Otherwise, it participates in baseline alignment: all participating box items on the line are aligned such that their baselines align, and the item with the largest distance between its baseline and its cross-start margin edge is placed flush against the cross-start edge of the line.
+				/// If the flex item's inline axis is the same as the cross axis, this value is identical to "Start".
+				/// 
+				/// Otherwise, it participates in baseline alignment: all participating box items on the line are aligned such that their baselines align, and the item with the largest distance between its baseline and its cross-start margin edge is placed flush against the cross-start edge of the line.
 				/// </summary>
 				Baseline,
 				/// <summary>
@@ -1681,7 +1733,9 @@ namespace UI5
 			public enum FlexAlignItems
 			{
 				/// <summary>
-				/// If the flex item's inline axes are the same as the cross axis, this value is identical to "Start". Otherwise, it participates in baseline alignment: all participating box items on the line are aligned such that their baselines align, and the item with the largest distance between its baseline and its cross-start margin edge is placed flush against the cross-start edge of the line.
+				/// If the flex item's inline axes are the same as the cross axis, this value is identical to "Start".
+				/// 
+				/// Otherwise, it participates in baseline alignment: all participating box items on the line are aligned such that their baselines align, and the item with the largest distance between its baseline and its cross-start margin edge is placed flush against the cross-start edge of the line.
 				/// </summary>
 				Baseline,
 				/// <summary>
@@ -1819,7 +1873,9 @@ namespace UI5
 				/// </summary>
 				Light,
 				/// <summary>
-				/// Forces FacetFilter to display facet lists as a row of buttons, one button per facet. The FacetFilter will automatically adapt to the Light type when it detects smart phone sized displays.
+				/// Forces FacetFilter to display facet lists as a row of buttons, one button per facet.
+				/// 
+				/// The FacetFilter will automatically adapt to the Light type when it detects smart phone sized displays.
 				/// </summary>
 				Simple,
 			}
@@ -1840,7 +1896,9 @@ namespace UI5
 				/// </summary>
 				HeaderMode,
 				/// <summary>
-				/// Line mode (Implemented for both, cozy and compact densities. Generic Tile is displayed as in-line element, header and subheader are displayed in one line. In case the texts need more than one line, the representation depends on the used density. <b>Cozy:</b> The text will be truncated and the full text is shown in a tooltip as soon as the tile is hovered (desktop only). <b>Compact:</b> Header and subheader are rendered continuously spanning multiple lines, no tooltip is provided).
+				/// Line mode (Implemented for both, cozy and compact densities).
+				/// 
+				/// Generic Tile is displayed as in-line element, header and subheader are displayed in one line. In case the texts need more than one line, the representation depends on the used density. <b>Cozy:</b> The text will be truncated and the full text is shown in a tooltip as soon as the tile is hovered (desktop only). <b>Compact:</b> Header and subheader are rendered continuously spanning multiple lines, no tooltip is provided).
 				/// </summary>
 				LineMode,
 			}
@@ -1866,7 +1924,9 @@ namespace UI5
 				Transparent,
 			}
 			/// <summary>
-			/// Available options for the layout of container lines along the cross axis of the flexbox layout. <b>Note:</b> This property has no effect in Internet Explorer 10.
+			/// Available options for the layout of container lines along the cross axis of the flexbox layout.
+			/// 
+			/// <b>Note:</b> This property has no effect in Internet Explorer 10.
 			/// </summary>
 			[External]
 			[Namespace(false)]
@@ -1946,11 +2006,15 @@ namespace UI5
 			public enum ListKeyboardMode
 			{
 				/// <summary>
-				/// This mode is suitable if the number of items is limited and if there are editable fields within the item. While the last/first interactive element within an item has the focus, pressing tab/shift+tab moves the focus to the next/previous element in the tab chain after/before the item </code>.
+				/// This mode is suitable if the number of items is limited and if there are editable fields within the item.
+				/// 
+				/// While the last/first interactive element within an item has the focus, pressing tab/shift+tab moves the focus to the next/previous element in the tab chain after/before the item </code>.
 				/// </summary>
 				Edit,
 				/// <summary>
-				/// This default mode is suitable if the number of items is unlimited or if there is no editable field within the item. While the last/first interactive element within an item has the focus, pressing tab/shift+tab moves the focus to the next/previous element in the tab chain after/before the <code>sap.m.List</code> or <code>sap.m.Table</code>.
+				/// This default mode is suitable if the number of items is unlimited or if there is no editable field within the item.
+				/// 
+				/// While the last/first interactive element within an item has the focus, pressing tab/shift+tab moves the focus to the next/previous element in the tab chain after/before the <code>sap.m.List</code> or <code>sap.m.Table</code>.
 				/// </summary>
 				Navigation,
 			}
@@ -1987,7 +2051,7 @@ namespace UI5
 				/// </summary>
 				Unsaved,
 				/// <summary>
-				/// UnsavedBy type Use when you need to display the name of the user whos changes were unsaved.
+				/// UnsavedBy type Use when you need to display the name of the user whose changes were unsaved.
 				/// </summary>
 				UnsavedBy,
 			}
@@ -2265,7 +2329,9 @@ namespace UI5
 				/// </summary>
 				Downwards,
 				/// <summary>
-				/// User has to scroll up to load more items or the growing button is displayed at the top. <b>Note:</b> If this option is active, there should not be any other control than <code>sap.m.List</code> inside its <code>ScollContainer</code>.
+				/// User has to scroll up to load more items or the growing button is displayed at the top.
+				/// 
+				/// <b>Note:</b> If this option is active, there should not be any other control than <code>sap.m.List</code> inside its <code>ScollContainer</code>.
 				/// </summary>
 				Upwards,
 			}
@@ -2354,6 +2420,27 @@ namespace UI5
 			{
 			}
 			/// <summary>
+			/// PDF viewer display types.
+			/// </summary>
+			[External]
+			[Namespace(false)]
+			[Name("sap.m.PDFViewerDisplayTypes")]
+			public enum PDFViewerDisplayTypes
+			{
+				/// <summary>
+				/// The PDF viewer switches between the <code>Link</code> display type and the <code>Embedded</code> display type, depending on the device being used.
+				/// </summary>
+				Auto,
+				/// <summary>
+				/// The PDF viewer appears embedded in the parent container and displays the PDF file.
+				/// </summary>
+				Embedded,
+				/// <summary>
+				/// The PDF viewer appears as a toolbar with a download button that can be used to download the PDF file or open it in a new tab.
+				/// </summary>
+				Link,
+			}
+			/// <summary>
 			/// Available step modes for {@link sap.m.StepInput}.
 			/// </summary>
 			[External]
@@ -2424,32 +2511,6 @@ namespace UI5
 				/// </summary>
 				TextOnly,
 			}
-			[External]
-			[Namespace(false)]
-			[Name("sap.m.P13nConditionOperation")]
-			public enum P13nConditionOperation
-			{
-				Ascending,
-				Average,
-				BT,
-				Contains,
-				Descending,
-				Empty,
-				EndsWith,
-				EQ,
-				GE,
-				GroupAscending,
-				GroupDescending,
-				GT,
-				Initial,
-				LE,
-				LT,
-				Maximum,
-				Minimum,
-				NotEmpty,
-				StartsWith,
-				Total,
-			}
 			/// <summary>
 			/// Carousel arrows align.
 			/// </summary>
@@ -2476,7 +2537,7 @@ namespace UI5
 			public enum FacetFilterListDataType
 			{
 				/// <summary>
-				/// >An input control for specifying a Boolean value
+				/// An input control for specifying a Boolean value
 				/// </summary>
 				Boolean,
 				/// <summary>
@@ -2488,7 +2549,7 @@ namespace UI5
 				/// </summary>
 				DateTime,
 				/// <summary>
-				/// >An input control for specifying a Float value
+				/// An input control for specifying a Float value
 				/// </summary>
 				Float,
 				/// <summary>
@@ -2496,7 +2557,7 @@ namespace UI5
 				/// </summary>
 				Integer,
 				/// <summary>
-				/// >An input control for specifying a String value
+				/// An input control for specifying a String value
 				/// </summary>
 				String,
 				/// <summary>
@@ -2510,6 +2571,8 @@ namespace UI5
 			/// <b>Note:</b> Even if <code>canOverflow</code> is set to <code>false</code>, the <code>propsUnrelatedToSize</code> field is taken into account, allowing to optimize the behavior of controls that do not need to overflow, but are used in an <code>sap.m.OverflowToolbar</code> regardless.</li>
 			/// 
 			/// <li><code>autoCloseEvents</code> - An array of strings, listing all of the control's events that should trigger the closing of the overflow menu, when fired.</li>
+			/// 
+			/// <li><code>invalidationEvents</code> - An array of strings, listing all of the control's events that should trigger the invalidation of the <code>sap.m.OverflowToolbar</code>, when fired.</li>
 			/// 
 			/// <li><code>propsUnrelatedToSize</code> - An array of strings, listing all of the control's properties that, when changed, should not cause the overflow toolbar to invalidate.
 			/// 
@@ -2558,7 +2621,7 @@ namespace UI5
 				/// </summary>
 				AlwaysOverflow,
 				/// <summary>
-				/// Disappear priority OverflowToolbar items overflow before the items with higher priority such as Low and High priority items and remain hidden in the overflow area
+				/// Disappear priority OverflowToolbar items overflow before the items with higher priority such as Low and High priority items and remain hidden in the overflow area.
 				/// </summary>
 				Disappear,
 				/// <summary>
@@ -2608,7 +2671,7 @@ namespace UI5
 				/// </summary>
 				email,
 				/// <summary>
-				/// Displayes a regular HTML link
+				/// Displays a regular HTML link
 				/// </summary>
 				link,
 				/// <summary>
@@ -2616,7 +2679,7 @@ namespace UI5
 				/// </summary>
 				mobile,
 				/// <summary>
-				/// Dislpays a link for navigating to another QuickViewPage
+				/// Displays a link for navigating to another QuickViewPage
 				/// </summary>
 				pageLink,
 				/// <summary>
@@ -2624,7 +2687,7 @@ namespace UI5
 				/// </summary>
 				phone,
 				/// <summary>
-				/// Dislpays text
+				/// Displays text
 				/// </summary>
 				text,
 			}

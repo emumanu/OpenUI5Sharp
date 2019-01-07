@@ -146,6 +146,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("jQuery.sap.history.NavType")]
+				[Obsolete("Deprecated since 1.19.1. Please use {@link sap.ui.core.routing.HistoryDirection} instead.")]
 				public enum NavType
 				{
 					/// <summary>

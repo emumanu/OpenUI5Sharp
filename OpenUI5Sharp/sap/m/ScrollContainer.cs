@@ -342,7 +342,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.ScrollContainer.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Scrolls to the given position. When called while the control is not rendered (yet), the scrolling position is still applied, but there is no animation.
@@ -359,7 +360,7 @@ namespace UI5
 				/// <param name="element">The element to which should be scrolled.</param>
 				/// <param name="time">The duration of animated scrolling. To scroll immediately without animation, give 0 as value or leave it default.</param>
 				/// <returns><code>this</code> to facilitate method chaining.</returns>
-				public extern virtual sap.m.ScrollContainer scrollToElement(Union<dom.HTMLElement, sap.ui.core.Element> element, int time = 0);
+				public extern virtual sap.m.ScrollContainer scrollToElement(Union<Retyped.dom.HTMLElement, sap.ui.core.Element> element, int time = 0);
 
 				#endregion
 

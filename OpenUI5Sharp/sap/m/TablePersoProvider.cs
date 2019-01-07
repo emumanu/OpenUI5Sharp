@@ -39,7 +39,71 @@ namespace UI5
 				/// 
 				/// This class does not have its own settings, but all settings applicable to the base type {@link sap.ui.base.ManagedObject#constructor sap.ui.base.ManagedObject} can be used.
 				/// </summary>
+				/// <param name="sId">ID for the new managed object; generated automatically if no non-empty ID is given <b>Note:</b> this can be omitted, no matter whether <code>mSettings</code> will be given or not!</param>
+				/// <param name="mSettings">Optional map/JSON-object with initial property values, aggregated objects etc. for the new object</param>
+				/// <param name="oScope">Scope object for resolving string based type and formatter references in bindings. When a scope object is given, <code>mSettings</code> cannot be omitted, at least <code>null</code> or an empty object literal must be given.</param>
+				public extern TablePersoProvider(string sId, sap.m.TablePersoProvider.Settings mSettings, object oScope);
+
+				/// <summary>
+				/// This is an abstract TablePersoProvider, describing the interface for a real TablePersoProvider.
+				/// 
+				/// Accepts an object literal <code>mSettings</code> that defines initial property values, aggregated and associated objects as well as event handlers. See {@link sap.ui.base.ManagedObject#constructor} for a general description of the syntax of the settings object.
+				/// 
+				/// This class does not have its own settings, but all settings applicable to the base type {@link sap.ui.base.ManagedObject#constructor sap.ui.base.ManagedObject} can be used.
+				/// </summary>
+				/// <param name="sId">ID for the new managed object; generated automatically if no non-empty ID is given <b>Note:</b> this can be omitted, no matter whether <code>mSettings</code> will be given or not!</param>
+				/// <param name="mSettings">Optional map/JSON-object with initial property values, aggregated objects etc. for the new object</param>
+				public extern TablePersoProvider(string sId, sap.m.TablePersoProvider.Settings mSettings);
+
+				/// <summary>
+				/// This is an abstract TablePersoProvider, describing the interface for a real TablePersoProvider.
+				/// 
+				/// Accepts an object literal <code>mSettings</code> that defines initial property values, aggregated and associated objects as well as event handlers. See {@link sap.ui.base.ManagedObject#constructor} for a general description of the syntax of the settings object.
+				/// 
+				/// This class does not have its own settings, but all settings applicable to the base type {@link sap.ui.base.ManagedObject#constructor sap.ui.base.ManagedObject} can be used.
+				/// </summary>
+				/// <param name="sId">ID for the new managed object; generated automatically if no non-empty ID is given <b>Note:</b> this can be omitted, no matter whether <code>mSettings</code> will be given or not!</param>
+				public extern TablePersoProvider(string sId);
+
+				/// <summary>
+				/// This is an abstract TablePersoProvider, describing the interface for a real TablePersoProvider.
+				/// 
+				/// Accepts an object literal <code>mSettings</code> that defines initial property values, aggregated and associated objects as well as event handlers. See {@link sap.ui.base.ManagedObject#constructor} for a general description of the syntax of the settings object.
+				/// 
+				/// This class does not have its own settings, but all settings applicable to the base type {@link sap.ui.base.ManagedObject#constructor sap.ui.base.ManagedObject} can be used.
+				/// </summary>
 				public extern TablePersoProvider();
+
+				/// <summary>
+				/// This is an abstract TablePersoProvider, describing the interface for a real TablePersoProvider.
+				/// 
+				/// Accepts an object literal <code>mSettings</code> that defines initial property values, aggregated and associated objects as well as event handlers. See {@link sap.ui.base.ManagedObject#constructor} for a general description of the syntax of the settings object.
+				/// 
+				/// This class does not have its own settings, but all settings applicable to the base type {@link sap.ui.base.ManagedObject#constructor sap.ui.base.ManagedObject} can be used.
+				/// </summary>
+				/// <param name="mSettings">Optional map/JSON-object with initial property values, aggregated objects etc. for the new object</param>
+				public extern TablePersoProvider(sap.m.TablePersoProvider.Settings mSettings);
+
+				/// <summary>
+				/// This is an abstract TablePersoProvider, describing the interface for a real TablePersoProvider.
+				/// 
+				/// Accepts an object literal <code>mSettings</code> that defines initial property values, aggregated and associated objects as well as event handlers. See {@link sap.ui.base.ManagedObject#constructor} for a general description of the syntax of the settings object.
+				/// 
+				/// This class does not have its own settings, but all settings applicable to the base type {@link sap.ui.base.ManagedObject#constructor sap.ui.base.ManagedObject} can be used.
+				/// </summary>
+				/// <param name="mSettings">Optional map/JSON-object with initial property values, aggregated objects etc. for the new object</param>
+				/// <param name="oScope">Scope object for resolving string based type and formatter references in bindings. When a scope object is given, <code>mSettings</code> cannot be omitted, at least <code>null</code> or an empty object literal must be given.</param>
+				public extern TablePersoProvider(sap.m.TablePersoProvider.Settings mSettings, object oScope);
+
+				/// <summary>
+				/// This is an abstract TablePersoProvider, describing the interface for a real TablePersoProvider.
+				/// 
+				/// Accepts an object literal <code>mSettings</code> that defines initial property values, aggregated and associated objects as well as event handlers. See {@link sap.ui.base.ManagedObject#constructor} for a general description of the syntax of the settings object.
+				/// 
+				/// This class does not have its own settings, but all settings applicable to the base type {@link sap.ui.base.ManagedObject#constructor sap.ui.base.ManagedObject} can be used.
+				/// </summary>
+				/// <param name="oScope">Scope object for resolving string based type and formatter references in bindings. When a scope object is given, <code>mSettings</code> cannot be omitted, at least <code>null</code> or an empty object literal must be given.</param>
+				public extern TablePersoProvider(object oScope);
 
 				#endregion
 
@@ -48,7 +112,9 @@ namespace UI5
 				/// <summary>
 				/// Removes the personalization bundle This must return a jQuery promise (see http://api.jquery.com/promise/)
 				/// </summary>
-				public extern virtual void delPersData();
+				/// <remarks>This method is abstract, so it should not be called from subclasses as it is not implemented.</remarks>
+				/// <returns></returns>
+				public abstract es5.Promise<object> delPersData();
 
 				/// <summary>
 				/// Creates a new subclass of class sap.m.TablePersoProvider with name <code>sClassName</code> and enriches it with the information contained in <code>oClassInfo</code>.
@@ -89,27 +155,34 @@ namespace UI5
 				/// 
 				/// In case neither the callback delivers null and neither 'text' nor ' title' property are at hand, the TablePersoDialog will display the column id and a warning message is logged.
 				/// </summary>
+				/// <remarks>This method is abstract, so it should not be called from subclasses as it is not implemented.</remarks>
 				/// <param name="oColumn">column whose caption shall be determined</param>
-				public extern virtual void getCaption(sap.m.Column oColumn);
+				/// <returns></returns>
+				public abstract object getCaption(sap.m.Column oColumn);
 
 				/// <summary>
 				/// Callback function which can be used to determine the group of a given column within the TablePersoDialog. As a default, the columns are not assigned to a group.
 				/// 
 				/// This information is used to group the columns within the TablePersoDialog if the TablePersoController's 'group' flag is set, otherwise, the groups are ignored.
 				/// </summary>
+				/// <remarks>This method is abstract, so it should not be called from subclasses as it is not implemented.</remarks>
 				/// <param name="oColumn">column whose group shall be determined</param>
-				public extern virtual void getGroup(sap.m.Column oColumn);
+				/// <returns></returns>
+				public abstract object getGroup(sap.m.Column oColumn);
 
 				/// <summary>
 				/// Returns a metadata object for class sap.m.TablePersoProvider.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Retrieves the personalization bundle. This must return a jQuery promise (see http://api.jquery.com/promise/)
 				/// </summary>
-				public extern virtual void getPersData();
+				/// <remarks>This method is abstract, so it should not be called from subclasses as it is not implemented.</remarks>
+				/// <returns></returns>
+				public abstract es5.Promise<object> getPersData();
 
 				/// <summary>
 				/// Initializes the TablePersoProvider instance after creation.
@@ -121,13 +194,17 @@ namespace UI5
 				/// 
 				/// This must return a jQuery promise (see http://api.jquery.com/promise/)
 				/// </summary>
-				public extern virtual void resetPersData();
+				/// <remarks>This method is abstract, so it should not be called from subclasses as it is not implemented.</remarks>
+				/// <returns></returns>
+				public abstract es5.Promise<object> resetPersData();
 
 				/// <summary>
 				/// Stores the personalization bundle, overwriting any previous bundle completely This must return a jQuery promise (see http://api.jquery.com/promise/)
 				/// </summary>
+				/// <remarks>This method is abstract, so it should not be called from subclasses as it is not implemented.</remarks>
 				/// <param name="oBundle"></param>
-				public extern virtual void setPersData(object oBundle);
+				/// <returns></returns>
+				public abstract es5.Promise<object> setPersData(object oBundle);
 
 				#endregion
 

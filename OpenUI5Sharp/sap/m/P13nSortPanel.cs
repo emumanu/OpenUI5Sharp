@@ -44,19 +44,46 @@ namespace UI5
 					/// <summary>
 					/// event raised when a SortItem was added
 					/// </summary>
-					public sap.ui.@base.EventDelegate addSortItem;
+					public sap.m.P13nSortPanel.SortItemDelegate addSortItem;
 
 					/// <summary>
 					/// event raised when a SortItem was removed
 					/// </summary>
-					public sap.ui.@base.EventDelegate removeSortItem;
+					public sap.m.P13nRemoveItemDelegate removeSortItem;
 
 					/// <summary>
 					/// event raised when a SortItem was updated
 					/// </summary>
-					public sap.ui.@base.EventDelegate updateSortItem;
+					public sap.m.P13nSortPanel.SortItemDelegate updateSortItem;
 
 				}
+
+				#endregion
+
+				#region Typed Parameters
+
+				/// <summary>
+				/// Parameter to be used as Object Literal
+				/// </summary>
+				[External]
+				[ObjectLiteral]
+				public partial class SortItemInfo
+				{
+					public string id;
+
+					public int index;
+
+					public string key;
+
+					public sap.m.P13nSortItem sortItemData;
+
+				}
+
+				#endregion
+
+				#region Delegates
+
+				public delegate void SortItemDelegate(sap.ui.@base.Event<sap.m.P13nSortPanel.SortItemInfo> oEvent, object oData);
 
 				#endregion
 
@@ -212,7 +239,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oBindingInfo">The binding information</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nSortPanel bindSortItems(object oBindingInfo);
+				public extern virtual sap.m.P13nSortPanel bindSortItems(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 				/// <summary>
 				/// Unbinds aggregation {@link #getSortItems sortItems} from model data.
@@ -235,7 +262,7 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.P13nSortPanel</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nSortPanel attachAddSortItem(object oData, sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nSortPanel attachAddSortItem(object oData, sap.m.P13nSortPanel.SortItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:addSortItem addSortItem} event of this <code>sap.m.P13nSortPanel</code>.
@@ -247,7 +274,7 @@ namespace UI5
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nSortPanel attachAddSortItem(object oData, sap.ui.@base.EventDelegate fnFunction);
+				public extern virtual sap.m.P13nSortPanel attachAddSortItem(object oData, sap.m.P13nSortPanel.SortItemDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:addSortItem addSortItem} event of this <code>sap.m.P13nSortPanel</code>.
@@ -258,7 +285,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nSortPanel attachAddSortItem(sap.ui.@base.EventDelegate fnFunction);
+				public extern virtual sap.m.P13nSortPanel attachAddSortItem(sap.m.P13nSortPanel.SortItemDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:addSortItem addSortItem} event of this <code>sap.m.P13nSortPanel</code>.
@@ -270,7 +297,7 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.P13nSortPanel</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nSortPanel attachAddSortItem(sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nSortPanel attachAddSortItem(sap.m.P13nSortPanel.SortItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:addSortItem addSortItem} event of this <code>sap.m.P13nSortPanel</code>.
@@ -280,14 +307,14 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nSortPanel detachAddSortItem(sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nSortPanel detachAddSortItem(sap.m.P13nSortPanel.SortItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:addSortItem addSortItem} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nSortPanel fireAddSortItem(object mParameters);
+				public extern virtual sap.m.P13nSortPanel fireAddSortItem(sap.m.P13nSortPanel.SortItemInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:addSortItem addSortItem} to attached listeners.
@@ -310,7 +337,7 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.P13nSortPanel</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nSortPanel attachRemoveSortItem(object oData, sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nSortPanel attachRemoveSortItem(object oData, sap.m.P13nRemoveItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:removeSortItem removeSortItem} event of this <code>sap.m.P13nSortPanel</code>.
@@ -322,7 +349,7 @@ namespace UI5
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nSortPanel attachRemoveSortItem(object oData, sap.ui.@base.EventDelegate fnFunction);
+				public extern virtual sap.m.P13nSortPanel attachRemoveSortItem(object oData, sap.m.P13nRemoveItemDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:removeSortItem removeSortItem} event of this <code>sap.m.P13nSortPanel</code>.
@@ -333,7 +360,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nSortPanel attachRemoveSortItem(sap.ui.@base.EventDelegate fnFunction);
+				public extern virtual sap.m.P13nSortPanel attachRemoveSortItem(sap.m.P13nRemoveItemDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:removeSortItem removeSortItem} event of this <code>sap.m.P13nSortPanel</code>.
@@ -345,7 +372,7 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.P13nSortPanel</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nSortPanel attachRemoveSortItem(sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nSortPanel attachRemoveSortItem(sap.m.P13nRemoveItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:removeSortItem removeSortItem} event of this <code>sap.m.P13nSortPanel</code>.
@@ -355,14 +382,14 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nSortPanel detachRemoveSortItem(sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nSortPanel detachRemoveSortItem(sap.m.P13nRemoveItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:removeSortItem removeSortItem} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nSortPanel fireRemoveSortItem(object mParameters);
+				public extern virtual sap.m.P13nSortPanel fireRemoveSortItem(sap.m.P13nRemoveItemInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:removeSortItem removeSortItem} to attached listeners.
@@ -385,7 +412,7 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.P13nSortPanel</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nSortPanel attachUpdateSortItem(object oData, sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nSortPanel attachUpdateSortItem(object oData, sap.m.P13nSortPanel.SortItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:updateSortItem updateSortItem} event of this <code>sap.m.P13nSortPanel</code>.
@@ -397,7 +424,7 @@ namespace UI5
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nSortPanel attachUpdateSortItem(object oData, sap.ui.@base.EventDelegate fnFunction);
+				public extern virtual sap.m.P13nSortPanel attachUpdateSortItem(object oData, sap.m.P13nSortPanel.SortItemDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:updateSortItem updateSortItem} event of this <code>sap.m.P13nSortPanel</code>.
@@ -408,7 +435,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nSortPanel attachUpdateSortItem(sap.ui.@base.EventDelegate fnFunction);
+				public extern virtual sap.m.P13nSortPanel attachUpdateSortItem(sap.m.P13nSortPanel.SortItemDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:updateSortItem updateSortItem} event of this <code>sap.m.P13nSortPanel</code>.
@@ -420,7 +447,7 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.P13nSortPanel</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nSortPanel attachUpdateSortItem(sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nSortPanel attachUpdateSortItem(sap.m.P13nSortPanel.SortItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:updateSortItem updateSortItem} event of this <code>sap.m.P13nSortPanel</code>.
@@ -430,14 +457,14 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nSortPanel detachUpdateSortItem(sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nSortPanel detachUpdateSortItem(sap.m.P13nSortPanel.SortItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:updateSortItem updateSortItem} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nSortPanel fireUpdateSortItem(object mParameters);
+				public extern virtual sap.m.P13nSortPanel fireUpdateSortItem(sap.m.P13nSortPanel.SortItemInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:updateSortItem updateSortItem} to attached listeners.
@@ -483,7 +510,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.P13nSortPanel.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// removes all invalid sort conditions.

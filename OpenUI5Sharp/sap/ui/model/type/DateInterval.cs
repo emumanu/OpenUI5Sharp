@@ -28,13 +28,13 @@ namespace UI5
 						/// </summary>
 						/// <param name="oFormatOptions">Formatting options. For a list of all available options, see {@link sap.ui.core.format.DateFormat.getDateInstance DateFormat}.</param>
 						/// <param name="oConstraints">Value constraints</param>
-						public extern DateInterval(sap.ui.model.TypeOptions oFormatOptions, sap.ui.model.TypeIntervalInfo oConstraints);
+						public extern DateInterval(sap.ui.model.FormatOptions oFormatOptions, sap.ui.model.TypeIntervalInfo oConstraints);
 
 						/// <summary>
 						/// Constructor for a Date interval type.
 						/// </summary>
 						/// <param name="oFormatOptions">Formatting options. For a list of all available options, see {@link sap.ui.core.format.DateFormat.getDateInstance DateFormat}.</param>
-						public extern DateInterval(sap.ui.model.TypeOptions oFormatOptions);
+						public extern DateInterval(sap.ui.model.FormatOptions oFormatOptions);
 
 						/// <summary>
 						/// Constructor for a Date interval type.
@@ -89,7 +89,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.model.type.DateInterval.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// Parse a string value to an array containing two values. Parsing of other internal types than 'string' is not supported by the DateInterval type. In case a source format has been defined, the two values are formatted using the source format after parsing the inteval string and an array which contains two string values is returned.

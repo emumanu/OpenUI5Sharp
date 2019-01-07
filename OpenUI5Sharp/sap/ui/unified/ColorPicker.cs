@@ -41,6 +41,11 @@ namespace UI5
 						public Union<sap.ui.unified.ColorPickerMode, string, sap.ui.@base.ManagedObject.BindPropertyInfo> mode;
 
 						/// <summary>
+						/// Determines the display mode of the <code>ColorPicker</code> among three types - Default, Large and Simplified
+						/// </summary>
+						public Union<sap.ui.unified.ColorPickerDisplayMode, string, sap.ui.@base.ManagedObject.BindPropertyInfo> displayMode;
+
+						/// <summary>
 						/// Fired when the value is changed by user action.
 						/// 
 						/// <b>Note:</b> When the user action is mouse dragging, the <code>change</code> event fires on the mouseup event.
@@ -201,6 +206,26 @@ namespace UI5
 					/// <param name="sMode">control mode enum</param>
 					/// <param name="bSuppressInvalidate">should control invalidation be suppressed</param>
 					public extern virtual void setMode(sap.ui.unified.ColorPickerMode sMode, bool bSuppressInvalidate);
+
+					#endregion
+
+					#region Methods for Property displayMode
+
+					/// <summary>
+					/// Gets current value of property {@link #getDisplayMode displayMode}.
+					/// 
+					/// Determines the display mode of the <code>ColorPicker</code> among three types - Default, Large and Simplified
+					/// 
+					/// Default value is <code>Default</code>.
+					/// </summary>
+					/// <returns>Value of property <code>displayMode</code></returns>
+					public extern virtual sap.ui.unified.ColorPickerDisplayMode getDisplayMode();
+
+					/// <summary>
+					/// Setter for <code>displayMode</code> property.
+					/// </summary>
+					/// <param name="sDisplayMode">control displayMode enum</param>
+					public extern virtual void setDisplayMode(sap.ui.unified.ColorPickerDisplayMode sDisplayMode);
 
 					#endregion
 
@@ -414,7 +439,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.unified.ColorPicker.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Gets current RGB values.

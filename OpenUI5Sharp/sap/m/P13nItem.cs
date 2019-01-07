@@ -47,6 +47,11 @@ namespace UI5
 					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> type;
 
 					/// <summary>
+					/// data type instance of the column. Can be used instead of the type, precision, scale and formatSettings properties
+					/// </summary>
+					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> typeInstance;
+
+					/// <summary>
 					/// if type==numeric the precision will be used to format the entered value (maxIntegerDigits of the used Formatter)
 					/// </summary>
 					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> precision;
@@ -259,6 +264,29 @@ namespace UI5
 				/// <param name="sType">New value for property <code>type</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
 				public extern virtual sap.m.P13nItem setType(string sType);
+
+				#endregion
+
+				#region Methods for Property typeInstance
+
+				/// <summary>
+				/// Gets current value of property {@link #getTypeInstance typeInstance}.
+				/// 
+				/// data type instance of the column. Can be used instead of the type, precision, scale and formatSettings properties
+				/// </summary>
+				/// <returns>Value of property <code>typeInstance</code></returns>
+				public extern virtual object getTypeInstance();
+
+				/// <summary>
+				/// Sets a new value for property {@link #getTypeInstance typeInstance}.
+				/// 
+				/// data type instance of the column. Can be used instead of the type, precision, scale and formatSettings properties
+				/// 
+				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
+				/// </summary>
+				/// <param name="oTypeInstance">New value for property <code>typeInstance</code></param>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.P13nItem setTypeInstance(object oTypeInstance);
 
 				#endregion
 
@@ -630,7 +658,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.P13nItem.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				#endregion
 

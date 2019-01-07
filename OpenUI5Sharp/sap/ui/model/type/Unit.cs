@@ -57,20 +57,20 @@ namespace UI5
 						/// <param name="oFormatOptions">Formatting options. For a list of all available options, see {@link sap.ui.core.format.NumberFormat#constructor NumberFormat}.</param>
 						/// <param name="oConstraints">Value constraints</param>
 						/// <param name="aDynamicFormatOptionNames">keys for dynamic format options which are used to map additional binding values, e.g. <code>["decimals"]</code></param>
-						public extern Unit(sap.ui.model.TypeOptions oFormatOptions, sap.ui.model.type.Unit.UnitInfo oConstraints, object[] aDynamicFormatOptionNames);
+						public extern Unit(sap.ui.model.FormatOptions oFormatOptions, sap.ui.model.type.Unit.UnitInfo oConstraints, object[] aDynamicFormatOptionNames);
 
 						/// <summary>
 						/// Constructor for a Unit type.
 						/// </summary>
 						/// <param name="oFormatOptions">Formatting options. For a list of all available options, see {@link sap.ui.core.format.NumberFormat#constructor NumberFormat}.</param>
 						/// <param name="oConstraints">Value constraints</param>
-						public extern Unit(sap.ui.model.TypeOptions oFormatOptions, sap.ui.model.type.Unit.UnitInfo oConstraints);
+						public extern Unit(sap.ui.model.FormatOptions oFormatOptions, sap.ui.model.type.Unit.UnitInfo oConstraints);
 
 						/// <summary>
 						/// Constructor for a Unit type.
 						/// </summary>
 						/// <param name="oFormatOptions">Formatting options. For a list of all available options, see {@link sap.ui.core.format.NumberFormat#constructor NumberFormat}.</param>
-						public extern Unit(sap.ui.model.TypeOptions oFormatOptions);
+						public extern Unit(sap.ui.model.FormatOptions oFormatOptions);
 
 						/// <summary>
 						/// Constructor for a Unit type.
@@ -136,7 +136,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.model.type.Unit.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// Parse a string value to an array containing amount and Unit. Parsing of other internal types than 'string' is not supported by the Unit type. In case a source format has been defined, after parsing the Unit is formatted using the source format and a string value is returned instead.

@@ -615,7 +615,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.commons.TreeNode.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Select the node, and if any, deselects the previously selected node

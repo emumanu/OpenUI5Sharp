@@ -338,7 +338,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oBindingInfo">The binding information</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nPanel bindItems(object oBindingInfo);
+				public extern virtual sap.m.P13nPanel bindItems(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 				/// <summary>
 				/// Unbinds aggregation {@link #getItems items} from model data.
@@ -464,7 +464,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.P13nPanel.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// This method can be overwritten by subclass in order to return a payload for Ok action

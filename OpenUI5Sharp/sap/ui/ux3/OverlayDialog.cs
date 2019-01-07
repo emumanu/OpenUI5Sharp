@@ -217,7 +217,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.ux3.OverlayDialog.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// This Method is not supported for the OverlayDialog.

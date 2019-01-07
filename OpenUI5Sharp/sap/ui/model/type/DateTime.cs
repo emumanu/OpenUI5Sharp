@@ -28,13 +28,13 @@ namespace UI5
 						/// </summary>
 						/// <param name="oFormatOptions">Formatting options. For a list of all available options, see {@link sap.ui.core.format.DateFormat.getDateTimeInstance DateFormat}.</param>
 						/// <param name="oConstraints">Value constraints. Supports the same kind of constraints as its base type Date, but note the different format options (Date vs. DateTime).</param>
-						public extern DateTime(sap.ui.model.TypeOptions oFormatOptions, object oConstraints);
+						public extern DateTime(sap.ui.model.FormatOptions oFormatOptions, object oConstraints);
 
 						/// <summary>
 						/// Constructor for a DateTime type.
 						/// </summary>
 						/// <param name="oFormatOptions">Formatting options. For a list of all available options, see {@link sap.ui.core.format.DateFormat.getDateTimeInstance DateFormat}.</param>
-						public extern DateTime(sap.ui.model.TypeOptions oFormatOptions);
+						public extern DateTime(sap.ui.model.FormatOptions oFormatOptions);
 
 						/// <summary>
 						/// Constructor for a DateTime type.
@@ -79,7 +79,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.model.type.DateTime.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						#endregion
 

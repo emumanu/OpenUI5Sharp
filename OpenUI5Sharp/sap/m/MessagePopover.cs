@@ -10,9 +10,9 @@ namespace UI5
 		public static partial class m
 		{
 			/// <summary>
-			/// A summarized list of different types of messages. <h3>Overview</h3> A message popover is used to display a summarized list of different types of messages (errors, warnings, success and information). It provides a handy and systemized way to navigate and explore details for every message. <h4>Notes:</h4> <ul> <li> Messages can have descriptions pre-formatted with HTML markup. In this case, the <code>markupDescription</code> has to be set to <code>true</code>.</li> <li> If the message cannot be fully displayed or includes a long description, the message popover provides navigation to the detailed description.</li> </ul> <h3>Structure</h3> The message popover stores all messages in an aggregation of type {@link sap.m.MessageItem} named <code>items</code>.
+			/// A summarized list of different types of messages. <h3>Overview</h3> A message popover is used to display a summarized list of different types of messages (errors, warnings, success and information). It provides a handy and systemized way to navigate and explore details for every message. It also exposes an event {@link sap.m.MessagePopover#activeTitlePress}, which can be used for navigation from a message to the source of the issue. <h4>Notes:</h4> <ul> <li> Messages can have descriptions pre-formatted with HTML markup. In this case, the <code>markupDescription</code> has to be set to <code>true</code>.</li> <li> If the message cannot be fully displayed or includes a long description, the message popover provides navigation to the detailed description.</li> </ul> <h3>Structure</h3> The message popover stores all messages in an aggregation of type {@link sap.m.MessageItem} named <code>items</code>.
 			/// 
-			/// A set of properties determines how the items are rendered: <ul> <li> counter - An integer that is used to indicate the number of errors for each type </li> <li> type - The type of message </li> <li> title/subtitle - The title and subtitle of the message</li> <li> description - The long text description of the message</li> </ul> <h3>Usage</h3> With the message concept, MessagePopover provides a way to centrally manage messages and show them to the user without additional work for the developer. The message popover is triggered from a messaging button in the footer toolbar. If an error has occurred at any validation point, the total number of messages should be incremented, but the user's work shouldn't be interrupted. <h3>Responsive Behavior</h3> On mobile phones, the message popover is automatically shown in full screen mode.<br> On desktop and tablet, the message popover opens in a popover.<br> On desktop the opened popover is resizable if it is placed in a {@link sap.m.Toolbar}, {@link sap.m.Bar} or used in {@link sap.f.semantic.SemanticPage}
+			/// A set of properties determines how the items are rendered: <ul> <li> counter - An integer that is used to indicate the number of errors for each type </li> <li> type - The type of message </li> <li> title/subtitle - The title and subtitle of the message</li> <li> description - The long text description of the message</li> <li> activeTitle - Determines whether the title of the item is interactive</li> </ul> <h3>Usage</h3> With the message concept, MessagePopover provides a way to centrally manage messages and show them to the user without additional work for the developer. The message popover is triggered from a messaging button in the footer toolbar. If an error has occurred at any validation point, the total number of messages should be incremented, but the user's work shouldn't be interrupted. Navigation between the message item and the source of the error can be created, if needed by the application. This can be done by setting the <code>activeTitle</code> property to true and providing a handler for the <code>activeTitlePress</code> event. In addition, you can achieve the same functionality inside a different container using the sap.m.MessageView control. <h3>Responsive Behavior</h3> On mobile phones, the message popover is automatically shown in full screen mode.<br> On desktop and tablet, the message popover opens in a popover.<br> On desktop the opened popover is resizable if it is placed in a {@link sap.m.Toolbar}, {@link sap.m.Bar} or used in {@link sap.f.semantic.SemanticPage}
 			/// </summary>
 			[External]
 			[Namespace(false)]
@@ -97,6 +97,11 @@ namespace UI5
 					/// This event will be fired when a validation of a URL from long text description is ready
 					/// </summary>
 					public sap.ui.@base.EventDelegate urlValidated;
+
+					/// <summary>
+					/// This event will be fired when an active title of a MessageItem is clicked
+					/// </summary>
+					public sap.m.MessageActiveTitlePressDelegate activeTitlePress;
 
 				}
 
@@ -943,6 +948,81 @@ namespace UI5
 
 				#endregion
 
+				#region Methods for Event activeTitlePress
+
+				/// <summary>
+				/// Attaches event handler <code>fnFunction</code> to the {@link #event:activeTitlePress activeTitlePress} event of this <code>sap.m.MessagePopover</code>.
+				/// 
+				/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.m.MessagePopover</code> itself.
+				/// 
+				/// This event will be fired when an active title of a MessageItem is clicked
+				/// </summary>
+				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
+				/// <param name="fnFunction">The function to be called when the event occurs</param>
+				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.MessagePopover</code> itself</param>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.MessagePopover attachActiveTitlePress(object oData, sap.m.MessageActiveTitlePressDelegate fnFunction, object oListener);
+
+				/// <summary>
+				/// Attaches event handler <code>fnFunction</code> to the {@link #event:activeTitlePress activeTitlePress} event of this <code>sap.m.MessagePopover</code>.
+				/// 
+				/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.m.MessagePopover</code> itself.
+				/// 
+				/// This event will be fired when an active title of a MessageItem is clicked
+				/// </summary>
+				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
+				/// <param name="fnFunction">The function to be called when the event occurs</param>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.MessagePopover attachActiveTitlePress(object oData, sap.m.MessageActiveTitlePressDelegate fnFunction);
+
+				/// <summary>
+				/// Attaches event handler <code>fnFunction</code> to the {@link #event:activeTitlePress activeTitlePress} event of this <code>sap.m.MessagePopover</code>.
+				/// 
+				/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.m.MessagePopover</code> itself.
+				/// 
+				/// This event will be fired when an active title of a MessageItem is clicked
+				/// </summary>
+				/// <param name="fnFunction">The function to be called when the event occurs</param>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.MessagePopover attachActiveTitlePress(sap.m.MessageActiveTitlePressDelegate fnFunction);
+
+				/// <summary>
+				/// Attaches event handler <code>fnFunction</code> to the {@link #event:activeTitlePress activeTitlePress} event of this <code>sap.m.MessagePopover</code>.
+				/// 
+				/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.m.MessagePopover</code> itself.
+				/// 
+				/// This event will be fired when an active title of a MessageItem is clicked
+				/// </summary>
+				/// <param name="fnFunction">The function to be called when the event occurs</param>
+				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.MessagePopover</code> itself</param>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.MessagePopover attachActiveTitlePress(sap.m.MessageActiveTitlePressDelegate fnFunction, object oListener);
+
+				/// <summary>
+				/// Detaches event handler <code>fnFunction</code> from the {@link #event:activeTitlePress activeTitlePress} event of this <code>sap.m.MessagePopover</code>.
+				/// 
+				/// The passed function and listener object must match the ones used for event registration.
+				/// </summary>
+				/// <param name="fnFunction">The function to be called, when the event occurs</param>
+				/// <param name="oListener">Context object on which the given function had to be called</param>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.MessagePopover detachActiveTitlePress(sap.m.MessageActiveTitlePressDelegate fnFunction, object oListener);
+
+				/// <summary>
+				/// Fires event {@link #event:activeTitlePress activeTitlePress} to attached listeners.
+				/// </summary>
+				/// <param name="mParameters">Parameters to pass along with the event</param>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.MessagePopover fireActiveTitlePress(sap.m.MessageActiveTitlePressInfo mParameters);
+
+				/// <summary>
+				/// Fires event {@link #event:activeTitlePress activeTitlePress} to attached listeners.
+				/// </summary>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.MessagePopover fireActiveTitlePress();
+
+				#endregion
+
 				#region Other methods
 
 				/// <summary>
@@ -985,7 +1065,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.MessagePopover.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// The method checks if the MessagePopover is open. It returns true when the MessagePopover is currently open (this includes opening and closing animations), otherwise it returns false

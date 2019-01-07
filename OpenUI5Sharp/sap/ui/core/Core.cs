@@ -267,12 +267,6 @@ namespace UI5
 
 					#endregion
 
-					#region Constructor
-
-					public extern Core();
-
-					#endregion
-
 					#region Methods
 
 					#region Methods for event formatError
@@ -749,7 +743,7 @@ namespace UI5
 					/// <param name="oDomRef">a DOM Element or ID string of the UIArea</param>
 					/// <returns>a new UIArea</returns>
 					[Obsolete("Deprecated since 1.1. use {@link sap.ui.core.Control#placeAt Control#placeAt} instead!")]
-					public extern virtual sap.ui.core.UIArea createUIArea(Union<string, dom.HTMLElement> oDomRef);
+					public extern virtual sap.ui.core.UIArea createUIArea(Union<string, Retyped.dom.HTMLElement> oDomRef);
 
 					/// <summary>
 					/// Unregisters a listener for control events.
@@ -868,7 +862,7 @@ namespace UI5
 					/// 
 					/// If only one argument is given, it is assumed to be the libraryName. The locale then falls back to the current {@link sap.ui.core.Configuration#getLanguage session locale}. If no argument is given, the library also falls back to a default: "sap.ui.core".
 					/// 
-					/// <h3>Configuration via App Descriptor<h3> When the App Descriptor for the library is available without further request (manifest.json has been preloaded) and when the App Descriptor is at least of version 1.9.0 or higher, then this method will evaluate the App Descriptor entry <code>"sap.ui5" / "library" / "i18n"</code>. <ul> <li>When the entry is <code>true</code>, a bundle with the default name "messagebundle.properties" will be loaded</li> <li>If it is a string, then that string will be used as name of the bundle</li> <li>If it is <code>false</code>, no bundle will be loaded and the result will be <code>undefined</code></li> </ul>
+					/// <h3>Configuration via App Descriptor</h3> When the App Descriptor for the library is available without further request (manifest.json has been preloaded) and when the App Descriptor is at least of version 1.9.0 or higher, then this method will evaluate the App Descriptor entry <code>"sap.ui5" / "library" / "i18n"</code>. <ul> <li>When the entry is <code>true</code>, a bundle with the default name "messagebundle.properties" will be loaded</li> <li>If it is a string, then that string will be used as name of the bundle</li> <li>If it is <code>false</code>, no bundle will be loaded and the result will be <code>undefined</code></li> </ul>
 					/// 
 					/// <h3>Caching</h3> Once a resource bundle for a library has been loaded, it will be cached by this method. Further calls for the same library and locale won't create new requests, but return the already loaded bundle. There's therefore no need for control code to cache the returned bundle for a longer period of time. Not further caching the result also prevents stale texts after a locale change.
 					/// 
@@ -880,14 +874,14 @@ namespace UI5
 					/// <param name="sLocale">Locale to retrieve the resource bundle for</param>
 					/// <param name="bAsync">Whether the resource bundle is loaded asynchronously</param>
 					/// <returns>The best matching resource bundle for the given parameters or <code>undefined</code>; in asynchronous case a Promise on that bundle is returned</returns>
-					public extern virtual Union<jQuery.sap.util.ResourceBundle, jquery.JQueryPromise<object>> getLibraryResourceBundle(string sLibraryName, string sLocale, bool bAsync);
+					public extern virtual Union<jQuery.sap.util.ResourceBundle, es5.Promise<object>> getLibraryResourceBundle(string sLibraryName, string sLocale, bool bAsync);
 
 					/// <summary>
 					/// Retrieves a resource bundle for the given library and locale.
 					/// 
 					/// If only one argument is given, it is assumed to be the libraryName. The locale then falls back to the current {@link sap.ui.core.Configuration#getLanguage session locale}. If no argument is given, the library also falls back to a default: "sap.ui.core".
 					/// 
-					/// <h3>Configuration via App Descriptor<h3> When the App Descriptor for the library is available without further request (manifest.json has been preloaded) and when the App Descriptor is at least of version 1.9.0 or higher, then this method will evaluate the App Descriptor entry <code>"sap.ui5" / "library" / "i18n"</code>. <ul> <li>When the entry is <code>true</code>, a bundle with the default name "messagebundle.properties" will be loaded</li> <li>If it is a string, then that string will be used as name of the bundle</li> <li>If it is <code>false</code>, no bundle will be loaded and the result will be <code>undefined</code></li> </ul>
+					/// <h3>Configuration via App Descriptor</h3> When the App Descriptor for the library is available without further request (manifest.json has been preloaded) and when the App Descriptor is at least of version 1.9.0 or higher, then this method will evaluate the App Descriptor entry <code>"sap.ui5" / "library" / "i18n"</code>. <ul> <li>When the entry is <code>true</code>, a bundle with the default name "messagebundle.properties" will be loaded</li> <li>If it is a string, then that string will be used as name of the bundle</li> <li>If it is <code>false</code>, no bundle will be loaded and the result will be <code>undefined</code></li> </ul>
 					/// 
 					/// <h3>Caching</h3> Once a resource bundle for a library has been loaded, it will be cached by this method. Further calls for the same library and locale won't create new requests, but return the already loaded bundle. There's therefore no need for control code to cache the returned bundle for a longer period of time. Not further caching the result also prevents stale texts after a locale change.
 					/// 
@@ -898,14 +892,14 @@ namespace UI5
 					/// <param name="sLibraryName">Name of the library to retrieve the bundle for</param>
 					/// <param name="sLocale">Locale to retrieve the resource bundle for</param>
 					/// <returns>The best matching resource bundle for the given parameters or <code>undefined</code>; in asynchronous case a Promise on that bundle is returned</returns>
-					public extern virtual Union<jQuery.sap.util.ResourceBundle, jquery.JQueryPromise<object>> getLibraryResourceBundle(string sLibraryName, string sLocale);
+					public extern virtual Union<jQuery.sap.util.ResourceBundle, es5.Promise<object>> getLibraryResourceBundle(string sLibraryName, string sLocale);
 
 					/// <summary>
 					/// Retrieves a resource bundle for the given library and locale.
 					/// 
 					/// If only one argument is given, it is assumed to be the libraryName. The locale then falls back to the current {@link sap.ui.core.Configuration#getLanguage session locale}. If no argument is given, the library also falls back to a default: "sap.ui.core".
 					/// 
-					/// <h3>Configuration via App Descriptor<h3> When the App Descriptor for the library is available without further request (manifest.json has been preloaded) and when the App Descriptor is at least of version 1.9.0 or higher, then this method will evaluate the App Descriptor entry <code>"sap.ui5" / "library" / "i18n"</code>. <ul> <li>When the entry is <code>true</code>, a bundle with the default name "messagebundle.properties" will be loaded</li> <li>If it is a string, then that string will be used as name of the bundle</li> <li>If it is <code>false</code>, no bundle will be loaded and the result will be <code>undefined</code></li> </ul>
+					/// <h3>Configuration via App Descriptor</h3> When the App Descriptor for the library is available without further request (manifest.json has been preloaded) and when the App Descriptor is at least of version 1.9.0 or higher, then this method will evaluate the App Descriptor entry <code>"sap.ui5" / "library" / "i18n"</code>. <ul> <li>When the entry is <code>true</code>, a bundle with the default name "messagebundle.properties" will be loaded</li> <li>If it is a string, then that string will be used as name of the bundle</li> <li>If it is <code>false</code>, no bundle will be loaded and the result will be <code>undefined</code></li> </ul>
 					/// 
 					/// <h3>Caching</h3> Once a resource bundle for a library has been loaded, it will be cached by this method. Further calls for the same library and locale won't create new requests, but return the already loaded bundle. There's therefore no need for control code to cache the returned bundle for a longer period of time. Not further caching the result also prevents stale texts after a locale change.
 					/// 
@@ -915,14 +909,14 @@ namespace UI5
 					/// </summary>
 					/// <param name="sLibraryName">Name of the library to retrieve the bundle for</param>
 					/// <returns>The best matching resource bundle for the given parameters or <code>undefined</code>; in asynchronous case a Promise on that bundle is returned</returns>
-					public extern virtual Union<jQuery.sap.util.ResourceBundle, jquery.JQueryPromise<object>> getLibraryResourceBundle(string sLibraryName = "sap.ui.core");
+					public extern virtual Union<jQuery.sap.util.ResourceBundle, es5.Promise<object>> getLibraryResourceBundle(string sLibraryName = "sap.ui.core");
 
 					/// <summary>
 					/// Retrieves a resource bundle for the given library and locale.
 					/// 
 					/// If only one argument is given, it is assumed to be the libraryName. The locale then falls back to the current {@link sap.ui.core.Configuration#getLanguage session locale}. If no argument is given, the library also falls back to a default: "sap.ui.core".
 					/// 
-					/// <h3>Configuration via App Descriptor<h3> When the App Descriptor for the library is available without further request (manifest.json has been preloaded) and when the App Descriptor is at least of version 1.9.0 or higher, then this method will evaluate the App Descriptor entry <code>"sap.ui5" / "library" / "i18n"</code>. <ul> <li>When the entry is <code>true</code>, a bundle with the default name "messagebundle.properties" will be loaded</li> <li>If it is a string, then that string will be used as name of the bundle</li> <li>If it is <code>false</code>, no bundle will be loaded and the result will be <code>undefined</code></li> </ul>
+					/// <h3>Configuration via App Descriptor</h3> When the App Descriptor for the library is available without further request (manifest.json has been preloaded) and when the App Descriptor is at least of version 1.9.0 or higher, then this method will evaluate the App Descriptor entry <code>"sap.ui5" / "library" / "i18n"</code>. <ul> <li>When the entry is <code>true</code>, a bundle with the default name "messagebundle.properties" will be loaded</li> <li>If it is a string, then that string will be used as name of the bundle</li> <li>If it is <code>false</code>, no bundle will be loaded and the result will be <code>undefined</code></li> </ul>
 					/// 
 					/// <h3>Caching</h3> Once a resource bundle for a library has been loaded, it will be cached by this method. Further calls for the same library and locale won't create new requests, but return the already loaded bundle. There's therefore no need for control code to cache the returned bundle for a longer period of time. Not further caching the result also prevents stale texts after a locale change.
 					/// 
@@ -931,14 +925,14 @@ namespace UI5
 					/// Due to this preload of the main bundle and the caching behavior of this method, controls in such a library still can use the synchronous variant of <code>getLibraryResourceBundle</code> in their API, behavior and rendering code. Only when the bundle is needed at module execution time (by top level code in a control module), then the asynchronous variant of this method should be preferred.
 					/// </summary>
 					/// <returns>The best matching resource bundle for the given parameters or <code>undefined</code>; in asynchronous case a Promise on that bundle is returned</returns>
-					public extern virtual Union<jQuery.sap.util.ResourceBundle, jquery.JQueryPromise<object>> getLibraryResourceBundle();
+					public extern virtual Union<jQuery.sap.util.ResourceBundle, es5.Promise<object>> getLibraryResourceBundle();
 
 					/// <summary>
 					/// Retrieves a resource bundle for the given library and locale.
 					/// 
 					/// If only one argument is given, it is assumed to be the libraryName. The locale then falls back to the current {@link sap.ui.core.Configuration#getLanguage session locale}. If no argument is given, the library also falls back to a default: "sap.ui.core".
 					/// 
-					/// <h3>Configuration via App Descriptor<h3> When the App Descriptor for the library is available without further request (manifest.json has been preloaded) and when the App Descriptor is at least of version 1.9.0 or higher, then this method will evaluate the App Descriptor entry <code>"sap.ui5" / "library" / "i18n"</code>. <ul> <li>When the entry is <code>true</code>, a bundle with the default name "messagebundle.properties" will be loaded</li> <li>If it is a string, then that string will be used as name of the bundle</li> <li>If it is <code>false</code>, no bundle will be loaded and the result will be <code>undefined</code></li> </ul>
+					/// <h3>Configuration via App Descriptor</h3> When the App Descriptor for the library is available without further request (manifest.json has been preloaded) and when the App Descriptor is at least of version 1.9.0 or higher, then this method will evaluate the App Descriptor entry <code>"sap.ui5" / "library" / "i18n"</code>. <ul> <li>When the entry is <code>true</code>, a bundle with the default name "messagebundle.properties" will be loaded</li> <li>If it is a string, then that string will be used as name of the bundle</li> <li>If it is <code>false</code>, no bundle will be loaded and the result will be <code>undefined</code></li> </ul>
 					/// 
 					/// <h3>Caching</h3> Once a resource bundle for a library has been loaded, it will be cached by this method. Further calls for the same library and locale won't create new requests, but return the already loaded bundle. There's therefore no need for control code to cache the returned bundle for a longer period of time. Not further caching the result also prevents stale texts after a locale change.
 					/// 
@@ -949,14 +943,14 @@ namespace UI5
 					/// <param name="sLocale">Locale to retrieve the resource bundle for</param>
 					/// <param name="bAsync">Whether the resource bundle is loaded asynchronously</param>
 					/// <returns>The best matching resource bundle for the given parameters or <code>undefined</code>; in asynchronous case a Promise on that bundle is returned</returns>
-					public extern virtual Union<jQuery.sap.util.ResourceBundle, jquery.JQueryPromise<object>> getLibraryResourceBundle(string sLocale, bool bAsync = false);
+					public extern virtual Union<jQuery.sap.util.ResourceBundle, es5.Promise<object>> getLibraryResourceBundle(string sLocale, bool bAsync = false);
 
 					/// <summary>
 					/// Retrieves a resource bundle for the given library and locale.
 					/// 
 					/// If only one argument is given, it is assumed to be the libraryName. The locale then falls back to the current {@link sap.ui.core.Configuration#getLanguage session locale}. If no argument is given, the library also falls back to a default: "sap.ui.core".
 					/// 
-					/// <h3>Configuration via App Descriptor<h3> When the App Descriptor for the library is available without further request (manifest.json has been preloaded) and when the App Descriptor is at least of version 1.9.0 or higher, then this method will evaluate the App Descriptor entry <code>"sap.ui5" / "library" / "i18n"</code>. <ul> <li>When the entry is <code>true</code>, a bundle with the default name "messagebundle.properties" will be loaded</li> <li>If it is a string, then that string will be used as name of the bundle</li> <li>If it is <code>false</code>, no bundle will be loaded and the result will be <code>undefined</code></li> </ul>
+					/// <h3>Configuration via App Descriptor</h3> When the App Descriptor for the library is available without further request (manifest.json has been preloaded) and when the App Descriptor is at least of version 1.9.0 or higher, then this method will evaluate the App Descriptor entry <code>"sap.ui5" / "library" / "i18n"</code>. <ul> <li>When the entry is <code>true</code>, a bundle with the default name "messagebundle.properties" will be loaded</li> <li>If it is a string, then that string will be used as name of the bundle</li> <li>If it is <code>false</code>, no bundle will be loaded and the result will be <code>undefined</code></li> </ul>
 					/// 
 					/// <h3>Caching</h3> Once a resource bundle for a library has been loaded, it will be cached by this method. Further calls for the same library and locale won't create new requests, but return the already loaded bundle. There's therefore no need for control code to cache the returned bundle for a longer period of time. Not further caching the result also prevents stale texts after a locale change.
 					/// 
@@ -966,7 +960,7 @@ namespace UI5
 					/// </summary>
 					/// <param name="bAsync">Whether the resource bundle is loaded asynchronously</param>
 					/// <returns>The best matching resource bundle for the given parameters or <code>undefined</code>; in asynchronous case a Promise on that bundle is returned</returns>
-					public extern virtual Union<jQuery.sap.util.ResourceBundle, jquery.JQueryPromise<object>> getLibraryResourceBundle(bool bAsync = false);
+					public extern virtual Union<jQuery.sap.util.ResourceBundle, es5.Promise<object>> getLibraryResourceBundle(bool bAsync = false);
 
 					/// <summary>
 					/// Returns a map of library info objects for all currently loaded libraries, keyed by their names.
@@ -988,7 +982,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.core.Core.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Get the model with the given model name.
@@ -1028,7 +1023,7 @@ namespace UI5
 					/// If it is not yet available, a DIV is created and appended to the body.
 					/// </summary>
 					/// <returns>the static, hidden area DOM element belonging to this core instance.</returns>
-					public extern virtual dom.HTMLElement getStaticAreaRef();
+					public extern virtual Retyped.dom.HTMLElement getStaticAreaRef();
 
 					/// <summary>
 					/// Returns the registered template for the given id, if any.
@@ -1043,7 +1038,7 @@ namespace UI5
 					/// </summary>
 					/// <param name="o">a DOM Element or ID string of the UIArea</param>
 					/// <returns>a UIArea with a given ID or DOM Element.</returns>
-					public extern virtual sap.ui.core.UIArea getUIArea(Union<string, dom.HTMLElement> o);
+					public extern virtual sap.ui.core.UIArea getUIArea(Union<string, Retyped.dom.HTMLElement> o);
 
 					/// <summary>
 					/// Returns <code>true</code> if there are any pending rendering tasks or when such rendering tasks are currently being executed.
@@ -1149,7 +1144,7 @@ namespace UI5
 					/// <param name="aLibraries">set of libraries that should be loaded</param>
 					/// <param name="mOptions">configuration options</param>
 					/// <returns>returns a Promise in async mode, otherwise <code>undefined</code></returns>
-					private extern jquery.JQueryPromise<object> loadLibraries(string[] aLibraries, object mOptions);
+					private extern es5.Promise<object> loadLibraries(string[] aLibraries, object mOptions);
 
 					/// <summary>
 					/// Loads a set of libraries, preferably asynchronously.
@@ -1159,7 +1154,7 @@ namespace UI5
 					/// <param name="aLibraries">set of libraries that should be loaded</param>
 					/// <param name="mOptions">configuration options</param>
 					/// <returns>returns a Promise in async mode, otherwise <code>undefined</code></returns>
-					private extern jquery.JQueryPromise<object> loadLibraries(object[] aLibraries, object mOptions);
+					private extern es5.Promise<object> loadLibraries(object[] aLibraries, object mOptions);
 
 					/// <summary>
 					/// Loads a set of libraries, preferably asynchronously.
@@ -1168,7 +1163,7 @@ namespace UI5
 					/// </summary>
 					/// <param name="aLibraries">set of libraries that should be loaded</param>
 					/// <returns>returns a Promise in async mode, otherwise <code>undefined</code></returns>
-					private extern jquery.JQueryPromise<object> loadLibraries(string[] aLibraries);
+					private extern es5.Promise<object> loadLibraries(string[] aLibraries);
 
 					/// <summary>
 					/// Loads a set of libraries, preferably asynchronously.
@@ -1177,7 +1172,7 @@ namespace UI5
 					/// </summary>
 					/// <param name="aLibraries">set of libraries that should be loaded</param>
 					/// <returns>returns a Promise in async mode, otherwise <code>undefined</code></returns>
-					private extern jquery.JQueryPromise<object> loadLibraries(object[] aLibraries);
+					private extern es5.Promise<object> loadLibraries(object[] aLibraries);
 
 					/// <summary>
 					/// Loads the given library and its dependencies and makes it available to the application.
@@ -1197,7 +1192,7 @@ namespace UI5
 					/// <param name="sLibrary">name of the library to load</param>
 					/// <param name="vUrl">URL to load the library from or the async flag or a complex configuration object</param>
 					/// <returns>An info object for the library (sync) or a Promise (async)</returns>
-					public extern virtual Union<object, jquery.JQueryPromise<object>> loadLibrary(string sLibrary, Union<string, bool, sap.ui.core.Core.LoadLibraryInfo> vUrl);
+					public extern virtual Union<object, es5.Promise<object>> loadLibrary(string sLibrary, Union<string, bool, sap.ui.core.Core.LoadLibraryInfo> vUrl);
 
 					/// <summary>
 					/// Loads the given library and its dependencies and makes it available to the application.
@@ -1216,7 +1211,7 @@ namespace UI5
 					/// </summary>
 					/// <param name="sLibrary">name of the library to load</param>
 					/// <returns>An info object for the library (sync) or a Promise (async)</returns>
-					public extern virtual Union<object, jquery.JQueryPromise<object>> loadLibrary(string sLibrary);
+					public extern virtual Union<object, es5.Promise<object>> loadLibrary(string sLibrary);
 
 					/// <summary>
 					/// Locks the Core. No browser events are dispatched to the controls.
@@ -1275,7 +1270,7 @@ namespace UI5
 					/// <param name="oDomRef">a DOM Element or Id (string) of the UIArea</param>
 					/// <param name="oControl">the Control that should be the added to the <code>UIArea</code>.</param>
 					[Obsolete("Deprecated since 1.1. use {@link sap.ui.core.Control#placeAt oControl.placeAt(oDomRef, 'only')} instead.")]
-					public extern virtual void setRoot(Union<string, dom.HTMLElement> oDomRef, Union<sap.ui.@base.Interface, sap.ui.core.Control> oControl);
+					public extern virtual void setRoot(Union<string, Retyped.dom.HTMLElement> oDomRef, Union<sap.ui.@base.Interface, sap.ui.core.Control> oControl);
 
 					/// <summary>
 					/// Defines the root directory from below which UI5 should load the theme with the given name. Optionally allows restricting the setting to parts of a theme covering specific control libraries.

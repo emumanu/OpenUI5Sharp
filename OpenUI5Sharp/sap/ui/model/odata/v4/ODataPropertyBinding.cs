@@ -16,7 +16,7 @@ namespace UI5
 					public static partial class v4
 					{
 						/// <summary>
-						/// Property binding for an OData V4 model. An event handler can only be attached to this binding for the following events: 'change', 'dataReceived', and 'dataRequested'. For unsupported events, an error is thrown.
+						/// Property binding for an OData V4 model. An event handler can only be attached to this binding for the following events: 'AggregatedDataStateChange', 'change', 'dataReceived', 'dataRequested' and 'DataStateChange'. For unsupported events, an error is thrown.
 						/// </summary>
 						[External]
 						[Namespace(false)]
@@ -26,28 +26,21 @@ namespace UI5
 							#region Constructor
 
 							/// <summary>
-							/// Do <strong>NOT</strong> call this private constructor, but rather use {@link sap.ui.model.odata.v4.ODataModel#bindProperty} instead!
+							/// Constructor for PropertyBinding
 							/// </summary>
-							/// <param name="oModel">The OData V4 model</param>
-							/// <param name="sPath">The binding path in the model; must not end with a slash</param>
-							/// <param name="oContext">The context which is required as base for a relative path</param>
-							/// <param name="mParameters">Map of binding parameters</param>
-							public extern ODataPropertyBinding(sap.ui.model.odata.v4.ODataModel oModel, string sPath, sap.ui.model.Context oContext, object mParameters);
+							/// <param name="oModel"></param>
+							/// <param name="sPath"></param>
+							/// <param name="oContext"></param>
+							/// <param name="mParameters"></param>
+							public extern ODataPropertyBinding(sap.ui.model.Model oModel, string sPath, sap.ui.model.Context oContext, object mParameters);
 
 							/// <summary>
-							/// Do <strong>NOT</strong> call this private constructor, but rather use {@link sap.ui.model.odata.v4.ODataModel#bindProperty} instead!
+							/// Constructor for PropertyBinding
 							/// </summary>
-							/// <param name="oModel">The OData V4 model</param>
-							/// <param name="sPath">The binding path in the model; must not end with a slash</param>
-							/// <param name="oContext">The context which is required as base for a relative path</param>
-							public extern ODataPropertyBinding(sap.ui.model.odata.v4.ODataModel oModel, string sPath, sap.ui.model.Context oContext);
-
-							/// <summary>
-							/// Do <strong>NOT</strong> call this private constructor, but rather use {@link sap.ui.model.odata.v4.ODataModel#bindProperty} instead!
-							/// </summary>
-							/// <param name="oModel">The OData V4 model</param>
-							/// <param name="sPath">The binding path in the model; must not end with a slash</param>
-							public extern ODataPropertyBinding(sap.ui.model.odata.v4.ODataModel oModel, string sPath);
+							/// <param name="oModel"></param>
+							/// <param name="sPath"></param>
+							/// <param name="oContext"></param>
+							public extern ODataPropertyBinding(sap.ui.model.Model oModel, string sPath, sap.ui.model.Context oContext);
 
 							#endregion
 
@@ -92,7 +85,8 @@ namespace UI5
 							/// Returns a metadata object for class sap.ui.model.odata.v4.ODataPropertyBinding.
 							/// </summary>
 							/// <returns>Metadata object describing this class</returns>
-							public extern static sap.ui.@base.Metadata getMetadata();
+							[Name("getMetadata")]
+							public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 							/// <summary>
 							/// Returns the root binding of this binding's hierarchy, see binding {@link topic:54e0ddf695af4a6c978472cecb01c64d Initialization and Read Requests}.
@@ -134,7 +128,7 @@ namespace UI5
 							/// </summary>
 							/// <param name="sGroupId">The group ID to be used for refresh; if not specified, the group ID for this binding is used.
 							/// 
-							/// Valid values are <code>undefined</code>, '$auto', '$direct' or application group IDs as specified in {@link sap.ui.model.odata.v4.ODataModel#submitBatch}.</param>
+							/// Valid values are <code>undefined</code>, '$auto', '$auto.*', '$direct' or application group IDs as specified in {@link sap.ui.model.odata.v4.ODataModel}.</param>
 							public extern virtual void refresh(string sGroupId);
 
 							/// <summary>
@@ -158,13 +152,13 @@ namespace UI5
 							/// The promise is rejected with an error if there is no value list information available for this property. Use {@link #getValueListType} to determine if value list information exists. It is also rejected with an error if the value list metadata is inconsistent.
 							/// 
 							/// An inconsistency can result from one of the following reasons: <ul> <li> There is a reference, but the referenced service does not contain mappings for the property. <li> The referenced service contains annotation targets in the namespace of the data service that are not mappings for the property. <li> Two different referenced services contain a mapping using the same qualifier. <li> A service is referenced twice. <li> No mappings have been found. </ul></returns>
-							public extern virtual jquery.JQueryPromise<object> requestValueListInfo();
+							public extern virtual es5.Promise<object> requestValueListInfo();
 
 							/// <summary>
 							/// Determines which type of value list exists for this property.
 							/// </summary>
 							/// <returns>A promise that is resolved with the type of the value list. It is rejected if the property cannot be found in the metadata.</returns>
-							public extern virtual jquery.JQueryPromise<object> requestValueListType();
+							public extern virtual es5.Promise<object> requestValueListType();
 
 							/// <summary>
 							/// Resets all pending changes of this binding, see {@link #hasPendingChanges}. Resets also invalid user input.
@@ -187,7 +181,7 @@ namespace UI5
 							/// Sets the new current value and updates the cache. If the value cannot be accepted or cannot be updated on the server, an error is logged to the console and added to the message manager as a technical message.
 							/// </summary>
 							/// <param name="vValue">The new value which must be primitive</param>
-							/// <param name="sGroupId">The group ID to be used for this update call; if not specified, the update group ID for this binding (or its relevant parent binding) is used, see {@link sap.ui.model.odata.v4.ODataPropertyBinding#constructor}. Valid values are <code>undefined</code>, '$auto', '$direct' or application group IDs as specified in {@link sap.ui.model.odata.v4.ODataModel#submitBatch}.</param>
+							/// <param name="sGroupId">The group ID to be used for this update call; if not specified, the update group ID for this binding (or its relevant parent binding) is used, see {@link sap.ui.model.odata.v4.ODataPropertyBinding#constructor}. Valid values are <code>undefined</code>, '$auto', '$auto.*', '$direct' or application group IDs as specified in {@link sap.ui.model.odata.v4.ODataModel}.</param>
 							public extern virtual void setValue(object vValue, string sGroupId);
 
 							/// <summary>

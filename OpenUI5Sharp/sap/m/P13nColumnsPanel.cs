@@ -51,7 +51,7 @@ namespace UI5
 					/// <summary>
 					/// Event raised if <code>columnsItems</code> is changed or new one needs to be created in the model.
 					/// </summary>
-					public sap.m.P13nColumnsPanel.ChangeColumnsItemsDelegate changeColumnsItems;
+					public sap.m.P13nColumnsPanel.ChangedColumnItemDelegate changeColumnsItems;
 
 					/// <summary>
 					/// Event raised if <code>setData</code> is called in model. The event serves the purpose of minimizing such calls since they can take up a lot of performance.
@@ -98,7 +98,26 @@ namespace UI5
 					/// <summary>
 					/// Array contains an object for each item in <code>items</code> aggregation enriched with index and visibility information. The item order reflects the current order of columns in the panel.
 					/// </summary>
-					public object[] items;
+					public sap.m.P13nColumnsPanel.ChangedColumnItemInfo[] items;
+
+				}
+
+				/// <summary>
+				/// Parameter to be used as Object Literal
+				/// </summary>
+				[External]
+				[ObjectLiteral]
+				public partial class ChangedColumnItemInfo
+				{
+					public string columnKey;
+
+					public int index;
+
+					public int total;
+
+					public bool visible;
+
+					public string width;
 
 				}
 
@@ -109,6 +128,8 @@ namespace UI5
 				public delegate void AddColumnsItemDelegate(sap.ui.@base.Event<sap.m.P13nColumnsPanel.AddColumnsItemInfo> oEvent, object oData);
 
 				public delegate void ChangeColumnsItemsDelegate(sap.ui.@base.Event<sap.m.P13nColumnsPanel.ChangeColumnsItemsInfo> oEvent, object oData);
+
+				public delegate void ChangedColumnItemDelegate(sap.ui.@base.Event<sap.m.P13nColumnsPanel.ChangedColumnItemInfo> oEvent, object oData);
 
 				#endregion
 
@@ -251,7 +272,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oBindingInfo">The binding information</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nColumnsPanel bindColumnsItems(object oBindingInfo);
+				public extern virtual sap.m.P13nColumnsPanel bindColumnsItems(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 				/// <summary>
 				/// Unbinds aggregation {@link #getColumnsItems columnsItems} from model data.
@@ -360,7 +381,7 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.P13nColumnsPanel</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nColumnsPanel attachChangeColumnsItems(object oData, sap.m.P13nColumnsPanel.ChangeColumnsItemsDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nColumnsPanel attachChangeColumnsItems(object oData, sap.m.P13nColumnsPanel.ChangedColumnItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:changeColumnsItems changeColumnsItems} event of this <code>sap.m.P13nColumnsPanel</code>.
@@ -372,7 +393,7 @@ namespace UI5
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nColumnsPanel attachChangeColumnsItems(object oData, sap.m.P13nColumnsPanel.ChangeColumnsItemsDelegate fnFunction);
+				public extern virtual sap.m.P13nColumnsPanel attachChangeColumnsItems(object oData, sap.m.P13nColumnsPanel.ChangedColumnItemDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:changeColumnsItems changeColumnsItems} event of this <code>sap.m.P13nColumnsPanel</code>.
@@ -383,7 +404,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nColumnsPanel attachChangeColumnsItems(sap.m.P13nColumnsPanel.ChangeColumnsItemsDelegate fnFunction);
+				public extern virtual sap.m.P13nColumnsPanel attachChangeColumnsItems(sap.m.P13nColumnsPanel.ChangedColumnItemDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:changeColumnsItems changeColumnsItems} event of this <code>sap.m.P13nColumnsPanel</code>.
@@ -395,7 +416,7 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.P13nColumnsPanel</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nColumnsPanel attachChangeColumnsItems(sap.m.P13nColumnsPanel.ChangeColumnsItemsDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nColumnsPanel attachChangeColumnsItems(sap.m.P13nColumnsPanel.ChangedColumnItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:changeColumnsItems changeColumnsItems} event of this <code>sap.m.P13nColumnsPanel</code>.
@@ -405,14 +426,14 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nColumnsPanel detachChangeColumnsItems(sap.m.P13nColumnsPanel.ChangeColumnsItemsDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nColumnsPanel detachChangeColumnsItems(sap.m.P13nColumnsPanel.ChangedColumnItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:changeColumnsItems changeColumnsItems} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nColumnsPanel fireChangeColumnsItems(sap.m.P13nColumnsPanel.ChangeColumnsItemsInfo mParameters);
+				public extern virtual sap.m.P13nColumnsPanel fireChangeColumnsItems(sap.m.P13nColumnsPanel.ChangedColumnItemInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:changeColumnsItems changeColumnsItems} to attached listeners.
@@ -540,7 +561,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.P13nColumnsPanel.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Delivers a payload for columnsPanel that can be used at consumer side

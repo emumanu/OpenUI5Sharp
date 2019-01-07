@@ -42,16 +42,22 @@ namespace UI5
 
 						/// <summary>
 						/// The color of the Icon. If color is not defined here, the Icon inherits the color from its DOM parent.
+						/// 
+						/// The property can be set with {@link sap.ui.core.CSSColor CSS Color} or {@link sap.ui.core.IconColor Semantic Icon Color}.
 						/// </summary>
 						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> color;
 
 						/// <summary>
 						/// This color is shown when icon is hovered. This property has no visual effect when run on mobile device.
+						/// 
+						/// The property can be set with {@link sap.ui.core.CSSColor CSS Color} or {@link sap.ui.core.IconColor Semantic Icon Color}.
 						/// </summary>
 						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> hoverColor;
 
 						/// <summary>
 						/// This color is shown when icon is pressed/activated by the user.
+						/// 
+						/// The property can be set with {@link sap.ui.core.CSSColor CSS Color} or {@link sap.ui.core.IconColor Semantic Icon Color}.
 						/// </summary>
 						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> activeColor;
 
@@ -67,16 +73,22 @@ namespace UI5
 
 						/// <summary>
 						/// Background color of the Icon in normal state.
+						/// 
+						/// The property can be set with {@link sap.ui.core.CSSColor CSS Color} or {@link sap.ui.core.IconColor Semantic Icon Color}.
 						/// </summary>
 						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundColor;
 
 						/// <summary>
 						/// Background color for Icon in hover state. This property has no visual effect when run on mobile device.
+						/// 
+						/// The property can be set with {@link sap.ui.core.CSSColor CSS Color} or {@link sap.ui.core.IconColor Semantic Icon Color}.
 						/// </summary>
 						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> hoverBackgroundColor;
 
 						/// <summary>
 						/// Background color for Icon in active state.
+						/// 
+						/// The property can be set with {@link sap.ui.core.CSSColor CSS Color} or {@link sap.ui.core.IconColor Semantic Icon Color}.
 						/// </summary>
 						public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> activeBackgroundColor;
 
@@ -204,6 +216,8 @@ namespace UI5
 					/// Gets current value of property {@link #getColor color}.
 					/// 
 					/// The color of the Icon. If color is not defined here, the Icon inherits the color from its DOM parent.
+					/// 
+					/// The property can be set with {@link sap.ui.core.CSSColor CSS Color} or {@link sap.ui.core.IconColor Semantic Icon Color}.
 					/// </summary>
 					/// <returns>Value of property <code>color</code></returns>
 					public extern virtual string getColor();
@@ -212,6 +226,8 @@ namespace UI5
 					/// Sets a new value for property {@link #getColor color}.
 					/// 
 					/// The color of the Icon. If color is not defined here, the Icon inherits the color from its DOM parent.
+					/// 
+					/// The property can be set with {@link sap.ui.core.CSSColor CSS Color} or {@link sap.ui.core.IconColor Semantic Icon Color}.
 					/// 
 					/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 					/// </summary>
@@ -227,6 +243,8 @@ namespace UI5
 					/// Gets current value of property {@link #getHoverColor hoverColor}.
 					/// 
 					/// This color is shown when icon is hovered. This property has no visual effect when run on mobile device.
+					/// 
+					/// The property can be set with {@link sap.ui.core.CSSColor CSS Color} or {@link sap.ui.core.IconColor Semantic Icon Color}.
 					/// </summary>
 					/// <returns>Value of property <code>hoverColor</code></returns>
 					public extern virtual string getHoverColor();
@@ -235,6 +253,8 @@ namespace UI5
 					/// Sets a new value for property {@link #getHoverColor hoverColor}.
 					/// 
 					/// This color is shown when icon is hovered. This property has no visual effect when run on mobile device.
+					/// 
+					/// The property can be set with {@link sap.ui.core.CSSColor CSS Color} or {@link sap.ui.core.IconColor Semantic Icon Color}.
 					/// 
 					/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 					/// </summary>
@@ -250,6 +270,8 @@ namespace UI5
 					/// Gets current value of property {@link #getActiveColor activeColor}.
 					/// 
 					/// This color is shown when icon is pressed/activated by the user.
+					/// 
+					/// The property can be set with {@link sap.ui.core.CSSColor CSS Color} or {@link sap.ui.core.IconColor Semantic Icon Color}.
 					/// </summary>
 					/// <returns>Value of property <code>activeColor</code></returns>
 					public extern virtual string getActiveColor();
@@ -258,6 +280,8 @@ namespace UI5
 					/// Sets a new value for property {@link #getActiveColor activeColor}.
 					/// 
 					/// This color is shown when icon is pressed/activated by the user.
+					/// 
+					/// The property can be set with {@link sap.ui.core.CSSColor CSS Color} or {@link sap.ui.core.IconColor Semantic Icon Color}.
 					/// 
 					/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 					/// </summary>
@@ -319,6 +343,8 @@ namespace UI5
 					/// Gets current value of property {@link #getBackgroundColor backgroundColor}.
 					/// 
 					/// Background color of the Icon in normal state.
+					/// 
+					/// The property can be set with {@link sap.ui.core.CSSColor CSS Color} or {@link sap.ui.core.IconColor Semantic Icon Color}.
 					/// </summary>
 					/// <returns>Value of property <code>backgroundColor</code></returns>
 					public extern virtual string getBackgroundColor();
@@ -327,6 +353,8 @@ namespace UI5
 					/// Sets a new value for property {@link #getBackgroundColor backgroundColor}.
 					/// 
 					/// Background color of the Icon in normal state.
+					/// 
+					/// The property can be set with {@link sap.ui.core.CSSColor CSS Color} or {@link sap.ui.core.IconColor Semantic Icon Color}.
 					/// 
 					/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 					/// </summary>
@@ -342,6 +370,8 @@ namespace UI5
 					/// Gets current value of property {@link #getHoverBackgroundColor hoverBackgroundColor}.
 					/// 
 					/// Background color for Icon in hover state. This property has no visual effect when run on mobile device.
+					/// 
+					/// The property can be set with {@link sap.ui.core.CSSColor CSS Color} or {@link sap.ui.core.IconColor Semantic Icon Color}.
 					/// </summary>
 					/// <returns>Value of property <code>hoverBackgroundColor</code></returns>
 					public extern virtual string getHoverBackgroundColor();
@@ -350,6 +380,8 @@ namespace UI5
 					/// Sets a new value for property {@link #getHoverBackgroundColor hoverBackgroundColor}.
 					/// 
 					/// Background color for Icon in hover state. This property has no visual effect when run on mobile device.
+					/// 
+					/// The property can be set with {@link sap.ui.core.CSSColor CSS Color} or {@link sap.ui.core.IconColor Semantic Icon Color}.
 					/// 
 					/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 					/// </summary>
@@ -365,6 +397,8 @@ namespace UI5
 					/// Gets current value of property {@link #getActiveBackgroundColor activeBackgroundColor}.
 					/// 
 					/// Background color for Icon in active state.
+					/// 
+					/// The property can be set with {@link sap.ui.core.CSSColor CSS Color} or {@link sap.ui.core.IconColor Semantic Icon Color}.
 					/// </summary>
 					/// <returns>Value of property <code>activeBackgroundColor</code></returns>
 					public extern virtual string getActiveBackgroundColor();
@@ -373,6 +407,8 @@ namespace UI5
 					/// Sets a new value for property {@link #getActiveBackgroundColor activeBackgroundColor}.
 					/// 
 					/// Background color for Icon in active state.
+					/// 
+					/// The property can be set with {@link sap.ui.core.CSSColor CSS Color} or {@link sap.ui.core.IconColor Semantic Icon Color}.
 					/// 
 					/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 					/// </summary>
@@ -633,7 +669,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.core.Icon.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					#endregion
 

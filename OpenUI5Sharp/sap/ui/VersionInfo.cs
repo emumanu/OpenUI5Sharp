@@ -43,7 +43,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="mOptions">an object map (see below)</param>
 				/// <returns>a Promise which resolves with one of these values: the full version info, the library specific one, undefined if library is not listed or there was an error during loading.</returns>
-				public extern static jquery.JQueryPromise<object> load(sap.ui.VersionInfo.LoadOptions mOptions);
+				public extern static es5.Promise<object> load(sap.ui.VersionInfo.LoadOptions mOptions);
 
 				#endregion
 

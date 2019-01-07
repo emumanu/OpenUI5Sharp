@@ -1110,7 +1110,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.ux3.ToolPopup.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Indicates whether the pop up is currently open
@@ -1141,7 +1142,7 @@ namespace UI5
 					/// This is just a forward to the Popup's function (sap.ui.core.Popup.setAutoCloseAreas) with the same functionality.
 					/// </summary>
 					/// <param name="aAutoCloseAreas"></param>
-					public extern virtual void setAutoCloseAreas(dom.HTMLElement[] aAutoCloseAreas);
+					public extern virtual void setAutoCloseAreas(Retyped.dom.HTMLElement[] aAutoCloseAreas);
 
 					/// <summary>
 					/// Sets the position of the pop up, the same parameters as for sap.ui.core.Popup can be used.

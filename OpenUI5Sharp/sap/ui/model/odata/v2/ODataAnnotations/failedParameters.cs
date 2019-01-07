@@ -25,6 +25,15 @@ namespace UI5
 							[Name("sap.ui.model.odata.v2.ODataAnnotations.failedParameters")]
 							public partial class failedParameters
 							{
+								#region Fields
+
+								/// <summary>
+								/// An array of Errors (@see sap.ui.model.v2.ODataAnnotations#error) that occurred while loading a group of annotations
+								/// </summary>
+								public Error[] result;
+
+								#endregion
+
 							}
 						}
 					}

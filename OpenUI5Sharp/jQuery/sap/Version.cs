@@ -15,6 +15,7 @@ namespace UI5
 			[External]
 			[Namespace(false)]
 			[Name("jQuery.sap.Version")]
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/util/Version} instead")]
 			public partial class Version
 			{
 				#region Constructor
@@ -41,7 +42,7 @@ namespace UI5
 				/// <summary>
 				/// Compares this version with a given one.
 				/// 
-				/// The version with which this version should be compared can be given as a <code>sap.base.Version</code> instance, as a string (e.g. <code>v.compareto("1.4.5")</code>). Or major, minor, patch and suffix values can be given as separate parameters (e.g. <code>v.compareTo(1, 4, 5)</code>) or in an array (e.g. <code>v.compareTo([1, 4, 5])</code>).
+				/// The version with which this version should be compared can be given as a <code>jQuery.sap.Version</code> instance, as a string (e.g. <code>v.compareto("1.4.5")</code>). Or major, minor, patch and suffix values can be given as separate parameters (e.g. <code>v.compareTo(1, 4, 5)</code>) or in an array (e.g. <code>v.compareTo([1, 4, 5])</code>).
 				/// </summary>
 				/// <returns>0, if the given version is equal to this version, a negative value if the given other version is greater and a positive value otherwise</returns>
 				public extern virtual int compareTo();

@@ -682,7 +682,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.ux3.ActionBar.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Checks whether the control is still valid (is in the DOM). ActionBar instance is rendered if and only if 'isActive' returns 'true'. This check is called implicitely by the rendere, MUST not be removed.

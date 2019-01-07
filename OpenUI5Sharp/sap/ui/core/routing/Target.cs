@@ -63,16 +63,16 @@ namespace UI5
 						/// Provides a convenient way for placing views into the correct containers of your application.<br/> The main benefit of Targets is lazy loading: you do not have to create the views until you really need them.<br/> <b>Don't call this constructor directly</b>, use {@link sap.ui.core.routing.Targets} instead, it will create instances of a Target.<br/> If you are using the mobile library, please use the {@link sap.m.routing.Targets} constructor, please read the documentation there.<br/>
 						/// </summary>
 						/// <param name="oOptions">all of the parameters defined in {@link sap.m.routing.Targets#constructor} are accepted here, except for children you need to specify the parent.</param>
-						/// <param name="oViews">All views required by this target will get created by the views instance using {@link sap.ui.core.routing.Views#getView}</param>
+						/// <param name="oCache">All views required by this target will get created by the views instance using {@link sap.ui.core.routing.Views#getView}</param>
 						/// <param name="oParent">the parent of this target. Will also get displayed, if you display this target. In the config you have the fill the children property {@link sap.m.routing.Targets#constructor}</param>
-						public extern Target(object oOptions, sap.ui.core.routing.Views oViews, sap.ui.core.routing.Target oParent);
+						public extern Target(object oOptions, object oCache, sap.ui.core.routing.Target oParent);
 
 						/// <summary>
 						/// Provides a convenient way for placing views into the correct containers of your application.<br/> The main benefit of Targets is lazy loading: you do not have to create the views until you really need them.<br/> <b>Don't call this constructor directly</b>, use {@link sap.ui.core.routing.Targets} instead, it will create instances of a Target.<br/> If you are using the mobile library, please use the {@link sap.m.routing.Targets} constructor, please read the documentation there.<br/>
 						/// </summary>
 						/// <param name="oOptions">all of the parameters defined in {@link sap.m.routing.Targets#constructor} are accepted here, except for children you need to specify the parent.</param>
-						/// <param name="oViews">All views required by this target will get created by the views instance using {@link sap.ui.core.routing.Views#getView}</param>
-						public extern Target(object oOptions, sap.ui.core.routing.Views oViews);
+						/// <param name="oCache">All views required by this target will get created by the views instance using {@link sap.ui.core.routing.Views#getView}</param>
+						public extern Target(object oOptions, object oCache);
 
 						#endregion
 
@@ -158,13 +158,13 @@ namespace UI5
 						/// </summary>
 						/// <param name="vData">an object that will be passed to the display event in the data property. If the target has parents, the data will also be passed to them.</param>
 						/// <returns>resolves with {name: *, view: *, control: *} if the target can be successfully displayed otherwise it resolves with {name: *, error: *}</returns>
-						public extern virtual jquery.JQueryPromise<object> display(object vData);
+						public extern virtual es5.Promise<object> display(object vData);
 
 						/// <summary>
 						/// Creates a view and puts it in an aggregation of a control that has been defined in the {@link sap.ui.core.routing.Target#constructor}.
 						/// </summary>
 						/// <returns>resolves with {name: *, view: *, control: *} if the target can be successfully displayed otherwise it resolves with {name: *, error: *}</returns>
-						public extern virtual jquery.JQueryPromise<object> display();
+						public extern virtual es5.Promise<object> display();
 
 						/// <summary>
 						/// Creates a new subclass of class sap.ui.core.routing.Target with name <code>sClassName</code> and enriches it with the information contained in <code>oClassInfo</code>.
@@ -200,7 +200,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.core.routing.Target.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						#endregion
 

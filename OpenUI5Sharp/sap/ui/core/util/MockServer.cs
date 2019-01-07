@@ -246,13 +246,6 @@ namespace UI5
 						#region Other methods
 
 						/// <summary>
-						/// Generates a floating-point, pseudo-random number in the range [0, 1[ using a linear congruential generator with drand48 parameters the seed is fixed, so the generated random sequence is always the same each property type has a own seed. Valid types are: String, DateTime, Int, Decimal, Boolean, Byte, Double, Single, SByte, Time, Guid, Binary, DateTimeOffset
-						/// </summary>
-						/// <param name="specific">property type of random mock value to be generated</param>
-						/// <returns>(number) pseudo-random number</returns>
-						public extern virtual void _getPseudoRandomNumber(string specific);
-
-						/// <summary>
 						/// Attaches an event handler to be called after the built-in request processing of the mock server
 						/// </summary>
 						/// <param name="event">type according to HTTP Method</param>
@@ -355,7 +348,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.core.util.MockServer.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// Returns whether the server is started or not.

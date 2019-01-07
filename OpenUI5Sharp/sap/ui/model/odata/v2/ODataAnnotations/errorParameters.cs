@@ -25,6 +25,15 @@ namespace UI5
 							[Name("sap.ui.model.odata.v2.ODataAnnotations.errorParameters")]
 							public partial class errorParameters
 							{
+								#region Fields
+
+								/// <summary>
+								/// The error that occurred. Also contains the properties from sap.ui.model.odata.v2.ODataAnnotations.Source that could be filled up to that point
+								/// </summary>
+								public Error result;
+
+								#endregion
+
 							}
 						}
 					}

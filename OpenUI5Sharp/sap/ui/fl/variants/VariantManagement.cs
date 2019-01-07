@@ -14,7 +14,11 @@ namespace UI5
 				public static partial class variants
 				{
 					/// <summary>
-					/// The VariantManagement control can be used to manage variants, such as filter bar variants or table variants.
+					/// The <code>VariantManagement</code> control can be used to manage variants.
+					/// 
+					/// <h3>Usage</h3>
+					/// 
+					/// You can use this control in most controls that are enabled for <i>UI adaptation at runtime</i>.
 					/// </summary>
 					[External]
 					[Namespace(false)]
@@ -749,7 +753,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.fl.variants.VariantManagement.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// Returns the title control of the VariantManagement. Usage in RTA scenario.

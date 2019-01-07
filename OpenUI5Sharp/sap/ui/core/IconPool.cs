@@ -122,7 +122,7 @@ namespace UI5
 					/// </summary>
 					/// <param name="sCollectionName">icon collection name</param>
 					/// <returns>a Promise that resolves when the icon font is loaded; or <code>undefined</code> if the icon font has not been registered yet</returns>
-					public extern static jquery.JQueryPromise<object> fontLoaded(string sCollectionName);
+					public extern static es5.Promise<object> fontLoaded(string sCollectionName);
 
 					/// <summary>
 					/// Returns all names of registered collections in IconPool
@@ -148,7 +148,7 @@ namespace UI5
 					/// <param name="collectionName">Name of the icon collection; to access built-in icons, omit the collection name</param>
 					/// <param name="loadingMode">The approach for loading the icon info, if it is not already available: sync (default) - font metadata is loaded synchronously and the icon info is returned immediately async - a promise is returned that returns the icon info when the font metadata is loaded mixed - until the font metadata is loaded a promise is returned, afterwards the icon info</param>
 					/// <returns>Info object or Promise for the icon depending on the loadingMode or <code>undefined</code> when the icon can't be found or no icon name was given.</returns>
-					public extern static Union<object, jquery.JQueryPromise<object>> getIconInfo(string iconName, string collectionName, string loadingMode);
+					public extern static Union<object, es5.Promise<object>> getIconInfo(string iconName, string collectionName, string loadingMode);
 
 					/// <summary>
 					/// Returns an info object for the icon with the given <code>iconName</code> and <code>collectionName</code>.
@@ -160,7 +160,7 @@ namespace UI5
 					/// <param name="iconName">Name of the icon, or a complete icon-URI with icon collection and icon name; must not be empty</param>
 					/// <param name="collectionName">Name of the icon collection; to access built-in icons, omit the collection name</param>
 					/// <returns>Info object or Promise for the icon depending on the loadingMode or <code>undefined</code> when the icon can't be found or no icon name was given.</returns>
-					public extern static Union<object, jquery.JQueryPromise<object>> getIconInfo(string iconName, string collectionName);
+					public extern static Union<object, es5.Promise<object>> getIconInfo(string iconName, string collectionName);
 
 					/// <summary>
 					/// Returns an info object for the icon with the given <code>iconName</code> and <code>collectionName</code>.
@@ -171,7 +171,7 @@ namespace UI5
 					/// </summary>
 					/// <param name="iconName">Name of the icon, or a complete icon-URI with icon collection and icon name; must not be empty</param>
 					/// <returns>Info object or Promise for the icon depending on the loadingMode or <code>undefined</code> when the icon can't be found or no icon name was given.</returns>
-					public extern static Union<object, jquery.JQueryPromise<object>> getIconInfo(string iconName);
+					public extern static Union<object, es5.Promise<object>> getIconInfo(string iconName);
 
 					/// <summary>
 					/// Returns all name of icons that are registered under the given collection.

@@ -576,7 +576,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oBindingInfo">The binding information</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.UploadCollectionItem bindAttributes(object oBindingInfo);
+				public extern virtual sap.m.UploadCollectionItem bindAttributes(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 				/// <summary>
 				/// Unbinds aggregation {@link #getAttributes attributes} from model data.
@@ -650,7 +650,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oBindingInfo">The binding information</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.UploadCollectionItem bindStatuses(object oBindingInfo);
+				public extern virtual sap.m.UploadCollectionItem bindStatuses(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 				/// <summary>
 				/// Unbinds aggregation {@link #getStatuses statuses} from model data.
@@ -720,7 +720,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oBindingInfo">The binding information</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.UploadCollectionItem bindMarkers(object oBindingInfo);
+				public extern virtual sap.m.UploadCollectionItem bindMarkers(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 				/// <summary>
 				/// Unbinds aggregation {@link #getMarkers markers} from model data.
@@ -940,7 +940,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.UploadCollectionItem.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				#endregion
 

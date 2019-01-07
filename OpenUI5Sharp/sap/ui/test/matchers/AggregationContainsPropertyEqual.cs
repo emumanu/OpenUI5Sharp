@@ -175,7 +175,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.test.matchers.AggregationContainsPropertyEqual.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// Checks if the control has a filled aggregation with at least one control that have a property equaling propertyName/Value.

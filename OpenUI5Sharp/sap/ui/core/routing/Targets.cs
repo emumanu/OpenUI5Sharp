@@ -108,8 +108,9 @@ namespace UI5
 							/// <pre>
 							/// <code>
 							/// // Some code you execute before you display the taget named 'detailWelcome':
-							/// var oView = sap.ui.view(({ viewName : "Welcome", type : sap.ui.core.mvc.ViewType.XML});
-							/// oTargets.getViews().setView("WelcomeWithAlias", oView)
+							/// View.create({ viewName : "Welcome", type : sap.ui.core.mvc.ViewType.XML}).then(function(oView) {
+							///     oTargets.getViews().setView("WelcomeWithAlias", oView);
+							/// });
 							/// 
 							/// {
 							///     targets: {
@@ -436,7 +437,7 @@ namespace UI5
 						/// <param name="oData">an object that will be passed to the display event in the data property. If the target has parents, the data will also be passed to them.</param>
 						/// <param name="sTitleTarget">the name of the target from which the title option is taken for firing the {@link sap.ui.core.routing.Targets#event:titleChanged titleChanged} event</param>
 						/// <returns>this pointer for chaining or a Promise</returns>
-						public extern virtual Union<sap.ui.core.routing.Targets, jquery.JQueryPromise<object>> display(Union<string, string[]> vTargets, object oData, string sTitleTarget);
+						public extern virtual Union<sap.ui.core.routing.Targets, es5.Promise<object>> display(Union<string, string[]> vTargets, object oData, string sTitleTarget);
 
 						/// <summary>
 						/// Creates a view and puts it in an aggregation of the specified control.
@@ -444,14 +445,14 @@ namespace UI5
 						/// <param name="vTargets">the key of the target as specified in the {@link #constructor}. To display multiple targets you may also pass an array of keys.</param>
 						/// <param name="oData">an object that will be passed to the display event in the data property. If the target has parents, the data will also be passed to them.</param>
 						/// <returns>this pointer for chaining or a Promise</returns>
-						public extern virtual Union<sap.ui.core.routing.Targets, jquery.JQueryPromise<object>> display(Union<string, string[]> vTargets, object oData);
+						public extern virtual Union<sap.ui.core.routing.Targets, es5.Promise<object>> display(Union<string, string[]> vTargets, object oData);
 
 						/// <summary>
 						/// Creates a view and puts it in an aggregation of the specified control.
 						/// </summary>
 						/// <param name="vTargets">the key of the target as specified in the {@link #constructor}. To display multiple targets you may also pass an array of keys.</param>
 						/// <returns>this pointer for chaining or a Promise</returns>
-						public extern virtual Union<sap.ui.core.routing.Targets, jquery.JQueryPromise<object>> display(Union<string, string[]> vTargets);
+						public extern virtual Union<sap.ui.core.routing.Targets, es5.Promise<object>> display(Union<string, string[]> vTargets);
 
 						/// <summary>
 						/// Creates a new subclass of class sap.ui.core.routing.Targets with name <code>sClassName</code> and enriches it with the information contained in <code>oClassInfo</code>.
@@ -487,7 +488,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.core.routing.Targets.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// Returns a target by its name (if you pass myTarget: { view: "myView" }) in the config myTarget is the name.

@@ -70,7 +70,7 @@ namespace UI5
 							/// <summary>
 							/// XML string or XML document that defines the view. If not given, the view content definition is loaded by the module system.
 							/// </summary>
-							public Union<string, dom.HTMLDocument> definition;
+							public Union<string, Retyped.dom.HTMLDocument> definition;
 
 							/// <summary>
 							/// Cache configuration; caching gets active when this object is provided with vView.cache.keys array; keys are used to store data in the cache and for invalidation of the cache.
@@ -150,7 +150,7 @@ namespace UI5
 						/// </summary>
 						/// <param name="mOptions">A map containing the view configuration options.</param>
 						/// <returns>a Promise that resolves with the view instance and rejects with any thrown error.</returns>
-						public extern static jquery.JQueryPromise<object> create(Map mOptions);
+						public extern static es5.Promise<object> create(Map mOptions);
 
 						/// <summary>
 						/// Creates a new subclass of class sap.ui.core.mvc.XMLView with name <code>sClassName</code> and enriches it with the information contained in <code>oClassInfo</code>.
@@ -186,7 +186,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.core.mvc.XMLView.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// Register a preprocessor for all views of a specific type.

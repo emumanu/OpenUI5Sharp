@@ -17,7 +17,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.core.XMLComposite")]
-				public abstract partial class XMLComposite : sap.ui.core.Control
+				public abstract partial class XMLComposite : sap.ui.core.Control, sap.ui.core.IDScope
 				{
 					#region Settings
 
@@ -230,6 +230,13 @@ namespace UI5
 					public extern virtual sap.ui.core.Element byId(string sId);
 
 					/// <summary>
+					/// This method is a hook for the RenderManager that gets called during the rendering of child Controls. It allows to add, remove and update existing accessibility attributes (ARIA) of those controls.
+					/// </summary>
+					/// <param name="oElement">The Control that gets rendered by the RenderManager</param>
+					/// <param name="mAriaProps">The mapping of "aria-" prefixed attributes</param>
+					public extern virtual void enhanceAccessibilityState(sap.ui.core.Control oElement, object mAriaProps);
+
+					/// <summary>
 					/// Creates a new subclass of class sap.ui.core.XMLComposite with name <code>sClassName</code> and enriches it with the information contained in <code>oClassInfo</code>.
 					/// 
 					/// <code>oClassInfo</code> might contain the same kind of information as described in {@link sap.ui.core.Control.extend}.
@@ -263,7 +270,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.core.XMLComposite.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Returns the resource bundle of the resource model
@@ -271,7 +279,7 @@ namespace UI5
 					/// Sample: this.getResourceBundle().then(function(oBundle) {oBundle.getText(<messagebundle_key>)})
 					/// </summary>
 					/// <returns>loaded resource bundle or ECMA Script 6 Promise in asynchronous case</returns>
-					public extern virtual Union<jQuery.sap.util.ResourceBundle, jquery.JQueryPromise<object>> getResourceBundle();
+					public extern virtual Union<jQuery.sap.util.ResourceBundle, es5.Promise<object>> getResourceBundle();
 
 					#endregion
 

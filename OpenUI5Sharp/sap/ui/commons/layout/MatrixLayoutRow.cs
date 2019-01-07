@@ -222,7 +222,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.commons.layout.MatrixLayoutRow.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// Returns true if the given style class string is valid and if this Element has this style class set via a previous call to addStyleClass().

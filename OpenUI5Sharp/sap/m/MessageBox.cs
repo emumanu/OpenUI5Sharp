@@ -39,55 +39,6 @@ namespace UI5
 				public partial class NotifyOptions
 				{
 					/// <summary>
-					/// callback function to be called when the user closes the dialog
-					/// </summary>
-					public object onClose;
-
-					/// <summary>
-					/// Title to be displayed in the alert dialog
-					/// </summary>
-					public string title;
-
-					/// <summary>
-					/// ID to be used for the alert dialog. Intended for test scenarios, not recommended for productive apps
-					/// </summary>
-					public string id;
-
-					/// <summary>
-					/// Added since version 1.21.2. CSS style class which is added to the alert dialog's root DOM node. The compact design can be activated by setting this to "sapUiSizeCompact"
-					/// </summary>
-					public string styleClass;
-
-					/// <summary>
-					/// Added since version 1.28.0. initialFocus, this option sets the action name, the text of the button or the control that gets the focus as first focusable element after the MessageBox is opened. The usage of sap.ui.core.Control to set initialFocus is deprecated since version 1.30.4.
-					/// </summary>
-					public Union<string, sap.m.MessageBox.Action> initialFocus;
-
-					/// <summary>
-					/// Added since version 1.28. Specifies the element's text directionality with enumerated options. By default, the control inherits text direction from the DOM.
-					/// </summary>
-					public sap.ui.core.TextDirection textDirection;
-
-					/// <summary>
-					/// verticalScrolling is deprecated since version 1.30.4. VerticalScrolling, this option indicates if the user can scroll vertically inside the MessageBox when the content is larger than the content area.
-					/// </summary>
-					public bool verticalScrolling;
-
-					/// <summary>
-					/// horizontalScrolling is deprecated since version 1.30.4. HorizontalScrolling, this option indicates if the user can scroll horizontally inside the MessageBox when the content is larger than the content area.
-					/// </summary>
-					public bool horizontalScrolling;
-
-				}
-
-				/// <summary>
-				/// Parameter to be used as Object Literal
-				/// </summary>
-				[External]
-				[ObjectLiteral]
-				public partial class ShowOptions
-				{
-					/// <summary>
 					/// The icon to be displayed.
 					/// </summary>
 					public sap.m.MessageBox.Icon icon;
@@ -105,7 +56,7 @@ namespace UI5
 					/// <summary>
 					/// Function to be called when the user taps a button or closes the message box.
 					/// </summary>
-					public object onClose;
+					public sap.m.MessageBox.CloseDelegate onClose;
 
 					/// <summary>
 					/// ID to be used for the dialog. Intended for test scenarios, not recommended for productive apps
@@ -382,7 +333,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="vMessage">Message to be displayed in the alert dialog. The usage of sap.core.Control as vMessage is deprecated since version 1.30.4.</param>
 				/// <param name="mOptions">Other options (optional)</param>
-				public extern static void show(string vMessage, sap.m.MessageBox.ShowOptions mOptions);
+				public extern static void show(string vMessage, sap.m.MessageBox.NotifyOptions mOptions);
 
 				/// <summary>
 				/// Creates and displays an sap.m.Dialog with type sap.m.DialogType.Message with the given text and buttons, and optionally other parts. After the user has tapped a button, the <code>onClose</code> function is invoked when given.

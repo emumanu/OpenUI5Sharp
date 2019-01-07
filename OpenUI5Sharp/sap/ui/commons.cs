@@ -15,6 +15,7 @@ namespace UI5
 			[External]
 			[Namespace(false)]
 			[Name("sap.ui.commons")]
+			[Obsolete("Deprecated since 1.38.")]
 			public static partial class commons
 			{
 				#region Typed Parameters
@@ -56,6 +57,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.commons.ButtonStyle")]
+				[Obsolete("Deprecated since 1.38.")]
 				public enum ButtonStyle
 				{
 					/// <summary>
@@ -81,6 +83,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.commons.LabelDesign")]
+				[Obsolete("Deprecated since 1.38.")]
 				public enum LabelDesign
 				{
 					/// <summary>
@@ -98,6 +101,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.commons.MessageType")]
+				[Obsolete("Deprecated since 1.38.")]
 				public enum MessageType
 				{
 					/// <summary>
@@ -121,6 +125,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.commons.ToolbarItem")]
+				[Obsolete("Deprecated since 1.38.")]
 				public partial interface ToolbarItem
 				{
 				}
@@ -130,6 +135,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.commons.MenuBarDesign")]
+				[Obsolete("Deprecated since 1.38.")]
 				public enum MenuBarDesign
 				{
 					/// <summary>
@@ -147,6 +153,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.commons.TextViewColor")]
+				[Obsolete("Deprecated since 1.38.")]
 				public enum TextViewColor
 				{
 					/// <summary>
@@ -172,6 +179,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.commons.ToolbarDesign")]
+				[Obsolete("Deprecated since 1.38.")]
 				public enum ToolbarDesign
 				{
 					/// <summary>
@@ -193,6 +201,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.commons.PaginatorEvent")]
+				[Obsolete("Deprecated since 1.38.")]
 				public enum PaginatorEvent
 				{
 					/// <summary>
@@ -222,6 +231,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.commons.TextViewDesign")]
+				[Obsolete("Deprecated since 1.38.")]
 				public enum TextViewDesign
 				{
 					/// <summary>
@@ -289,6 +299,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.commons.RowRepeaterDesign")]
+				[Obsolete("Deprecated since 1.38.")]
 				public enum RowRepeaterDesign
 				{
 					/// <summary>
@@ -310,6 +321,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.commons.TreeSelectionMode")]
+				[Obsolete("Deprecated since 1.38.")]
 				public enum TreeSelectionMode
 				{
 					/// <summary>
@@ -335,6 +347,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.commons.HorizontalDividerType")]
+				[Obsolete("Deprecated since 1.38.")]
 				public enum HorizontalDividerType
 				{
 					/// <summary>
@@ -352,6 +365,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.commons.TriStateCheckBoxState")]
+				[Obsolete("Deprecated since 1.38.")]
 				public enum TriStateCheckBoxState
 				{
 					/// <summary>
@@ -373,6 +387,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.commons.ToolbarSeparatorDesign")]
+				[Obsolete("Deprecated since 1.38.")]
 				public enum ToolbarSeparatorDesign
 				{
 					/// <summary>
@@ -390,6 +405,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.commons.HorizontalDividerHeight")]
+				[Obsolete("Deprecated since 1.38.")]
 				public enum HorizontalDividerHeight
 				{
 					/// <summary>
@@ -415,6 +431,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.commons.FormattedTextViewControl")]
+				[Obsolete("Deprecated since 1.38.")]
 				public partial interface FormattedTextViewControl
 				{
 				}
@@ -424,6 +441,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.commons.RatingIndicatorVisualMode")]
+				[Obsolete("Deprecated since 1.38.")]
 				public enum RatingIndicatorVisualMode
 				{
 					/// <summary>

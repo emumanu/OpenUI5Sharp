@@ -3,7 +3,11 @@
   <xs:import namespace="sap.ui.core" />
   <xs:element name="VariantManagement" substitutionGroup="n0:Control" type="n20:_VariantManagementType">
     <xs:annotation>
-      <xs:documentation>The VariantManagement control can be used to manage variants, such as filter bar variants or table variants.</xs:documentation>
+      <xs:documentation>The &lt;code&gt;VariantManagement&lt;/code&gt; control can be used to manage variants.
+
+&lt;h3&gt;Usage&lt;/h3&gt;
+
+You can use this control in most controls that are enabled for &lt;i&gt;UI adaptation at runtime&lt;/i&gt;.</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="_VariantManagementType">

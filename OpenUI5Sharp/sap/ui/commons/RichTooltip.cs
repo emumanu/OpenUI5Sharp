@@ -221,7 +221,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.commons.RichTooltip.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Calculates the height of the RichTooltip to set a proper min-height. Additionally the ARIA attributes are set to the corresponding elements.

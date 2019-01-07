@@ -229,7 +229,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.unified.MenuTextFieldItem.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// The aggregation <code>submenu</code> (inherited from parent class) is not supported for this type of menu item.

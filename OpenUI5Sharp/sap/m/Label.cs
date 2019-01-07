@@ -424,7 +424,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.Label.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Enables the <code>sap.m.Label</code> to move inside the sap.m.OverflowToolbar. Required by the {@link sap.m.IOverflowToolbarContent} interface.

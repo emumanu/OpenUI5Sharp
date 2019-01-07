@@ -907,7 +907,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oBindingInfo">The binding information</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Input bindSuggestionColumns(object oBindingInfo);
+				public extern virtual sap.m.Input bindSuggestionColumns(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 				/// <summary>
 				/// Unbinds aggregation {@link #getSuggestionColumns suggestionColumns} from model data.
@@ -975,7 +975,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oBindingInfo">The binding information</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Input bindSuggestionRows(object oBindingInfo);
+				public extern virtual sap.m.Input bindSuggestionRows(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 				/// <summary>
 				/// Unbinds aggregation {@link #getSuggestionRows suggestionRows} from model data.
@@ -1475,7 +1475,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.Input.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Getter for property <code>showValueStateMessage</code>. Whether the value state message should be shown. This property is already available for sap.m.Input since 1.16.0.

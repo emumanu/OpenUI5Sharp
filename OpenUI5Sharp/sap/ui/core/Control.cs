@@ -713,7 +713,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.core.Control.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Returns a renderer for this control instance.
@@ -786,7 +787,7 @@ namespace UI5
 					/// <param name="oRef">container into which the control should be put</param>
 					/// <param name="vPosition">Describes the position where the control should be put into the container</param>
 					/// <returns>Returns <code>this</code> to allow method chaining</returns>
-					public extern virtual sap.ui.core.Control placeAt(Union<string, dom.HTMLElement, sap.ui.core.Control> oRef, Union<string, int> vPosition);
+					public extern virtual sap.ui.core.Control placeAt(Union<string, Retyped.dom.HTMLElement, sap.ui.core.Control> oRef, Union<string, int> vPosition);
 
 					/// <summary>
 					/// Puts <code>this</code> control into the specified container (<code>oRef</code>) at the given position (<code>oPosition</code>).
@@ -799,7 +800,7 @@ namespace UI5
 					/// </summary>
 					/// <param name="oRef">container into which the control should be put</param>
 					/// <returns>Returns <code>this</code> to allow method chaining</returns>
-					public extern virtual sap.ui.core.Control placeAt(Union<string, dom.HTMLElement, sap.ui.core.Control> oRef);
+					public extern virtual sap.ui.core.Control placeAt(Union<string, Retyped.dom.HTMLElement, sap.ui.core.Control> oRef);
 
 					/// <summary>
 					/// Removes the given string from the list of custom style classes that have been set previously. Regular style classes like "sapUiBtn" cannot be removed.

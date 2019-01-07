@@ -85,7 +85,7 @@ namespace UI5
 					#region Fields
 
 					/// <summary>
-					/// the global configuration of Opa. All of the global values can be overwritten in an individual waitFor call. The default values are: <ul> <li>arrangements: A new Opa instance</li> <li>actions: A new Opa instance</li> <li>assertions: A new Opa instance</li> <li>timeout : 15 seconds, 0 for infinite timeout</li> <li>pollingInterval: 400 milliseconds</li> <li>debugTimeout: 0 seconds, infinite timeout by default. This will be used instead of timeout if running in debug mode.</li> <li>asyncPolling: false</li> </ul> You can either directly manipulate the config, or extend it using {@link sap.ui.test.Opa.extendConfig}
+					/// The global configuration of Opa. All of the global values can be overwritten in an individual <code>waitFor</code> call. The default values are: <ul> <li>arrangements: A new Opa instance</li> <li>actions: A new Opa instance</li> <li>assertions: A new Opa instance</li> <li>timeout : 15 seconds, 0 for infinite timeout</li> <li>pollingInterval: 400 milliseconds</li> <li>debugTimeout: 0 seconds, infinite timeout by default. This will be used instead of timeout if running in debug mode.</li> <li>asyncPolling: false</li> </ul> You can either directly manipulate the config, or extend it using {@link sap.ui.test.Opa.extendConfig}.
 					/// </summary>
 					public static object config;
 
@@ -129,7 +129,7 @@ namespace UI5
 					/// </summary>
 					/// <param name="options">These contain check, success and error functions</param>
 					/// <returns>A promise that gets resolved on success. If an error occurs, the promise is rejected with the options object. A detailed error message containing the stack trace and Opa logs is available in options.errorMessage.</returns>
-					public extern virtual jquery.JQueryPromise<object> waitFor(sap.ui.test.Opa.WaitForOptions options);
+					public extern virtual es5.Promise<object> waitFor(sap.ui.test.Opa.WaitForOptions options);
 
 					#endregion
 

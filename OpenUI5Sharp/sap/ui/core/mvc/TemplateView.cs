@@ -19,7 +19,7 @@ namespace UI5
 					[External]
 					[Namespace(false)]
 					[Name("sap.ui.core.mvc.TemplateView")]
-					[Obsolete("Deprecated since 1.56.0. use XMLView or JSView instead.")]
+					[Obsolete("Deprecated since 1.56. use {@link sap.ui.core.mvc.XMLView} in combination with {@link topic:5ee619fc1370463ea674ee04b65ed83b XML Templating} instead")]
 					public partial class TemplateView : sap.ui.core.mvc.View
 					{
 						#region Settings
@@ -99,7 +99,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.core.mvc.TemplateView.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						#endregion
 

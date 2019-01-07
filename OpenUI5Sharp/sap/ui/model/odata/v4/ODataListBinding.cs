@@ -16,7 +16,7 @@ namespace UI5
 					public static partial class v4
 					{
 						/// <summary>
-						/// List binding for an OData V4 model. An event handler can only be attached to this binding for the following events: 'change', 'dataReceived', 'dataRequested', and 'refresh'. For other events, an error is thrown.
+						/// List binding for an OData V4 model. An event handler can only be attached to this binding for the following events: 'AggregatedDataStateChange', 'change', 'dataReceived', 'dataRequested', 'DataStateChange' and 'refresh'. For other events, an error is thrown.
 						/// </summary>
 						[External]
 						[Namespace(false)]
@@ -54,49 +54,42 @@ namespace UI5
 							#region Constructor
 
 							/// <summary>
-							/// Do <strong>NOT</strong> call this private constructor, but rather use {@link sap.ui.model.odata.v4.ODataModel#bindList} instead!
+							/// Constructor for ListBinding.
 							/// </summary>
-							/// <param name="oModel">The OData V4 model</param>
-							/// <param name="sPath">The binding path in the model; must not end with a slash</param>
-							/// <param name="oContext">The parent context which is required as base for a relative path</param>
-							/// <param name="vSorters">The dynamic sorters to be used initially; supported since 1.39.0</param>
-							/// <param name="vFilters">The dynamic application filters to be used initially; supported since 1.39.0</param>
-							/// <param name="mParameters">Map of binding parameters</param>
-							public extern ODataListBinding(sap.ui.model.odata.v4.ODataModel oModel, string sPath, sap.ui.model.Context oContext, Union<sap.ui.model.Sorter, sap.ui.model.Sorter[]> vSorters, Union<sap.ui.model.Filter, sap.ui.model.Filter[]> vFilters, object mParameters);
+							/// <param name="oModel">Model instance that this binding belongs to</param>
+							/// <param name="sPath">Binding path for this binding; a relative path will be resolved relative to a given context</param>
+							/// <param name="oContext">Context to be used to resolve a relative path</param>
+							/// <param name="aSorters">Initial sort order (can be either a sorter or an array of sorters)</param>
+							/// <param name="aFilters">Predefined filter/s (can be either a filter or an array of filters)</param>
+							/// <param name="mParameters">Additional, implementation-specific parameters that should be used by the new list binding; this base class doesn't define any parameters, check the API reference for the concrete model implementations to learn about their supported parameters (if any)</param>
+							public extern ODataListBinding(sap.ui.model.Model oModel, string sPath, sap.ui.model.Context oContext, Union<sap.ui.model.Sorter, sap.ui.model.Sorter[]> aSorters, Union<sap.ui.model.Filter, sap.ui.model.Filter[]> aFilters, object mParameters);
 
 							/// <summary>
-							/// Do <strong>NOT</strong> call this private constructor, but rather use {@link sap.ui.model.odata.v4.ODataModel#bindList} instead!
+							/// Constructor for ListBinding.
 							/// </summary>
-							/// <param name="oModel">The OData V4 model</param>
-							/// <param name="sPath">The binding path in the model; must not end with a slash</param>
-							/// <param name="oContext">The parent context which is required as base for a relative path</param>
-							/// <param name="vSorters">The dynamic sorters to be used initially; supported since 1.39.0</param>
-							/// <param name="vFilters">The dynamic application filters to be used initially; supported since 1.39.0</param>
-							public extern ODataListBinding(sap.ui.model.odata.v4.ODataModel oModel, string sPath, sap.ui.model.Context oContext, Union<sap.ui.model.Sorter, sap.ui.model.Sorter[]> vSorters, Union<sap.ui.model.Filter, sap.ui.model.Filter[]> vFilters);
+							/// <param name="oModel">Model instance that this binding belongs to</param>
+							/// <param name="sPath">Binding path for this binding; a relative path will be resolved relative to a given context</param>
+							/// <param name="oContext">Context to be used to resolve a relative path</param>
+							/// <param name="aSorters">Initial sort order (can be either a sorter or an array of sorters)</param>
+							/// <param name="aFilters">Predefined filter/s (can be either a filter or an array of filters)</param>
+							public extern ODataListBinding(sap.ui.model.Model oModel, string sPath, sap.ui.model.Context oContext, Union<sap.ui.model.Sorter, sap.ui.model.Sorter[]> aSorters, Union<sap.ui.model.Filter, sap.ui.model.Filter[]> aFilters);
 
 							/// <summary>
-							/// Do <strong>NOT</strong> call this private constructor, but rather use {@link sap.ui.model.odata.v4.ODataModel#bindList} instead!
+							/// Constructor for ListBinding.
 							/// </summary>
-							/// <param name="oModel">The OData V4 model</param>
-							/// <param name="sPath">The binding path in the model; must not end with a slash</param>
-							/// <param name="oContext">The parent context which is required as base for a relative path</param>
-							/// <param name="vSorters">The dynamic sorters to be used initially; supported since 1.39.0</param>
-							public extern ODataListBinding(sap.ui.model.odata.v4.ODataModel oModel, string sPath, sap.ui.model.Context oContext, Union<sap.ui.model.Sorter, sap.ui.model.Sorter[]> vSorters);
+							/// <param name="oModel">Model instance that this binding belongs to</param>
+							/// <param name="sPath">Binding path for this binding; a relative path will be resolved relative to a given context</param>
+							/// <param name="oContext">Context to be used to resolve a relative path</param>
+							/// <param name="aSorters">Initial sort order (can be either a sorter or an array of sorters)</param>
+							public extern ODataListBinding(sap.ui.model.Model oModel, string sPath, sap.ui.model.Context oContext, Union<sap.ui.model.Sorter, sap.ui.model.Sorter[]> aSorters);
 
 							/// <summary>
-							/// Do <strong>NOT</strong> call this private constructor, but rather use {@link sap.ui.model.odata.v4.ODataModel#bindList} instead!
+							/// Constructor for ListBinding.
 							/// </summary>
-							/// <param name="oModel">The OData V4 model</param>
-							/// <param name="sPath">The binding path in the model; must not end with a slash</param>
-							/// <param name="oContext">The parent context which is required as base for a relative path</param>
-							public extern ODataListBinding(sap.ui.model.odata.v4.ODataModel oModel, string sPath, sap.ui.model.Context oContext);
-
-							/// <summary>
-							/// Do <strong>NOT</strong> call this private constructor, but rather use {@link sap.ui.model.odata.v4.ODataModel#bindList} instead!
-							/// </summary>
-							/// <param name="oModel">The OData V4 model</param>
-							/// <param name="sPath">The binding path in the model; must not end with a slash</param>
-							public extern ODataListBinding(sap.ui.model.odata.v4.ODataModel oModel, string sPath);
+							/// <param name="oModel">Model instance that this binding belongs to</param>
+							/// <param name="sPath">Binding path for this binding; a relative path will be resolved relative to a given context</param>
+							/// <param name="oContext">Context to be used to resolve a relative path</param>
+							public extern ODataListBinding(sap.ui.model.Model oModel, string sPath, sap.ui.model.Context oContext);
 
 							#endregion
 
@@ -250,6 +243,15 @@ namespace UI5
 							public extern virtual void getDistinctValues();
 
 							/// <summary>
+							/// Returns the filter information as an abstract syntax tree. Consumers must not rely on the origin information to be available, future filter implementations will not provide this information.
+							/// 
+							/// If the system query option <code>$filter</code> is present, it will be added to the AST as a node with the following structure: <ul> <li><code>expression</code>: the value of the system query option <code>$filter</code> <li><code>syntax</code>: the OData version of this bindings model, e.g. "OData 4.0" <li><code>type</code>: "Custom" </ul>
+							/// </summary>
+							/// <param name="bIncludeOrigin">whether to include information about the filter objects from which the tree has been created</param>
+							/// <returns>The AST of the filter tree including the static filter as string or null if no filters are set</returns>
+							private extern object getFilterInfo(bool bIncludeOrigin = false);
+
+							/// <summary>
 							/// Returns the header context which allows binding to <code>$count</code>. If known, the value of such a binding is the element count of the collection on the server. Otherwise it is <code>undefined</code>. The value is a number and its type is <code>Edm.Int64</code>.
 							/// 
 							/// The count is known to the binding in the following situations: <ul> <li>It has been requested from the server via the system query option <code>$count</code>. <li>A "short read" in a paged collection (the server delivered less elements than requested) indicated that the server has no more unread elements. <li>It has been read completely in one request, for example an embedded collection via <code>$expand</code>. </ul>
@@ -269,7 +271,8 @@ namespace UI5
 							/// Returns a metadata object for class sap.ui.model.odata.v4.ODataListBinding.
 							/// </summary>
 							/// <returns>Metadata object describing this class</returns>
-							public extern static sap.ui.@base.Metadata getMetadata();
+							[Name("getMetadata")]
+							public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 							/// <summary>
 							/// Returns the root binding of this binding's hierarchy, see binding {@link topic:54e0ddf695af4a6c978472cecb01c64d Initialization and Read Requests}.
@@ -310,7 +313,7 @@ namespace UI5
 							/// </summary>
 							/// <param name="sGroupId">The group ID to be used for refresh; if not specified, the group ID for this binding is used.
 							/// 
-							/// Valid values are <code>undefined</code>, '$auto', '$direct' or application group IDs as specified in {@link sap.ui.model.odata.v4.ODataModel#submitBatch}.</param>
+							/// Valid values are <code>undefined</code>, '$auto', '$auto.*', '$direct' or application group IDs as specified in {@link sap.ui.model.odata.v4.ODataModel}.</param>
 							public extern virtual void refresh(string sGroupId);
 
 							/// <summary>

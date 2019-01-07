@@ -16,8 +16,129 @@ namespace UI5
 	[External]
 	[Namespace(false)]
 	[Name("jQuery")]
-	public abstract partial class jQuery : jquery.JQueryStatic<dom.HTMLElement>
+	public abstract partial class jQuery : jquery.JQueryStatic<Retyped.dom.HTMLElement>
 	{
+		#region Typed Parameters
+
+		/// <summary>
+		/// Parameter to be used as Object Literal
+		/// </summary>
+		[External]
+		[ObjectLiteral]
+		public partial class InitOptions
+		{
+			/// <summary>
+			/// whether to set the viewport in a way that disables zooming
+			/// </summary>
+			public bool viewport;
+
+			/// <summary>
+			/// the iOS status bar color, "default", "black" or "black-translucent"
+			/// </summary>
+			public string statusBar;
+
+			/// <summary>
+			/// whether the browser UI should be hidden as far as possible to make the app feel more native
+			/// </summary>
+			public bool hideBrowser;
+
+			/// <summary>
+			/// whether native scrolling should be disabled in order to prevent the "rubber-band" effect where the whole window is moved
+			/// </summary>
+			public bool preventScroll;
+
+			/// <summary>
+			/// whether Safari mobile should be prevented from transforming any numbers that look like phone numbers into clickable links
+			/// </summary>
+			public bool preventPhoneNumberDetection;
+
+			/// <summary>
+			/// the ID of the root element that should be made fullscreen; only used when hideBrowser is set. If not set, the body is used
+			/// </summary>
+			public string rootId;
+
+			/// <summary>
+			/// whether the height of the html root element should be set to 100%, which is required for other elements to cover the full height
+			/// </summary>
+			public bool useFullScreenHeight;
+
+			/// <summary>
+			/// deprecated since 1.12, use jQuery.sap.setIcons instead.
+			/// </summary>
+			public string homeIcon;
+
+			/// <summary>
+			/// deprecated since 1.12, use jQuery.sap.setIcons instead.
+			/// </summary>
+			public bool homeIconPrecomposed;
+
+			/// <summary>
+			/// whether the Application will be loaded in full screen mode after added to home screen on mobile devices. The default value for this property only enables the full screen mode when runs on iOS device.
+			/// </summary>
+			public bool mobileWebAppCapable;
+
+		}
+
+		/// <summary>
+		/// Parameter to be used as Object Literal
+		/// </summary>
+		[External]
+		[ObjectLiteral]
+		public partial class Info
+		{
+			/// <summary>
+			/// The URL to the .properties file which should be loaded
+			/// </summary>
+			public string url;
+
+			/// <summary>
+			/// Whether the .properties file should be loaded asynchronously or not
+			/// </summary>
+			public bool async;
+
+			/// <summary>
+			/// A map of additional header key/value pairs to send along with the request (see <code>headers</code> option of <code>jQuery.ajax</code>)
+			/// </summary>
+			public object headers;
+
+			/// <summary>
+			/// Whether <code>null</code> should be returned for a missing properties file; by default an empty collection is returned
+			/// </summary>
+			public object returnNullIfMissing;
+
+		}
+
+		/// <summary>
+		/// Parameter to be used as Object Literal
+		/// </summary>
+		[External]
+		[ObjectLiteral]
+		public partial class Info2
+		{
+			/// <summary>
+			/// URL pointing to the base .properties file of a bundle (.properties file without any locale information, e.g. "mybundle.properties")
+			/// </summary>
+			public string url;
+
+			/// <summary>
+			/// Optional language (aka 'locale') to load the texts for. Can either be a BCP47 language tag or a JDK compatible locale string (e.g. "en-GB", "en_GB" or "fr"); Defaults to the current session locale if <code>sap.ui.getCore</code> is available, otherwise to 'en'
+			/// </summary>
+			public string locale;
+
+			/// <summary>
+			/// Whether to include origin information into the returned property values
+			/// </summary>
+			public bool includeInfo;
+
+			/// <summary>
+			/// Whether the first bundle should be loaded asynchronously Note: Fallback bundles loaded by {@link #getText} are always loaded synchronously.
+			/// </summary>
+			public bool async;
+
+		}
+
+		#endregion
+
 		#region Methods
 
 		/// <summary>
@@ -40,6 +161,14 @@ namespace UI5
 		/// Extension function to the jQuery.fn which identifies SAPUI5 controls in the given jQuery context.
 		/// </summary>
 		/// <param name="iIndex">Optional parameter to return the control instance at the given index in the array.</param>
+		/// <param name="bIncludeRelated">Whether or not to respect the associated DOM elements to a control via <code>data-sap-ui-related</code> attribute.</param>
+		/// <returns>Depending on the given context and index parameter an array of controls, an instance or null.</returns>
+		public extern virtual Union<UI5.sap.ui.core.Control[], UI5.sap.ui.core.Control> control(int iIndex, bool bIncludeRelated);
+
+		/// <summary>
+		/// Extension function to the jQuery.fn which identifies SAPUI5 controls in the given jQuery context.
+		/// </summary>
+		/// <param name="iIndex">Optional parameter to return the control instance at the given index in the array.</param>
 		/// <returns>Depending on the given context and index parameter an array of controls, an instance or null.</returns>
 		public extern virtual Union<UI5.sap.ui.core.Control[], UI5.sap.ui.core.Control> control(int iIndex);
 
@@ -48,6 +177,13 @@ namespace UI5
 		/// </summary>
 		/// <returns>Depending on the given context and index parameter an array of controls, an instance or null.</returns>
 		public extern virtual Union<UI5.sap.ui.core.Control[], UI5.sap.ui.core.Control> control();
+
+		/// <summary>
+		/// Extension function to the jQuery.fn which identifies SAPUI5 controls in the given jQuery context.
+		/// </summary>
+		/// <param name="bIncludeRelated">Whether or not to respect the associated DOM elements to a control via <code>data-sap-ui-related</code> attribute.</param>
+		/// <returns>Depending on the given context and index parameter an array of controls, an instance or null.</returns>
+		public extern virtual Union<UI5.sap.ui.core.Control[], UI5.sap.ui.core.Control> control(bool bIncludeRelated);
 
 		/// <summary>
 		/// Sets or gets the position of the cursor in an element that supports cursor positioning.
@@ -72,7 +208,7 @@ namespace UI5
 		/// Returns the first focusable domRef in a given container (the first element of the collection)
 		/// </summary>
 		/// <returns>The domRef</returns>
-		public extern virtual dom.HTMLElement firstFocusableDomRef();
+		public extern virtual Retyped.dom.HTMLElement firstFocusableDomRef();
 
 		/// <summary>
 		/// Retrieve the selected text in the first element of the collection.
@@ -92,12 +228,13 @@ namespace UI5
 		/// Returns the last focusable domRef in a given container
 		/// </summary>
 		/// <returns>The last domRef</returns>
-		public extern virtual dom.HTMLElement lastFocusableDomRef();
+		public extern virtual Retyped.dom.HTMLElement lastFocusableDomRef();
 
 		/// <summary>
 		/// Returns the outer HTML of the given HTML element.
 		/// </summary>
 		/// <returns>outer HTML</returns>
+		[Obsolete("Deprecated since 1.58. use native <code>Element#outerHTML</code> instead")]
 		public extern virtual string outerHTML();
 
 		/// <summary>
@@ -106,13 +243,21 @@ namespace UI5
 		/// <param name="sAttribute">Name of the attribute</param>
 		/// <param name="sValue">Value of the attribute (optional)</param>
 		/// <returns>null or the DOM reference</returns>
-		public extern virtual dom.HTMLElement parentByAttribute(string sAttribute, string sValue);
+		public extern virtual Retyped.dom.HTMLElement parentByAttribute(string sAttribute, string sValue);
 
 		/// <summary>
 		/// Returns a rectangle describing the current visual positioning of the first DOM object in the collection (or <code>null</code> if no element was given).
 		/// </summary>
 		/// <returns>An object with left, top, width and height</returns>
 		public extern virtual object rect();
+
+		/// <summary>
+		/// Returns whether a point described by X and Y is inside this Rectangle's boundaries.
+		/// </summary>
+		/// <param name="iPosX">The X coordinate</param>
+		/// <param name="iPosY">The Y coordinate</param>
+		/// <returns>Whether X and Y are inside this Rectangle's boundaries</returns>
+		public extern virtual bool rectContains(int iPosX, int iPosY);
 
 		/// <summary>
 		/// Removes the given ID reference from the aria-describedby attribute.
@@ -130,6 +275,7 @@ namespace UI5
 
 		/// <param name="oRootControl">The root control</param>
 		/// <returns>Returns itself</returns>
+		[Obsolete("Deprecated since 1.58.")]
 		public extern virtual jQuery root(object oRootControl);
 
 		/// <summary>
@@ -168,6 +314,7 @@ namespace UI5
 		/// </summary>
 		/// <param name="iIdx">Index of the UIArea</param>
 		/// <returns>The UIArea if an index is provided or an array of UIAreas</returns>
+		[Obsolete("Deprecated since 1.58.")]
 		public extern virtual Union<object, object[]> uiarea(int iIdx);
 
 		/// <summary>

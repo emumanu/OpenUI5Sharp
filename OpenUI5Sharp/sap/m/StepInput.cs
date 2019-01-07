@@ -699,14 +699,6 @@ namespace UI5
 
 				#endregion
 
-				#region Methods for Aggregation _incrementButton
-
-				#endregion
-
-				#region Methods for Aggregation _decrementButton
-
-				#endregion
-
 				#region Methods for Aggregation _input
 
 				#endregion
@@ -882,7 +874,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.StepInput.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				#endregion
 

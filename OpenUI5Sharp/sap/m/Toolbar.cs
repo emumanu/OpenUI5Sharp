@@ -547,7 +547,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.Toolbar.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Returns the first sap.m.Title control instance inside the toolbar for the accessibility

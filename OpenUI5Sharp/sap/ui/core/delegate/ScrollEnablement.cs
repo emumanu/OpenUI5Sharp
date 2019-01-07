@@ -81,7 +81,7 @@ namespace UI5
 						/// </summary>
 						/// <param name="vElement">An element(DOM or jQuery) for which the scroll position will be calculated.</param>
 						/// <returns>Position object.</returns>
-						public extern virtual object getChildPosition(Union<dom.HTMLElement, jQuery> vElement);
+						public extern virtual object getChildPosition(Union<Retyped.dom.HTMLElement, jQuery> vElement);
 
 						/// <summary>
 						/// Get current setting for horizontal scrolling.
@@ -93,7 +93,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.core.delegate.ScrollEnablement.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// Get current setting for vertical scrolling.
@@ -113,7 +114,7 @@ namespace UI5
 						/// <param name="iTime">The duration of animated scrolling in milliseconds. To scroll immediately without animation, give 0 as value.</param>
 						/// <param name="Specifies">the offset left and top for the DOM Element.</param>
 						/// <returns></returns>
-						public extern virtual sap.ui.core.@delegate.ScrollEnablement scrollToElement(dom.HTMLElement oElement, int iTime, object[] Specifies);
+						public extern virtual sap.ui.core.@delegate.ScrollEnablement scrollToElement(Retyped.dom.HTMLElement oElement, int iTime, object[] Specifies);
 
 						/// <summary>
 						/// Setter for property <code>bounce</code>.

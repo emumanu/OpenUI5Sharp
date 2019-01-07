@@ -15,7 +15,7 @@ namespace UI5
 			[External]
 			[Namespace(false)]
 			[Name("sap.m.Select")]
-			public partial class Select : sap.ui.core.Control, sap.ui.core.IFormContent
+			public partial class Select : sap.ui.core.Control, sap.ui.core.IFormContent, sap.m.IOverflowToolbarContent
 			{
 				#region Settings
 
@@ -53,7 +53,7 @@ namespace UI5
 					/// <summary>
 					/// Key of the selected item.
 					/// 
-					/// <b>Note:</b> If duplicate keys exist, the first item matching the key is used.
+					/// <b>Notes:</b> <ul> <li> If duplicate keys exist, the first item matching the key is used.</li> <li> If invalid or none <code>selectedKey</code> is used, the first item is being selected.</li> <li> Invalid or missing <code>selectedKey</code> leads to severe functional issues in <code>sap.m.Table</code>, when the <code>sap.m.Select</code> is used inside a <code>sap.m.Table</code> column.</li> </ul>
 					/// </summary>
 					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> selectedKey;
 
@@ -292,7 +292,7 @@ namespace UI5
 				/// 
 				/// Key of the selected item.
 				/// 
-				/// <b>Note:</b> If duplicate keys exist, the first item matching the key is used.
+				/// <b>Notes:</b> <ul> <li> If duplicate keys exist, the first item matching the key is used.</li> <li> If invalid or none <code>selectedKey</code> is used, the first item is being selected.</li> <li> Invalid or missing <code>selectedKey</code> leads to severe functional issues in <code>sap.m.Table</code>, when the <code>sap.m.Select</code> is used inside a <code>sap.m.Table</code> column.</li> </ul>
 				/// 
 				/// Default value is <code>empty string</code>.
 				/// </summary>
@@ -636,7 +636,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oBindingInfo">The binding information</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Select bindItems(object oBindingInfo);
+				public extern virtual sap.m.Select bindItems(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 				/// <summary>
 				/// Unbinds aggregation {@link #getItems items} from model data.
@@ -882,7 +882,14 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.Select.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
+
+				/// <summary>
+				/// Enables the <code>sap.m.Select</code> to move inside the sap.m.OverflowToolbar. Required by the {@link sap.m.IOverflowToolbarContent} interface.
+				/// </summary>
+				/// <returns>Configuration information for the <code>sap.m.IOverflowToolbarContent</code> interface.</returns>
+				public extern virtual object getOverflowToolbarConfig();
 
 				/// <summary>
 				/// Indicates whether the control's picker popup is opened.

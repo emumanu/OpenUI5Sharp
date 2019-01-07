@@ -62,7 +62,7 @@ namespace UI5
 					public Union<sap.m.FlexJustifyContent, string, sap.ui.@base.ManagedObject.BindPropertyInfo> justifyContent;
 
 					/// <summary>
-					/// Determines the layout behavior of items along the cross-axis. "Baseline" is not supported in Internet Explorer 10.
+					/// Determines the layout behavior of items along the cross-axis.
 					/// </summary>
 					public Union<sap.m.FlexAlignItems, string, sap.ui.@base.ManagedObject.BindPropertyInfo> alignItems;
 
@@ -72,7 +72,7 @@ namespace UI5
 					public Union<sap.m.FlexWrap, string, sap.ui.@base.ManagedObject.BindPropertyInfo> wrap;
 
 					/// <summary>
-					/// Determines the layout behavior of container lines when there's extra space along the cross-axis. This property has no effect in Internet Explorer 10.
+					/// Determines the layout behavior of container lines when there's extra space along the cross-axis.
 					/// </summary>
 					public Union<sap.m.FlexAlignContent, string, sap.ui.@base.ManagedObject.BindPropertyInfo> alignContent;
 
@@ -280,7 +280,7 @@ namespace UI5
 				/// <summary>
 				/// Gets current value of property {@link #getAlignItems alignItems}.
 				/// 
-				/// Determines the layout behavior of items along the cross-axis. "Baseline" is not supported in Internet Explorer 10.
+				/// Determines the layout behavior of items along the cross-axis.
 				/// 
 				/// Default value is <code>Stretch</code>.
 				/// </summary>
@@ -322,7 +322,7 @@ namespace UI5
 				/// <summary>
 				/// Gets current value of property {@link #getAlignContent alignContent}.
 				/// 
-				/// Determines the layout behavior of container lines when there's extra space along the cross-axis. This property has no effect in Internet Explorer 10.
+				/// Determines the layout behavior of container lines when there's extra space along the cross-axis.
 				/// 
 				/// Default value is <code>Stretch</code>.
 				/// </summary>
@@ -454,7 +454,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.FlexBox.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Initializes the control.

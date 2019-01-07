@@ -504,7 +504,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.ux3.Overlay.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Checks whether Overlay is open.

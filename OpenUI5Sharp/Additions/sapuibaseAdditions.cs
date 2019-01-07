@@ -111,13 +111,46 @@ namespace UI5
                     public extern virtual T getBindingContext<T>() where T : sap.ui.model.Context;
 
                     /// <summary>
-					/// Returns the value for the property with the given <code>sPropertyName</code>.
+					/// Returns the parent managed object or <code>null</code> if this object hasn't been added to a parent yet.
 					/// 
-					/// <b>Note:</b> This method is a low-level API as described in <a href="#lowlevelapi">the class documentation</a>. Applications or frameworks must not use this method to generically retrieve the value of a property. Use the concrete method get<i>XYZ</i> for property 'XYZ' instead.
+					/// The parent returned by this method is the technical parent used for data binding, invalidation, rendering etc. It might differ from the object on which the application originally added this object (the so called 'API parent'): some composite controls internally use hidden controls or containers to store their children. This method will return the innermost container that technically contains this object as a child.
+					/// 
+					/// <b>Example:</b>
+					/// 
+					/// Assume that a <code>Dialog</code> internally uses a (hidden) <code>VerticalLayout</code> to store its content:
+					/// 
+					/// <pre>
+					///   Dialog (API parent)
+					///    \__ VerticalLayout (hidden composite part)
+					///       \__ Text (API child)
+					/// </pre>
+					/// 
+					/// If you add some content by calling the <code>Dialog.prototype.addContent</code> API, this will lead to the following observations:
+					/// 
+					/// <pre>
+					///   oDialog.addContent(oText);
+					///   console.log(oText.getParent() === oDialog);  // false
+					///   console.log(oText.getParent() instanceof VerticalLayout); // true
+					///   console.log(oText.getParent().getParent() === oDialog); // true now, but might fail with later versions
+					/// </pre>
+					/// 
+					/// Technically, from API perspective, <code>oText</code> is added as a child to <code>Dialog</code>. But internally, the <code>Dialog</code> adds the child to the hidden <code>VerticalLayout</code> container. If you now call the <code>getParent</code> method of the child, you will get the internal <code>VerticalLayout</code> object and not the <code>Dialog</code> API parent.
+					/// 
+					/// <b>Note: </b> The internal (hidden) structure of a composite control is not fixed and may be changed (see also our "Compatibility Rules"). Therefore, you should <b>never</b> rely on a specific structure or object being returned by <code>getParent</code>.
+					/// 
+					/// <b>Note: </b> There is no API to determine the original API parent.
 					/// </summary>
-					/// <param name="sPropertyName">the name of the property</param>
-					/// <returns>the value of the property</returns>
-					public extern virtual T getProperty<T>(string sPropertyName);
+					/// <returns>The technical parent managed object or <code>null</code></returns>
+					public extern virtual T getParent<T>() where T : sap.ui.@base.ManagedObject;
+
+                    /// <summary>
+                    /// Returns the value for the property with the given <code>sPropertyName</code>.
+                    /// 
+                    /// <b>Note:</b> This method is a low-level API as described in <a href="#lowlevelapi">the class documentation</a>. Applications or frameworks must not use this method to generically retrieve the value of a property. Use the concrete method get<i>XYZ</i> for property 'XYZ' instead.
+                    /// </summary>
+                    /// <param name="sPropertyName">the name of the property</param>
+                    /// <returns>the value of the property</returns>
+                    public extern virtual T getProperty<T>(string sPropertyName);
 
                     /// <summary>
 					/// Sets the given value for the given property after validating and normalizing it, marks this object as changed.
@@ -222,6 +255,7 @@ namespace UI5
 
                 [External]
                 [IgnoreGeneric]
+                [Name("sap.ui.base.Event")]
                 public partial class Event<TParameter> : sap.ui.@base.Event
                 {
                     public extern Event(string sId, sap.ui.@base.EventProvider oSource, TParameter mParameters);

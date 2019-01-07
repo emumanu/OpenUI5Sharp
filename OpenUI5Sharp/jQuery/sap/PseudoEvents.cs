@@ -21,6 +21,7 @@ namespace UI5
 			[External]
 			[Namespace(false)]
 			[Name("jQuery.sap.PseudoEvents")]
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/events/PseudoEvents.events} instead")]
 			public static partial class PseudoEvents
 			{
 				#region Fields

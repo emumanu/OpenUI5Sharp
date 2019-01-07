@@ -140,7 +140,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oBindingInfo">The binding information</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ComboBoxBase bindItems(object oBindingInfo);
+				public extern virtual sap.m.ComboBoxBase bindItems(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 				/// <summary>
 				/// Unbinds aggregation {@link #getItems items} from model data.
@@ -357,7 +357,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.ComboBoxBase.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Gets the ID of the hidden label
@@ -384,6 +385,22 @@ namespace UI5
 				public extern virtual bool hasContent();
 
 				/// <summary>
+				/// Highlights Dom Refs based on a value of the input and text of an item
+				/// </summary>
+				/// <param name="sValue">Currently typed value of the input</param>
+				/// <param name="aItemsDomRefs">Array of objects with information for dom ref and text to be highlighted</param>
+				/// <param name="fnBold">Method for bolding the text</param>
+				public extern virtual void highLightList(string sValue, object[] aItemsDomRefs, object fnBold);
+
+				/// <summary>
+				/// Finds the common items of two arrays
+				/// </summary>
+				/// <param name="aItems">Array of Items</param>
+				/// <param name="aOtherItems">Second array of items</param>
+				/// <returns>Array of unique items from both arrays</returns>
+				public extern virtual sap.ui.core.Item[] intersectItems(sap.ui.core.Item[] aItems, sap.ui.core.Item[] aOtherItems);
+
+				/// <summary>
 				/// Indicates whether the control's picker popup is open.
 				/// </summary>
 				/// <returns>Determines whether the control's picker popup is currently open (this includes opening and closing animations).</returns>
@@ -394,6 +411,13 @@ namespace UI5
 				/// </summary>
 				/// <returns><code>this</code> to allow method chaining.</returns>
 				public extern virtual sap.m.ComboBoxBase open();
+
+				/// <summary>
+				/// Sets a custom filter function for items. The function accepts two parameters: - currenly typed value in the input field - item to be matched The function should return a Boolean value (true or false) which represents whether an item will be shown in the dropdown or not.
+				/// </summary>
+				/// <param name="fnFilter">A callback function called when typing in a ComboBoxBase control or ancestor.</param>
+				/// <returns><code>this</code> to allow method chaining.</returns>
+				public extern virtual sap.m.ComboBoxBase setFilterFunction(object fnFilter);
 
 				/// <summary>
 				/// Sets the property <code>_sPickerType</code>.

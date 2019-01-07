@@ -134,7 +134,7 @@ namespace UI5
 				/// <summary>
 				/// @since 1.37.0 a <code>Promise</code> or and array of <code>Promise</code>s for which the Component instantiation should wait (experimental setting)
 				/// </summary>
-				public Union<jquery.JQueryPromise<object>, jquery.JQueryPromise<object>[]> waitFor;
+				public Union<es5.Promise<object>, es5.Promise<object>[]> waitFor;
 
 			}
 
@@ -177,7 +177,7 @@ namespace UI5
 				/// <summary>
 				/// string, XML document or object literal that defines the view
 				/// </summary>
-				public Union<string, dom.HTMLDocument, object> viewContent;
+				public Union<string, Retyped.dom.HTMLDocument, object> viewContent;
 
 				/// <summary>
 				/// Defines how the view source is loaded and rendered later on
@@ -226,7 +226,7 @@ namespace UI5
 				/// <summary>
 				/// Array with strings or Promises resolving with strings
 				/// </summary>
-				public Union<string, jquery.JQueryPromise<object>>[] keys;
+				public Union<string, es5.Promise<object>>[] keys;
 
 			}
 
@@ -245,7 +245,7 @@ namespace UI5
 				/// <summary>
 				/// the DOM element containing the source of the Template</li>
 				/// </summary>
-				public dom.HTMLElement domref;
+				public Retyped.dom.HTMLElement domref;
 
 				/// <summary>
 				/// the type of the Template</li>
@@ -298,8 +298,8 @@ namespace UI5
 			/// </summary>
 			/// <param name="vConfig">ID of an existing Component or the configuration object to create the Component</param>
 			/// <returns>the Component instance or a Promise in case of asynchronous loading</returns>
-			[Obsolete("Deprecated since 1.56.0. use one of the following alternatives instead: <ul> <li>to load a component class, use {@link sap.ui.core.Component.load Component.load}</li> <li>to create a new component instance, use {@link sap.ui.core.Component.create Component.create}</li> <li>to retrieve an existing component instance by its ID, use {@link sap.ui.core.Component.get Component.get}</li> </ul>")]
-			public extern static Union<sap.ui.core.Component, jquery.JQueryPromise<object>> component(Union<string, sap.ui.ComponentConfig> vConfig);
+			[Obsolete("Deprecated since 1.56. use {@link #.get Component.get} or {@link #.create Component.create} instead. Note: {@link #.create Component.create} does not support synchronous loading or the deprecated options <code>manifestFirst</code> and <code>manifestUrl</code>.")]
+			public extern static Union<sap.ui.core.Component, es5.Promise<object>> component(Union<string, sap.ui.ComponentConfig> vConfig);
 
 			/// <summary>
 			/// Defines a controller class or creates an instance of an already defined controller class.
@@ -312,8 +312,1305 @@ namespace UI5
 			/// <param name="oControllerImpl">An object literal defining the methods and properties of the controller</param>
 			/// <param name="bAsync">Decides whether the controller gets loaded asynchronously or not</param>
 			/// <returns>void, the new controller instance or a Promise resolving with the controller in async case</returns>
-			[Obsolete("Deprecated since 1.56. <ul> <li>For controller instance creation use <code>Controller.create</code> instead.</li> <li>For defining controllers use <code>Controller.extend</code> instead. </ul>")]
-			public extern static Union<sap.ui.core.mvc.Controller, jquery.JQueryPromise<object>> controller(string sName, object oControllerImpl, bool bAsync);
+			[Obsolete("Deprecated since 1.56. use {@link #.create Controller.create} or {@link #.extend Controller.extend} instead.")]
+			public extern static Union<sap.ui.core.mvc.Controller, es5.Promise<object>> controller(string sName, object oControllerImpl, bool bAsync);
+
+			/// <summary>
+			/// Defines a JavaScript module with its ID, its dependencies and a module export value or factory.
+			/// 
+			/// The typical and only suggested usage of this method is to have one single, top level call to <code>sap.ui.define</code> in one JavaScript resource (file). When a module is requested by its module ID for the first time, the corresponding resource is determined from the ID and the current {@link sap.ui.loader.config configuration}. The resource will be loaded and executed which in turn will execute the top level <code>sap.ui.define</code> call.
+			/// 
+			/// If the module ID was omitted from that call, it will be substituted by the ID that was used to request the module. As a preparation step, the dependencies as well as their transitive dependencies, will be loaded. Then, the module value (its export) will be determined: if a static value (object, literal) was given as <code>vFactory</code>, that value will be the module value. If a function was given, that function will be called (providing the module exports of the declared dependencies as parameters to the function) and its return value will be used as module export value. The framework internally associates the resulting value with the module ID and provides it to the original requester of the module. Whenever the module is requested again, the same export value will be returned (modules are executed only once).
+			/// 
+			/// <i>Example:</i><br> The following example defines a module, but doesn't hard code the module ID. If stored in a file 'sap/mylib/SomeClass.js', it can be requested with the ID 'sap/mylib/SomeClass'. <pre>
+			///   sap.ui.define(['./Helper', 'sap/m/Bar'], function(Helper,Bar) {
+			/// 
+			///     // create a new class
+			///     var SomeClass = function() {};
+			/// 
+			///     // add methods to its prototype
+			///     SomeClass.prototype.foo = function() {
+			/// 
+			///         // use a function from the dependency 'Helper' in the same package (e.g. 'sap/mylib/Helper' )
+			///         var mSettings = Helper.foo();
+			/// 
+			///         // create and return an sap.m.Bar (using its local name 'Bar')
+			///         return new Bar(mSettings);
+			/// 
+			///     }
+			/// 
+			///     // return the class as module value
+			///     return SomeClass;
+			/// 
+			///   });
+			/// </pre>
+			/// 
+			/// In another module or in an application HTML page, the {@link sap.ui.require} API can be used to load the sap/mylib/Something module and to work with it:
+			/// 
+			/// <pre>
+			/// sap.ui.require(['sap/mylib/Something'], function(Something) {
+			/// 
+			///   // instantiate a Something and call foo() on it
+			///   new Something().foo();
+			/// 
+			/// });
+			/// </pre>
+			/// 
+			/// <h3>Module Name Syntax</h3>
+			/// 
+			/// <code>sap.ui.define</code> uses a simplified variant of the {@link jQuery.sap.getResourcePath unified resource name} syntax for the module's own name as well as for its dependencies. The only difference to that syntax is, that for <code>sap.ui.define</code> and <code>sap.ui.require</code>, the extension (which always would be '.js') has to be omitted. Both methods always add this extension internally.
+			/// 
+			/// As a convenience, the name of a dependency can start with the segment './' which will be replaced by the name of the package that contains the currently defined module (relative name).
+			/// 
+			/// It is best practice to omit the name of the defined module (first parameter) and to use relative names for the dependencies whenever possible. This reduces the necessary configuration, simplifies renaming of packages and allows to map them to a different namespace.
+			/// 
+			/// <h3>Dependency to Modules</h3>
+			/// 
+			/// If a dependencies array is given, each entry represents the name of another module that the currently defined module depends on. All dependency modules are loaded before the export of the currently defined module is determined. The module export of each dependency module will be provided as a parameter to a factory function, the order of the parameters will match the order of the modules in the dependencies array.
+			/// 
+			/// <b>Note:</b> The order in which the dependency modules are <i>executed</i> is <b>not</b> defined by the order in the dependencies array! The execution order is affected by dependencies <i>between</i> the dependency modules as well as by their current state (whether a module already has been loaded or not). Neither module implementations nor dependents that require a module set must make any assumption about the execution order (other than expressed by their dependencies).
+			/// 
+			/// <b>Note:</b> A static module export (a literal provided to <code>sap.ui.define</code>) cannot depend on the module exports of the dependency modules as it has to be calculated before the dependencies are resolved. As an alternative, modules can define a factory function, calculate a static export value in that function, potentially based on the dependencies, and return the result as module export value. The same approach must be taken when the module export is supposed to be a function.
+			/// 
+			/// <h3>Asynchronous Contract</h3>
+			/// 
+			/// <code>sap.ui.define</code> is designed to support real Asynchronous Module Definitions (AMD) in future, although it internally still might use synchronous module loading, depending on configuration and context. However, callers of <code>sap.ui.define</code> must never rely on any synchronous behavior that they might observe in a specific test scenario.
+			/// 
+			/// For example, callers of <code>sap.ui.define</code> must not use the module export value immediately after invoking <code>sap.ui.define</code>:
+			/// 
+			/// <pre>
+			///   // COUNTER EXAMPLE HOW __NOT__ TO DO IT
+			/// 
+			///   // define a class Something as AMD module
+			///   sap.ui.define('Something', [], function() {
+			///     var Something = function() {};
+			///     return Something;
+			///   });
+			/// 
+			///   // DON'T DO THAT!
+			///   // accessing the class _synchronously_ after sap.ui.define was called
+			///   new Something();
+			/// 
+			/// </pre>
+			/// 
+			/// Applications that need to ensure synchronous module definition or synchronous loading of dependencies <b>MUST</b> use the deprecated legacy APIs {@link jQuery.sap.declare} and {@link jQuery.sap.require}.
+			/// 
+			/// <h3>(No) Global References</h3>
+			/// 
+			/// To be in line with AMD best practices, modules defined with <code>sap.ui.define</code> should not make any use of global variables if those variables are also available as module exports. Instead, they should add dependencies to those modules and use the corresponding parameter of the factory function to access the module exports.
+			/// 
+			/// As the current programming model and the documentation of UI5 heavily rely on global names, there will be a transition phase where UI5 enables AMD modules and local references to module exports in parallel to the old global names. The fourth parameter of <code>sap.ui.define</code> has been added to support that transition phase. When this parameter is set to true, the framework provides two additional features
+			/// 
+			/// <ol> <li>Before the factory function is called, the existence of the global parent namespace for the current module is ensured</li> <li>The module export returned by the module's factory function will be automatically exported under the global name which is derived from the ID of the module</li> </ol>
+			/// 
+			/// The parameter lets the framework know whether any of those two operations is needed or not. In future versions of UI5, a central configuration option is planned to suppress those 'exports'.
+			/// 
+			/// <h3>Third Party Modules</h3> Although third party modules don't use UI5 APIs, they still can be listed as dependencies in a <code>sap.ui.define</code> call. They will be requested and executed like UI5 modules, but to make their exports available, so called <em>shims</em> have to be defined.
+			/// 
+			/// Note that UI5 temporarily deactivates an existing AMD loader while it executes third party modules known to support AMD. This sounds contradictorily at a first glance as UI5 wants to support AMD, but for now it is necessary to fully support UI5 applications that rely on global names for such modules.
+			/// 
+			/// For third-party modules that UI5 delivers (e.g. those in namespace <code>sap/ui/thirdparty/</code>), the necessary shims are defined by UI5 itself by executing the private module <code>ui5loader-autoconfig.js</code> during bootstrap.
+			/// 
+			/// Example: <pre>
+			///   // module 'Something' wants to use third party library 'URI.js'
+			///   // It is packaged by UI5 as non-UI5-module 'sap/ui/thirdparty/URI'
+			///   // the following shim helps UI5 to correctly load URI.js and to retrieve the module's export value
+			///   // Apps don't have to define that shim, it is already applied by ui5loader-autconfig.js
+			///   sap.ui.loader.config({
+			///     shim: {
+			///       'sap/ui/thirdparty/URI': {
+			///          amd: true, // URI.js reacts on an AMD loader, this flag lets UI5 temp. disable such loaders
+			///          exports: 'URI' // name of the global variable under which URI.js exports its module value
+			///       }
+			///     }
+			///   });
+			/// 
+			///   // now the module can be retrieved like other modules
+			///   sap.ui.define('Something', ['sap/ui/thirdparty/URI'], function(URIModuleValue) {
+			/// 
+			///     new URIModuleValue(...); // same as the global 'URI' name: new URI(...)
+			/// 
+			///     ...
+			///   });
+			/// </pre>
+			/// 
+			/// <h3>Differences to Standard AMD</h3>
+			/// 
+			/// The current implementation of <code>sap.ui.define</code> differs from the AMD specification (https://github.com/amdjs/amdjs-api) or from concrete AMD loaders like <code>requireJS</code> in several aspects: <ul> <li>The name <code>sap.ui.define</code> is different from the plain <code>define</code>. This has two reasons: first, it avoids the impression that <code>sap.ui.define</code> is an exact implementation of an AMD loader. And second, it allows the coexistence of an AMD loader (e.g. requireJS) and <code>sap.ui.define</code> in one application as long as UI5 or applications using UI5 are not fully prepared to run with an AMD loader. Note that the difference of the API names also implies that the UI5 loader can't be used to load 'real' AMD modules as they expect methods <code>define</code> and <code>require</code> to be available. Modules that use Unified Module Definition (UMD) syntax, can be loaded, but only when no AMD loader is present or when they expose their export also to the global namespace, even when an AMD loader is present (as e.g. jQuery does) or when a shim is defined for them using the <code>amd:true</code> flag (see example above)</li> <li>Depending on configuration and the current context, <code>sap.ui.define</code> loads the dependencies of a module either synchronously using a sync XHR call + eval or asynchronously via script tags. The sync loading is basically a tribute to the synchronous history of UI5. There's no way for a module developer to enforce synchronous loading of the dependencies and on the long run, sync loading will be faded out. Applications that need to ensure synchronous loading of dependencies <b>MUST</b> use the deprecated legacy APIs like {@link jQuery.sap.require}.</li> <li><code>sap.ui.define</code> does not support plugins to use other file types, formats or protocols. It is not planned to support this in future</li> <li><code>sap.ui.define</code> does not support absolute URLs as module names (dependencies) nor does it allow module names that start with a slash. To refer to a module at an absolute URL, a resource root can be registered that points to that URL (or to a prefix of it).</li> <li><code>sap.ui.define</code> does <b>not</b> support the 'sugar' of requireJS where CommonJS style dependency declarations using <code>sap.ui.require("something")</code> are automagically converted into <code>sap.ui.define</code> dependencies before executing the factory function.</li> </ul>
+			/// 
+			/// <h3>Limitations, Design Considerations</h3> <ul> <li><b>Limitation</b>: as dependency management is not supported for Non-UI5 modules, the only way to ensure proper execution order for such modules currently is to rely on the order in the dependency array. Obviously, this only works as long as <code>sap.ui.define</code> uses synchronous loading. It will be enhanced when asynchronous loading is implemented.</li> <li>It was discussed to enforce asynchronous execution of the module factory function (e.g. with a timeout of 0). But this would have invalidated the current migration scenario where a sync <code>jQuery.sap.require</code> call can load a <code>sap.ui.define</code>'ed module. If the module definition would not execute synchronously, the synchronous contract of the require call would be broken (default behavior in existing UI5 applications)</li> <li>A single file must not contain multiple calls to <code>sap.ui.define</code>. Multiple calls currently are only supported in the so called 'preload' files that the UI5 merge tooling produces. The exact details of how this works might be changed in future implementations and are not part of the API contract</li> </ul>
+			/// </summary>
+			/// <param name="sModuleName">ID of the module in simplified resource name syntax. When omitted, the loader determines the ID from the request.</param>
+			/// <param name="aDependencies">List of dependencies of the module</param>
+			/// <param name="vFactory">The module export value or a function that calculates that value</param>
+			/// <param name="bExport">Whether an export to global names is required - should be used by SAP-owned code only</param>
+			public extern static void define(string sModuleName, string[] aDependencies, object vFactory, bool bExport);
+
+			/// <summary>
+			/// Defines a JavaScript module with its ID, its dependencies and a module export value or factory.
+			/// 
+			/// The typical and only suggested usage of this method is to have one single, top level call to <code>sap.ui.define</code> in one JavaScript resource (file). When a module is requested by its module ID for the first time, the corresponding resource is determined from the ID and the current {@link sap.ui.loader.config configuration}. The resource will be loaded and executed which in turn will execute the top level <code>sap.ui.define</code> call.
+			/// 
+			/// If the module ID was omitted from that call, it will be substituted by the ID that was used to request the module. As a preparation step, the dependencies as well as their transitive dependencies, will be loaded. Then, the module value (its export) will be determined: if a static value (object, literal) was given as <code>vFactory</code>, that value will be the module value. If a function was given, that function will be called (providing the module exports of the declared dependencies as parameters to the function) and its return value will be used as module export value. The framework internally associates the resulting value with the module ID and provides it to the original requester of the module. Whenever the module is requested again, the same export value will be returned (modules are executed only once).
+			/// 
+			/// <i>Example:</i><br> The following example defines a module, but doesn't hard code the module ID. If stored in a file 'sap/mylib/SomeClass.js', it can be requested with the ID 'sap/mylib/SomeClass'. <pre>
+			///   sap.ui.define(['./Helper', 'sap/m/Bar'], function(Helper,Bar) {
+			/// 
+			///     // create a new class
+			///     var SomeClass = function() {};
+			/// 
+			///     // add methods to its prototype
+			///     SomeClass.prototype.foo = function() {
+			/// 
+			///         // use a function from the dependency 'Helper' in the same package (e.g. 'sap/mylib/Helper' )
+			///         var mSettings = Helper.foo();
+			/// 
+			///         // create and return an sap.m.Bar (using its local name 'Bar')
+			///         return new Bar(mSettings);
+			/// 
+			///     }
+			/// 
+			///     // return the class as module value
+			///     return SomeClass;
+			/// 
+			///   });
+			/// </pre>
+			/// 
+			/// In another module or in an application HTML page, the {@link sap.ui.require} API can be used to load the sap/mylib/Something module and to work with it:
+			/// 
+			/// <pre>
+			/// sap.ui.require(['sap/mylib/Something'], function(Something) {
+			/// 
+			///   // instantiate a Something and call foo() on it
+			///   new Something().foo();
+			/// 
+			/// });
+			/// </pre>
+			/// 
+			/// <h3>Module Name Syntax</h3>
+			/// 
+			/// <code>sap.ui.define</code> uses a simplified variant of the {@link jQuery.sap.getResourcePath unified resource name} syntax for the module's own name as well as for its dependencies. The only difference to that syntax is, that for <code>sap.ui.define</code> and <code>sap.ui.require</code>, the extension (which always would be '.js') has to be omitted. Both methods always add this extension internally.
+			/// 
+			/// As a convenience, the name of a dependency can start with the segment './' which will be replaced by the name of the package that contains the currently defined module (relative name).
+			/// 
+			/// It is best practice to omit the name of the defined module (first parameter) and to use relative names for the dependencies whenever possible. This reduces the necessary configuration, simplifies renaming of packages and allows to map them to a different namespace.
+			/// 
+			/// <h3>Dependency to Modules</h3>
+			/// 
+			/// If a dependencies array is given, each entry represents the name of another module that the currently defined module depends on. All dependency modules are loaded before the export of the currently defined module is determined. The module export of each dependency module will be provided as a parameter to a factory function, the order of the parameters will match the order of the modules in the dependencies array.
+			/// 
+			/// <b>Note:</b> The order in which the dependency modules are <i>executed</i> is <b>not</b> defined by the order in the dependencies array! The execution order is affected by dependencies <i>between</i> the dependency modules as well as by their current state (whether a module already has been loaded or not). Neither module implementations nor dependents that require a module set must make any assumption about the execution order (other than expressed by their dependencies).
+			/// 
+			/// <b>Note:</b> A static module export (a literal provided to <code>sap.ui.define</code>) cannot depend on the module exports of the dependency modules as it has to be calculated before the dependencies are resolved. As an alternative, modules can define a factory function, calculate a static export value in that function, potentially based on the dependencies, and return the result as module export value. The same approach must be taken when the module export is supposed to be a function.
+			/// 
+			/// <h3>Asynchronous Contract</h3>
+			/// 
+			/// <code>sap.ui.define</code> is designed to support real Asynchronous Module Definitions (AMD) in future, although it internally still might use synchronous module loading, depending on configuration and context. However, callers of <code>sap.ui.define</code> must never rely on any synchronous behavior that they might observe in a specific test scenario.
+			/// 
+			/// For example, callers of <code>sap.ui.define</code> must not use the module export value immediately after invoking <code>sap.ui.define</code>:
+			/// 
+			/// <pre>
+			///   // COUNTER EXAMPLE HOW __NOT__ TO DO IT
+			/// 
+			///   // define a class Something as AMD module
+			///   sap.ui.define('Something', [], function() {
+			///     var Something = function() {};
+			///     return Something;
+			///   });
+			/// 
+			///   // DON'T DO THAT!
+			///   // accessing the class _synchronously_ after sap.ui.define was called
+			///   new Something();
+			/// 
+			/// </pre>
+			/// 
+			/// Applications that need to ensure synchronous module definition or synchronous loading of dependencies <b>MUST</b> use the deprecated legacy APIs {@link jQuery.sap.declare} and {@link jQuery.sap.require}.
+			/// 
+			/// <h3>(No) Global References</h3>
+			/// 
+			/// To be in line with AMD best practices, modules defined with <code>sap.ui.define</code> should not make any use of global variables if those variables are also available as module exports. Instead, they should add dependencies to those modules and use the corresponding parameter of the factory function to access the module exports.
+			/// 
+			/// As the current programming model and the documentation of UI5 heavily rely on global names, there will be a transition phase where UI5 enables AMD modules and local references to module exports in parallel to the old global names. The fourth parameter of <code>sap.ui.define</code> has been added to support that transition phase. When this parameter is set to true, the framework provides two additional features
+			/// 
+			/// <ol> <li>Before the factory function is called, the existence of the global parent namespace for the current module is ensured</li> <li>The module export returned by the module's factory function will be automatically exported under the global name which is derived from the ID of the module</li> </ol>
+			/// 
+			/// The parameter lets the framework know whether any of those two operations is needed or not. In future versions of UI5, a central configuration option is planned to suppress those 'exports'.
+			/// 
+			/// <h3>Third Party Modules</h3> Although third party modules don't use UI5 APIs, they still can be listed as dependencies in a <code>sap.ui.define</code> call. They will be requested and executed like UI5 modules, but to make their exports available, so called <em>shims</em> have to be defined.
+			/// 
+			/// Note that UI5 temporarily deactivates an existing AMD loader while it executes third party modules known to support AMD. This sounds contradictorily at a first glance as UI5 wants to support AMD, but for now it is necessary to fully support UI5 applications that rely on global names for such modules.
+			/// 
+			/// For third-party modules that UI5 delivers (e.g. those in namespace <code>sap/ui/thirdparty/</code>), the necessary shims are defined by UI5 itself by executing the private module <code>ui5loader-autoconfig.js</code> during bootstrap.
+			/// 
+			/// Example: <pre>
+			///   // module 'Something' wants to use third party library 'URI.js'
+			///   // It is packaged by UI5 as non-UI5-module 'sap/ui/thirdparty/URI'
+			///   // the following shim helps UI5 to correctly load URI.js and to retrieve the module's export value
+			///   // Apps don't have to define that shim, it is already applied by ui5loader-autconfig.js
+			///   sap.ui.loader.config({
+			///     shim: {
+			///       'sap/ui/thirdparty/URI': {
+			///          amd: true, // URI.js reacts on an AMD loader, this flag lets UI5 temp. disable such loaders
+			///          exports: 'URI' // name of the global variable under which URI.js exports its module value
+			///       }
+			///     }
+			///   });
+			/// 
+			///   // now the module can be retrieved like other modules
+			///   sap.ui.define('Something', ['sap/ui/thirdparty/URI'], function(URIModuleValue) {
+			/// 
+			///     new URIModuleValue(...); // same as the global 'URI' name: new URI(...)
+			/// 
+			///     ...
+			///   });
+			/// </pre>
+			/// 
+			/// <h3>Differences to Standard AMD</h3>
+			/// 
+			/// The current implementation of <code>sap.ui.define</code> differs from the AMD specification (https://github.com/amdjs/amdjs-api) or from concrete AMD loaders like <code>requireJS</code> in several aspects: <ul> <li>The name <code>sap.ui.define</code> is different from the plain <code>define</code>. This has two reasons: first, it avoids the impression that <code>sap.ui.define</code> is an exact implementation of an AMD loader. And second, it allows the coexistence of an AMD loader (e.g. requireJS) and <code>sap.ui.define</code> in one application as long as UI5 or applications using UI5 are not fully prepared to run with an AMD loader. Note that the difference of the API names also implies that the UI5 loader can't be used to load 'real' AMD modules as they expect methods <code>define</code> and <code>require</code> to be available. Modules that use Unified Module Definition (UMD) syntax, can be loaded, but only when no AMD loader is present or when they expose their export also to the global namespace, even when an AMD loader is present (as e.g. jQuery does) or when a shim is defined for them using the <code>amd:true</code> flag (see example above)</li> <li>Depending on configuration and the current context, <code>sap.ui.define</code> loads the dependencies of a module either synchronously using a sync XHR call + eval or asynchronously via script tags. The sync loading is basically a tribute to the synchronous history of UI5. There's no way for a module developer to enforce synchronous loading of the dependencies and on the long run, sync loading will be faded out. Applications that need to ensure synchronous loading of dependencies <b>MUST</b> use the deprecated legacy APIs like {@link jQuery.sap.require}.</li> <li><code>sap.ui.define</code> does not support plugins to use other file types, formats or protocols. It is not planned to support this in future</li> <li><code>sap.ui.define</code> does not support absolute URLs as module names (dependencies) nor does it allow module names that start with a slash. To refer to a module at an absolute URL, a resource root can be registered that points to that URL (or to a prefix of it).</li> <li><code>sap.ui.define</code> does <b>not</b> support the 'sugar' of requireJS where CommonJS style dependency declarations using <code>sap.ui.require("something")</code> are automagically converted into <code>sap.ui.define</code> dependencies before executing the factory function.</li> </ul>
+			/// 
+			/// <h3>Limitations, Design Considerations</h3> <ul> <li><b>Limitation</b>: as dependency management is not supported for Non-UI5 modules, the only way to ensure proper execution order for such modules currently is to rely on the order in the dependency array. Obviously, this only works as long as <code>sap.ui.define</code> uses synchronous loading. It will be enhanced when asynchronous loading is implemented.</li> <li>It was discussed to enforce asynchronous execution of the module factory function (e.g. with a timeout of 0). But this would have invalidated the current migration scenario where a sync <code>jQuery.sap.require</code> call can load a <code>sap.ui.define</code>'ed module. If the module definition would not execute synchronously, the synchronous contract of the require call would be broken (default behavior in existing UI5 applications)</li> <li>A single file must not contain multiple calls to <code>sap.ui.define</code>. Multiple calls currently are only supported in the so called 'preload' files that the UI5 merge tooling produces. The exact details of how this works might be changed in future implementations and are not part of the API contract</li> </ul>
+			/// </summary>
+			/// <param name="sModuleName">ID of the module in simplified resource name syntax. When omitted, the loader determines the ID from the request.</param>
+			/// <param name="aDependencies">List of dependencies of the module</param>
+			/// <param name="vFactory">The module export value or a function that calculates that value</param>
+			/// <param name="bExport">Whether an export to global names is required - should be used by SAP-owned code only</param>
+			public extern static void define(string sModuleName, object[] aDependencies, object vFactory, bool bExport);
+
+			/// <summary>
+			/// Defines a JavaScript module with its ID, its dependencies and a module export value or factory.
+			/// 
+			/// The typical and only suggested usage of this method is to have one single, top level call to <code>sap.ui.define</code> in one JavaScript resource (file). When a module is requested by its module ID for the first time, the corresponding resource is determined from the ID and the current {@link sap.ui.loader.config configuration}. The resource will be loaded and executed which in turn will execute the top level <code>sap.ui.define</code> call.
+			/// 
+			/// If the module ID was omitted from that call, it will be substituted by the ID that was used to request the module. As a preparation step, the dependencies as well as their transitive dependencies, will be loaded. Then, the module value (its export) will be determined: if a static value (object, literal) was given as <code>vFactory</code>, that value will be the module value. If a function was given, that function will be called (providing the module exports of the declared dependencies as parameters to the function) and its return value will be used as module export value. The framework internally associates the resulting value with the module ID and provides it to the original requester of the module. Whenever the module is requested again, the same export value will be returned (modules are executed only once).
+			/// 
+			/// <i>Example:</i><br> The following example defines a module, but doesn't hard code the module ID. If stored in a file 'sap/mylib/SomeClass.js', it can be requested with the ID 'sap/mylib/SomeClass'. <pre>
+			///   sap.ui.define(['./Helper', 'sap/m/Bar'], function(Helper,Bar) {
+			/// 
+			///     // create a new class
+			///     var SomeClass = function() {};
+			/// 
+			///     // add methods to its prototype
+			///     SomeClass.prototype.foo = function() {
+			/// 
+			///         // use a function from the dependency 'Helper' in the same package (e.g. 'sap/mylib/Helper' )
+			///         var mSettings = Helper.foo();
+			/// 
+			///         // create and return an sap.m.Bar (using its local name 'Bar')
+			///         return new Bar(mSettings);
+			/// 
+			///     }
+			/// 
+			///     // return the class as module value
+			///     return SomeClass;
+			/// 
+			///   });
+			/// </pre>
+			/// 
+			/// In another module or in an application HTML page, the {@link sap.ui.require} API can be used to load the sap/mylib/Something module and to work with it:
+			/// 
+			/// <pre>
+			/// sap.ui.require(['sap/mylib/Something'], function(Something) {
+			/// 
+			///   // instantiate a Something and call foo() on it
+			///   new Something().foo();
+			/// 
+			/// });
+			/// </pre>
+			/// 
+			/// <h3>Module Name Syntax</h3>
+			/// 
+			/// <code>sap.ui.define</code> uses a simplified variant of the {@link jQuery.sap.getResourcePath unified resource name} syntax for the module's own name as well as for its dependencies. The only difference to that syntax is, that for <code>sap.ui.define</code> and <code>sap.ui.require</code>, the extension (which always would be '.js') has to be omitted. Both methods always add this extension internally.
+			/// 
+			/// As a convenience, the name of a dependency can start with the segment './' which will be replaced by the name of the package that contains the currently defined module (relative name).
+			/// 
+			/// It is best practice to omit the name of the defined module (first parameter) and to use relative names for the dependencies whenever possible. This reduces the necessary configuration, simplifies renaming of packages and allows to map them to a different namespace.
+			/// 
+			/// <h3>Dependency to Modules</h3>
+			/// 
+			/// If a dependencies array is given, each entry represents the name of another module that the currently defined module depends on. All dependency modules are loaded before the export of the currently defined module is determined. The module export of each dependency module will be provided as a parameter to a factory function, the order of the parameters will match the order of the modules in the dependencies array.
+			/// 
+			/// <b>Note:</b> The order in which the dependency modules are <i>executed</i> is <b>not</b> defined by the order in the dependencies array! The execution order is affected by dependencies <i>between</i> the dependency modules as well as by their current state (whether a module already has been loaded or not). Neither module implementations nor dependents that require a module set must make any assumption about the execution order (other than expressed by their dependencies).
+			/// 
+			/// <b>Note:</b> A static module export (a literal provided to <code>sap.ui.define</code>) cannot depend on the module exports of the dependency modules as it has to be calculated before the dependencies are resolved. As an alternative, modules can define a factory function, calculate a static export value in that function, potentially based on the dependencies, and return the result as module export value. The same approach must be taken when the module export is supposed to be a function.
+			/// 
+			/// <h3>Asynchronous Contract</h3>
+			/// 
+			/// <code>sap.ui.define</code> is designed to support real Asynchronous Module Definitions (AMD) in future, although it internally still might use synchronous module loading, depending on configuration and context. However, callers of <code>sap.ui.define</code> must never rely on any synchronous behavior that they might observe in a specific test scenario.
+			/// 
+			/// For example, callers of <code>sap.ui.define</code> must not use the module export value immediately after invoking <code>sap.ui.define</code>:
+			/// 
+			/// <pre>
+			///   // COUNTER EXAMPLE HOW __NOT__ TO DO IT
+			/// 
+			///   // define a class Something as AMD module
+			///   sap.ui.define('Something', [], function() {
+			///     var Something = function() {};
+			///     return Something;
+			///   });
+			/// 
+			///   // DON'T DO THAT!
+			///   // accessing the class _synchronously_ after sap.ui.define was called
+			///   new Something();
+			/// 
+			/// </pre>
+			/// 
+			/// Applications that need to ensure synchronous module definition or synchronous loading of dependencies <b>MUST</b> use the deprecated legacy APIs {@link jQuery.sap.declare} and {@link jQuery.sap.require}.
+			/// 
+			/// <h3>(No) Global References</h3>
+			/// 
+			/// To be in line with AMD best practices, modules defined with <code>sap.ui.define</code> should not make any use of global variables if those variables are also available as module exports. Instead, they should add dependencies to those modules and use the corresponding parameter of the factory function to access the module exports.
+			/// 
+			/// As the current programming model and the documentation of UI5 heavily rely on global names, there will be a transition phase where UI5 enables AMD modules and local references to module exports in parallel to the old global names. The fourth parameter of <code>sap.ui.define</code> has been added to support that transition phase. When this parameter is set to true, the framework provides two additional features
+			/// 
+			/// <ol> <li>Before the factory function is called, the existence of the global parent namespace for the current module is ensured</li> <li>The module export returned by the module's factory function will be automatically exported under the global name which is derived from the ID of the module</li> </ol>
+			/// 
+			/// The parameter lets the framework know whether any of those two operations is needed or not. In future versions of UI5, a central configuration option is planned to suppress those 'exports'.
+			/// 
+			/// <h3>Third Party Modules</h3> Although third party modules don't use UI5 APIs, they still can be listed as dependencies in a <code>sap.ui.define</code> call. They will be requested and executed like UI5 modules, but to make their exports available, so called <em>shims</em> have to be defined.
+			/// 
+			/// Note that UI5 temporarily deactivates an existing AMD loader while it executes third party modules known to support AMD. This sounds contradictorily at a first glance as UI5 wants to support AMD, but for now it is necessary to fully support UI5 applications that rely on global names for such modules.
+			/// 
+			/// For third-party modules that UI5 delivers (e.g. those in namespace <code>sap/ui/thirdparty/</code>), the necessary shims are defined by UI5 itself by executing the private module <code>ui5loader-autoconfig.js</code> during bootstrap.
+			/// 
+			/// Example: <pre>
+			///   // module 'Something' wants to use third party library 'URI.js'
+			///   // It is packaged by UI5 as non-UI5-module 'sap/ui/thirdparty/URI'
+			///   // the following shim helps UI5 to correctly load URI.js and to retrieve the module's export value
+			///   // Apps don't have to define that shim, it is already applied by ui5loader-autconfig.js
+			///   sap.ui.loader.config({
+			///     shim: {
+			///       'sap/ui/thirdparty/URI': {
+			///          amd: true, // URI.js reacts on an AMD loader, this flag lets UI5 temp. disable such loaders
+			///          exports: 'URI' // name of the global variable under which URI.js exports its module value
+			///       }
+			///     }
+			///   });
+			/// 
+			///   // now the module can be retrieved like other modules
+			///   sap.ui.define('Something', ['sap/ui/thirdparty/URI'], function(URIModuleValue) {
+			/// 
+			///     new URIModuleValue(...); // same as the global 'URI' name: new URI(...)
+			/// 
+			///     ...
+			///   });
+			/// </pre>
+			/// 
+			/// <h3>Differences to Standard AMD</h3>
+			/// 
+			/// The current implementation of <code>sap.ui.define</code> differs from the AMD specification (https://github.com/amdjs/amdjs-api) or from concrete AMD loaders like <code>requireJS</code> in several aspects: <ul> <li>The name <code>sap.ui.define</code> is different from the plain <code>define</code>. This has two reasons: first, it avoids the impression that <code>sap.ui.define</code> is an exact implementation of an AMD loader. And second, it allows the coexistence of an AMD loader (e.g. requireJS) and <code>sap.ui.define</code> in one application as long as UI5 or applications using UI5 are not fully prepared to run with an AMD loader. Note that the difference of the API names also implies that the UI5 loader can't be used to load 'real' AMD modules as they expect methods <code>define</code> and <code>require</code> to be available. Modules that use Unified Module Definition (UMD) syntax, can be loaded, but only when no AMD loader is present or when they expose their export also to the global namespace, even when an AMD loader is present (as e.g. jQuery does) or when a shim is defined for them using the <code>amd:true</code> flag (see example above)</li> <li>Depending on configuration and the current context, <code>sap.ui.define</code> loads the dependencies of a module either synchronously using a sync XHR call + eval or asynchronously via script tags. The sync loading is basically a tribute to the synchronous history of UI5. There's no way for a module developer to enforce synchronous loading of the dependencies and on the long run, sync loading will be faded out. Applications that need to ensure synchronous loading of dependencies <b>MUST</b> use the deprecated legacy APIs like {@link jQuery.sap.require}.</li> <li><code>sap.ui.define</code> does not support plugins to use other file types, formats or protocols. It is not planned to support this in future</li> <li><code>sap.ui.define</code> does not support absolute URLs as module names (dependencies) nor does it allow module names that start with a slash. To refer to a module at an absolute URL, a resource root can be registered that points to that URL (or to a prefix of it).</li> <li><code>sap.ui.define</code> does <b>not</b> support the 'sugar' of requireJS where CommonJS style dependency declarations using <code>sap.ui.require("something")</code> are automagically converted into <code>sap.ui.define</code> dependencies before executing the factory function.</li> </ul>
+			/// 
+			/// <h3>Limitations, Design Considerations</h3> <ul> <li><b>Limitation</b>: as dependency management is not supported for Non-UI5 modules, the only way to ensure proper execution order for such modules currently is to rely on the order in the dependency array. Obviously, this only works as long as <code>sap.ui.define</code> uses synchronous loading. It will be enhanced when asynchronous loading is implemented.</li> <li>It was discussed to enforce asynchronous execution of the module factory function (e.g. with a timeout of 0). But this would have invalidated the current migration scenario where a sync <code>jQuery.sap.require</code> call can load a <code>sap.ui.define</code>'ed module. If the module definition would not execute synchronously, the synchronous contract of the require call would be broken (default behavior in existing UI5 applications)</li> <li>A single file must not contain multiple calls to <code>sap.ui.define</code>. Multiple calls currently are only supported in the so called 'preload' files that the UI5 merge tooling produces. The exact details of how this works might be changed in future implementations and are not part of the API contract</li> </ul>
+			/// </summary>
+			/// <param name="sModuleName">ID of the module in simplified resource name syntax. When omitted, the loader determines the ID from the request.</param>
+			/// <param name="aDependencies">List of dependencies of the module</param>
+			/// <param name="vFactory">The module export value or a function that calculates that value</param>
+			public extern static void define(string sModuleName, string[] aDependencies, object vFactory);
+
+			/// <summary>
+			/// Defines a JavaScript module with its ID, its dependencies and a module export value or factory.
+			/// 
+			/// The typical and only suggested usage of this method is to have one single, top level call to <code>sap.ui.define</code> in one JavaScript resource (file). When a module is requested by its module ID for the first time, the corresponding resource is determined from the ID and the current {@link sap.ui.loader.config configuration}. The resource will be loaded and executed which in turn will execute the top level <code>sap.ui.define</code> call.
+			/// 
+			/// If the module ID was omitted from that call, it will be substituted by the ID that was used to request the module. As a preparation step, the dependencies as well as their transitive dependencies, will be loaded. Then, the module value (its export) will be determined: if a static value (object, literal) was given as <code>vFactory</code>, that value will be the module value. If a function was given, that function will be called (providing the module exports of the declared dependencies as parameters to the function) and its return value will be used as module export value. The framework internally associates the resulting value with the module ID and provides it to the original requester of the module. Whenever the module is requested again, the same export value will be returned (modules are executed only once).
+			/// 
+			/// <i>Example:</i><br> The following example defines a module, but doesn't hard code the module ID. If stored in a file 'sap/mylib/SomeClass.js', it can be requested with the ID 'sap/mylib/SomeClass'. <pre>
+			///   sap.ui.define(['./Helper', 'sap/m/Bar'], function(Helper,Bar) {
+			/// 
+			///     // create a new class
+			///     var SomeClass = function() {};
+			/// 
+			///     // add methods to its prototype
+			///     SomeClass.prototype.foo = function() {
+			/// 
+			///         // use a function from the dependency 'Helper' in the same package (e.g. 'sap/mylib/Helper' )
+			///         var mSettings = Helper.foo();
+			/// 
+			///         // create and return an sap.m.Bar (using its local name 'Bar')
+			///         return new Bar(mSettings);
+			/// 
+			///     }
+			/// 
+			///     // return the class as module value
+			///     return SomeClass;
+			/// 
+			///   });
+			/// </pre>
+			/// 
+			/// In another module or in an application HTML page, the {@link sap.ui.require} API can be used to load the sap/mylib/Something module and to work with it:
+			/// 
+			/// <pre>
+			/// sap.ui.require(['sap/mylib/Something'], function(Something) {
+			/// 
+			///   // instantiate a Something and call foo() on it
+			///   new Something().foo();
+			/// 
+			/// });
+			/// </pre>
+			/// 
+			/// <h3>Module Name Syntax</h3>
+			/// 
+			/// <code>sap.ui.define</code> uses a simplified variant of the {@link jQuery.sap.getResourcePath unified resource name} syntax for the module's own name as well as for its dependencies. The only difference to that syntax is, that for <code>sap.ui.define</code> and <code>sap.ui.require</code>, the extension (which always would be '.js') has to be omitted. Both methods always add this extension internally.
+			/// 
+			/// As a convenience, the name of a dependency can start with the segment './' which will be replaced by the name of the package that contains the currently defined module (relative name).
+			/// 
+			/// It is best practice to omit the name of the defined module (first parameter) and to use relative names for the dependencies whenever possible. This reduces the necessary configuration, simplifies renaming of packages and allows to map them to a different namespace.
+			/// 
+			/// <h3>Dependency to Modules</h3>
+			/// 
+			/// If a dependencies array is given, each entry represents the name of another module that the currently defined module depends on. All dependency modules are loaded before the export of the currently defined module is determined. The module export of each dependency module will be provided as a parameter to a factory function, the order of the parameters will match the order of the modules in the dependencies array.
+			/// 
+			/// <b>Note:</b> The order in which the dependency modules are <i>executed</i> is <b>not</b> defined by the order in the dependencies array! The execution order is affected by dependencies <i>between</i> the dependency modules as well as by their current state (whether a module already has been loaded or not). Neither module implementations nor dependents that require a module set must make any assumption about the execution order (other than expressed by their dependencies).
+			/// 
+			/// <b>Note:</b> A static module export (a literal provided to <code>sap.ui.define</code>) cannot depend on the module exports of the dependency modules as it has to be calculated before the dependencies are resolved. As an alternative, modules can define a factory function, calculate a static export value in that function, potentially based on the dependencies, and return the result as module export value. The same approach must be taken when the module export is supposed to be a function.
+			/// 
+			/// <h3>Asynchronous Contract</h3>
+			/// 
+			/// <code>sap.ui.define</code> is designed to support real Asynchronous Module Definitions (AMD) in future, although it internally still might use synchronous module loading, depending on configuration and context. However, callers of <code>sap.ui.define</code> must never rely on any synchronous behavior that they might observe in a specific test scenario.
+			/// 
+			/// For example, callers of <code>sap.ui.define</code> must not use the module export value immediately after invoking <code>sap.ui.define</code>:
+			/// 
+			/// <pre>
+			///   // COUNTER EXAMPLE HOW __NOT__ TO DO IT
+			/// 
+			///   // define a class Something as AMD module
+			///   sap.ui.define('Something', [], function() {
+			///     var Something = function() {};
+			///     return Something;
+			///   });
+			/// 
+			///   // DON'T DO THAT!
+			///   // accessing the class _synchronously_ after sap.ui.define was called
+			///   new Something();
+			/// 
+			/// </pre>
+			/// 
+			/// Applications that need to ensure synchronous module definition or synchronous loading of dependencies <b>MUST</b> use the deprecated legacy APIs {@link jQuery.sap.declare} and {@link jQuery.sap.require}.
+			/// 
+			/// <h3>(No) Global References</h3>
+			/// 
+			/// To be in line with AMD best practices, modules defined with <code>sap.ui.define</code> should not make any use of global variables if those variables are also available as module exports. Instead, they should add dependencies to those modules and use the corresponding parameter of the factory function to access the module exports.
+			/// 
+			/// As the current programming model and the documentation of UI5 heavily rely on global names, there will be a transition phase where UI5 enables AMD modules and local references to module exports in parallel to the old global names. The fourth parameter of <code>sap.ui.define</code> has been added to support that transition phase. When this parameter is set to true, the framework provides two additional features
+			/// 
+			/// <ol> <li>Before the factory function is called, the existence of the global parent namespace for the current module is ensured</li> <li>The module export returned by the module's factory function will be automatically exported under the global name which is derived from the ID of the module</li> </ol>
+			/// 
+			/// The parameter lets the framework know whether any of those two operations is needed or not. In future versions of UI5, a central configuration option is planned to suppress those 'exports'.
+			/// 
+			/// <h3>Third Party Modules</h3> Although third party modules don't use UI5 APIs, they still can be listed as dependencies in a <code>sap.ui.define</code> call. They will be requested and executed like UI5 modules, but to make their exports available, so called <em>shims</em> have to be defined.
+			/// 
+			/// Note that UI5 temporarily deactivates an existing AMD loader while it executes third party modules known to support AMD. This sounds contradictorily at a first glance as UI5 wants to support AMD, but for now it is necessary to fully support UI5 applications that rely on global names for such modules.
+			/// 
+			/// For third-party modules that UI5 delivers (e.g. those in namespace <code>sap/ui/thirdparty/</code>), the necessary shims are defined by UI5 itself by executing the private module <code>ui5loader-autoconfig.js</code> during bootstrap.
+			/// 
+			/// Example: <pre>
+			///   // module 'Something' wants to use third party library 'URI.js'
+			///   // It is packaged by UI5 as non-UI5-module 'sap/ui/thirdparty/URI'
+			///   // the following shim helps UI5 to correctly load URI.js and to retrieve the module's export value
+			///   // Apps don't have to define that shim, it is already applied by ui5loader-autconfig.js
+			///   sap.ui.loader.config({
+			///     shim: {
+			///       'sap/ui/thirdparty/URI': {
+			///          amd: true, // URI.js reacts on an AMD loader, this flag lets UI5 temp. disable such loaders
+			///          exports: 'URI' // name of the global variable under which URI.js exports its module value
+			///       }
+			///     }
+			///   });
+			/// 
+			///   // now the module can be retrieved like other modules
+			///   sap.ui.define('Something', ['sap/ui/thirdparty/URI'], function(URIModuleValue) {
+			/// 
+			///     new URIModuleValue(...); // same as the global 'URI' name: new URI(...)
+			/// 
+			///     ...
+			///   });
+			/// </pre>
+			/// 
+			/// <h3>Differences to Standard AMD</h3>
+			/// 
+			/// The current implementation of <code>sap.ui.define</code> differs from the AMD specification (https://github.com/amdjs/amdjs-api) or from concrete AMD loaders like <code>requireJS</code> in several aspects: <ul> <li>The name <code>sap.ui.define</code> is different from the plain <code>define</code>. This has two reasons: first, it avoids the impression that <code>sap.ui.define</code> is an exact implementation of an AMD loader. And second, it allows the coexistence of an AMD loader (e.g. requireJS) and <code>sap.ui.define</code> in one application as long as UI5 or applications using UI5 are not fully prepared to run with an AMD loader. Note that the difference of the API names also implies that the UI5 loader can't be used to load 'real' AMD modules as they expect methods <code>define</code> and <code>require</code> to be available. Modules that use Unified Module Definition (UMD) syntax, can be loaded, but only when no AMD loader is present or when they expose their export also to the global namespace, even when an AMD loader is present (as e.g. jQuery does) or when a shim is defined for them using the <code>amd:true</code> flag (see example above)</li> <li>Depending on configuration and the current context, <code>sap.ui.define</code> loads the dependencies of a module either synchronously using a sync XHR call + eval or asynchronously via script tags. The sync loading is basically a tribute to the synchronous history of UI5. There's no way for a module developer to enforce synchronous loading of the dependencies and on the long run, sync loading will be faded out. Applications that need to ensure synchronous loading of dependencies <b>MUST</b> use the deprecated legacy APIs like {@link jQuery.sap.require}.</li> <li><code>sap.ui.define</code> does not support plugins to use other file types, formats or protocols. It is not planned to support this in future</li> <li><code>sap.ui.define</code> does not support absolute URLs as module names (dependencies) nor does it allow module names that start with a slash. To refer to a module at an absolute URL, a resource root can be registered that points to that URL (or to a prefix of it).</li> <li><code>sap.ui.define</code> does <b>not</b> support the 'sugar' of requireJS where CommonJS style dependency declarations using <code>sap.ui.require("something")</code> are automagically converted into <code>sap.ui.define</code> dependencies before executing the factory function.</li> </ul>
+			/// 
+			/// <h3>Limitations, Design Considerations</h3> <ul> <li><b>Limitation</b>: as dependency management is not supported for Non-UI5 modules, the only way to ensure proper execution order for such modules currently is to rely on the order in the dependency array. Obviously, this only works as long as <code>sap.ui.define</code> uses synchronous loading. It will be enhanced when asynchronous loading is implemented.</li> <li>It was discussed to enforce asynchronous execution of the module factory function (e.g. with a timeout of 0). But this would have invalidated the current migration scenario where a sync <code>jQuery.sap.require</code> call can load a <code>sap.ui.define</code>'ed module. If the module definition would not execute synchronously, the synchronous contract of the require call would be broken (default behavior in existing UI5 applications)</li> <li>A single file must not contain multiple calls to <code>sap.ui.define</code>. Multiple calls currently are only supported in the so called 'preload' files that the UI5 merge tooling produces. The exact details of how this works might be changed in future implementations and are not part of the API contract</li> </ul>
+			/// </summary>
+			/// <param name="sModuleName">ID of the module in simplified resource name syntax. When omitted, the loader determines the ID from the request.</param>
+			/// <param name="aDependencies">List of dependencies of the module</param>
+			/// <param name="vFactory">The module export value or a function that calculates that value</param>
+			public extern static void define(string sModuleName, object[] aDependencies, object vFactory);
+
+			/// <summary>
+			/// Defines a JavaScript module with its ID, its dependencies and a module export value or factory.
+			/// 
+			/// The typical and only suggested usage of this method is to have one single, top level call to <code>sap.ui.define</code> in one JavaScript resource (file). When a module is requested by its module ID for the first time, the corresponding resource is determined from the ID and the current {@link sap.ui.loader.config configuration}. The resource will be loaded and executed which in turn will execute the top level <code>sap.ui.define</code> call.
+			/// 
+			/// If the module ID was omitted from that call, it will be substituted by the ID that was used to request the module. As a preparation step, the dependencies as well as their transitive dependencies, will be loaded. Then, the module value (its export) will be determined: if a static value (object, literal) was given as <code>vFactory</code>, that value will be the module value. If a function was given, that function will be called (providing the module exports of the declared dependencies as parameters to the function) and its return value will be used as module export value. The framework internally associates the resulting value with the module ID and provides it to the original requester of the module. Whenever the module is requested again, the same export value will be returned (modules are executed only once).
+			/// 
+			/// <i>Example:</i><br> The following example defines a module, but doesn't hard code the module ID. If stored in a file 'sap/mylib/SomeClass.js', it can be requested with the ID 'sap/mylib/SomeClass'. <pre>
+			///   sap.ui.define(['./Helper', 'sap/m/Bar'], function(Helper,Bar) {
+			/// 
+			///     // create a new class
+			///     var SomeClass = function() {};
+			/// 
+			///     // add methods to its prototype
+			///     SomeClass.prototype.foo = function() {
+			/// 
+			///         // use a function from the dependency 'Helper' in the same package (e.g. 'sap/mylib/Helper' )
+			///         var mSettings = Helper.foo();
+			/// 
+			///         // create and return an sap.m.Bar (using its local name 'Bar')
+			///         return new Bar(mSettings);
+			/// 
+			///     }
+			/// 
+			///     // return the class as module value
+			///     return SomeClass;
+			/// 
+			///   });
+			/// </pre>
+			/// 
+			/// In another module or in an application HTML page, the {@link sap.ui.require} API can be used to load the sap/mylib/Something module and to work with it:
+			/// 
+			/// <pre>
+			/// sap.ui.require(['sap/mylib/Something'], function(Something) {
+			/// 
+			///   // instantiate a Something and call foo() on it
+			///   new Something().foo();
+			/// 
+			/// });
+			/// </pre>
+			/// 
+			/// <h3>Module Name Syntax</h3>
+			/// 
+			/// <code>sap.ui.define</code> uses a simplified variant of the {@link jQuery.sap.getResourcePath unified resource name} syntax for the module's own name as well as for its dependencies. The only difference to that syntax is, that for <code>sap.ui.define</code> and <code>sap.ui.require</code>, the extension (which always would be '.js') has to be omitted. Both methods always add this extension internally.
+			/// 
+			/// As a convenience, the name of a dependency can start with the segment './' which will be replaced by the name of the package that contains the currently defined module (relative name).
+			/// 
+			/// It is best practice to omit the name of the defined module (first parameter) and to use relative names for the dependencies whenever possible. This reduces the necessary configuration, simplifies renaming of packages and allows to map them to a different namespace.
+			/// 
+			/// <h3>Dependency to Modules</h3>
+			/// 
+			/// If a dependencies array is given, each entry represents the name of another module that the currently defined module depends on. All dependency modules are loaded before the export of the currently defined module is determined. The module export of each dependency module will be provided as a parameter to a factory function, the order of the parameters will match the order of the modules in the dependencies array.
+			/// 
+			/// <b>Note:</b> The order in which the dependency modules are <i>executed</i> is <b>not</b> defined by the order in the dependencies array! The execution order is affected by dependencies <i>between</i> the dependency modules as well as by their current state (whether a module already has been loaded or not). Neither module implementations nor dependents that require a module set must make any assumption about the execution order (other than expressed by their dependencies).
+			/// 
+			/// <b>Note:</b> A static module export (a literal provided to <code>sap.ui.define</code>) cannot depend on the module exports of the dependency modules as it has to be calculated before the dependencies are resolved. As an alternative, modules can define a factory function, calculate a static export value in that function, potentially based on the dependencies, and return the result as module export value. The same approach must be taken when the module export is supposed to be a function.
+			/// 
+			/// <h3>Asynchronous Contract</h3>
+			/// 
+			/// <code>sap.ui.define</code> is designed to support real Asynchronous Module Definitions (AMD) in future, although it internally still might use synchronous module loading, depending on configuration and context. However, callers of <code>sap.ui.define</code> must never rely on any synchronous behavior that they might observe in a specific test scenario.
+			/// 
+			/// For example, callers of <code>sap.ui.define</code> must not use the module export value immediately after invoking <code>sap.ui.define</code>:
+			/// 
+			/// <pre>
+			///   // COUNTER EXAMPLE HOW __NOT__ TO DO IT
+			/// 
+			///   // define a class Something as AMD module
+			///   sap.ui.define('Something', [], function() {
+			///     var Something = function() {};
+			///     return Something;
+			///   });
+			/// 
+			///   // DON'T DO THAT!
+			///   // accessing the class _synchronously_ after sap.ui.define was called
+			///   new Something();
+			/// 
+			/// </pre>
+			/// 
+			/// Applications that need to ensure synchronous module definition or synchronous loading of dependencies <b>MUST</b> use the deprecated legacy APIs {@link jQuery.sap.declare} and {@link jQuery.sap.require}.
+			/// 
+			/// <h3>(No) Global References</h3>
+			/// 
+			/// To be in line with AMD best practices, modules defined with <code>sap.ui.define</code> should not make any use of global variables if those variables are also available as module exports. Instead, they should add dependencies to those modules and use the corresponding parameter of the factory function to access the module exports.
+			/// 
+			/// As the current programming model and the documentation of UI5 heavily rely on global names, there will be a transition phase where UI5 enables AMD modules and local references to module exports in parallel to the old global names. The fourth parameter of <code>sap.ui.define</code> has been added to support that transition phase. When this parameter is set to true, the framework provides two additional features
+			/// 
+			/// <ol> <li>Before the factory function is called, the existence of the global parent namespace for the current module is ensured</li> <li>The module export returned by the module's factory function will be automatically exported under the global name which is derived from the ID of the module</li> </ol>
+			/// 
+			/// The parameter lets the framework know whether any of those two operations is needed or not. In future versions of UI5, a central configuration option is planned to suppress those 'exports'.
+			/// 
+			/// <h3>Third Party Modules</h3> Although third party modules don't use UI5 APIs, they still can be listed as dependencies in a <code>sap.ui.define</code> call. They will be requested and executed like UI5 modules, but to make their exports available, so called <em>shims</em> have to be defined.
+			/// 
+			/// Note that UI5 temporarily deactivates an existing AMD loader while it executes third party modules known to support AMD. This sounds contradictorily at a first glance as UI5 wants to support AMD, but for now it is necessary to fully support UI5 applications that rely on global names for such modules.
+			/// 
+			/// For third-party modules that UI5 delivers (e.g. those in namespace <code>sap/ui/thirdparty/</code>), the necessary shims are defined by UI5 itself by executing the private module <code>ui5loader-autoconfig.js</code> during bootstrap.
+			/// 
+			/// Example: <pre>
+			///   // module 'Something' wants to use third party library 'URI.js'
+			///   // It is packaged by UI5 as non-UI5-module 'sap/ui/thirdparty/URI'
+			///   // the following shim helps UI5 to correctly load URI.js and to retrieve the module's export value
+			///   // Apps don't have to define that shim, it is already applied by ui5loader-autconfig.js
+			///   sap.ui.loader.config({
+			///     shim: {
+			///       'sap/ui/thirdparty/URI': {
+			///          amd: true, // URI.js reacts on an AMD loader, this flag lets UI5 temp. disable such loaders
+			///          exports: 'URI' // name of the global variable under which URI.js exports its module value
+			///       }
+			///     }
+			///   });
+			/// 
+			///   // now the module can be retrieved like other modules
+			///   sap.ui.define('Something', ['sap/ui/thirdparty/URI'], function(URIModuleValue) {
+			/// 
+			///     new URIModuleValue(...); // same as the global 'URI' name: new URI(...)
+			/// 
+			///     ...
+			///   });
+			/// </pre>
+			/// 
+			/// <h3>Differences to Standard AMD</h3>
+			/// 
+			/// The current implementation of <code>sap.ui.define</code> differs from the AMD specification (https://github.com/amdjs/amdjs-api) or from concrete AMD loaders like <code>requireJS</code> in several aspects: <ul> <li>The name <code>sap.ui.define</code> is different from the plain <code>define</code>. This has two reasons: first, it avoids the impression that <code>sap.ui.define</code> is an exact implementation of an AMD loader. And second, it allows the coexistence of an AMD loader (e.g. requireJS) and <code>sap.ui.define</code> in one application as long as UI5 or applications using UI5 are not fully prepared to run with an AMD loader. Note that the difference of the API names also implies that the UI5 loader can't be used to load 'real' AMD modules as they expect methods <code>define</code> and <code>require</code> to be available. Modules that use Unified Module Definition (UMD) syntax, can be loaded, but only when no AMD loader is present or when they expose their export also to the global namespace, even when an AMD loader is present (as e.g. jQuery does) or when a shim is defined for them using the <code>amd:true</code> flag (see example above)</li> <li>Depending on configuration and the current context, <code>sap.ui.define</code> loads the dependencies of a module either synchronously using a sync XHR call + eval or asynchronously via script tags. The sync loading is basically a tribute to the synchronous history of UI5. There's no way for a module developer to enforce synchronous loading of the dependencies and on the long run, sync loading will be faded out. Applications that need to ensure synchronous loading of dependencies <b>MUST</b> use the deprecated legacy APIs like {@link jQuery.sap.require}.</li> <li><code>sap.ui.define</code> does not support plugins to use other file types, formats or protocols. It is not planned to support this in future</li> <li><code>sap.ui.define</code> does not support absolute URLs as module names (dependencies) nor does it allow module names that start with a slash. To refer to a module at an absolute URL, a resource root can be registered that points to that URL (or to a prefix of it).</li> <li><code>sap.ui.define</code> does <b>not</b> support the 'sugar' of requireJS where CommonJS style dependency declarations using <code>sap.ui.require("something")</code> are automagically converted into <code>sap.ui.define</code> dependencies before executing the factory function.</li> </ul>
+			/// 
+			/// <h3>Limitations, Design Considerations</h3> <ul> <li><b>Limitation</b>: as dependency management is not supported for Non-UI5 modules, the only way to ensure proper execution order for such modules currently is to rely on the order in the dependency array. Obviously, this only works as long as <code>sap.ui.define</code> uses synchronous loading. It will be enhanced when asynchronous loading is implemented.</li> <li>It was discussed to enforce asynchronous execution of the module factory function (e.g. with a timeout of 0). But this would have invalidated the current migration scenario where a sync <code>jQuery.sap.require</code> call can load a <code>sap.ui.define</code>'ed module. If the module definition would not execute synchronously, the synchronous contract of the require call would be broken (default behavior in existing UI5 applications)</li> <li>A single file must not contain multiple calls to <code>sap.ui.define</code>. Multiple calls currently are only supported in the so called 'preload' files that the UI5 merge tooling produces. The exact details of how this works might be changed in future implementations and are not part of the API contract</li> </ul>
+			/// </summary>
+			/// <param name="aDependencies">List of dependencies of the module</param>
+			/// <param name="vFactory">The module export value or a function that calculates that value</param>
+			public extern static void define(string[] aDependencies, object vFactory);
+
+			/// <summary>
+			/// Defines a JavaScript module with its ID, its dependencies and a module export value or factory.
+			/// 
+			/// The typical and only suggested usage of this method is to have one single, top level call to <code>sap.ui.define</code> in one JavaScript resource (file). When a module is requested by its module ID for the first time, the corresponding resource is determined from the ID and the current {@link sap.ui.loader.config configuration}. The resource will be loaded and executed which in turn will execute the top level <code>sap.ui.define</code> call.
+			/// 
+			/// If the module ID was omitted from that call, it will be substituted by the ID that was used to request the module. As a preparation step, the dependencies as well as their transitive dependencies, will be loaded. Then, the module value (its export) will be determined: if a static value (object, literal) was given as <code>vFactory</code>, that value will be the module value. If a function was given, that function will be called (providing the module exports of the declared dependencies as parameters to the function) and its return value will be used as module export value. The framework internally associates the resulting value with the module ID and provides it to the original requester of the module. Whenever the module is requested again, the same export value will be returned (modules are executed only once).
+			/// 
+			/// <i>Example:</i><br> The following example defines a module, but doesn't hard code the module ID. If stored in a file 'sap/mylib/SomeClass.js', it can be requested with the ID 'sap/mylib/SomeClass'. <pre>
+			///   sap.ui.define(['./Helper', 'sap/m/Bar'], function(Helper,Bar) {
+			/// 
+			///     // create a new class
+			///     var SomeClass = function() {};
+			/// 
+			///     // add methods to its prototype
+			///     SomeClass.prototype.foo = function() {
+			/// 
+			///         // use a function from the dependency 'Helper' in the same package (e.g. 'sap/mylib/Helper' )
+			///         var mSettings = Helper.foo();
+			/// 
+			///         // create and return an sap.m.Bar (using its local name 'Bar')
+			///         return new Bar(mSettings);
+			/// 
+			///     }
+			/// 
+			///     // return the class as module value
+			///     return SomeClass;
+			/// 
+			///   });
+			/// </pre>
+			/// 
+			/// In another module or in an application HTML page, the {@link sap.ui.require} API can be used to load the sap/mylib/Something module and to work with it:
+			/// 
+			/// <pre>
+			/// sap.ui.require(['sap/mylib/Something'], function(Something) {
+			/// 
+			///   // instantiate a Something and call foo() on it
+			///   new Something().foo();
+			/// 
+			/// });
+			/// </pre>
+			/// 
+			/// <h3>Module Name Syntax</h3>
+			/// 
+			/// <code>sap.ui.define</code> uses a simplified variant of the {@link jQuery.sap.getResourcePath unified resource name} syntax for the module's own name as well as for its dependencies. The only difference to that syntax is, that for <code>sap.ui.define</code> and <code>sap.ui.require</code>, the extension (which always would be '.js') has to be omitted. Both methods always add this extension internally.
+			/// 
+			/// As a convenience, the name of a dependency can start with the segment './' which will be replaced by the name of the package that contains the currently defined module (relative name).
+			/// 
+			/// It is best practice to omit the name of the defined module (first parameter) and to use relative names for the dependencies whenever possible. This reduces the necessary configuration, simplifies renaming of packages and allows to map them to a different namespace.
+			/// 
+			/// <h3>Dependency to Modules</h3>
+			/// 
+			/// If a dependencies array is given, each entry represents the name of another module that the currently defined module depends on. All dependency modules are loaded before the export of the currently defined module is determined. The module export of each dependency module will be provided as a parameter to a factory function, the order of the parameters will match the order of the modules in the dependencies array.
+			/// 
+			/// <b>Note:</b> The order in which the dependency modules are <i>executed</i> is <b>not</b> defined by the order in the dependencies array! The execution order is affected by dependencies <i>between</i> the dependency modules as well as by their current state (whether a module already has been loaded or not). Neither module implementations nor dependents that require a module set must make any assumption about the execution order (other than expressed by their dependencies).
+			/// 
+			/// <b>Note:</b> A static module export (a literal provided to <code>sap.ui.define</code>) cannot depend on the module exports of the dependency modules as it has to be calculated before the dependencies are resolved. As an alternative, modules can define a factory function, calculate a static export value in that function, potentially based on the dependencies, and return the result as module export value. The same approach must be taken when the module export is supposed to be a function.
+			/// 
+			/// <h3>Asynchronous Contract</h3>
+			/// 
+			/// <code>sap.ui.define</code> is designed to support real Asynchronous Module Definitions (AMD) in future, although it internally still might use synchronous module loading, depending on configuration and context. However, callers of <code>sap.ui.define</code> must never rely on any synchronous behavior that they might observe in a specific test scenario.
+			/// 
+			/// For example, callers of <code>sap.ui.define</code> must not use the module export value immediately after invoking <code>sap.ui.define</code>:
+			/// 
+			/// <pre>
+			///   // COUNTER EXAMPLE HOW __NOT__ TO DO IT
+			/// 
+			///   // define a class Something as AMD module
+			///   sap.ui.define('Something', [], function() {
+			///     var Something = function() {};
+			///     return Something;
+			///   });
+			/// 
+			///   // DON'T DO THAT!
+			///   // accessing the class _synchronously_ after sap.ui.define was called
+			///   new Something();
+			/// 
+			/// </pre>
+			/// 
+			/// Applications that need to ensure synchronous module definition or synchronous loading of dependencies <b>MUST</b> use the deprecated legacy APIs {@link jQuery.sap.declare} and {@link jQuery.sap.require}.
+			/// 
+			/// <h3>(No) Global References</h3>
+			/// 
+			/// To be in line with AMD best practices, modules defined with <code>sap.ui.define</code> should not make any use of global variables if those variables are also available as module exports. Instead, they should add dependencies to those modules and use the corresponding parameter of the factory function to access the module exports.
+			/// 
+			/// As the current programming model and the documentation of UI5 heavily rely on global names, there will be a transition phase where UI5 enables AMD modules and local references to module exports in parallel to the old global names. The fourth parameter of <code>sap.ui.define</code> has been added to support that transition phase. When this parameter is set to true, the framework provides two additional features
+			/// 
+			/// <ol> <li>Before the factory function is called, the existence of the global parent namespace for the current module is ensured</li> <li>The module export returned by the module's factory function will be automatically exported under the global name which is derived from the ID of the module</li> </ol>
+			/// 
+			/// The parameter lets the framework know whether any of those two operations is needed or not. In future versions of UI5, a central configuration option is planned to suppress those 'exports'.
+			/// 
+			/// <h3>Third Party Modules</h3> Although third party modules don't use UI5 APIs, they still can be listed as dependencies in a <code>sap.ui.define</code> call. They will be requested and executed like UI5 modules, but to make their exports available, so called <em>shims</em> have to be defined.
+			/// 
+			/// Note that UI5 temporarily deactivates an existing AMD loader while it executes third party modules known to support AMD. This sounds contradictorily at a first glance as UI5 wants to support AMD, but for now it is necessary to fully support UI5 applications that rely on global names for such modules.
+			/// 
+			/// For third-party modules that UI5 delivers (e.g. those in namespace <code>sap/ui/thirdparty/</code>), the necessary shims are defined by UI5 itself by executing the private module <code>ui5loader-autoconfig.js</code> during bootstrap.
+			/// 
+			/// Example: <pre>
+			///   // module 'Something' wants to use third party library 'URI.js'
+			///   // It is packaged by UI5 as non-UI5-module 'sap/ui/thirdparty/URI'
+			///   // the following shim helps UI5 to correctly load URI.js and to retrieve the module's export value
+			///   // Apps don't have to define that shim, it is already applied by ui5loader-autconfig.js
+			///   sap.ui.loader.config({
+			///     shim: {
+			///       'sap/ui/thirdparty/URI': {
+			///          amd: true, // URI.js reacts on an AMD loader, this flag lets UI5 temp. disable such loaders
+			///          exports: 'URI' // name of the global variable under which URI.js exports its module value
+			///       }
+			///     }
+			///   });
+			/// 
+			///   // now the module can be retrieved like other modules
+			///   sap.ui.define('Something', ['sap/ui/thirdparty/URI'], function(URIModuleValue) {
+			/// 
+			///     new URIModuleValue(...); // same as the global 'URI' name: new URI(...)
+			/// 
+			///     ...
+			///   });
+			/// </pre>
+			/// 
+			/// <h3>Differences to Standard AMD</h3>
+			/// 
+			/// The current implementation of <code>sap.ui.define</code> differs from the AMD specification (https://github.com/amdjs/amdjs-api) or from concrete AMD loaders like <code>requireJS</code> in several aspects: <ul> <li>The name <code>sap.ui.define</code> is different from the plain <code>define</code>. This has two reasons: first, it avoids the impression that <code>sap.ui.define</code> is an exact implementation of an AMD loader. And second, it allows the coexistence of an AMD loader (e.g. requireJS) and <code>sap.ui.define</code> in one application as long as UI5 or applications using UI5 are not fully prepared to run with an AMD loader. Note that the difference of the API names also implies that the UI5 loader can't be used to load 'real' AMD modules as they expect methods <code>define</code> and <code>require</code> to be available. Modules that use Unified Module Definition (UMD) syntax, can be loaded, but only when no AMD loader is present or when they expose their export also to the global namespace, even when an AMD loader is present (as e.g. jQuery does) or when a shim is defined for them using the <code>amd:true</code> flag (see example above)</li> <li>Depending on configuration and the current context, <code>sap.ui.define</code> loads the dependencies of a module either synchronously using a sync XHR call + eval or asynchronously via script tags. The sync loading is basically a tribute to the synchronous history of UI5. There's no way for a module developer to enforce synchronous loading of the dependencies and on the long run, sync loading will be faded out. Applications that need to ensure synchronous loading of dependencies <b>MUST</b> use the deprecated legacy APIs like {@link jQuery.sap.require}.</li> <li><code>sap.ui.define</code> does not support plugins to use other file types, formats or protocols. It is not planned to support this in future</li> <li><code>sap.ui.define</code> does not support absolute URLs as module names (dependencies) nor does it allow module names that start with a slash. To refer to a module at an absolute URL, a resource root can be registered that points to that URL (or to a prefix of it).</li> <li><code>sap.ui.define</code> does <b>not</b> support the 'sugar' of requireJS where CommonJS style dependency declarations using <code>sap.ui.require("something")</code> are automagically converted into <code>sap.ui.define</code> dependencies before executing the factory function.</li> </ul>
+			/// 
+			/// <h3>Limitations, Design Considerations</h3> <ul> <li><b>Limitation</b>: as dependency management is not supported for Non-UI5 modules, the only way to ensure proper execution order for such modules currently is to rely on the order in the dependency array. Obviously, this only works as long as <code>sap.ui.define</code> uses synchronous loading. It will be enhanced when asynchronous loading is implemented.</li> <li>It was discussed to enforce asynchronous execution of the module factory function (e.g. with a timeout of 0). But this would have invalidated the current migration scenario where a sync <code>jQuery.sap.require</code> call can load a <code>sap.ui.define</code>'ed module. If the module definition would not execute synchronously, the synchronous contract of the require call would be broken (default behavior in existing UI5 applications)</li> <li>A single file must not contain multiple calls to <code>sap.ui.define</code>. Multiple calls currently are only supported in the so called 'preload' files that the UI5 merge tooling produces. The exact details of how this works might be changed in future implementations and are not part of the API contract</li> </ul>
+			/// </summary>
+			/// <param name="aDependencies">List of dependencies of the module</param>
+			/// <param name="vFactory">The module export value or a function that calculates that value</param>
+			public extern static void define(object[] aDependencies, object vFactory);
+
+			/// <summary>
+			/// Defines a JavaScript module with its ID, its dependencies and a module export value or factory.
+			/// 
+			/// The typical and only suggested usage of this method is to have one single, top level call to <code>sap.ui.define</code> in one JavaScript resource (file). When a module is requested by its module ID for the first time, the corresponding resource is determined from the ID and the current {@link sap.ui.loader.config configuration}. The resource will be loaded and executed which in turn will execute the top level <code>sap.ui.define</code> call.
+			/// 
+			/// If the module ID was omitted from that call, it will be substituted by the ID that was used to request the module. As a preparation step, the dependencies as well as their transitive dependencies, will be loaded. Then, the module value (its export) will be determined: if a static value (object, literal) was given as <code>vFactory</code>, that value will be the module value. If a function was given, that function will be called (providing the module exports of the declared dependencies as parameters to the function) and its return value will be used as module export value. The framework internally associates the resulting value with the module ID and provides it to the original requester of the module. Whenever the module is requested again, the same export value will be returned (modules are executed only once).
+			/// 
+			/// <i>Example:</i><br> The following example defines a module, but doesn't hard code the module ID. If stored in a file 'sap/mylib/SomeClass.js', it can be requested with the ID 'sap/mylib/SomeClass'. <pre>
+			///   sap.ui.define(['./Helper', 'sap/m/Bar'], function(Helper,Bar) {
+			/// 
+			///     // create a new class
+			///     var SomeClass = function() {};
+			/// 
+			///     // add methods to its prototype
+			///     SomeClass.prototype.foo = function() {
+			/// 
+			///         // use a function from the dependency 'Helper' in the same package (e.g. 'sap/mylib/Helper' )
+			///         var mSettings = Helper.foo();
+			/// 
+			///         // create and return an sap.m.Bar (using its local name 'Bar')
+			///         return new Bar(mSettings);
+			/// 
+			///     }
+			/// 
+			///     // return the class as module value
+			///     return SomeClass;
+			/// 
+			///   });
+			/// </pre>
+			/// 
+			/// In another module or in an application HTML page, the {@link sap.ui.require} API can be used to load the sap/mylib/Something module and to work with it:
+			/// 
+			/// <pre>
+			/// sap.ui.require(['sap/mylib/Something'], function(Something) {
+			/// 
+			///   // instantiate a Something and call foo() on it
+			///   new Something().foo();
+			/// 
+			/// });
+			/// </pre>
+			/// 
+			/// <h3>Module Name Syntax</h3>
+			/// 
+			/// <code>sap.ui.define</code> uses a simplified variant of the {@link jQuery.sap.getResourcePath unified resource name} syntax for the module's own name as well as for its dependencies. The only difference to that syntax is, that for <code>sap.ui.define</code> and <code>sap.ui.require</code>, the extension (which always would be '.js') has to be omitted. Both methods always add this extension internally.
+			/// 
+			/// As a convenience, the name of a dependency can start with the segment './' which will be replaced by the name of the package that contains the currently defined module (relative name).
+			/// 
+			/// It is best practice to omit the name of the defined module (first parameter) and to use relative names for the dependencies whenever possible. This reduces the necessary configuration, simplifies renaming of packages and allows to map them to a different namespace.
+			/// 
+			/// <h3>Dependency to Modules</h3>
+			/// 
+			/// If a dependencies array is given, each entry represents the name of another module that the currently defined module depends on. All dependency modules are loaded before the export of the currently defined module is determined. The module export of each dependency module will be provided as a parameter to a factory function, the order of the parameters will match the order of the modules in the dependencies array.
+			/// 
+			/// <b>Note:</b> The order in which the dependency modules are <i>executed</i> is <b>not</b> defined by the order in the dependencies array! The execution order is affected by dependencies <i>between</i> the dependency modules as well as by their current state (whether a module already has been loaded or not). Neither module implementations nor dependents that require a module set must make any assumption about the execution order (other than expressed by their dependencies).
+			/// 
+			/// <b>Note:</b> A static module export (a literal provided to <code>sap.ui.define</code>) cannot depend on the module exports of the dependency modules as it has to be calculated before the dependencies are resolved. As an alternative, modules can define a factory function, calculate a static export value in that function, potentially based on the dependencies, and return the result as module export value. The same approach must be taken when the module export is supposed to be a function.
+			/// 
+			/// <h3>Asynchronous Contract</h3>
+			/// 
+			/// <code>sap.ui.define</code> is designed to support real Asynchronous Module Definitions (AMD) in future, although it internally still might use synchronous module loading, depending on configuration and context. However, callers of <code>sap.ui.define</code> must never rely on any synchronous behavior that they might observe in a specific test scenario.
+			/// 
+			/// For example, callers of <code>sap.ui.define</code> must not use the module export value immediately after invoking <code>sap.ui.define</code>:
+			/// 
+			/// <pre>
+			///   // COUNTER EXAMPLE HOW __NOT__ TO DO IT
+			/// 
+			///   // define a class Something as AMD module
+			///   sap.ui.define('Something', [], function() {
+			///     var Something = function() {};
+			///     return Something;
+			///   });
+			/// 
+			///   // DON'T DO THAT!
+			///   // accessing the class _synchronously_ after sap.ui.define was called
+			///   new Something();
+			/// 
+			/// </pre>
+			/// 
+			/// Applications that need to ensure synchronous module definition or synchronous loading of dependencies <b>MUST</b> use the deprecated legacy APIs {@link jQuery.sap.declare} and {@link jQuery.sap.require}.
+			/// 
+			/// <h3>(No) Global References</h3>
+			/// 
+			/// To be in line with AMD best practices, modules defined with <code>sap.ui.define</code> should not make any use of global variables if those variables are also available as module exports. Instead, they should add dependencies to those modules and use the corresponding parameter of the factory function to access the module exports.
+			/// 
+			/// As the current programming model and the documentation of UI5 heavily rely on global names, there will be a transition phase where UI5 enables AMD modules and local references to module exports in parallel to the old global names. The fourth parameter of <code>sap.ui.define</code> has been added to support that transition phase. When this parameter is set to true, the framework provides two additional features
+			/// 
+			/// <ol> <li>Before the factory function is called, the existence of the global parent namespace for the current module is ensured</li> <li>The module export returned by the module's factory function will be automatically exported under the global name which is derived from the ID of the module</li> </ol>
+			/// 
+			/// The parameter lets the framework know whether any of those two operations is needed or not. In future versions of UI5, a central configuration option is planned to suppress those 'exports'.
+			/// 
+			/// <h3>Third Party Modules</h3> Although third party modules don't use UI5 APIs, they still can be listed as dependencies in a <code>sap.ui.define</code> call. They will be requested and executed like UI5 modules, but to make their exports available, so called <em>shims</em> have to be defined.
+			/// 
+			/// Note that UI5 temporarily deactivates an existing AMD loader while it executes third party modules known to support AMD. This sounds contradictorily at a first glance as UI5 wants to support AMD, but for now it is necessary to fully support UI5 applications that rely on global names for such modules.
+			/// 
+			/// For third-party modules that UI5 delivers (e.g. those in namespace <code>sap/ui/thirdparty/</code>), the necessary shims are defined by UI5 itself by executing the private module <code>ui5loader-autoconfig.js</code> during bootstrap.
+			/// 
+			/// Example: <pre>
+			///   // module 'Something' wants to use third party library 'URI.js'
+			///   // It is packaged by UI5 as non-UI5-module 'sap/ui/thirdparty/URI'
+			///   // the following shim helps UI5 to correctly load URI.js and to retrieve the module's export value
+			///   // Apps don't have to define that shim, it is already applied by ui5loader-autconfig.js
+			///   sap.ui.loader.config({
+			///     shim: {
+			///       'sap/ui/thirdparty/URI': {
+			///          amd: true, // URI.js reacts on an AMD loader, this flag lets UI5 temp. disable such loaders
+			///          exports: 'URI' // name of the global variable under which URI.js exports its module value
+			///       }
+			///     }
+			///   });
+			/// 
+			///   // now the module can be retrieved like other modules
+			///   sap.ui.define('Something', ['sap/ui/thirdparty/URI'], function(URIModuleValue) {
+			/// 
+			///     new URIModuleValue(...); // same as the global 'URI' name: new URI(...)
+			/// 
+			///     ...
+			///   });
+			/// </pre>
+			/// 
+			/// <h3>Differences to Standard AMD</h3>
+			/// 
+			/// The current implementation of <code>sap.ui.define</code> differs from the AMD specification (https://github.com/amdjs/amdjs-api) or from concrete AMD loaders like <code>requireJS</code> in several aspects: <ul> <li>The name <code>sap.ui.define</code> is different from the plain <code>define</code>. This has two reasons: first, it avoids the impression that <code>sap.ui.define</code> is an exact implementation of an AMD loader. And second, it allows the coexistence of an AMD loader (e.g. requireJS) and <code>sap.ui.define</code> in one application as long as UI5 or applications using UI5 are not fully prepared to run with an AMD loader. Note that the difference of the API names also implies that the UI5 loader can't be used to load 'real' AMD modules as they expect methods <code>define</code> and <code>require</code> to be available. Modules that use Unified Module Definition (UMD) syntax, can be loaded, but only when no AMD loader is present or when they expose their export also to the global namespace, even when an AMD loader is present (as e.g. jQuery does) or when a shim is defined for them using the <code>amd:true</code> flag (see example above)</li> <li>Depending on configuration and the current context, <code>sap.ui.define</code> loads the dependencies of a module either synchronously using a sync XHR call + eval or asynchronously via script tags. The sync loading is basically a tribute to the synchronous history of UI5. There's no way for a module developer to enforce synchronous loading of the dependencies and on the long run, sync loading will be faded out. Applications that need to ensure synchronous loading of dependencies <b>MUST</b> use the deprecated legacy APIs like {@link jQuery.sap.require}.</li> <li><code>sap.ui.define</code> does not support plugins to use other file types, formats or protocols. It is not planned to support this in future</li> <li><code>sap.ui.define</code> does not support absolute URLs as module names (dependencies) nor does it allow module names that start with a slash. To refer to a module at an absolute URL, a resource root can be registered that points to that URL (or to a prefix of it).</li> <li><code>sap.ui.define</code> does <b>not</b> support the 'sugar' of requireJS where CommonJS style dependency declarations using <code>sap.ui.require("something")</code> are automagically converted into <code>sap.ui.define</code> dependencies before executing the factory function.</li> </ul>
+			/// 
+			/// <h3>Limitations, Design Considerations</h3> <ul> <li><b>Limitation</b>: as dependency management is not supported for Non-UI5 modules, the only way to ensure proper execution order for such modules currently is to rely on the order in the dependency array. Obviously, this only works as long as <code>sap.ui.define</code> uses synchronous loading. It will be enhanced when asynchronous loading is implemented.</li> <li>It was discussed to enforce asynchronous execution of the module factory function (e.g. with a timeout of 0). But this would have invalidated the current migration scenario where a sync <code>jQuery.sap.require</code> call can load a <code>sap.ui.define</code>'ed module. If the module definition would not execute synchronously, the synchronous contract of the require call would be broken (default behavior in existing UI5 applications)</li> <li>A single file must not contain multiple calls to <code>sap.ui.define</code>. Multiple calls currently are only supported in the so called 'preload' files that the UI5 merge tooling produces. The exact details of how this works might be changed in future implementations and are not part of the API contract</li> </ul>
+			/// </summary>
+			/// <param name="vFactory">The module export value or a function that calculates that value</param>
+			public extern static void define(object vFactory);
+
+			/// <summary>
+			/// Defines a JavaScript module with its ID, its dependencies and a module export value or factory.
+			/// 
+			/// The typical and only suggested usage of this method is to have one single, top level call to <code>sap.ui.define</code> in one JavaScript resource (file). When a module is requested by its module ID for the first time, the corresponding resource is determined from the ID and the current {@link sap.ui.loader.config configuration}. The resource will be loaded and executed which in turn will execute the top level <code>sap.ui.define</code> call.
+			/// 
+			/// If the module ID was omitted from that call, it will be substituted by the ID that was used to request the module. As a preparation step, the dependencies as well as their transitive dependencies, will be loaded. Then, the module value (its export) will be determined: if a static value (object, literal) was given as <code>vFactory</code>, that value will be the module value. If a function was given, that function will be called (providing the module exports of the declared dependencies as parameters to the function) and its return value will be used as module export value. The framework internally associates the resulting value with the module ID and provides it to the original requester of the module. Whenever the module is requested again, the same export value will be returned (modules are executed only once).
+			/// 
+			/// <i>Example:</i><br> The following example defines a module, but doesn't hard code the module ID. If stored in a file 'sap/mylib/SomeClass.js', it can be requested with the ID 'sap/mylib/SomeClass'. <pre>
+			///   sap.ui.define(['./Helper', 'sap/m/Bar'], function(Helper,Bar) {
+			/// 
+			///     // create a new class
+			///     var SomeClass = function() {};
+			/// 
+			///     // add methods to its prototype
+			///     SomeClass.prototype.foo = function() {
+			/// 
+			///         // use a function from the dependency 'Helper' in the same package (e.g. 'sap/mylib/Helper' )
+			///         var mSettings = Helper.foo();
+			/// 
+			///         // create and return an sap.m.Bar (using its local name 'Bar')
+			///         return new Bar(mSettings);
+			/// 
+			///     }
+			/// 
+			///     // return the class as module value
+			///     return SomeClass;
+			/// 
+			///   });
+			/// </pre>
+			/// 
+			/// In another module or in an application HTML page, the {@link sap.ui.require} API can be used to load the sap/mylib/Something module and to work with it:
+			/// 
+			/// <pre>
+			/// sap.ui.require(['sap/mylib/Something'], function(Something) {
+			/// 
+			///   // instantiate a Something and call foo() on it
+			///   new Something().foo();
+			/// 
+			/// });
+			/// </pre>
+			/// 
+			/// <h3>Module Name Syntax</h3>
+			/// 
+			/// <code>sap.ui.define</code> uses a simplified variant of the {@link jQuery.sap.getResourcePath unified resource name} syntax for the module's own name as well as for its dependencies. The only difference to that syntax is, that for <code>sap.ui.define</code> and <code>sap.ui.require</code>, the extension (which always would be '.js') has to be omitted. Both methods always add this extension internally.
+			/// 
+			/// As a convenience, the name of a dependency can start with the segment './' which will be replaced by the name of the package that contains the currently defined module (relative name).
+			/// 
+			/// It is best practice to omit the name of the defined module (first parameter) and to use relative names for the dependencies whenever possible. This reduces the necessary configuration, simplifies renaming of packages and allows to map them to a different namespace.
+			/// 
+			/// <h3>Dependency to Modules</h3>
+			/// 
+			/// If a dependencies array is given, each entry represents the name of another module that the currently defined module depends on. All dependency modules are loaded before the export of the currently defined module is determined. The module export of each dependency module will be provided as a parameter to a factory function, the order of the parameters will match the order of the modules in the dependencies array.
+			/// 
+			/// <b>Note:</b> The order in which the dependency modules are <i>executed</i> is <b>not</b> defined by the order in the dependencies array! The execution order is affected by dependencies <i>between</i> the dependency modules as well as by their current state (whether a module already has been loaded or not). Neither module implementations nor dependents that require a module set must make any assumption about the execution order (other than expressed by their dependencies).
+			/// 
+			/// <b>Note:</b> A static module export (a literal provided to <code>sap.ui.define</code>) cannot depend on the module exports of the dependency modules as it has to be calculated before the dependencies are resolved. As an alternative, modules can define a factory function, calculate a static export value in that function, potentially based on the dependencies, and return the result as module export value. The same approach must be taken when the module export is supposed to be a function.
+			/// 
+			/// <h3>Asynchronous Contract</h3>
+			/// 
+			/// <code>sap.ui.define</code> is designed to support real Asynchronous Module Definitions (AMD) in future, although it internally still might use synchronous module loading, depending on configuration and context. However, callers of <code>sap.ui.define</code> must never rely on any synchronous behavior that they might observe in a specific test scenario.
+			/// 
+			/// For example, callers of <code>sap.ui.define</code> must not use the module export value immediately after invoking <code>sap.ui.define</code>:
+			/// 
+			/// <pre>
+			///   // COUNTER EXAMPLE HOW __NOT__ TO DO IT
+			/// 
+			///   // define a class Something as AMD module
+			///   sap.ui.define('Something', [], function() {
+			///     var Something = function() {};
+			///     return Something;
+			///   });
+			/// 
+			///   // DON'T DO THAT!
+			///   // accessing the class _synchronously_ after sap.ui.define was called
+			///   new Something();
+			/// 
+			/// </pre>
+			/// 
+			/// Applications that need to ensure synchronous module definition or synchronous loading of dependencies <b>MUST</b> use the deprecated legacy APIs {@link jQuery.sap.declare} and {@link jQuery.sap.require}.
+			/// 
+			/// <h3>(No) Global References</h3>
+			/// 
+			/// To be in line with AMD best practices, modules defined with <code>sap.ui.define</code> should not make any use of global variables if those variables are also available as module exports. Instead, they should add dependencies to those modules and use the corresponding parameter of the factory function to access the module exports.
+			/// 
+			/// As the current programming model and the documentation of UI5 heavily rely on global names, there will be a transition phase where UI5 enables AMD modules and local references to module exports in parallel to the old global names. The fourth parameter of <code>sap.ui.define</code> has been added to support that transition phase. When this parameter is set to true, the framework provides two additional features
+			/// 
+			/// <ol> <li>Before the factory function is called, the existence of the global parent namespace for the current module is ensured</li> <li>The module export returned by the module's factory function will be automatically exported under the global name which is derived from the ID of the module</li> </ol>
+			/// 
+			/// The parameter lets the framework know whether any of those two operations is needed or not. In future versions of UI5, a central configuration option is planned to suppress those 'exports'.
+			/// 
+			/// <h3>Third Party Modules</h3> Although third party modules don't use UI5 APIs, they still can be listed as dependencies in a <code>sap.ui.define</code> call. They will be requested and executed like UI5 modules, but to make their exports available, so called <em>shims</em> have to be defined.
+			/// 
+			/// Note that UI5 temporarily deactivates an existing AMD loader while it executes third party modules known to support AMD. This sounds contradictorily at a first glance as UI5 wants to support AMD, but for now it is necessary to fully support UI5 applications that rely on global names for such modules.
+			/// 
+			/// For third-party modules that UI5 delivers (e.g. those in namespace <code>sap/ui/thirdparty/</code>), the necessary shims are defined by UI5 itself by executing the private module <code>ui5loader-autoconfig.js</code> during bootstrap.
+			/// 
+			/// Example: <pre>
+			///   // module 'Something' wants to use third party library 'URI.js'
+			///   // It is packaged by UI5 as non-UI5-module 'sap/ui/thirdparty/URI'
+			///   // the following shim helps UI5 to correctly load URI.js and to retrieve the module's export value
+			///   // Apps don't have to define that shim, it is already applied by ui5loader-autconfig.js
+			///   sap.ui.loader.config({
+			///     shim: {
+			///       'sap/ui/thirdparty/URI': {
+			///          amd: true, // URI.js reacts on an AMD loader, this flag lets UI5 temp. disable such loaders
+			///          exports: 'URI' // name of the global variable under which URI.js exports its module value
+			///       }
+			///     }
+			///   });
+			/// 
+			///   // now the module can be retrieved like other modules
+			///   sap.ui.define('Something', ['sap/ui/thirdparty/URI'], function(URIModuleValue) {
+			/// 
+			///     new URIModuleValue(...); // same as the global 'URI' name: new URI(...)
+			/// 
+			///     ...
+			///   });
+			/// </pre>
+			/// 
+			/// <h3>Differences to Standard AMD</h3>
+			/// 
+			/// The current implementation of <code>sap.ui.define</code> differs from the AMD specification (https://github.com/amdjs/amdjs-api) or from concrete AMD loaders like <code>requireJS</code> in several aspects: <ul> <li>The name <code>sap.ui.define</code> is different from the plain <code>define</code>. This has two reasons: first, it avoids the impression that <code>sap.ui.define</code> is an exact implementation of an AMD loader. And second, it allows the coexistence of an AMD loader (e.g. requireJS) and <code>sap.ui.define</code> in one application as long as UI5 or applications using UI5 are not fully prepared to run with an AMD loader. Note that the difference of the API names also implies that the UI5 loader can't be used to load 'real' AMD modules as they expect methods <code>define</code> and <code>require</code> to be available. Modules that use Unified Module Definition (UMD) syntax, can be loaded, but only when no AMD loader is present or when they expose their export also to the global namespace, even when an AMD loader is present (as e.g. jQuery does) or when a shim is defined for them using the <code>amd:true</code> flag (see example above)</li> <li>Depending on configuration and the current context, <code>sap.ui.define</code> loads the dependencies of a module either synchronously using a sync XHR call + eval or asynchronously via script tags. The sync loading is basically a tribute to the synchronous history of UI5. There's no way for a module developer to enforce synchronous loading of the dependencies and on the long run, sync loading will be faded out. Applications that need to ensure synchronous loading of dependencies <b>MUST</b> use the deprecated legacy APIs like {@link jQuery.sap.require}.</li> <li><code>sap.ui.define</code> does not support plugins to use other file types, formats or protocols. It is not planned to support this in future</li> <li><code>sap.ui.define</code> does not support absolute URLs as module names (dependencies) nor does it allow module names that start with a slash. To refer to a module at an absolute URL, a resource root can be registered that points to that URL (or to a prefix of it).</li> <li><code>sap.ui.define</code> does <b>not</b> support the 'sugar' of requireJS where CommonJS style dependency declarations using <code>sap.ui.require("something")</code> are automagically converted into <code>sap.ui.define</code> dependencies before executing the factory function.</li> </ul>
+			/// 
+			/// <h3>Limitations, Design Considerations</h3> <ul> <li><b>Limitation</b>: as dependency management is not supported for Non-UI5 modules, the only way to ensure proper execution order for such modules currently is to rely on the order in the dependency array. Obviously, this only works as long as <code>sap.ui.define</code> uses synchronous loading. It will be enhanced when asynchronous loading is implemented.</li> <li>It was discussed to enforce asynchronous execution of the module factory function (e.g. with a timeout of 0). But this would have invalidated the current migration scenario where a sync <code>jQuery.sap.require</code> call can load a <code>sap.ui.define</code>'ed module. If the module definition would not execute synchronously, the synchronous contract of the require call would be broken (default behavior in existing UI5 applications)</li> <li>A single file must not contain multiple calls to <code>sap.ui.define</code>. Multiple calls currently are only supported in the so called 'preload' files that the UI5 merge tooling produces. The exact details of how this works might be changed in future implementations and are not part of the API contract</li> </ul>
+			/// </summary>
+			/// <param name="aDependencies">List of dependencies of the module</param>
+			/// <param name="vFactory">The module export value or a function that calculates that value</param>
+			/// <param name="bExport">Whether an export to global names is required - should be used by SAP-owned code only</param>
+			public extern static void define(string[] aDependencies, object vFactory, bool bExport);
+
+			/// <summary>
+			/// Defines a JavaScript module with its ID, its dependencies and a module export value or factory.
+			/// 
+			/// The typical and only suggested usage of this method is to have one single, top level call to <code>sap.ui.define</code> in one JavaScript resource (file). When a module is requested by its module ID for the first time, the corresponding resource is determined from the ID and the current {@link sap.ui.loader.config configuration}. The resource will be loaded and executed which in turn will execute the top level <code>sap.ui.define</code> call.
+			/// 
+			/// If the module ID was omitted from that call, it will be substituted by the ID that was used to request the module. As a preparation step, the dependencies as well as their transitive dependencies, will be loaded. Then, the module value (its export) will be determined: if a static value (object, literal) was given as <code>vFactory</code>, that value will be the module value. If a function was given, that function will be called (providing the module exports of the declared dependencies as parameters to the function) and its return value will be used as module export value. The framework internally associates the resulting value with the module ID and provides it to the original requester of the module. Whenever the module is requested again, the same export value will be returned (modules are executed only once).
+			/// 
+			/// <i>Example:</i><br> The following example defines a module, but doesn't hard code the module ID. If stored in a file 'sap/mylib/SomeClass.js', it can be requested with the ID 'sap/mylib/SomeClass'. <pre>
+			///   sap.ui.define(['./Helper', 'sap/m/Bar'], function(Helper,Bar) {
+			/// 
+			///     // create a new class
+			///     var SomeClass = function() {};
+			/// 
+			///     // add methods to its prototype
+			///     SomeClass.prototype.foo = function() {
+			/// 
+			///         // use a function from the dependency 'Helper' in the same package (e.g. 'sap/mylib/Helper' )
+			///         var mSettings = Helper.foo();
+			/// 
+			///         // create and return an sap.m.Bar (using its local name 'Bar')
+			///         return new Bar(mSettings);
+			/// 
+			///     }
+			/// 
+			///     // return the class as module value
+			///     return SomeClass;
+			/// 
+			///   });
+			/// </pre>
+			/// 
+			/// In another module or in an application HTML page, the {@link sap.ui.require} API can be used to load the sap/mylib/Something module and to work with it:
+			/// 
+			/// <pre>
+			/// sap.ui.require(['sap/mylib/Something'], function(Something) {
+			/// 
+			///   // instantiate a Something and call foo() on it
+			///   new Something().foo();
+			/// 
+			/// });
+			/// </pre>
+			/// 
+			/// <h3>Module Name Syntax</h3>
+			/// 
+			/// <code>sap.ui.define</code> uses a simplified variant of the {@link jQuery.sap.getResourcePath unified resource name} syntax for the module's own name as well as for its dependencies. The only difference to that syntax is, that for <code>sap.ui.define</code> and <code>sap.ui.require</code>, the extension (which always would be '.js') has to be omitted. Both methods always add this extension internally.
+			/// 
+			/// As a convenience, the name of a dependency can start with the segment './' which will be replaced by the name of the package that contains the currently defined module (relative name).
+			/// 
+			/// It is best practice to omit the name of the defined module (first parameter) and to use relative names for the dependencies whenever possible. This reduces the necessary configuration, simplifies renaming of packages and allows to map them to a different namespace.
+			/// 
+			/// <h3>Dependency to Modules</h3>
+			/// 
+			/// If a dependencies array is given, each entry represents the name of another module that the currently defined module depends on. All dependency modules are loaded before the export of the currently defined module is determined. The module export of each dependency module will be provided as a parameter to a factory function, the order of the parameters will match the order of the modules in the dependencies array.
+			/// 
+			/// <b>Note:</b> The order in which the dependency modules are <i>executed</i> is <b>not</b> defined by the order in the dependencies array! The execution order is affected by dependencies <i>between</i> the dependency modules as well as by their current state (whether a module already has been loaded or not). Neither module implementations nor dependents that require a module set must make any assumption about the execution order (other than expressed by their dependencies).
+			/// 
+			/// <b>Note:</b> A static module export (a literal provided to <code>sap.ui.define</code>) cannot depend on the module exports of the dependency modules as it has to be calculated before the dependencies are resolved. As an alternative, modules can define a factory function, calculate a static export value in that function, potentially based on the dependencies, and return the result as module export value. The same approach must be taken when the module export is supposed to be a function.
+			/// 
+			/// <h3>Asynchronous Contract</h3>
+			/// 
+			/// <code>sap.ui.define</code> is designed to support real Asynchronous Module Definitions (AMD) in future, although it internally still might use synchronous module loading, depending on configuration and context. However, callers of <code>sap.ui.define</code> must never rely on any synchronous behavior that they might observe in a specific test scenario.
+			/// 
+			/// For example, callers of <code>sap.ui.define</code> must not use the module export value immediately after invoking <code>sap.ui.define</code>:
+			/// 
+			/// <pre>
+			///   // COUNTER EXAMPLE HOW __NOT__ TO DO IT
+			/// 
+			///   // define a class Something as AMD module
+			///   sap.ui.define('Something', [], function() {
+			///     var Something = function() {};
+			///     return Something;
+			///   });
+			/// 
+			///   // DON'T DO THAT!
+			///   // accessing the class _synchronously_ after sap.ui.define was called
+			///   new Something();
+			/// 
+			/// </pre>
+			/// 
+			/// Applications that need to ensure synchronous module definition or synchronous loading of dependencies <b>MUST</b> use the deprecated legacy APIs {@link jQuery.sap.declare} and {@link jQuery.sap.require}.
+			/// 
+			/// <h3>(No) Global References</h3>
+			/// 
+			/// To be in line with AMD best practices, modules defined with <code>sap.ui.define</code> should not make any use of global variables if those variables are also available as module exports. Instead, they should add dependencies to those modules and use the corresponding parameter of the factory function to access the module exports.
+			/// 
+			/// As the current programming model and the documentation of UI5 heavily rely on global names, there will be a transition phase where UI5 enables AMD modules and local references to module exports in parallel to the old global names. The fourth parameter of <code>sap.ui.define</code> has been added to support that transition phase. When this parameter is set to true, the framework provides two additional features
+			/// 
+			/// <ol> <li>Before the factory function is called, the existence of the global parent namespace for the current module is ensured</li> <li>The module export returned by the module's factory function will be automatically exported under the global name which is derived from the ID of the module</li> </ol>
+			/// 
+			/// The parameter lets the framework know whether any of those two operations is needed or not. In future versions of UI5, a central configuration option is planned to suppress those 'exports'.
+			/// 
+			/// <h3>Third Party Modules</h3> Although third party modules don't use UI5 APIs, they still can be listed as dependencies in a <code>sap.ui.define</code> call. They will be requested and executed like UI5 modules, but to make their exports available, so called <em>shims</em> have to be defined.
+			/// 
+			/// Note that UI5 temporarily deactivates an existing AMD loader while it executes third party modules known to support AMD. This sounds contradictorily at a first glance as UI5 wants to support AMD, but for now it is necessary to fully support UI5 applications that rely on global names for such modules.
+			/// 
+			/// For third-party modules that UI5 delivers (e.g. those in namespace <code>sap/ui/thirdparty/</code>), the necessary shims are defined by UI5 itself by executing the private module <code>ui5loader-autoconfig.js</code> during bootstrap.
+			/// 
+			/// Example: <pre>
+			///   // module 'Something' wants to use third party library 'URI.js'
+			///   // It is packaged by UI5 as non-UI5-module 'sap/ui/thirdparty/URI'
+			///   // the following shim helps UI5 to correctly load URI.js and to retrieve the module's export value
+			///   // Apps don't have to define that shim, it is already applied by ui5loader-autconfig.js
+			///   sap.ui.loader.config({
+			///     shim: {
+			///       'sap/ui/thirdparty/URI': {
+			///          amd: true, // URI.js reacts on an AMD loader, this flag lets UI5 temp. disable such loaders
+			///          exports: 'URI' // name of the global variable under which URI.js exports its module value
+			///       }
+			///     }
+			///   });
+			/// 
+			///   // now the module can be retrieved like other modules
+			///   sap.ui.define('Something', ['sap/ui/thirdparty/URI'], function(URIModuleValue) {
+			/// 
+			///     new URIModuleValue(...); // same as the global 'URI' name: new URI(...)
+			/// 
+			///     ...
+			///   });
+			/// </pre>
+			/// 
+			/// <h3>Differences to Standard AMD</h3>
+			/// 
+			/// The current implementation of <code>sap.ui.define</code> differs from the AMD specification (https://github.com/amdjs/amdjs-api) or from concrete AMD loaders like <code>requireJS</code> in several aspects: <ul> <li>The name <code>sap.ui.define</code> is different from the plain <code>define</code>. This has two reasons: first, it avoids the impression that <code>sap.ui.define</code> is an exact implementation of an AMD loader. And second, it allows the coexistence of an AMD loader (e.g. requireJS) and <code>sap.ui.define</code> in one application as long as UI5 or applications using UI5 are not fully prepared to run with an AMD loader. Note that the difference of the API names also implies that the UI5 loader can't be used to load 'real' AMD modules as they expect methods <code>define</code> and <code>require</code> to be available. Modules that use Unified Module Definition (UMD) syntax, can be loaded, but only when no AMD loader is present or when they expose their export also to the global namespace, even when an AMD loader is present (as e.g. jQuery does) or when a shim is defined for them using the <code>amd:true</code> flag (see example above)</li> <li>Depending on configuration and the current context, <code>sap.ui.define</code> loads the dependencies of a module either synchronously using a sync XHR call + eval or asynchronously via script tags. The sync loading is basically a tribute to the synchronous history of UI5. There's no way for a module developer to enforce synchronous loading of the dependencies and on the long run, sync loading will be faded out. Applications that need to ensure synchronous loading of dependencies <b>MUST</b> use the deprecated legacy APIs like {@link jQuery.sap.require}.</li> <li><code>sap.ui.define</code> does not support plugins to use other file types, formats or protocols. It is not planned to support this in future</li> <li><code>sap.ui.define</code> does not support absolute URLs as module names (dependencies) nor does it allow module names that start with a slash. To refer to a module at an absolute URL, a resource root can be registered that points to that URL (or to a prefix of it).</li> <li><code>sap.ui.define</code> does <b>not</b> support the 'sugar' of requireJS where CommonJS style dependency declarations using <code>sap.ui.require("something")</code> are automagically converted into <code>sap.ui.define</code> dependencies before executing the factory function.</li> </ul>
+			/// 
+			/// <h3>Limitations, Design Considerations</h3> <ul> <li><b>Limitation</b>: as dependency management is not supported for Non-UI5 modules, the only way to ensure proper execution order for such modules currently is to rely on the order in the dependency array. Obviously, this only works as long as <code>sap.ui.define</code> uses synchronous loading. It will be enhanced when asynchronous loading is implemented.</li> <li>It was discussed to enforce asynchronous execution of the module factory function (e.g. with a timeout of 0). But this would have invalidated the current migration scenario where a sync <code>jQuery.sap.require</code> call can load a <code>sap.ui.define</code>'ed module. If the module definition would not execute synchronously, the synchronous contract of the require call would be broken (default behavior in existing UI5 applications)</li> <li>A single file must not contain multiple calls to <code>sap.ui.define</code>. Multiple calls currently are only supported in the so called 'preload' files that the UI5 merge tooling produces. The exact details of how this works might be changed in future implementations and are not part of the API contract</li> </ul>
+			/// </summary>
+			/// <param name="aDependencies">List of dependencies of the module</param>
+			/// <param name="vFactory">The module export value or a function that calculates that value</param>
+			/// <param name="bExport">Whether an export to global names is required - should be used by SAP-owned code only</param>
+			public extern static void define(object[] aDependencies, object vFactory, bool bExport);
+
+			/// <summary>
+			/// Defines a JavaScript module with its ID, its dependencies and a module export value or factory.
+			/// 
+			/// The typical and only suggested usage of this method is to have one single, top level call to <code>sap.ui.define</code> in one JavaScript resource (file). When a module is requested by its module ID for the first time, the corresponding resource is determined from the ID and the current {@link sap.ui.loader.config configuration}. The resource will be loaded and executed which in turn will execute the top level <code>sap.ui.define</code> call.
+			/// 
+			/// If the module ID was omitted from that call, it will be substituted by the ID that was used to request the module. As a preparation step, the dependencies as well as their transitive dependencies, will be loaded. Then, the module value (its export) will be determined: if a static value (object, literal) was given as <code>vFactory</code>, that value will be the module value. If a function was given, that function will be called (providing the module exports of the declared dependencies as parameters to the function) and its return value will be used as module export value. The framework internally associates the resulting value with the module ID and provides it to the original requester of the module. Whenever the module is requested again, the same export value will be returned (modules are executed only once).
+			/// 
+			/// <i>Example:</i><br> The following example defines a module, but doesn't hard code the module ID. If stored in a file 'sap/mylib/SomeClass.js', it can be requested with the ID 'sap/mylib/SomeClass'. <pre>
+			///   sap.ui.define(['./Helper', 'sap/m/Bar'], function(Helper,Bar) {
+			/// 
+			///     // create a new class
+			///     var SomeClass = function() {};
+			/// 
+			///     // add methods to its prototype
+			///     SomeClass.prototype.foo = function() {
+			/// 
+			///         // use a function from the dependency 'Helper' in the same package (e.g. 'sap/mylib/Helper' )
+			///         var mSettings = Helper.foo();
+			/// 
+			///         // create and return an sap.m.Bar (using its local name 'Bar')
+			///         return new Bar(mSettings);
+			/// 
+			///     }
+			/// 
+			///     // return the class as module value
+			///     return SomeClass;
+			/// 
+			///   });
+			/// </pre>
+			/// 
+			/// In another module or in an application HTML page, the {@link sap.ui.require} API can be used to load the sap/mylib/Something module and to work with it:
+			/// 
+			/// <pre>
+			/// sap.ui.require(['sap/mylib/Something'], function(Something) {
+			/// 
+			///   // instantiate a Something and call foo() on it
+			///   new Something().foo();
+			/// 
+			/// });
+			/// </pre>
+			/// 
+			/// <h3>Module Name Syntax</h3>
+			/// 
+			/// <code>sap.ui.define</code> uses a simplified variant of the {@link jQuery.sap.getResourcePath unified resource name} syntax for the module's own name as well as for its dependencies. The only difference to that syntax is, that for <code>sap.ui.define</code> and <code>sap.ui.require</code>, the extension (which always would be '.js') has to be omitted. Both methods always add this extension internally.
+			/// 
+			/// As a convenience, the name of a dependency can start with the segment './' which will be replaced by the name of the package that contains the currently defined module (relative name).
+			/// 
+			/// It is best practice to omit the name of the defined module (first parameter) and to use relative names for the dependencies whenever possible. This reduces the necessary configuration, simplifies renaming of packages and allows to map them to a different namespace.
+			/// 
+			/// <h3>Dependency to Modules</h3>
+			/// 
+			/// If a dependencies array is given, each entry represents the name of another module that the currently defined module depends on. All dependency modules are loaded before the export of the currently defined module is determined. The module export of each dependency module will be provided as a parameter to a factory function, the order of the parameters will match the order of the modules in the dependencies array.
+			/// 
+			/// <b>Note:</b> The order in which the dependency modules are <i>executed</i> is <b>not</b> defined by the order in the dependencies array! The execution order is affected by dependencies <i>between</i> the dependency modules as well as by their current state (whether a module already has been loaded or not). Neither module implementations nor dependents that require a module set must make any assumption about the execution order (other than expressed by their dependencies).
+			/// 
+			/// <b>Note:</b> A static module export (a literal provided to <code>sap.ui.define</code>) cannot depend on the module exports of the dependency modules as it has to be calculated before the dependencies are resolved. As an alternative, modules can define a factory function, calculate a static export value in that function, potentially based on the dependencies, and return the result as module export value. The same approach must be taken when the module export is supposed to be a function.
+			/// 
+			/// <h3>Asynchronous Contract</h3>
+			/// 
+			/// <code>sap.ui.define</code> is designed to support real Asynchronous Module Definitions (AMD) in future, although it internally still might use synchronous module loading, depending on configuration and context. However, callers of <code>sap.ui.define</code> must never rely on any synchronous behavior that they might observe in a specific test scenario.
+			/// 
+			/// For example, callers of <code>sap.ui.define</code> must not use the module export value immediately after invoking <code>sap.ui.define</code>:
+			/// 
+			/// <pre>
+			///   // COUNTER EXAMPLE HOW __NOT__ TO DO IT
+			/// 
+			///   // define a class Something as AMD module
+			///   sap.ui.define('Something', [], function() {
+			///     var Something = function() {};
+			///     return Something;
+			///   });
+			/// 
+			///   // DON'T DO THAT!
+			///   // accessing the class _synchronously_ after sap.ui.define was called
+			///   new Something();
+			/// 
+			/// </pre>
+			/// 
+			/// Applications that need to ensure synchronous module definition or synchronous loading of dependencies <b>MUST</b> use the deprecated legacy APIs {@link jQuery.sap.declare} and {@link jQuery.sap.require}.
+			/// 
+			/// <h3>(No) Global References</h3>
+			/// 
+			/// To be in line with AMD best practices, modules defined with <code>sap.ui.define</code> should not make any use of global variables if those variables are also available as module exports. Instead, they should add dependencies to those modules and use the corresponding parameter of the factory function to access the module exports.
+			/// 
+			/// As the current programming model and the documentation of UI5 heavily rely on global names, there will be a transition phase where UI5 enables AMD modules and local references to module exports in parallel to the old global names. The fourth parameter of <code>sap.ui.define</code> has been added to support that transition phase. When this parameter is set to true, the framework provides two additional features
+			/// 
+			/// <ol> <li>Before the factory function is called, the existence of the global parent namespace for the current module is ensured</li> <li>The module export returned by the module's factory function will be automatically exported under the global name which is derived from the ID of the module</li> </ol>
+			/// 
+			/// The parameter lets the framework know whether any of those two operations is needed or not. In future versions of UI5, a central configuration option is planned to suppress those 'exports'.
+			/// 
+			/// <h3>Third Party Modules</h3> Although third party modules don't use UI5 APIs, they still can be listed as dependencies in a <code>sap.ui.define</code> call. They will be requested and executed like UI5 modules, but to make their exports available, so called <em>shims</em> have to be defined.
+			/// 
+			/// Note that UI5 temporarily deactivates an existing AMD loader while it executes third party modules known to support AMD. This sounds contradictorily at a first glance as UI5 wants to support AMD, but for now it is necessary to fully support UI5 applications that rely on global names for such modules.
+			/// 
+			/// For third-party modules that UI5 delivers (e.g. those in namespace <code>sap/ui/thirdparty/</code>), the necessary shims are defined by UI5 itself by executing the private module <code>ui5loader-autoconfig.js</code> during bootstrap.
+			/// 
+			/// Example: <pre>
+			///   // module 'Something' wants to use third party library 'URI.js'
+			///   // It is packaged by UI5 as non-UI5-module 'sap/ui/thirdparty/URI'
+			///   // the following shim helps UI5 to correctly load URI.js and to retrieve the module's export value
+			///   // Apps don't have to define that shim, it is already applied by ui5loader-autconfig.js
+			///   sap.ui.loader.config({
+			///     shim: {
+			///       'sap/ui/thirdparty/URI': {
+			///          amd: true, // URI.js reacts on an AMD loader, this flag lets UI5 temp. disable such loaders
+			///          exports: 'URI' // name of the global variable under which URI.js exports its module value
+			///       }
+			///     }
+			///   });
+			/// 
+			///   // now the module can be retrieved like other modules
+			///   sap.ui.define('Something', ['sap/ui/thirdparty/URI'], function(URIModuleValue) {
+			/// 
+			///     new URIModuleValue(...); // same as the global 'URI' name: new URI(...)
+			/// 
+			///     ...
+			///   });
+			/// </pre>
+			/// 
+			/// <h3>Differences to Standard AMD</h3>
+			/// 
+			/// The current implementation of <code>sap.ui.define</code> differs from the AMD specification (https://github.com/amdjs/amdjs-api) or from concrete AMD loaders like <code>requireJS</code> in several aspects: <ul> <li>The name <code>sap.ui.define</code> is different from the plain <code>define</code>. This has two reasons: first, it avoids the impression that <code>sap.ui.define</code> is an exact implementation of an AMD loader. And second, it allows the coexistence of an AMD loader (e.g. requireJS) and <code>sap.ui.define</code> in one application as long as UI5 or applications using UI5 are not fully prepared to run with an AMD loader. Note that the difference of the API names also implies that the UI5 loader can't be used to load 'real' AMD modules as they expect methods <code>define</code> and <code>require</code> to be available. Modules that use Unified Module Definition (UMD) syntax, can be loaded, but only when no AMD loader is present or when they expose their export also to the global namespace, even when an AMD loader is present (as e.g. jQuery does) or when a shim is defined for them using the <code>amd:true</code> flag (see example above)</li> <li>Depending on configuration and the current context, <code>sap.ui.define</code> loads the dependencies of a module either synchronously using a sync XHR call + eval or asynchronously via script tags. The sync loading is basically a tribute to the synchronous history of UI5. There's no way for a module developer to enforce synchronous loading of the dependencies and on the long run, sync loading will be faded out. Applications that need to ensure synchronous loading of dependencies <b>MUST</b> use the deprecated legacy APIs like {@link jQuery.sap.require}.</li> <li><code>sap.ui.define</code> does not support plugins to use other file types, formats or protocols. It is not planned to support this in future</li> <li><code>sap.ui.define</code> does not support absolute URLs as module names (dependencies) nor does it allow module names that start with a slash. To refer to a module at an absolute URL, a resource root can be registered that points to that URL (or to a prefix of it).</li> <li><code>sap.ui.define</code> does <b>not</b> support the 'sugar' of requireJS where CommonJS style dependency declarations using <code>sap.ui.require("something")</code> are automagically converted into <code>sap.ui.define</code> dependencies before executing the factory function.</li> </ul>
+			/// 
+			/// <h3>Limitations, Design Considerations</h3> <ul> <li><b>Limitation</b>: as dependency management is not supported for Non-UI5 modules, the only way to ensure proper execution order for such modules currently is to rely on the order in the dependency array. Obviously, this only works as long as <code>sap.ui.define</code> uses synchronous loading. It will be enhanced when asynchronous loading is implemented.</li> <li>It was discussed to enforce asynchronous execution of the module factory function (e.g. with a timeout of 0). But this would have invalidated the current migration scenario where a sync <code>jQuery.sap.require</code> call can load a <code>sap.ui.define</code>'ed module. If the module definition would not execute synchronously, the synchronous contract of the require call would be broken (default behavior in existing UI5 applications)</li> <li>A single file must not contain multiple calls to <code>sap.ui.define</code>. Multiple calls currently are only supported in the so called 'preload' files that the UI5 merge tooling produces. The exact details of how this works might be changed in future implementations and are not part of the API contract</li> </ul>
+			/// </summary>
+			/// <param name="vFactory">The module export value or a function that calculates that value</param>
+			/// <param name="bExport">Whether an export to global names is required - should be used by SAP-owned code only</param>
+			public extern static void define(object vFactory, bool bExport);
 
 			/// <summary>
 			/// Creates 0..n UI5 controls from an <code>ExtensionPoint</code>.
@@ -329,7 +1626,7 @@ namespace UI5
 			/// <param name="sAggregationName">Optional - if provided along with <code>oTargetControl</code>, the extension point content is added to this particular aggregation at oTargetControl, if not given, but an oTargetControl is still present, the function will attempt to add the extension point to the default aggregation of oTargetControl. If no oTargetControl is provided, sAggregationName will also be ignored.</param>
 			/// <returns>An array with 0..n controls created from an ExtensionPoint or if fnCreateDefaultContent is called and returns a Promise, a Promise with the controls is returned instead</returns>
 			[Obsolete("Deprecated since 1.56. Use {@link sap.ui.core.ExtensionPoint.load} instead")]
-			public extern static Union<sap.ui.core.Control[], jquery.JQueryPromise<object>> extensionpoint(Union<sap.ui.core.mvc.View, sap.ui.core.Fragment> oContainer, string sExtName, object fnCreateDefaultContent, sap.ui.core.Control oTargetControl, string sAggregationName);
+			public extern static Union<sap.ui.core.Control[], es5.Promise<object>> extensionpoint(Union<sap.ui.core.mvc.View, sap.ui.core.Fragment> oContainer, string sExtName, object fnCreateDefaultContent, sap.ui.core.Control oTargetControl, string sAggregationName);
 
 			/// <summary>
 			/// Creates 0..n UI5 controls from an <code>ExtensionPoint</code>.
@@ -344,7 +1641,7 @@ namespace UI5
 			/// <param name="oTargetControl">Optional - use this parameter to attach the extension point to a particular aggregation</param>
 			/// <returns>An array with 0..n controls created from an ExtensionPoint or if fnCreateDefaultContent is called and returns a Promise, a Promise with the controls is returned instead</returns>
 			[Obsolete("Deprecated since 1.56. Use {@link sap.ui.core.ExtensionPoint.load} instead")]
-			public extern static Union<sap.ui.core.Control[], jquery.JQueryPromise<object>> extensionpoint(Union<sap.ui.core.mvc.View, sap.ui.core.Fragment> oContainer, string sExtName, object fnCreateDefaultContent, sap.ui.core.Control oTargetControl);
+			public extern static Union<sap.ui.core.Control[], es5.Promise<object>> extensionpoint(Union<sap.ui.core.mvc.View, sap.ui.core.Fragment> oContainer, string sExtName, object fnCreateDefaultContent, sap.ui.core.Control oTargetControl);
 
 			/// <summary>
 			/// Creates 0..n UI5 controls from an <code>ExtensionPoint</code>.
@@ -358,7 +1655,7 @@ namespace UI5
 			/// <param name="fnCreateDefaultContent">Optional callback function creating default content, returning an array of controls. It is executed when there's no customizing, if not provided, no default content will be rendered. <code>fnCreateDefaultContent</code> might also return a Promise, which resolves with an array of controls.</param>
 			/// <returns>An array with 0..n controls created from an ExtensionPoint or if fnCreateDefaultContent is called and returns a Promise, a Promise with the controls is returned instead</returns>
 			[Obsolete("Deprecated since 1.56. Use {@link sap.ui.core.ExtensionPoint.load} instead")]
-			public extern static Union<sap.ui.core.Control[], jquery.JQueryPromise<object>> extensionpoint(Union<sap.ui.core.mvc.View, sap.ui.core.Fragment> oContainer, string sExtName, object fnCreateDefaultContent);
+			public extern static Union<sap.ui.core.Control[], es5.Promise<object>> extensionpoint(Union<sap.ui.core.mvc.View, sap.ui.core.Fragment> oContainer, string sExtName, object fnCreateDefaultContent);
 
 			/// <summary>
 			/// Creates 0..n UI5 controls from an <code>ExtensionPoint</code>.
@@ -371,7 +1668,7 @@ namespace UI5
 			/// <param name="sExtName">The extensionName used to identify the extension point in the customizing</param>
 			/// <returns>An array with 0..n controls created from an ExtensionPoint or if fnCreateDefaultContent is called and returns a Promise, a Promise with the controls is returned instead</returns>
 			[Obsolete("Deprecated since 1.56. Use {@link sap.ui.core.ExtensionPoint.load} instead")]
-			public extern static Union<sap.ui.core.Control[], jquery.JQueryPromise<object>> extensionpoint(Union<sap.ui.core.mvc.View, sap.ui.core.Fragment> oContainer, string sExtName);
+			public extern static Union<sap.ui.core.Control[], es5.Promise<object>> extensionpoint(Union<sap.ui.core.mvc.View, sap.ui.core.Fragment> oContainer, string sExtName);
 
 			/// <summary>
 			/// Instantiate a Fragment - this method loads the Fragment content, instantiates it, and returns this content. The Fragment object itself is not an entity which has further significance beyond this constructor.
@@ -388,6 +1685,7 @@ namespace UI5
 			/// <param name="sType">the Fragment type, e.g. "XML", "JS", or "HTML"</param>
 			/// <param name="oController">the Controller which should be used by the controls in the Fragment. Note that some Fragments may not need a Controller and other may need one - and even rely on certain methods implemented in the Controller.</param>
 			/// <returns>the root Control(s) of the Fragment content</returns>
+			[Obsolete("Deprecated since 1.58. use {@link sap.ui.core.Fragment.load} instead")]
 			public extern static Union<sap.ui.core.Control, sap.ui.core.Control[]> fragment(string sName, string sType, sap.ui.core.mvc.Controller oController);
 
 			/// <summary>
@@ -404,6 +1702,7 @@ namespace UI5
 			/// <param name="sName">the Fragment name</param>
 			/// <param name="sType">the Fragment type, e.g. "XML", "JS", or "HTML"</param>
 			/// <returns>the root Control(s) of the Fragment content</returns>
+			[Obsolete("Deprecated since 1.58. use {@link sap.ui.core.Fragment.load} instead")]
 			public extern static Union<sap.ui.core.Control, sap.ui.core.Control[]> fragment(string sName, string sType);
 
 			/// <summary>
@@ -420,7 +1719,7 @@ namespace UI5
 			/// <param name="mOptions">name of the library (e.g. "sap.ui.core") or an object map (see below)</param>
 			/// <returns>the full version info, the library specific one, undefined (if library is not listed or there was an error and "failOnError" is set to "false") or a Promise which resolves with one of them</returns>
 			[Obsolete("Deprecated since 1.56. Use {@link sap.ui.VersionInfo.load} instead")]
-			public extern static Union<object, jquery.JQueryPromise<object>> getVersionInfo(Union<string, sap.ui.GetVersionInfoOptions> mOptions);
+			public extern static Union<object, es5.Promise<object>> getVersionInfo(Union<string, sap.ui.GetVersionInfoOptions> mOptions);
 
 			/// <summary>
 			/// Loads the version info file (resources/sap-ui-version.json) and returns it or if a library name is specified then the version info of the individual library will be returned.
@@ -429,7 +1728,7 @@ namespace UI5
 			/// </summary>
 			/// <returns>the full version info, the library specific one, undefined (if library is not listed or there was an error and "failOnError" is set to "false") or a Promise which resolves with one of them</returns>
 			[Obsolete("Deprecated since 1.56. Use {@link sap.ui.VersionInfo.load} instead")]
-			public extern static Union<object, jquery.JQueryPromise<object>> getVersionInfo();
+			public extern static Union<object, es5.Promise<object>> getVersionInfo();
 
 			/// <summary>
 			/// Instantiates an HTML-based Fragment.
@@ -442,6 +1741,7 @@ namespace UI5
 			/// <param name="vFragment">name of the Fragment (or Fragment configuration as described above, in this case no sId may be given. Instead give the id inside the config object, if desired.)</param>
 			/// <param name="oController">a Controller to be used for event handlers in the Fragment</param>
 			/// <returns>the root Control(s) of the created Fragment instance</returns>
+			[Obsolete("Deprecated since 1.58. use {@link sap.ui.core.Fragment.load} instead")]
 			public extern static Union<sap.ui.core.Control, sap.ui.core.Control[]> htmlfragment(string sId, Union<string, object> vFragment, sap.ui.core.mvc.Controller oController);
 
 			/// <summary>
@@ -454,6 +1754,7 @@ namespace UI5
 			/// <param name="sId">id of the newly created Fragment</param>
 			/// <param name="vFragment">name of the Fragment (or Fragment configuration as described above, in this case no sId may be given. Instead give the id inside the config object, if desired.)</param>
 			/// <returns>the root Control(s) of the created Fragment instance</returns>
+			[Obsolete("Deprecated since 1.58. use {@link sap.ui.core.Fragment.load} instead")]
 			public extern static Union<sap.ui.core.Control, sap.ui.core.Control[]> htmlfragment(string sId, Union<string, object> vFragment);
 
 			/// <summary>
@@ -465,6 +1766,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="vFragment">name of the Fragment (or Fragment configuration as described above, in this case no sId may be given. Instead give the id inside the config object, if desired.)</param>
 			/// <returns>the root Control(s) of the created Fragment instance</returns>
+			[Obsolete("Deprecated since 1.58. use {@link sap.ui.core.Fragment.load} instead")]
 			public extern static Union<sap.ui.core.Control, sap.ui.core.Control[]> htmlfragment(Union<string, object> vFragment);
 
 			/// <summary>
@@ -477,6 +1779,7 @@ namespace UI5
 			/// <param name="vFragment">name of the Fragment (or Fragment configuration as described above, in this case no sId may be given. Instead give the id inside the config object, if desired.)</param>
 			/// <param name="oController">a Controller to be used for event handlers in the Fragment</param>
 			/// <returns>the root Control(s) of the created Fragment instance</returns>
+			[Obsolete("Deprecated since 1.58. use {@link sap.ui.core.Fragment.load} instead")]
 			public extern static Union<sap.ui.core.Control, sap.ui.core.Control[]> htmlfragment(Union<string, object> vFragment, sap.ui.core.mvc.Controller oController);
 
 			/// <summary>
@@ -519,6 +1822,7 @@ namespace UI5
 			/// <param name="sFragmentName">name of the Fragment (or Fragment configuration as described above, in this case no sId may be given. Instead give the id inside the config object, if desired)</param>
 			/// <param name="oController">a Controller to be used for event handlers in the Fragment</param>
 			/// <returns>the root Control(s) of the created Fragment instance</returns>
+			[Obsolete("Deprecated since 1.58. use {@link sap.ui.core.Fragment.load} instead")]
 			public extern static Union<sap.ui.core.Control, sap.ui.core.Control[]> jsfragment(string sId, Union<string, object> sFragmentName, sap.ui.core.mvc.Controller oController);
 
 			/// <summary>
@@ -531,6 +1835,7 @@ namespace UI5
 			/// <param name="sId">id of the newly created Fragment</param>
 			/// <param name="sFragmentName">name of the Fragment (or Fragment configuration as described above, in this case no sId may be given. Instead give the id inside the config object, if desired)</param>
 			/// <returns>the root Control(s) of the created Fragment instance</returns>
+			[Obsolete("Deprecated since 1.58. use {@link sap.ui.core.Fragment.load} instead")]
 			public extern static Union<sap.ui.core.Control, sap.ui.core.Control[]> jsfragment(string sId, Union<string, object> sFragmentName);
 
 			/// <summary>
@@ -542,6 +1847,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="sFragmentName">name of the Fragment (or Fragment configuration as described above, in this case no sId may be given. Instead give the id inside the config object, if desired)</param>
 			/// <returns>the root Control(s) of the created Fragment instance</returns>
+			[Obsolete("Deprecated since 1.58. use {@link sap.ui.core.Fragment.load} instead")]
 			public extern static Union<sap.ui.core.Control, sap.ui.core.Control[]> jsfragment(Union<string, object> sFragmentName);
 
 			/// <summary>
@@ -554,6 +1860,7 @@ namespace UI5
 			/// <param name="sFragmentName">name of the Fragment (or Fragment configuration as described above, in this case no sId may be given. Instead give the id inside the config object, if desired)</param>
 			/// <param name="oController">a Controller to be used for event handlers in the Fragment</param>
 			/// <returns>the root Control(s) of the created Fragment instance</returns>
+			[Obsolete("Deprecated since 1.58. use {@link sap.ui.core.Fragment.load} instead")]
 			public extern static Union<sap.ui.core.Control, sap.ui.core.Control[]> jsfragment(Union<string, object> sFragmentName, sap.ui.core.mvc.Controller oController);
 
 			/// <summary>
@@ -598,7 +1905,7 @@ namespace UI5
 			///   sap.ui.jsview(sId, vView);
 			/// </pre> Defines a view of the given name with the given implementation. <code>sId</code> must be the view's name, <code>vView</code> must be an object and can contain implementations for any of the hooks provided by JSView.
 			/// 
-			/// <h3>View Instantiation</h3> <pre>
+			/// <h3>View Instantiation (deprecated)</h3> <pre>
 			///   var oView = sap.ui.jsview(vView);
 			///   var oView = sap.ui.jsview(vView, bASync);
 			///   var oView = sap.ui.jsview(sId, vView);
@@ -609,13 +1916,15 @@ namespace UI5
 			/// 
 			/// When <code>bAsync</code> has a truthy value, the view definition will be read asynchronously, if needed, but the (incomplete) view instance will be returned immediately.
 			/// 
+			/// <b>Note:</b> Using <code>sap.ui.jsview</code> for creating view instances has been deprecated, use {@link sap.ui.core.mvc.JSView.create JSView.create} instead. <code>JSView.create</code> enforces asynchronous loading and can be used via an AMD reference, it doesn't rely on a global name.
+			/// 
 			/// <b>Note:</b> Any other call signature will lead to a runtime error.
 			/// </summary>
 			/// <param name="sId">id of the newly created view, only allowed for instance creation</param>
 			/// <param name="vView">Name of the view or a view configuration object as described above</param>
 			/// <param name="bAsync">defines how the view source is loaded and rendered later on (only relevant for instantiation, ignored for everything else)</param>
 			/// <returns>the created JSView instance in the creation case, otherwise undefined</returns>
-			[Obsolete("Deprecated since 1.56.0. <ul> <li>For view instance creation use <code>JSView.create</code> instead.</li> <li>For defining views use <code>JSView.extend</code> instead.</li> </ul>")]
+			[Obsolete("Deprecated since 1.56. use {@link #.create JSView.create} to create view instances; for defining JavaScript views, there's no substitute yet and <code>sap.ui.jsview</code> still has to be used")]
 			public extern static sap.ui.core.mvc.JSView jsview(string sId, Union<string, sap.ui.ViewInfo> vView, bool bAsync);
 
 			/// <summary>
@@ -627,7 +1936,7 @@ namespace UI5
 			///   sap.ui.jsview(sId, vView);
 			/// </pre> Defines a view of the given name with the given implementation. <code>sId</code> must be the view's name, <code>vView</code> must be an object and can contain implementations for any of the hooks provided by JSView.
 			/// 
-			/// <h3>View Instantiation</h3> <pre>
+			/// <h3>View Instantiation (deprecated)</h3> <pre>
 			///   var oView = sap.ui.jsview(vView);
 			///   var oView = sap.ui.jsview(vView, bASync);
 			///   var oView = sap.ui.jsview(sId, vView);
@@ -638,12 +1947,14 @@ namespace UI5
 			/// 
 			/// When <code>bAsync</code> has a truthy value, the view definition will be read asynchronously, if needed, but the (incomplete) view instance will be returned immediately.
 			/// 
+			/// <b>Note:</b> Using <code>sap.ui.jsview</code> for creating view instances has been deprecated, use {@link sap.ui.core.mvc.JSView.create JSView.create} instead. <code>JSView.create</code> enforces asynchronous loading and can be used via an AMD reference, it doesn't rely on a global name.
+			/// 
 			/// <b>Note:</b> Any other call signature will lead to a runtime error.
 			/// </summary>
 			/// <param name="sId">id of the newly created view, only allowed for instance creation</param>
 			/// <param name="vView">Name of the view or a view configuration object as described above</param>
 			/// <returns>the created JSView instance in the creation case, otherwise undefined</returns>
-			[Obsolete("Deprecated since 1.56.0. <ul> <li>For view instance creation use <code>JSView.create</code> instead.</li> <li>For defining views use <code>JSView.extend</code> instead.</li> </ul>")]
+			[Obsolete("Deprecated since 1.56. use {@link #.create JSView.create} to create view instances; for defining JavaScript views, there's no substitute yet and <code>sap.ui.jsview</code> still has to be used")]
 			public extern static sap.ui.core.mvc.JSView jsview(string sId, Union<string, sap.ui.ViewInfo> vView);
 
 			/// <summary>
@@ -655,7 +1966,7 @@ namespace UI5
 			///   sap.ui.jsview(sId, vView);
 			/// </pre> Defines a view of the given name with the given implementation. <code>sId</code> must be the view's name, <code>vView</code> must be an object and can contain implementations for any of the hooks provided by JSView.
 			/// 
-			/// <h3>View Instantiation</h3> <pre>
+			/// <h3>View Instantiation (deprecated)</h3> <pre>
 			///   var oView = sap.ui.jsview(vView);
 			///   var oView = sap.ui.jsview(vView, bASync);
 			///   var oView = sap.ui.jsview(sId, vView);
@@ -666,11 +1977,13 @@ namespace UI5
 			/// 
 			/// When <code>bAsync</code> has a truthy value, the view definition will be read asynchronously, if needed, but the (incomplete) view instance will be returned immediately.
 			/// 
+			/// <b>Note:</b> Using <code>sap.ui.jsview</code> for creating view instances has been deprecated, use {@link sap.ui.core.mvc.JSView.create JSView.create} instead. <code>JSView.create</code> enforces asynchronous loading and can be used via an AMD reference, it doesn't rely on a global name.
+			/// 
 			/// <b>Note:</b> Any other call signature will lead to a runtime error.
 			/// </summary>
 			/// <param name="vView">Name of the view or a view configuration object as described above</param>
 			/// <returns>the created JSView instance in the creation case, otherwise undefined</returns>
-			[Obsolete("Deprecated since 1.56.0. <ul> <li>For view instance creation use <code>JSView.create</code> instead.</li> <li>For defining views use <code>JSView.extend</code> instead.</li> </ul>")]
+			[Obsolete("Deprecated since 1.56. use {@link #.create JSView.create} to create view instances; for defining JavaScript views, there's no substitute yet and <code>sap.ui.jsview</code> still has to be used")]
 			public extern static sap.ui.core.mvc.JSView jsview(Union<string, sap.ui.ViewInfo> vView);
 
 			/// <summary>
@@ -682,7 +1995,7 @@ namespace UI5
 			///   sap.ui.jsview(sId, vView);
 			/// </pre> Defines a view of the given name with the given implementation. <code>sId</code> must be the view's name, <code>vView</code> must be an object and can contain implementations for any of the hooks provided by JSView.
 			/// 
-			/// <h3>View Instantiation</h3> <pre>
+			/// <h3>View Instantiation (deprecated)</h3> <pre>
 			///   var oView = sap.ui.jsview(vView);
 			///   var oView = sap.ui.jsview(vView, bASync);
 			///   var oView = sap.ui.jsview(sId, vView);
@@ -693,12 +2006,14 @@ namespace UI5
 			/// 
 			/// When <code>bAsync</code> has a truthy value, the view definition will be read asynchronously, if needed, but the (incomplete) view instance will be returned immediately.
 			/// 
+			/// <b>Note:</b> Using <code>sap.ui.jsview</code> for creating view instances has been deprecated, use {@link sap.ui.core.mvc.JSView.create JSView.create} instead. <code>JSView.create</code> enforces asynchronous loading and can be used via an AMD reference, it doesn't rely on a global name.
+			/// 
 			/// <b>Note:</b> Any other call signature will lead to a runtime error.
 			/// </summary>
 			/// <param name="vView">Name of the view or a view configuration object as described above</param>
 			/// <param name="bAsync">defines how the view source is loaded and rendered later on (only relevant for instantiation, ignored for everything else)</param>
 			/// <returns>the created JSView instance in the creation case, otherwise undefined</returns>
-			[Obsolete("Deprecated since 1.56.0. <ul> <li>For view instance creation use <code>JSView.create</code> instead.</li> <li>For defining views use <code>JSView.extend</code> instead.</li> </ul>")]
+			[Obsolete("Deprecated since 1.56. use {@link #.create JSView.create} to create view instances; for defining JavaScript views, there's no substitute yet and <code>sap.ui.jsview</code> still has to be used")]
 			public extern static sap.ui.core.mvc.JSView jsview(Union<string, sap.ui.ViewInfo> vView, bool bAsync);
 
 			/// <summary>
@@ -748,7 +2063,9 @@ namespace UI5
 			/// 
 			///   // The following call implicitly will use the mapping done by the previous line
 			///   // It will load a view from ./com/mycompany/myapp/views/Main.view.xml
-			///   sap.ui.view({ view : "com.mycompany.myapp.views.Main", type : sap.ui.core.mvc.ViewType.XML});
+			///   View.create({ viewName : "com.mycompany.myapp.views.Main", type : ViewType.XML}).then(function(oView) {
+			///       // do stuff
+			///   });
 			/// </pre>
 			/// 
 			/// When applications need a more flexible mapping between resource names and their location, they can use {@link jQuery.sap.registerModulePath}.
@@ -766,6 +2083,135 @@ namespace UI5
 			/// <returns>the innermost namespace of the hierarchy</returns>
 			[Obsolete("Deprecated since 1.1. see {@link topic:c78c07c094e04ccfaab659378a1707c7 Creating Control and Class Modules}.")]
 			public extern static object @namespace(string sNamespace);
+
+			/// <summary>
+			/// Resolves one or more module dependencies.
+			/// 
+			/// <h3>Synchronous Retrieval of a Single Module Export Value (Probing)</h3>
+			/// 
+			/// When called with a single string, that string is assumed to be the ID of an already loaded module and the export of that module is returned. If the module has not been loaded yet, or if it is a Non-UI5 module (e.g. third-party module) without a shim, <code>undefined</code> is returned.
+			/// 
+			/// This signature variant allows synchronous access to module exports without initiating module loading.
+			/// 
+			/// Sample: <pre>
+			///   var JSONModel = sap.ui.require("sap/ui/model/json/JSONModel");
+			/// </pre>
+			/// 
+			/// For modules that are known to be UI5 modules, this signature variant can be used to check whether the module has been loaded.
+			/// 
+			/// <h3>Asynchronous Loading of Multiple Modules</h3>
+			/// 
+			/// If an array of strings is given and (optionally) a callback function, then the strings are interpreted as module IDs and the corresponding modules (and their transitive dependencies) are loaded. Then the callback function will be called asynchronously. The module exports of the specified modules will be provided as parameters to the callback function in the same order in which they appeared in the dependencies array.
+			/// 
+			/// The return value for the asynchronous use case is <code>undefined</code>.
+			/// 
+			/// <pre>
+			///   sap.ui.require(['sap/ui/model/json/JSONModel', 'sap/ui/core/UIComponent'], function(JSONModel,UIComponent) {
+			/// 
+			///     var MyComponent = UIComponent.extend('MyComponent', {
+			///       ...
+			///     });
+			///     ...
+			/// 
+			///   });
+			/// </pre>
+			/// 
+			/// This method uses the same variation of the {@link jQuery.sap.getResourcePath unified resource name} syntax that {@link sap.ui.define} uses: module names are specified without the implicit extension '.js'. Relative module names are not supported.
+			/// </summary>
+			/// <param name="vDependencies">Dependency (dependencies) to resolve</param>
+			/// <param name="fnCallback">Callback function to execute after resolving an array of dependencies</param>
+			/// <param name="fnErrback">Callback function to execute if an error was detected while loading the dependencies or executing the factory function. Note that due to browser limitations not all errors will be reported via this callback. In general, module loading is designed for the non-error case. Error handling is not complete.</param>
+			/// <returns>A single module export value (sync probing variant) or undefined (async loading variant)</returns>
+			public extern static object require(Union<string, string[]> vDependencies, object fnCallback, object fnErrback);
+
+			/// <summary>
+			/// Resolves one or more module dependencies.
+			/// 
+			/// <h3>Synchronous Retrieval of a Single Module Export Value (Probing)</h3>
+			/// 
+			/// When called with a single string, that string is assumed to be the ID of an already loaded module and the export of that module is returned. If the module has not been loaded yet, or if it is a Non-UI5 module (e.g. third-party module) without a shim, <code>undefined</code> is returned.
+			/// 
+			/// This signature variant allows synchronous access to module exports without initiating module loading.
+			/// 
+			/// Sample: <pre>
+			///   var JSONModel = sap.ui.require("sap/ui/model/json/JSONModel");
+			/// </pre>
+			/// 
+			/// For modules that are known to be UI5 modules, this signature variant can be used to check whether the module has been loaded.
+			/// 
+			/// <h3>Asynchronous Loading of Multiple Modules</h3>
+			/// 
+			/// If an array of strings is given and (optionally) a callback function, then the strings are interpreted as module IDs and the corresponding modules (and their transitive dependencies) are loaded. Then the callback function will be called asynchronously. The module exports of the specified modules will be provided as parameters to the callback function in the same order in which they appeared in the dependencies array.
+			/// 
+			/// The return value for the asynchronous use case is <code>undefined</code>.
+			/// 
+			/// <pre>
+			///   sap.ui.require(['sap/ui/model/json/JSONModel', 'sap/ui/core/UIComponent'], function(JSONModel,UIComponent) {
+			/// 
+			///     var MyComponent = UIComponent.extend('MyComponent', {
+			///       ...
+			///     });
+			///     ...
+			/// 
+			///   });
+			/// </pre>
+			/// 
+			/// This method uses the same variation of the {@link jQuery.sap.getResourcePath unified resource name} syntax that {@link sap.ui.define} uses: module names are specified without the implicit extension '.js'. Relative module names are not supported.
+			/// </summary>
+			/// <param name="vDependencies">Dependency (dependencies) to resolve</param>
+			/// <param name="fnCallback">Callback function to execute after resolving an array of dependencies</param>
+			/// <returns>A single module export value (sync probing variant) or undefined (async loading variant)</returns>
+			public extern static object require(Union<string, string[]> vDependencies, object fnCallback);
+
+			/// <summary>
+			/// Resolves one or more module dependencies.
+			/// 
+			/// <h3>Synchronous Retrieval of a Single Module Export Value (Probing)</h3>
+			/// 
+			/// When called with a single string, that string is assumed to be the ID of an already loaded module and the export of that module is returned. If the module has not been loaded yet, or if it is a Non-UI5 module (e.g. third-party module) without a shim, <code>undefined</code> is returned.
+			/// 
+			/// This signature variant allows synchronous access to module exports without initiating module loading.
+			/// 
+			/// Sample: <pre>
+			///   var JSONModel = sap.ui.require("sap/ui/model/json/JSONModel");
+			/// </pre>
+			/// 
+			/// For modules that are known to be UI5 modules, this signature variant can be used to check whether the module has been loaded.
+			/// 
+			/// <h3>Asynchronous Loading of Multiple Modules</h3>
+			/// 
+			/// If an array of strings is given and (optionally) a callback function, then the strings are interpreted as module IDs and the corresponding modules (and their transitive dependencies) are loaded. Then the callback function will be called asynchronously. The module exports of the specified modules will be provided as parameters to the callback function in the same order in which they appeared in the dependencies array.
+			/// 
+			/// The return value for the asynchronous use case is <code>undefined</code>.
+			/// 
+			/// <pre>
+			///   sap.ui.require(['sap/ui/model/json/JSONModel', 'sap/ui/core/UIComponent'], function(JSONModel,UIComponent) {
+			/// 
+			///     var MyComponent = UIComponent.extend('MyComponent', {
+			///       ...
+			///     });
+			///     ...
+			/// 
+			///   });
+			/// </pre>
+			/// 
+			/// This method uses the same variation of the {@link jQuery.sap.getResourcePath unified resource name} syntax that {@link sap.ui.define} uses: module names are specified without the implicit extension '.js'. Relative module names are not supported.
+			/// </summary>
+			/// <param name="vDependencies">Dependency (dependencies) to resolve</param>
+			/// <returns>A single module export value (sync probing variant) or undefined (async loading variant)</returns>
+			public extern static object require(Union<string, string[]> vDependencies);
+
+			/// <summary>
+			/// Calculates a URL from the provided resource name.
+			/// 
+			/// The calculation takes any configured ID mappings or resource paths into account (see {@link sap.ui.loader.config config options map and paths}. It also supports relative segments such as <code>./</code> and <code>../</code> within the path, but not at its beginning. If relative navigation would cross the root namespace (e.g. <code>sap.ui.require.toUrl("../")</code>) or when the resource name starts with a slash or with a relative segment, an error is thrown.
+			/// 
+			/// <b>Note:</b> <code>toUrl</code> does not resolve the returned URL; whether it is an absolute URL or a relative URL depends on the configured <code>baseUrl</code> and <code>paths</code>.
+			/// </summary>
+			/// <param name="sName">Name of a resource e.g. <code>'app/data.json'</code></param>
+			/// <returns>Path to the resource, e.g. <code>'/home/app/data.json'</code></returns>
+            [Name("require.toUrl")]
+			public extern static string require_toUrl(string sName);
 
 			/// <summary>
 			/// Returns the URL of a resource that belongs to the given library and has the given relative location within the library. This is mainly meant for static resources like images that are inside the library. It is NOT meant for access to JavaScript modules or anything for which a different URL has been registered with jQuery.sap.registerModulePath(). For these cases use jQuery.sap.getModulePath(). It DOES work, however, when the given sResourcePath starts with "themes/" (= when it is a theme-dependent resource). Even when for this theme a different location outside the normal library location is configured.
@@ -795,7 +2241,7 @@ namespace UI5
 			/// <param name="oDomRef">a DOM Element or Id String of the UIArea</param>
 			/// <param name="oControl">the Control that should be added to the <code>UIArea</code>.</param>
 			[Obsolete("Deprecated since 1.1. use {@link sap.ui.core.Control#placeAt Control#placeAt} instead.")]
-			public extern static void setRoot(Union<string, dom.HTMLElement, sap.ui.core.Control> oDomRef, Union<sap.ui.@base.Interface, sap.ui.core.Control> oControl);
+			public extern static void setRoot(Union<string, Retyped.dom.HTMLElement, sap.ui.core.Control> oDomRef, Union<sap.ui.@base.Interface, sap.ui.core.Control> oControl);
 
 			/// <summary>
 			/// Creates a Template for the given ID, DOM reference or a configuration object.
@@ -842,7 +2288,7 @@ namespace UI5
 			/// <param name="oTemplate">the ID or the DOM reference to the template to lookup or a configuration object containing the src, type and eventually the ID of the Template.</param>
 			/// <returns>the created Template instance or in case of usage without parameters any array of templates is returned</returns>
 			[Obsolete("Deprecated since 1.56. use XMLView or JSView instead")]
-			public extern static Union<sap.ui.core.tmpl.Template, sap.ui.core.tmpl.Template[]> template(Union<string, dom.HTMLElement, sap.ui.TemplateInfo> oTemplate);
+			public extern static Union<sap.ui.core.tmpl.Template, sap.ui.core.tmpl.Template[]> template(Union<string, Retyped.dom.HTMLElement, sap.ui.TemplateInfo> oTemplate);
 
 			/// <summary>
 			/// Creates a Template for the given ID, DOM reference or a configuration object.
@@ -902,6 +2348,7 @@ namespace UI5
 			/// <param name="sId">id of the newly created view, only allowed for instance creation</param>
 			/// <param name="vView">name or implementation of the view.</param>
 			/// <returns>the created TemplateView instance in the creation case, otherwise undefined</returns>
+			[Obsolete("Deprecated since 1.56. use {@link sap.ui.core.mvc.XMLView} in combination with {@link topic:5ee619fc1370463ea674ee04b65ed83b XML Templating} instead")]
 			public extern static sap.ui.core.mvc.TemplateView templateview(string sId, Union<string, object> vView);
 
 			/// <summary>
@@ -915,6 +2362,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="vView">name or implementation of the view.</param>
 			/// <returns>the created TemplateView instance in the creation case, otherwise undefined</returns>
+			[Obsolete("Deprecated since 1.56. use {@link sap.ui.core.mvc.XMLView} in combination with {@link topic:5ee619fc1370463ea674ee04b65ed83b XML Templating} instead")]
 			public extern static sap.ui.core.mvc.TemplateView templateview(Union<string, object> vView);
 
 			/// <summary>
@@ -946,6 +2394,7 @@ namespace UI5
 			/// <param name="vFragment">name of the Fragment (or Fragment configuration as described above, in this case no sId may be given. Instead give the id inside the config object, if desired)</param>
 			/// <param name="oController">a Controller to be used for event handlers in the Fragment</param>
 			/// <returns>the root Control(s) of the created Fragment instance</returns>
+			[Obsolete("Deprecated since 1.58. use {@link sap.ui.core.Fragment.load} instead")]
 			public extern static Union<sap.ui.core.Control, sap.ui.core.Control[]> xmlfragment(string sId, Union<string, object> vFragment, sap.ui.core.mvc.Controller oController);
 
 			/// <summary>
@@ -958,6 +2407,7 @@ namespace UI5
 			/// <param name="sId">id of the newly created Fragment</param>
 			/// <param name="vFragment">name of the Fragment (or Fragment configuration as described above, in this case no sId may be given. Instead give the id inside the config object, if desired)</param>
 			/// <returns>the root Control(s) of the created Fragment instance</returns>
+			[Obsolete("Deprecated since 1.58. use {@link sap.ui.core.Fragment.load} instead")]
 			public extern static Union<sap.ui.core.Control, sap.ui.core.Control[]> xmlfragment(string sId, Union<string, object> vFragment);
 
 			/// <summary>
@@ -969,6 +2419,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="vFragment">name of the Fragment (or Fragment configuration as described above, in this case no sId may be given. Instead give the id inside the config object, if desired)</param>
 			/// <returns>the root Control(s) of the created Fragment instance</returns>
+			[Obsolete("Deprecated since 1.58. use {@link sap.ui.core.Fragment.load} instead")]
 			public extern static Union<sap.ui.core.Control, sap.ui.core.Control[]> xmlfragment(Union<string, object> vFragment);
 
 			/// <summary>
@@ -981,6 +2432,7 @@ namespace UI5
 			/// <param name="vFragment">name of the Fragment (or Fragment configuration as described above, in this case no sId may be given. Instead give the id inside the config object, if desired)</param>
 			/// <param name="oController">a Controller to be used for event handlers in the Fragment</param>
 			/// <returns>the root Control(s) of the created Fragment instance</returns>
+			[Obsolete("Deprecated since 1.58. use {@link sap.ui.core.Fragment.load} instead")]
 			public extern static Union<sap.ui.core.Control, sap.ui.core.Control[]> xmlfragment(Union<string, object> vFragment, sap.ui.core.mvc.Controller oController);
 
 			/// <summary>
@@ -1023,1266 +2475,6 @@ namespace UI5
 			/// <returns>the created XMLView instance</returns>
 			[Obsolete("Deprecated since 1.56. Use sap.ui.core.mvc.XMLView.create instead")]
 			public extern static sap.ui.core.mvc.XMLView xmlview(Union<string, sap.ui.ViewInfo> vView);
-
-			/// <summary>
-			/// Defines a Javascript module with its name, its dependencies and a module value or factory.
-			/// 
-			/// The typical and only suggested usage of this method is to have one single, top level call to <code>sap.ui.define</code> in one Javascript resource (file). When a module is requested by its name for the first time, the corresponding resource is determined from the name and the current {@link jQuery.sap.registerResourcePath configuration}. The resource will be loaded and executed which in turn will execute the top level <code>sap.ui.define</code> call.
-			/// 
-			/// If the module name was omitted from that call, it will be substituted by the name that was used to request the module. As a preparation step, the dependencies as well as their transitive dependencies, will be loaded. Then, the module value will be determined: if a static value (object, literal) was given as <code>vFactory</code>, that value will be the module value. If a function was given, that function will be called (providing the module values of the declared dependencies as parameters to the function) and its return value will be used as module value. The framework internally associates the resulting value with the module name and provides it to the original requester of the module. Whenever the module is requested again, the same value will be returned (modules are executed only once).
-			/// 
-			/// <i>Example:</i><br> The following example defines a module "SomeClass", but doesn't hard code the module name. If stored in a file 'sap/mylib/SomeClass.js', it can be requested as 'sap/mylib/SomeClass'. <pre>
-			///   sap.ui.define(['./Helper', 'sap/m/Bar'], function(Helper,Bar) {
-			/// 
-			///     // create a new class
-			///     var SomeClass = function() {};
-			/// 
-			///     // add methods to its prototype
-			///     SomeClass.prototype.foo = function() {
-			/// 
-			///         // use a function from the dependency 'Helper' in the same package (e.g. 'sap/mylib/Helper' )
-			///         var mSettings = Helper.foo();
-			/// 
-			///         // create and return an sap.m.Bar (using its local name 'Bar')
-			///         return new Bar(mSettings);
-			/// 
-			///     }
-			/// 
-			///     // return the class as module value
-			///     return SomeClass;
-			/// 
-			///   });
-			/// </pre>
-			/// 
-			/// In another module or in an application HTML page, the {@link sap.ui.require} API can be used to load the Something module and to work with it:
-			/// 
-			/// <pre>
-			/// sap.ui.require(['sap/mylib/Something'], function(Something) {
-			/// 
-			///   // instantiate a Something and call foo() on it
-			///   new Something().foo();
-			/// 
-			/// });
-			/// </pre>
-			/// 
-			/// <h3>Module Name Syntax</h3>
-			/// 
-			/// <code>sap.ui.define</code> uses a simplified variant of the {@link jQuery.sap.getResourcePath unified resource name} syntax for the module's own name as well as for its dependencies. The only difference to that syntax is, that for <code>sap.ui.define</code> and <code>sap.ui.require</code>, the extension (which always would be '.js') has to be omitted. Both methods always add this extension internally.
-			/// 
-			/// As a convenience, the name of a dependency can start with the segment './' which will be replaced by the name of the package that contains the currently defined module (relative name).
-			/// 
-			/// It is best practice to omit the name of the defined module (first parameter) and to use relative names for the dependencies whenever possible. This reduces the necessary configuration, simplifies renaming of packages and allows to map them to a different namespace.
-			/// 
-			/// <h3>Dependency to Modules</h3>
-			/// 
-			/// If a dependencies array is given, each entry represents the name of another module that the currently defined module depends on. All dependency modules are loaded before the value of the currently defined module is determined. The module value of each dependency module will be provided as a parameter to a factory function, the order of the parameters will match the order of the modules in the dependencies array.
-			/// 
-			/// <b>Note:</b> the order in which the dependency modules are <i>executed</i> is <b>not</b> defined by the order in the dependencies array! The execution order is affected by dependencies <i>between</i> the dependency modules as well as by their current state (whether a module already has been loaded or not). Neither module implementations nor dependents that require a module set must make any assumption about the execution order (other than expressed by their dependencies). There is, however, one exception with regard to third party libraries, see the list of limitations further down below.
-			/// 
-			/// <b>Note:</b>a static module value (a literal provided to <code>sap.ui.define</code>) cannot depend on the module values of the dependency modules. Instead, modules can use a factory function, calculate the static value in that function, potentially based on the dependencies, and return the result as module value. The same approach must be taken when the module value is supposed to be a function.
-			/// 
-			/// <h3>Asynchronous Contract</h3> <code>sap.ui.define</code> is designed to support real Asynchronous Module Definitions (AMD) in future, although it internally still uses the old synchronous module loading of UI5. Callers of <code>sap.ui.define</code> therefore must not rely on any synchronous behavior that they might observe with the current implementation.
-			/// 
-			/// For example, callers of <code>sap.ui.define</code> must not use the module value immediately after invoking <code>sap.ui.define</code>:
-			/// 
-			/// <pre>
-			///   // COUNTER EXAMPLE HOW __NOT__ TO DO IT
-			/// 
-			///   // define a class Something as AMD module
-			///   sap.ui.define('Something', [], function() {
-			///     var Something = function() {};
-			///     return Something;
-			///   });
-			/// 
-			///   // DON'T DO THAT!
-			///   // accessing the class _synchronously_ after sap.ui.define was called
-			///   new Something();
-			/// </pre>
-			/// 
-			/// Applications that need to ensure synchronous module definition or synchronous loading of dependencies <b>MUST</b> use the old {@link jQuery.sap.declare} and {@link jQuery.sap.require} APIs.
-			/// 
-			/// <h3>(No) Global References</h3>
-			/// 
-			/// To be in line with AMD best practices, modules defined with <code>sap.ui.define</code> should not make any use of global variables if those variables are also available as module values. Instead, they should add dependencies to those modules and use the corresponding parameter of the factory function to access the module value.
-			/// 
-			/// As the current programming model and the documentation of UI5 heavily rely on global names, there will be a transition phase where UI5 enables AMD modules and local references to module values in parallel to the old global names. The fourth parameter of <code>sap.ui.define</code> has been added to support that transition phase. When this parameter is set to true, the framework provides two additional functionalities
-			/// 
-			/// <ol> <li>Before the factory function is called, the existence of the global parent namespace for the current module is ensured</li> <li>The module value will be automatically exported under a global name which is derived from the name of the module</li> </ol>
-			/// 
-			/// The parameter lets the framework know whether any of those two operations is needed or not. In future versions of UI5, a central configuration option is planned to suppress those 'exports'.
-			/// 
-			/// <h3>Third Party Modules</h3> Although third party modules don't use UI5 APIs, they still can be listed as dependencies in a <code>sap.ui.define</code> call. They will be requested and executed like UI5 modules, but their module value will be <code>undefined</code>.
-			/// 
-			/// If the currently defined module needs to access the module value of such a third party module, it can access the value via its global name (if the module supports such a usage).
-			/// 
-			/// Note that UI5 temporarily deactivates an existing AMD loader while it executes third party modules known to support AMD. This sounds contradictorily at a first glance as UI5 wants to support AMD, but for now it is necessary to fully support UI5 applications that rely on global names for such modules.
-			/// 
-			/// Example: <pre>
-			///   // module 'Something' wants to use third party library 'URI.js'
-			///   // It is packaged by UI5 as non-UI5-module 'sap/ui/thirdparty/URI'
-			/// 
-			///   sap.ui.define('Something', ['sap/ui/thirdparty/URI'], function(URIModuleValue) {
-			/// 
-			///     new URIModuleValue(); // fails as module value is undefined
-			/// 
-			///     //global URI // (optional) declare usage of global name so that static code checks don't complain
-			///     new URI(); // access to global name 'URI' works
-			/// 
-			///     ...
-			///   });
-			/// </pre>
-			/// 
-			/// <h3>Differences to Standard AMD</h3>
-			/// 
-			/// The current implementation of <code>sap.ui.define</code> differs from the AMD specification (https://github.com/amdjs/amdjs-api) or from concrete AMD loaders like <code>requireJS</code> in several aspects: <ul> <li>The name <code>sap.ui.define</code> is different from the plain <code>define</code>. This has two reasons: first, it avoids the impression that <code>sap.ui.define</code> is an exact implementation of an AMD loader. And second, it allows the coexistence of an AMD loader (e.g. requireJS) and <code>sap.ui.define</code> in one application as long as UI5 or applications using UI5 are not fully prepared to run with an AMD loader. Note that the difference of the API names also implies that the UI5 loader can't be used to load 'real' AMD modules as they expect methods <code>define</code> and <code>require</code> to be available. Modules that use Unified Module Definition (UMD) syntax, can be loaded, but only when no AMD loader is present or when they expose their export also to the global namespace, even when an AMD loader is present (as e.g. jQuery does)</li> <li><code>sap.ui.define</code> currently loads modules with synchronous XHR calls. This is basically a tribute to the synchronous history of UI5. <b>BUT:</b> synchronous dependency loading and factory execution explicitly it not part of contract of <code>sap.ui.define</code>. To the contrary, it is already clear and planned that asynchronous loading will be implemented, at least as an alternative if not as the only implementation. Also check section <b>Asynchronous Contract</b> above.<br> Applications that need to ensure synchronous loading of dependencies <b>MUST</b> use the old {@link jQuery.sap.require} API.</li> <li><code>sap.ui.define</code> does not support plugins to use other file types, formats or protocols. It is not planned to support this in future</li> <li><code>sap.ui.define</code> does not support absolute URLs as module names (dependencies) nor does it allow module names that start with a slash. To refer to a module at an absolute URL, a resource root can be registered that points to that URL (or to a prefix of it).</li> <li><code>sap.ui.define</code> does <b>not</b> support the 'sugar' of requireJS where CommonJS style dependency declarations using <code>sap.ui.require("something")</code> are automagically converted into <code>sap.ui.define</code> dependencies before executing the factory function.</li> </ul>
-			/// 
-			/// <h3>Limitations, Design Considerations</h3> <ul> <li><b>Limitation</b>: as dependency management is not supported for Non-UI5 modules, the only way to ensure proper execution order for such modules currently is to rely on the order in the dependency array. Obviously, this only works as long as <code>sap.ui.define</code> uses synchronous loading. It will be enhanced when asynchronous loading is implemented.</li> <li>It was discussed to enforce asynchronous execution of the module factory function (e.g. with a timeout of 0). But this would have invalidated the current migration scenario where a sync <code>jQuery.sap.require</code> call can load a <code>sap.ui.define</code>'ed module. If the module definition would not execute synchronously, the synchronous contract of the require call would be broken (default behavior in existing UI5 applications)</li> <li>A single file must not contain multiple calls to <code>sap.ui.define</code>. Multiple calls currently are only supported in the so called 'preload' files that the UI5 merge tooling produces. The exact details of how this works might be changed in future implementations and are not yet part of the API contract</li> </ul>
-			/// </summary>
-			/// <param name="sModuleName">name of the module in simplified resource name syntax. When omitted, the loader determines the name from the request.</param>
-			/// <param name="aDependencies">list of dependencies of the module</param>
-			/// <param name="vFactory">the module value or a function that calculates the value</param>
-			/// <param name="bExport">whether an export to global names is required - should be used by SAP-owned code only</param>
-			public extern static void define(string sModuleName, string[] aDependencies, object vFactory, bool bExport);
-
-			/// <summary>
-			/// Defines a Javascript module with its name, its dependencies and a module value or factory.
-			/// 
-			/// The typical and only suggested usage of this method is to have one single, top level call to <code>sap.ui.define</code> in one Javascript resource (file). When a module is requested by its name for the first time, the corresponding resource is determined from the name and the current {@link jQuery.sap.registerResourcePath configuration}. The resource will be loaded and executed which in turn will execute the top level <code>sap.ui.define</code> call.
-			/// 
-			/// If the module name was omitted from that call, it will be substituted by the name that was used to request the module. As a preparation step, the dependencies as well as their transitive dependencies, will be loaded. Then, the module value will be determined: if a static value (object, literal) was given as <code>vFactory</code>, that value will be the module value. If a function was given, that function will be called (providing the module values of the declared dependencies as parameters to the function) and its return value will be used as module value. The framework internally associates the resulting value with the module name and provides it to the original requester of the module. Whenever the module is requested again, the same value will be returned (modules are executed only once).
-			/// 
-			/// <i>Example:</i><br> The following example defines a module "SomeClass", but doesn't hard code the module name. If stored in a file 'sap/mylib/SomeClass.js', it can be requested as 'sap/mylib/SomeClass'. <pre>
-			///   sap.ui.define(['./Helper', 'sap/m/Bar'], function(Helper,Bar) {
-			/// 
-			///     // create a new class
-			///     var SomeClass = function() {};
-			/// 
-			///     // add methods to its prototype
-			///     SomeClass.prototype.foo = function() {
-			/// 
-			///         // use a function from the dependency 'Helper' in the same package (e.g. 'sap/mylib/Helper' )
-			///         var mSettings = Helper.foo();
-			/// 
-			///         // create and return an sap.m.Bar (using its local name 'Bar')
-			///         return new Bar(mSettings);
-			/// 
-			///     }
-			/// 
-			///     // return the class as module value
-			///     return SomeClass;
-			/// 
-			///   });
-			/// </pre>
-			/// 
-			/// In another module or in an application HTML page, the {@link sap.ui.require} API can be used to load the Something module and to work with it:
-			/// 
-			/// <pre>
-			/// sap.ui.require(['sap/mylib/Something'], function(Something) {
-			/// 
-			///   // instantiate a Something and call foo() on it
-			///   new Something().foo();
-			/// 
-			/// });
-			/// </pre>
-			/// 
-			/// <h3>Module Name Syntax</h3>
-			/// 
-			/// <code>sap.ui.define</code> uses a simplified variant of the {@link jQuery.sap.getResourcePath unified resource name} syntax for the module's own name as well as for its dependencies. The only difference to that syntax is, that for <code>sap.ui.define</code> and <code>sap.ui.require</code>, the extension (which always would be '.js') has to be omitted. Both methods always add this extension internally.
-			/// 
-			/// As a convenience, the name of a dependency can start with the segment './' which will be replaced by the name of the package that contains the currently defined module (relative name).
-			/// 
-			/// It is best practice to omit the name of the defined module (first parameter) and to use relative names for the dependencies whenever possible. This reduces the necessary configuration, simplifies renaming of packages and allows to map them to a different namespace.
-			/// 
-			/// <h3>Dependency to Modules</h3>
-			/// 
-			/// If a dependencies array is given, each entry represents the name of another module that the currently defined module depends on. All dependency modules are loaded before the value of the currently defined module is determined. The module value of each dependency module will be provided as a parameter to a factory function, the order of the parameters will match the order of the modules in the dependencies array.
-			/// 
-			/// <b>Note:</b> the order in which the dependency modules are <i>executed</i> is <b>not</b> defined by the order in the dependencies array! The execution order is affected by dependencies <i>between</i> the dependency modules as well as by their current state (whether a module already has been loaded or not). Neither module implementations nor dependents that require a module set must make any assumption about the execution order (other than expressed by their dependencies). There is, however, one exception with regard to third party libraries, see the list of limitations further down below.
-			/// 
-			/// <b>Note:</b>a static module value (a literal provided to <code>sap.ui.define</code>) cannot depend on the module values of the dependency modules. Instead, modules can use a factory function, calculate the static value in that function, potentially based on the dependencies, and return the result as module value. The same approach must be taken when the module value is supposed to be a function.
-			/// 
-			/// <h3>Asynchronous Contract</h3> <code>sap.ui.define</code> is designed to support real Asynchronous Module Definitions (AMD) in future, although it internally still uses the old synchronous module loading of UI5. Callers of <code>sap.ui.define</code> therefore must not rely on any synchronous behavior that they might observe with the current implementation.
-			/// 
-			/// For example, callers of <code>sap.ui.define</code> must not use the module value immediately after invoking <code>sap.ui.define</code>:
-			/// 
-			/// <pre>
-			///   // COUNTER EXAMPLE HOW __NOT__ TO DO IT
-			/// 
-			///   // define a class Something as AMD module
-			///   sap.ui.define('Something', [], function() {
-			///     var Something = function() {};
-			///     return Something;
-			///   });
-			/// 
-			///   // DON'T DO THAT!
-			///   // accessing the class _synchronously_ after sap.ui.define was called
-			///   new Something();
-			/// </pre>
-			/// 
-			/// Applications that need to ensure synchronous module definition or synchronous loading of dependencies <b>MUST</b> use the old {@link jQuery.sap.declare} and {@link jQuery.sap.require} APIs.
-			/// 
-			/// <h3>(No) Global References</h3>
-			/// 
-			/// To be in line with AMD best practices, modules defined with <code>sap.ui.define</code> should not make any use of global variables if those variables are also available as module values. Instead, they should add dependencies to those modules and use the corresponding parameter of the factory function to access the module value.
-			/// 
-			/// As the current programming model and the documentation of UI5 heavily rely on global names, there will be a transition phase where UI5 enables AMD modules and local references to module values in parallel to the old global names. The fourth parameter of <code>sap.ui.define</code> has been added to support that transition phase. When this parameter is set to true, the framework provides two additional functionalities
-			/// 
-			/// <ol> <li>Before the factory function is called, the existence of the global parent namespace for the current module is ensured</li> <li>The module value will be automatically exported under a global name which is derived from the name of the module</li> </ol>
-			/// 
-			/// The parameter lets the framework know whether any of those two operations is needed or not. In future versions of UI5, a central configuration option is planned to suppress those 'exports'.
-			/// 
-			/// <h3>Third Party Modules</h3> Although third party modules don't use UI5 APIs, they still can be listed as dependencies in a <code>sap.ui.define</code> call. They will be requested and executed like UI5 modules, but their module value will be <code>undefined</code>.
-			/// 
-			/// If the currently defined module needs to access the module value of such a third party module, it can access the value via its global name (if the module supports such a usage).
-			/// 
-			/// Note that UI5 temporarily deactivates an existing AMD loader while it executes third party modules known to support AMD. This sounds contradictorily at a first glance as UI5 wants to support AMD, but for now it is necessary to fully support UI5 applications that rely on global names for such modules.
-			/// 
-			/// Example: <pre>
-			///   // module 'Something' wants to use third party library 'URI.js'
-			///   // It is packaged by UI5 as non-UI5-module 'sap/ui/thirdparty/URI'
-			/// 
-			///   sap.ui.define('Something', ['sap/ui/thirdparty/URI'], function(URIModuleValue) {
-			/// 
-			///     new URIModuleValue(); // fails as module value is undefined
-			/// 
-			///     //global URI // (optional) declare usage of global name so that static code checks don't complain
-			///     new URI(); // access to global name 'URI' works
-			/// 
-			///     ...
-			///   });
-			/// </pre>
-			/// 
-			/// <h3>Differences to Standard AMD</h3>
-			/// 
-			/// The current implementation of <code>sap.ui.define</code> differs from the AMD specification (https://github.com/amdjs/amdjs-api) or from concrete AMD loaders like <code>requireJS</code> in several aspects: <ul> <li>The name <code>sap.ui.define</code> is different from the plain <code>define</code>. This has two reasons: first, it avoids the impression that <code>sap.ui.define</code> is an exact implementation of an AMD loader. And second, it allows the coexistence of an AMD loader (e.g. requireJS) and <code>sap.ui.define</code> in one application as long as UI5 or applications using UI5 are not fully prepared to run with an AMD loader. Note that the difference of the API names also implies that the UI5 loader can't be used to load 'real' AMD modules as they expect methods <code>define</code> and <code>require</code> to be available. Modules that use Unified Module Definition (UMD) syntax, can be loaded, but only when no AMD loader is present or when they expose their export also to the global namespace, even when an AMD loader is present (as e.g. jQuery does)</li> <li><code>sap.ui.define</code> currently loads modules with synchronous XHR calls. This is basically a tribute to the synchronous history of UI5. <b>BUT:</b> synchronous dependency loading and factory execution explicitly it not part of contract of <code>sap.ui.define</code>. To the contrary, it is already clear and planned that asynchronous loading will be implemented, at least as an alternative if not as the only implementation. Also check section <b>Asynchronous Contract</b> above.<br> Applications that need to ensure synchronous loading of dependencies <b>MUST</b> use the old {@link jQuery.sap.require} API.</li> <li><code>sap.ui.define</code> does not support plugins to use other file types, formats or protocols. It is not planned to support this in future</li> <li><code>sap.ui.define</code> does not support absolute URLs as module names (dependencies) nor does it allow module names that start with a slash. To refer to a module at an absolute URL, a resource root can be registered that points to that URL (or to a prefix of it).</li> <li><code>sap.ui.define</code> does <b>not</b> support the 'sugar' of requireJS where CommonJS style dependency declarations using <code>sap.ui.require("something")</code> are automagically converted into <code>sap.ui.define</code> dependencies before executing the factory function.</li> </ul>
-			/// 
-			/// <h3>Limitations, Design Considerations</h3> <ul> <li><b>Limitation</b>: as dependency management is not supported for Non-UI5 modules, the only way to ensure proper execution order for such modules currently is to rely on the order in the dependency array. Obviously, this only works as long as <code>sap.ui.define</code> uses synchronous loading. It will be enhanced when asynchronous loading is implemented.</li> <li>It was discussed to enforce asynchronous execution of the module factory function (e.g. with a timeout of 0). But this would have invalidated the current migration scenario where a sync <code>jQuery.sap.require</code> call can load a <code>sap.ui.define</code>'ed module. If the module definition would not execute synchronously, the synchronous contract of the require call would be broken (default behavior in existing UI5 applications)</li> <li>A single file must not contain multiple calls to <code>sap.ui.define</code>. Multiple calls currently are only supported in the so called 'preload' files that the UI5 merge tooling produces. The exact details of how this works might be changed in future implementations and are not yet part of the API contract</li> </ul>
-			/// </summary>
-			/// <param name="sModuleName">name of the module in simplified resource name syntax. When omitted, the loader determines the name from the request.</param>
-			/// <param name="aDependencies">list of dependencies of the module</param>
-			/// <param name="vFactory">the module value or a function that calculates the value</param>
-			/// <param name="bExport">whether an export to global names is required - should be used by SAP-owned code only</param>
-			public extern static void define(string sModuleName, object[] aDependencies, object vFactory, bool bExport);
-
-			/// <summary>
-			/// Defines a Javascript module with its name, its dependencies and a module value or factory.
-			/// 
-			/// The typical and only suggested usage of this method is to have one single, top level call to <code>sap.ui.define</code> in one Javascript resource (file). When a module is requested by its name for the first time, the corresponding resource is determined from the name and the current {@link jQuery.sap.registerResourcePath configuration}. The resource will be loaded and executed which in turn will execute the top level <code>sap.ui.define</code> call.
-			/// 
-			/// If the module name was omitted from that call, it will be substituted by the name that was used to request the module. As a preparation step, the dependencies as well as their transitive dependencies, will be loaded. Then, the module value will be determined: if a static value (object, literal) was given as <code>vFactory</code>, that value will be the module value. If a function was given, that function will be called (providing the module values of the declared dependencies as parameters to the function) and its return value will be used as module value. The framework internally associates the resulting value with the module name and provides it to the original requester of the module. Whenever the module is requested again, the same value will be returned (modules are executed only once).
-			/// 
-			/// <i>Example:</i><br> The following example defines a module "SomeClass", but doesn't hard code the module name. If stored in a file 'sap/mylib/SomeClass.js', it can be requested as 'sap/mylib/SomeClass'. <pre>
-			///   sap.ui.define(['./Helper', 'sap/m/Bar'], function(Helper,Bar) {
-			/// 
-			///     // create a new class
-			///     var SomeClass = function() {};
-			/// 
-			///     // add methods to its prototype
-			///     SomeClass.prototype.foo = function() {
-			/// 
-			///         // use a function from the dependency 'Helper' in the same package (e.g. 'sap/mylib/Helper' )
-			///         var mSettings = Helper.foo();
-			/// 
-			///         // create and return an sap.m.Bar (using its local name 'Bar')
-			///         return new Bar(mSettings);
-			/// 
-			///     }
-			/// 
-			///     // return the class as module value
-			///     return SomeClass;
-			/// 
-			///   });
-			/// </pre>
-			/// 
-			/// In another module or in an application HTML page, the {@link sap.ui.require} API can be used to load the Something module and to work with it:
-			/// 
-			/// <pre>
-			/// sap.ui.require(['sap/mylib/Something'], function(Something) {
-			/// 
-			///   // instantiate a Something and call foo() on it
-			///   new Something().foo();
-			/// 
-			/// });
-			/// </pre>
-			/// 
-			/// <h3>Module Name Syntax</h3>
-			/// 
-			/// <code>sap.ui.define</code> uses a simplified variant of the {@link jQuery.sap.getResourcePath unified resource name} syntax for the module's own name as well as for its dependencies. The only difference to that syntax is, that for <code>sap.ui.define</code> and <code>sap.ui.require</code>, the extension (which always would be '.js') has to be omitted. Both methods always add this extension internally.
-			/// 
-			/// As a convenience, the name of a dependency can start with the segment './' which will be replaced by the name of the package that contains the currently defined module (relative name).
-			/// 
-			/// It is best practice to omit the name of the defined module (first parameter) and to use relative names for the dependencies whenever possible. This reduces the necessary configuration, simplifies renaming of packages and allows to map them to a different namespace.
-			/// 
-			/// <h3>Dependency to Modules</h3>
-			/// 
-			/// If a dependencies array is given, each entry represents the name of another module that the currently defined module depends on. All dependency modules are loaded before the value of the currently defined module is determined. The module value of each dependency module will be provided as a parameter to a factory function, the order of the parameters will match the order of the modules in the dependencies array.
-			/// 
-			/// <b>Note:</b> the order in which the dependency modules are <i>executed</i> is <b>not</b> defined by the order in the dependencies array! The execution order is affected by dependencies <i>between</i> the dependency modules as well as by their current state (whether a module already has been loaded or not). Neither module implementations nor dependents that require a module set must make any assumption about the execution order (other than expressed by their dependencies). There is, however, one exception with regard to third party libraries, see the list of limitations further down below.
-			/// 
-			/// <b>Note:</b>a static module value (a literal provided to <code>sap.ui.define</code>) cannot depend on the module values of the dependency modules. Instead, modules can use a factory function, calculate the static value in that function, potentially based on the dependencies, and return the result as module value. The same approach must be taken when the module value is supposed to be a function.
-			/// 
-			/// <h3>Asynchronous Contract</h3> <code>sap.ui.define</code> is designed to support real Asynchronous Module Definitions (AMD) in future, although it internally still uses the old synchronous module loading of UI5. Callers of <code>sap.ui.define</code> therefore must not rely on any synchronous behavior that they might observe with the current implementation.
-			/// 
-			/// For example, callers of <code>sap.ui.define</code> must not use the module value immediately after invoking <code>sap.ui.define</code>:
-			/// 
-			/// <pre>
-			///   // COUNTER EXAMPLE HOW __NOT__ TO DO IT
-			/// 
-			///   // define a class Something as AMD module
-			///   sap.ui.define('Something', [], function() {
-			///     var Something = function() {};
-			///     return Something;
-			///   });
-			/// 
-			///   // DON'T DO THAT!
-			///   // accessing the class _synchronously_ after sap.ui.define was called
-			///   new Something();
-			/// </pre>
-			/// 
-			/// Applications that need to ensure synchronous module definition or synchronous loading of dependencies <b>MUST</b> use the old {@link jQuery.sap.declare} and {@link jQuery.sap.require} APIs.
-			/// 
-			/// <h3>(No) Global References</h3>
-			/// 
-			/// To be in line with AMD best practices, modules defined with <code>sap.ui.define</code> should not make any use of global variables if those variables are also available as module values. Instead, they should add dependencies to those modules and use the corresponding parameter of the factory function to access the module value.
-			/// 
-			/// As the current programming model and the documentation of UI5 heavily rely on global names, there will be a transition phase where UI5 enables AMD modules and local references to module values in parallel to the old global names. The fourth parameter of <code>sap.ui.define</code> has been added to support that transition phase. When this parameter is set to true, the framework provides two additional functionalities
-			/// 
-			/// <ol> <li>Before the factory function is called, the existence of the global parent namespace for the current module is ensured</li> <li>The module value will be automatically exported under a global name which is derived from the name of the module</li> </ol>
-			/// 
-			/// The parameter lets the framework know whether any of those two operations is needed or not. In future versions of UI5, a central configuration option is planned to suppress those 'exports'.
-			/// 
-			/// <h3>Third Party Modules</h3> Although third party modules don't use UI5 APIs, they still can be listed as dependencies in a <code>sap.ui.define</code> call. They will be requested and executed like UI5 modules, but their module value will be <code>undefined</code>.
-			/// 
-			/// If the currently defined module needs to access the module value of such a third party module, it can access the value via its global name (if the module supports such a usage).
-			/// 
-			/// Note that UI5 temporarily deactivates an existing AMD loader while it executes third party modules known to support AMD. This sounds contradictorily at a first glance as UI5 wants to support AMD, but for now it is necessary to fully support UI5 applications that rely on global names for such modules.
-			/// 
-			/// Example: <pre>
-			///   // module 'Something' wants to use third party library 'URI.js'
-			///   // It is packaged by UI5 as non-UI5-module 'sap/ui/thirdparty/URI'
-			/// 
-			///   sap.ui.define('Something', ['sap/ui/thirdparty/URI'], function(URIModuleValue) {
-			/// 
-			///     new URIModuleValue(); // fails as module value is undefined
-			/// 
-			///     //global URI // (optional) declare usage of global name so that static code checks don't complain
-			///     new URI(); // access to global name 'URI' works
-			/// 
-			///     ...
-			///   });
-			/// </pre>
-			/// 
-			/// <h3>Differences to Standard AMD</h3>
-			/// 
-			/// The current implementation of <code>sap.ui.define</code> differs from the AMD specification (https://github.com/amdjs/amdjs-api) or from concrete AMD loaders like <code>requireJS</code> in several aspects: <ul> <li>The name <code>sap.ui.define</code> is different from the plain <code>define</code>. This has two reasons: first, it avoids the impression that <code>sap.ui.define</code> is an exact implementation of an AMD loader. And second, it allows the coexistence of an AMD loader (e.g. requireJS) and <code>sap.ui.define</code> in one application as long as UI5 or applications using UI5 are not fully prepared to run with an AMD loader. Note that the difference of the API names also implies that the UI5 loader can't be used to load 'real' AMD modules as they expect methods <code>define</code> and <code>require</code> to be available. Modules that use Unified Module Definition (UMD) syntax, can be loaded, but only when no AMD loader is present or when they expose their export also to the global namespace, even when an AMD loader is present (as e.g. jQuery does)</li> <li><code>sap.ui.define</code> currently loads modules with synchronous XHR calls. This is basically a tribute to the synchronous history of UI5. <b>BUT:</b> synchronous dependency loading and factory execution explicitly it not part of contract of <code>sap.ui.define</code>. To the contrary, it is already clear and planned that asynchronous loading will be implemented, at least as an alternative if not as the only implementation. Also check section <b>Asynchronous Contract</b> above.<br> Applications that need to ensure synchronous loading of dependencies <b>MUST</b> use the old {@link jQuery.sap.require} API.</li> <li><code>sap.ui.define</code> does not support plugins to use other file types, formats or protocols. It is not planned to support this in future</li> <li><code>sap.ui.define</code> does not support absolute URLs as module names (dependencies) nor does it allow module names that start with a slash. To refer to a module at an absolute URL, a resource root can be registered that points to that URL (or to a prefix of it).</li> <li><code>sap.ui.define</code> does <b>not</b> support the 'sugar' of requireJS where CommonJS style dependency declarations using <code>sap.ui.require("something")</code> are automagically converted into <code>sap.ui.define</code> dependencies before executing the factory function.</li> </ul>
-			/// 
-			/// <h3>Limitations, Design Considerations</h3> <ul> <li><b>Limitation</b>: as dependency management is not supported for Non-UI5 modules, the only way to ensure proper execution order for such modules currently is to rely on the order in the dependency array. Obviously, this only works as long as <code>sap.ui.define</code> uses synchronous loading. It will be enhanced when asynchronous loading is implemented.</li> <li>It was discussed to enforce asynchronous execution of the module factory function (e.g. with a timeout of 0). But this would have invalidated the current migration scenario where a sync <code>jQuery.sap.require</code> call can load a <code>sap.ui.define</code>'ed module. If the module definition would not execute synchronously, the synchronous contract of the require call would be broken (default behavior in existing UI5 applications)</li> <li>A single file must not contain multiple calls to <code>sap.ui.define</code>. Multiple calls currently are only supported in the so called 'preload' files that the UI5 merge tooling produces. The exact details of how this works might be changed in future implementations and are not yet part of the API contract</li> </ul>
-			/// </summary>
-			/// <param name="sModuleName">name of the module in simplified resource name syntax. When omitted, the loader determines the name from the request.</param>
-			/// <param name="aDependencies">list of dependencies of the module</param>
-			/// <param name="vFactory">the module value or a function that calculates the value</param>
-			public extern static void define(string sModuleName, string[] aDependencies, object vFactory);
-
-			/// <summary>
-			/// Defines a Javascript module with its name, its dependencies and a module value or factory.
-			/// 
-			/// The typical and only suggested usage of this method is to have one single, top level call to <code>sap.ui.define</code> in one Javascript resource (file). When a module is requested by its name for the first time, the corresponding resource is determined from the name and the current {@link jQuery.sap.registerResourcePath configuration}. The resource will be loaded and executed which in turn will execute the top level <code>sap.ui.define</code> call.
-			/// 
-			/// If the module name was omitted from that call, it will be substituted by the name that was used to request the module. As a preparation step, the dependencies as well as their transitive dependencies, will be loaded. Then, the module value will be determined: if a static value (object, literal) was given as <code>vFactory</code>, that value will be the module value. If a function was given, that function will be called (providing the module values of the declared dependencies as parameters to the function) and its return value will be used as module value. The framework internally associates the resulting value with the module name and provides it to the original requester of the module. Whenever the module is requested again, the same value will be returned (modules are executed only once).
-			/// 
-			/// <i>Example:</i><br> The following example defines a module "SomeClass", but doesn't hard code the module name. If stored in a file 'sap/mylib/SomeClass.js', it can be requested as 'sap/mylib/SomeClass'. <pre>
-			///   sap.ui.define(['./Helper', 'sap/m/Bar'], function(Helper,Bar) {
-			/// 
-			///     // create a new class
-			///     var SomeClass = function() {};
-			/// 
-			///     // add methods to its prototype
-			///     SomeClass.prototype.foo = function() {
-			/// 
-			///         // use a function from the dependency 'Helper' in the same package (e.g. 'sap/mylib/Helper' )
-			///         var mSettings = Helper.foo();
-			/// 
-			///         // create and return an sap.m.Bar (using its local name 'Bar')
-			///         return new Bar(mSettings);
-			/// 
-			///     }
-			/// 
-			///     // return the class as module value
-			///     return SomeClass;
-			/// 
-			///   });
-			/// </pre>
-			/// 
-			/// In another module or in an application HTML page, the {@link sap.ui.require} API can be used to load the Something module and to work with it:
-			/// 
-			/// <pre>
-			/// sap.ui.require(['sap/mylib/Something'], function(Something) {
-			/// 
-			///   // instantiate a Something and call foo() on it
-			///   new Something().foo();
-			/// 
-			/// });
-			/// </pre>
-			/// 
-			/// <h3>Module Name Syntax</h3>
-			/// 
-			/// <code>sap.ui.define</code> uses a simplified variant of the {@link jQuery.sap.getResourcePath unified resource name} syntax for the module's own name as well as for its dependencies. The only difference to that syntax is, that for <code>sap.ui.define</code> and <code>sap.ui.require</code>, the extension (which always would be '.js') has to be omitted. Both methods always add this extension internally.
-			/// 
-			/// As a convenience, the name of a dependency can start with the segment './' which will be replaced by the name of the package that contains the currently defined module (relative name).
-			/// 
-			/// It is best practice to omit the name of the defined module (first parameter) and to use relative names for the dependencies whenever possible. This reduces the necessary configuration, simplifies renaming of packages and allows to map them to a different namespace.
-			/// 
-			/// <h3>Dependency to Modules</h3>
-			/// 
-			/// If a dependencies array is given, each entry represents the name of another module that the currently defined module depends on. All dependency modules are loaded before the value of the currently defined module is determined. The module value of each dependency module will be provided as a parameter to a factory function, the order of the parameters will match the order of the modules in the dependencies array.
-			/// 
-			/// <b>Note:</b> the order in which the dependency modules are <i>executed</i> is <b>not</b> defined by the order in the dependencies array! The execution order is affected by dependencies <i>between</i> the dependency modules as well as by their current state (whether a module already has been loaded or not). Neither module implementations nor dependents that require a module set must make any assumption about the execution order (other than expressed by their dependencies). There is, however, one exception with regard to third party libraries, see the list of limitations further down below.
-			/// 
-			/// <b>Note:</b>a static module value (a literal provided to <code>sap.ui.define</code>) cannot depend on the module values of the dependency modules. Instead, modules can use a factory function, calculate the static value in that function, potentially based on the dependencies, and return the result as module value. The same approach must be taken when the module value is supposed to be a function.
-			/// 
-			/// <h3>Asynchronous Contract</h3> <code>sap.ui.define</code> is designed to support real Asynchronous Module Definitions (AMD) in future, although it internally still uses the old synchronous module loading of UI5. Callers of <code>sap.ui.define</code> therefore must not rely on any synchronous behavior that they might observe with the current implementation.
-			/// 
-			/// For example, callers of <code>sap.ui.define</code> must not use the module value immediately after invoking <code>sap.ui.define</code>:
-			/// 
-			/// <pre>
-			///   // COUNTER EXAMPLE HOW __NOT__ TO DO IT
-			/// 
-			///   // define a class Something as AMD module
-			///   sap.ui.define('Something', [], function() {
-			///     var Something = function() {};
-			///     return Something;
-			///   });
-			/// 
-			///   // DON'T DO THAT!
-			///   // accessing the class _synchronously_ after sap.ui.define was called
-			///   new Something();
-			/// </pre>
-			/// 
-			/// Applications that need to ensure synchronous module definition or synchronous loading of dependencies <b>MUST</b> use the old {@link jQuery.sap.declare} and {@link jQuery.sap.require} APIs.
-			/// 
-			/// <h3>(No) Global References</h3>
-			/// 
-			/// To be in line with AMD best practices, modules defined with <code>sap.ui.define</code> should not make any use of global variables if those variables are also available as module values. Instead, they should add dependencies to those modules and use the corresponding parameter of the factory function to access the module value.
-			/// 
-			/// As the current programming model and the documentation of UI5 heavily rely on global names, there will be a transition phase where UI5 enables AMD modules and local references to module values in parallel to the old global names. The fourth parameter of <code>sap.ui.define</code> has been added to support that transition phase. When this parameter is set to true, the framework provides two additional functionalities
-			/// 
-			/// <ol> <li>Before the factory function is called, the existence of the global parent namespace for the current module is ensured</li> <li>The module value will be automatically exported under a global name which is derived from the name of the module</li> </ol>
-			/// 
-			/// The parameter lets the framework know whether any of those two operations is needed or not. In future versions of UI5, a central configuration option is planned to suppress those 'exports'.
-			/// 
-			/// <h3>Third Party Modules</h3> Although third party modules don't use UI5 APIs, they still can be listed as dependencies in a <code>sap.ui.define</code> call. They will be requested and executed like UI5 modules, but their module value will be <code>undefined</code>.
-			/// 
-			/// If the currently defined module needs to access the module value of such a third party module, it can access the value via its global name (if the module supports such a usage).
-			/// 
-			/// Note that UI5 temporarily deactivates an existing AMD loader while it executes third party modules known to support AMD. This sounds contradictorily at a first glance as UI5 wants to support AMD, but for now it is necessary to fully support UI5 applications that rely on global names for such modules.
-			/// 
-			/// Example: <pre>
-			///   // module 'Something' wants to use third party library 'URI.js'
-			///   // It is packaged by UI5 as non-UI5-module 'sap/ui/thirdparty/URI'
-			/// 
-			///   sap.ui.define('Something', ['sap/ui/thirdparty/URI'], function(URIModuleValue) {
-			/// 
-			///     new URIModuleValue(); // fails as module value is undefined
-			/// 
-			///     //global URI // (optional) declare usage of global name so that static code checks don't complain
-			///     new URI(); // access to global name 'URI' works
-			/// 
-			///     ...
-			///   });
-			/// </pre>
-			/// 
-			/// <h3>Differences to Standard AMD</h3>
-			/// 
-			/// The current implementation of <code>sap.ui.define</code> differs from the AMD specification (https://github.com/amdjs/amdjs-api) or from concrete AMD loaders like <code>requireJS</code> in several aspects: <ul> <li>The name <code>sap.ui.define</code> is different from the plain <code>define</code>. This has two reasons: first, it avoids the impression that <code>sap.ui.define</code> is an exact implementation of an AMD loader. And second, it allows the coexistence of an AMD loader (e.g. requireJS) and <code>sap.ui.define</code> in one application as long as UI5 or applications using UI5 are not fully prepared to run with an AMD loader. Note that the difference of the API names also implies that the UI5 loader can't be used to load 'real' AMD modules as they expect methods <code>define</code> and <code>require</code> to be available. Modules that use Unified Module Definition (UMD) syntax, can be loaded, but only when no AMD loader is present or when they expose their export also to the global namespace, even when an AMD loader is present (as e.g. jQuery does)</li> <li><code>sap.ui.define</code> currently loads modules with synchronous XHR calls. This is basically a tribute to the synchronous history of UI5. <b>BUT:</b> synchronous dependency loading and factory execution explicitly it not part of contract of <code>sap.ui.define</code>. To the contrary, it is already clear and planned that asynchronous loading will be implemented, at least as an alternative if not as the only implementation. Also check section <b>Asynchronous Contract</b> above.<br> Applications that need to ensure synchronous loading of dependencies <b>MUST</b> use the old {@link jQuery.sap.require} API.</li> <li><code>sap.ui.define</code> does not support plugins to use other file types, formats or protocols. It is not planned to support this in future</li> <li><code>sap.ui.define</code> does not support absolute URLs as module names (dependencies) nor does it allow module names that start with a slash. To refer to a module at an absolute URL, a resource root can be registered that points to that URL (or to a prefix of it).</li> <li><code>sap.ui.define</code> does <b>not</b> support the 'sugar' of requireJS where CommonJS style dependency declarations using <code>sap.ui.require("something")</code> are automagically converted into <code>sap.ui.define</code> dependencies before executing the factory function.</li> </ul>
-			/// 
-			/// <h3>Limitations, Design Considerations</h3> <ul> <li><b>Limitation</b>: as dependency management is not supported for Non-UI5 modules, the only way to ensure proper execution order for such modules currently is to rely on the order in the dependency array. Obviously, this only works as long as <code>sap.ui.define</code> uses synchronous loading. It will be enhanced when asynchronous loading is implemented.</li> <li>It was discussed to enforce asynchronous execution of the module factory function (e.g. with a timeout of 0). But this would have invalidated the current migration scenario where a sync <code>jQuery.sap.require</code> call can load a <code>sap.ui.define</code>'ed module. If the module definition would not execute synchronously, the synchronous contract of the require call would be broken (default behavior in existing UI5 applications)</li> <li>A single file must not contain multiple calls to <code>sap.ui.define</code>. Multiple calls currently are only supported in the so called 'preload' files that the UI5 merge tooling produces. The exact details of how this works might be changed in future implementations and are not yet part of the API contract</li> </ul>
-			/// </summary>
-			/// <param name="sModuleName">name of the module in simplified resource name syntax. When omitted, the loader determines the name from the request.</param>
-			/// <param name="aDependencies">list of dependencies of the module</param>
-			/// <param name="vFactory">the module value or a function that calculates the value</param>
-			public extern static void define(string sModuleName, object[] aDependencies, object vFactory);
-
-			/// <summary>
-			/// Defines a Javascript module with its name, its dependencies and a module value or factory.
-			/// 
-			/// The typical and only suggested usage of this method is to have one single, top level call to <code>sap.ui.define</code> in one Javascript resource (file). When a module is requested by its name for the first time, the corresponding resource is determined from the name and the current {@link jQuery.sap.registerResourcePath configuration}. The resource will be loaded and executed which in turn will execute the top level <code>sap.ui.define</code> call.
-			/// 
-			/// If the module name was omitted from that call, it will be substituted by the name that was used to request the module. As a preparation step, the dependencies as well as their transitive dependencies, will be loaded. Then, the module value will be determined: if a static value (object, literal) was given as <code>vFactory</code>, that value will be the module value. If a function was given, that function will be called (providing the module values of the declared dependencies as parameters to the function) and its return value will be used as module value. The framework internally associates the resulting value with the module name and provides it to the original requester of the module. Whenever the module is requested again, the same value will be returned (modules are executed only once).
-			/// 
-			/// <i>Example:</i><br> The following example defines a module "SomeClass", but doesn't hard code the module name. If stored in a file 'sap/mylib/SomeClass.js', it can be requested as 'sap/mylib/SomeClass'. <pre>
-			///   sap.ui.define(['./Helper', 'sap/m/Bar'], function(Helper,Bar) {
-			/// 
-			///     // create a new class
-			///     var SomeClass = function() {};
-			/// 
-			///     // add methods to its prototype
-			///     SomeClass.prototype.foo = function() {
-			/// 
-			///         // use a function from the dependency 'Helper' in the same package (e.g. 'sap/mylib/Helper' )
-			///         var mSettings = Helper.foo();
-			/// 
-			///         // create and return an sap.m.Bar (using its local name 'Bar')
-			///         return new Bar(mSettings);
-			/// 
-			///     }
-			/// 
-			///     // return the class as module value
-			///     return SomeClass;
-			/// 
-			///   });
-			/// </pre>
-			/// 
-			/// In another module or in an application HTML page, the {@link sap.ui.require} API can be used to load the Something module and to work with it:
-			/// 
-			/// <pre>
-			/// sap.ui.require(['sap/mylib/Something'], function(Something) {
-			/// 
-			///   // instantiate a Something and call foo() on it
-			///   new Something().foo();
-			/// 
-			/// });
-			/// </pre>
-			/// 
-			/// <h3>Module Name Syntax</h3>
-			/// 
-			/// <code>sap.ui.define</code> uses a simplified variant of the {@link jQuery.sap.getResourcePath unified resource name} syntax for the module's own name as well as for its dependencies. The only difference to that syntax is, that for <code>sap.ui.define</code> and <code>sap.ui.require</code>, the extension (which always would be '.js') has to be omitted. Both methods always add this extension internally.
-			/// 
-			/// As a convenience, the name of a dependency can start with the segment './' which will be replaced by the name of the package that contains the currently defined module (relative name).
-			/// 
-			/// It is best practice to omit the name of the defined module (first parameter) and to use relative names for the dependencies whenever possible. This reduces the necessary configuration, simplifies renaming of packages and allows to map them to a different namespace.
-			/// 
-			/// <h3>Dependency to Modules</h3>
-			/// 
-			/// If a dependencies array is given, each entry represents the name of another module that the currently defined module depends on. All dependency modules are loaded before the value of the currently defined module is determined. The module value of each dependency module will be provided as a parameter to a factory function, the order of the parameters will match the order of the modules in the dependencies array.
-			/// 
-			/// <b>Note:</b> the order in which the dependency modules are <i>executed</i> is <b>not</b> defined by the order in the dependencies array! The execution order is affected by dependencies <i>between</i> the dependency modules as well as by their current state (whether a module already has been loaded or not). Neither module implementations nor dependents that require a module set must make any assumption about the execution order (other than expressed by their dependencies). There is, however, one exception with regard to third party libraries, see the list of limitations further down below.
-			/// 
-			/// <b>Note:</b>a static module value (a literal provided to <code>sap.ui.define</code>) cannot depend on the module values of the dependency modules. Instead, modules can use a factory function, calculate the static value in that function, potentially based on the dependencies, and return the result as module value. The same approach must be taken when the module value is supposed to be a function.
-			/// 
-			/// <h3>Asynchronous Contract</h3> <code>sap.ui.define</code> is designed to support real Asynchronous Module Definitions (AMD) in future, although it internally still uses the old synchronous module loading of UI5. Callers of <code>sap.ui.define</code> therefore must not rely on any synchronous behavior that they might observe with the current implementation.
-			/// 
-			/// For example, callers of <code>sap.ui.define</code> must not use the module value immediately after invoking <code>sap.ui.define</code>:
-			/// 
-			/// <pre>
-			///   // COUNTER EXAMPLE HOW __NOT__ TO DO IT
-			/// 
-			///   // define a class Something as AMD module
-			///   sap.ui.define('Something', [], function() {
-			///     var Something = function() {};
-			///     return Something;
-			///   });
-			/// 
-			///   // DON'T DO THAT!
-			///   // accessing the class _synchronously_ after sap.ui.define was called
-			///   new Something();
-			/// </pre>
-			/// 
-			/// Applications that need to ensure synchronous module definition or synchronous loading of dependencies <b>MUST</b> use the old {@link jQuery.sap.declare} and {@link jQuery.sap.require} APIs.
-			/// 
-			/// <h3>(No) Global References</h3>
-			/// 
-			/// To be in line with AMD best practices, modules defined with <code>sap.ui.define</code> should not make any use of global variables if those variables are also available as module values. Instead, they should add dependencies to those modules and use the corresponding parameter of the factory function to access the module value.
-			/// 
-			/// As the current programming model and the documentation of UI5 heavily rely on global names, there will be a transition phase where UI5 enables AMD modules and local references to module values in parallel to the old global names. The fourth parameter of <code>sap.ui.define</code> has been added to support that transition phase. When this parameter is set to true, the framework provides two additional functionalities
-			/// 
-			/// <ol> <li>Before the factory function is called, the existence of the global parent namespace for the current module is ensured</li> <li>The module value will be automatically exported under a global name which is derived from the name of the module</li> </ol>
-			/// 
-			/// The parameter lets the framework know whether any of those two operations is needed or not. In future versions of UI5, a central configuration option is planned to suppress those 'exports'.
-			/// 
-			/// <h3>Third Party Modules</h3> Although third party modules don't use UI5 APIs, they still can be listed as dependencies in a <code>sap.ui.define</code> call. They will be requested and executed like UI5 modules, but their module value will be <code>undefined</code>.
-			/// 
-			/// If the currently defined module needs to access the module value of such a third party module, it can access the value via its global name (if the module supports such a usage).
-			/// 
-			/// Note that UI5 temporarily deactivates an existing AMD loader while it executes third party modules known to support AMD. This sounds contradictorily at a first glance as UI5 wants to support AMD, but for now it is necessary to fully support UI5 applications that rely on global names for such modules.
-			/// 
-			/// Example: <pre>
-			///   // module 'Something' wants to use third party library 'URI.js'
-			///   // It is packaged by UI5 as non-UI5-module 'sap/ui/thirdparty/URI'
-			/// 
-			///   sap.ui.define('Something', ['sap/ui/thirdparty/URI'], function(URIModuleValue) {
-			/// 
-			///     new URIModuleValue(); // fails as module value is undefined
-			/// 
-			///     //global URI // (optional) declare usage of global name so that static code checks don't complain
-			///     new URI(); // access to global name 'URI' works
-			/// 
-			///     ...
-			///   });
-			/// </pre>
-			/// 
-			/// <h3>Differences to Standard AMD</h3>
-			/// 
-			/// The current implementation of <code>sap.ui.define</code> differs from the AMD specification (https://github.com/amdjs/amdjs-api) or from concrete AMD loaders like <code>requireJS</code> in several aspects: <ul> <li>The name <code>sap.ui.define</code> is different from the plain <code>define</code>. This has two reasons: first, it avoids the impression that <code>sap.ui.define</code> is an exact implementation of an AMD loader. And second, it allows the coexistence of an AMD loader (e.g. requireJS) and <code>sap.ui.define</code> in one application as long as UI5 or applications using UI5 are not fully prepared to run with an AMD loader. Note that the difference of the API names also implies that the UI5 loader can't be used to load 'real' AMD modules as they expect methods <code>define</code> and <code>require</code> to be available. Modules that use Unified Module Definition (UMD) syntax, can be loaded, but only when no AMD loader is present or when they expose their export also to the global namespace, even when an AMD loader is present (as e.g. jQuery does)</li> <li><code>sap.ui.define</code> currently loads modules with synchronous XHR calls. This is basically a tribute to the synchronous history of UI5. <b>BUT:</b> synchronous dependency loading and factory execution explicitly it not part of contract of <code>sap.ui.define</code>. To the contrary, it is already clear and planned that asynchronous loading will be implemented, at least as an alternative if not as the only implementation. Also check section <b>Asynchronous Contract</b> above.<br> Applications that need to ensure synchronous loading of dependencies <b>MUST</b> use the old {@link jQuery.sap.require} API.</li> <li><code>sap.ui.define</code> does not support plugins to use other file types, formats or protocols. It is not planned to support this in future</li> <li><code>sap.ui.define</code> does not support absolute URLs as module names (dependencies) nor does it allow module names that start with a slash. To refer to a module at an absolute URL, a resource root can be registered that points to that URL (or to a prefix of it).</li> <li><code>sap.ui.define</code> does <b>not</b> support the 'sugar' of requireJS where CommonJS style dependency declarations using <code>sap.ui.require("something")</code> are automagically converted into <code>sap.ui.define</code> dependencies before executing the factory function.</li> </ul>
-			/// 
-			/// <h3>Limitations, Design Considerations</h3> <ul> <li><b>Limitation</b>: as dependency management is not supported for Non-UI5 modules, the only way to ensure proper execution order for such modules currently is to rely on the order in the dependency array. Obviously, this only works as long as <code>sap.ui.define</code> uses synchronous loading. It will be enhanced when asynchronous loading is implemented.</li> <li>It was discussed to enforce asynchronous execution of the module factory function (e.g. with a timeout of 0). But this would have invalidated the current migration scenario where a sync <code>jQuery.sap.require</code> call can load a <code>sap.ui.define</code>'ed module. If the module definition would not execute synchronously, the synchronous contract of the require call would be broken (default behavior in existing UI5 applications)</li> <li>A single file must not contain multiple calls to <code>sap.ui.define</code>. Multiple calls currently are only supported in the so called 'preload' files that the UI5 merge tooling produces. The exact details of how this works might be changed in future implementations and are not yet part of the API contract</li> </ul>
-			/// </summary>
-			/// <param name="aDependencies">list of dependencies of the module</param>
-			/// <param name="vFactory">the module value or a function that calculates the value</param>
-			public extern static void define(string[] aDependencies, object vFactory);
-
-			/// <summary>
-			/// Defines a Javascript module with its name, its dependencies and a module value or factory.
-			/// 
-			/// The typical and only suggested usage of this method is to have one single, top level call to <code>sap.ui.define</code> in one Javascript resource (file). When a module is requested by its name for the first time, the corresponding resource is determined from the name and the current {@link jQuery.sap.registerResourcePath configuration}. The resource will be loaded and executed which in turn will execute the top level <code>sap.ui.define</code> call.
-			/// 
-			/// If the module name was omitted from that call, it will be substituted by the name that was used to request the module. As a preparation step, the dependencies as well as their transitive dependencies, will be loaded. Then, the module value will be determined: if a static value (object, literal) was given as <code>vFactory</code>, that value will be the module value. If a function was given, that function will be called (providing the module values of the declared dependencies as parameters to the function) and its return value will be used as module value. The framework internally associates the resulting value with the module name and provides it to the original requester of the module. Whenever the module is requested again, the same value will be returned (modules are executed only once).
-			/// 
-			/// <i>Example:</i><br> The following example defines a module "SomeClass", but doesn't hard code the module name. If stored in a file 'sap/mylib/SomeClass.js', it can be requested as 'sap/mylib/SomeClass'. <pre>
-			///   sap.ui.define(['./Helper', 'sap/m/Bar'], function(Helper,Bar) {
-			/// 
-			///     // create a new class
-			///     var SomeClass = function() {};
-			/// 
-			///     // add methods to its prototype
-			///     SomeClass.prototype.foo = function() {
-			/// 
-			///         // use a function from the dependency 'Helper' in the same package (e.g. 'sap/mylib/Helper' )
-			///         var mSettings = Helper.foo();
-			/// 
-			///         // create and return an sap.m.Bar (using its local name 'Bar')
-			///         return new Bar(mSettings);
-			/// 
-			///     }
-			/// 
-			///     // return the class as module value
-			///     return SomeClass;
-			/// 
-			///   });
-			/// </pre>
-			/// 
-			/// In another module or in an application HTML page, the {@link sap.ui.require} API can be used to load the Something module and to work with it:
-			/// 
-			/// <pre>
-			/// sap.ui.require(['sap/mylib/Something'], function(Something) {
-			/// 
-			///   // instantiate a Something and call foo() on it
-			///   new Something().foo();
-			/// 
-			/// });
-			/// </pre>
-			/// 
-			/// <h3>Module Name Syntax</h3>
-			/// 
-			/// <code>sap.ui.define</code> uses a simplified variant of the {@link jQuery.sap.getResourcePath unified resource name} syntax for the module's own name as well as for its dependencies. The only difference to that syntax is, that for <code>sap.ui.define</code> and <code>sap.ui.require</code>, the extension (which always would be '.js') has to be omitted. Both methods always add this extension internally.
-			/// 
-			/// As a convenience, the name of a dependency can start with the segment './' which will be replaced by the name of the package that contains the currently defined module (relative name).
-			/// 
-			/// It is best practice to omit the name of the defined module (first parameter) and to use relative names for the dependencies whenever possible. This reduces the necessary configuration, simplifies renaming of packages and allows to map them to a different namespace.
-			/// 
-			/// <h3>Dependency to Modules</h3>
-			/// 
-			/// If a dependencies array is given, each entry represents the name of another module that the currently defined module depends on. All dependency modules are loaded before the value of the currently defined module is determined. The module value of each dependency module will be provided as a parameter to a factory function, the order of the parameters will match the order of the modules in the dependencies array.
-			/// 
-			/// <b>Note:</b> the order in which the dependency modules are <i>executed</i> is <b>not</b> defined by the order in the dependencies array! The execution order is affected by dependencies <i>between</i> the dependency modules as well as by their current state (whether a module already has been loaded or not). Neither module implementations nor dependents that require a module set must make any assumption about the execution order (other than expressed by their dependencies). There is, however, one exception with regard to third party libraries, see the list of limitations further down below.
-			/// 
-			/// <b>Note:</b>a static module value (a literal provided to <code>sap.ui.define</code>) cannot depend on the module values of the dependency modules. Instead, modules can use a factory function, calculate the static value in that function, potentially based on the dependencies, and return the result as module value. The same approach must be taken when the module value is supposed to be a function.
-			/// 
-			/// <h3>Asynchronous Contract</h3> <code>sap.ui.define</code> is designed to support real Asynchronous Module Definitions (AMD) in future, although it internally still uses the old synchronous module loading of UI5. Callers of <code>sap.ui.define</code> therefore must not rely on any synchronous behavior that they might observe with the current implementation.
-			/// 
-			/// For example, callers of <code>sap.ui.define</code> must not use the module value immediately after invoking <code>sap.ui.define</code>:
-			/// 
-			/// <pre>
-			///   // COUNTER EXAMPLE HOW __NOT__ TO DO IT
-			/// 
-			///   // define a class Something as AMD module
-			///   sap.ui.define('Something', [], function() {
-			///     var Something = function() {};
-			///     return Something;
-			///   });
-			/// 
-			///   // DON'T DO THAT!
-			///   // accessing the class _synchronously_ after sap.ui.define was called
-			///   new Something();
-			/// </pre>
-			/// 
-			/// Applications that need to ensure synchronous module definition or synchronous loading of dependencies <b>MUST</b> use the old {@link jQuery.sap.declare} and {@link jQuery.sap.require} APIs.
-			/// 
-			/// <h3>(No) Global References</h3>
-			/// 
-			/// To be in line with AMD best practices, modules defined with <code>sap.ui.define</code> should not make any use of global variables if those variables are also available as module values. Instead, they should add dependencies to those modules and use the corresponding parameter of the factory function to access the module value.
-			/// 
-			/// As the current programming model and the documentation of UI5 heavily rely on global names, there will be a transition phase where UI5 enables AMD modules and local references to module values in parallel to the old global names. The fourth parameter of <code>sap.ui.define</code> has been added to support that transition phase. When this parameter is set to true, the framework provides two additional functionalities
-			/// 
-			/// <ol> <li>Before the factory function is called, the existence of the global parent namespace for the current module is ensured</li> <li>The module value will be automatically exported under a global name which is derived from the name of the module</li> </ol>
-			/// 
-			/// The parameter lets the framework know whether any of those two operations is needed or not. In future versions of UI5, a central configuration option is planned to suppress those 'exports'.
-			/// 
-			/// <h3>Third Party Modules</h3> Although third party modules don't use UI5 APIs, they still can be listed as dependencies in a <code>sap.ui.define</code> call. They will be requested and executed like UI5 modules, but their module value will be <code>undefined</code>.
-			/// 
-			/// If the currently defined module needs to access the module value of such a third party module, it can access the value via its global name (if the module supports such a usage).
-			/// 
-			/// Note that UI5 temporarily deactivates an existing AMD loader while it executes third party modules known to support AMD. This sounds contradictorily at a first glance as UI5 wants to support AMD, but for now it is necessary to fully support UI5 applications that rely on global names for such modules.
-			/// 
-			/// Example: <pre>
-			///   // module 'Something' wants to use third party library 'URI.js'
-			///   // It is packaged by UI5 as non-UI5-module 'sap/ui/thirdparty/URI'
-			/// 
-			///   sap.ui.define('Something', ['sap/ui/thirdparty/URI'], function(URIModuleValue) {
-			/// 
-			///     new URIModuleValue(); // fails as module value is undefined
-			/// 
-			///     //global URI // (optional) declare usage of global name so that static code checks don't complain
-			///     new URI(); // access to global name 'URI' works
-			/// 
-			///     ...
-			///   });
-			/// </pre>
-			/// 
-			/// <h3>Differences to Standard AMD</h3>
-			/// 
-			/// The current implementation of <code>sap.ui.define</code> differs from the AMD specification (https://github.com/amdjs/amdjs-api) or from concrete AMD loaders like <code>requireJS</code> in several aspects: <ul> <li>The name <code>sap.ui.define</code> is different from the plain <code>define</code>. This has two reasons: first, it avoids the impression that <code>sap.ui.define</code> is an exact implementation of an AMD loader. And second, it allows the coexistence of an AMD loader (e.g. requireJS) and <code>sap.ui.define</code> in one application as long as UI5 or applications using UI5 are not fully prepared to run with an AMD loader. Note that the difference of the API names also implies that the UI5 loader can't be used to load 'real' AMD modules as they expect methods <code>define</code> and <code>require</code> to be available. Modules that use Unified Module Definition (UMD) syntax, can be loaded, but only when no AMD loader is present or when they expose their export also to the global namespace, even when an AMD loader is present (as e.g. jQuery does)</li> <li><code>sap.ui.define</code> currently loads modules with synchronous XHR calls. This is basically a tribute to the synchronous history of UI5. <b>BUT:</b> synchronous dependency loading and factory execution explicitly it not part of contract of <code>sap.ui.define</code>. To the contrary, it is already clear and planned that asynchronous loading will be implemented, at least as an alternative if not as the only implementation. Also check section <b>Asynchronous Contract</b> above.<br> Applications that need to ensure synchronous loading of dependencies <b>MUST</b> use the old {@link jQuery.sap.require} API.</li> <li><code>sap.ui.define</code> does not support plugins to use other file types, formats or protocols. It is not planned to support this in future</li> <li><code>sap.ui.define</code> does not support absolute URLs as module names (dependencies) nor does it allow module names that start with a slash. To refer to a module at an absolute URL, a resource root can be registered that points to that URL (or to a prefix of it).</li> <li><code>sap.ui.define</code> does <b>not</b> support the 'sugar' of requireJS where CommonJS style dependency declarations using <code>sap.ui.require("something")</code> are automagically converted into <code>sap.ui.define</code> dependencies before executing the factory function.</li> </ul>
-			/// 
-			/// <h3>Limitations, Design Considerations</h3> <ul> <li><b>Limitation</b>: as dependency management is not supported for Non-UI5 modules, the only way to ensure proper execution order for such modules currently is to rely on the order in the dependency array. Obviously, this only works as long as <code>sap.ui.define</code> uses synchronous loading. It will be enhanced when asynchronous loading is implemented.</li> <li>It was discussed to enforce asynchronous execution of the module factory function (e.g. with a timeout of 0). But this would have invalidated the current migration scenario where a sync <code>jQuery.sap.require</code> call can load a <code>sap.ui.define</code>'ed module. If the module definition would not execute synchronously, the synchronous contract of the require call would be broken (default behavior in existing UI5 applications)</li> <li>A single file must not contain multiple calls to <code>sap.ui.define</code>. Multiple calls currently are only supported in the so called 'preload' files that the UI5 merge tooling produces. The exact details of how this works might be changed in future implementations and are not yet part of the API contract</li> </ul>
-			/// </summary>
-			/// <param name="aDependencies">list of dependencies of the module</param>
-			/// <param name="vFactory">the module value or a function that calculates the value</param>
-			public extern static void define(object[] aDependencies, object vFactory);
-
-			/// <summary>
-			/// Defines a Javascript module with its name, its dependencies and a module value or factory.
-			/// 
-			/// The typical and only suggested usage of this method is to have one single, top level call to <code>sap.ui.define</code> in one Javascript resource (file). When a module is requested by its name for the first time, the corresponding resource is determined from the name and the current {@link jQuery.sap.registerResourcePath configuration}. The resource will be loaded and executed which in turn will execute the top level <code>sap.ui.define</code> call.
-			/// 
-			/// If the module name was omitted from that call, it will be substituted by the name that was used to request the module. As a preparation step, the dependencies as well as their transitive dependencies, will be loaded. Then, the module value will be determined: if a static value (object, literal) was given as <code>vFactory</code>, that value will be the module value. If a function was given, that function will be called (providing the module values of the declared dependencies as parameters to the function) and its return value will be used as module value. The framework internally associates the resulting value with the module name and provides it to the original requester of the module. Whenever the module is requested again, the same value will be returned (modules are executed only once).
-			/// 
-			/// <i>Example:</i><br> The following example defines a module "SomeClass", but doesn't hard code the module name. If stored in a file 'sap/mylib/SomeClass.js', it can be requested as 'sap/mylib/SomeClass'. <pre>
-			///   sap.ui.define(['./Helper', 'sap/m/Bar'], function(Helper,Bar) {
-			/// 
-			///     // create a new class
-			///     var SomeClass = function() {};
-			/// 
-			///     // add methods to its prototype
-			///     SomeClass.prototype.foo = function() {
-			/// 
-			///         // use a function from the dependency 'Helper' in the same package (e.g. 'sap/mylib/Helper' )
-			///         var mSettings = Helper.foo();
-			/// 
-			///         // create and return an sap.m.Bar (using its local name 'Bar')
-			///         return new Bar(mSettings);
-			/// 
-			///     }
-			/// 
-			///     // return the class as module value
-			///     return SomeClass;
-			/// 
-			///   });
-			/// </pre>
-			/// 
-			/// In another module or in an application HTML page, the {@link sap.ui.require} API can be used to load the Something module and to work with it:
-			/// 
-			/// <pre>
-			/// sap.ui.require(['sap/mylib/Something'], function(Something) {
-			/// 
-			///   // instantiate a Something and call foo() on it
-			///   new Something().foo();
-			/// 
-			/// });
-			/// </pre>
-			/// 
-			/// <h3>Module Name Syntax</h3>
-			/// 
-			/// <code>sap.ui.define</code> uses a simplified variant of the {@link jQuery.sap.getResourcePath unified resource name} syntax for the module's own name as well as for its dependencies. The only difference to that syntax is, that for <code>sap.ui.define</code> and <code>sap.ui.require</code>, the extension (which always would be '.js') has to be omitted. Both methods always add this extension internally.
-			/// 
-			/// As a convenience, the name of a dependency can start with the segment './' which will be replaced by the name of the package that contains the currently defined module (relative name).
-			/// 
-			/// It is best practice to omit the name of the defined module (first parameter) and to use relative names for the dependencies whenever possible. This reduces the necessary configuration, simplifies renaming of packages and allows to map them to a different namespace.
-			/// 
-			/// <h3>Dependency to Modules</h3>
-			/// 
-			/// If a dependencies array is given, each entry represents the name of another module that the currently defined module depends on. All dependency modules are loaded before the value of the currently defined module is determined. The module value of each dependency module will be provided as a parameter to a factory function, the order of the parameters will match the order of the modules in the dependencies array.
-			/// 
-			/// <b>Note:</b> the order in which the dependency modules are <i>executed</i> is <b>not</b> defined by the order in the dependencies array! The execution order is affected by dependencies <i>between</i> the dependency modules as well as by their current state (whether a module already has been loaded or not). Neither module implementations nor dependents that require a module set must make any assumption about the execution order (other than expressed by their dependencies). There is, however, one exception with regard to third party libraries, see the list of limitations further down below.
-			/// 
-			/// <b>Note:</b>a static module value (a literal provided to <code>sap.ui.define</code>) cannot depend on the module values of the dependency modules. Instead, modules can use a factory function, calculate the static value in that function, potentially based on the dependencies, and return the result as module value. The same approach must be taken when the module value is supposed to be a function.
-			/// 
-			/// <h3>Asynchronous Contract</h3> <code>sap.ui.define</code> is designed to support real Asynchronous Module Definitions (AMD) in future, although it internally still uses the old synchronous module loading of UI5. Callers of <code>sap.ui.define</code> therefore must not rely on any synchronous behavior that they might observe with the current implementation.
-			/// 
-			/// For example, callers of <code>sap.ui.define</code> must not use the module value immediately after invoking <code>sap.ui.define</code>:
-			/// 
-			/// <pre>
-			///   // COUNTER EXAMPLE HOW __NOT__ TO DO IT
-			/// 
-			///   // define a class Something as AMD module
-			///   sap.ui.define('Something', [], function() {
-			///     var Something = function() {};
-			///     return Something;
-			///   });
-			/// 
-			///   // DON'T DO THAT!
-			///   // accessing the class _synchronously_ after sap.ui.define was called
-			///   new Something();
-			/// </pre>
-			/// 
-			/// Applications that need to ensure synchronous module definition or synchronous loading of dependencies <b>MUST</b> use the old {@link jQuery.sap.declare} and {@link jQuery.sap.require} APIs.
-			/// 
-			/// <h3>(No) Global References</h3>
-			/// 
-			/// To be in line with AMD best practices, modules defined with <code>sap.ui.define</code> should not make any use of global variables if those variables are also available as module values. Instead, they should add dependencies to those modules and use the corresponding parameter of the factory function to access the module value.
-			/// 
-			/// As the current programming model and the documentation of UI5 heavily rely on global names, there will be a transition phase where UI5 enables AMD modules and local references to module values in parallel to the old global names. The fourth parameter of <code>sap.ui.define</code> has been added to support that transition phase. When this parameter is set to true, the framework provides two additional functionalities
-			/// 
-			/// <ol> <li>Before the factory function is called, the existence of the global parent namespace for the current module is ensured</li> <li>The module value will be automatically exported under a global name which is derived from the name of the module</li> </ol>
-			/// 
-			/// The parameter lets the framework know whether any of those two operations is needed or not. In future versions of UI5, a central configuration option is planned to suppress those 'exports'.
-			/// 
-			/// <h3>Third Party Modules</h3> Although third party modules don't use UI5 APIs, they still can be listed as dependencies in a <code>sap.ui.define</code> call. They will be requested and executed like UI5 modules, but their module value will be <code>undefined</code>.
-			/// 
-			/// If the currently defined module needs to access the module value of such a third party module, it can access the value via its global name (if the module supports such a usage).
-			/// 
-			/// Note that UI5 temporarily deactivates an existing AMD loader while it executes third party modules known to support AMD. This sounds contradictorily at a first glance as UI5 wants to support AMD, but for now it is necessary to fully support UI5 applications that rely on global names for such modules.
-			/// 
-			/// Example: <pre>
-			///   // module 'Something' wants to use third party library 'URI.js'
-			///   // It is packaged by UI5 as non-UI5-module 'sap/ui/thirdparty/URI'
-			/// 
-			///   sap.ui.define('Something', ['sap/ui/thirdparty/URI'], function(URIModuleValue) {
-			/// 
-			///     new URIModuleValue(); // fails as module value is undefined
-			/// 
-			///     //global URI // (optional) declare usage of global name so that static code checks don't complain
-			///     new URI(); // access to global name 'URI' works
-			/// 
-			///     ...
-			///   });
-			/// </pre>
-			/// 
-			/// <h3>Differences to Standard AMD</h3>
-			/// 
-			/// The current implementation of <code>sap.ui.define</code> differs from the AMD specification (https://github.com/amdjs/amdjs-api) or from concrete AMD loaders like <code>requireJS</code> in several aspects: <ul> <li>The name <code>sap.ui.define</code> is different from the plain <code>define</code>. This has two reasons: first, it avoids the impression that <code>sap.ui.define</code> is an exact implementation of an AMD loader. And second, it allows the coexistence of an AMD loader (e.g. requireJS) and <code>sap.ui.define</code> in one application as long as UI5 or applications using UI5 are not fully prepared to run with an AMD loader. Note that the difference of the API names also implies that the UI5 loader can't be used to load 'real' AMD modules as they expect methods <code>define</code> and <code>require</code> to be available. Modules that use Unified Module Definition (UMD) syntax, can be loaded, but only when no AMD loader is present or when they expose their export also to the global namespace, even when an AMD loader is present (as e.g. jQuery does)</li> <li><code>sap.ui.define</code> currently loads modules with synchronous XHR calls. This is basically a tribute to the synchronous history of UI5. <b>BUT:</b> synchronous dependency loading and factory execution explicitly it not part of contract of <code>sap.ui.define</code>. To the contrary, it is already clear and planned that asynchronous loading will be implemented, at least as an alternative if not as the only implementation. Also check section <b>Asynchronous Contract</b> above.<br> Applications that need to ensure synchronous loading of dependencies <b>MUST</b> use the old {@link jQuery.sap.require} API.</li> <li><code>sap.ui.define</code> does not support plugins to use other file types, formats or protocols. It is not planned to support this in future</li> <li><code>sap.ui.define</code> does not support absolute URLs as module names (dependencies) nor does it allow module names that start with a slash. To refer to a module at an absolute URL, a resource root can be registered that points to that URL (or to a prefix of it).</li> <li><code>sap.ui.define</code> does <b>not</b> support the 'sugar' of requireJS where CommonJS style dependency declarations using <code>sap.ui.require("something")</code> are automagically converted into <code>sap.ui.define</code> dependencies before executing the factory function.</li> </ul>
-			/// 
-			/// <h3>Limitations, Design Considerations</h3> <ul> <li><b>Limitation</b>: as dependency management is not supported for Non-UI5 modules, the only way to ensure proper execution order for such modules currently is to rely on the order in the dependency array. Obviously, this only works as long as <code>sap.ui.define</code> uses synchronous loading. It will be enhanced when asynchronous loading is implemented.</li> <li>It was discussed to enforce asynchronous execution of the module factory function (e.g. with a timeout of 0). But this would have invalidated the current migration scenario where a sync <code>jQuery.sap.require</code> call can load a <code>sap.ui.define</code>'ed module. If the module definition would not execute synchronously, the synchronous contract of the require call would be broken (default behavior in existing UI5 applications)</li> <li>A single file must not contain multiple calls to <code>sap.ui.define</code>. Multiple calls currently are only supported in the so called 'preload' files that the UI5 merge tooling produces. The exact details of how this works might be changed in future implementations and are not yet part of the API contract</li> </ul>
-			/// </summary>
-			/// <param name="vFactory">the module value or a function that calculates the value</param>
-			public extern static void define(object vFactory);
-
-			/// <summary>
-			/// Defines a Javascript module with its name, its dependencies and a module value or factory.
-			/// 
-			/// The typical and only suggested usage of this method is to have one single, top level call to <code>sap.ui.define</code> in one Javascript resource (file). When a module is requested by its name for the first time, the corresponding resource is determined from the name and the current {@link jQuery.sap.registerResourcePath configuration}. The resource will be loaded and executed which in turn will execute the top level <code>sap.ui.define</code> call.
-			/// 
-			/// If the module name was omitted from that call, it will be substituted by the name that was used to request the module. As a preparation step, the dependencies as well as their transitive dependencies, will be loaded. Then, the module value will be determined: if a static value (object, literal) was given as <code>vFactory</code>, that value will be the module value. If a function was given, that function will be called (providing the module values of the declared dependencies as parameters to the function) and its return value will be used as module value. The framework internally associates the resulting value with the module name and provides it to the original requester of the module. Whenever the module is requested again, the same value will be returned (modules are executed only once).
-			/// 
-			/// <i>Example:</i><br> The following example defines a module "SomeClass", but doesn't hard code the module name. If stored in a file 'sap/mylib/SomeClass.js', it can be requested as 'sap/mylib/SomeClass'. <pre>
-			///   sap.ui.define(['./Helper', 'sap/m/Bar'], function(Helper,Bar) {
-			/// 
-			///     // create a new class
-			///     var SomeClass = function() {};
-			/// 
-			///     // add methods to its prototype
-			///     SomeClass.prototype.foo = function() {
-			/// 
-			///         // use a function from the dependency 'Helper' in the same package (e.g. 'sap/mylib/Helper' )
-			///         var mSettings = Helper.foo();
-			/// 
-			///         // create and return an sap.m.Bar (using its local name 'Bar')
-			///         return new Bar(mSettings);
-			/// 
-			///     }
-			/// 
-			///     // return the class as module value
-			///     return SomeClass;
-			/// 
-			///   });
-			/// </pre>
-			/// 
-			/// In another module or in an application HTML page, the {@link sap.ui.require} API can be used to load the Something module and to work with it:
-			/// 
-			/// <pre>
-			/// sap.ui.require(['sap/mylib/Something'], function(Something) {
-			/// 
-			///   // instantiate a Something and call foo() on it
-			///   new Something().foo();
-			/// 
-			/// });
-			/// </pre>
-			/// 
-			/// <h3>Module Name Syntax</h3>
-			/// 
-			/// <code>sap.ui.define</code> uses a simplified variant of the {@link jQuery.sap.getResourcePath unified resource name} syntax for the module's own name as well as for its dependencies. The only difference to that syntax is, that for <code>sap.ui.define</code> and <code>sap.ui.require</code>, the extension (which always would be '.js') has to be omitted. Both methods always add this extension internally.
-			/// 
-			/// As a convenience, the name of a dependency can start with the segment './' which will be replaced by the name of the package that contains the currently defined module (relative name).
-			/// 
-			/// It is best practice to omit the name of the defined module (first parameter) and to use relative names for the dependencies whenever possible. This reduces the necessary configuration, simplifies renaming of packages and allows to map them to a different namespace.
-			/// 
-			/// <h3>Dependency to Modules</h3>
-			/// 
-			/// If a dependencies array is given, each entry represents the name of another module that the currently defined module depends on. All dependency modules are loaded before the value of the currently defined module is determined. The module value of each dependency module will be provided as a parameter to a factory function, the order of the parameters will match the order of the modules in the dependencies array.
-			/// 
-			/// <b>Note:</b> the order in which the dependency modules are <i>executed</i> is <b>not</b> defined by the order in the dependencies array! The execution order is affected by dependencies <i>between</i> the dependency modules as well as by their current state (whether a module already has been loaded or not). Neither module implementations nor dependents that require a module set must make any assumption about the execution order (other than expressed by their dependencies). There is, however, one exception with regard to third party libraries, see the list of limitations further down below.
-			/// 
-			/// <b>Note:</b>a static module value (a literal provided to <code>sap.ui.define</code>) cannot depend on the module values of the dependency modules. Instead, modules can use a factory function, calculate the static value in that function, potentially based on the dependencies, and return the result as module value. The same approach must be taken when the module value is supposed to be a function.
-			/// 
-			/// <h3>Asynchronous Contract</h3> <code>sap.ui.define</code> is designed to support real Asynchronous Module Definitions (AMD) in future, although it internally still uses the old synchronous module loading of UI5. Callers of <code>sap.ui.define</code> therefore must not rely on any synchronous behavior that they might observe with the current implementation.
-			/// 
-			/// For example, callers of <code>sap.ui.define</code> must not use the module value immediately after invoking <code>sap.ui.define</code>:
-			/// 
-			/// <pre>
-			///   // COUNTER EXAMPLE HOW __NOT__ TO DO IT
-			/// 
-			///   // define a class Something as AMD module
-			///   sap.ui.define('Something', [], function() {
-			///     var Something = function() {};
-			///     return Something;
-			///   });
-			/// 
-			///   // DON'T DO THAT!
-			///   // accessing the class _synchronously_ after sap.ui.define was called
-			///   new Something();
-			/// </pre>
-			/// 
-			/// Applications that need to ensure synchronous module definition or synchronous loading of dependencies <b>MUST</b> use the old {@link jQuery.sap.declare} and {@link jQuery.sap.require} APIs.
-			/// 
-			/// <h3>(No) Global References</h3>
-			/// 
-			/// To be in line with AMD best practices, modules defined with <code>sap.ui.define</code> should not make any use of global variables if those variables are also available as module values. Instead, they should add dependencies to those modules and use the corresponding parameter of the factory function to access the module value.
-			/// 
-			/// As the current programming model and the documentation of UI5 heavily rely on global names, there will be a transition phase where UI5 enables AMD modules and local references to module values in parallel to the old global names. The fourth parameter of <code>sap.ui.define</code> has been added to support that transition phase. When this parameter is set to true, the framework provides two additional functionalities
-			/// 
-			/// <ol> <li>Before the factory function is called, the existence of the global parent namespace for the current module is ensured</li> <li>The module value will be automatically exported under a global name which is derived from the name of the module</li> </ol>
-			/// 
-			/// The parameter lets the framework know whether any of those two operations is needed or not. In future versions of UI5, a central configuration option is planned to suppress those 'exports'.
-			/// 
-			/// <h3>Third Party Modules</h3> Although third party modules don't use UI5 APIs, they still can be listed as dependencies in a <code>sap.ui.define</code> call. They will be requested and executed like UI5 modules, but their module value will be <code>undefined</code>.
-			/// 
-			/// If the currently defined module needs to access the module value of such a third party module, it can access the value via its global name (if the module supports such a usage).
-			/// 
-			/// Note that UI5 temporarily deactivates an existing AMD loader while it executes third party modules known to support AMD. This sounds contradictorily at a first glance as UI5 wants to support AMD, but for now it is necessary to fully support UI5 applications that rely on global names for such modules.
-			/// 
-			/// Example: <pre>
-			///   // module 'Something' wants to use third party library 'URI.js'
-			///   // It is packaged by UI5 as non-UI5-module 'sap/ui/thirdparty/URI'
-			/// 
-			///   sap.ui.define('Something', ['sap/ui/thirdparty/URI'], function(URIModuleValue) {
-			/// 
-			///     new URIModuleValue(); // fails as module value is undefined
-			/// 
-			///     //global URI // (optional) declare usage of global name so that static code checks don't complain
-			///     new URI(); // access to global name 'URI' works
-			/// 
-			///     ...
-			///   });
-			/// </pre>
-			/// 
-			/// <h3>Differences to Standard AMD</h3>
-			/// 
-			/// The current implementation of <code>sap.ui.define</code> differs from the AMD specification (https://github.com/amdjs/amdjs-api) or from concrete AMD loaders like <code>requireJS</code> in several aspects: <ul> <li>The name <code>sap.ui.define</code> is different from the plain <code>define</code>. This has two reasons: first, it avoids the impression that <code>sap.ui.define</code> is an exact implementation of an AMD loader. And second, it allows the coexistence of an AMD loader (e.g. requireJS) and <code>sap.ui.define</code> in one application as long as UI5 or applications using UI5 are not fully prepared to run with an AMD loader. Note that the difference of the API names also implies that the UI5 loader can't be used to load 'real' AMD modules as they expect methods <code>define</code> and <code>require</code> to be available. Modules that use Unified Module Definition (UMD) syntax, can be loaded, but only when no AMD loader is present or when they expose their export also to the global namespace, even when an AMD loader is present (as e.g. jQuery does)</li> <li><code>sap.ui.define</code> currently loads modules with synchronous XHR calls. This is basically a tribute to the synchronous history of UI5. <b>BUT:</b> synchronous dependency loading and factory execution explicitly it not part of contract of <code>sap.ui.define</code>. To the contrary, it is already clear and planned that asynchronous loading will be implemented, at least as an alternative if not as the only implementation. Also check section <b>Asynchronous Contract</b> above.<br> Applications that need to ensure synchronous loading of dependencies <b>MUST</b> use the old {@link jQuery.sap.require} API.</li> <li><code>sap.ui.define</code> does not support plugins to use other file types, formats or protocols. It is not planned to support this in future</li> <li><code>sap.ui.define</code> does not support absolute URLs as module names (dependencies) nor does it allow module names that start with a slash. To refer to a module at an absolute URL, a resource root can be registered that points to that URL (or to a prefix of it).</li> <li><code>sap.ui.define</code> does <b>not</b> support the 'sugar' of requireJS where CommonJS style dependency declarations using <code>sap.ui.require("something")</code> are automagically converted into <code>sap.ui.define</code> dependencies before executing the factory function.</li> </ul>
-			/// 
-			/// <h3>Limitations, Design Considerations</h3> <ul> <li><b>Limitation</b>: as dependency management is not supported for Non-UI5 modules, the only way to ensure proper execution order for such modules currently is to rely on the order in the dependency array. Obviously, this only works as long as <code>sap.ui.define</code> uses synchronous loading. It will be enhanced when asynchronous loading is implemented.</li> <li>It was discussed to enforce asynchronous execution of the module factory function (e.g. with a timeout of 0). But this would have invalidated the current migration scenario where a sync <code>jQuery.sap.require</code> call can load a <code>sap.ui.define</code>'ed module. If the module definition would not execute synchronously, the synchronous contract of the require call would be broken (default behavior in existing UI5 applications)</li> <li>A single file must not contain multiple calls to <code>sap.ui.define</code>. Multiple calls currently are only supported in the so called 'preload' files that the UI5 merge tooling produces. The exact details of how this works might be changed in future implementations and are not yet part of the API contract</li> </ul>
-			/// </summary>
-			/// <param name="aDependencies">list of dependencies of the module</param>
-			/// <param name="vFactory">the module value or a function that calculates the value</param>
-			/// <param name="bExport">whether an export to global names is required - should be used by SAP-owned code only</param>
-			public extern static void define(string[] aDependencies, object vFactory, bool bExport);
-
-			/// <summary>
-			/// Defines a Javascript module with its name, its dependencies and a module value or factory.
-			/// 
-			/// The typical and only suggested usage of this method is to have one single, top level call to <code>sap.ui.define</code> in one Javascript resource (file). When a module is requested by its name for the first time, the corresponding resource is determined from the name and the current {@link jQuery.sap.registerResourcePath configuration}. The resource will be loaded and executed which in turn will execute the top level <code>sap.ui.define</code> call.
-			/// 
-			/// If the module name was omitted from that call, it will be substituted by the name that was used to request the module. As a preparation step, the dependencies as well as their transitive dependencies, will be loaded. Then, the module value will be determined: if a static value (object, literal) was given as <code>vFactory</code>, that value will be the module value. If a function was given, that function will be called (providing the module values of the declared dependencies as parameters to the function) and its return value will be used as module value. The framework internally associates the resulting value with the module name and provides it to the original requester of the module. Whenever the module is requested again, the same value will be returned (modules are executed only once).
-			/// 
-			/// <i>Example:</i><br> The following example defines a module "SomeClass", but doesn't hard code the module name. If stored in a file 'sap/mylib/SomeClass.js', it can be requested as 'sap/mylib/SomeClass'. <pre>
-			///   sap.ui.define(['./Helper', 'sap/m/Bar'], function(Helper,Bar) {
-			/// 
-			///     // create a new class
-			///     var SomeClass = function() {};
-			/// 
-			///     // add methods to its prototype
-			///     SomeClass.prototype.foo = function() {
-			/// 
-			///         // use a function from the dependency 'Helper' in the same package (e.g. 'sap/mylib/Helper' )
-			///         var mSettings = Helper.foo();
-			/// 
-			///         // create and return an sap.m.Bar (using its local name 'Bar')
-			///         return new Bar(mSettings);
-			/// 
-			///     }
-			/// 
-			///     // return the class as module value
-			///     return SomeClass;
-			/// 
-			///   });
-			/// </pre>
-			/// 
-			/// In another module or in an application HTML page, the {@link sap.ui.require} API can be used to load the Something module and to work with it:
-			/// 
-			/// <pre>
-			/// sap.ui.require(['sap/mylib/Something'], function(Something) {
-			/// 
-			///   // instantiate a Something and call foo() on it
-			///   new Something().foo();
-			/// 
-			/// });
-			/// </pre>
-			/// 
-			/// <h3>Module Name Syntax</h3>
-			/// 
-			/// <code>sap.ui.define</code> uses a simplified variant of the {@link jQuery.sap.getResourcePath unified resource name} syntax for the module's own name as well as for its dependencies. The only difference to that syntax is, that for <code>sap.ui.define</code> and <code>sap.ui.require</code>, the extension (which always would be '.js') has to be omitted. Both methods always add this extension internally.
-			/// 
-			/// As a convenience, the name of a dependency can start with the segment './' which will be replaced by the name of the package that contains the currently defined module (relative name).
-			/// 
-			/// It is best practice to omit the name of the defined module (first parameter) and to use relative names for the dependencies whenever possible. This reduces the necessary configuration, simplifies renaming of packages and allows to map them to a different namespace.
-			/// 
-			/// <h3>Dependency to Modules</h3>
-			/// 
-			/// If a dependencies array is given, each entry represents the name of another module that the currently defined module depends on. All dependency modules are loaded before the value of the currently defined module is determined. The module value of each dependency module will be provided as a parameter to a factory function, the order of the parameters will match the order of the modules in the dependencies array.
-			/// 
-			/// <b>Note:</b> the order in which the dependency modules are <i>executed</i> is <b>not</b> defined by the order in the dependencies array! The execution order is affected by dependencies <i>between</i> the dependency modules as well as by their current state (whether a module already has been loaded or not). Neither module implementations nor dependents that require a module set must make any assumption about the execution order (other than expressed by their dependencies). There is, however, one exception with regard to third party libraries, see the list of limitations further down below.
-			/// 
-			/// <b>Note:</b>a static module value (a literal provided to <code>sap.ui.define</code>) cannot depend on the module values of the dependency modules. Instead, modules can use a factory function, calculate the static value in that function, potentially based on the dependencies, and return the result as module value. The same approach must be taken when the module value is supposed to be a function.
-			/// 
-			/// <h3>Asynchronous Contract</h3> <code>sap.ui.define</code> is designed to support real Asynchronous Module Definitions (AMD) in future, although it internally still uses the old synchronous module loading of UI5. Callers of <code>sap.ui.define</code> therefore must not rely on any synchronous behavior that they might observe with the current implementation.
-			/// 
-			/// For example, callers of <code>sap.ui.define</code> must not use the module value immediately after invoking <code>sap.ui.define</code>:
-			/// 
-			/// <pre>
-			///   // COUNTER EXAMPLE HOW __NOT__ TO DO IT
-			/// 
-			///   // define a class Something as AMD module
-			///   sap.ui.define('Something', [], function() {
-			///     var Something = function() {};
-			///     return Something;
-			///   });
-			/// 
-			///   // DON'T DO THAT!
-			///   // accessing the class _synchronously_ after sap.ui.define was called
-			///   new Something();
-			/// </pre>
-			/// 
-			/// Applications that need to ensure synchronous module definition or synchronous loading of dependencies <b>MUST</b> use the old {@link jQuery.sap.declare} and {@link jQuery.sap.require} APIs.
-			/// 
-			/// <h3>(No) Global References</h3>
-			/// 
-			/// To be in line with AMD best practices, modules defined with <code>sap.ui.define</code> should not make any use of global variables if those variables are also available as module values. Instead, they should add dependencies to those modules and use the corresponding parameter of the factory function to access the module value.
-			/// 
-			/// As the current programming model and the documentation of UI5 heavily rely on global names, there will be a transition phase where UI5 enables AMD modules and local references to module values in parallel to the old global names. The fourth parameter of <code>sap.ui.define</code> has been added to support that transition phase. When this parameter is set to true, the framework provides two additional functionalities
-			/// 
-			/// <ol> <li>Before the factory function is called, the existence of the global parent namespace for the current module is ensured</li> <li>The module value will be automatically exported under a global name which is derived from the name of the module</li> </ol>
-			/// 
-			/// The parameter lets the framework know whether any of those two operations is needed or not. In future versions of UI5, a central configuration option is planned to suppress those 'exports'.
-			/// 
-			/// <h3>Third Party Modules</h3> Although third party modules don't use UI5 APIs, they still can be listed as dependencies in a <code>sap.ui.define</code> call. They will be requested and executed like UI5 modules, but their module value will be <code>undefined</code>.
-			/// 
-			/// If the currently defined module needs to access the module value of such a third party module, it can access the value via its global name (if the module supports such a usage).
-			/// 
-			/// Note that UI5 temporarily deactivates an existing AMD loader while it executes third party modules known to support AMD. This sounds contradictorily at a first glance as UI5 wants to support AMD, but for now it is necessary to fully support UI5 applications that rely on global names for such modules.
-			/// 
-			/// Example: <pre>
-			///   // module 'Something' wants to use third party library 'URI.js'
-			///   // It is packaged by UI5 as non-UI5-module 'sap/ui/thirdparty/URI'
-			/// 
-			///   sap.ui.define('Something', ['sap/ui/thirdparty/URI'], function(URIModuleValue) {
-			/// 
-			///     new URIModuleValue(); // fails as module value is undefined
-			/// 
-			///     //global URI // (optional) declare usage of global name so that static code checks don't complain
-			///     new URI(); // access to global name 'URI' works
-			/// 
-			///     ...
-			///   });
-			/// </pre>
-			/// 
-			/// <h3>Differences to Standard AMD</h3>
-			/// 
-			/// The current implementation of <code>sap.ui.define</code> differs from the AMD specification (https://github.com/amdjs/amdjs-api) or from concrete AMD loaders like <code>requireJS</code> in several aspects: <ul> <li>The name <code>sap.ui.define</code> is different from the plain <code>define</code>. This has two reasons: first, it avoids the impression that <code>sap.ui.define</code> is an exact implementation of an AMD loader. And second, it allows the coexistence of an AMD loader (e.g. requireJS) and <code>sap.ui.define</code> in one application as long as UI5 or applications using UI5 are not fully prepared to run with an AMD loader. Note that the difference of the API names also implies that the UI5 loader can't be used to load 'real' AMD modules as they expect methods <code>define</code> and <code>require</code> to be available. Modules that use Unified Module Definition (UMD) syntax, can be loaded, but only when no AMD loader is present or when they expose their export also to the global namespace, even when an AMD loader is present (as e.g. jQuery does)</li> <li><code>sap.ui.define</code> currently loads modules with synchronous XHR calls. This is basically a tribute to the synchronous history of UI5. <b>BUT:</b> synchronous dependency loading and factory execution explicitly it not part of contract of <code>sap.ui.define</code>. To the contrary, it is already clear and planned that asynchronous loading will be implemented, at least as an alternative if not as the only implementation. Also check section <b>Asynchronous Contract</b> above.<br> Applications that need to ensure synchronous loading of dependencies <b>MUST</b> use the old {@link jQuery.sap.require} API.</li> <li><code>sap.ui.define</code> does not support plugins to use other file types, formats or protocols. It is not planned to support this in future</li> <li><code>sap.ui.define</code> does not support absolute URLs as module names (dependencies) nor does it allow module names that start with a slash. To refer to a module at an absolute URL, a resource root can be registered that points to that URL (or to a prefix of it).</li> <li><code>sap.ui.define</code> does <b>not</b> support the 'sugar' of requireJS where CommonJS style dependency declarations using <code>sap.ui.require("something")</code> are automagically converted into <code>sap.ui.define</code> dependencies before executing the factory function.</li> </ul>
-			/// 
-			/// <h3>Limitations, Design Considerations</h3> <ul> <li><b>Limitation</b>: as dependency management is not supported for Non-UI5 modules, the only way to ensure proper execution order for such modules currently is to rely on the order in the dependency array. Obviously, this only works as long as <code>sap.ui.define</code> uses synchronous loading. It will be enhanced when asynchronous loading is implemented.</li> <li>It was discussed to enforce asynchronous execution of the module factory function (e.g. with a timeout of 0). But this would have invalidated the current migration scenario where a sync <code>jQuery.sap.require</code> call can load a <code>sap.ui.define</code>'ed module. If the module definition would not execute synchronously, the synchronous contract of the require call would be broken (default behavior in existing UI5 applications)</li> <li>A single file must not contain multiple calls to <code>sap.ui.define</code>. Multiple calls currently are only supported in the so called 'preload' files that the UI5 merge tooling produces. The exact details of how this works might be changed in future implementations and are not yet part of the API contract</li> </ul>
-			/// </summary>
-			/// <param name="aDependencies">list of dependencies of the module</param>
-			/// <param name="vFactory">the module value or a function that calculates the value</param>
-			/// <param name="bExport">whether an export to global names is required - should be used by SAP-owned code only</param>
-			public extern static void define(object[] aDependencies, object vFactory, bool bExport);
-
-			/// <summary>
-			/// Defines a Javascript module with its name, its dependencies and a module value or factory.
-			/// 
-			/// The typical and only suggested usage of this method is to have one single, top level call to <code>sap.ui.define</code> in one Javascript resource (file). When a module is requested by its name for the first time, the corresponding resource is determined from the name and the current {@link jQuery.sap.registerResourcePath configuration}. The resource will be loaded and executed which in turn will execute the top level <code>sap.ui.define</code> call.
-			/// 
-			/// If the module name was omitted from that call, it will be substituted by the name that was used to request the module. As a preparation step, the dependencies as well as their transitive dependencies, will be loaded. Then, the module value will be determined: if a static value (object, literal) was given as <code>vFactory</code>, that value will be the module value. If a function was given, that function will be called (providing the module values of the declared dependencies as parameters to the function) and its return value will be used as module value. The framework internally associates the resulting value with the module name and provides it to the original requester of the module. Whenever the module is requested again, the same value will be returned (modules are executed only once).
-			/// 
-			/// <i>Example:</i><br> The following example defines a module "SomeClass", but doesn't hard code the module name. If stored in a file 'sap/mylib/SomeClass.js', it can be requested as 'sap/mylib/SomeClass'. <pre>
-			///   sap.ui.define(['./Helper', 'sap/m/Bar'], function(Helper,Bar) {
-			/// 
-			///     // create a new class
-			///     var SomeClass = function() {};
-			/// 
-			///     // add methods to its prototype
-			///     SomeClass.prototype.foo = function() {
-			/// 
-			///         // use a function from the dependency 'Helper' in the same package (e.g. 'sap/mylib/Helper' )
-			///         var mSettings = Helper.foo();
-			/// 
-			///         // create and return an sap.m.Bar (using its local name 'Bar')
-			///         return new Bar(mSettings);
-			/// 
-			///     }
-			/// 
-			///     // return the class as module value
-			///     return SomeClass;
-			/// 
-			///   });
-			/// </pre>
-			/// 
-			/// In another module or in an application HTML page, the {@link sap.ui.require} API can be used to load the Something module and to work with it:
-			/// 
-			/// <pre>
-			/// sap.ui.require(['sap/mylib/Something'], function(Something) {
-			/// 
-			///   // instantiate a Something and call foo() on it
-			///   new Something().foo();
-			/// 
-			/// });
-			/// </pre>
-			/// 
-			/// <h3>Module Name Syntax</h3>
-			/// 
-			/// <code>sap.ui.define</code> uses a simplified variant of the {@link jQuery.sap.getResourcePath unified resource name} syntax for the module's own name as well as for its dependencies. The only difference to that syntax is, that for <code>sap.ui.define</code> and <code>sap.ui.require</code>, the extension (which always would be '.js') has to be omitted. Both methods always add this extension internally.
-			/// 
-			/// As a convenience, the name of a dependency can start with the segment './' which will be replaced by the name of the package that contains the currently defined module (relative name).
-			/// 
-			/// It is best practice to omit the name of the defined module (first parameter) and to use relative names for the dependencies whenever possible. This reduces the necessary configuration, simplifies renaming of packages and allows to map them to a different namespace.
-			/// 
-			/// <h3>Dependency to Modules</h3>
-			/// 
-			/// If a dependencies array is given, each entry represents the name of another module that the currently defined module depends on. All dependency modules are loaded before the value of the currently defined module is determined. The module value of each dependency module will be provided as a parameter to a factory function, the order of the parameters will match the order of the modules in the dependencies array.
-			/// 
-			/// <b>Note:</b> the order in which the dependency modules are <i>executed</i> is <b>not</b> defined by the order in the dependencies array! The execution order is affected by dependencies <i>between</i> the dependency modules as well as by their current state (whether a module already has been loaded or not). Neither module implementations nor dependents that require a module set must make any assumption about the execution order (other than expressed by their dependencies). There is, however, one exception with regard to third party libraries, see the list of limitations further down below.
-			/// 
-			/// <b>Note:</b>a static module value (a literal provided to <code>sap.ui.define</code>) cannot depend on the module values of the dependency modules. Instead, modules can use a factory function, calculate the static value in that function, potentially based on the dependencies, and return the result as module value. The same approach must be taken when the module value is supposed to be a function.
-			/// 
-			/// <h3>Asynchronous Contract</h3> <code>sap.ui.define</code> is designed to support real Asynchronous Module Definitions (AMD) in future, although it internally still uses the old synchronous module loading of UI5. Callers of <code>sap.ui.define</code> therefore must not rely on any synchronous behavior that they might observe with the current implementation.
-			/// 
-			/// For example, callers of <code>sap.ui.define</code> must not use the module value immediately after invoking <code>sap.ui.define</code>:
-			/// 
-			/// <pre>
-			///   // COUNTER EXAMPLE HOW __NOT__ TO DO IT
-			/// 
-			///   // define a class Something as AMD module
-			///   sap.ui.define('Something', [], function() {
-			///     var Something = function() {};
-			///     return Something;
-			///   });
-			/// 
-			///   // DON'T DO THAT!
-			///   // accessing the class _synchronously_ after sap.ui.define was called
-			///   new Something();
-			/// </pre>
-			/// 
-			/// Applications that need to ensure synchronous module definition or synchronous loading of dependencies <b>MUST</b> use the old {@link jQuery.sap.declare} and {@link jQuery.sap.require} APIs.
-			/// 
-			/// <h3>(No) Global References</h3>
-			/// 
-			/// To be in line with AMD best practices, modules defined with <code>sap.ui.define</code> should not make any use of global variables if those variables are also available as module values. Instead, they should add dependencies to those modules and use the corresponding parameter of the factory function to access the module value.
-			/// 
-			/// As the current programming model and the documentation of UI5 heavily rely on global names, there will be a transition phase where UI5 enables AMD modules and local references to module values in parallel to the old global names. The fourth parameter of <code>sap.ui.define</code> has been added to support that transition phase. When this parameter is set to true, the framework provides two additional functionalities
-			/// 
-			/// <ol> <li>Before the factory function is called, the existence of the global parent namespace for the current module is ensured</li> <li>The module value will be automatically exported under a global name which is derived from the name of the module</li> </ol>
-			/// 
-			/// The parameter lets the framework know whether any of those two operations is needed or not. In future versions of UI5, a central configuration option is planned to suppress those 'exports'.
-			/// 
-			/// <h3>Third Party Modules</h3> Although third party modules don't use UI5 APIs, they still can be listed as dependencies in a <code>sap.ui.define</code> call. They will be requested and executed like UI5 modules, but their module value will be <code>undefined</code>.
-			/// 
-			/// If the currently defined module needs to access the module value of such a third party module, it can access the value via its global name (if the module supports such a usage).
-			/// 
-			/// Note that UI5 temporarily deactivates an existing AMD loader while it executes third party modules known to support AMD. This sounds contradictorily at a first glance as UI5 wants to support AMD, but for now it is necessary to fully support UI5 applications that rely on global names for such modules.
-			/// 
-			/// Example: <pre>
-			///   // module 'Something' wants to use third party library 'URI.js'
-			///   // It is packaged by UI5 as non-UI5-module 'sap/ui/thirdparty/URI'
-			/// 
-			///   sap.ui.define('Something', ['sap/ui/thirdparty/URI'], function(URIModuleValue) {
-			/// 
-			///     new URIModuleValue(); // fails as module value is undefined
-			/// 
-			///     //global URI // (optional) declare usage of global name so that static code checks don't complain
-			///     new URI(); // access to global name 'URI' works
-			/// 
-			///     ...
-			///   });
-			/// </pre>
-			/// 
-			/// <h3>Differences to Standard AMD</h3>
-			/// 
-			/// The current implementation of <code>sap.ui.define</code> differs from the AMD specification (https://github.com/amdjs/amdjs-api) or from concrete AMD loaders like <code>requireJS</code> in several aspects: <ul> <li>The name <code>sap.ui.define</code> is different from the plain <code>define</code>. This has two reasons: first, it avoids the impression that <code>sap.ui.define</code> is an exact implementation of an AMD loader. And second, it allows the coexistence of an AMD loader (e.g. requireJS) and <code>sap.ui.define</code> in one application as long as UI5 or applications using UI5 are not fully prepared to run with an AMD loader. Note that the difference of the API names also implies that the UI5 loader can't be used to load 'real' AMD modules as they expect methods <code>define</code> and <code>require</code> to be available. Modules that use Unified Module Definition (UMD) syntax, can be loaded, but only when no AMD loader is present or when they expose their export also to the global namespace, even when an AMD loader is present (as e.g. jQuery does)</li> <li><code>sap.ui.define</code> currently loads modules with synchronous XHR calls. This is basically a tribute to the synchronous history of UI5. <b>BUT:</b> synchronous dependency loading and factory execution explicitly it not part of contract of <code>sap.ui.define</code>. To the contrary, it is already clear and planned that asynchronous loading will be implemented, at least as an alternative if not as the only implementation. Also check section <b>Asynchronous Contract</b> above.<br> Applications that need to ensure synchronous loading of dependencies <b>MUST</b> use the old {@link jQuery.sap.require} API.</li> <li><code>sap.ui.define</code> does not support plugins to use other file types, formats or protocols. It is not planned to support this in future</li> <li><code>sap.ui.define</code> does not support absolute URLs as module names (dependencies) nor does it allow module names that start with a slash. To refer to a module at an absolute URL, a resource root can be registered that points to that URL (or to a prefix of it).</li> <li><code>sap.ui.define</code> does <b>not</b> support the 'sugar' of requireJS where CommonJS style dependency declarations using <code>sap.ui.require("something")</code> are automagically converted into <code>sap.ui.define</code> dependencies before executing the factory function.</li> </ul>
-			/// 
-			/// <h3>Limitations, Design Considerations</h3> <ul> <li><b>Limitation</b>: as dependency management is not supported for Non-UI5 modules, the only way to ensure proper execution order for such modules currently is to rely on the order in the dependency array. Obviously, this only works as long as <code>sap.ui.define</code> uses synchronous loading. It will be enhanced when asynchronous loading is implemented.</li> <li>It was discussed to enforce asynchronous execution of the module factory function (e.g. with a timeout of 0). But this would have invalidated the current migration scenario where a sync <code>jQuery.sap.require</code> call can load a <code>sap.ui.define</code>'ed module. If the module definition would not execute synchronously, the synchronous contract of the require call would be broken (default behavior in existing UI5 applications)</li> <li>A single file must not contain multiple calls to <code>sap.ui.define</code>. Multiple calls currently are only supported in the so called 'preload' files that the UI5 merge tooling produces. The exact details of how this works might be changed in future implementations and are not yet part of the API contract</li> </ul>
-			/// </summary>
-			/// <param name="vFactory">the module value or a function that calculates the value</param>
-			/// <param name="bExport">whether an export to global names is required - should be used by SAP-owned code only</param>
-			public extern static void define(object vFactory, bool bExport);
-
-			/// <summary>
-			/// Resolves one or more module dependencies.
-			/// 
-			/// <b>Synchronous Retrieval of a Single Module Value</b>
-			/// 
-			/// When called with a single string, that string is assumed to be the name of an already loaded module and the value of that module is returned. If the module has not been loaded yet, or if it is a Non-UI5 module (e.g. third party module), <code>undefined</code> is returned. This signature variant allows synchronous access to module values without initiating module loading.
-			/// 
-			/// Sample: <pre>
-			///   var JSONModel = sap.ui.require("sap/ui/model/json/JSONModel");
-			/// </pre>
-			/// 
-			/// For modules that are known to be UI5 modules, this signature variant can be used to check whether the module has been loaded.
-			/// 
-			/// <b>Asynchronous Loading of Multiple Modules</b>
-			/// 
-			/// If an array of strings is given and (optionally) a callback function, then the strings are interpreted as module names and the corresponding modules (and their transitive dependencies) are loaded. Then the callback function will be called asynchronously. The module values of the specified modules will be provided as parameters to the callback function in the same order in which they appeared in the dependencies array.
-			/// 
-			/// The return value for the asynchronous use case is <code>undefined</code>.
-			/// 
-			/// <pre>
-			///   sap.ui.require(['sap/ui/model/json/JSONModel', 'sap/ui/core/UIComponent'], function(JSONModel,UIComponent) {
-			/// 
-			///     var MyComponent = UIComponent.extend('MyComponent', {
-			///       ...
-			///     });
-			///     ...
-			/// 
-			///   });
-			/// </pre>
-			/// 
-			/// This method uses the same variation of the {@link jQuery.sap.getResourcePath unified resource name} syntax that {@link sap.ui.define} uses: module names are specified without the implicit extension '.js'. Relative module names are not supported.
-			/// </summary>
-			/// <param name="vDependencies">dependency (dependencies) to resolve</param>
-			/// <param name="fnCallback">callback function to execute after resolving an array of dependencies</param>
-			/// <returns>a single module value or undefined</returns>
-			public extern static object require(Union<string, string[]> vDependencies, object fnCallback);
-
-			/// <summary>
-			/// Resolves one or more module dependencies.
-			/// 
-			/// <b>Synchronous Retrieval of a Single Module Value</b>
-			/// 
-			/// When called with a single string, that string is assumed to be the name of an already loaded module and the value of that module is returned. If the module has not been loaded yet, or if it is a Non-UI5 module (e.g. third party module), <code>undefined</code> is returned. This signature variant allows synchronous access to module values without initiating module loading.
-			/// 
-			/// Sample: <pre>
-			///   var JSONModel = sap.ui.require("sap/ui/model/json/JSONModel");
-			/// </pre>
-			/// 
-			/// For modules that are known to be UI5 modules, this signature variant can be used to check whether the module has been loaded.
-			/// 
-			/// <b>Asynchronous Loading of Multiple Modules</b>
-			/// 
-			/// If an array of strings is given and (optionally) a callback function, then the strings are interpreted as module names and the corresponding modules (and their transitive dependencies) are loaded. Then the callback function will be called asynchronously. The module values of the specified modules will be provided as parameters to the callback function in the same order in which they appeared in the dependencies array.
-			/// 
-			/// The return value for the asynchronous use case is <code>undefined</code>.
-			/// 
-			/// <pre>
-			///   sap.ui.require(['sap/ui/model/json/JSONModel', 'sap/ui/core/UIComponent'], function(JSONModel,UIComponent) {
-			/// 
-			///     var MyComponent = UIComponent.extend('MyComponent', {
-			///       ...
-			///     });
-			///     ...
-			/// 
-			///   });
-			/// </pre>
-			/// 
-			/// This method uses the same variation of the {@link jQuery.sap.getResourcePath unified resource name} syntax that {@link sap.ui.define} uses: module names are specified without the implicit extension '.js'. Relative module names are not supported.
-			/// </summary>
-			/// <param name="vDependencies">dependency (dependencies) to resolve</param>
-			/// <returns>a single module value or undefined</returns>
-			public extern static object require(Union<string, string[]> vDependencies);
 
 			#endregion
 

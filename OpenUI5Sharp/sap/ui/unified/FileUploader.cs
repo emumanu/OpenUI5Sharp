@@ -80,6 +80,8 @@ namespace UI5
 
 						/// <summary>
 						/// Allows multiple files to be chosen and uploaded from the same folder. This property is not supported by Internet Explorer 9.
+						/// 
+						/// <b>Note:</b> Keep in mind that the various operating systems for mobile devices can react differently to the property so that fewer upload functions may be available in some cases.
 						/// </summary>
 						public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> multiple;
 
@@ -729,6 +731,8 @@ namespace UI5
 					/// 
 					/// Allows multiple files to be chosen and uploaded from the same folder. This property is not supported by Internet Explorer 9.
 					/// 
+					/// <b>Note:</b> Keep in mind that the various operating systems for mobile devices can react differently to the property so that fewer upload functions may be available in some cases.
+					/// 
 					/// Default value is <code>false</code>.
 					/// </summary>
 					/// <returns>Value of property <code>multiple</code></returns>
@@ -738,6 +742,8 @@ namespace UI5
 					/// Sets a new value for property {@link #getMultiple multiple}.
 					/// 
 					/// Allows multiple files to be chosen and uploaded from the same folder. This property is not supported by Internet Explorer 9.
+					/// 
+					/// <b>Note:</b> Keep in mind that the various operating systems for mobile devices can react differently to the property so that fewer upload functions may be available in some cases.
 					/// 
 					/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 					/// 
@@ -2010,7 +2016,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.unified.FileUploader.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Allows to process Blobs before they get uploaded. This API can be used to create custom Blobs and upload these custom Blobs instead of the received/initials Blobs in the parameter <code>aBlobs</code>. One use case could be to create and upload zip archives based on the passed Blobs. The default implementation of this API should simply resolve with the received Blobs (parameter <code>aBlobs</code>).
@@ -2021,7 +2028,7 @@ namespace UI5
 					/// </summary>
 					/// <param name="aBlobs">The initial Blobs which can be used to determine/calculate a new array of Blobs for further processing.</param>
 					/// <returns>A Promise that resolves with an array of Blobs which is used for the final uploading.</returns>
-					public extern virtual jquery.JQueryPromise<object> getProcessedBlobsFromArray(dom.Blob[] aBlobs);
+					public extern virtual es5.Promise<object> getProcessedBlobsFromArray(Retyped.dom.Blob[] aBlobs);
 
 					/// <summary>
 					/// Starts the upload (as defined by uploadUrl).

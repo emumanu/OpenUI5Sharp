@@ -28,7 +28,7 @@ namespace UI5
 				/// </summary>
 				[External]
 				[ObjectLiteral]
-				public partial class TypeOptions
+				public partial class FormatOptions
 				{
 					/// <summary>
 					/// Additional set of format options to be used if the property in the model is not of type <code>string</code> and needs formatting as well. If an empty object is given, the grouping is disabled and a dot is used as decimal separator.
@@ -66,12 +66,12 @@ namespace UI5
 					/// <summary>
 					/// Smallest value allowed for this type. Values for constraints must use the same type as configured via <code>oFormatOptions.source</code>.
 					/// </summary>
-					public Union<System.DateTime, string> minimum;
+					public Union<DateTime, string> minimum;
 
 					/// <summary>
 					/// Largest value allowed for this type. Values for constraints must use the same type as configured via <code>oFormatOptions.source</code>.
 					/// </summary>
-					public Union<System.DateTime, string> maximum;
+					public Union<DateTime, string> maximum;
 
 				}
 
@@ -186,7 +186,13 @@ namespace UI5
 					/// </summary>
 					Any,
 					/// <summary>
-					/// FilterOperator between When used on strings, the BT operator might not behave intuitively. For example, when filtering a list of Names with BT "A", "B", all Names starting with "A" will be included as well as the name "B" itself, but no other name starting with "B".
+					/// FilterOperator between
+					/// 
+					/// Used to filter all entries between the given boundaries. The filter result contains the boundaries, but no entries before or further. The order of the entries in the filter results is based on their occurence in the input list.
+					/// 
+					/// <b>Note, when used on strings:</b> The String comparison is based on lexicographical ordering. Characters are ranked in their alphabetical order. Words with the same preceding substring are ordered based on their length e.g. "Chris" comes before "Christian".
+					/// 
+					/// The filtering includes the right boundary, but no strings further in the lexicographical ordering. e.g. between "A" and "C" includes the string "C", but not "Chris".
 					/// </summary>
 					BT,
 					/// <summary>
@@ -218,9 +224,29 @@ namespace UI5
 					/// </summary>
 					LT,
 					/// <summary>
+					/// FilterOperator "Not Between"
+					/// 
+					/// Used to filter all entries, which are not between the given boundaries. The filter result does not contains the boundaries, but only entries outside of the boundaries. The order of the entries in the filter results is based on their occurence in the input list.
+					/// 
+					/// <b>Note, when used on strings:</b> The String comparison is based on lexicographical ordering. Characters are ranked in their alphabetical order. Words with the same preceding substring are ordered based on their length e.g. "Chris" comes before "Christian".
+					/// </summary>
+					NB,
+					/// <summary>
 					/// FilterOperator not equals
 					/// </summary>
 					NE,
+					/// <summary>
+					/// FilterOperator not contains
+					/// </summary>
+					NotContains,
+					/// <summary>
+					/// FilterOperator not ends with
+					/// </summary>
+					NotEndsWith,
+					/// <summary>
+					/// FilterOperator not starts with
+					/// </summary>
+					NotStartsWith,
 					/// <summary>
 					/// FilterOperator starts with
 					/// </summary>

@@ -10,6 +10,7 @@ namespace UI5.Tests
     /// Base class for Integration steps for OPA Tests
     /// </summary>
     [FileName("openui5sharp-test.js")]
+    [Name("UI5.Tests.BaseIntegrationPage")]
     public partial class BaseIntegrationPage : sap.ui.test.Opa5
     {
         public static sap.ui.test.Opa5 Opa5;

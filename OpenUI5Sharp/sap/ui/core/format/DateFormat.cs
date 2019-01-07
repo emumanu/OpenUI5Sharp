@@ -30,7 +30,7 @@ namespace UI5
 						/// </summary>
 						[External]
 						[ObjectLiteral]
-						public partial class InstanceOptions
+						public partial class FormatOptions
 						{
 							/// <summary>
 							/// @since 1.34.0 contains pattern symbols (e.g. "yMMMd" or "Hms") which will be converted into the pattern in the used locale, which matches the wanted symbols best. The symbols must be in canonical order, that is: Era (G), Year (y/Y), Quarter (q/Q), Month (M/L), Week (w/W), Day-Of-Week (E/e/c), Day (d/D), Hour (h/H/k/K/j/J), Minute (m), Second (s), Timezone (z/Z/v/V/O/X/x) See http://unicode.org/reports/tr35/tr35-dates.html#availableFormats_appendItems
@@ -99,7 +99,14 @@ namespace UI5
 						/// <param name="vJSDate">the value to format</param>
 						/// <param name="bUTC">whether to use UTC</param>
 						/// <returns>the formatted output value. If an invalid date is given, an empty string is returned.</returns>
-						public extern virtual string format(Union<System.DateTime, System.DateTime[]> vJSDate, bool bUTC);
+						public extern virtual string format(Union<DateTime, DateTime[]> vJSDate, bool bUTC);
+
+						/// <summary>
+						/// Format a date according to the given format options.
+						/// </summary>
+						/// <param name="vJSDate">the value to format</param>
+						/// <returns>the formatted output value. If an invalid date is given, an empty string is returned.</returns>
+						public extern virtual string format(Union<DateTime, DateTime[]> vJSDate);
 
 						/// <summary>
 						/// Get a date instance of the DateFormat, which can be used for formatting.
@@ -107,14 +114,14 @@ namespace UI5
 						/// <param name="oFormatOptions">Object which defines the format options</param>
 						/// <param name="oLocale">Locale to ask for locale specific texts/settings</param>
 						/// <returns>date instance of the DateFormat</returns>
-						public extern static sap.ui.core.format.DateFormat getDateInstance(sap.ui.core.format.DateFormat.InstanceOptions oFormatOptions, sap.ui.core.Locale oLocale);
+						public extern static sap.ui.core.format.DateFormat getDateInstance(sap.ui.core.format.DateFormat.FormatOptions oFormatOptions, sap.ui.core.Locale oLocale);
 
 						/// <summary>
 						/// Get a date instance of the DateFormat, which can be used for formatting.
 						/// </summary>
 						/// <param name="oFormatOptions">Object which defines the format options</param>
 						/// <returns>date instance of the DateFormat</returns>
-						public extern static sap.ui.core.format.DateFormat getDateInstance(sap.ui.core.format.DateFormat.InstanceOptions oFormatOptions);
+						public extern static sap.ui.core.format.DateFormat getDateInstance(sap.ui.core.format.DateFormat.FormatOptions oFormatOptions);
 
 						/// <summary>
 						/// Get a date instance of the DateFormat, which can be used for formatting.
@@ -135,14 +142,14 @@ namespace UI5
 						/// <param name="oFormatOptions">Object which defines the format options</param>
 						/// <param name="oLocale">Locale to ask for locale specific texts/settings</param>
 						/// <returns>datetime instance of the DateFormat</returns>
-						public extern static sap.ui.core.format.DateFormat getDateTimeInstance(sap.ui.core.format.DateFormat.InstanceOptions oFormatOptions, sap.ui.core.Locale oLocale);
+						public extern static sap.ui.core.format.DateFormat getDateTimeInstance(sap.ui.core.format.DateFormat.FormatOptions oFormatOptions, sap.ui.core.Locale oLocale);
 
 						/// <summary>
 						/// Get a datetime instance of the DateFormat, which can be used for formatting.
 						/// </summary>
 						/// <param name="oFormatOptions">Object which defines the format options</param>
 						/// <returns>datetime instance of the DateFormat</returns>
-						public extern static sap.ui.core.format.DateFormat getDateTimeInstance(sap.ui.core.format.DateFormat.InstanceOptions oFormatOptions);
+						public extern static sap.ui.core.format.DateFormat getDateTimeInstance(sap.ui.core.format.DateFormat.FormatOptions oFormatOptions);
 
 						/// <summary>
 						/// Get a datetime instance of the DateFormat, which can be used for formatting.
@@ -163,14 +170,14 @@ namespace UI5
 						/// <param name="oFormatOptions">Object which defines the format options</param>
 						/// <param name="oLocale">Locale to ask for locale specific texts/settings</param>
 						/// <returns>time instance of the DateFormat</returns>
-						public extern static sap.ui.core.format.DateFormat getTimeInstance(sap.ui.core.format.DateFormat.InstanceOptions oFormatOptions, sap.ui.core.Locale oLocale);
+						public extern static sap.ui.core.format.DateFormat getTimeInstance(sap.ui.core.format.DateFormat.FormatOptions oFormatOptions, sap.ui.core.Locale oLocale);
 
 						/// <summary>
 						/// Get a time instance of the DateFormat, which can be used for formatting.
 						/// </summary>
 						/// <param name="oFormatOptions">Object which defines the format options</param>
 						/// <returns>time instance of the DateFormat</returns>
-						public extern static sap.ui.core.format.DateFormat getTimeInstance(sap.ui.core.format.DateFormat.InstanceOptions oFormatOptions);
+						public extern static sap.ui.core.format.DateFormat getTimeInstance(sap.ui.core.format.DateFormat.FormatOptions oFormatOptions);
 
 						/// <summary>
 						/// Get a time instance of the DateFormat, which can be used for formatting.
@@ -192,7 +199,7 @@ namespace UI5
 						/// <param name="bUTC">whether to use UTC, if no timezone is contained</param>
 						/// <param name="bStrict">to use strict value check</param>
 						/// <returns>the parsed value(s)</returns>
-						public extern virtual Union<System.DateTime, System.DateTime[]> parse(string sValue, bool bUTC, bool bStrict);
+						public extern virtual Union<DateTime, DateTime[]> parse(string sValue, bool bUTC, bool bStrict);
 
 						#endregion
 

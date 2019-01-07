@@ -465,7 +465,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.commons.CalloutBase.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Set position of the Callout window relative to the parent control. This function automatically calculates and sets the correct offset, use it instead of <code>setMyPosition/setAtPosition</code>.

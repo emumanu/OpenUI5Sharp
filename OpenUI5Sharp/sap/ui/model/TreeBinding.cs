@@ -155,10 +155,18 @@ namespace UI5
 					public extern virtual int getChildCount(object oContext);
 
 					/// <summary>
+					/// Return the filter information as an AST. The default implementation checks for this.oCombinedFilter, models not using this member may override the method. Consumers must not rely on the origin information to be available, future filter implementations will not provide this information.
+					/// </summary>
+					/// <param name="bIncludeOrigin">include information about the filter objects the tree has been created from</param>
+					/// <returns>The AST of the filter tree</returns>
+					private extern object getFilterInfo(bool bIncludeOrigin);
+
+					/// <summary>
 					/// Returns a metadata object for class sap.ui.model.TreeBinding.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Returns the current value of the bound target

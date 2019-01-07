@@ -182,7 +182,7 @@ namespace UI5
 					/// </summary>
 					/// <param name="oBindingInfo">The binding information</param>
 					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-					public extern virtual sap.ui.commons.CheckBox bindChecked(object oBindingInfo);
+					public extern virtual sap.ui.commons.CheckBox bindChecked(sap.ui.@base.ManagedObject.BindPropertyInfo oBindingInfo);
 
 					/// <summary>
 					/// Unbinds property {@link #getChecked checked} from model data.
@@ -542,7 +542,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.commons.CheckBox.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Inverts the current value of the control.

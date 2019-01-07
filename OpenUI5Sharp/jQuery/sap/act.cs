@@ -12,6 +12,7 @@ namespace UI5
 			[External]
 			[Namespace(false)]
 			[Name("jQuery.sap.act")]
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/util/ActivityDetection} instead")]
 			public static partial class act
 			{
 				#region Methods

@@ -766,7 +766,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.model.Model.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Returns the meta model associated with this model if it is available for the concrete model type.

@@ -223,7 +223,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oBindingInfo">The binding information</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SelectionDetails bindItems(object oBindingInfo);
+				public extern virtual sap.m.SelectionDetails bindItems(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 				/// <summary>
 				/// Unbinds aggregation {@link #getItems items} from model data.
@@ -707,7 +707,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.SelectionDetails.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Method to register the factory function that creates the SelectionDetailsItems. The factory function is called for every selected entry separately with three parameters. First parameter is the display data array for each item out of the selection. Second parameter is the data array for each item out of the selection. Third parameter is the binding context for each item in the selection. This is undefined if no binding is used. Fourth parameter is <code>oData</code>. Can be undefined.

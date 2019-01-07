@@ -154,7 +154,7 @@ namespace UI5
 					/// <param name="oTargetDomNode">Node in the DOM where the buffer should be flushed into</param>
 					/// <param name="bDoNotPreserve">Determines whether the content is preserved (<code>false</code>) or not (<code>true</code>)</param>
 					/// <param name="vInsert">Determines whether the buffer of the target DOM node is expanded (<code>true</code>) or replaced (<code>false</code>), or the new entry is inserted at a specific position (value of type <code>int</code>)</param>
-					public extern virtual void flush(dom.HTMLElement oTargetDomNode, bool bDoNotPreserve, Union<bool?, int?> vInsert);
+					public extern virtual void flush(Retyped.dom.HTMLElement oTargetDomNode, bool bDoNotPreserve, Union<bool?, int?> vInsert);
 
 					/// <summary>
 					/// Returns the configuration object Shortcut for <code>sap.ui.getCore().getConfiguration()</code>
@@ -171,10 +171,10 @@ namespace UI5
 					public extern virtual string getHTML(sap.ui.core.Control oControl);
 
 					/// <summary>
-					/// Returns the hidden area reference belonging to this window instance.
+					/// Returns the hidden area reference belonging to the current window instance.
 					/// </summary>
-					/// <returns>the hidden area reference belonging to this core instance.</returns>
-					public extern static dom.HTMLElement getPreserveAreaRef();
+					/// <returns>The hidden area reference belonging to the current window instance.</returns>
+					public extern static Retyped.dom.HTMLElement getPreserveAreaRef();
 
 					/// <summary>
 					/// Returns the renderer class for a given control instance
@@ -193,7 +193,7 @@ namespace UI5
 					/// <param name="oRootNode">to search for "to-be-preserved" nodes</param>
 					/// <param name="bPreserveRoot">whether to preserve the root itself</param>
 					/// <param name="bPreserveNodesWithId">whether to preserve nodes with an id as well</param>
-					public extern static void preserveContent(dom.HTMLElement oRootNode, bool bPreserveRoot = false, bool bPreserveNodesWithId = false);
+					public extern static void preserveContent(Retyped.dom.HTMLElement oRootNode, bool bPreserveRoot = false, bool bPreserveNodesWithId = false);
 
 					/// <summary>
 					/// Renders the given control to the provided DOMNode.
@@ -204,7 +204,7 @@ namespace UI5
 					/// </summary>
 					/// <param name="oControl">the Control that should be rendered.</param>
 					/// <param name="oTargetDomNode">The node in the DOM where the result of the rendering should be inserted.</param>
-					public extern virtual void render(sap.ui.core.Control oControl, dom.HTMLElement oTargetDomNode);
+					public extern virtual void render(sap.ui.core.Control oControl, Retyped.dom.HTMLElement oTargetDomNode);
 
 					/// <summary>
 					/// Turns the given control into its HTML representation and appends it to the rendering buffer.

@@ -38,41 +38,6 @@
     <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bridge, Version=17.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bridge.Core.17.4.0\lib\net40\Bridge.dll</HintPath>
-    </Reference>
-    <Reference Include="Retyped.Core, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Retyped.Core.1.6.6733\lib\net40\Retyped.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Retyped.dom, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Retyped.dom.2.8.6733\lib\net40\Retyped.dom.dll</HintPath>
-    </Reference>
-    <Reference Include="Retyped.es2015.collection, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Retyped.es2015.collection.2.8.6733\lib\net40\Retyped.es2015.collection.dll</HintPath>
-    </Reference>
-    <Reference Include="Retyped.es2015.core, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Retyped.es2015.core.2.8.6733\lib\net40\Retyped.es2015.core.dll</HintPath>
-    </Reference>
-    <Reference Include="Retyped.es2015.iterable, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Retyped.es2015.iterable.2.8.6733\lib\net40\Retyped.es2015.iterable.dll</HintPath>
-    </Reference>
-    <Reference Include="Retyped.es2015.symbol, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Retyped.es2015.symbol.2.8.6733\lib\net40\Retyped.es2015.symbol.dll</HintPath>
-    </Reference>
-    <Reference Include="Retyped.es5, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Retyped.es5.2.8.6733\lib\net40\Retyped.es5.dll</HintPath>
-    </Reference>
-    <Reference Include="Retyped.jquery, Version=3.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Retyped.jquery.3.3.6733\lib\net40\Retyped.jquery.dll</HintPath>
-    </Reference>
-    <Reference Include="Retyped.qunit, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Retyped.qunit.2.5.6733\lib\net40\Retyped.qunit.dll</HintPath>
-    </Reference>
-    <Reference Include="Retyped.sinon, Version=4.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Retyped.sinon.4.3.6733\lib\net40\Retyped.sinon.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Additions\Extensions\ExpressionEvaluator.cs" />
     <Compile Include="Additions\Extensions\metadataExtensions.cs" />
     <Compile Include="Additions\Extensions\sapuibaseExtensions.cs" />
@@ -83,8 +48,8 @@
     <Compile Include="Additions\jquerysapAdditions.cs" />
     <Compile Include="Additions\Extensions\jqueryExtensions.cs" />
     <Compile Include="Additions\sapuideviceAdditions.cs" />
+    <Compile Include="Additions\sapmAdditions.cs" />
     <Compile Include="Additions\sapuimodelAdditions.cs" />
-    <Compile Include="Additions\sapuicoreroutingAdditions.cs" />
     <Compile Include="Additions\sapuitestOpaOpa5.cs" />
     <Compile Include="Additions\sapuibaseAdditions.cs" />
     <Compile Include="Additions\sapuicoremvcAdditions.cs" />
@@ -120,6 +85,13 @@
     <Compile Include="jQuery\sap\Version.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="sap.cs" />
+    <Compile Include="sap\base\i18n\ResourceBundle.cs" />
+    <Compile Include="sap\base\Log.cs" />
+    <Compile Include="sap\base\security\URLWhitelist.cs" />
+    <Compile Include="sap\base\security\URLWhitelist\Entry.cs" />
+    <Compile Include="sap\base\util\ObjectPath.cs" />
+    <Compile Include="sap\base\util\Properties.cs" />
+    <Compile Include="sap\base\util\Version.cs" />
     <Compile Include="sap\f.cs" />
     <Compile Include="sap\f\Avatar.cs" />
     <Compile Include="sap\f\DynamicPage.cs" />
@@ -436,11 +408,10 @@
     <Compile Include="sap\ui\commons\DatePicker.cs" />
     <Compile Include="sap\ui\commons\Dialog.cs" />
     <Compile Include="sap\ui\commons\DropdownBox.cs" />
-    <Compile Include="sap\ui\commons\enums\AreaDesign.cs" />
-    <Compile Include="sap\ui\commons\enums\BorderDesign.cs" />
-    <Compile Include="sap\ui\commons\enums\Orientation.cs" />
+    <Compile Include="sap\ui\commons\enums.cs" />
     <Compile Include="sap\ui\commons\FileUploader.cs" />
     <Compile Include="sap\ui\commons\FileUploaderParameter.cs" />
+    <Compile Include="sap\ui\commons\form.cs" />
     <Compile Include="sap\ui\commons\FormattedTextView.cs" />
     <Compile Include="sap\ui\commons\form\Form.cs" />
     <Compile Include="sap\ui\commons\form\FormContainer.cs" />
@@ -456,22 +427,17 @@
     <Compile Include="sap\ui\commons\ImageMap.cs" />
     <Compile Include="sap\ui\commons\InPlaceEdit.cs" />
     <Compile Include="sap\ui\commons\Label.cs" />
+    <Compile Include="sap\ui\commons\layout.cs" />
     <Compile Include="sap\ui\commons\layout\AbsoluteLayout.cs" />
-    <Compile Include="sap\ui\commons\layout\BackgroundDesign.cs" />
     <Compile Include="sap\ui\commons\layout\BorderLayout.cs" />
     <Compile Include="sap\ui\commons\layout\BorderLayoutArea.cs" />
-    <Compile Include="sap\ui\commons\layout\BorderLayoutAreaTypes.cs" />
-    <Compile Include="sap\ui\commons\layout\HAlign.cs" />
     <Compile Include="sap\ui\commons\layout\HorizontalLayout.cs" />
     <Compile Include="sap\ui\commons\layout\MatrixLayout.cs" />
     <Compile Include="sap\ui\commons\layout\MatrixLayoutCell.cs" />
     <Compile Include="sap\ui\commons\layout\MatrixLayoutRow.cs" />
-    <Compile Include="sap\ui\commons\layout\Padding.cs" />
     <Compile Include="sap\ui\commons\layout\PositionContainer.cs" />
     <Compile Include="sap\ui\commons\layout\ResponsiveFlowLayout.cs" />
     <Compile Include="sap\ui\commons\layout\ResponsiveFlowLayoutData.cs" />
-    <Compile Include="sap\ui\commons\layout\Separation.cs" />
-    <Compile Include="sap\ui\commons\layout\VAlign.cs" />
     <Compile Include="sap\ui\commons\layout\VerticalLayout.cs" />
     <Compile Include="sap\ui\commons\Link.cs" />
     <Compile Include="sap\ui\commons\ListBox.cs" />
@@ -608,6 +574,7 @@
     <Compile Include="sap\ui\core\search\OpenSearchProvider.cs" />
     <Compile Include="sap\ui\core\search\SearchProvider.cs" />
     <Compile Include="sap\ui\core\SeparatorItem.cs" />
+    <Compile Include="sap\ui\core\support\usage.cs" />
     <Compile Include="sap\ui\core\theming.cs" />
     <Compile Include="sap\ui\core\theming\Parameters.cs" />
     <Compile Include="sap\ui\core\Title.cs" />
@@ -643,6 +610,24 @@
     <Compile Include="sap\ui\Device\Resize.cs" />
     <Compile Include="sap\ui\Device\Support.cs" />
     <Compile Include="sap\ui\Device\System.cs" />
+    <Compile Include="sap\ui\dom\jquery\Aria.cs" />
+    <Compile Include="sap\ui\dom\jquery\control.cs" />
+    <Compile Include="sap\ui\dom\jquery\cursorPos.cs" />
+    <Compile Include="sap\ui\dom\jquery\Focusable.cs" />
+    <Compile Include="sap\ui\dom\jquery\getSelectedText.cs" />
+    <Compile Include="sap\ui\dom\jquery\hasTabIndex.cs" />
+    <Compile Include="sap\ui\dom\jquery\parentByAttribute.cs" />
+    <Compile Include="sap\ui\dom\jquery\rect.cs" />
+    <Compile Include="sap\ui\dom\jquery\rectContains.cs" />
+    <Compile Include="sap\ui\dom\jquery\scrollLeftRTL.cs" />
+    <Compile Include="sap\ui\dom\jquery\scrollRightRTL.cs" />
+    <Compile Include="sap\ui\dom\jquery\Selectors.cs" />
+    <Compile Include="sap\ui\dom\jquery\selectText.cs" />
+    <Compile Include="sap\ui\dom\jquery\zIndex.cs" />
+    <Compile Include="sap\ui\events\ControlEvents.cs" />
+    <Compile Include="sap\ui\events\jquery\EventSimulation.cs" />
+    <Compile Include="sap\ui\events\KeyCodes.cs" />
+    <Compile Include="sap\ui\events\PseudoEvents.cs" />
     <Compile Include="sap\ui\fl\transport\TransportDialog.cs" />
     <Compile Include="sap\ui\fl\transport\TransportSelection.cs" />
     <Compile Include="sap\ui\fl\variants\VariantManagement.cs" />
@@ -686,6 +671,7 @@
     <Compile Include="sap\ui\layout\Splitter.cs" />
     <Compile Include="sap\ui\layout\SplitterLayoutData.cs" />
     <Compile Include="sap\ui\layout\VerticalLayout.cs" />
+    <Compile Include="sap\ui\loader.cs" />
     <Compile Include="sap\ui\model.cs" />
     <Compile Include="sap\ui\model\analytics.cs" />
     <Compile Include="sap\ui\model\analytics\AnalyticalBinding.cs" />
@@ -711,6 +697,7 @@
     <Compile Include="sap\ui\model\analytics\odata4analytics\QueryResultRequest.cs" />
     <Compile Include="sap\ui\model\analytics\odata4analytics\RecursiveHierarchy.cs" />
     <Compile Include="sap\ui\model\analytics\odata4analytics\SortExpression.cs" />
+    <Compile Include="sap\ui\model\base\ManagedObjectModel.cs" />
     <Compile Include="sap\ui\model\Binding.cs" />
     <Compile Include="sap\ui\model\ClientContextBinding.cs" />
     <Compile Include="sap\ui\model\ClientListBinding.cs" />
@@ -820,7 +807,9 @@
     <Compile Include="sap\ui\model\xml.cs" />
     <Compile Include="sap\ui\model\xml\XMLModel.cs" />
     <Compile Include="sap\ui\model\xml\XMLTreeBinding.cs" />
-    <Compile Include="sap\ui\rta\util\ServiceEventBus.cs" />
+    <Compile Include="sap\ui\performance\Measurement.cs" />
+    <Compile Include="sap\ui\performance\Measurement\Entry.cs" />
+    <Compile Include="sap\ui\performance\trace\FESR.cs" />
     <Compile Include="sap\ui\suite.cs" />
     <Compile Include="sap\ui\suite\TaskCircle.cs" />
     <Compile Include="sap\ui\suite\VerticalProgressIndicator.cs" />
@@ -899,6 +888,8 @@
     <Compile Include="sap\ui\unified\ShellLayout.cs" />
     <Compile Include="sap\ui\unified\ShellOverlay.cs" />
     <Compile Include="sap\ui\unified\SplitContainer.cs" />
+    <Compile Include="sap\ui\util\Mobile.cs" />
+    <Compile Include="sap\ui\util\XMLHelper.cs" />
     <Compile Include="sap\ui\ux3.cs" />
     <Compile Include="sap\ui\ux3\ActionBar.cs" />
     <Compile Include="sap\ui\ux3\Collection.cs" />
@@ -953,13 +944,51 @@
     <None Include="bridge.json" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="sap\base\strings\" />
+    <Folder Include="sap\base\util\array\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Bridge, Version=17.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Bridge.Core.17.4.0\lib\net40\Bridge.dll</HintPath>
+    </Reference>
+    <Reference Include="Retyped.Core, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Retyped.Core.1.6.6733\lib\net40\Retyped.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Retyped.dom, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Retyped.dom.2.8.6685\lib\net40\Retyped.dom.dll</HintPath>
+    </Reference>
+    <Reference Include="Retyped.es2015.collection, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Retyped.es2015.collection.2.8.6685\lib\net40\Retyped.es2015.collection.dll</HintPath>
+    </Reference>
+    <Reference Include="Retyped.es2015.core, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Retyped.es2015.core.2.8.6685\lib\net40\Retyped.es2015.core.dll</HintPath>
+    </Reference>
+    <Reference Include="Retyped.es2015.iterable, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Retyped.es2015.iterable.2.8.6685\lib\net40\Retyped.es2015.iterable.dll</HintPath>
+    </Reference>
+    <Reference Include="Retyped.es2015.symbol, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Retyped.es2015.symbol.2.8.6685\lib\net40\Retyped.es2015.symbol.dll</HintPath>
+    </Reference>
+    <Reference Include="Retyped.es5, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Retyped.es5.2.8.6712\lib\net40\Retyped.es5.dll</HintPath>
+    </Reference>
+    <Reference Include="Retyped.jquery, Version=3.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Retyped.jquery.3.3.6717\lib\net40\Retyped.jquery.dll</HintPath>
+    </Reference>
+    <Reference Include="Retyped.qunit, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Retyped.qunit.2.5.6685\lib\net40\Retyped.qunit.dll</HintPath>
+    </Reference>
+    <Reference Include="Retyped.sinon, Version=4.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Retyped.sinon.4.3.6685\lib\net40\Retyped.sinon.dll</HintPath>
+    </Reference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\Bridge.Min.17.4.0\build\Bridge.Min.targets" Condition="Exists('..\packages\Bridge.Min.17.4.0\build\Bridge.Min.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Bridge.Min.17.4.0\build\Bridge.Min.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Bridge.Min.17.4.0\build\Bridge.Min.targets'))" />
+    <Error Condition="!Exists('packages\Bridge.Min.17.4.0\build\Bridge.Min.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Bridge.Min.17.4.0\build\Bridge.Min.targets'))" />
   </Target>
+  <Import Project="packages\Bridge.Min.17.4.0\build\Bridge.Min.targets" Condition="Exists('packages\Bridge.Min.17.4.0\build\Bridge.Min.targets')" />
 </Project>

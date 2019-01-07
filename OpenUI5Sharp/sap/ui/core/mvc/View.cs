@@ -746,7 +746,7 @@ namespace UI5
 						/// </summary>
 						/// <param name="mOptions">A parameter map for the view instantiation. Specialized view types could bring in additional parameter.</param>
 						/// <returns>a Promise which resolves with the created View instance</returns>
-						public extern static jquery.JQueryPromise<object> create(sap.ui.core.mvc.View.CreateOptions mOptions);
+						public extern static es5.Promise<object> create(sap.ui.core.mvc.View.CreateOptions mOptions);
 
 						/// <summary>
 						/// Convert the given view local element ID to a globally unique ID by prefixing it with the view ID.
@@ -808,7 +808,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.core.mvc.View.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// Returns the info object which is also passed to the preprocessors
@@ -836,7 +837,7 @@ namespace UI5
 						/// For views that are loading asynchronously (by setting async=true) this Promise is created by view initialization. Synchronously loading views get wrapped in an immediately resolving Promise.
 						/// </summary>
 						/// <returns>resolves with the complete view instance, reject with any thrown error</returns>
-						public extern virtual jquery.JQueryPromise<object> loaded();
+						public extern virtual es5.Promise<object> loaded();
 
 						/// <summary>
 						/// Register a preprocessor for all views of a specific type.
@@ -893,7 +894,7 @@ namespace UI5
 						/// <param name="vSource">the view source as a JSON object, a raw text, an XML document element or a Promise resolving with those</param>
 						/// <param name="bSync">describes the view execution, true if sync</param>
 						/// <returns>a promise resolving with the processed source or an error | the source when bSync=true</returns>
-						public extern virtual Union<jquery.JQueryPromise<object>, object, string, dom.HTMLElement> runPreprocessor(string sType, Union<object, string, dom.HTMLElement> vSource, bool bSync);
+						public extern virtual Union<es5.Promise<object>, object, string, Retyped.dom.HTMLElement> runPreprocessor(string sType, Union<object, string, Retyped.dom.HTMLElement> vSource, bool bSync);
 
 						/// <summary>
 						/// Executes preprocessors for a type of source
@@ -901,7 +902,7 @@ namespace UI5
 						/// <param name="sType">the type of preprocessor, e.g. "raw", "xml" or "controls"</param>
 						/// <param name="vSource">the view source as a JSON object, a raw text, an XML document element or a Promise resolving with those</param>
 						/// <returns>a promise resolving with the processed source or an error | the source when bSync=true</returns>
-						public extern virtual Union<jquery.JQueryPromise<object>, object, string, dom.HTMLElement> runPreprocessor(string sType, Union<object, string, dom.HTMLElement> vSource);
+						public extern virtual Union<es5.Promise<object>, object, string, Retyped.dom.HTMLElement> runPreprocessor(string sType, Union<object, string, Retyped.dom.HTMLElement> vSource);
 
 						#endregion
 

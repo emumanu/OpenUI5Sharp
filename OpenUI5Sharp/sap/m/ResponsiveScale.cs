@@ -140,13 +140,42 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.ResponsiveScale.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Shows/hides tickmarks when some limitations are met. Implements responsiveness of the tickmarks.
 				/// </summary>
 				/// <param name="oEvent">The event object passed.</param>
 				private extern void handleResize(jquery.JQuery.Event oEvent);
+
+				#endregion
+
+				#region Methods of sap.m.IScale Interface
+
+				/// <summary>
+				/// Returns How many tickmarks would be drawn on the screen.
+				/// 
+				/// <b>Note:</b> There would always be a tickmark in the beginning and in the end of the slider, regardless of the value this method returns. The start and the end tickmark are taken into account for the later calculations.
+				/// </summary>
+				/// <param name="mOptions">The option array</param>
+				/// <returns>The number of tickmarks</returns>
+				public extern static int calcNumberOfTickmarks(object mOptions);
+
+				/// <summary>
+				/// Provides a custom tickmark label. This method is optional. If it is not provided, the slider values will be placed as labels. If provided, the value of the tickmark labels and accessibility attributes (aria-valuenow and aria-valuetext) of the slider are changed accordingly.
+				/// </summary>
+				/// <returns>The label that should be placed in the current position.</returns>
+				public extern static Union<string, int> getLabel();
+
+				/// <summary>
+				/// Returns the number of tickmarks, which should be placed between labels.
+				/// 
+				/// <b>Note:</b> There would always be a tickmark in the beginning and in the end of the slider, regardless of the value that this method returns.
+				/// </summary>
+				/// <param name="mOptions">The option array</param>
+				/// <returns>The number of tickmarks</returns>
+				public extern static int getTickmarksBetweenLabels(object mOptions);
 
 				#endregion
 

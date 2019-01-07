@@ -28,13 +28,13 @@ namespace UI5
 						/// </summary>
 						/// <param name="oFormatOptions">Formatting options. For a list of all available options, see {@link sap.ui.core.format.DateFormat.getDateTimeInstance DateFormat}.</param>
 						/// <param name="oConstraints">Value constraints</param>
-						public extern DateTimeInterval(sap.ui.model.TypeOptions oFormatOptions, sap.ui.model.TypeIntervalInfo oConstraints);
+						public extern DateTimeInterval(sap.ui.model.FormatOptions oFormatOptions, sap.ui.model.TypeIntervalInfo oConstraints);
 
 						/// <summary>
 						/// Constructor for a DateTime interval type.
 						/// </summary>
 						/// <param name="oFormatOptions">Formatting options. For a list of all available options, see {@link sap.ui.core.format.DateFormat.getDateTimeInstance DateFormat}.</param>
-						public extern DateTimeInterval(sap.ui.model.TypeOptions oFormatOptions);
+						public extern DateTimeInterval(sap.ui.model.FormatOptions oFormatOptions);
 
 						/// <summary>
 						/// Constructor for a DateTime interval type.
@@ -79,7 +79,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.model.type.DateTimeInterval.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						#endregion
 

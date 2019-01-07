@@ -163,6 +163,8 @@ namespace UI5
 					/// When the PlanningCalendar is placed in certain layout containers, for example the <code>GridLayout</code> control, the column headers do not fix at the top of the viewport. Similar behavior is also observed with the <code>ObjectPage</code> control.
 					/// 
 					/// This API should not be used in production environment.
+					/// 
+					/// <b>Note:</b> The <code>stickyHeader</code> of the <code>PlanningCalendar</code> uses the <code>sticky</code> property of <code>sap.m.Table</code>. Therefore, all features and limitations of the property in <code>sap.m.Table</code> apply to the <code>PlanningCalendar</code> as well.
 					/// </summary>
 					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> stickyHeader;
 
@@ -344,7 +346,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oStartDate">the date to set as <code>sap.m.PlanningCalendar</code> <code>startDate</code>. May be changed(adjusted) if property <code>startDate</code> is adjusted. See remark about week view above.</param>
 				/// <returns><code>this</code> to allow method chaining</returns>
-				public extern virtual sap.m.PlanningCalendar setStartDate(System.DateTime oStartDate);
+				public extern virtual sap.m.PlanningCalendar setStartDate(DateTime oStartDate);
 
 				#endregion
 
@@ -829,6 +831,8 @@ namespace UI5
 				/// When the PlanningCalendar is placed in certain layout containers, for example the <code>GridLayout</code> control, the column headers do not fix at the top of the viewport. Similar behavior is also observed with the <code>ObjectPage</code> control.
 				/// 
 				/// This API should not be used in production environment.
+				/// 
+				/// <b>Note:</b> The <code>stickyHeader</code> of the <code>PlanningCalendar</code> uses the <code>sticky</code> property of <code>sap.m.Table</code>. Therefore, all features and limitations of the property in <code>sap.m.Table</code> apply to the <code>PlanningCalendar</code> as well.
 				/// 
 				/// Default value is <code>false</code>.
 				/// </summary>
@@ -1611,7 +1615,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.PlanningCalendar.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Holds the selected appointments. If no appointments are selected, an empty array is returned.

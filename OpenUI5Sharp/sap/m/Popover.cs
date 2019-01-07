@@ -101,7 +101,7 @@ namespace UI5
 					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> bounce;
 
 					/// <summary>
-					/// Whether resize option is enabled.
+					/// Whether resize option is enabled. *Note:* This property is effective only on Desktop
 					/// </summary>
 					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> resizable;
 
@@ -146,7 +146,7 @@ namespace UI5
 					public Union<sap.m.Button, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> rightButton;
 
 					/// <summary>
-					/// Focus is set to the popover in the sequence of leftButton and rightButton when available. But if some other control neends to get the focus other than one of those two buttons, set the initialFocus with the control which should be focused on.
+					/// Focus on the popover is set in the sequence of <code>beginButton</code> and <code>endButton</code>, when available. But if a control other than these two buttons needs to get the focus, set the <code>initialFocus</code> with the control which should be focused on.
 					/// </summary>
 					public Union<sap.ui.core.Control, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> initialFocus;
 
@@ -579,7 +579,7 @@ namespace UI5
 				/// <summary>
 				/// Gets current value of property {@link #getResizable resizable}.
 				/// 
-				/// Whether resize option is enabled.
+				/// Whether resize option is enabled. Note:* This property is effective only on Desktop
 				/// 
 				/// Default value is <code>false</code>.
 				/// </summary>
@@ -589,7 +589,7 @@ namespace UI5
 				/// <summary>
 				/// Sets a new value for property {@link #getResizable resizable}.
 				/// 
-				/// Whether resize option is enabled.
+				/// Whether resize option is enabled. Note:* This property is effective only on Desktop
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// 
@@ -1253,7 +1253,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.Popover.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// The method checks if the Popover is open. It returns true when the Popover is currently open (this includes opening and closing animations), otherwise it returns false.
@@ -1274,7 +1275,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oElement">An Element for which outerHeight will be calculated.</param>
 				/// <param name="bIncludeMargin">Determines if the margins should be included in the calculated outerHeight. Default value is false. * @returns {number} The outer height of the element</param>
-				public extern static void outerHeight(dom.HTMLElement oElement, bool bIncludeMargin);
+				public extern static void outerHeight(Retyped.dom.HTMLElement oElement, bool bIncludeMargin);
 
 				/// <summary>
 				/// Calculate outerWidth of the element; used as hook for SVG elements
@@ -1282,7 +1283,7 @@ namespace UI5
 				/// <param name="oElement">An Element for which outerWidth will be calculated.</param>
 				/// <param name="bIncludeMargin">Determines if the margins should be included in the calculated outerWidth. Default value is false.</param>
 				/// <returns>The outer width of the element</returns>
-				public extern static int outerWidth(dom.HTMLElement oElement, bool bIncludeMargin);
+				public extern static int outerWidth(Retyped.dom.HTMLElement oElement, bool bIncludeMargin);
 
 				/// <summary>
 				/// The followOf feature closes the Popover when the position of the control that opened the Popover changes by at least 32 pixels (on desktop browsers). This may lead to unwanted closing of the Popover.

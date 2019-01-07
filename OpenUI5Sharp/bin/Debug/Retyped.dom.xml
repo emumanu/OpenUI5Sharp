@@ -654,14 +654,14 @@
             </summary>
             <param name = "root">The root element or node to start traversing on.</param>
         </member>
-        <member name="M:Retyped.dom.Document.createNodeIterator(Retyped.dom.Node,System.UInt32)">
+        <member name="M:Retyped.dom.Document.createNodeIterator(Retyped.dom.Node,System.Double)">
             <summary>
             Creates a NodeIterator object that you can use to traverse filtered lists of nodes or elements in a document.
             </summary>
             <param name = "root">The root element or node to start traversing on.</param>
             <param name = "whatToShow">The type of nodes or elements to appear in the node list</param>
         </member>
-        <member name="M:Retyped.dom.Document.createNodeIterator(Retyped.dom.Node,System.UInt32,Retyped.dom.NodeFilter)">
+        <member name="M:Retyped.dom.Document.createNodeIterator(Retyped.dom.Node,System.Double,Retyped.dom.NodeFilter)">
             <summary>
             Creates a NodeIterator object that you can use to traverse filtered lists of nodes or elements in a document.
             </summary>
@@ -669,7 +669,7 @@
             <param name = "whatToShow">The type of nodes or elements to appear in the node list</param>
             <param name = "filter">A custom NodeFilter function to use. For more information, see filter. Use null for no filter.</param>
         </member>
-        <member name="M:Retyped.dom.Document.createNodeIterator(Retyped.dom.Node,System.UInt32,Retyped.dom.NodeFilter,System.Boolean)">
+        <member name="M:Retyped.dom.Document.createNodeIterator(Retyped.dom.Node,System.Double,Retyped.dom.NodeFilter,System.Boolean)">
             <summary>
             Creates a NodeIterator object that you can use to traverse filtered lists of nodes or elements in a document.
             </summary>
@@ -695,14 +695,14 @@
             </summary>
             <param name = "root">The root element or node to start traversing on.</param>
         </member>
-        <member name="M:Retyped.dom.Document.createTreeWalker(Retyped.dom.Node,System.UInt32)">
+        <member name="M:Retyped.dom.Document.createTreeWalker(Retyped.dom.Node,System.Double)">
             <summary>
             Creates a TreeWalker object that you can use to traverse filtered lists of nodes or elements in a document.
             </summary>
             <param name = "root">The root element or node to start traversing on.</param>
             <param name = "whatToShow">The type of nodes or elements to appear in the node list. For more information, see whatToShow.</param>
         </member>
-        <member name="M:Retyped.dom.Document.createTreeWalker(Retyped.dom.Node,System.UInt32,Retyped.dom.NodeFilter)">
+        <member name="M:Retyped.dom.Document.createTreeWalker(Retyped.dom.Node,System.Double,Retyped.dom.NodeFilter)">
             <summary>
             Creates a TreeWalker object that you can use to traverse filtered lists of nodes or elements in a document.
             </summary>
@@ -710,7 +710,7 @@
             <param name = "whatToShow">The type of nodes or elements to appear in the node list. For more information, see whatToShow.</param>
             <param name = "filter">A custom NodeFilter function to use.</param>
         </member>
-        <member name="M:Retyped.dom.Document.createTreeWalker(Retyped.dom.Node,System.UInt32,Retyped.dom.NodeFilter,System.Boolean)">
+        <member name="M:Retyped.dom.Document.createTreeWalker(Retyped.dom.Node,System.Double,Retyped.dom.NodeFilter,System.Boolean)">
             <summary>
             Creates a TreeWalker object that you can use to traverse filtered lists of nodes or elements in a document.
             </summary>
@@ -1013,7 +1013,7 @@
             Sets or retrieves the number of objects in a collection.
             </summary>
         </member>
-        <member name="M:Retyped.dom.HTMLAreasCollection.item(System.UInt32)">
+        <member name="M:Retyped.dom.HTMLAreasCollection.item(System.Double)">
             <summary>
             Retrieves an object from various collections.
             </summary>
@@ -1221,7 +1221,7 @@
             Sets or retrieves the number of objects in a collection.
             </summary>
         </member>
-        <member name="M:Retyped.dom.HTMLCollectionBase.item(System.UInt32)">
+        <member name="M:Retyped.dom.HTMLCollectionBase.item(System.Double)">
             <summary>
             Retrieves an object from various collections.
             </summary>
@@ -1236,7 +1236,7 @@
             Sets or retrieves the number of objects in a collection.
             </summary>
         </member>
-        <member name="M:Retyped.dom.HTMLCollection.item(System.UInt32)">
+        <member name="M:Retyped.dom.HTMLCollection.item(System.Double)">
             <summary>
             Retrieves an object from various collections.
             </summary>
@@ -1357,7 +1357,7 @@
             Sets or retrieves the number of objects in a collection.
             </summary>
         </member>
-        <member name="M:Retyped.dom.HTMLFormControlsCollection.item(System.UInt32)">
+        <member name="M:Retyped.dom.HTMLFormControlsCollection.item(System.Double)">
             <summary>
             Retrieves an object from various collections.
             </summary>
@@ -1931,14 +1931,14 @@
             </summary>
             <param name = "error">Sets a custom error message that is displayed when a form is submitted.</param>
         </member>
-        <member name="M:Retyped.dom.HTMLInputElement.setSelectionRange(System.UInt32,System.UInt32)">
+        <member name="M:Retyped.dom.HTMLInputElement.setSelectionRange(System.Double,System.Double)">
             <summary>
             Sets the start and end positions of a selection in a text field.
             </summary>
             <param name = "start">The offset into the text field for the start of the selection.</param>
             <param name = "end">The offset into the text field for the end of the selection.</param>
         </member>
-        <member name="M:Retyped.dom.HTMLInputElement.setSelectionRange(System.UInt32,System.UInt32,Retyped.dom.Literals.Options.direction2)">
+        <member name="M:Retyped.dom.HTMLInputElement.setSelectionRange(System.Double,System.Double,Retyped.dom.Literals.Options.direction2)">
             <summary>
             Sets the start and end positions of a selection in a text field.
             </summary>
@@ -1951,7 +1951,7 @@
             Decrements a range input control's value by the value given by the Step attribute. If the optional parameter is used, it will decrement the input control's step value multiplied by the parameter's value.
             </summary>
         </member>
-        <member name="M:Retyped.dom.HTMLInputElement.stepDown(System.Int32)">
+        <member name="M:Retyped.dom.HTMLInputElement.stepDown(System.Double)">
             <summary>
             Decrements a range input control's value by the value given by the Step attribute. If the optional parameter is used, it will decrement the input control's step value multiplied by the parameter's value.
             </summary>
@@ -1962,7 +1962,7 @@
             Increments a range input control's value by the value given by the Step attribute. If the optional parameter is used, will increment the input control's value by that value.
             </summary>
         </member>
-        <member name="M:Retyped.dom.HTMLInputElement.stepUp(System.Int32)">
+        <member name="M:Retyped.dom.HTMLInputElement.stepUp(System.Double)">
             <summary>
             Increments a range input control's value by the value given by the Step attribute. If the optional parameter is used, will increment the input control's value by that value.
             </summary>
@@ -2579,7 +2579,7 @@
             Sets or retrieves the number of objects in a collection.
             </summary>
         </member>
-        <member name="M:Retyped.dom.HTMLOptionsCollection.item(System.UInt32)">
+        <member name="M:Retyped.dom.HTMLOptionsCollection.item(System.Double)">
             <summary>
             Retrieves an object from various collections.
             </summary>
@@ -2745,61 +2745,7 @@
             </summary>
             <param name = "element">Variant of type Number that specifies the index position in the collection where the element is placed. If no value is given, the method places the element at the end of the collection.</param>
         </member>
-        <member name="M:Retyped.dom.HTMLSelectElement.add(Retyped.dom.HTMLOptionElement)">
-            <summary>
-            Adds an element to the areas, controlRange, or options collection.
-            </summary>
-            <param name = "element">Variant of type Number that specifies the index position in the collection where the element is placed. If no value is given, the method places the element at the end of the collection.</param>
-        </member>
-        <member name="M:Retyped.dom.HTMLSelectElement.add(Retyped.dom.HTMLOptGroupElement)">
-            <summary>
-            Adds an element to the areas, controlRange, or options collection.
-            </summary>
-            <param name = "element">Variant of type Number that specifies the index position in the collection where the element is placed. If no value is given, the method places the element at the end of the collection.</param>
-        </member>
         <member name="M:Retyped.dom.HTMLSelectElement.add(Bridge.Union{Retyped.dom.HTMLOptionElement,Retyped.dom.HTMLOptGroupElement},Bridge.Union{Retyped.dom.HTMLElement,System.Double,Retyped.Primitive.Null})">
-            <summary>
-            Adds an element to the areas, controlRange, or options collection.
-            </summary>
-            <param name = "element">Variant of type Number that specifies the index position in the collection where the element is placed. If no value is given, the method places the element at the end of the collection.</param>
-            <param name = "before">Variant of type Object that specifies an element to insert before, or null to append the object to the collection.</param>
-        </member>
-        <member name="M:Retyped.dom.HTMLSelectElement.add(Retyped.dom.HTMLOptionElement,Retyped.dom.HTMLElement)">
-            <summary>
-            Adds an element to the areas, controlRange, or options collection.
-            </summary>
-            <param name = "element">Variant of type Number that specifies the index position in the collection where the element is placed. If no value is given, the method places the element at the end of the collection.</param>
-            <param name = "before">Variant of type Object that specifies an element to insert before, or null to append the object to the collection.</param>
-        </member>
-        <member name="M:Retyped.dom.HTMLSelectElement.add(Retyped.dom.HTMLOptionElement,System.Double)">
-            <summary>
-            Adds an element to the areas, controlRange, or options collection.
-            </summary>
-            <param name = "element">Variant of type Number that specifies the index position in the collection where the element is placed. If no value is given, the method places the element at the end of the collection.</param>
-            <param name = "before">Variant of type Object that specifies an element to insert before, or null to append the object to the collection.</param>
-        </member>
-        <member name="M:Retyped.dom.HTMLSelectElement.add(Retyped.dom.HTMLOptionElement,Retyped.Primitive.Null)">
-            <summary>
-            Adds an element to the areas, controlRange, or options collection.
-            </summary>
-            <param name = "element">Variant of type Number that specifies the index position in the collection where the element is placed. If no value is given, the method places the element at the end of the collection.</param>
-            <param name = "before">Variant of type Object that specifies an element to insert before, or null to append the object to the collection.</param>
-        </member>
-        <member name="M:Retyped.dom.HTMLSelectElement.add(Retyped.dom.HTMLOptGroupElement,Retyped.dom.HTMLElement)">
-            <summary>
-            Adds an element to the areas, controlRange, or options collection.
-            </summary>
-            <param name = "element">Variant of type Number that specifies the index position in the collection where the element is placed. If no value is given, the method places the element at the end of the collection.</param>
-            <param name = "before">Variant of type Object that specifies an element to insert before, or null to append the object to the collection.</param>
-        </member>
-        <member name="M:Retyped.dom.HTMLSelectElement.add(Retyped.dom.HTMLOptGroupElement,System.Double)">
-            <summary>
-            Adds an element to the areas, controlRange, or options collection.
-            </summary>
-            <param name = "element">Variant of type Number that specifies the index position in the collection where the element is placed. If no value is given, the method places the element at the end of the collection.</param>
-            <param name = "before">Variant of type Object that specifies an element to insert before, or null to append the object to the collection.</param>
-        </member>
-        <member name="M:Retyped.dom.HTMLSelectElement.add(Retyped.dom.HTMLOptGroupElement,Retyped.Primitive.Null)">
             <summary>
             Adds an element to the areas, controlRange, or options collection.
             </summary>
@@ -2839,7 +2785,7 @@
             Removes an element from the collection.
             </summary>
         </member>
-        <member name="M:Retyped.dom.HTMLSelectElement.remove(System.Int32)">
+        <member name="M:Retyped.dom.HTMLSelectElement.remove(System.Double)">
             <summary>
             Removes an element from the collection.
             </summary>
@@ -3096,7 +3042,7 @@
             Removes the specified row (tr) from the element and from the rows collection.
             </summary>
         </member>
-        <member name="M:Retyped.dom.HTMLTableElement.deleteRow(System.Int32)">
+        <member name="M:Retyped.dom.HTMLTableElement.deleteRow(System.Double)">
             <summary>
             Removes the specified row (tr) from the element and from the rows collection.
             </summary>
@@ -3117,7 +3063,7 @@
             Creates a new row (tr) in the table, and adds the row to the rows collection.
             </summary>
         </member>
-        <member name="M:Retyped.dom.HTMLTableElement.insertRow(System.Int32)">
+        <member name="M:Retyped.dom.HTMLTableElement.insertRow(System.Double)">
             <summary>
             Creates a new row (tr) in the table, and adds the row to the rows collection.
             </summary>
@@ -3168,7 +3114,7 @@
             Removes the specified cell from the table row, as well as from the cells collection.
             </summary>
         </member>
-        <member name="M:Retyped.dom.HTMLTableRowElement.deleteCell(System.Int32)">
+        <member name="M:Retyped.dom.HTMLTableRowElement.deleteCell(System.Double)">
             <summary>
             Removes the specified cell from the table row, as well as from the cells collection.
             </summary>
@@ -3179,7 +3125,7 @@
             Creates a new cell in the table row, and adds the cell to the cells collection.
             </summary>
         </member>
-        <member name="M:Retyped.dom.HTMLTableRowElement.insertCell(System.Int32)">
+        <member name="M:Retyped.dom.HTMLTableRowElement.insertCell(System.Double)">
             <summary>
             Creates a new cell in the table row, and adds the cell to the cells collection.
             </summary>
@@ -3215,7 +3161,7 @@
             Removes the specified row (tr) from the element and from the rows collection.
             </summary>
         </member>
-        <member name="M:Retyped.dom.HTMLTableSectionElement.deleteRow(System.Int32)">
+        <member name="M:Retyped.dom.HTMLTableSectionElement.deleteRow(System.Double)">
             <summary>
             Removes the specified row (tr) from the element and from the rows collection.
             </summary>
@@ -3226,7 +3172,7 @@
             Creates a new row (tr) in the table, and adds the row to the rows collection.
             </summary>
         </member>
-        <member name="M:Retyped.dom.HTMLTableSectionElement.insertRow(System.Int32)">
+        <member name="M:Retyped.dom.HTMLTableSectionElement.insertRow(System.Double)">
             <summary>
             Creates a new row (tr) in the table, and adds the row to the rows collection.
             </summary>
@@ -3338,14 +3284,14 @@
             </summary>
             <param name = "error">Sets a custom error message that is displayed when a form is submitted.</param>
         </member>
-        <member name="M:Retyped.dom.HTMLTextAreaElement.setSelectionRange(System.UInt32,System.UInt32)">
+        <member name="M:Retyped.dom.HTMLTextAreaElement.setSelectionRange(System.Double,System.Double)">
             <summary>
             Sets the start and end positions of a selection in a text field.
             </summary>
             <param name = "start">The offset into the text field for the start of the selection.</param>
             <param name = "end">The offset into the text field for the end of the selection.</param>
         </member>
-        <member name="M:Retyped.dom.HTMLTextAreaElement.setSelectionRange(System.UInt32,System.UInt32,Retyped.dom.Literals.Options.direction3)">
+        <member name="M:Retyped.dom.HTMLTextAreaElement.setSelectionRange(System.Double,System.Double,Retyped.dom.Literals.Options.direction3)">
             <summary>
             Sets the start and end positions of a selection in a text field.
             </summary>
@@ -3778,7 +3724,7 @@
             @deprecated
             </summary>
         </member>
-        <member name="M:Retyped.dom.SVGSVGElement.suspendRedraw(System.UInt32)">
+        <member name="M:Retyped.dom.SVGSVGElement.suspendRedraw(System.Double)">
             <summary>
             @deprecated
             </summary>
@@ -3788,7 +3734,7 @@
             @deprecated
             </summary>
         </member>
-        <member name="M:Retyped.dom.SVGSVGElement.unsuspendRedraw(System.UInt32)">
+        <member name="M:Retyped.dom.SVGSVGElement.unsuspendRedraw(System.Double)">
             <summary>
             @deprecated
             </summary>

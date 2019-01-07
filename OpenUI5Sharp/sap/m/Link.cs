@@ -116,9 +116,40 @@ namespace UI5
 					/// <summary>
 					/// Event is fired when the user triggers the link control.
 					/// </summary>
-					public sap.ui.@base.EventDelegate press;
+					public sap.m.Link.PressDelegate press;
 
 				}
+
+				#endregion
+
+				#region Typed Parameters
+
+				/// <summary>
+				/// Parameter to be used as Object Literal
+				/// </summary>
+				[External]
+				[ObjectLiteral]
+				public partial class PressInfo
+				{
+					/// <summary>
+					/// Indicates whether the CTRL key was pressed when the link was selected.
+					/// </summary>
+					public bool ctrlKey;
+
+					/// <summary>
+					/// Indicates whether the "meta" key was pressed when the link was selected.
+					/// 
+					/// On Macintosh keyboards, this is the command key (⌘). On Windows keyboards, this is the windows key (⊞).
+					/// </summary>
+					public bool metaKey;
+
+				}
+
+				#endregion
+
+				#region Delegates
+
+				public delegate void PressDelegate(sap.ui.@base.Event<sap.m.Link.PressInfo> oEvent, object oData);
 
 				#endregion
 
@@ -530,7 +561,7 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.Link</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Link attachPress(object oData, sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.Link attachPress(object oData, sap.m.Link.PressDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:press press} event of this <code>sap.m.Link</code>.
@@ -542,7 +573,7 @@ namespace UI5
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Link attachPress(object oData, sap.ui.@base.EventDelegate fnFunction);
+				public extern virtual sap.m.Link attachPress(object oData, sap.m.Link.PressDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:press press} event of this <code>sap.m.Link</code>.
@@ -553,7 +584,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Link attachPress(sap.ui.@base.EventDelegate fnFunction);
+				public extern virtual sap.m.Link attachPress(sap.m.Link.PressDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:press press} event of this <code>sap.m.Link</code>.
@@ -565,7 +596,7 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.Link</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Link attachPress(sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.Link attachPress(sap.m.Link.PressDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:press press} event of this <code>sap.m.Link</code>.
@@ -575,7 +606,7 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.Link detachPress(sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.Link detachPress(sap.m.Link.PressDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:press press} to attached listeners.
@@ -584,7 +615,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Whether or not to prevent the default action</returns>
-				public extern virtual bool firePress(object mParameters);
+				public extern virtual bool firePress(sap.m.Link.PressInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:press press} to attached listeners.
@@ -638,7 +669,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.Link.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				#endregion
 

@@ -78,13 +78,14 @@ namespace UI5
 					/// Returns the current data of the model. Be aware that the returned object is a reference to the model data so all changes to that data will also change the model data.
 					/// </summary>
 					/// <returns>the data object</returns>
-					public extern virtual void getData();
+					public extern virtual object getData();
 
 					/// <summary>
 					/// Returns a metadata object for class sap.ui.model.ClientModel.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// update all bindings

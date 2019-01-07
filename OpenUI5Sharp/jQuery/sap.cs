@@ -13,6 +13,7 @@ namespace UI5
 		[External]
 		[Namespace(false)]
 		[Name("jQuery.sap")]
+		[Obsolete("Deprecated since 1.58. To avoid usage of global variables in general, please do not use the jQuery.sap namespace any longer. Most of the jQuery.sap functionalities are replaced by alternative modules which can be found in the API doc.")]
 		public static partial class sap
 		{
 			#region Typed Parameters
@@ -46,94 +47,6 @@ namespace UI5
 			/// </summary>
 			[External]
 			[ObjectLiteral]
-			public partial class InitMobileOptions
-			{
-				/// <summary>
-				/// whether to set the viewport in a way that disables zooming
-				/// </summary>
-				public bool viewport;
-
-				/// <summary>
-				/// the iOS status bar color, "default", "black" or "black-translucent"
-				/// </summary>
-				public string statusBar;
-
-				/// <summary>
-				/// whether the browser UI should be hidden as far as possible to make the app feel more native
-				/// </summary>
-				public bool hideBrowser;
-
-				/// <summary>
-				/// whether native scrolling should be disabled in order to prevent the "rubber-band" effect where the whole window is moved
-				/// </summary>
-				public bool preventScroll;
-
-				/// <summary>
-				/// whether Safari mobile should be prevented from transforming any numbers that look like phone numbers into clickable links
-				/// </summary>
-				public bool preventPhoneNumberDetection;
-
-				/// <summary>
-				/// the ID of the root element that should be made fullscreen; only used when hideBrowser is set. If not set, the body is used
-				/// </summary>
-				public string rootId;
-
-				/// <summary>
-				/// whether the height of the html root element should be set to 100%, which is required for other elements to cover the full height
-				/// </summary>
-				public bool useFullScreenHeight;
-
-				/// <summary>
-				/// deprecated since 1.12, use jQuery.sap.setIcons instead.
-				/// </summary>
-				public string homeIcon;
-
-				/// <summary>
-				/// deprecated since 1.12, use jQuery.sap.setIcons instead.
-				/// </summary>
-				public bool homeIconPrecomposed;
-
-				/// <summary>
-				/// whether the Application will be loaded in full screen mode after added to home screen on mobile devices. The default value for this property only enables the full screen mode when runs on iOS device.
-				/// </summary>
-				public bool mobileWebAppCapable;
-
-			}
-
-			/// <summary>
-			/// Parameter to be used as Object Literal
-			/// </summary>
-			[External]
-			[ObjectLiteral]
-			public partial class PropertiesInfo
-			{
-				/// <summary>
-				/// The URL to the .properties file which should be loaded
-				/// </summary>
-				public string url;
-
-				/// <summary>
-				/// Whether the .properties file should be loaded asynchronously or not
-				/// </summary>
-				public bool async;
-
-				/// <summary>
-				/// A map of additional header key/value pairs to send along with the request (see <code>headers</code> option of <code>jQuery.ajax</code>)
-				/// </summary>
-				public object headers;
-
-				/// <summary>
-				/// Whether <code>null</code> should be returned for a missing properties file; by default an empty collection is returned
-				/// </summary>
-				public object returnNullIfMissing;
-
-			}
-
-			/// <summary>
-			/// Parameter to be used as Object Literal
-			/// </summary>
-			[External]
-			[ObjectLiteral]
 			public partial class RegisterPathInfo
 			{
 				/// <summary>
@@ -148,45 +61,14 @@ namespace UI5
 
 			}
 
-			/// <summary>
-			/// Parameter to be used as Object Literal
-			/// </summary>
-			[External]
-			[ObjectLiteral]
-			public partial class ResourcesInfo
-			{
-				/// <summary>
-				/// URL pointing to the base .properties file of a bundle (.properties file without any locale information, e.g. "mybundle.properties")
-				/// </summary>
-				public string url;
-
-				/// <summary>
-				/// Optional language (aka 'locale') to load the texts for. Can either be a BCP47 language tag or a JDK compatible locale string (e.g. "en-GB", "en_GB" or "fr"); Defaults to the current session locale if <code>sap.ui.getCore</code> is available, otherwise to 'en'
-				/// </summary>
-				public string locale;
-
-				/// <summary>
-				/// Whether to include origin information into the returned property values
-				/// </summary>
-				public bool includeInfo;
-
-				/// <summary>
-				/// Whether the first bundle should be loaded asynchronously Note: Fallback bundles loaded by {@link #getText} are always loaded synchronously.
-				/// </summary>
-				public bool async;
-
-			}
-
 			#endregion
 
 			#region Fields
 
 			/// <summary>
-			/// Calculate delta of old list and new list.
-			/// 
-			/// This partly implements the algorithm described in "A Technique for Isolating Differences Between Files" but instead of working with hashes, it does compare each entry of the old list with each entry of the new list, which causes terrible performance on large datasets.
+			/// Returns the names of all declared modules.
 			/// </summary>
-			public static object arrayDiff;
+			public static object getAllDeclaredModules;
 
 			#endregion
 
@@ -199,7 +81,44 @@ namespace UI5
 			/// <param name="host">The host of the URL</param>
 			/// <param name="port">The port of the URL</param>
 			/// <param name="path">the path of the URL</param>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/security/URLWhitelist.add} instead")]
 			public extern static void addUrlWhitelist(string protocol, string host, string port, string path);
+
+			/// <summary>
+			/// Calculate delta of old list and new list.
+			/// 
+			/// This partly implements the algorithm described in "A Technique for Isolating Differences Between Files" but instead of working with hashes, it does compare each entry of the old list with each entry of the new list, which causes terrible performance on large datasets.
+			/// </summary>
+			/// <param name="aOld">Old Array</param>
+			/// <param name="aNew">New Array</param>
+			/// <param name="fnCompare">Function to compare list entries</param>
+			/// <param name="bUniqueEntries">Whether entries are unique, so no duplicate entries exist</param>
+			/// <returns>List of changes</returns>
+			[Obsolete("Deprecated since 1.38. use {@link module:sap/base/util/array/diff} instead if applicable")]
+			public extern static object[] arrayDiff(object[] aOld, object[] aNew, object fnCompare, bool bUniqueEntries);
+
+			/// <summary>
+			/// Calculate delta of old list and new list.
+			/// 
+			/// This partly implements the algorithm described in "A Technique for Isolating Differences Between Files" but instead of working with hashes, it does compare each entry of the old list with each entry of the new list, which causes terrible performance on large datasets.
+			/// </summary>
+			/// <param name="aOld">Old Array</param>
+			/// <param name="aNew">New Array</param>
+			/// <param name="fnCompare">Function to compare list entries</param>
+			/// <returns>List of changes</returns>
+			[Obsolete("Deprecated since 1.38. use {@link module:sap/base/util/array/diff} instead if applicable")]
+			public extern static object[] arrayDiff(object[] aOld, object[] aNew, object fnCompare);
+
+			/// <summary>
+			/// Calculate delta of old list and new list.
+			/// 
+			/// This partly implements the algorithm described in "A Technique for Isolating Differences Between Files" but instead of working with hashes, it does compare each entry of the old list with each entry of the new list, which causes terrible performance on large datasets.
+			/// </summary>
+			/// <param name="aOld">Old Array</param>
+			/// <param name="aNew">New Array</param>
+			/// <returns>List of changes</returns>
+			[Obsolete("Deprecated since 1.38. use {@link module:sap/base/util/array/diff} instead if applicable")]
+			public extern static object[] arrayDiff(object[] aOld, object[] aNew);
 
 			/// <summary>
 			/// Calculate delta of old list and new list.
@@ -248,6 +167,7 @@ namespace UI5
 			/// <param name="aNew">New Array</param>
 			/// <param name="fnSymbol">Function to calculate substitute symbols for array items</param>
 			/// <returns>List of update operations</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/util/array/diff} instead")]
 			public extern static object[] arraySymbolDiff(object[] aOld, object[] aNew, object fnSymbol);
 
 			/// <summary>
@@ -296,6 +216,7 @@ namespace UI5
 			/// <param name="aOld">Old Array</param>
 			/// <param name="aNew">New Array</param>
 			/// <returns>List of update operations</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/util/array/diff} instead")]
 			public extern static object[] arraySymbolDiff(object[] aOld, object[] aNew);
 
 			/// <summary>
@@ -305,12 +226,14 @@ namespace UI5
 			/// </summary>
 			/// <param name="bResult">Result of the checked assertion</param>
 			/// <param name="vMessage">Message that will be logged when the result is <code>false</code>. In case this is a function, the return value of the function will be displayed. This can be used to execute complex code only if the assertion fails.</param>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/assert} instead")]
 			public extern static void assert(bool bResult, Union<string, object> vMessage);
 
 			/// <summary>
 			/// Binds all events for listening with the given callback function.
 			/// </summary>
 			/// <param name="fnCallback">Callback function</param>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/events/ControlEvents.bindAnyEvent} instead")]
 			public extern static void bindAnyEvent(object fnCallback);
 
 			/// <summary>
@@ -321,13 +244,15 @@ namespace UI5
 			/// <param name="sId">The id to search for and construct the jQuery object</param>
 			/// <param name="oContext">the context DOM Element</param>
 			/// <returns>The jQuery object for the DOM element identified by the given sId</returns>
-			public extern static object byId(string sId, dom.HTMLElement oContext);
+			[Obsolete("Deprecated since 1.58. use <code>jQuery(document.getElementById(sId))</code> instead")]
+			public extern static object byId(string sId, Retyped.dom.HTMLElement oContext);
 
 			/// <summary>
 			/// Transforms a hyphen separated string to a camel case string.
 			/// </summary>
 			/// <param name="sString">Hyphen separated string</param>
 			/// <returns>The transformed string</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/strings/camelize} instead")]
 			public extern static string camelCase(string sString);
 
 			/// <summary>
@@ -338,6 +263,7 @@ namespace UI5
 			/// <param name="sString">String for which one character should be converted</param>
 			/// <param name="iPos">Position of the character that should be converted</param>
 			/// <returns>String with the converted character</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/strings/capitalize} instead")]
 			public extern static string charToUpperCase(string sString, int iPos);
 
 			/// <summary>
@@ -345,7 +271,8 @@ namespace UI5
 			/// </summary>
 			/// <param name="oEvent"></param>
 			/// <param name="oDomRef"></param>
-			public extern static void checkMouseEnterOrLeave(jquery.JQuery.Event oEvent, dom.HTMLElement oDomRef);
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/events/checkMouseEnterOrLeave} instead")]
+			public extern static void checkMouseEnterOrLeave(jquery.JQuery.Event oEvent, Retyped.dom.HTMLElement oDomRef);
 
 			/// <summary>
 			/// Stops the delayed call.
@@ -353,6 +280,7 @@ namespace UI5
 			/// The function given when calling delayedCall is not called anymore.
 			/// </summary>
 			/// <param name="sDelayedCallId">The id returned, when calling delayedCall</param>
+			[Obsolete("Deprecated since 1.58. use native <code>clearTimeout</code> instead")]
 			public extern static void clearDelayedCall(string sDelayedCallId);
 
 			/// <summary>
@@ -361,11 +289,13 @@ namespace UI5
 			/// The function given when calling intervalCall is not called anymore.
 			/// </summary>
 			/// <param name="sIntervalCallId">The id returned, when calling intervalCall</param>
+			[Obsolete("Deprecated since 1.58. use native <code>clearInterval</code> instead")]
 			public extern static void clearIntervalCall(string sIntervalCallId);
 
 			/// <summary>
 			/// Clears the whitelist for URL validation
 			/// </summary>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/security/URLWhitelist.clear} instead")]
 			public extern static void clearUrlWhitelist();
 
 			/// <summary>
@@ -378,7 +308,8 @@ namespace UI5
 			/// <param name="oDomRefContainer">The container element</param>
 			/// <param name="oDomRefChild">The child element (must not be a text node, must be an element)</param>
 			/// <returns>Whether <code>oDomRefChild</code> is contained in or equal to <code>oDomRefContainer</code></returns>
-			public extern static bool containsOrEquals(dom.HTMLElement oDomRefContainer, dom.HTMLElement oDomRefChild);
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/dom/containsOrEquals} instead")]
+			public extern static bool containsOrEquals(Retyped.dom.HTMLElement oDomRefContainer, Retyped.dom.HTMLElement oDomRefChild);
 
 			/// <summary>
 			/// Declares a module as existing.
@@ -398,6 +329,7 @@ namespace UI5
 			/// <param name="method">function pointer or name of the method</param>
 			/// <param name="aParameters">Method parameters</param>
 			/// <returns>Id which can be used to cancel the timer with clearDelayedCall</returns>
+			[Obsolete("Deprecated since 1.58. use native <code>setTimeout</code> instead")]
 			public extern static string delayedCall(int iDelay, object oObject, Union<string, object> method, object[] aParameters);
 
 			/// <summary>
@@ -407,6 +339,7 @@ namespace UI5
 			/// <param name="oObject">Object from which the method should be called</param>
 			/// <param name="method">function pointer or name of the method</param>
 			/// <returns>Id which can be used to cancel the timer with clearDelayedCall</returns>
+			[Obsolete("Deprecated since 1.58. use native <code>setTimeout</code> instead")]
 			public extern static string delayedCall(int iDelay, object oObject, Union<string, object> method);
 
 			/// <summary>
@@ -421,7 +354,8 @@ namespace UI5
 			/// <param name="iNormalizedScrollBegin">The distance from the rightmost position to which the element should be scrolled</param>
 			/// <param name="oDomRef">The DOM Element to which scrollLeft will be applied</param>
 			/// <returns>The scroll position that must be set for the DOM element</returns>
-			public extern static int denormalizeScrollBeginRTL(int iNormalizedScrollBegin, dom.HTMLElement oDomRef);
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/dom/denormalizeScrollBeginRTL} instead")]
+			public extern static int denormalizeScrollBeginRTL(int iNormalizedScrollBegin, Retyped.dom.HTMLElement oDomRef);
 
 			/// <summary>
 			/// For the given scrollLeft value this method returns the scrollLeft value as understood by the current browser in RTL mode. This value is specific to the given DOM element, as the computation may involve its dimensions.
@@ -433,11 +367,13 @@ namespace UI5
 			/// <param name="iNormalizedScrollLeft">The distance from the leftmost position to which the element should be scrolled</param>
 			/// <param name="oDomRef">The DOM Element to which scrollLeft will be applied</param>
 			/// <returns>The scroll position that must be set for the DOM element</returns>
-			public extern static int denormalizeScrollLeftRTL(int iNormalizedScrollLeft, dom.HTMLElement oDomRef);
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/dom/denormalizeScrollLeftRTL} instead")]
+			public extern static int denormalizeScrollLeftRTL(int iNormalizedScrollLeft, Retyped.dom.HTMLElement oDomRef);
 
 			/// <summary>
 			/// Disable touch to mouse handling
 			/// </summary>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/events/jquery/jquery/EventSimulation.disableTouchToMouseHandling} instead")]
 			public extern static void disableTouchToMouseHandling();
 
 			/// <summary>
@@ -446,20 +382,23 @@ namespace UI5
 			/// <param name="sId">The id of the DOM element to return</param>
 			/// <param name="oWindow">The window (optional)</param>
 			/// <returns>The DOMNode identified by the given sId</returns>
-			public extern static dom.HTMLElement domById(string sId, dom.Window oWindow);
+			[Obsolete("Deprecated since 1.58. use <code>document.getElementById</code> instead")]
+			public extern static Retyped.dom.HTMLElement domById(string sId, Retyped.dom.Window oWindow);
 
 			/// <summary>
 			/// Shortcut for document.getElementById().
 			/// </summary>
 			/// <param name="sId">The id of the DOM element to return</param>
 			/// <returns>The DOMNode identified by the given sId</returns>
-			public extern static dom.HTMLElement domById(string sId);
+			[Obsolete("Deprecated since 1.58. use <code>document.getElementById</code> instead")]
+			public extern static Retyped.dom.HTMLElement domById(string sId);
 
 			/// <summary>
 			/// Encode the string for inclusion into CSS string literals or identifiers
 			/// </summary>
 			/// <param name="sString">The string to be escaped</param>
 			/// <returns>The escaped string</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/security/encodeCSS} instead")]
 			public extern static string encodeCSS(string sString);
 
 			/// <summary>
@@ -467,6 +406,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="sString">The string to be escaped</param>
 			/// <returns>The escaped string</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/security/encodeXML} instead")]
 			public extern static string encodeHTML(string sString);
 
 			/// <summary>
@@ -474,6 +414,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="sString">The string to be escaped</param>
 			/// <returns>The escaped string</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/security/encodeJS} instead")]
 			public extern static string encodeJS(string sString);
 
 			/// <summary>
@@ -481,6 +422,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="sString">The string to be escaped</param>
 			/// <returns>The escaped string</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/security/encodeURL} instead")]
 			public extern static string encodeURL(string sString);
 
 			/// <summary>
@@ -488,6 +430,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="mParams">The map of parameters to encode</param>
 			/// <returns>The URL encoded parameters</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/security/encodeURLParameters} instead")]
 			public extern static string encodeURLParameters(object mParams);
 
 			/// <summary>
@@ -495,6 +438,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="sString">The string to be escaped</param>
 			/// <returns>The escaped string</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/security/encodeXML} instead")]
 			public extern static string encodeXML(string sString);
 
 			/// <summary>
@@ -503,6 +447,7 @@ namespace UI5
 			/// <param name="sString">String to be checked</param>
 			/// <param name="sEndString">The end string to be searched</param>
 			/// <returns>Whether <code>sString</code> ends with <code>sEndString</code></returns>
+			[Obsolete("Deprecated since 1.58. use the native solution <code>String#endsWith</code>")]
 			public extern static bool endsWith(string sString, string sEndString);
 
 			/// <summary>
@@ -511,6 +456,7 @@ namespace UI5
 			/// <param name="sString">String to be checked</param>
 			/// <param name="sEndString">The end string to be searched</param>
 			/// <returns>Whether <code>sString</code> ends with <code>sEndString</code></returns>
+			[Obsolete("Deprecated since 1.58. use the native solution <code>sString.toLowerCase().endsWith(sEndString.toLowerCase())</code>")]
 			public extern static bool endsWithIgnoreCase(string sString, string sEndString);
 
 			/// <summary>
@@ -521,6 +467,7 @@ namespace UI5
 			/// <param name="maxDepth">Maximum recursion depth</param>
 			/// <param name="contains">Whether all existing properties in a are equal as in b</param>
 			/// <returns>Whether a and b are equal</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/util/deepEqual} instead")]
 			public extern static bool equal(object a, object b, int maxDepth, bool contains);
 
 			/// <summary>
@@ -530,6 +477,7 @@ namespace UI5
 			/// <param name="b">A value of any type</param>
 			/// <param name="maxDepth">Maximum recursion depth</param>
 			/// <returns>Whether a and b are equal</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/util/deepEqual} instead")]
 			public extern static bool equal(object a, object b, int maxDepth = 10);
 
 			/// <summary>
@@ -537,7 +485,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="sString">The string to be escaped</param>
 			/// <returns>The escaped string</returns>
-			[Obsolete("Deprecated since 1.4.0. has been renamed, use {@link jQuery.sap.encodeHTML} instead.")]
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/security/encodeXML} instead")]
 			public extern static string escapeHTML(string sString);
 
 			/// <summary>
@@ -545,7 +493,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="sString">The string to be escaped</param>
 			/// <returns>The escaped string</returns>
-			[Obsolete("Deprecated since 1.3.0. Has been renamed, use {@link jQuery.sap.encodeJS} instead.")]
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/security/encodeJS} instead")]
 			public extern static string escapeJS(string sString);
 
 			/// <summary>
@@ -563,6 +511,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="sString">String to escape</param>
 			/// <returns>The escaped string</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/strings/escapeRegExp} instead")]
 			public extern static string escapeRegExp(string sString);
 
 			/// <summary>
@@ -584,7 +533,8 @@ namespace UI5
 			/// </summary>
 			/// <param name="oDomRef">The DOM element to focus (or null - in this case the method does nothing)</param>
 			/// <returns>Whether the focus() command was executed without an error</returns>
-			public extern static bool focus(dom.HTMLElement oDomRef);
+			[Obsolete("Deprecated since 1.58. use <code>oDomRef.focus()</code> instead")]
+			public extern static bool focus(Retyped.dom.HTMLElement oDomRef);
 
 			/// <summary>
 			/// Creates a string from a pattern by replacing placeholders with concrete values.
@@ -611,6 +561,7 @@ namespace UI5
 			/// <param name="sPattern">A pattern string in the described syntax</param>
 			/// <param name="aValues">The values to be used instead of the placeholders.</param>
 			/// <returns>The formatted result string</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/strings/formatMessage} instead")]
 			public extern static string formatMessage(string sPattern, object[] aValues);
 
 			/// <summary>
@@ -637,13 +588,8 @@ namespace UI5
 			/// </summary>
 			/// <param name="sPattern">A pattern string in the described syntax</param>
 			/// <returns>The formatted result string</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/strings/formatMessage} instead")]
 			public extern static string formatMessage(string sPattern);
-
-			/// <summary>
-			/// Returns the names of all declared modules.
-			/// </summary>
-			/// <returns>the names of all declared modules</returns>
-			public extern static string[] getAllDeclaredModules();
 
 			/// <summary>
 			/// Constructs a URL to load the module with the given name and file type (suffix).
@@ -659,6 +605,7 @@ namespace UI5
 			/// <param name="sModuleName">module name to detemrine the path for</param>
 			/// <param name="sSuffix">suffix to be added to the resulting path</param>
 			/// <returns>calculated path (URL) to the given module</returns>
+			[Obsolete("Deprecated since 1.58. use {@link sap.ui.require_toUrl} instead")]
 			public extern static string getModulePath(string sModuleName, string sSuffix);
 
 			/// <summary>
@@ -674,6 +621,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="sModuleName">module name to detemrine the path for</param>
 			/// <returns>calculated path (URL) to the given module</returns>
+			[Obsolete("Deprecated since 1.58. use {@link sap.ui.require_toUrl} instead")]
 			public extern static string getModulePath(string sModuleName);
 
 			/// <summary>
@@ -698,6 +646,7 @@ namespace UI5
 			/// <param name="iNoCreates">number of objects (from the right) that should not be created</param>
 			/// <param name="oContext">the context to execute the search in</param>
 			/// <returns>The value of the named object</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/util/ObjectPath.get} or {@link module:sap/base/util/ObjectPath.get} instead")]
 			public extern static object getObject(string sName, int iNoCreates, object oContext);
 
 			/// <summary>
@@ -721,6 +670,7 @@ namespace UI5
 			/// <param name="sName">a dot separated sequence of names that identify the required object</param>
 			/// <param name="iNoCreates">number of objects (from the right) that should not be created</param>
 			/// <returns>The value of the named object</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/util/ObjectPath.get} or {@link module:sap/base/util/ObjectPath.get} instead")]
 			public extern static object getObject(string sName, int iNoCreates);
 
 			/// <summary>
@@ -743,6 +693,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="sName">a dot separated sequence of names that identify the required object</param>
 			/// <returns>The value of the named object</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/util/ObjectPath.get} or {@link module:sap/base/util/ObjectPath.get} instead")]
 			public extern static object getObject(string sName);
 
 			/// <summary>
@@ -752,6 +703,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="sModuleName">Module name as a dot separated name</param>
 			/// <param name="sSuffix">Suffix to add to the final resource name</param>
+			[Obsolete("Deprecated since 1.58.")]
 			private extern static void getResourceName(string sModuleName, string sSuffix = ".js");
 
 			/// <summary>
@@ -776,6 +728,7 @@ namespace UI5
 			/// <param name="sResourceName">unified resource name of the resource</param>
 			/// <param name="sSuffix">Suffix to add to the resource name</param>
 			/// <returns>URL to load the resource from</returns>
+			[Obsolete("Deprecated since 1.58. use {@link sap.ui.require_toUrl} instead")]
 			public extern static string getResourcePath(string sResourceName, string sSuffix);
 
 			/// <summary>
@@ -799,6 +752,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="sResourceName">unified resource name of the resource</param>
 			/// <returns>URL to load the resource from</returns>
+			[Obsolete("Deprecated since 1.58. use {@link sap.ui.require_toUrl} instead")]
 			public extern static string getResourcePath(string sResourceName);
 
 			/// <summary>
@@ -810,6 +764,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="oValue">The value that the getter should return</param>
 			/// <returns>The new getter function</returns>
+			[Obsolete("Deprecated since 1.58.")]
 			public extern static object getter(object oValue);
 
 			/// <summary>
@@ -831,9 +786,27 @@ namespace UI5
 			public extern static jQuery.sap.util.UriParameters getUriParameters(string sUri);
 
 			/// <summary>
+			/// Creates and returns a new instance of {@link jQuery.sap.util.UriParameters}.
+			/// 
+			/// Example for reading a single URI parameter (or the value of the first occurrence of the URI parameter): <pre>
+			/// 	var sValue = jQuery.sap.getUriParameters().get("myUriParam");
+			/// </pre>
+			/// 
+			/// Example for reading the values of the first of the URI parameter (with multiple occurrences): <pre>
+			/// 	var aValues = jQuery.sap.getUriParameters().get("myUriParam", true);
+			/// 	for(i in aValues){
+			/// 	var sValue = aValues[i];
+			/// 	}
+			/// </pre>
+			/// </summary>
+			/// <returns>A new URI parameters instance</returns>
+			public extern static jQuery.sap.util.UriParameters getUriParameters();
+
+			/// <summary>
 			/// Gets the whitelist for URL validation.
 			/// </summary>
 			/// <returns>A copy of the whitelist</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/security/URLWhitelist.entries} instead")]
 			public extern static object[] getUrlWhitelist();
 
 			/// <summary>
@@ -841,6 +814,7 @@ namespace UI5
 			/// 
 			/// This is a synchronous replacement for <code>jQuery.globalEval</code> which in some browsers (e.g. FireFox) behaves asynchronously.
 			/// </summary>
+			[Obsolete("Deprecated since 1.58.")]
 			public extern static void globalEval();
 
 			/// <summary>
@@ -848,6 +822,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="sString">The string to generate the hash-code from</param>
 			/// <returns>The generated hash-code</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/strings/hash} instead")]
 			private extern static int hashCode(string sString);
 
 			/// <summary>
@@ -855,6 +830,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="sString">camel case string</param>
 			/// <returns>The transformed string</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/strings/hyphenate} instead")]
 			public extern static string hyphen(string sString);
 
 			/// <summary>
@@ -865,7 +841,8 @@ namespace UI5
 			/// <param name="fnLoadCallback">callback function to get notified once the script has been loaded</param>
 			/// <param name="fnErrorCallback">callback function to get notified once the script loading failed</param>
 			/// <returns>When using the configuration object a <code>Promise</code> will be returned. The documentation for the <code>fnLoadCallback</code> applies to the <code>resolve</code> handler of the <code>Promise</code> and the one for the <code>fnErrorCallback</code> applies to the <code>reject</code> handler of the <code>Promise</code>.</returns>
-			public extern static jquery.JQueryPromise<object> includeScript(Union<string, jQuery.sap.IncludeInfo> vUrl, Union<string, object> vId, object fnLoadCallback, object fnErrorCallback);
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/dom/includeScript} instead")]
+			public extern static es5.Promise<object> includeScript(Union<string, jQuery.sap.IncludeInfo> vUrl, Union<string, object> vId, object fnLoadCallback, object fnErrorCallback);
 
 			/// <summary>
 			/// Includes the script (via &lt;script&gt;-tag) into the head for the specified <code>sUrl</code> and optional <code>sId</code>.
@@ -874,7 +851,8 @@ namespace UI5
 			/// <param name="vId">id that should be used for the script tag or map of attributes</param>
 			/// <param name="fnLoadCallback">callback function to get notified once the script has been loaded</param>
 			/// <returns>When using the configuration object a <code>Promise</code> will be returned. The documentation for the <code>fnLoadCallback</code> applies to the <code>resolve</code> handler of the <code>Promise</code> and the one for the <code>fnErrorCallback</code> applies to the <code>reject</code> handler of the <code>Promise</code>.</returns>
-			public extern static jquery.JQueryPromise<object> includeScript(Union<string, jQuery.sap.IncludeInfo> vUrl, Union<string, object> vId, object fnLoadCallback);
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/dom/includeScript} instead")]
+			public extern static es5.Promise<object> includeScript(Union<string, jQuery.sap.IncludeInfo> vUrl, Union<string, object> vId, object fnLoadCallback);
 
 			/// <summary>
 			/// Includes the script (via &lt;script&gt;-tag) into the head for the specified <code>sUrl</code> and optional <code>sId</code>.
@@ -882,14 +860,16 @@ namespace UI5
 			/// <param name="vUrl">the URL of the script to load or a configuration object</param>
 			/// <param name="vId">id that should be used for the script tag or map of attributes</param>
 			/// <returns>When using the configuration object a <code>Promise</code> will be returned. The documentation for the <code>fnLoadCallback</code> applies to the <code>resolve</code> handler of the <code>Promise</code> and the one for the <code>fnErrorCallback</code> applies to the <code>reject</code> handler of the <code>Promise</code>.</returns>
-			public extern static jquery.JQueryPromise<object> includeScript(Union<string, jQuery.sap.IncludeInfo> vUrl, Union<string, object> vId);
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/dom/includeScript} instead")]
+			public extern static es5.Promise<object> includeScript(Union<string, jQuery.sap.IncludeInfo> vUrl, Union<string, object> vId);
 
 			/// <summary>
 			/// Includes the script (via &lt;script&gt;-tag) into the head for the specified <code>sUrl</code> and optional <code>sId</code>.
 			/// </summary>
 			/// <param name="vUrl">the URL of the script to load or a configuration object</param>
 			/// <returns>When using the configuration object a <code>Promise</code> will be returned. The documentation for the <code>fnLoadCallback</code> applies to the <code>resolve</code> handler of the <code>Promise</code> and the one for the <code>fnErrorCallback</code> applies to the <code>reject</code> handler of the <code>Promise</code>.</returns>
-			public extern static jquery.JQueryPromise<object> includeScript(Union<string, jQuery.sap.IncludeInfo> vUrl);
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/dom/includeScript} instead")]
+			public extern static es5.Promise<object> includeScript(Union<string, jQuery.sap.IncludeInfo> vUrl);
 
 			/// <summary>
 			/// Includes the specified stylesheet via a &lt;link&gt;-tag in the head of the current document. If there is call to <code>includeStylesheet</code> providing the sId of an already included stylesheet, the existing element will be replaced.
@@ -899,7 +879,8 @@ namespace UI5
 			/// <param name="fnLoadCallback">callback function to get notified once the stylesheet has been loaded</param>
 			/// <param name="fnErrorCallback">callback function to get notified once the stylesheet loading failed. In case of usage in IE the error callback will also be executed if an empty stylesheet is loaded. This is the only option how to determine in IE if the load was successful or not since the native onerror callback for link elements doesn't work in IE. The IE always calls the onload callback of the link element.</param>
 			/// <returns>When using the configuration object a <code>Promise</code> will be returned. The documentation for the <code>fnLoadCallback</code> applies to the <code>resolve</code> handler of the <code>Promise</code> and the one for the <code>fnErrorCallback</code> applies to the <code>reject</code> handler of the <code>Promise</code>.</returns>
-			public extern static jquery.JQueryPromise<object> includeStyleSheet(Union<string, jQuery.sap.IncludeInfo> vUrl, Union<string, object> vId, object fnLoadCallback, object fnErrorCallback);
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/dom/includeStylesheet} instead")]
+			public extern static es5.Promise<object> includeStyleSheet(Union<string, jQuery.sap.IncludeInfo> vUrl, Union<string, object> vId, object fnLoadCallback, object fnErrorCallback);
 
 			/// <summary>
 			/// Includes the specified stylesheet via a &lt;link&gt;-tag in the head of the current document. If there is call to <code>includeStylesheet</code> providing the sId of an already included stylesheet, the existing element will be replaced.
@@ -908,7 +889,8 @@ namespace UI5
 			/// <param name="vId">id that should be used for the link tag or map of attributes</param>
 			/// <param name="fnLoadCallback">callback function to get notified once the stylesheet has been loaded</param>
 			/// <returns>When using the configuration object a <code>Promise</code> will be returned. The documentation for the <code>fnLoadCallback</code> applies to the <code>resolve</code> handler of the <code>Promise</code> and the one for the <code>fnErrorCallback</code> applies to the <code>reject</code> handler of the <code>Promise</code>.</returns>
-			public extern static jquery.JQueryPromise<object> includeStyleSheet(Union<string, jQuery.sap.IncludeInfo> vUrl, Union<string, object> vId, object fnLoadCallback);
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/dom/includeStylesheet} instead")]
+			public extern static es5.Promise<object> includeStyleSheet(Union<string, jQuery.sap.IncludeInfo> vUrl, Union<string, object> vId, object fnLoadCallback);
 
 			/// <summary>
 			/// Includes the specified stylesheet via a &lt;link&gt;-tag in the head of the current document. If there is call to <code>includeStylesheet</code> providing the sId of an already included stylesheet, the existing element will be replaced.
@@ -916,14 +898,16 @@ namespace UI5
 			/// <param name="vUrl">the URL of the stylesheet to load or a configuration object</param>
 			/// <param name="vId">id that should be used for the link tag or map of attributes</param>
 			/// <returns>When using the configuration object a <code>Promise</code> will be returned. The documentation for the <code>fnLoadCallback</code> applies to the <code>resolve</code> handler of the <code>Promise</code> and the one for the <code>fnErrorCallback</code> applies to the <code>reject</code> handler of the <code>Promise</code>.</returns>
-			public extern static jquery.JQueryPromise<object> includeStyleSheet(Union<string, jQuery.sap.IncludeInfo> vUrl, Union<string, object> vId);
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/dom/includeStylesheet} instead")]
+			public extern static es5.Promise<object> includeStyleSheet(Union<string, jQuery.sap.IncludeInfo> vUrl, Union<string, object> vId);
 
 			/// <summary>
 			/// Includes the specified stylesheet via a &lt;link&gt;-tag in the head of the current document. If there is call to <code>includeStylesheet</code> providing the sId of an already included stylesheet, the existing element will be replaced.
 			/// </summary>
 			/// <param name="vUrl">the URL of the stylesheet to load or a configuration object</param>
 			/// <returns>When using the configuration object a <code>Promise</code> will be returned. The documentation for the <code>fnLoadCallback</code> applies to the <code>resolve</code> handler of the <code>Promise</code> and the one for the <code>fnErrorCallback</code> applies to the <code>reject</code> handler of the <code>Promise</code>.</returns>
-			public extern static jquery.JQueryPromise<object> includeStyleSheet(Union<string, jQuery.sap.IncludeInfo> vUrl);
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/dom/includeStylesheet} instead")]
+			public extern static es5.Promise<object> includeStyleSheet(Union<string, jQuery.sap.IncludeInfo> vUrl);
 
 			/// <summary>
 			/// Does some basic modifications to the HTML page that make it more suitable for mobile apps. Only the first call to this method is executed, subsequent calls are ignored. Note that this method is also called by the constructor of toplevel controls like sap.m.App, sap.m.SplitApp and sap.m.Shell. Exception: if no homeIcon was set, subsequent calls have the chance to set it.
@@ -933,7 +917,8 @@ namespace UI5
 			/// It can have the following properties: <ul> <li>viewport: whether to set the viewport in a way that disables zooming (default: true)</li> <li>statusBar: the iOS status bar color, "default", "black" or "black-translucent" (default: "default")</li> <li>hideBrowser: whether the browser UI should be hidden as far as possible to make the app feel more native (default: true)</li> <li>preventScroll: whether native scrolling should be disabled in order to prevent the "rubber-band" effect where the whole window is moved (default: true)</li> <li>preventPhoneNumberDetection: whether Safari Mobile should be prevented from transforming any numbers that look like phone numbers into clickable links; this should be left as "true", otherwise it might break controls because Safari actually changes the DOM. This only affects all page content which is created after initMobile is called.</li> <li>rootId: the ID of the root element that should be made fullscreen; only used when hideBrowser is set (default: the document.body)</li> <li>useFullScreenHeight: a boolean that defines whether the height of the html root element should be set to 100%, which is required for other elements to cover the full height (default: true)</li> <li>homeIcon: deprecated since 1.12, use jQuery.sap.setIcons instead. </ul>
 			/// </summary>
 			/// <param name="options">configures what exactly should be done</param>
-			public extern static void initMobile(jQuery.sap.InitMobileOptions options);
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/util/Mobile.init} instead")]
+			public extern static void initMobile(jQuery.InitOptions options);
 
 			/// <summary>
 			/// Does some basic modifications to the HTML page that make it more suitable for mobile apps. Only the first call to this method is executed, subsequent calls are ignored. Note that this method is also called by the constructor of toplevel controls like sap.m.App, sap.m.SplitApp and sap.m.Shell. Exception: if no homeIcon was set, subsequent calls have the chance to set it.
@@ -942,6 +927,7 @@ namespace UI5
 			/// 
 			/// It can have the following properties: <ul> <li>viewport: whether to set the viewport in a way that disables zooming (default: true)</li> <li>statusBar: the iOS status bar color, "default", "black" or "black-translucent" (default: "default")</li> <li>hideBrowser: whether the browser UI should be hidden as far as possible to make the app feel more native (default: true)</li> <li>preventScroll: whether native scrolling should be disabled in order to prevent the "rubber-band" effect where the whole window is moved (default: true)</li> <li>preventPhoneNumberDetection: whether Safari Mobile should be prevented from transforming any numbers that look like phone numbers into clickable links; this should be left as "true", otherwise it might break controls because Safari actually changes the DOM. This only affects all page content which is created after initMobile is called.</li> <li>rootId: the ID of the root element that should be made fullscreen; only used when hideBrowser is set (default: the document.body)</li> <li>useFullScreenHeight: a boolean that defines whether the height of the html root element should be set to 100%, which is required for other elements to cover the full height (default: true)</li> <li>homeIcon: deprecated since 1.12, use jQuery.sap.setIcons instead. </ul>
 			/// </summary>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/util/Mobile.init} instead")]
 			public extern static void initMobile();
 
 			/// <summary>
@@ -952,6 +938,7 @@ namespace UI5
 			/// <param name="method">function pointer or name of the method</param>
 			/// <param name="aParameters">Method parameters</param>
 			/// <returns>Id which can be used to cancel the interval with clearIntervalCall</returns>
+			[Obsolete("Deprecated since 1.58. use native <code>setInterval</code> instead")]
 			public extern static string intervalCall(int iInterval, object oObject, Union<string, object> method, object[] aParameters);
 
 			/// <summary>
@@ -961,6 +948,7 @@ namespace UI5
 			/// <param name="oObject">Object from which the method should be called</param>
 			/// <param name="method">function pointer or name of the method</param>
 			/// <returns>Id which can be used to cancel the interval with clearIntervalCall</returns>
+			[Obsolete("Deprecated since 1.58. use native <code>setInterval</code> instead")]
 			public extern static string intervalCall(int iInterval, object oObject, Union<string, object> method);
 
 			/// <summary>
@@ -975,6 +963,7 @@ namespace UI5
 			/// <param name="sModuleName">name of the module to be checked</param>
 			/// <param name="bIncludePreloaded">whether preloaded modules should be reported as declared.</param>
 			/// <returns>whether the module has been declared already</returns>
+			[Obsolete("Deprecated since 1.58. use {@link sap.ui.require} instead")]
 			public extern static bool isDeclared(string sModuleName, bool bIncludePreloaded = false);
 
 			/// <summary>
@@ -982,6 +971,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="sResourceName">Name of the resource to check, in unified resource name format</param>
 			/// <returns>Whether the resource has been loaded already</returns>
+			[Obsolete("Deprecated since 1.58.")]
 			private extern static bool isResourceLoaded(string sResourceName);
 
 			/// <summary>
@@ -989,6 +979,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="oEvent">The event object of the <code>keydown</code>, <code>keyup</code> or <code>keypress</code> events.</param>
 			/// <returns></returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/events/isSpecialKey} instead")]
 			public extern static bool isSpecialKey(jquery.JQuery.Event oEvent);
 
 			/// <summary>
@@ -1005,6 +996,7 @@ namespace UI5
 			/// Returns a high resolution timestamp in microseconds if supported by the environment, otherwise in milliseconds. The timestamp is based on 01/01/1970 00:00:00 (UNIX epoch) as float with microsecond precision or with millisecond precision, if high resolution timestamps are not available. The fractional part of the timestamp represents fractions of a millisecond. Converting to a <code>Date</code> is possible by using <code>require(["sap/base/util/now"], function(now){new Date(now());}</code>
 			/// </summary>
 			/// <returns>timestamp in microseconds if supported by the environment otherwise in milliseconds</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/util/now} instead")]
 			public extern static float now();
 
 			/// <summary>
@@ -1012,7 +1004,8 @@ namespace UI5
 			/// </summary>
 			/// <param name="oDomRef">The DOM reference</param>
 			/// <returns>Window reference</returns>
-			public extern static dom.Window ownerWindow(dom.HTMLElement oDomRef);
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/dom/getOwnerWindow} instead")]
+			public extern static Retyped.dom.Window ownerWindow(Retyped.dom.HTMLElement oDomRef);
 
 			/// <summary>
 			/// Pads a string on the left side until is has at least the given length.
@@ -1023,6 +1016,7 @@ namespace UI5
 			/// <param name="sPadChar">Char to use for the padding</param>
 			/// <param name="iLength">Target length of the string</param>
 			/// <returns>The padded string</returns>
+			[Obsolete("Deprecated since 1.58. use the native <code>String#padStart</code> instead")]
 			public extern static string padLeft(string sString, string sPadChar, int iLength);
 
 			/// <summary>
@@ -1034,6 +1028,7 @@ namespace UI5
 			/// <param name="sPadChar">Char to use for the padding</param>
 			/// <param name="iLength">Target length of the string</param>
 			/// <returns>The padded string</returns>
+			[Obsolete("Deprecated since 1.58. use the native <code>String#padEnd</code> instead")]
 			public extern static string padRight(string sString, string sPadChar, int iLength);
 
 			/// <summary>
@@ -1041,6 +1036,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="sXMLText">the XML data as string</param>
 			/// <returns>the parsed XML document with a parseError property as described in getParseError. An error occurred if the errorCode property of the parseError is != 0.</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/util/XMLHelper.parse} instead")]
 			public extern static object parseXML(string sXMLText);
 
 			/// <summary>
@@ -1065,7 +1061,8 @@ namespace UI5
 			/// </summary>
 			/// <param name="mParams">Parameters used to initialize the property list</param>
 			/// <returns>A new property collection (synchronous case) or <code>null</code> if the file could not be loaded and <code>returnNullIfMissing</code> was set; in case of asynchronous loading, always a Promise is returned, which resolves with the property collection or with <code>null</code> if the file could not be loaded and <code>returnNullIfMissing</code> was set to true</returns>
-			public extern static Union<jQuery.sap.util.Properties, jquery.JQueryPromise<object>> properties(jQuery.sap.PropertiesInfo mParams);
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/util/Properties.create} instead")]
+			public extern static Union<jQuery.sap.util.Properties, es5.Promise<object>> properties(jQuery.Info mParams);
 
 			/// <summary>
 			/// Creates and returns a new instance of {@link jQuery.sap.util.Properties}.
@@ -1088,7 +1085,8 @@ namespace UI5
 			/// </pre>
 			/// </summary>
 			/// <returns>A new property collection (synchronous case) or <code>null</code> if the file could not be loaded and <code>returnNullIfMissing</code> was set; in case of asynchronous loading, always a Promise is returned, which resolves with the property collection or with <code>null</code> if the file could not be loaded and <code>returnNullIfMissing</code> was set to true</returns>
-			public extern static Union<jQuery.sap.util.Properties, jquery.JQueryPromise<object>> properties();
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/util/Properties.create} instead")]
+			public extern static Union<jQuery.sap.util.Properties, es5.Promise<object>> properties();
 
 			/// <summary>
 			/// Registers a URL prefix for a module name prefix.
@@ -1113,6 +1111,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="sModuleName">module name to register a path for</param>
 			/// <param name="vUrlPrefix">path prefix to register, either a string literal or an object (e.g. {url : 'url/to/res', 'final': true})</param>
+			[Obsolete("Deprecated since 1.58. set path mappings via {@link sap.ui.loader.config} instead.")]
 			public extern static void registerModulePath(string sModuleName, Union<string, jQuery.sap.RegisterPathInfo> vUrlPrefix);
 
 			/// <summary>
@@ -1121,6 +1120,7 @@ namespace UI5
 			/// The information maps the name of the module (without extension '.js') to an info object. Instead of a complete info object, only the value of the <code>deps</code> property can be given as an array.
 			/// </summary>
 			/// <param name="mShims">Map of shim configuration objects keyed by module names (withou extension '.js')</param>
+			[Obsolete("Deprecated since 1.58. use {@link sap.ui.loader.config} instead")]
 			private extern static void registerModuleShims(object mShims);
 
 			/// <summary>
@@ -1129,6 +1129,7 @@ namespace UI5
 			/// When a resource exists already in the cache, the new content is ignored.
 			/// </summary>
 			/// <param name="oData">Preload bundle</param>
+			[Obsolete("Deprecated since 1.58.")]
 			private extern static void registerPreloadedModules(object oData);
 
 			/// <summary>
@@ -1154,12 +1155,14 @@ namespace UI5
 			/// </summary>
 			/// <param name="sResourceNamePrefix">in unified resource name syntax</param>
 			/// <param name="vUrlPrefix">prefix to use instead of the sResourceNamePrefix, either a string literal or an object (e.g. {url : 'url/to/res', 'final': true})</param>
+			[Obsolete("Deprecated since 1.58. set path mappings via {@link sap.ui.loader.config} instead.")]
 			public extern static void registerResourcePath(string sResourceNamePrefix, Union<string, jQuery.sap.RegisterPathInfo> vUrlPrefix);
 
 			/// <summary>
 			/// Removes a whitelist entry for URL validation.
 			/// </summary>
 			/// <param name="iIndex">index of entry</param>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/security/URLWhitelist.delete} instead")]
 			public extern static void removeUrlWhitelist(int iIndex);
 
 			/// <summary>
@@ -1178,13 +1181,15 @@ namespace UI5
 			/// </summary>
 			/// <param name="mParams">Parameters used to initialize the resource bundle</param>
 			/// <returns>A new resource bundle or a Promise on that bundle (in asynchronous case)</returns>
-			public extern static Union<jQuery.sap.util.ResourceBundle, jquery.JQueryPromise<object>> resources(jQuery.sap.ResourcesInfo mParams);
+			[Obsolete("Deprecated since 1.58. Use {@link module:sap/base/i18n/ResourceBundle} instead.")]
+			public extern static Union<jQuery.sap.util.ResourceBundle, es5.Promise<object>> resources(jQuery.Info2 mParams);
 
 			/// <summary>
 			/// Creates and returns a new instance of {@link jQuery.sap.util.ResourceBundle} using the given URL and locale to determine what to load.
 			/// </summary>
 			/// <returns>A new resource bundle or a Promise on that bundle (in asynchronous case)</returns>
-			public extern static Union<jQuery.sap.util.ResourceBundle, jquery.JQueryPromise<object>> resources();
+			[Obsolete("Deprecated since 1.58. Use {@link module:sap/base/i18n/ResourceBundle} instead.")]
+			public extern static Union<jQuery.sap.util.ResourceBundle, es5.Promise<object>> resources();
 
 			/// <summary>
 			/// Returns the size (width of the vertical / height of the horizontal) native browser scrollbars.
@@ -1194,6 +1199,7 @@ namespace UI5
 			/// <param name="sClasses">the CSS class that should be added to the test element.</param>
 			/// <param name="bForce">force recalculation of size (e.g. when CSS was changed). When no classes are passed all calculated sizes are reset.</param>
 			/// <returns>JSON object with properties <code>width</code> and <code>height</code> (the values are of type number and are pixels).</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/dom/getScrollbarSize} instead")]
 			public extern static object scrollbarSize(string sClasses, bool bForce = false);
 
 			/// <summary>
@@ -1203,6 +1209,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="sClasses">the CSS class that should be added to the test element.</param>
 			/// <returns>JSON object with properties <code>width</code> and <code>height</code> (the values are of type number and are pixels).</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/dom/getScrollbarSize} instead")]
 			public extern static object scrollbarSize(string sClasses);
 
 			/// <summary>
@@ -1211,6 +1218,7 @@ namespace UI5
 			/// This function must only be used when the DOM is ready.
 			/// </summary>
 			/// <returns>JSON object with properties <code>width</code> and <code>height</code> (the values are of type number and are pixels).</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/dom/getScrollbarSize} instead")]
 			public extern static object scrollbarSize();
 
 			/// <summary>
@@ -1220,6 +1228,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="bForce">force recalculation of size (e.g. when CSS was changed). When no classes are passed all calculated sizes are reset.</param>
 			/// <returns>JSON object with properties <code>width</code> and <code>height</code> (the values are of type number and are pixels).</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/dom/getScrollbarSize} instead")]
 			public extern static object scrollbarSize(bool bForce = false);
 
 			/// <summary>
@@ -1227,6 +1236,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="oXMLDocument">the XML document object to be serialized as string</param>
 			/// <returns>the serialized XML string</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/util/XMLHelper.serialize} instead")]
 			public extern static object serializeXML(string oXMLDocument);
 
 			/// <summary>
@@ -1250,6 +1260,7 @@ namespace UI5
 			/// </pre> If one of the sizes is not given, the largest available alternative image will be used instead for this size. On Android these icons may or may not be used by the device. Apparently chances can be improved by using icons with glare effect, so the "precomposed" property can be set to "true". Some Android devices may also use the favicon for bookmarks instead of the home icons.</li>
 			/// </summary>
 			/// <param name="oIcons"></param>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/util/Mobile.setIcons} instead")]
 			public extern static void setIcons(object oIcons);
 
 			/// <summary>
@@ -1260,6 +1271,7 @@ namespace UI5
 			/// Note: this function only has effect when the application runs on iOS Safari and mobile Chrome from version 31.
 			/// </summary>
 			/// <param name="bValue">whether the Application will be loaded in full screen mode after added to home screen from iOS Safari or mobile Chrome from version 31.</param>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/util/setWebAppCapable} instead")]
 			public extern static void setMobileWebAppCapable(bool bValue);
 
 			/// <summary>
@@ -1272,6 +1284,7 @@ namespace UI5
 			/// <param name="sName">a dot separated sequence of names that identify the property</param>
 			/// <param name="vValue">value to be set, can have any type</param>
 			/// <param name="oContext">the context to execute the search in</param>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/util/ObjectPath.set} instead")]
 			public extern static void setObject(string sName, object vValue, object oContext);
 
 			/// <summary>
@@ -1283,6 +1296,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="sName">a dot separated sequence of names that identify the property</param>
 			/// <param name="vValue">value to be set, can have any type</param>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/util/ObjectPath.set} instead")]
 			public extern static void setObject(string sName, object vValue);
 
 			/// <summary>
@@ -1294,6 +1308,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="oOrigSettings">the ajax() settings</param>
 			/// <returns>result, see above</returns>
+			[Obsolete("Deprecated since 1.58. It is no longer recommended to use synchronous calls at all. There are alternatives like native <code>XMLHttpRequest</code> or <code>jQuery.ajax</code> but try to avoid the sync flag. There will be no replacement for <code>jQuery.sap.sjax</code>.")]
 			public extern static void sjax(string oOrigSettings);
 
 			/// <summary>
@@ -1302,6 +1317,7 @@ namespace UI5
 			/// <param name="sString">String to be checked</param>
 			/// <param name="sStartString">The start string to be searched</param>
 			/// <returns>Whether <code>sString</code> starts with <code>sStartString</code></returns>
+			[Obsolete("Deprecated since 1.58. use the native <code>String#startsWith</code>")]
 			public extern static bool startsWith(string sString, string sStartString);
 
 			/// <summary>
@@ -1310,6 +1326,7 @@ namespace UI5
 			/// <param name="sString">String to be checked</param>
 			/// <param name="sStartString">The start string to be searched</param>
 			/// <returns>Whether <code>sString</code> starts with <code>sStartString</code></returns>
+			[Obsolete("Deprecated since 1.58. use the native solution <code>sString.toLowerCase().startsWith(sEndString.toLowerCase())</code>")]
 			public extern static bool startsWithIgnoreCase(string sString, string sStartString);
 
 			/// <summary>
@@ -1319,6 +1336,7 @@ namespace UI5
 			/// <param name="data">request parameters in the format accepted by jQuery.ajax()</param>
 			/// <param name="sDataType">the type of data expected from the server, default is "text"</param>
 			/// <returns>result @see jQuery.sap.sjax</returns>
+			[Obsolete("Deprecated since 1.58. see {@link jQuery.sap.sjax}")]
 			public extern static void syncGet(string sUrl, Union<string, object> data, string sDataType = "text");
 
 			/// <summary>
@@ -1332,6 +1350,7 @@ namespace UI5
 			/// <param name="data">request parameters in the format accepted by jQuery.ajax()</param>
 			/// <param name="fallback">if set, only data is returned (and this fallback instead in case of errors); if unset, a result structure is returned</param>
 			/// <returns>result @see jQuery.sap.sjax</returns>
+			[Obsolete("Deprecated since 1.58. see {@link jQuery.sap.sjax}")]
 			public extern static void syncGetJSON(string sUrl, Union<string, object> data, object fallback);
 
 			/// <summary>
@@ -1344,6 +1363,7 @@ namespace UI5
 			/// <param name="sUrl">the URL</param>
 			/// <param name="data">request parameters in the format accepted by jQuery.ajax()</param>
 			/// <returns>result @see jQuery.sap.sjax</returns>
+			[Obsolete("Deprecated since 1.58. see {@link jQuery.sap.sjax}")]
 			public extern static void syncGetJSON(string sUrl, Union<string, object> data);
 
 			/// <summary>
@@ -1355,6 +1375,7 @@ namespace UI5
 			/// <param name="data">request parameters in the format accepted by jQuery.ajax()</param>
 			/// <param name="fallback">if set, only data is returned (and this fallback instead in case of errors); if unset, a result structure is returned</param>
 			/// <returns>result @see jQuery.sap.sjax</returns>
+			[Obsolete("Deprecated since 1.58. see {@link jQuery.sap.sjax}")]
 			public extern static void syncGetText(string sUrl, Union<string, object> data, string fallback);
 
 			/// <summary>
@@ -1365,6 +1386,7 @@ namespace UI5
 			/// <param name="sUrl">the URL</param>
 			/// <param name="data">request parameters in the format accepted by jQuery.ajax()</param>
 			/// <returns>result @see jQuery.sap.sjax</returns>
+			[Obsolete("Deprecated since 1.58. see {@link jQuery.sap.sjax}")]
 			public extern static void syncGetText(string sUrl, Union<string, object> data);
 
 			/// <summary>
@@ -1374,6 +1396,7 @@ namespace UI5
 			/// <param name="data">request parameters in the format accepted by jQuery.ajax()</param>
 			/// <param name="sDataType">the type of data expected from the server, default is "text"</param>
 			/// <returns>result @see jQuery.sap.sjax</returns>
+			[Obsolete("Deprecated since 1.58. see {@link jQuery.sap.sjax}")]
 			public extern static void syncPost(string sUrl, Union<string, object> data, string sDataType = "text");
 
 			/// <summary>
@@ -1383,7 +1406,8 @@ namespace UI5
 			/// <param name="vSource">jQuery object, control or an id of the source element.</param>
 			/// <param name="vDestination">target jQuery object or a control.</param>
 			/// <returns>Target element</returns>
-			public extern static Union<jQuery, dom.HTMLElement> syncStyleClass(string sStyleClass, Union<jQuery, UI5.sap.ui.core.Control, string> vSource, Union<jQuery, UI5.sap.ui.core.Control> vDestination);
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/core/syncStyleClass} instead")]
+			public extern static Union<jQuery, Retyped.dom.HTMLElement> syncStyleClass(string sStyleClass, Union<jQuery, UI5.sap.ui.core.Control, string> vSource, Union<jQuery, UI5.sap.ui.core.Control> vDestination);
 
 			/// <summary>
 			/// Creates and returns a pseudo-unique id.
@@ -1391,12 +1415,14 @@ namespace UI5
 			/// No means for detection of overlap with already present or future UIDs.
 			/// </summary>
 			/// <returns>A pseudo-unique id.</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/util/uid} instead")]
 			public extern static string uid();
 
 			/// <summary>
 			/// Unbinds all events for listening with the given callback function.
 			/// </summary>
 			/// <param name="fnCallback">Callback function</param>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/events/ControlEvents.unbindAnyEvent} instead")]
 			public extern static void unbindAnyEvent(object fnCallback);
 
 			/// <summary>
@@ -1406,6 +1432,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="a">An Array of any type</param>
 			/// <returns>Same array as given (for chaining)</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/util/array/uniqueSort} instead")]
 			public extern static object[] unique(object[] a);
 
 			/// <summary>
@@ -1517,6 +1544,7 @@ namespace UI5
 			/// </summary>
 			/// <param name="sUrl"></param>
 			/// <returns>true if valid, false if not valid</returns>
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/base/security/URLWhitelist.validate} instead")]
 			public extern static void validateUrl(string sUrl);
 
 			#endregion
@@ -1527,6 +1555,7 @@ namespace UI5
 			[External]
 			[Namespace(false)]
 			[Name("jQuery.sap.KeyCodes")]
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/events/KeyCodes} instead")]
 			public enum KeyCodes
 			{
 				A,

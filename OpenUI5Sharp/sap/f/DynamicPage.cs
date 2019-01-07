@@ -26,7 +26,7 @@ namespace UI5
 			/// 
 			/// <h3>Responsive Behavior</h3>
 			/// 
-			/// The responsive behavior of the <code>DynamicPage</code> depends on the behavior of the content that is displayed.
+			/// The responsive behavior of the <code>DynamicPage</code> depends on the behavior of the content that is displayed. To adjust the <code>DynamicPage</code> content padding, the <code>sapUiContentPadding</code>, <code>sapUiNoContentPadding</code>, and <code>sapUiResponsiveContentPadding</code> CSS classes can be used.
 			/// </summary>
 			[External]
 			[Namespace(false)]
@@ -88,6 +88,8 @@ namespace UI5
 					/// <summary>
 					/// <code>DynamicPage</code> content.
 					/// 
+					/// <b>Note: </b> You can change the default paddings by adding the following CSS classes: <ul> <li><code>sapUiContentPadding</code></li> <li><code>sapUiNoContentPadding</code></li> <li><code>sapUiResponsiveContentPadding</code></li> </ul> For more information, see {@link topic:c71f6df62dae47ca8284310a6f5fc80a Using Container Content Padding CSS Classes}.
+					/// 
 					/// <b>Note:</b> The SAP Fiori Design guidelines require that the <code>DynamicPageHeader</code>'s content and the <code>DynamicPage</code>'s content are aligned vertically. When using {@link sap.ui.layout.form.Form}, {@link sap.m.Panel}, {@link sap.m.Table} and {@link sap.m.List} in the content area of <code>DynamicPage</code>, you need to adjust their left text offset to achieve the vertical alignment. To do this, apply the <code>sapFDynamicPageAlignContent</code> CSS class to them and set their <code>width</code> property to <code>auto</code> (if not set by default).
 					/// 
 					/// Example:
@@ -96,7 +98,7 @@ namespace UI5
 					/// <code> &lt;Panel class=“sapFDynamicPageAlignContent” width=“auto”&gt;&lt;/Panel&gt; </code>
 					/// </pre>
 					/// 
-					/// Please keep in mind that the alignment is not possible when the controls are placed in a {@link sap.ui.layout.Grid} or in other layout controls that use <code>overflow:hidden</code> CSS property.
+					/// Please keep in mind that the alignment is not possible in the following cases: <ul> <li> When the controls are placed in an {@link sap.ui.layout.Grid} or other layout controls that use <code>overflow:hidden</code> CSS property</li> <li> In case any of the following CSS classes is applied to <code>DynamicPage</code>: <code>sapUiContentPadding</code>, <code>sapUiNoContentPadding</code> or <code>sapUiResponsiveContentPadding</code></li> </ul>
 					/// </summary>
 					public Union<sap.ui.core.Control, string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
 
@@ -355,6 +357,8 @@ namespace UI5
 				/// 
 				/// <code>DynamicPage</code> content.
 				/// 
+				/// <b>Note: </b> You can change the default paddings by adding the following CSS classes: <ul> <li><code>sapUiContentPadding</code></li> <li><code>sapUiNoContentPadding</code></li> <li><code>sapUiResponsiveContentPadding</code></li> </ul> For more information, see {@link topic:c71f6df62dae47ca8284310a6f5fc80a Using Container Content Padding CSS Classes}.
+				/// 
 				/// <b>Note:</b> The SAP Fiori Design guidelines require that the <code>DynamicPageHeader</code>'s content and the <code>DynamicPage</code>'s content are aligned vertically. When using {@link sap.ui.layout.form.Form}, {@link sap.m.Panel}, {@link sap.m.Table} and {@link sap.m.List} in the content area of <code>DynamicPage</code>, you need to adjust their left text offset to achieve the vertical alignment. To do this, apply the <code>sapFDynamicPageAlignContent</code> CSS class to them and set their <code>width</code> property to <code>auto</code> (if not set by default).
 				/// 
 				/// Example:
@@ -363,7 +367,7 @@ namespace UI5
 				/// <code> &lt;Panel class=“sapFDynamicPageAlignContent” width=“auto”&gt;&lt;/Panel&gt; </code>
 				/// </pre>
 				/// 
-				/// Please keep in mind that the alignment is not possible when the controls are placed in a {@link sap.ui.layout.Grid} or in other layout controls that use <code>overflow:hidden</code> CSS property.
+				/// Please keep in mind that the alignment is not possible in the following cases: <ul> <li> When the controls are placed in an {@link sap.ui.layout.Grid} or other layout controls that use <code>overflow:hidden</code> CSS property</li> <li> In case any of the following CSS classes is applied to <code>DynamicPage</code>: <code>sapUiContentPadding</code>, <code>sapUiNoContentPadding</code> or <code>sapUiResponsiveContentPadding</code></li> </ul>
 				/// </summary>
 				/// <returns></returns>
 				public extern virtual sap.ui.core.Control getContent();
@@ -448,7 +452,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.f.DynamicPage.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				#endregion
 

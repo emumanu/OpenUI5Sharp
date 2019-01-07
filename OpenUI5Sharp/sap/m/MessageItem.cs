@@ -67,6 +67,11 @@ namespace UI5
 					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> groupName;
 
 					/// <summary>
+					/// Defines whether the title of the item will be interactive.
+					/// </summary>
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> activeTitle;
+
+					/// <summary>
 					/// Adds an sap.m.Link control which will be displayed at the end of the description of a message.
 					/// </summary>
 					public Union<sap.m.Link, string, sap.ui.@base.ManagedObject.BindAggregationInfo> link;
@@ -311,6 +316,33 @@ namespace UI5
 
 				#endregion
 
+				#region Methods for Property activeTitle
+
+				/// <summary>
+				/// Gets current value of property {@link #getActiveTitle activeTitle}.
+				/// 
+				/// Defines whether the title of the item will be interactive.
+				/// 
+				/// Default value is <code>false</code>.
+				/// </summary>
+				/// <returns>Value of property <code>activeTitle</code></returns>
+				public extern virtual bool getActiveTitle();
+
+				/// <summary>
+				/// Sets a new value for property {@link #getActiveTitle activeTitle}.
+				/// 
+				/// Defines whether the title of the item will be interactive.
+				/// 
+				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
+				/// 
+				/// Default value is <code>false</code>.
+				/// </summary>
+				/// <param name="bActiveTitle">New value for property <code>activeTitle</code></param>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.MessageItem setActiveTitle(bool bActiveTitle);
+
+				#endregion
+
 				#region Methods for Aggregation link
 
 				/// <summary>
@@ -372,7 +404,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.MessageItem.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				#endregion
 

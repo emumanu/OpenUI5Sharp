@@ -137,7 +137,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.core.routing.HashChanger.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// Will start listening to hashChanges with the parseHash function. This will also fire a hashchanged event with the initial hash.

@@ -8,6 +8,7 @@ namespace UI5.Tests
     /// </summary>
     [FileName("openui5sharp-test.js")]
     [AttributeUsage(AttributeTargets.Method)]
+    [Name("UI5.Tests.OpaActionAttribute")]
     public partial class OpaActionAttribute : Attribute
     {
     }
@@ -17,6 +18,7 @@ namespace UI5.Tests
     /// </summary>
     [FileName("openui5sharp-test.js")]
     [AttributeUsage(AttributeTargets.Method)]
+    [Name("UI5.Tests.OpaAssertionAttribute")]
     public partial class OpaAssertionAttribute : Attribute
     {
     }

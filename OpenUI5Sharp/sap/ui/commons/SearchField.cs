@@ -944,7 +944,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.commons.SearchField.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Callback function used to provide the suggest values in the handler of the suggest event (only in list suggestion mode)

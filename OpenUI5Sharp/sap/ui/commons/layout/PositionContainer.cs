@@ -19,6 +19,7 @@ namespace UI5
 					[External]
 					[Namespace(false)]
 					[Name("sap.ui.commons.layout.PositionContainer")]
+					[Obsolete("Deprecated since 1.38.")]
 					public partial class PositionContainer : sap.ui.core.Element
 					{
 						#region Settings
@@ -314,7 +315,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.commons.layout.PositionContainer.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// Updates the position properties of the container according to the given position in JSON style.

@@ -119,7 +119,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.test.matchers.AggregationEmpty.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// Checks if the control has an empty aggregation.

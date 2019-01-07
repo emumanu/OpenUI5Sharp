@@ -32,7 +32,7 @@ namespace UI5
 						/// is the jQuery object of the BusyIndicator
 						/// </summary>
 						[Name("$Busy")]
-						public jquery.JQuery<dom.HTMLElement> dollarBusy;
+						public jquery.JQuery<Retyped.dom.HTMLElement> dollarBusy;
 
 					}
 

@@ -28,13 +28,13 @@ namespace UI5
 						/// </summary>
 						/// <param name="oFormatOptions">formatting options. Supports the same options as {@link sap.ui.core.format.FileSizeFormat.getInstance FileSizeFormat.getInstance}</param>
 						/// <param name="oConstraints">value constraints.</param>
-						public extern FileSize(sap.ui.model.TypeOptions oFormatOptions, sap.ui.model.TypeInfo oConstraints);
+						public extern FileSize(sap.ui.model.FormatOptions oFormatOptions, sap.ui.model.TypeInfo oConstraints);
 
 						/// <summary>
 						/// Constructor for a FileSize type.
 						/// </summary>
 						/// <param name="oFormatOptions">formatting options. Supports the same options as {@link sap.ui.core.format.FileSizeFormat.getInstance FileSizeFormat.getInstance}</param>
-						public extern FileSize(sap.ui.model.TypeOptions oFormatOptions);
+						public extern FileSize(sap.ui.model.FormatOptions oFormatOptions);
 
 						/// <summary>
 						/// Constructor for a FileSize type.
@@ -79,7 +79,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.model.type.FileSize.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						#endregion
 

@@ -80,7 +80,7 @@ namespace UI5
 					public Union<sap.m.ViewSettingsItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> filterItems;
 
 					/// <summary>
-					/// The list of preset filter items that allows the selection of more complex or custom filters. These entries are displayed at the top of the filter tab.
+					/// The list of preset filter items with key and value that allows the selection of more complex or custom filters. These entries are displayed at the top of the filter tab.
 					/// </summary>
 					public Union<sap.m.ViewSettingsItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> presetFilterItems;
 
@@ -406,7 +406,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oBindingInfo">The binding information</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ViewSettingsDialog bindSortItems(object oBindingInfo);
+				public extern virtual sap.m.ViewSettingsDialog bindSortItems(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 				/// <summary>
 				/// Unbinds aggregation {@link #getSortItems sortItems} from model data.
@@ -476,7 +476,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oBindingInfo">The binding information</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ViewSettingsDialog bindGroupItems(object oBindingInfo);
+				public extern virtual sap.m.ViewSettingsDialog bindGroupItems(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 				/// <summary>
 				/// Unbinds aggregation {@link #getGroupItems groupItems} from model data.
@@ -546,7 +546,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oBindingInfo">The binding information</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ViewSettingsDialog bindFilterItems(object oBindingInfo);
+				public extern virtual sap.m.ViewSettingsDialog bindFilterItems(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 				/// <summary>
 				/// Unbinds aggregation {@link #getFilterItems filterItems} from model data.
@@ -561,7 +561,7 @@ namespace UI5
 				/// <summary>
 				/// Gets content of aggregation {@link #getPresetFilterItems presetFilterItems}.
 				/// 
-				/// The list of preset filter items that allows the selection of more complex or custom filters. These entries are displayed at the top of the filter tab.
+				/// The list of preset filter items with key and value that allows the selection of more complex or custom filters. These entries are displayed at the top of the filter tab.
 				/// </summary>
 				/// <returns></returns>
 				public extern virtual sap.m.ViewSettingsItem[] getPresetFilterItems();
@@ -616,7 +616,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oBindingInfo">The binding information</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ViewSettingsDialog bindPresetFilterItems(object oBindingInfo);
+				public extern virtual sap.m.ViewSettingsDialog bindPresetFilterItems(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 				/// <summary>
 				/// Unbinds aggregation {@link #getPresetFilterItems presetFilterItems} from model data.
@@ -686,7 +686,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oBindingInfo">The binding information</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ViewSettingsDialog bindCustomTabs(object oBindingInfo);
+				public extern virtual sap.m.ViewSettingsDialog bindCustomTabs(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 				/// <summary>
 				/// Unbinds aggregation {@link #getCustomTabs customTabs} from model data.
@@ -1089,13 +1089,14 @@ namespace UI5
 				/// Forward method to the inner dialog method: getDomRef.
 				/// </summary>
 				/// <returns>The Element's DOM Element sub DOM Element or null</returns>
-				public extern virtual dom.HTMLElement getDomRef();
+				public extern virtual Retyped.dom.HTMLElement getDomRef();
 
 				/// <summary>
 				/// Returns a metadata object for class sap.m.ViewSettingsDialog.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Gets the selected filter object in format { parent_key: { key: boolean, key2: boolean, ...}, ... }.

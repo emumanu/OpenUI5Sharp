@@ -14,7 +14,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.core.ComponentMetadata")]
-				public partial class ComponentMetadata
+				public partial class ComponentMetadata : sap.ui.@base.ManagedObjectMetadata
 				{
 					#region Constructor
 

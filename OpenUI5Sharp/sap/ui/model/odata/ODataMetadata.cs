@@ -199,7 +199,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.model.odata.ODataMetadata.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// Return the metadata object
@@ -229,13 +230,13 @@ namespace UI5
 						/// Returns a promise for the loaded state of the metadata
 						/// </summary>
 						/// <returns>returns a promise on metadata loaded state</returns>
-						public extern virtual jquery.JQueryPromise<object> loaded();
+						public extern virtual es5.Promise<object> loaded();
 
 						/// <summary>
 						/// Refreshes the metadata creating a new request to the server. Returns a new promise which can be resolved or rejected depending on the metadata loading state.
 						/// </summary>
 						/// <returns>returns a promise on metadata loaded state</returns>
-						public extern virtual jquery.JQueryPromise<object> refresh();
+						public extern virtual es5.Promise<object> refresh();
 
 						#endregion
 

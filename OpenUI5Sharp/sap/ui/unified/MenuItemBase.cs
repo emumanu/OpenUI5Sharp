@@ -312,7 +312,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.unified.MenuItemBase.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Changes the visual hover state of the menu item.

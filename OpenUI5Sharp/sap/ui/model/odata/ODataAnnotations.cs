@@ -65,7 +65,7 @@ namespace UI5
 						/// </summary>
 						/// <param name="vUrl">Either one URL as string or an array of URL strings</param>
 						/// <returns>The Promise to load the given URL(s), resolved if all URLs have been loaded, rejected if at least one failed to load. The argument is an object containing the annotations object, success (an array of sucessfully loaded URLs), fail (an array ob of failed URLs).</returns>
-						public extern virtual jquery.JQueryPromise<object> addUrl(Union<string, string[]> vUrl);
+						public extern virtual es5.Promise<object> addUrl(Union<string, string[]> vUrl);
 
 						/// <summary>
 						/// Attach event-handler <code>fnFunction</code> to the 'failed' event of this <code>sap.ui.model.odata.ODataAnnotations</code>.
@@ -201,7 +201,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.model.odata.ODataAnnotations.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// Checks whether annotations loading of at least one of the given URLs has already failed. Note: For asynchronous annotations {@link #attachFailed} has to be used.

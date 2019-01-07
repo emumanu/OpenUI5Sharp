@@ -268,7 +268,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oBindingInfo">The binding information</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nDialog bindPanels(object oBindingInfo);
+				public extern virtual sap.m.P13nDialog bindPanels(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 				/// <summary>
 				/// Unbinds aggregation {@link #getPanels panels} from model data.
@@ -539,7 +539,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.P13nDialog.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Returns visible panel.

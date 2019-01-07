@@ -45,7 +45,7 @@ namespace UI5
 						/// <param name="oDomRef">The root DOM reference that includes all items</param>
 						/// <param name="aItemDomRefs">Array of DOM references representing the items for the navigation</param>
 						/// <param name="bNotInTabChain">Whether the selected element should be in the tab chain or not</param>
-						public extern ItemNavigation(dom.HTMLElement oDomRef, dom.HTMLElement[] aItemDomRefs, bool bNotInTabChain = false);
+						public extern ItemNavigation(Retyped.dom.HTMLElement oDomRef, Retyped.dom.HTMLElement[] aItemDomRefs, bool bNotInTabChain = false);
 
 						#endregion
 
@@ -92,19 +92,20 @@ namespace UI5
 						/// Returns the array of item DOM references
 						/// </summary>
 						/// <returns>Array of item DOM references</returns>
-						public extern virtual dom.HTMLElement[] getItemDomRefs();
+						public extern virtual Retyped.dom.HTMLElement[] getItemDomRefs();
 
 						/// <summary>
 						/// Returns a metadata object for class sap.ui.core.delegate.ItemNavigation.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// Returns the root DOM reference surrounding the items
 						/// </summary>
 						/// <returns>Root DOM reference</returns>
-						public extern virtual dom.HTMLElement getRootDomRef();
+						public extern virtual Retyped.dom.HTMLElement getRootDomRef();
 
 						/// <summary>
 						/// Check whether given event has disabled modifier or not
@@ -163,7 +164,7 @@ namespace UI5
 						/// </summary>
 						/// <param name="aItemDomRefs">Array of DOM references or DOM node list object, representing the items</param>
 						/// <returns><code>this</code> to allow method chaining</returns>
-						public extern virtual sap.ui.core.@delegate.ItemNavigation setItemDomRefs(dom.HTMLElement[] aItemDomRefs);
+						public extern virtual sap.ui.core.@delegate.ItemNavigation setItemDomRefs(Retyped.dom.HTMLElement[] aItemDomRefs);
 
 						/// <summary>
 						/// Sets the page size of the item navigation to allow Page Up and Page Down keys.

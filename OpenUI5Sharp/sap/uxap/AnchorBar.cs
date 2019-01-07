@@ -41,6 +41,13 @@ namespace UI5
 					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> upperCase;
 
 					/// <summary>
+					/// Determines the background color of the <code>AnchorBar</code>.
+					/// 
+					/// <b>Note:</b> The default value of <code>backgroundDesign</code> property is null. If the property is not set, the color of the background is <code>@sapUiObjectHeaderBackground</code>, which depends on the specific theme.
+					/// </summary>
+					public Union<sap.m.BackgroundDesign, string, sap.ui.@base.ManagedObject.BindPropertyInfo> backgroundDesign;
+
+					/// <summary>
 					/// The button that represents the Section being scrolled by the user.
 					/// </summary>
 					public Union<sap.m.Button, sap.ui.core.ID, string, sap.ui.@base.ManagedObject.BindPropertyInfo> selectedButton;
@@ -141,11 +148,28 @@ namespace UI5
 
 				#endregion
 
-				#region Methods for Aggregation _select
+				#region Methods for Property backgroundDesign
+
+				/// <summary>
+				/// Gets current value of property {@link #getBackgroundDesign backgroundDesign}.
+				/// 
+				/// Determines the background color of the <code>AnchorBar</code>.
+				/// 
+				/// <b>Note:</b> The default value of <code>backgroundDesign</code> property is null. If the property is not set, the color of the background is <code>@sapUiObjectHeaderBackground</code>, which depends on the specific theme.
+				/// </summary>
+				/// <returns>Value of property <code>backgroundDesign</code></returns>
+				public extern virtual sap.m.BackgroundDesign getBackgroundDesign();
+
+				/// <summary>
+				/// Sets the value of the <code>backgroundDesign</code> property.
+				/// </summary>
+				/// <param name="sBackgroundDesign">new value of the <code>backgroundDesign</code></param>
+				/// <returns><code>this</code> to allow method chaining</returns>
+				public extern virtual sap.uxap.AnchorBar setBackgroundDesign(sap.m.BackgroundDesign sBackgroundDesign);
 
 				#endregion
 
-				#region Methods for Aggregation _popovers
+				#region Methods for Aggregation _select
 
 				#endregion
 
@@ -217,7 +241,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.uxap.AnchorBar.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Returns an sap.ui.core.delegate.ScrollEnablement object used to handle scrolling.

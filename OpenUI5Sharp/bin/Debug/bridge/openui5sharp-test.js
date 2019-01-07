@@ -45,7 +45,6 @@ Bridge.assembly("OpenUI5Sharp", function ($asm, globals) {
                 var type = Bridge.getType(this);
                 var obj = { };
 
-                // copies fields
                 $t = Bridge.getEnumerator(Bridge.Reflection.getMembers(type, 4, 28));
                 try {
                     while ($t.moveNext()) {
@@ -59,7 +58,6 @@ Bridge.assembly("OpenUI5Sharp", function ($asm, globals) {
                 }
                 ;
 
-                // copies methods with the requested attribute
                 $t1 = Bridge.getEnumerator(System.Linq.Enumerable.from(Bridge.Reflection.getMembers(type, 8, 28)).where(function (m) {
                         return System.Attribute.getCustomAttributes(m, attributeType).length > 0;
                     }));

@@ -276,6 +276,10 @@ namespace UI5
 
 				#endregion
 
+				#region Methods for Aggregation _nextButton
+
+				#endregion
+
 				#region Methods for Association subsequentSteps
 
 				/// <summary>
@@ -509,7 +513,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.WizardStep.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				#endregion
 

@@ -95,6 +95,19 @@ namespace UI5
 						public Union<sap.f.DynamicPageTitleArea, string, sap.ui.@base.ManagedObject.BindPropertyInfo> titlePrimaryArea;
 
 						/// <summary>
+						/// Assigns shrinking ratio to the <code>SemanticPage</code> title areas (Heading, Content, Actions). The greater value a section has the faster it shrinks when the screen size is being reduced.
+						/// 
+						/// The value must be set in <code>Heading:Content:Actions</code> format where Title, Content and Actions are numbers greater than or equal to 0. If set to 0, the respective area will not shrink.
+						/// 
+						/// For example, if <code>2:7:1</code> is set, the Content area will shrink seven times faster than the Actions area. So, when all three areas have width of 500px and the available space is reduced by 100px the Title area will be reduced by 20px, the Content area - by 70px and the Actions area - by 10px.
+						/// 
+						/// If all the areas have assigned values greater than 1, the numbers are scaled so that at least one of them is equal to 1. For example, value of <code>2:4:8</code> is equal to <code>1:2:4</code>.
+						/// 
+						/// <Note:> When this property is set the <code>titlePrimaryArea</code> property has no effect.
+						/// </summary>
+						public Union<sap.f.DynamicPageTitleShrinkRatio, string, sap.ui.@base.ManagedObject.BindPropertyInfo> titleAreaShrinkRatio;
+
+						/// <summary>
 						/// The <code>SemanticPage</code> heading.
 						/// 
 						/// A typical usage is the <code>sap.m.Title</code> or any other UI5 control, that serves as a heading for an object.
@@ -102,6 +115,20 @@ namespace UI5
 						/// <b>Note:</b> The control will be placed in the title`s leftmost area.
 						/// </summary>
 						public Union<sap.ui.core.Control, string, sap.ui.@base.ManagedObject.BindAggregationInfo> titleHeading;
+
+						/// <summary>
+						/// The <code>titleExpandedHeading</code> is positioned in the <code>SemanticPage</code> title left area and is displayed when the header is in expanded state only. Use this aggregation to display a title (or any other UI5 control that serves as a heading) that has to be present in expanded state only.
+						/// 
+						/// <b>Note:</b> In order for <code>titleExpandedHeading</code> to be taken into account, <code>titleHeading</code> has to be empty. Combine <code>titleExpandedHeading</code> with <code>titleSnappedHeading</code> to switch content when the header switches state.
+						/// </summary>
+						public Union<sap.ui.core.Control, string, sap.ui.@base.ManagedObject.BindAggregationInfo> titleExpandedHeading;
+
+						/// <summary>
+						/// The <code>titleSnappedHeading</code> is positioned in the <code>SemanticPage</code> title left area and is displayed when the header is in collapsed (snapped) state only. Use this aggregation to display a title (or any other UI5 control that serves as a heading) that has to be present in collapsed state only.
+						/// 
+						/// <b>Note:</b> In order for <code>titleSnappedHeading</code> to be taken into account, <code>titleHeading</code> has to be empty. Combine <code>titleSnappedHeading</code> with <code>titleExpandedHeading</code> to switch content when the header switches state.
+						/// </summary>
+						public Union<sap.ui.core.Control, string, sap.ui.@base.ManagedObject.BindAggregationInfo> titleSnappedHeading;
 
 						/// <summary>
 						/// The <code>SemanticPage</code> breadcrumbs.
@@ -200,6 +227,16 @@ namespace UI5
 
 						/// <summary>
 						/// The <code>SemanticPage</code> content.
+						/// 
+						/// <b>Note:</b> The SAP Fiori Design guidelines require that the <code>SemanticPage</code>'s header content and the <code>SemanticPage</code>'s content are aligned vertically. When using {@link sap.ui.layout.form.Form}, {@link sap.m.Panel}, {@link sap.m.Table} and {@link sap.m.List} in the content area of <code>SemanticPage</code>, you need to adjust their left text offset to achieve the vertical alignment. To do this, apply the <code>sapFSemanticPageAlignContent</code> CSS class to them and set their <code>width</code> property to <code>auto</code> (if not set by default).
+						/// 
+						/// Example:
+						/// 
+						/// <pre>
+						/// <code> &lt;Panel class=“sapFSemanticPageAlignContent” width=“auto”&gt;&lt;/Panel&gt; </code>
+						/// </pre>
+						/// 
+						/// Please keep in mind that the alignment is not possible when the controls are placed in a {@link sap.ui.layout.Grid} or in other layout controls that use <code>overflow:hidden</code> CSS property.
 						/// </summary>
 						public Union<sap.ui.core.Control, string, sap.ui.@base.ManagedObject.BindAggregationInfo> content;
 
@@ -477,6 +514,7 @@ namespace UI5
 					/// Default value is <code>Begin</code>.
 					/// </summary>
 					/// <returns>Value of property <code>titlePrimaryArea</code></returns>
+					[Obsolete("Deprecated since 1.58. Please use the <code>titleAreaShrinkRatio</code> property instead. The value of <code>titleAreaShrinkRatio</code> must be set in <code>Heading:Content:Actions</code> format where Heading, Content and Actions are numbers greater than or equal to 0. The greater value a section has the faster it shrinks when the screen size is being reduced.<code>titlePrimaryArea=Begin</code> can be achieved by setting a low number for the Heading area to <code>titleAreaShrinkRatio</code>, for example <code>1:1.6:1.6</code>.<code>titlePrimaryArea=Middle</code> can be achieved by setting a low number for the Content area to <code>titleAreaShrinkRatio</code>, for example <code>1.6:1:1.6</code>.")]
 					public extern virtual sap.f.DynamicPageTitleArea getTitlePrimaryArea();
 
 					/// <summary>
@@ -492,7 +530,51 @@ namespace UI5
 					/// </summary>
 					/// <param name="sTitlePrimaryArea">New value for property <code>titlePrimaryArea</code></param>
 					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					[Obsolete("Deprecated since 1.58. Please use the <code>titleAreaShrinkRatio</code> property instead. The value of <code>titleAreaShrinkRatio</code> must be set in <code>Heading:Content:Actions</code> format where Heading, Content and Actions are numbers greater than or equal to 0. The greater value a section has the faster it shrinks when the screen size is being reduced.<code>titlePrimaryArea=Begin</code> can be achieved by setting a low number for the Heading area to <code>titleAreaShrinkRatio</code>, for example <code>1:1.6:1.6</code>.<code>titlePrimaryArea=Middle</code> can be achieved by setting a low number for the Content area to <code>titleAreaShrinkRatio</code>, for example <code>1.6:1:1.6</code>.")]
 					public extern virtual sap.f.semantic.SemanticPage setTitlePrimaryArea(sap.f.DynamicPageTitleArea sTitlePrimaryArea);
+
+					#endregion
+
+					#region Methods for Property titleAreaShrinkRatio
+
+					/// <summary>
+					/// Gets current value of property {@link #getTitleAreaShrinkRatio titleAreaShrinkRatio}.
+					/// 
+					/// Assigns shrinking ratio to the <code>SemanticPage</code> title areas (Heading, Content, Actions). The greater value a section has the faster it shrinks when the screen size is being reduced.
+					/// 
+					/// The value must be set in <code>Heading:Content:Actions</code> format where Title, Content and Actions are numbers greater than or equal to 0. If set to 0, the respective area will not shrink.
+					/// 
+					/// For example, if <code>2:7:1</code> is set, the Content area will shrink seven times faster than the Actions area. So, when all three areas have width of 500px and the available space is reduced by 100px the Title area will be reduced by 20px, the Content area - by 70px and the Actions area - by 10px.
+					/// 
+					/// If all the areas have assigned values greater than 1, the numbers are scaled so that at least one of them is equal to 1. For example, value of <code>2:4:8</code> is equal to <code>1:2:4</code>.
+					/// 
+					/// <Note:> When this property is set the <code>titlePrimaryArea</code> property has no effect.
+					/// 
+					/// Default value is <code>1:1.6:1.6</code>.
+					/// </summary>
+					/// <returns>Value of property <code>titleAreaShrinkRatio</code></returns>
+					public extern virtual sap.f.DynamicPageTitleShrinkRatio getTitleAreaShrinkRatio();
+
+					/// <summary>
+					/// Sets a new value for property {@link #getTitleAreaShrinkRatio titleAreaShrinkRatio}.
+					/// 
+					/// Assigns shrinking ratio to the <code>SemanticPage</code> title areas (Heading, Content, Actions). The greater value a section has the faster it shrinks when the screen size is being reduced.
+					/// 
+					/// The value must be set in <code>Heading:Content:Actions</code> format where Title, Content and Actions are numbers greater than or equal to 0. If set to 0, the respective area will not shrink.
+					/// 
+					/// For example, if <code>2:7:1</code> is set, the Content area will shrink seven times faster than the Actions area. So, when all three areas have width of 500px and the available space is reduced by 100px the Title area will be reduced by 20px, the Content area - by 70px and the Actions area - by 10px.
+					/// 
+					/// If all the areas have assigned values greater than 1, the numbers are scaled so that at least one of them is equal to 1. For example, value of <code>2:4:8</code> is equal to <code>1:2:4</code>.
+					/// 
+					/// <Note:> When this property is set the <code>titlePrimaryArea</code> property has no effect.
+					/// 
+					/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
+					/// 
+					/// Default value is <code>1:1.6:1.6</code>.
+					/// </summary>
+					/// <param name="sTitleAreaShrinkRatio">New value for property <code>titleAreaShrinkRatio</code></param>
+					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					public extern virtual sap.f.semantic.SemanticPage setTitleAreaShrinkRatio(sap.f.DynamicPageTitleShrinkRatio sTitleAreaShrinkRatio);
 
 					#endregion
 
@@ -522,6 +604,60 @@ namespace UI5
 					/// <param name="oTitleHeading">The titleHeading to set</param>
 					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
 					public extern virtual sap.f.semantic.SemanticPage setTitleHeading(sap.ui.core.Control oTitleHeading);
+
+					#endregion
+
+					#region Methods for Aggregation titleExpandedHeading
+
+					/// <summary>
+					/// Gets content of aggregation {@link #getTitleExpandedHeading titleExpandedHeading}.
+					/// 
+					/// The <code>titleExpandedHeading</code> is positioned in the <code>SemanticPage</code> title left area and is displayed when the header is in expanded state only. Use this aggregation to display a title (or any other UI5 control that serves as a heading) that has to be present in expanded state only.
+					/// 
+					/// <b>Note:</b> In order for <code>titleExpandedHeading</code> to be taken into account, <code>titleHeading</code> has to be empty. Combine <code>titleExpandedHeading</code> with <code>titleSnappedHeading</code> to switch content when the header switches state.
+					/// </summary>
+					/// <returns></returns>
+					public extern virtual sap.ui.core.Control getTitleExpandedHeading();
+
+					/// <summary>
+					/// Destroys the titleExpandedHeading in the aggregation {@link #getTitleExpandedHeading titleExpandedHeading}.
+					/// </summary>
+					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					public extern virtual sap.f.semantic.SemanticPage destroyTitleExpandedHeading();
+
+					/// <summary>
+					/// Sets the aggregated {@link #getTitleExpandedHeading titleExpandedHeading}.
+					/// </summary>
+					/// <param name="oTitleExpandedHeading">The titleExpandedHeading to set</param>
+					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					public extern virtual sap.f.semantic.SemanticPage setTitleExpandedHeading(sap.ui.core.Control oTitleExpandedHeading);
+
+					#endregion
+
+					#region Methods for Aggregation titleSnappedHeading
+
+					/// <summary>
+					/// Gets content of aggregation {@link #getTitleSnappedHeading titleSnappedHeading}.
+					/// 
+					/// The <code>titleSnappedHeading</code> is positioned in the <code>SemanticPage</code> title left area and is displayed when the header is in collapsed (snapped) state only. Use this aggregation to display a title (or any other UI5 control that serves as a heading) that has to be present in collapsed state only.
+					/// 
+					/// <b>Note:</b> In order for <code>titleSnappedHeading</code> to be taken into account, <code>titleHeading</code> has to be empty. Combine <code>titleSnappedHeading</code> with <code>titleExpandedHeading</code> to switch content when the header switches state.
+					/// </summary>
+					/// <returns></returns>
+					public extern virtual sap.ui.core.Control getTitleSnappedHeading();
+
+					/// <summary>
+					/// Destroys the titleSnappedHeading in the aggregation {@link #getTitleSnappedHeading titleSnappedHeading}.
+					/// </summary>
+					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					public extern virtual sap.f.semantic.SemanticPage destroyTitleSnappedHeading();
+
+					/// <summary>
+					/// Sets the aggregated {@link #getTitleSnappedHeading titleSnappedHeading}.
+					/// </summary>
+					/// <param name="oTitleSnappedHeading">The titleSnappedHeading to set</param>
+					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					public extern virtual sap.f.semantic.SemanticPage setTitleSnappedHeading(sap.ui.core.Control oTitleSnappedHeading);
 
 					#endregion
 
@@ -1146,6 +1282,16 @@ namespace UI5
 					/// Gets content of aggregation {@link #getContent content}.
 					/// 
 					/// The <code>SemanticPage</code> content.
+					/// 
+					/// <b>Note:</b> The SAP Fiori Design guidelines require that the <code>SemanticPage</code>'s header content and the <code>SemanticPage</code>'s content are aligned vertically. When using {@link sap.ui.layout.form.Form}, {@link sap.m.Panel}, {@link sap.m.Table} and {@link sap.m.List} in the content area of <code>SemanticPage</code>, you need to adjust their left text offset to achieve the vertical alignment. To do this, apply the <code>sapFSemanticPageAlignContent</code> CSS class to them and set their <code>width</code> property to <code>auto</code> (if not set by default).
+					/// 
+					/// Example:
+					/// 
+					/// <pre>
+					/// <code> &lt;Panel class=“sapFSemanticPageAlignContent” width=“auto”&gt;&lt;/Panel&gt; </code>
+					/// </pre>
+					/// 
+					/// Please keep in mind that the alignment is not possible when the controls are placed in a {@link sap.ui.layout.Grid} or in other layout controls that use <code>overflow:hidden</code> CSS property.
 					/// </summary>
 					/// <returns></returns>
 					public extern virtual sap.ui.core.Control getContent();
@@ -1590,7 +1736,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.f.semantic.SemanticPage.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					#endregion
 

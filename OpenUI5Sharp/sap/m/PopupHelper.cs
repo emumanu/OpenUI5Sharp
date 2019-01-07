@@ -20,12 +20,12 @@ namespace UI5
 				#region Methods
 
 				/// <summary>
-				/// This methods converts the percentage value to an absolute number based on the given base number.
+				/// Converts the given percentage value to an absolute number based on the given base size.
 				/// </summary>
 				/// <param name="sPercentage">A percentage value in string format, for example "25%"</param>
 				/// <param name="fBaseSize">A float number which the calculation is based on.</param>
 				/// <returns>The calculated size string with "px" as unit or null when the format of given parameter is wrong.</returns>
-				public extern static void calcPercentageSize(string sPercentage, float fBaseSize);
+				public extern static int calcPercentageSize(string sPercentage, float fBaseSize);
 
 				#endregion
 

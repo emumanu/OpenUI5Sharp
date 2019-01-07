@@ -81,7 +81,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.test.matchers.Matcher.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// Checks if the matcher is matching - will get an instance of sap.ui.core.Control as parameter.

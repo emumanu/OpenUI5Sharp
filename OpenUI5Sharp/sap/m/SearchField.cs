@@ -67,7 +67,7 @@ namespace UI5
 					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showRefreshButton;
 
 					/// <summary>
-					/// Tooltip text of the refresh button. If it is not set, the Default placeholder text is the word "Refresh" in the current local language (if supported) or in English. Tooltips are not displayed on touch devices.
+					/// Tooltip text of the refresh button. If it is not set, the Default tooltip text is the word "Refresh" in the current local language (if supported) or in English. Tooltips are not displayed on touch devices.
 					/// </summary>
 					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> refreshButtonTooltip;
 
@@ -225,7 +225,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oBindingInfo">The binding information</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.SearchField bindValue(object oBindingInfo);
+				public extern virtual sap.m.SearchField bindValue(sap.ui.@base.ManagedObject.BindPropertyInfo oBindingInfo);
 
 				/// <summary>
 				/// Unbinds property {@link #getValue value} from model data.
@@ -423,7 +423,7 @@ namespace UI5
 				/// <summary>
 				/// Gets current value of property {@link #getRefreshButtonTooltip refreshButtonTooltip}.
 				/// 
-				/// Tooltip text of the refresh button. If it is not set, the Default placeholder text is the word "Refresh" in the current local language (if supported) or in English. Tooltips are not displayed on touch devices.
+				/// Tooltip text of the refresh button. If it is not set, the Default tooltip text is the word "Refresh" in the current local language (if supported) or in English. Tooltips are not displayed on touch devices.
 				/// </summary>
 				/// <returns>Value of property <code>refreshButtonTooltip</code></returns>
 				public extern virtual string getRefreshButtonTooltip();
@@ -431,7 +431,7 @@ namespace UI5
 				/// <summary>
 				/// Sets a new value for property {@link #getRefreshButtonTooltip refreshButtonTooltip}.
 				/// 
-				/// Tooltip text of the refresh button. If it is not set, the Default placeholder text is the word "Refresh" in the current local language (if supported) or in English. Tooltips are not displayed on touch devices.
+				/// Tooltip text of the refresh button. If it is not set, the Default tooltip text is the word "Refresh" in the current local language (if supported) or in English. Tooltips are not displayed on touch devices.
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// </summary>
@@ -900,13 +900,14 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.SearchField.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Function returns DOM element which acts as reference point for the opening suggestion menu
 				/// </summary>
 				/// <returns>the DOM element at which to open the suggestion list</returns>
-				public extern virtual dom.HTMLElement getPopupAnchorDomRef();
+				public extern virtual Retyped.dom.HTMLElement getPopupAnchorDomRef();
 
 				/// <summary>
 				/// Toggle visibility of the suggestion list.

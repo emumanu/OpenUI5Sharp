@@ -15,6 +15,7 @@ namespace UI5
 			[External]
 			[Namespace(false)]
 			[Name("sap.ui.ux3")]
+			[Obsolete("Deprecated since 1.38.")]
 			public static partial class ux3
 			{
 				#region Typed Parameters
@@ -165,6 +166,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.ux3.ExactOrder")]
+				[Obsolete("Deprecated since 1.38.")]
 				public enum ExactOrder
 				{
 					/// <summary>
@@ -182,6 +184,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.ux3.FeederType")]
+				[Obsolete("Deprecated since 1.38.")]
 				public enum FeederType
 				{
 					/// <summary>
@@ -203,6 +206,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.ux3.DataSetView")]
+				[Obsolete("Deprecated since 1.38.")]
 				public partial interface DataSetView
 				{
 				}
@@ -212,6 +216,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.ux3.ShellDesignType")]
+				[Obsolete("Deprecated since 1.38.")]
 				public enum ShellDesignType
 				{
 					/// <summary>
@@ -233,6 +238,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.ux3.ShellHeaderType")]
+				[Obsolete("Deprecated since 1.38.")]
 				public enum ShellHeaderType
 				{
 					/// <summary>
@@ -258,6 +264,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.ux3.FollowActionState")]
+				[Obsolete("Deprecated since 1.38.")]
 				public enum FollowActionState
 				{
 					/// <summary>
@@ -279,6 +286,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.ux3.VisibleItemCountMode")]
+				[Obsolete("Deprecated since 1.38.")]
 				public enum VisibleItemCountMode
 				{
 					/// <summary>
@@ -296,6 +304,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.ux3.NotificationBarStatus")]
+				[Obsolete("Deprecated since 1.38.")]
 				public enum NotificationBarStatus
 				{
 					/// <summary>
@@ -321,6 +330,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.ux3.ThingViewerHeaderType")]
+				[Obsolete("Deprecated since 1.38.")]
 				public enum ThingViewerHeaderType
 				{
 					/// <summary>
@@ -338,6 +348,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.ux3.ActionBarSocialActions")]
+				[Obsolete("Deprecated since 1.38.")]
 				public enum ActionBarSocialActions
 				{
 					/// <summary>

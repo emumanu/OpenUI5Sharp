@@ -26,6 +26,11 @@ namespace UI5
 				#region Methods
 
 				/// <summary>
+				/// The class <code>sap.ui.core.ComponentSupport</code> provides functionality which is used to find declared Components in the HTML page and to create the Component instances which will be put into a ComponentContainer.
+				/// </summary>
+				public extern static void ComponentSupport();
+
+				/// <summary>
 				/// Applies the support for custom style classes on the prototype of a <code>sap.ui.core.Element</code>.
 				/// 
 				/// All controls (subclasses of <code>sap.ui.core.Control</code>) provide the support custom style classes. The control API provides functions to the application which allow it to add, remove or change style classes for the control. In general, this option is not available for elements because elements do not necessarily have a representation in the DOM.
@@ -209,6 +214,10 @@ namespace UI5
 				[Name("sap.ui.core.IconColor")]
 				public enum IconColor
 				{
+					/// <summary>
+					/// Contrast color.
+					/// </summary>
+					Contrast,
 					/// <summary>
 					/// Critical color
 					/// </summary>
@@ -442,6 +451,10 @@ namespace UI5
 				[Name("sap.ui.core.CalendarType")]
 				public enum CalendarType
 				{
+					/// <summary>
+					/// The Thai buddhist calendar
+					/// </summary>
+					Buddhist,
 					/// <summary>
 					/// The Gregorian calendar
 					/// </summary>

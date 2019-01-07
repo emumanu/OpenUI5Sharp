@@ -163,6 +163,15 @@ As of version 1.50, the duplicated dates are not displayed if there are multiple
 Use &lt;code&gt;getStartDate&lt;/code&gt; function to determine the current start date</xs:documentation>
           </xs:annotation>
         </xs:attribute>
+        <xs:attribute name="weekNumberSelect" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Week number selection changed. By default, clicking on the week number will select the corresponding week. If the week has already been selected, clicking the week number will deselect it.
+
+The default behavior can be prevented using the &lt;code&gt;preventDefault&lt;/code&gt; method.
+
+&lt;b&gt;Note&lt;/b&gt; Works for Gregorian calendars only and when &lt;code&gt;intervalSelection&lt;/code&gt; is set to 'true'.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -769,6 +778,11 @@ A day must be divisible by this interval size. One interval must not include mor
             <xs:documentation>Determines the color mode of the &lt;code&gt;ColorPicker&lt;/code&gt;.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
+        <xs:attribute name="displayMode" type="n10:_ColorPickerDisplayModeType">
+          <xs:annotation>
+            <xs:documentation>Determines the display mode of the &lt;code&gt;ColorPicker&lt;/code&gt; among three types - Default, Large and Simplified</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
         <xs:attribute name="change" type="xs:string">
           <xs:annotation>
             <xs:documentation>Fired when the value is changed by user action.
@@ -1033,7 +1047,9 @@ String value is useful if you want to store really big values. If there are more
         </xs:attribute>
         <xs:attribute name="multiple" type="xs:boolean">
           <xs:annotation>
-            <xs:documentation>Allows multiple files to be chosen and uploaded from the same folder. This property is not supported by Internet Explorer 9.</xs:documentation>
+            <xs:documentation>Allows multiple files to be chosen and uploaded from the same folder. This property is not supported by Internet Explorer 9.
+
+&lt;b&gt;Note:&lt;/b&gt; Keep in mind that the various operating systems for mobile devices can react differently to the property so that fewer upload functions may be available in some cases.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="maximumFileSize" type="xs:float">
@@ -1915,6 +1931,25 @@ String value is useful if you want to store really big values. If there are more
       <xs:enumeration value="Month">
         <xs:annotation>
           <xs:documentation>Intervals have the size of one month.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_ColorPickerDisplayModeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default">
+        <xs:annotation>
+          <xs:documentation>Default display mode.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Large">
+        <xs:annotation>
+          <xs:documentation>Large display mode.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Simplified">
+        <xs:annotation>
+          <xs:documentation>Simplified display mode.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>

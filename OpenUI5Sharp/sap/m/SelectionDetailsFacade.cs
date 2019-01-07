@@ -233,6 +233,12 @@ namespace UI5
 				public extern static sap.m.SelectionDetails detachNavigate(object fnFunction, object oListener);
 
 				/// <summary>
+				/// Returns <code>true</code> if the labels of the {@link sap.m.SelectionDetailsItemLine} elements are wrapped, <code>false</code> otherwise.
+				/// </summary>
+				/// <returns>True if the labels of the {@link sap.m.SelectionDetailsItemLine} elements are wrapped, false otherwise.</returns>
+				public extern virtual bool getWrapLabels();
+
+				/// <summary>
 				/// Returns true if the SelectionDetails is enabled, otherwise false.
 				/// </summary>
 				/// <returns>True if the SelectionDetails contains items, otherwise false.</returns>
@@ -281,6 +287,13 @@ namespace UI5
 				/// </summary>
 				/// <returns>An array of the removed elements (might be empty)</returns>
 				public extern static sap.ui.core.Item[] removeAllActions();
+
+				/// <summary>
+				/// Enables line wrapping for the labels of the of the {@link sap.m.SelectionDetailsItemLine} elements.
+				/// </summary>
+				/// <param name="bWrap">True to apply wrapping to the labels of the {@link sap.m.SelectionDetailsItemLine} elements.</param>
+				/// <returns>To ensure method chaining, returns SelectionDetails.</returns>
+				public extern virtual sap.m.SelectionDetails setWrapLabels(bool bWrap);
 
 				#endregion
 

@@ -29,6 +29,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("jQuery.sap.util.ResourceBundle")]
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/base/i18n/ResourceBundle} instead")]
 				public partial interface ResourceBundle
 				{
 					#region Methods

@@ -133,7 +133,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.model.CompositeDataState.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Returns the array of state messages of the model or undefined

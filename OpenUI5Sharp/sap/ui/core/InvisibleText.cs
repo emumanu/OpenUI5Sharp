@@ -140,7 +140,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.core.InvisibleText.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Returns the ID of a shared <code>InvisibleText<code> instance whose <code>text</code> property is retrieved from the given library resource bundle and text key.

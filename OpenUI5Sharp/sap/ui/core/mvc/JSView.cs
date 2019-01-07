@@ -106,7 +106,7 @@ namespace UI5
 						/// </summary>
 						/// <param name="mOptions">A map containing the view configuration options.</param>
 						/// <returns>A Promise that resolves with the view instance</returns>
-						public extern static jquery.JQueryPromise<object> create(Map mOptions);
+						public extern static es5.Promise<object> create(Map mOptions);
 
 						/// <summary>
 						/// A method to be implemented by JSViews, returning the View UI. While for declarative View types like XMLView or JSONView the user interface definition is declared in a separate file, JSViews programmatically construct the UI. This happens in the createContent method which every JSView needs to implement. The View implementation can construct the complete UI in this method - or only return the root control and create the rest of the UI lazily later on.
@@ -156,7 +156,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.core.mvc.JSView.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						#endregion
 

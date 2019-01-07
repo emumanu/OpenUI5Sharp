@@ -31,7 +31,7 @@ namespace UI5
 				public static bool android_tablet;
 
 				/// <summary>
-				/// Whether the running device is a desktop browser. If a desktop browser runs in mobile device simulation mode (with URL parameter sap-ui-xx-fakeOS or sap-ui-xx-test-mobile), this property will be false.
+				/// Whether the running device is a desktop browser. If a desktop browser runs in mobile device simulation mode (with URL parameter sap-ui-xx-test-mobile), this property will be false.
 				/// </summary>
 				public static bool desktop;
 
@@ -51,7 +51,7 @@ namespace UI5
 				public static bool landscape;
 
 				/// <summary>
-				/// Whether the running device is a phone. If a desktop browser runs in mobile device simulation mode (with URL parameter sap-ui-xx-fakeOS or sap-ui-xx-test-mobile), this property will also be set according to the simulated platform. This property will be false when runs in desktop browser.
+				/// Whether the running device is a phone. If a desktop browser runs in mobile device simulation mode (with URL parameter sap-ui-xx-test-mobile), this property will also be set according to the simulated platform. This property will be false when runs in desktop browser.
 				/// </summary>
 				public static bool phone;
 
@@ -66,7 +66,7 @@ namespace UI5
 				public static bool standalone;
 
 				/// <summary>
-				/// Whether the running device is a tablet. If a desktop browser runs in mobile device simulation mode (with URL parameter sap-ui-xx-fakeOS or sap-ui-xx-test-mobile), this property will also be set according to the simulated platform. This property will be false when runs in desktop browser.
+				/// Whether the running device is a tablet. If a desktop browser runs in mobile device simulation mode (with URL parameter sap-ui-xx-test-mobile), this property will also be set according to the simulated platform. This property will be false when runs in desktop browser.
 				/// </summary>
 				public static bool tablet;
 

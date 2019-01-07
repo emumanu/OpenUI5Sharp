@@ -95,6 +95,10 @@ namespace UI5
 					/// </summary>
 					DataModel,
 					/// <summary>
+					/// Fiori Guidelines issue category.
+					/// </summary>
+					FioriGuidelines,
+					/// <summary>
 					/// Functionality issue category.
 					/// </summary>
 					Functionality,
@@ -103,7 +107,11 @@ namespace UI5
 					/// </summary>
 					Memory,
 					/// <summary>
-					/// Accessibility issue category.
+					/// Modularization issue category.
+					/// </summary>
+					Modularization,
+					/// <summary>
+					/// Other issue category.
 					/// </summary>
 					Other,
 					/// <summary>
@@ -118,6 +126,23 @@ namespace UI5
 					/// Usage issue category.
 					/// </summary>
 					Usage,
+				}
+				/// <summary>
+				/// Analysis history formats.
+				/// </summary>
+				[External]
+				[Namespace(false)]
+				[Name("sap.ui.support.HistoryFormats")]
+				public enum HistoryFormats
+				{
+					/// <summary>
+					/// ABAP history format.
+					/// </summary>
+					Abap,
+					/// <summary>
+					/// String history format.
+					/// </summary>
+					String,
 				}
 			}
 		}

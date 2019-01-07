@@ -105,7 +105,7 @@ namespace UI5
 						/// </summary>
 						/// <param name="oData">parameters used to initialize the ResourceModel; at least either bundleUrl or bundleName must be set on this object; if both are set, bundleName wins - or an instance of an existing {@link jQuery.sap.util.ResourceBundle}</param>
 						/// <returns>Promise in async case (async ResourceModel) which is resolved when the enhancement is finished</returns>
-						public extern virtual jquery.JQueryPromise<object> enhance(Union<sap.ui.model.resource.ResourceModel.EnhanceInfo, jQuery.sap.util.ResourceBundle> oData);
+						public extern virtual es5.Promise<object> enhance(Union<sap.ui.model.resource.ResourceModel.EnhanceInfo, jQuery.sap.util.ResourceBundle> oData);
 
 						/// <summary>
 						/// Creates a new subclass of class sap.ui.model.resource.ResourceModel with name <code>sClassName</code> and enriches it with the information contained in <code>oClassInfo</code>.
@@ -141,7 +141,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.model.resource.ResourceModel.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// Returns the value for the property with the given <code>sPropertyName</code>
@@ -154,7 +155,7 @@ namespace UI5
 						/// Returns the resource bundle of this model
 						/// </summary>
 						/// <returns>loaded resource bundle or ECMA Script 6 Promise in asynchronous case</returns>
-						public extern virtual Union<jQuery.sap.util.ResourceBundle, jquery.JQueryPromise<object>> getResourceBundle();
+						public extern virtual Union<jQuery.sap.util.ResourceBundle, es5.Promise<object>> getResourceBundle();
 
 						#endregion
 

@@ -370,7 +370,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.TabContainerItem.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Overwrites the method in order to suppress invalidation for some properties.

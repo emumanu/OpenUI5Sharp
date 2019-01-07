@@ -67,6 +67,11 @@ namespace UI5
 					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> showDownloadButton;
 
 					/// <summary>
+					/// Defines how the PDF viewer should be displayed. <ul> <li>If set to <code>Link</code>, the PDF viewer appears as a toolbar with a download button that can be used to download the PDF file.<br> When the {@link open} method is called, the user can either open the PDF file in a new tab or download it.</li> <li>If set to <code>Embedded</code>, the PDF viewer appears embedded in the parent container and displays either the PDF document or the message defined by the <code>errorPlaceholderMessage</code> property.</li> <li>If set to <code>Auto</code>, the appearance of the PDF viewer depends on the device being used: <ul> <li>On mobile devices (phones, tablets), the the PDF viewer appears as a toolbar with a download button.</li> <li>On desktop devices, the PDF viewer is embedded in its parent container.</li> </ul> </li> </ul>
+					/// </summary>
+					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> displayType;
+
+					/// <summary>
 					/// A custom control that can be used instead of the error message specified by the errorPlaceholderMessage property.
 					/// </summary>
 					public Union<sap.ui.core.Control, string, sap.ui.@base.ManagedObject.BindAggregationInfo> errorPlaceholder;
@@ -330,6 +335,33 @@ namespace UI5
 				/// <param name="bShowDownloadButton">New value for property <code>showDownloadButton</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
 				public extern virtual sap.m.PDFViewer setShowDownloadButton(bool bShowDownloadButton);
+
+				#endregion
+
+				#region Methods for Property displayType
+
+				/// <summary>
+				/// Gets current value of property {@link #getDisplayType displayType}.
+				/// 
+				/// Defines how the PDF viewer should be displayed. <ul> <li>If set to <code>Link</code>, the PDF viewer appears as a toolbar with a download button that can be used to download the PDF file.<br> When the {@link open} method is called, the user can either open the PDF file in a new tab or download it.</li> <li>If set to <code>Embedded</code>, the PDF viewer appears embedded in the parent container and displays either the PDF document or the message defined by the <code>errorPlaceholderMessage</code> property.</li> <li>If set to <code>Auto</code>, the appearance of the PDF viewer depends on the device being used: <ul> <li>On mobile devices (phones, tablets), the the PDF viewer appears as a toolbar with a download button.</li> <li>On desktop devices, the PDF viewer is embedded in its parent container.</li> </ul> </li> </ul>
+				/// 
+				/// Default value is <code>sap.m.PDFViewerDisplayTypes.Auto</code>.
+				/// </summary>
+				/// <returns>Value of property <code>displayType</code></returns>
+				public extern virtual string getDisplayType();
+
+				/// <summary>
+				/// Sets a new value for property {@link #getDisplayType displayType}.
+				/// 
+				/// Defines how the PDF viewer should be displayed. <ul> <li>If set to <code>Link</code>, the PDF viewer appears as a toolbar with a download button that can be used to download the PDF file.<br> When the {@link open} method is called, the user can either open the PDF file in a new tab or download it.</li> <li>If set to <code>Embedded</code>, the PDF viewer appears embedded in the parent container and displays either the PDF document or the message defined by the <code>errorPlaceholderMessage</code> property.</li> <li>If set to <code>Auto</code>, the appearance of the PDF viewer depends on the device being used: <ul> <li>On mobile devices (phones, tablets), the the PDF viewer appears as a toolbar with a download button.</li> <li>On desktop devices, the PDF viewer is embedded in its parent container.</li> </ul> </li> </ul>
+				/// 
+				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
+				/// 
+				/// Default value is <code>sap.m.PDFViewerDisplayTypes.Auto</code>.
+				/// </summary>
+				/// <param name="sDisplayType">New value for property <code>displayType</code></param>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.PDFViewer setDisplayType(string sDisplayType);
 
 				#endregion
 
@@ -679,7 +711,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.PDFViewer.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Triggers rerendering of this element and its children.

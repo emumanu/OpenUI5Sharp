@@ -153,7 +153,45 @@ namespace UI5
 						/// </summary>
 						public sap.ui.@base.EventDelegate startDateChange;
 
+						/// <summary>
+						/// Week number selection changed. By default, clicking on the week number will select the corresponding week. If the week has already been selected, clicking the week number will deselect it.
+						/// 
+						/// The default behavior can be prevented using the <code>preventDefault</code> method.
+						/// 
+						/// <b>Note</b> Works for Gregorian calendars only and when <code>intervalSelection</code> is set to 'true'.
+						/// </summary>
+						public sap.ui.unified.Calendar.WeekNumberSelectDelegate weekNumberSelect;
+
 					}
+
+					#endregion
+
+					#region Typed Parameters
+
+					/// <summary>
+					/// Parameter to be used as Object Literal
+					/// </summary>
+					[External]
+					[ObjectLiteral]
+					public partial class WeekNumberSelectInfo
+					{
+						/// <summary>
+						/// The selected week number.
+						/// </summary>
+						public int weekNumber;
+
+						/// <summary>
+						/// The days of the corresponding week that are selected or deselected.
+						/// </summary>
+						public sap.ui.unified.DateRange weekDays;
+
+					}
+
+					#endregion
+
+					#region Delegates
+
+					public delegate void WeekNumberSelectDelegate(sap.ui.@base.Event<sap.ui.unified.Calendar.WeekNumberSelectInfo> oEvent, object oData);
 
 					#endregion
 
@@ -430,7 +468,7 @@ namespace UI5
 					/// </summary>
 					/// <param name="oDate">a JavaScript date</param>
 					/// <returns><code>this</code> for method chaining</returns>
-					public extern virtual sap.ui.unified.Calendar setMinDate(System.DateTime oDate);
+					public extern virtual sap.ui.unified.Calendar setMinDate(DateTime oDate);
 
 					#endregion
 
@@ -453,7 +491,7 @@ namespace UI5
 					/// </summary>
 					/// <param name="oDate">a JavaScript date</param>
 					/// <returns><code>this</code> for method chaining</returns>
-					public extern virtual sap.ui.unified.Calendar setMaxDate(System.DateTime oDate);
+					public extern virtual sap.ui.unified.Calendar setMaxDate(DateTime oDate);
 
 					#endregion
 
@@ -961,6 +999,101 @@ namespace UI5
 
 					#endregion
 
+					#region Methods for Event weekNumberSelect
+
+					/// <summary>
+					/// Attaches event handler <code>fnFunction</code> to the {@link #event:weekNumberSelect weekNumberSelect} event of this <code>sap.ui.unified.Calendar</code>.
+					/// 
+					/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.ui.unified.Calendar</code> itself.
+					/// 
+					/// Week number selection changed. By default, clicking on the week number will select the corresponding week. If the week has already been selected, clicking the week number will deselect it.
+					/// 
+					/// The default behavior can be prevented using the <code>preventDefault</code> method.
+					/// 
+					/// <b>Note</b> Works for Gregorian calendars only and when <code>intervalSelection</code> is set to 'true'.
+					/// </summary>
+					/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
+					/// <param name="fnFunction">The function to be called when the event occurs</param>
+					/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.ui.unified.Calendar</code> itself</param>
+					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					public extern virtual sap.ui.unified.Calendar attachWeekNumberSelect(object oData, sap.ui.unified.Calendar.WeekNumberSelectDelegate fnFunction, object oListener);
+
+					/// <summary>
+					/// Attaches event handler <code>fnFunction</code> to the {@link #event:weekNumberSelect weekNumberSelect} event of this <code>sap.ui.unified.Calendar</code>.
+					/// 
+					/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.ui.unified.Calendar</code> itself.
+					/// 
+					/// Week number selection changed. By default, clicking on the week number will select the corresponding week. If the week has already been selected, clicking the week number will deselect it.
+					/// 
+					/// The default behavior can be prevented using the <code>preventDefault</code> method.
+					/// 
+					/// <b>Note</b> Works for Gregorian calendars only and when <code>intervalSelection</code> is set to 'true'.
+					/// </summary>
+					/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
+					/// <param name="fnFunction">The function to be called when the event occurs</param>
+					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					public extern virtual sap.ui.unified.Calendar attachWeekNumberSelect(object oData, sap.ui.unified.Calendar.WeekNumberSelectDelegate fnFunction);
+
+					/// <summary>
+					/// Attaches event handler <code>fnFunction</code> to the {@link #event:weekNumberSelect weekNumberSelect} event of this <code>sap.ui.unified.Calendar</code>.
+					/// 
+					/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.ui.unified.Calendar</code> itself.
+					/// 
+					/// Week number selection changed. By default, clicking on the week number will select the corresponding week. If the week has already been selected, clicking the week number will deselect it.
+					/// 
+					/// The default behavior can be prevented using the <code>preventDefault</code> method.
+					/// 
+					/// <b>Note</b> Works for Gregorian calendars only and when <code>intervalSelection</code> is set to 'true'.
+					/// </summary>
+					/// <param name="fnFunction">The function to be called when the event occurs</param>
+					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					public extern virtual sap.ui.unified.Calendar attachWeekNumberSelect(sap.ui.unified.Calendar.WeekNumberSelectDelegate fnFunction);
+
+					/// <summary>
+					/// Attaches event handler <code>fnFunction</code> to the {@link #event:weekNumberSelect weekNumberSelect} event of this <code>sap.ui.unified.Calendar</code>.
+					/// 
+					/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.ui.unified.Calendar</code> itself.
+					/// 
+					/// Week number selection changed. By default, clicking on the week number will select the corresponding week. If the week has already been selected, clicking the week number will deselect it.
+					/// 
+					/// The default behavior can be prevented using the <code>preventDefault</code> method.
+					/// 
+					/// <b>Note</b> Works for Gregorian calendars only and when <code>intervalSelection</code> is set to 'true'.
+					/// </summary>
+					/// <param name="fnFunction">The function to be called when the event occurs</param>
+					/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.ui.unified.Calendar</code> itself</param>
+					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					public extern virtual sap.ui.unified.Calendar attachWeekNumberSelect(sap.ui.unified.Calendar.WeekNumberSelectDelegate fnFunction, object oListener);
+
+					/// <summary>
+					/// Detaches event handler <code>fnFunction</code> from the {@link #event:weekNumberSelect weekNumberSelect} event of this <code>sap.ui.unified.Calendar</code>.
+					/// 
+					/// The passed function and listener object must match the ones used for event registration.
+					/// </summary>
+					/// <param name="fnFunction">The function to be called, when the event occurs</param>
+					/// <param name="oListener">Context object on which the given function had to be called</param>
+					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+					public extern virtual sap.ui.unified.Calendar detachWeekNumberSelect(sap.ui.unified.Calendar.WeekNumberSelectDelegate fnFunction, object oListener);
+
+					/// <summary>
+					/// Fires event {@link #event:weekNumberSelect weekNumberSelect} to attached listeners.
+					/// 
+					/// Listeners may prevent the default action of this event by using the <code>preventDefault</code>-method on the event object.
+					/// </summary>
+					/// <param name="mParameters">Parameters to pass along with the event</param>
+					/// <returns>Whether or not to prevent the default action</returns>
+					public extern virtual bool fireWeekNumberSelect(sap.ui.unified.Calendar.WeekNumberSelectInfo mParameters);
+
+					/// <summary>
+					/// Fires event {@link #event:weekNumberSelect weekNumberSelect} to attached listeners.
+					/// 
+					/// Listeners may prevent the default action of this event by using the <code>preventDefault</code>-method on the event object.
+					/// </summary>
+					/// <returns>Whether or not to prevent the default action</returns>
+					public extern virtual bool fireWeekNumberSelect();
+
+					#endregion
+
 					#region Other methods
 
 					/// <summary>
@@ -1011,7 +1144,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.unified.Calendar.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Returns the first day of the displayed month.

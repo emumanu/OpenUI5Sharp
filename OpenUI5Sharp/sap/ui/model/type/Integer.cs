@@ -51,13 +51,13 @@ namespace UI5
 						/// </summary>
 						/// <param name="oFormatOptions">Formatting options. For a list of all available options, see {@link sap.ui.core.format.NumberFormat#constructor NumberFormat}.</param>
 						/// <param name="oConstraints">Value constraints</param>
-						public extern Integer(sap.ui.model.TypeOptions oFormatOptions, sap.ui.model.type.Integer.IntegerInfo oConstraints);
+						public extern Integer(sap.ui.model.FormatOptions oFormatOptions, sap.ui.model.type.Integer.IntegerInfo oConstraints);
 
 						/// <summary>
 						/// Constructor for an Integer type.
 						/// </summary>
 						/// <param name="oFormatOptions">Formatting options. For a list of all available options, see {@link sap.ui.core.format.NumberFormat#constructor NumberFormat}.</param>
-						public extern Integer(sap.ui.model.TypeOptions oFormatOptions);
+						public extern Integer(sap.ui.model.FormatOptions oFormatOptions);
 
 						/// <summary>
 						/// Constructor for an Integer type.
@@ -102,7 +102,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.model.type.Integer.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						#endregion
 

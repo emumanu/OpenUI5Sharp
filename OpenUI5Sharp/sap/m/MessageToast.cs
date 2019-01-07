@@ -64,7 +64,7 @@ namespace UI5
 					/// <summary>
 					/// Specifies the reference element to which the message toast should be aligned, by default it is aligned to the browser visual viewport.
 					/// </summary>
-					public Union<sap.ui.core.Control, dom.HTMLElement, jQuery, dom.Window> of;
+					public Union<sap.ui.core.Control, Retyped.dom.HTMLElement, jQuery, Retyped.dom.Window> of;
 
 					/// <summary>
 					/// The offset relative to the docking point, specified as a string with space-separated pixel values (e.g. "0 10" to move the message toast 10 pixels to the right).
@@ -87,12 +87,12 @@ namespace UI5
 					public bool autoClose;
 
 					/// <summary>
-					/// Describes how the close animation will progress. Possible values "ease", "linear", "ease-in", "ease-out", "ease-in-out". This feature is not supported in android and ie9 browsers.
+					/// Describes how the close animation will progress. Possible values "ease", "linear", "ease-in", "ease-out", "ease-in-out".
 					/// </summary>
 					public string animationTimingFunction;
 
 					/// <summary>
-					/// Time in milliseconds that the close animation takes to complete. Needs to be a finite positive integer. For not animation set to 0. This feature is not supported in android and ie9 browsers.
+					/// Time in milliseconds that the close animation takes to complete. Needs to be a finite positive integer. For not animation set to 0.
 					/// </summary>
 					public int animationDuration;
 

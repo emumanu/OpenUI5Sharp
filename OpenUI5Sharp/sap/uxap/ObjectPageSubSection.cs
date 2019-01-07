@@ -42,13 +42,21 @@ namespace UI5
 
 					/// <summary>
 					/// Controls to be displayed in the subsection
+					/// 
+					/// <b>Note:</b> The SAP Fiori Design guidelines require that the <code>ObjectPageHeader</code>'s content and the <code>ObjectPage</code>'s subsection content are aligned vertically. When using {@link sap.ui.layout.form.Form}, {@link sap.m.Panel}, {@link sap.m.Table} and {@link sap.m.List} in the subsection content area of <code>ObjectPage</code>, you need to adjust their left text offset to achieve the vertical alignment. To do this, apply the <code>sapUxAPObjectPageSubSectionAlignContent</code> CSS class to them and set their <code>width</code> property to <code>auto</code> (if not set by default).
+					/// 
+					/// Example:
+					/// 
+					/// <pre>
+					/// <code> &lt;Panel class="sapUxAPObjectPageSubSectionAlignContent" width="auto"&gt;&lt;/Panel&gt; </code>
+					/// </pre>
 					/// </summary>
-					public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> blocks;
+					public Union<sap.ui.core.Element[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> blocks;
 
 					/// <summary>
 					/// Additional controls to display when the Show more / See all / (...) button is pressed
 					/// </summary>
-					public Union<sap.ui.core.Control[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> moreBlocks;
+					public Union<sap.ui.core.Element[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> moreBlocks;
 
 					/// <summary>
 					/// Actions available for this Subsection
@@ -161,6 +169,14 @@ namespace UI5
 				/// Gets content of aggregation {@link #getBlocks blocks}.
 				/// 
 				/// Controls to be displayed in the subsection
+				/// 
+				/// <b>Note:</b> The SAP Fiori Design guidelines require that the <code>ObjectPageHeader</code>'s content and the <code>ObjectPage</code>'s subsection content are aligned vertically. When using {@link sap.ui.layout.form.Form}, {@link sap.m.Panel}, {@link sap.m.Table} and {@link sap.m.List} in the subsection content area of <code>ObjectPage</code>, you need to adjust their left text offset to achieve the vertical alignment. To do this, apply the <code>sapUxAPObjectPageSubSectionAlignContent</code> CSS class to them and set their <code>width</code> property to <code>auto</code> (if not set by default).
+				/// 
+				/// Example:
+				/// 
+				/// <pre>
+				/// <code> &lt;Panel class="sapUxAPObjectPageSubSectionAlignContent" width="auto"&gt;&lt;/Panel&gt; </code>
+				/// </pre>
 				/// </summary>
 				/// <returns></returns>
 				public extern virtual sap.ui.core.Control[] getBlocks();
@@ -327,6 +343,12 @@ namespace UI5
 				#region Other methods
 
 				/// <summary>
+				/// Sets DOM ID of the Title borrowed from this SubSection
+				/// </summary>
+				/// <param name="sId">the ID of the DOM Element</param>
+				private extern void _setBorrowedTitleDomId(string sId);
+
+				/// <summary>
 				/// Creates a new subclass of class sap.uxap.ObjectPageSubSection with name <code>sClassName</code> and enriches it with the information contained in <code>oClassInfo</code>.
 				/// 
 				/// <code>oClassInfo</code> might contain the same kind of information as described in {@link sap.uxap.ObjectPageSectionBase.extend}.
@@ -360,7 +382,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.uxap.ObjectPageSubSection.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				#endregion
 

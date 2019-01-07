@@ -33,12 +33,12 @@ namespace UI5
 							/// <summary>
 							/// Smallest value allowed for this type. Values for constraints must use the same type as configured via <code>oFormatOptions.source</code>.
 							/// </summary>
-							public Union<System.DateTime, string> minimum;
+							public Union<DateTime, string> minimum;
 
 							/// <summary>
 							/// Largest value allowed for this type. Values for constraints must use the same type as configured via <code>oFormatOptions.source</code>.
 							/// </summary>
-							public Union<System.DateTime, string> maximum;
+							public Union<DateTime, string> maximum;
 
 						}
 
@@ -51,13 +51,13 @@ namespace UI5
 						/// </summary>
 						/// <param name="oFormatOptions">Formatting options. For a list of all available options, see {@link sap.ui.core.format.DateFormat.getDateInstance DateFormat}.</param>
 						/// <param name="oConstraints">Value constraints</param>
-						public extern Date(sap.ui.model.TypeOptions oFormatOptions, sap.ui.model.type.Date.DateInfo oConstraints);
+						public extern Date(sap.ui.model.FormatOptions oFormatOptions, sap.ui.model.type.Date.DateInfo oConstraints);
 
 						/// <summary>
 						/// Constructor for a Date type.
 						/// </summary>
 						/// <param name="oFormatOptions">Formatting options. For a list of all available options, see {@link sap.ui.core.format.DateFormat.getDateInstance DateFormat}.</param>
-						public extern Date(sap.ui.model.TypeOptions oFormatOptions);
+						public extern Date(sap.ui.model.FormatOptions oFormatOptions);
 
 						/// <summary>
 						/// Constructor for a Date type.
@@ -102,7 +102,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.model.type.Date.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						public extern virtual void getOutputPattern();
 

@@ -91,10 +91,6 @@ namespace UI5
 				public enum Type
 				{
 					/// <summary>
-					/// Indicates usage of the browser's globalStorage feature
-					/// </summary>
-					global,
-					/// <summary>
 					/// Indicates usage of the browser's localStorage feature
 					/// </summary>
 					local,

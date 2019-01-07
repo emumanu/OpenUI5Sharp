@@ -10,7 +10,9 @@ namespace UI5
 		public static partial class m
 		{
 			/// <summary>
-			/// <strong><i>Overview</i></strong> <br><br> A {@link sap.m.MessageView} is used to display a summarized list of different types of messages (errors, warnings, success and information). It provides a handy and systemized way to navigate and explore details for every message. It is meant to be embedded into container controls. If the MessageView contains only one item, which has either description, markupDescription or longTextUrl, its details page will be displayed initially. <br><br> <strong>Notes:</strong> <ul> <li> Messages can have descriptions pre-formatted with HTML markup. In this case, the <code>markupDescription</code> has to be set to <code>true</code>. </li> <li> If the message cannot be fully displayed or includes a long description, the MessageView provides navigation to the detailed description. </li> </ul> <strong><i>Structure</i></strong> <br><br> The MessageView stores all messages in an association of type {@link sap.m.MessageItem} named <code>items</code>. <br> A set of properties determines how the items are rendered: <ul> <li> counter - An integer that is used to indicate the number of errors for each type </li> <li> type - The type of message </li> <li> title/subtitle - The title and subtitle of the message</li> <li> description - The long text description of the message</li> </ul> <strong><i>Usage</i></strong> <br><br> As part of the messaging concept, MessageView provides a way to centrally manage messages and show them to the user without additional work for the developer. <br><br>
+			/// <strong><i>Overview</i></strong> <br><br> A {@link sap.m.MessageView} is used to display a summarized list of different types of messages (errors, warnings, success and information). It provides a handy and systemized way to navigate and explore details for every message. It is meant to be embedded into container controls. If the MessageView contains only one item, which has either description, markupDescription or longTextUrl, its details page will be displayed initially. <br><br> <strong>Notes:</strong> <ul> <li>If your application changes its model between two interactions with the MessageView, this could lead to outdated messages being shown. To avoid this, you need to call <code>navigateBack</code> on the MessageView BEFORE opening its container.</li> <li> Messages can have descriptions pre-formatted with HTML markup. In this case, the <code>markupDescription</code> has to be set to <code>true</code>. </li> <li> If the message cannot be fully displayed or includes a long description, the MessageView provides navigation to the detailed description. </li> </ul> <strong><i>Structure</i></strong> <br><br> The MessageView stores all messages in an association of type {@link sap.m.MessageItem} named <code>items</code>. <br> A set of properties determines how the items are rendered: <ul> <li> counter - An integer that is used to indicate the number of errors for each type </li> <li> type - The type of message </li> <li> title/subtitle - The title and subtitle of the message</li> <li> description - The long text description of the message</li> <li> activeTitle - Determines whether the title of the item is interactive</li> </ul> <strong><i>Usage</i></strong> <br><br> As part of the messaging concept, MessageView provides a way to centrally manage messages and show them to the user without additional work for the developer.
+			/// 
+			/// It also exposes an event {@link sap.m.MessageView#activeTitlePress}, which can be used for navigation from a message to the source of the issue. <br><br>
 			/// </summary>
 			[External]
 			[Namespace(false)]
@@ -80,6 +82,11 @@ namespace UI5
 					/// This event will be fired when a validation of a URL from long text description is ready
 					/// </summary>
 					public sap.ui.@base.EventDelegate urlValidated;
+
+					/// <summary>
+					/// This event will be fired when an active title of a MessageItem is pressed
+					/// </summary>
+					public sap.m.MessageActiveTitlePressDelegate activeTitlePress;
 
 				}
 
@@ -711,6 +718,81 @@ namespace UI5
 
 				#endregion
 
+				#region Methods for Event activeTitlePress
+
+				/// <summary>
+				/// Attaches event handler <code>fnFunction</code> to the {@link #event:activeTitlePress activeTitlePress} event of this <code>sap.m.MessageView</code>.
+				/// 
+				/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.m.MessageView</code> itself.
+				/// 
+				/// This event will be fired when an active title of a MessageItem is pressed
+				/// </summary>
+				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
+				/// <param name="fnFunction">The function to be called when the event occurs</param>
+				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.MessageView</code> itself</param>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.MessageView attachActiveTitlePress(object oData, sap.m.MessageActiveTitlePressDelegate fnFunction, object oListener);
+
+				/// <summary>
+				/// Attaches event handler <code>fnFunction</code> to the {@link #event:activeTitlePress activeTitlePress} event of this <code>sap.m.MessageView</code>.
+				/// 
+				/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.m.MessageView</code> itself.
+				/// 
+				/// This event will be fired when an active title of a MessageItem is pressed
+				/// </summary>
+				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
+				/// <param name="fnFunction">The function to be called when the event occurs</param>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.MessageView attachActiveTitlePress(object oData, sap.m.MessageActiveTitlePressDelegate fnFunction);
+
+				/// <summary>
+				/// Attaches event handler <code>fnFunction</code> to the {@link #event:activeTitlePress activeTitlePress} event of this <code>sap.m.MessageView</code>.
+				/// 
+				/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.m.MessageView</code> itself.
+				/// 
+				/// This event will be fired when an active title of a MessageItem is pressed
+				/// </summary>
+				/// <param name="fnFunction">The function to be called when the event occurs</param>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.MessageView attachActiveTitlePress(sap.m.MessageActiveTitlePressDelegate fnFunction);
+
+				/// <summary>
+				/// Attaches event handler <code>fnFunction</code> to the {@link #event:activeTitlePress activeTitlePress} event of this <code>sap.m.MessageView</code>.
+				/// 
+				/// When called, the context of the event handler (its <code>this</code>) will be bound to <code>oListener</code> if specified, otherwise it will be bound to this <code>sap.m.MessageView</code> itself.
+				/// 
+				/// This event will be fired when an active title of a MessageItem is pressed
+				/// </summary>
+				/// <param name="fnFunction">The function to be called when the event occurs</param>
+				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.MessageView</code> itself</param>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.MessageView attachActiveTitlePress(sap.m.MessageActiveTitlePressDelegate fnFunction, object oListener);
+
+				/// <summary>
+				/// Detaches event handler <code>fnFunction</code> from the {@link #event:activeTitlePress activeTitlePress} event of this <code>sap.m.MessageView</code>.
+				/// 
+				/// The passed function and listener object must match the ones used for event registration.
+				/// </summary>
+				/// <param name="fnFunction">The function to be called, when the event occurs</param>
+				/// <param name="oListener">Context object on which the given function had to be called</param>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.MessageView detachActiveTitlePress(sap.m.MessageActiveTitlePressDelegate fnFunction, object oListener);
+
+				/// <summary>
+				/// Fires event {@link #event:activeTitlePress activeTitlePress} to attached listeners.
+				/// </summary>
+				/// <param name="mParameters">Parameters to pass along with the event</param>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.MessageView fireActiveTitlePress(sap.m.MessageActiveTitlePressInfo mParameters);
+
+				/// <summary>
+				/// Fires event {@link #event:activeTitlePress activeTitlePress} to attached listeners.
+				/// </summary>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.MessageView fireActiveTitlePress();
+
+				#endregion
+
 				#region Other methods
 
 				/// <summary>
@@ -747,7 +829,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.MessageView.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Navigates back to the list page

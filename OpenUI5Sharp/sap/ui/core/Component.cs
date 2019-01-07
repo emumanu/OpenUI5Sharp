@@ -110,7 +110,7 @@ namespace UI5
 						/// <summary>
 						/// <code>Promise</code> or array of <code>Promise</code>s for which the Component instantiation should wait
 						/// </summary>
-						public Union<jquery.JQueryPromise<object>, jquery.JQueryPromise<object>[]> waitFor;
+						public Union<es5.Promise<object>, es5.Promise<object>[]> waitFor;
 
 					}
 
@@ -275,7 +275,7 @@ namespace UI5
 					/// </summary>
 					/// <param name="mOptions">Configuration options</param>
 					/// <returns>A Promise that resolves with the newly created component instance</returns>
-					public extern static jquery.JQueryPromise<sap.ui.core.Component> create(sap.ui.core.Component.CreateOptions mOptions);
+					public extern static es5.Promise<sap.ui.core.Component> create(sap.ui.core.Component.CreateOptions mOptions);
 
 					/// <summary>
 					/// Creates a nested component that is declared in the <code>sap.ui5/componentUsages</code> section of the descriptor (manifest.json). The following snippet shows the declaration: <pre>
@@ -296,7 +296,7 @@ namespace UI5
 					/// oComponent.createComponent("myUsage").then(function(oComponent) {
 					///   oComponent.doSomething();
 					/// }).catch(function(oError) {
-					///   jQuery.sap.log.error(oError);
+					///   Log.error(oError);
 					/// });
 					/// </pre>
 					/// 
@@ -313,7 +313,7 @@ namespace UI5
 					/// </summary>
 					/// <param name="vUsage">ID of the component usage or the configuration object that creates the component</param>
 					/// <returns>Component instance or Promise which will be resolved with the component instance (defaults to Promise / asynchronous behavior)</returns>
-					public extern virtual Union<sap.ui.core.Component, jquery.JQueryPromise<object>> createComponent(Union<string, sap.ui.core.Component.CreateComponentInfo> vUsage);
+					public extern virtual Union<sap.ui.core.Component, es5.Promise<object>> createComponent(Union<string, sap.ui.core.Component.CreateComponentInfo> vUsage);
 
 					/// <summary>
 					/// Cleans up the Component instance before destruction.
@@ -461,13 +461,13 @@ namespace UI5
 					/// oComponent.getService("myLocalServiceAlias").then(function(oService) {
 					///   oService.doSomething();
 					/// }).catch(function(oError) {
-					///   jQuery.sap.log.error(oError);
+					///   Log.error(oError);
 					/// });
 					/// </pre>
 					/// </summary>
 					/// <param name="sLocalServiceAlias">Local service alias as defined in the manifest.json</param>
 					/// <returns>Promise which will be resolved with the Service interface</returns>
-					public extern virtual jquery.JQueryPromise<object> getService(string sLocalServiceAlias);
+					public extern virtual es5.Promise<object> getService(string sLocalServiceAlias);
 
 					/// <summary>
 					/// Initializes the Component instance after creation.
@@ -489,7 +489,7 @@ namespace UI5
 					/// </summary>
 					/// <param name="mOptions">Configuration options</param>
 					/// <returns>A Promise that resolves with the loaded component class or <code>undefined</code> in case <code>mOptions.asyncHints.preloadOnly</code> is set to <code>true</code></returns>
-					public extern static jquery.JQueryPromise<object> load(sap.ui.core.Component.LoadOptions mOptions);
+					public extern static es5.Promise<object> load(sap.ui.core.Component.LoadOptions mOptions);
 
 					/// <summary>
 					/// The hook which gets called when the static configuration of the component has been changed by some configuration extension.

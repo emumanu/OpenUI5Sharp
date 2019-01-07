@@ -438,7 +438,7 @@ namespace UI5
 					/// <param name="sSuffix">ID suffix to get a jQuery object for</param>
 					/// <returns>The jQuery wrapped element's DOM reference</returns>
 					[Name("$")]
-					public extern virtual jquery.JQuery<dom.HTMLElement> dollar(string sSuffix);
+					public extern virtual jquery.JQuery<Retyped.dom.HTMLElement> dollar(string sSuffix);
 
 					/// <summary>
 					/// Returns the best suitable DOM node that represents this Element wrapped as jQuery object. I.e. the element returned by {@link sap.ui.core.Element#getDomRef} is wrapped and returned.
@@ -447,7 +447,7 @@ namespace UI5
 					/// </summary>
 					/// <returns>The jQuery wrapped element's DOM reference</returns>
 					[Name("$")]
-					public extern virtual jquery.JQuery<dom.HTMLElement> dollar();
+					public extern virtual jquery.JQuery<Retyped.dom.HTMLElement> dollar();
 
 					/// <summary>
 					/// Registers the given event handler to change events of the screen width/closest media container width, based on the range set with the specified name.
@@ -477,6 +477,13 @@ namespace UI5
 					/// </summary>
 					/// <returns></returns>
 					private extern object _getMediaContainerWidth();
+
+					/// <summary>
+					/// Tracks event. This method is meant for private usages. Apps are not supposed to used it. It is created for an experimental purpose. Implementation should be injected by outside(i.e. sap.ui.core.delegate.UsageAnalytics).
+					/// </summary>
+					/// <param name="sEventId">the name of the event</param>
+					/// <param name="oElement">the element itself</param>
+					private extern static void _trackEvent(string sEventId, sap.ui.core.Element oElement);
 
 					/// <summary>
 					/// Adds a delegate that listens to the events that are fired on this element (as opposed to events which are fired BY this element).
@@ -683,11 +690,13 @@ namespace UI5
 					/// 
 					/// <h3><code>dnd</code> key as a metadata property</h3>
 					/// 
-					/// <b>dnd</b>: <i>object|boolean</i><br> Defines draggable and droppable configuration of the element. The following keys can be provided via <code>dnd</code> object literal to configure drag-and-drop behavior of the element: <ul> <li><code>[draggable=true]: <i>boolean</i></code>Defines whether the element is draggable or not.</li> <li><code>[droppable=true]: <i>boolean</i></code>Defines whether the element is droppable (it allows being dropped on by a draggable element) or not.</li> </ul> If <code>dnd</code> property is of type Boolean, then the <code>draggable</code> and <code>droppable</code> configuration are set to this Boolean value.
+					/// <b>Warning:</b> The drag-and-drop configuration for most controls is experimental at this point. Please be aware that the default behavior is subject to change. If you want to enable drag and drop in your controls (either fully or partially), you must specify the desired behavior in their metadata. If you do not specify the behavior, the support for drag and drop of a control might differ from what you expected once the default behavior is changed.
+					/// 
+					/// <b>dnd</b>: <i>object|boolean</i><br> Defines draggable and droppable configuration of the element. The following keys can be provided via <code>dnd</code> object literal to configure drag-and-drop behavior of the element: <ul> <li><code>[draggable=true]: <i>boolean</i></code> Defines whether the element is draggable or not.</li> <li><code>[droppable=true]: <i>boolean</i></code> Defines whether the element is droppable (it allows being dropped on by a draggable element) or not.</li> </ul> If <code>dnd</code> property is of type Boolean, then the <code>draggable</code> and <code>droppable</code> configuration are set to this Boolean value.
 					/// 
 					/// <h3><code>dnd</code> key as an aggregation metadata property</h3>
 					/// 
-					/// <b>dnd</b>: <i>object|boolean</i><br> In addition to draggable and droppable configuration, the layout of the aggregation can be defined as a hint at the drop position indicator. Default behavior of draggable and droppable depends on the multiplicity of the aggregation: <ul> <li><code>[draggable]: <i>boolean</i></code>Defines whether this aggregation is draggable or not. The default value is <code>false</code> for the aggregation with multiplicity 0..n (<code>multiple: true</code>), otherwise <code>true<code>.</li> <li><code>[droppable]: <i>boolean</i></code>Defines whether dropping is allowed on and/or between the aggregation. The default value is <code>false</code> for the aggregation with multiplicity 0..n (<code>multiple: true</code>), otherwise <code>true<code>.</li> <li><code>[layout="Vertical"]: <i>boolean</i></code>The arrangement of the items in this aggregation. This setting is recommended for the aggregation with multiplicity 0..n (<code>multiple: true</code>). Possible values are <code>Vertical</code>(e.g. rows in a table) and <code>Horizontal</code>(e.g. buttons in a toolbar). It is recommended to use <code>Horizontal</code> layout if the arrangement is multidimensional.</li> </ul> If <code>dnd</code> property is of type Boolean, then the <code>draggable</code> and <code>droppable</code> configuration are set to this Boolean value.
+					/// <b>dnd</b>: <i>object|boolean</i><br> In addition to draggable and droppable configuration, the layout of the aggregation can be defined as a hint at the drop position indicator. Default behavior of draggable and droppable depends on the multiplicity of the aggregation: <ul> <li><code>[draggable]: <i>boolean</i></code> Defines whether this aggregation is draggable or not. The default value is <code>false</code> for the aggregation with multiplicity 0..n (<code>multiple: true</code>), otherwise <code>true<code>.</li> <li><code>[droppable]: <i>boolean</i></code> Defines whether dropping is allowed on and/or between the aggregation. The default value is <code>false</code> for the aggregation with multiplicity 0..n (<code>multiple: true</code>), otherwise <code>true<code>.</li> <li><code>[layout="Vertical"]: <i>boolean</i></code> The arrangement of the items in this aggregation. This setting is recommended for the aggregation with multiplicity 0..n (<code>multiple: true</code>). Possible values are <code>Vertical</code>(e.g. rows in a table) and <code>Horizontal</code>(e.g. buttons in a toolbar). It is recommended to use <code>Horizontal</code> layout if the arrangement is multidimensional.</li> </ul> If <code>dnd</code> property is of type Boolean, then the <code>draggable</code> and <code>droppable</code> configuration are set to this Boolean value.
 					/// </summary>
 					/// <param name="sClassName">fully qualified name of the class that is described by this metadata object</param>
 					/// <param name="oStaticInfo">static info to construct the metadata from</param>
@@ -724,7 +733,7 @@ namespace UI5
 					/// </summary>
 					/// <param name="sSuffix">ID suffix to get the DOMRef for</param>
 					/// <returns>The Element's DOM Element sub DOM Element or null</returns>
-					public extern virtual dom.HTMLElement getDomRef(string sSuffix);
+					public extern virtual Retyped.dom.HTMLElement getDomRef(string sSuffix);
 
 					/// <summary>
 					/// Returns the best suitable DOM Element that represents this UI5 Element. By default the DOM Element with the same ID as this Element is returned. Subclasses should override this method if the lookup via id is not sufficient.
@@ -734,7 +743,7 @@ namespace UI5
 					/// If an ID suffix is given, the ID of this Element is concatenated with the suffix (separated by a single dash) and the DOM node with that compound ID will be returned. This matches the UI5 naming convention for named inner DOM nodes of a control.
 					/// </summary>
 					/// <returns>The Element's DOM Element sub DOM Element or null</returns>
-					public extern virtual dom.HTMLElement getDomRef();
+					public extern virtual Retyped.dom.HTMLElement getDomRef();
 
 					/// <summary>
 					/// Returns a DOM Element representing the given property or aggregation of this <code>Element</code>.
@@ -747,7 +756,7 @@ namespace UI5
 					/// </summary>
 					/// <param name="sSettingsName">Name of the property or aggregation</param>
 					/// <returns>The first matching DOM Element for the setting or <code>null</code></returns>
-					private extern dom.HTMLElement getDomRefForSetting(string sSettingsName);
+					private extern Retyped.dom.HTMLElement getDomRefForSetting(string sSettingsName);
 
 					/// <summary>
 					/// Get the context binding object for a specific model name.
@@ -772,7 +781,7 @@ namespace UI5
 					/// To be overwritten by the specific control method.
 					/// </summary>
 					/// <returns>Returns the DOM Element that should get the focus</returns>
-					public extern virtual dom.HTMLElement getFocusDomRef();
+					public extern virtual Retyped.dom.HTMLElement getFocusDomRef();
 
 					/// <summary>
 					/// Returns an object representing the serialized focus information To be overwritten by the specific control method
@@ -788,7 +797,7 @@ namespace UI5
 					/// When using the defineClass method, this function is automatically created and returns a runtime representation of the design time metadata.
 					/// </summary>
 					/// <returns>runtime metadata</returns>
-					public extern virtual object getMetadata();
+					public extern override sap.ui.@base.ManagedObjectMetadata getMetadata();
 
 					/// <summary>
 					/// Returns the tooltip for this element but only if it is a simple string. Otherwise an undefined value is returned.

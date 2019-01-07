@@ -25,6 +25,13 @@ The &lt;code&gt;AnchorBar&lt;/code&gt; is internally generated as a menu in the 
             <xs:documentation>Determines whether the Anchor bar items are displayed in upper case.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
+        <xs:attribute name="backgroundDesign" type="n6:_BackgroundDesignType">
+          <xs:annotation>
+            <xs:documentation>Determines the background color of the &lt;code&gt;AnchorBar&lt;/code&gt;.
+
+&lt;b&gt;Note:&lt;/b&gt; The default value of &lt;code&gt;backgroundDesign&lt;/code&gt; property is null. If the property is not set, the color of the background is &lt;code&gt;@sapUiObjectHeaderBackground&lt;/code&gt;, which depends on the specific theme.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
         <xs:attribute name="selectedButton" type="xs:string">
           <xs:annotation>
             <xs:documentation>The button that represents the Section being scrolled by the user.</xs:documentation>
@@ -596,19 +603,6 @@ The &lt;code&gt;ObjectPageLayout&lt;/code&gt; is responsive and adapts to all sc
             <xs:element ref="n0:Fragment" />
             <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
           </xs:choice>
-          <xs:element minOccurs="0" name="sections">
-            <xs:annotation>
-              <xs:documentation>The sections that make up the Object page content area.</xs:documentation>
-            </xs:annotation>
-            <xs:complexType>
-              <xs:sequence>
-                <xs:choice minOccurs="0" maxOccurs="unbounded">
-                  <xs:element ref="n24:ObjectPageSection" />
-                  <xs:element ref="n0:Fragment" />
-                </xs:choice>
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
           <xs:element minOccurs="0" name="headerTitle">
             <xs:annotation>
               <xs:documentation>Object page header title - the upper, always static, part of the Object page header.</xs:documentation>
@@ -630,6 +624,19 @@ The &lt;code&gt;ObjectPageLayout&lt;/code&gt; is responsive and adapts to all sc
               <xs:sequence>
                 <xs:choice minOccurs="0" maxOccurs="unbounded">
                   <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="sections">
+            <xs:annotation>
+              <xs:documentation>The sections that make up the Object page content area.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n24:ObjectPageSection" />
                   <xs:element ref="n0:Fragment" />
                 </xs:choice>
               </xs:sequence>
@@ -662,6 +669,13 @@ The &lt;code&gt;ObjectPageLayout&lt;/code&gt; is responsive and adapts to all sc
         <xs:attribute name="upperCaseAnchorBar" type="xs:boolean">
           <xs:annotation>
             <xs:documentation>Determines whether the Anchor bar items are displayed in upper case.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="backgroundDesignAnchorBar" type="n6:_BackgroundDesignType">
+          <xs:annotation>
+            <xs:documentation>Determines the background color of the &lt;code&gt;AnchorBar&lt;/code&gt;.
+
+&lt;b&gt;Note:&lt;/b&gt; The default value of &lt;code&gt;backgroundDesignAnchorBar&lt;/code&gt; property is null. If the property is not set, the color of the background is &lt;code&gt;@sapUiObjectHeaderBackground&lt;/code&gt;, which depends on the specific theme.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="height" type="n0:_CSSSizeType">
@@ -949,18 +963,26 @@ An &lt;code&gt;ObjectPageSubSection&lt;/code&gt; may only be used within section
       <xs:extension base="n24:_ObjectPageSectionBaseType">
         <xs:sequence>
           <xs:choice minOccurs="0" maxOccurs="unbounded">
-            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Element" />
             <xs:element ref="n0:Fragment" />
             <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
           </xs:choice>
           <xs:element minOccurs="0" name="blocks">
             <xs:annotation>
-              <xs:documentation>Controls to be displayed in the subsection</xs:documentation>
+              <xs:documentation>Controls to be displayed in the subsection
+
+&lt;b&gt;Note:&lt;/b&gt; The SAP Fiori Design guidelines require that the &lt;code&gt;ObjectPageHeader&lt;/code&gt;'s content and the &lt;code&gt;ObjectPage&lt;/code&gt;'s subsection content are aligned vertically. When using {@link sap.ui.layout.form.Form}, {@link sap.m.Panel}, {@link sap.m.Table} and {@link sap.m.List} in the subsection content area of &lt;code&gt;ObjectPage&lt;/code&gt;, you need to adjust their left text offset to achieve the vertical alignment. To do this, apply the &lt;code&gt;sapUxAPObjectPageSubSectionAlignContent&lt;/code&gt; CSS class to them and set their &lt;code&gt;width&lt;/code&gt; property to &lt;code&gt;auto&lt;/code&gt; (if not set by default).
+
+Example:
+
+&lt;pre&gt;
+&lt;code&gt; &amp;lt;Panel class="sapUxAPObjectPageSubSectionAlignContent" width="auto"&amp;gt;&amp;lt;/Panel&amp;gt; &lt;/code&gt;
+&lt;/pre&gt;</xs:documentation>
             </xs:annotation>
             <xs:complexType>
               <xs:sequence>
                 <xs:choice minOccurs="0" maxOccurs="unbounded">
-                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Element" />
                   <xs:element ref="n0:Fragment" />
                 </xs:choice>
               </xs:sequence>
@@ -973,7 +995,7 @@ An &lt;code&gt;ObjectPageSubSection&lt;/code&gt; may only be used within section
             <xs:complexType>
               <xs:sequence>
                 <xs:choice minOccurs="0" maxOccurs="unbounded">
-                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Element" />
                   <xs:element ref="n0:Fragment" />
                 </xs:choice>
               </xs:sequence>

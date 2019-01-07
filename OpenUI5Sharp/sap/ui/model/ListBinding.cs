@@ -223,6 +223,13 @@ namespace UI5
 					public extern virtual object[] getDistinctValues(string sPath);
 
 					/// <summary>
+					/// Return the filter information as an AST. The default implementation checks for this.oCombinedFilter, models not using this member may override the method. Consumers must not rely on the origin information to be available, future filter implementations will not provide this information.
+					/// </summary>
+					/// <param name="bIncludeOrigin">include information about the filter objects the tree has been created from</param>
+					/// <returns>The AST of the filter tree</returns>
+					private extern object getFilterInfo(bool bIncludeOrigin);
+
+					/// <summary>
 					/// Gets the group for the given context. Must only be called if isGrouped() returns that grouping is enabled for this binding. The grouping will be performed using the first sorter (in case multiple sorters are defined).
 					/// </summary>
 					/// <param name="oContext">the binding context</param>
@@ -239,7 +246,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.model.ListBinding.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Indicates whether grouping is enabled for the binding. Grouping is enabled for a list binding, if at least one sorter exists on the binding and the first sorter is a grouping sorter.

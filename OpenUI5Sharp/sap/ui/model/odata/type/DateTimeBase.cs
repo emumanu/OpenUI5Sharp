@@ -45,7 +45,7 @@ namespace UI5
 								/// <summary>
 								/// The number of decimal places allowed in the seconds portion of a valid string value (OData V4 only); only integer values between 0 and 12 are valid (since 1.37.0)
 								/// </summary>
-								public bool precision;
+								public int precision;
 
 							}
 
@@ -58,18 +58,24 @@ namespace UI5
 							/// </summary>
 							/// <param name="oFormatOptions">Type-specific format options; see subtypes</param>
 							/// <param name="oConstraints">Constraints; {@link #validateValue validateValue} throws an error if any constraint is violated</param>
-							public extern DateTimeBase(object oFormatOptions, sap.ui.model.odata.type.DateTimeBase.DateTimeBaseInfo oConstraints);
+							public extern DateTimeBase(sap.ui.core.format.DateFormat.FormatOptions oFormatOptions, sap.ui.model.odata.type.DateTimeBase.DateTimeBaseInfo oConstraints);
 
 							/// <summary>
 							/// Base constructor for the primitive types <code>Edm.DateTime</code> and <code>Edm.DateTimeOffset</code>.
 							/// </summary>
 							/// <param name="oFormatOptions">Type-specific format options; see subtypes</param>
-							public extern DateTimeBase(object oFormatOptions);
+							public extern DateTimeBase(sap.ui.core.format.DateFormat.FormatOptions oFormatOptions);
 
 							/// <summary>
 							/// Base constructor for the primitive types <code>Edm.DateTime</code> and <code>Edm.DateTimeOffset</code>.
 							/// </summary>
 							public extern DateTimeBase();
+
+							/// <summary>
+							/// Base constructor for the primitive types <code>Edm.DateTime</code> and <code>Edm.DateTimeOffset</code>.
+							/// </summary>
+							/// <param name="oConstraints">Constraints; {@link #validateValue validateValue} throws an error if any constraint is violated</param>
+							public extern DateTimeBase(sap.ui.model.odata.type.DateTimeBase.DateTimeBaseInfo oConstraints);
 
 							#endregion
 
@@ -111,13 +117,14 @@ namespace UI5
 							/// <param name="oValue">The value to be formatted, which is represented in the model as a <code>Date</code> instance (OData V2)</param>
 							/// <param name="sTargetType">The target type, may be "any", "string", or a type with one of these types as its {@link sap.ui.base.DataType#getPrimitiveType primitive type}. See {@link sap.ui.model.odata.type} for more information.</param>
 							/// <returns>The formatted output value in the target type; <code>undefined</code> or <code>null</code> are formatted to <code>null</code></returns>
-							public extern virtual Union<System.DateTime, string> formatValue(System.DateTime oValue, string sTargetType);
+							public extern virtual Union<DateTime, string> formatValue(DateTime oValue, string sTargetType);
 
 							/// <summary>
 							/// Returns a metadata object for class sap.ui.model.odata.type.DateTimeBase.
 							/// </summary>
 							/// <returns>Metadata object describing this class</returns>
-							public extern static sap.ui.@base.Metadata getMetadata();
+							[Name("getMetadata")]
+							public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 							/// <summary>
 							/// Parses the given value to a <code>Date</code> instance (OData V2).
@@ -125,13 +132,13 @@ namespace UI5
 							/// <param name="sValue">The value to be parsed; the empty string and <code>null</code> are parsed to <code>null</code></param>
 							/// <param name="sSourceType">The source type (the expected type of <code>sValue</code>), must be "string", or a type with "string" as its {@link sap.ui.base.DataType#getPrimitiveType primitive type}. See {@link sap.ui.model.odata.type} for more information.</param>
 							/// <returns>The parsed value</returns>
-							public extern virtual System.DateTime parseValue(string sValue, string sSourceType);
+							public extern virtual DateTime parseValue(string sValue, string sSourceType);
 
 							/// <summary>
 							/// Validates whether the given value in model representation is valid and meets the defined constraints.
 							/// </summary>
 							/// <param name="oValue">The value to be validated</param>
-							public extern virtual void validateValue(System.DateTime oValue);
+							public extern virtual void validateValue(DateTime oValue);
 
 							#endregion
 

@@ -7,6 +7,7 @@ namespace UI5.Extensions
 {
     [Priority(1001)]
     [FileName("openui5sharp.js")]
+    [Name("UI5.Extensions.ExpressionEvaluator")]
     public static partial class ExpressionEvaluator
     {
         public static string GetPath<T>(Expression<T> pathExpression, string separator = "/")

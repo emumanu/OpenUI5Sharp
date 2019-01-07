@@ -973,7 +973,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.Page.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Scrolls to the given position. Only available if enableScrolling is set to "true".
@@ -988,8 +989,9 @@ namespace UI5
 				/// </summary>
 				/// <param name="oElement">The element to which should be scrolled.</param>
 				/// <param name="iTime">The duration of animated scrolling. To scroll immediately without animation, give 0 as value or leave it default.</param>
+				/// <param name="Specifies">the offset left and top for the DOM Element.</param>
 				/// <returns><code>this</code> to facilitate method chaining.</returns>
-				public extern virtual sap.m.Page scrollToElement(Union<dom.HTMLElement, sap.ui.core.Element> oElement, int iTime = 0);
+				public extern virtual sap.m.Page scrollToElement(Union<Retyped.dom.HTMLElement, sap.ui.core.Element> oElement, int iTime, object[] Specifies);
 
 				#endregion
 

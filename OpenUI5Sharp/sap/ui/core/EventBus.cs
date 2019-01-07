@@ -71,7 +71,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.core.EventBus.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Fires an event using the specified settings and notifies all attached event handlers.

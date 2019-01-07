@@ -142,7 +142,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.m.semantic.SemanticControl.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Implementation of a commonly used function that adapts <code>sap.ui.core.Element</code> to provide DOM reference for opening popovers.

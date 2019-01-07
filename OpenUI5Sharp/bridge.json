@@ -55,6 +55,8 @@
     "arrayIndex": "Plain",
     "autoProperty": "Plain",
     "boxing": "Plain",
+    "externalCast": "Plain",
+    "inlineComment": "Plain",
     "integer": "Plain",
     "lambda": "Plain"
   },

@@ -136,6 +136,17 @@ namespace UI5
 					public Union<sap.m.ListKeyboardMode, string, sap.ui.@base.ManagedObject.BindPropertyInfo> keyboardMode;
 
 					/// <summary>
+					/// Defines the section of the control that remains fixed at the top of the page during vertical scrolling as long as the control is in the viewport.
+					/// 
+					/// <b>Note:</b> Enabling sticky column headers in List controls will not have any effect.
+					/// 
+					/// There is limited browser support. Browsers that do not support this feature are listed below: <ul> <li>IE</li> <li>Edge lower than version 41 (EdgeHTML 16)</li> <li>Firefox lower than version 59</li> </ul>
+					/// 
+					/// There are also some known limitations with respect to the scrolling behavior. A few are given below: <ul> <li>If the control is placed in certain layout containers, for example, the <code>sap.ui.layout.Grid</code> control, the sticky elements of the control are not fixed at the top of the viewport. The control behaves in a similar way when placed within the <code>sap.m.ObjectPage</code> control.</li> <li>If sticky column headers are enabled in the <code>sap.m.Table</code> control, setting focus on the column headers will let the table scroll to the top.</li> </ul>
+					/// </summary>
+					public Union<sap.m.Sticky[], string, sap.ui.@base.ManagedObject.BindPropertyInfo> sticky;
+
+					/// <summary>
 					/// Defines the items contained within this control.
 					/// </summary>
 					public Union<sap.m.ListItemBase[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
@@ -961,6 +972,41 @@ namespace UI5
 
 				#endregion
 
+				#region Methods for Property sticky
+
+				/// <summary>
+				/// Gets current value of property {@link #getSticky sticky}.
+				/// 
+				/// Defines the section of the control that remains fixed at the top of the page during vertical scrolling as long as the control is in the viewport.
+				/// 
+				/// <b>Note:</b> Enabling sticky column headers in List controls will not have any effect.
+				/// 
+				/// There is limited browser support. Browsers that do not support this feature are listed below: <ul> <li>IE</li> <li>Edge lower than version 41 (EdgeHTML 16)</li> <li>Firefox lower than version 59</li> </ul>
+				/// 
+				/// There are also some known limitations with respect to the scrolling behavior. A few are given below: <ul> <li>If the control is placed in certain layout containers, for example, the <code>sap.ui.layout.Grid</code> control, the sticky elements of the control are not fixed at the top of the viewport. The control behaves in a similar way when placed within the <code>sap.m.ObjectPage</code> control.</li> <li>If sticky column headers are enabled in the <code>sap.m.Table</code> control, setting focus on the column headers will let the table scroll to the top.</li> </ul>
+				/// </summary>
+				/// <returns>Value of property <code>sticky</code></returns>
+				public extern virtual sap.m.Sticky[] getSticky();
+
+				/// <summary>
+				/// Sets a new value for property {@link #getSticky sticky}.
+				/// 
+				/// Defines the section of the control that remains fixed at the top of the page during vertical scrolling as long as the control is in the viewport.
+				/// 
+				/// <b>Note:</b> Enabling sticky column headers in List controls will not have any effect.
+				/// 
+				/// There is limited browser support. Browsers that do not support this feature are listed below: <ul> <li>IE</li> <li>Edge lower than version 41 (EdgeHTML 16)</li> <li>Firefox lower than version 59</li> </ul>
+				/// 
+				/// There are also some known limitations with respect to the scrolling behavior. A few are given below: <ul> <li>If the control is placed in certain layout containers, for example, the <code>sap.ui.layout.Grid</code> control, the sticky elements of the control are not fixed at the top of the viewport. The control behaves in a similar way when placed within the <code>sap.m.ObjectPage</code> control.</li> <li>If sticky column headers are enabled in the <code>sap.m.Table</code> control, setting focus on the column headers will let the table scroll to the top.</li> </ul>
+				/// 
+				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
+				/// </summary>
+				/// <param name="sSticky">New value for property <code>sticky</code></param>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.ListBase setSticky(sap.m.Sticky[] sSticky);
+
+				#endregion
+
 				#region Methods for Aggregation items
 
 				/// <summary>
@@ -1021,7 +1067,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oBindingInfo">The binding information</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ListBase bindItems(object oBindingInfo);
+				public extern virtual sap.m.ListBase bindItems(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 				/// <summary>
 				/// Unbinds aggregation {@link #getItems items} from model data.
@@ -2001,7 +2047,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.ListBase.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Returns the binding contexts of the selected items. Note: This method returns an empty array if no databinding is used.

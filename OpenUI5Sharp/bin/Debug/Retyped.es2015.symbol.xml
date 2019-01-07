@@ -30,18 +30,6 @@
             </summary>
             <param name = "description">Description of the new Symbol object.</param>
         </member>
-        <member name="M:Retyped.es2015_symbol.SymbolConstructor.Self(System.String)">
-            <summary>
-            Returns a new unique Symbol value.
-            </summary>
-            <param name = "description">Description of the new Symbol object.</param>
-        </member>
-        <member name="M:Retyped.es2015_symbol.SymbolConstructor.Self(System.Double)">
-            <summary>
-            Returns a new unique Symbol value.
-            </summary>
-            <param name = "description">Description of the new Symbol object.</param>
-        </member>
         <member name="M:Retyped.es2015_symbol.SymbolConstructor.for(System.String)">
             <summary>
             Returns a Symbol object from the global symbol registry matching the given key if found.

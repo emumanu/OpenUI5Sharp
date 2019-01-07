@@ -49,19 +49,46 @@ namespace UI5
 					/// <summary>
 					/// Event raised if a <code>GroupItem</code> has been added.
 					/// </summary>
-					public sap.ui.@base.EventDelegate addGroupItem;
+					public sap.m.P13nGroupPanel.GroupItemDelegate addGroupItem;
 
 					/// <summary>
 					/// Event raised if a <code>GroupItem</code> has been removed.
 					/// </summary>
-					public sap.ui.@base.EventDelegate removeGroupItem;
+					public sap.m.P13nRemoveItemDelegate removeGroupItem;
 
 					/// <summary>
 					/// Event raised if a <code>GroupItem</code> has been updated.
 					/// </summary>
-					public sap.ui.@base.EventDelegate updateGroupItem;
+					public sap.m.P13nGroupPanel.GroupItemDelegate updateGroupItem;
 
 				}
+
+				#endregion
+
+				#region Typed Parameters
+
+				/// <summary>
+				/// Parameter to be used as Object Literal
+				/// </summary>
+				[External]
+				[ObjectLiteral]
+				public partial class GroupItemInfo
+				{
+					public string id;
+
+					public int index;
+
+					public string key;
+
+					public sap.m.P13nGroupItem groupItemData;
+
+				}
+
+				#endregion
+
+				#region Delegates
+
+				public delegate void GroupItemDelegate(sap.ui.@base.Event<sap.m.P13nGroupPanel.GroupItemInfo> oEvent, object oData);
 
 				#endregion
 
@@ -244,7 +271,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oBindingInfo">The binding information</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nGroupPanel bindGroupItems(object oBindingInfo);
+				public extern virtual sap.m.P13nGroupPanel bindGroupItems(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 				/// <summary>
 				/// Unbinds aggregation {@link #getGroupItems groupItems} from model data.
@@ -267,7 +294,7 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.P13nGroupPanel</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nGroupPanel attachAddGroupItem(object oData, sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nGroupPanel attachAddGroupItem(object oData, sap.m.P13nGroupPanel.GroupItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:addGroupItem addGroupItem} event of this <code>sap.m.P13nGroupPanel</code>.
@@ -279,7 +306,7 @@ namespace UI5
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nGroupPanel attachAddGroupItem(object oData, sap.ui.@base.EventDelegate fnFunction);
+				public extern virtual sap.m.P13nGroupPanel attachAddGroupItem(object oData, sap.m.P13nGroupPanel.GroupItemDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:addGroupItem addGroupItem} event of this <code>sap.m.P13nGroupPanel</code>.
@@ -290,7 +317,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nGroupPanel attachAddGroupItem(sap.ui.@base.EventDelegate fnFunction);
+				public extern virtual sap.m.P13nGroupPanel attachAddGroupItem(sap.m.P13nGroupPanel.GroupItemDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:addGroupItem addGroupItem} event of this <code>sap.m.P13nGroupPanel</code>.
@@ -302,7 +329,7 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.P13nGroupPanel</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nGroupPanel attachAddGroupItem(sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nGroupPanel attachAddGroupItem(sap.m.P13nGroupPanel.GroupItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:addGroupItem addGroupItem} event of this <code>sap.m.P13nGroupPanel</code>.
@@ -312,14 +339,14 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nGroupPanel detachAddGroupItem(sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nGroupPanel detachAddGroupItem(sap.m.P13nGroupPanel.GroupItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:addGroupItem addGroupItem} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nGroupPanel fireAddGroupItem(object mParameters);
+				public extern virtual sap.m.P13nGroupPanel fireAddGroupItem(sap.m.P13nGroupPanel.GroupItemInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:addGroupItem addGroupItem} to attached listeners.
@@ -342,7 +369,7 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.P13nGroupPanel</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nGroupPanel attachRemoveGroupItem(object oData, sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nGroupPanel attachRemoveGroupItem(object oData, sap.m.P13nRemoveItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:removeGroupItem removeGroupItem} event of this <code>sap.m.P13nGroupPanel</code>.
@@ -354,7 +381,7 @@ namespace UI5
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nGroupPanel attachRemoveGroupItem(object oData, sap.ui.@base.EventDelegate fnFunction);
+				public extern virtual sap.m.P13nGroupPanel attachRemoveGroupItem(object oData, sap.m.P13nRemoveItemDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:removeGroupItem removeGroupItem} event of this <code>sap.m.P13nGroupPanel</code>.
@@ -365,7 +392,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nGroupPanel attachRemoveGroupItem(sap.ui.@base.EventDelegate fnFunction);
+				public extern virtual sap.m.P13nGroupPanel attachRemoveGroupItem(sap.m.P13nRemoveItemDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:removeGroupItem removeGroupItem} event of this <code>sap.m.P13nGroupPanel</code>.
@@ -377,7 +404,7 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.P13nGroupPanel</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nGroupPanel attachRemoveGroupItem(sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nGroupPanel attachRemoveGroupItem(sap.m.P13nRemoveItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:removeGroupItem removeGroupItem} event of this <code>sap.m.P13nGroupPanel</code>.
@@ -387,14 +414,14 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nGroupPanel detachRemoveGroupItem(sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nGroupPanel detachRemoveGroupItem(sap.m.P13nRemoveItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:removeGroupItem removeGroupItem} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nGroupPanel fireRemoveGroupItem(object mParameters);
+				public extern virtual sap.m.P13nGroupPanel fireRemoveGroupItem(sap.m.P13nRemoveItemInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:removeGroupItem removeGroupItem} to attached listeners.
@@ -417,7 +444,7 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.P13nGroupPanel</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nGroupPanel attachUpdateGroupItem(object oData, sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nGroupPanel attachUpdateGroupItem(object oData, sap.m.P13nGroupPanel.GroupItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:updateGroupItem updateGroupItem} event of this <code>sap.m.P13nGroupPanel</code>.
@@ -429,7 +456,7 @@ namespace UI5
 				/// <param name="oData">An application-specific payload object that will be passed to the event handler along with the event object when firing the event</param>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nGroupPanel attachUpdateGroupItem(object oData, sap.ui.@base.EventDelegate fnFunction);
+				public extern virtual sap.m.P13nGroupPanel attachUpdateGroupItem(object oData, sap.m.P13nGroupPanel.GroupItemDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:updateGroupItem updateGroupItem} event of this <code>sap.m.P13nGroupPanel</code>.
@@ -440,7 +467,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nGroupPanel attachUpdateGroupItem(sap.ui.@base.EventDelegate fnFunction);
+				public extern virtual sap.m.P13nGroupPanel attachUpdateGroupItem(sap.m.P13nGroupPanel.GroupItemDelegate fnFunction);
 
 				/// <summary>
 				/// Attaches event handler <code>fnFunction</code> to the {@link #event:updateGroupItem updateGroupItem} event of this <code>sap.m.P13nGroupPanel</code>.
@@ -452,7 +479,7 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called when the event occurs</param>
 				/// <param name="oListener">Context object to call the event handler with. Defaults to this <code>sap.m.P13nGroupPanel</code> itself</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nGroupPanel attachUpdateGroupItem(sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nGroupPanel attachUpdateGroupItem(sap.m.P13nGroupPanel.GroupItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Detaches event handler <code>fnFunction</code> from the {@link #event:updateGroupItem updateGroupItem} event of this <code>sap.m.P13nGroupPanel</code>.
@@ -462,14 +489,14 @@ namespace UI5
 				/// <param name="fnFunction">The function to be called, when the event occurs</param>
 				/// <param name="oListener">Context object on which the given function had to be called</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nGroupPanel detachUpdateGroupItem(sap.ui.@base.EventDelegate fnFunction, object oListener);
+				public extern virtual sap.m.P13nGroupPanel detachUpdateGroupItem(sap.m.P13nGroupPanel.GroupItemDelegate fnFunction, object oListener);
 
 				/// <summary>
 				/// Fires event {@link #event:updateGroupItem updateGroupItem} to attached listeners.
 				/// </summary>
 				/// <param name="mParameters">Parameters to pass along with the event</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.P13nGroupPanel fireUpdateGroupItem(object mParameters);
+				public extern virtual sap.m.P13nGroupPanel fireUpdateGroupItem(sap.m.P13nGroupPanel.GroupItemInfo mParameters);
 
 				/// <summary>
 				/// Fires event {@link #event:updateGroupItem updateGroupItem} to attached listeners.
@@ -515,7 +542,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.P13nGroupPanel.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Removes all invalid group conditions.

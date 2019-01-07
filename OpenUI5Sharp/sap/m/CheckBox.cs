@@ -16,7 +16,7 @@ namespace UI5
 			/// 
 			/// The <code>CheckBox</code> control consists of a box and a label that describes its purpose. If it's checked, an indicator is displayed inside the box.
 			/// 
-			/// To select/deselect the <code>CheckBox</code>, the user has to click or tap the square box or its label. Clicking or tapping toggles the <code>CheckBox</code> between checked and unchecked state. The <code>CheckBox</code> control only has 2 states - checked and unchecked. There is no third state for partially selected.
+			/// To select/deselect the <code>CheckBox</code>, the user has to click or tap the square box or its label. Clicking or tapping toggles the <code>CheckBox</code> between checked and unchecked state. The <code>CheckBox</code> control only has 3 states - checked, unchecked and partially selected.
 			/// 
 			/// <h3>Usage</h3>
 			/// 
@@ -49,9 +49,18 @@ namespace UI5
 				public partial class Settings : sap.ui.core.Control.Settings
 				{
 					/// <summary>
-					/// Stores the state of the checkbox whether it is selected or not.
+					/// Determines whether the <code>CheckBox</code> is selected (checked).
+					/// 
+					/// When this property is set to <code>true</code>, the control is displayed as selected, unless the value of the <code>partiallySelected</code> property is also set to <code>true</code>. In this case, the control is displayed as partially selected.
 					/// </summary>
 					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> selected;
+
+					/// <summary>
+					/// Determines whether the <code>CheckBox</code> is displayed as partially selected.
+					/// 
+					/// <b>Note:</b> This property leads only to visual change of the checkbox and the state cannot be achieved by user interaction. The visual state depends on the value of the <code>selected</code> property: <ul> <li>If <code>selected</code> = <code>true</code> and <code>partiallySelected</code> = <code>true</code>, the control is displayed as partially selected</li> <li>If <code>selected</code> = <code>true</code> and <code>partiallySelected</code> = <code>false</code>, the control is displayed as selected</li> <li>If <code>selected</code> = <code>false</code>, the control is displayed as not selected regardless of what is set for <code>partiallySelected</code></li> </ul>
+					/// </summary>
+					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> partiallySelected;
 
 					/// <summary>
 					/// Disables the Checkbox. Disabled controls are not interactive and are rendered differently according to the theme.
@@ -185,7 +194,9 @@ namespace UI5
 				/// <summary>
 				/// Gets current value of property {@link #getSelected selected}.
 				/// 
-				/// Stores the state of the checkbox whether it is selected or not.
+				/// Determines whether the <code>CheckBox</code> is selected (checked).
+				/// 
+				/// When this property is set to <code>true</code>, the control is displayed as selected, unless the value of the <code>partiallySelected</code> property is also set to <code>true</code>. In this case, the control is displayed as partially selected.
 				/// 
 				/// Default value is <code>false</code>.
 				/// </summary>
@@ -195,7 +206,9 @@ namespace UI5
 				/// <summary>
 				/// Sets a new value for property {@link #getSelected selected}.
 				/// 
-				/// Stores the state of the checkbox whether it is selected or not.
+				/// Determines whether the <code>CheckBox</code> is selected (checked).
+				/// 
+				/// When this property is set to <code>true</code>, the control is displayed as selected, unless the value of the <code>partiallySelected</code> property is also set to <code>true</code>. In this case, the control is displayed as partially selected.
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// 
@@ -204,6 +217,37 @@ namespace UI5
 				/// <param name="bSelected">New value for property <code>selected</code></param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
 				public extern virtual sap.m.CheckBox setSelected(bool bSelected);
+
+				#endregion
+
+				#region Methods for Property partiallySelected
+
+				/// <summary>
+				/// Gets current value of property {@link #getPartiallySelected partiallySelected}.
+				/// 
+				/// Determines whether the <code>CheckBox</code> is displayed as partially selected.
+				/// 
+				/// <b>Note:</b> This property leads only to visual change of the checkbox and the state cannot be achieved by user interaction. The visual state depends on the value of the <code>selected</code> property: <ul> <li>If <code>selected</code> = <code>true</code> and <code>partiallySelected</code> = <code>true</code>, the control is displayed as partially selected</li> <li>If <code>selected</code> = <code>true</code> and <code>partiallySelected</code> = <code>false</code>, the control is displayed as selected</li> <li>If <code>selected</code> = <code>false</code>, the control is displayed as not selected regardless of what is set for <code>partiallySelected</code></li> </ul>
+				/// 
+				/// Default value is <code>false</code>.
+				/// </summary>
+				/// <returns>Value of property <code>partiallySelected</code></returns>
+				public extern virtual bool getPartiallySelected();
+
+				/// <summary>
+				/// Sets a new value for property {@link #getPartiallySelected partiallySelected}.
+				/// 
+				/// Determines whether the <code>CheckBox</code> is displayed as partially selected.
+				/// 
+				/// <b>Note:</b> This property leads only to visual change of the checkbox and the state cannot be achieved by user interaction. The visual state depends on the value of the <code>selected</code> property: <ul> <li>If <code>selected</code> = <code>true</code> and <code>partiallySelected</code> = <code>true</code>, the control is displayed as partially selected</li> <li>If <code>selected</code> = <code>true</code> and <code>partiallySelected</code> = <code>false</code>, the control is displayed as selected</li> <li>If <code>selected</code> = <code>false</code>, the control is displayed as not selected regardless of what is set for <code>partiallySelected</code></li> </ul>
+				/// 
+				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
+				/// 
+				/// Default value is <code>false</code>.
+				/// </summary>
+				/// <param name="bPartiallySelected">New value for property <code>partiallySelected</code></param>
+				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
+				public extern virtual sap.m.CheckBox setPartiallySelected(bool bPartiallySelected);
 
 				#endregion
 
@@ -721,7 +765,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.CheckBox.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Returns the CheckBox`s tab index.

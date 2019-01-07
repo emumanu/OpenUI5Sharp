@@ -133,7 +133,7 @@ namespace UI5
 					/// <summary>
 					/// Holds the special dates in the context of a row. A single date or a date range can be set.
 					/// 
-					/// <b>Note</> Only date or date ranges of type <code>sap.ui.unified.CalendarDayType.NonWorking</code> will be visualized in the <code>PlanningCalendarRow</code>. If the aggregation is set as another type, the date or date range will be ignored and will not be displayed in the control.
+					/// <b>Note</b> Only date or date ranges of type <code>sap.ui.unified.CalendarDayType.NonWorking</code> will be visualized in the <code>PlanningCalendarRow</code>. If the aggregation is set as another type, the date or date range will be ignored and will not be displayed in the control.
 					/// </summary>
 					public Union<sap.ui.unified.DateTypeRange[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> specialDates;
 
@@ -769,7 +769,7 @@ namespace UI5
 				/// 
 				/// Holds the special dates in the context of a row. A single date or a date range can be set.
 				/// 
-				/// <b>Note</> Only date or date ranges of type <code>sap.ui.unified.CalendarDayType.NonWorking</code> will be visualized in the <code>PlanningCalendarRow</code>. If the aggregation is set as another type, the date or date range will be ignored and will not be displayed in the control.
+				/// <b>Note</b> Only date or date ranges of type <code>sap.ui.unified.CalendarDayType.NonWorking</code> will be visualized in the <code>PlanningCalendarRow</code>. If the aggregation is set as another type, the date or date range will be ignored and will not be displayed in the control.
 				/// </summary>
 				/// <returns></returns>
 				public extern virtual sap.ui.unified.DateTypeRange[] getSpecialDates();
@@ -816,10 +816,6 @@ namespace UI5
 				/// </summary>
 				/// <returns>An array of the removed elements (might be empty)</returns>
 				public extern virtual sap.ui.unified.DateTypeRange[] removeAllSpecialDates();
-
-				#endregion
-
-				#region Methods for Aggregation _nonWorkingDates
 
 				#endregion
 
@@ -1171,7 +1167,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.PlanningCalendarRow.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				#endregion
 

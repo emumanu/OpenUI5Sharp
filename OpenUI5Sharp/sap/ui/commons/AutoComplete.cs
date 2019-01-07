@@ -222,7 +222,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.commons.AutoComplete.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					[Obsolete("Deprecated since 1.10.0. NOT SUPPORTED")]
 					public extern virtual void getSelectedItemId();

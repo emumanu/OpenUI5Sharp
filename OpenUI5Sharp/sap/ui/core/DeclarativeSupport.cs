@@ -33,20 +33,20 @@ namespace UI5
 					/// <param name="oElement">the DOM element to compile</param>
 					/// <param name="oView">The view instance to use</param>
 					/// <param name="isRecursive">Whether the call of the function is recursive.</param>
-					public extern static void compile(dom.HTMLElement oElement, sap.ui.core.mvc.HTMLView oView, bool isRecursive);
+					public extern static void compile(Retyped.dom.HTMLElement oElement, sap.ui.core.mvc.HTMLView oView, bool isRecursive);
 
 					/// <summary>
 					/// Enhances the given DOM element by parsing the Control and Elements info and creating the SAPUI5 controls for them.
 					/// </summary>
 					/// <param name="oElement">the DOM element to compile</param>
 					/// <param name="oView">The view instance to use</param>
-					public extern static void compile(dom.HTMLElement oElement, sap.ui.core.mvc.HTMLView oView);
+					public extern static void compile(Retyped.dom.HTMLElement oElement, sap.ui.core.mvc.HTMLView oView);
 
 					/// <summary>
 					/// Enhances the given DOM element by parsing the Control and Elements info and creating the SAPUI5 controls for them.
 					/// </summary>
 					/// <param name="oElement">the DOM element to compile</param>
-					public extern static void compile(dom.HTMLElement oElement);
+					public extern static void compile(Retyped.dom.HTMLElement oElement);
 
 					#endregion
 

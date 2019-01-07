@@ -310,7 +310,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.PullToRefresh.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Hides the control and resets it to the normal state. In non-touch environments the control is not hidden.

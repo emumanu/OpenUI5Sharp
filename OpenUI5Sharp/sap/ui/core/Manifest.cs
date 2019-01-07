@@ -125,7 +125,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.core.Manifest.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Returns the raw manifest defined in the metadata of the component. If not specified, the return value is null.
@@ -138,7 +139,7 @@ namespace UI5
 					/// </summary>
 					/// <param name="mOptions">the configuration options</param>
 					/// <returns>Manifest object or for asynchronous calls an ECMA Script 6 Promise object will be returned.</returns>
-					public extern static Union<sap.ui.core.Manifest, jquery.JQueryPromise<object>> load(object mOptions);
+					public extern static Union<sap.ui.core.Manifest, es5.Promise<object>> load(object mOptions);
 
 					#endregion
 

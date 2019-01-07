@@ -1243,7 +1243,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.unified.CalendarRow.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// After a resize of the <code>CalendarRow</code>, some calculations for appointment sizes are needed.

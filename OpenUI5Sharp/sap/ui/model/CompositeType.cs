@@ -87,7 +87,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.model.CompositeType.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Parse a value of an internal type to the expected set of values of the model type.

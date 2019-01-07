@@ -235,7 +235,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.core.Configuration.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Returns whether there should be an exception on any duplicate element IDs.

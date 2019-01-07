@@ -573,7 +573,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.TileContainer.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Returns the index of the first Tile visible in the current page.

@@ -67,7 +67,7 @@ namespace UI5
 						/// Returns the drop indicator.
 						/// </summary>
 						/// <returns>Drop indicator's DOM reference</returns>
-						public extern static dom.HTMLElement getIndicator();
+						public extern static Retyped.dom.HTMLElement getIndicator();
 
 						/// <summary>
 						/// Returns the visual configuration of the drop indicator.

@@ -177,6 +177,15 @@ On Android these icons may or may not be used by the device. Apparently chances 
             <xs:documentation>Opacity of the background image. The opacity can be set between 0 (fully transparent) and 1 fully opaque). This can be used to make the application content better readable by making the background image partly transparent.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
+        <xs:attribute name="mobileWebAppCapable" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the &lt;code&gt;App&lt;/code&gt; is displayed without address bar when opened from an exported home screen icon on a mobile device.
+
+Keep in mind that if enabled, there is no back button provided by the browser and the app must provide own navigation on all displayed pages to avoid dead ends.
+
+&lt;b&gt;Note&lt;/b&gt; The property can be toggled, but it doesn't take effect in real time. It takes the set value at the moment when the home screen icon is exported by the user. For example, if the icon is exported while the property is set to &lt;code&gt;true&lt;/code&gt;, the &lt;code&gt;App&lt;/code&gt; will have no address bar when opened from that same icon regardless of a changed property value to &lt;code&gt;false&lt;/code&gt; at a later time.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
         <xs:attribute name="orientationChange" type="xs:string">
           <xs:annotation>
             <xs:documentation>Fired when the orientation (portrait/landscape) of the device is changed.</xs:documentation>
@@ -625,7 +634,7 @@ If only one version of image is provided, set this value to false to avoid the a
 
 The &lt;code&gt;CheckBox&lt;/code&gt; control consists of a box and a label that describes its purpose. If it's checked, an indicator is displayed inside the box.
 
-To select/deselect the &lt;code&gt;CheckBox&lt;/code&gt;, the user has to click or tap the square box or its label. Clicking or tapping toggles the &lt;code&gt;CheckBox&lt;/code&gt; between checked and unchecked state. The &lt;code&gt;CheckBox&lt;/code&gt; control only has 2 states - checked and unchecked. There is no third state for partially selected.
+To select/deselect the &lt;code&gt;CheckBox&lt;/code&gt;, the user has to click or tap the square box or its label. Clicking or tapping toggles the &lt;code&gt;CheckBox&lt;/code&gt; between checked and unchecked state. The &lt;code&gt;CheckBox&lt;/code&gt; control only has 3 states - checked, unchecked and partially selected.
 
 &lt;h3&gt;Usage&lt;/h3&gt;
 
@@ -649,7 +658,16 @@ You can disable the &lt;code&gt;CheckBox&lt;/code&gt; by setting the &lt;code&gt
       <xs:extension base="n0:_ControlType">
         <xs:attribute name="selected" type="xs:boolean">
           <xs:annotation>
-            <xs:documentation>Stores the state of the checkbox whether it is selected or not.</xs:documentation>
+            <xs:documentation>Determines whether the &lt;code&gt;CheckBox&lt;/code&gt; is selected (checked).
+
+When this property is set to &lt;code&gt;true&lt;/code&gt;, the control is displayed as selected, unless the value of the &lt;code&gt;partiallySelected&lt;/code&gt; property is also set to &lt;code&gt;true&lt;/code&gt;. In this case, the control is displayed as partially selected.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="partiallySelected" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Determines whether the &lt;code&gt;CheckBox&lt;/code&gt; is displayed as partially selected.
+
+&lt;b&gt;Note:&lt;/b&gt; This property leads only to visual change of the checkbox and the state cannot be achieved by user interaction. The visual state depends on the value of the &lt;code&gt;selected&lt;/code&gt; property: &lt;ul&gt; &lt;li&gt;If &lt;code&gt;selected&lt;/code&gt; = &lt;code&gt;true&lt;/code&gt; and &lt;code&gt;partiallySelected&lt;/code&gt; = &lt;code&gt;true&lt;/code&gt;, the control is displayed as partially selected&lt;/li&gt; &lt;li&gt;If &lt;code&gt;selected&lt;/code&gt; = &lt;code&gt;true&lt;/code&gt; and &lt;code&gt;partiallySelected&lt;/code&gt; = &lt;code&gt;false&lt;/code&gt;, the control is displayed as selected&lt;/li&gt; &lt;li&gt;If &lt;code&gt;selected&lt;/code&gt; = &lt;code&gt;false&lt;/code&gt;, the control is displayed as not selected regardless of what is set for &lt;code&gt;partiallySelected&lt;/code&gt;&lt;/li&gt; &lt;/ul&gt;</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="enabled" type="xs:boolean">
@@ -953,7 +971,7 @@ See section "{@link topic:6f778a805bc3453dbb66e246d8271839 Defining Column Width
   </xs:complexType>
   <xs:element name="ComboBox" substitutionGroup="n6:ComboBoxBase" type="n6:_ComboBoxType">
     <xs:annotation>
-      <xs:documentation>A drop-down list for selecting and filtering values. &lt;h3&gt;Overview&lt;/h3&gt; The control represents a drop-down menu with a list of the available options and a text input field to narrow down the options. &lt;h3&gt;Structure&lt;/h3&gt; The combo-box consists of the following elements: &lt;ul&gt; &lt;li&gt; Input field - displays the selected option or a custom user entry. Users can type to narrow down the list or enter their own value.&lt;/li&gt; &lt;li&gt; Drop-down arrow - expands\collapses the option list.&lt;/li&gt; &lt;li&gt; Option list - the list of available options.&lt;/li&gt; &lt;/ul&gt; By setting the &lt;code&gt;showSecondaryValues&lt;/code&gt; property, the combo box can display an additional value for each option (if there is one). Filtering is done only on the first option. &lt;h3&gt;Usage&lt;/h3&gt; &lt;h4&gt;When to use:&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;You need to select only one item in a long list of options (between 13 and 200) or your custom user input.&lt;/li&gt; &lt;/ul&gt; &lt;h4&gt;When not to use:&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;You need to select between only two options. Use a {@link sap.m.Switch switch} control instead.&lt;/li&gt; &lt;li&gt;You need to select between 12 options. Use a {@link sap.m.Select select} control instead.&lt;/li&gt; &lt;li&gt;You need to select between more than 200 options. Use a {@link sap.m.Input input} control with value help instead.&lt;/li&gt; &lt;/ul&gt; &lt;h3&gt;Responsive Behavior&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;The width of the option list adapts to its content. The minimum width is the input field plus the drop-down arrow.&lt;/li&gt; &lt;li&gt;There is no horizontal scrolling in the option list. Entries in the list that are too long will be truncated.&lt;/li&gt; &lt;li&gt;On phone devices the combo box option list opens a dialog.&lt;/li&gt; &lt;/ul&gt;</xs:documentation>
+      <xs:documentation>A drop-down list for selecting and filtering values. &lt;h3&gt;Overview&lt;/h3&gt; The control represents a drop-down menu with a list of the available options and a text input field to narrow down the options. &lt;h3&gt;Structure&lt;/h3&gt; The combo-box consists of the following elements: &lt;ul&gt; &lt;li&gt; Input field - displays the selected option or a custom user entry. Users can type to narrow down the list or enter their own value.&lt;/li&gt; &lt;li&gt; Drop-down arrow - expands\collapses the option list.&lt;/li&gt; &lt;li&gt; Option list - the list of available options.&lt;/li&gt; &lt;/ul&gt; By setting the &lt;code&gt;showSecondaryValues&lt;/code&gt; property, the combo box can display an additional value for each option (if there is one). &lt;h3&gt;Usage&lt;/h3&gt; &lt;h4&gt;When to use:&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;You need to select only one item in a long list of options (between 13 and 200) or your custom user input.&lt;/li&gt; &lt;/ul&gt; &lt;h4&gt;When not to use:&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;You need to select between only two options. Use a {@link sap.m.Switch switch} control instead.&lt;/li&gt; &lt;li&gt;You need to select between up to 12 options. Use a {@link sap.m.Select select} control instead.&lt;/li&gt; &lt;li&gt;You need to select between more than 200 options. Use a {@link sap.m.Input input} control with value help instead.&lt;/li&gt; &lt;/ul&gt; &lt;h3&gt;Responsive Behavior&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;The width of the option list adapts to its content. The minimum width is the input field plus the drop-down arrow.&lt;/li&gt; &lt;li&gt;There is no horizontal scrolling in the option list. Entries in the list that are too long will be truncated.&lt;/li&gt; &lt;li&gt;On phone devices the combo box option list opens a dialog.&lt;/li&gt; &lt;/ul&gt;</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="_ComboBoxType">
@@ -1176,7 +1194,7 @@ The user can enter a date by: &lt;ul&gt;&lt;li&gt;Using the calendar that opens 
 
 On app level, there are two options to provide a date for the &lt;code&gt;DatePicker&lt;/code&gt; - as a string to the &lt;code&gt;value&lt;/code&gt; property or as a JavaScript Date object to the &lt;code&gt;dateValue&lt;/code&gt; property (only one of these properties should be used at a time):
 
-&lt;ul&gt;&lt;li&gt;Use the &lt;code&gt;value&lt;/code&gt; property if you want to bind the &lt;code&gt;DatePicker&lt;/code&gt; to a model using the &lt;code&gt;sap.ui.model.type.Date&lt;/code&gt;&lt;/li&gt; &lt;li&gt;Use the &lt;code&gt;value&lt;/code&gt; property if the date is provided as a string from the backend or inside the app (for example, as ABAP type DATS field)&lt;/li&gt; &lt;li&gt;Use the &lt;code&gt;dateValue&lt;/code&gt; property if the date is already provided as a JavaScript Date object or you want to work with a JavaScript Date object&lt;/li&gt;&lt;/ul&gt;
+&lt;ul&gt;&lt;li&gt;Use the &lt;code&gt;value&lt;/code&gt; property if you want to bind the &lt;code&gt;DatePicker&lt;/code&gt; to a model using the &lt;code&gt;sap.ui.model.type.Date&lt;/code&gt;&lt;/li&gt; &lt;li&gt;Use the &lt;code&gt;value&lt;/code&gt; property if the date is provided as a string from the backend or inside the app (for example, as ABAP type DATS field)&lt;/li&gt; &lt;li&gt;Use the &lt;code&gt;dateValue&lt;/code&gt; property if the date is already provided as a JavaScript Date object or you want to work with a JavaScript Date object. Use &lt;code&gt;dateValue&lt;/code&gt; as a helper property to easily obtain the day, month and year of the chosen date. Although possible to bind it, the recommendation is not to do it. When binding is needed, use &lt;code&gt;value&lt;/code&gt; property instead&lt;/li&gt;&lt;/ul&gt;
 
 &lt;h3&gt;Formatting&lt;/h3&gt;
 
@@ -1352,7 +1370,7 @@ To be extended by date and time picker controls. For internal use only.</xs:docu
         </xs:attribute>
         <xs:attribute name="dateValue" type="xs:string">
           <xs:annotation>
-            <xs:documentation>Holds a reference to a JavaScript Date Object. The &lt;code&gt;value&lt;/code&gt; (string) property will be set according to it. Alternatively, if the &lt;code&gt;value&lt;/code&gt; and &lt;code&gt;valueFormat&lt;/code&gt; pair properties are supplied instead, the &lt;code&gt;dateValue&lt;/code&gt; will be instantiated according to the parsed &lt;code&gt;value&lt;/code&gt;.</xs:documentation>
+            <xs:documentation>Holds a reference to a JavaScript Date Object. The &lt;code&gt;value&lt;/code&gt; (string) property will be set according to it. Alternatively, if the &lt;code&gt;value&lt;/code&gt; and &lt;code&gt;valueFormat&lt;/code&gt; pair properties are supplied instead, the &lt;code&gt;dateValue&lt;/code&gt; will be instantiated according to the parsed &lt;code&gt;value&lt;/code&gt;. Use &lt;code&gt;dateValue&lt;/code&gt; as a helper property to easily obtain the day, month, year, hours, minutes and seconds of the chosen date and time. Although possible to bind it, the recommendation is not to do it. When binding is needed, use &lt;code&gt;value&lt;/code&gt; property instead.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="initialFocusedDateValue" type="xs:string">
@@ -1487,7 +1505,7 @@ The user can enter a date by: &lt;ul&gt; &lt;li&gt;Using the calendar or a time 
 
 On app level, there are two options to provide a date for the &lt;code&gt;DateTimePicker&lt;/code&gt; - as a string to the &lt;code&gt;value&lt;/code&gt; property or as a JavaScript Date object to the &lt;code&gt;dateValue&lt;/code&gt; property (only one of these properties should be used at a time):
 
-&lt;ul&gt;&lt;li&gt;Use the &lt;code&gt;value&lt;/code&gt; property if you want to bind the &lt;code&gt;DateTimePicker&lt;/code&gt; to a model using the &lt;code&gt;sap.ui.model.type.DateTime&lt;/code&gt;&lt;/li&gt; &lt;li&gt;Use the &lt;code&gt;value&lt;/code&gt; property if the date is provided as a string from the backend or inside the app (for example, as ABAP type DATS field)&lt;/li&gt; &lt;li&gt;Use the &lt;code&gt;dateValue&lt;/code&gt; property if the date is already provided as a JavaScript Date object or you want to work with a JavaScript Date object&lt;/li&gt;&lt;/ul&gt;
+&lt;ul&gt;&lt;li&gt;Use the &lt;code&gt;value&lt;/code&gt; property if you want to bind the &lt;code&gt;DateTimePicker&lt;/code&gt; to a model using the &lt;code&gt;sap.ui.model.type.DateTime&lt;/code&gt;&lt;/li&gt; &lt;li&gt;Use the &lt;code&gt;value&lt;/code&gt; property if the date is provided as a string from the backend or inside the app (for example, as ABAP type DATS field)&lt;/li&gt; &lt;li&gt;Use the &lt;code&gt;dateValue&lt;/code&gt; property if the date is already provided as a JavaScript Date object or you want to work with a JavaScript Date object. Use &lt;code&gt;dateValue&lt;/code&gt; as a helper property to easily obtain the day, month, year, hours, minutes and seconds of the chosen date and time. Although possible to bind it, the recommendation is not to do it. When binding is needed, use &lt;code&gt;value&lt;/code&gt; property instead&lt;/li&gt;&lt;/ul&gt;
 
 &lt;h3&gt;Formatting&lt;/h3&gt;
 
@@ -1524,9 +1542,9 @@ The &lt;code&gt;DateTimePicker&lt;/code&gt; is responsive and fully adapts to al
   </xs:complexType>
   <xs:element name="Dialog" substitutionGroup="n0:Control" type="n6:_DialogType">
     <xs:annotation>
-      <xs:documentation>A popup that interrupts the current processing and prompts the user for an action or an input, in a modal mode. &lt;h3&gt;Overview&lt;/h3&gt; The Dialog control is used to prompt the user for an action or a confirmation. It interrupts the current app processing as it is the only focused UI element and the main screen is dimmed/blocked. The content of the dialog is fully customizable. &lt;h3&gt;Structure&lt;/h3&gt; A dialog consists of a title, optional subtitle, content area and a footer for action buttons. The dialog is usually displayed at the center of the screen. Its size and position can be changed by the user. To enable this, you need to set the properties &lt;code&gt;resizable&lt;/code&gt; and &lt;code&gt;draggable&lt;/code&gt; accordingly.
+      <xs:documentation>A popup that interrupts the current processing and prompts the user for an action or an input in a modal mode. &lt;h3&gt;Overview&lt;/h3&gt; The Dialog control is used to prompt the user for an action or a confirmation. It interrupts the current app processing as it is the only focused UI element and the main screen is dimmed/blocked. The content of the Dialog is fully customizable. &lt;h3&gt;Structure&lt;/h3&gt; A Dialog consists of a title, optional subtitle, content area and a footer for action buttons. The Dialog is usually displayed at the center of the screen. Its size and position can be changed by the user. To enable this, you need to set the properties &lt;code&gt;resizable&lt;/code&gt; and &lt;code&gt;draggable&lt;/code&gt; accordingly.
 
-There are other specialized types of dialogs: &lt;ul&gt; &lt;li&gt;{@link sap.m.P13nDialog Personalization dialog} - used for personalizing sorting, filtering and grouping in tables&lt;/li&gt; &lt;li&gt;{@link sap.m.SelectDialog Select dialog} - used to select one or more items from a comprehensive list&lt;/li&gt; &lt;li&gt;{@link sap.m.TableSelectDialog Table select dialog} - used to make a selection from a comprehensive table containing multiple attributes or values&lt;/li&gt; &lt;li&gt;{@link sap.ui.comp.valuehelpdialog.ValueHelpDialog Value help dialog} - used to help the user find and select single and multiple values&lt;/li&gt; &lt;li&gt;{@link sap.m.ViewSettingsDialog View settings dialog} - used to sort, filter, or group data within a (master) list or a table&lt;/li&gt; &lt;li&gt;{@link sap.m.BusyDialog Busy dialog} - used to block the screen and inform the user about an ongoing operation&lt;/li&gt; &lt;/ul&gt; &lt;h3&gt;Usage&lt;/h3&gt; &lt;h4&gt;When to use:&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;You want to display a system message.&lt;/li&gt; &lt;li&gt;You want to interrupt the user’s action.&lt;/li&gt; &lt;li&gt;You want to show a message with a short and a long description.&lt;/li&gt; &lt;/ul&gt; &lt;h4&gt;When not to use:&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;You just want to confirm a successful action.&lt;/li&gt; &lt;/ul&gt; &lt;h3&gt;Responsive Behavior&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;If the &lt;code&gt;stretch&lt;/code&gt; property is set to true, the dialog displays on full screen.&lt;/li&gt; &lt;li&gt;If the &lt;code&gt;contentWidth&lt;/code&gt; and/or &lt;code&gt;contentHeight&lt;/code&gt; properties are set, the dialog will try to fill those sizes.&lt;/li&gt; &lt;li&gt;If there is no specific sizing, the dialog will try to adjust its size to its content.&lt;/li&gt; &lt;/ul&gt; &lt;h4&gt;Smartphones&lt;/h4&gt; If the dialog has one or two actions they will cover the entire footer. If there are more actions, they will overflow. &lt;h4&gt;Tablets&lt;/h4&gt; The action buttons in the toolbar are &lt;b&gt;right-aligned&lt;/b&gt;. Use &lt;b&gt;cozy&lt;/b&gt; mode on tablet devices. &lt;h4&gt;Desktop&lt;/h4&gt; The action buttons in the toolbar are &lt;b&gt;right-aligned&lt;/b&gt;. Use &lt;b&gt;compact&lt;/b&gt; mode on desktop.</xs:documentation>
+There are other specialized types of dialogs: &lt;ul&gt; &lt;li&gt;{@link sap.m.P13nDialog Personalization Dialog} - used for personalizing sorting, filtering and grouping in tables&lt;/li&gt; &lt;li&gt;{@link sap.m.SelectDialog Select Dialog} - used to select one or more items from a comprehensive list&lt;/li&gt; &lt;li&gt;{@link sap.m.TableSelectDialog Table Select Dialog} - used to make a selection from a comprehensive table containing multiple attributes or values&lt;/li&gt; &lt;li&gt;{@link sap.ui.comp.valuehelpdialog.ValueHelpDialog Value Help Dialog} - used to help the user find and select single and multiple values&lt;/li&gt; &lt;li&gt;{@link sap.m.ViewSettingsDialog View Settings Dialog} - used to sort, filter, or group data within a (master) list or a table&lt;/li&gt; &lt;li&gt;{@link sap.m.BusyDialog Busy Dialog} - used to block the screen and inform the user about an ongoing operation&lt;/li&gt; &lt;/ul&gt; &lt;h3&gt;Usage&lt;/h3&gt; &lt;h4&gt;When to use:&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;You want to display a system message.&lt;/li&gt; &lt;li&gt;You want to interrupt the user’s action.&lt;/li&gt; &lt;li&gt;You want to show a message with a short and a long description.&lt;/li&gt; &lt;/ul&gt; &lt;h4&gt;When not to use:&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;You just want to confirm a successful action.&lt;/li&gt; &lt;/ul&gt; &lt;h3&gt;Responsive Behavior&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;If the &lt;code&gt;stretch&lt;/code&gt; property is set to &lt;code&gt;true&lt;/code&gt;, the Dialog displays on full screen.&lt;/li&gt; &lt;li&gt;If the &lt;code&gt;contentWidth&lt;/code&gt; and/or &lt;code&gt;contentHeight&lt;/code&gt; properties are set, the Dialog will try to fill those sizes.&lt;/li&gt; &lt;li&gt;If there is no specific sizing, the Dialog will try to adjust its size to its content.&lt;/li&gt; &lt;/ul&gt; &lt;h4&gt;Smartphones&lt;/h4&gt; If the Dialog has one or two actions, they will cover the entire footer. If there are more actions, they will overflow. &lt;h4&gt;Tablets&lt;/h4&gt; The action buttons in the toolbar are &lt;b&gt;right-aligned&lt;/b&gt;. Use &lt;b&gt;cozy&lt;/b&gt; mode on tablet devices. &lt;h4&gt;Desktop&lt;/h4&gt; The action buttons in the toolbar are &lt;b&gt;right-aligned&lt;/b&gt;. Use &lt;b&gt;compact&lt;/b&gt; mode on desktop.</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="_DialogType">
@@ -1540,7 +1558,7 @@ There are other specialized types of dialogs: &lt;ul&gt; &lt;li&gt;{@link sap.m.
           </xs:choice>
           <xs:element minOccurs="0" name="content">
             <xs:annotation>
-              <xs:documentation>The content inside the dialog.&lt;br/&gt;&lt;b&gt;Note:&lt;/b&gt; When the content of the &lt;code&gt;Dialog&lt;/code&gt; is comprised of controls that use &lt;code&gt;position: absolute&lt;/code&gt;, such as &lt;code&gt;SplitContainer&lt;/code&gt;, the dialog has to have either &lt;code&gt;stretch: true&lt;/code&gt; or &lt;code&gt;contentHeight&lt;/code&gt; set.</xs:documentation>
+              <xs:documentation>The content inside the Dialog.&lt;br/&gt;&lt;b&gt;Note:&lt;/b&gt; When the content of the Dialog is comprised of controls that use &lt;code&gt;position: absolute&lt;/code&gt;, such as &lt;code&gt;SplitContainer&lt;/code&gt;, the Dialog has to have either &lt;code&gt;stretch: true&lt;/code&gt; or &lt;code&gt;contentHeight&lt;/code&gt; set.</xs:documentation>
             </xs:annotation>
             <xs:complexType>
               <xs:sequence>
@@ -1553,7 +1571,7 @@ There are other specialized types of dialogs: &lt;ul&gt; &lt;li&gt;{@link sap.m.
           </xs:element>
           <xs:element minOccurs="0" name="subHeader">
             <xs:annotation>
-              <xs:documentation>When subHeader is assigned to Dialog, it's rendered directly after the main header in Dialog. SubHeader is out of the content area and won't be scrolled when content's size is bigger than the content area's size.</xs:documentation>
+              <xs:documentation>When a &lt;code&gt;subHeader&lt;/code&gt; is assigned to the Dialog, it's rendered directly after the main header in the Dialog. The &lt;code&gt;subHeader&lt;/code&gt; is out of the content area and won't be scrolled when the content size is bigger than the content area size.</xs:documentation>
             </xs:annotation>
             <xs:complexType>
               <xs:sequence>
@@ -1566,7 +1584,7 @@ There are other specialized types of dialogs: &lt;ul&gt; &lt;li&gt;{@link sap.m.
           </xs:element>
           <xs:element minOccurs="0" name="customHeader">
             <xs:annotation>
-              <xs:documentation>CustomHeader is only supported in some themes. When it's set, the icon, title and showHeader are properties ignored. Only the customHeader is shown as the header of the dialog.</xs:documentation>
+              <xs:documentation>When it is set, the &lt;code&gt;icon&lt;/code&gt;, &lt;code&gt;title&lt;/code&gt; and &lt;code&gt;showHeader&lt;/code&gt; properties are ignored. Only the &lt;code&gt;customHeader&lt;/code&gt; is shown as the header of the Dialog.</xs:documentation>
             </xs:annotation>
             <xs:complexType>
               <xs:sequence>
@@ -1579,7 +1597,7 @@ There are other specialized types of dialogs: &lt;ul&gt; &lt;li&gt;{@link sap.m.
           </xs:element>
           <xs:element minOccurs="0" name="beginButton">
             <xs:annotation>
-              <xs:documentation>The button which is rendered to the left side (right side in RTL mode) of the endButton in the footer area inside the dialog. From UI5 version 1.21.1, there's a new aggregation "buttons" created with which more than 2 buttons can be added to the footer area of dialog. If the new "buttons" aggregation is set, any change made to this aggregation has no effect anymore. When runs on the phone, this button (and the endButton together when set) is (are) rendered at the center of the footer area. When runs on the other platforms, this button (and the endButton together when set) is (are) rendered at the right side (left side in RTL mode) of the footer area.</xs:documentation>
+              <xs:documentation>The button which is rendered to the left side (right side in RTL mode) of the &lt;code&gt;endButton&lt;/code&gt; in the footer area inside the Dialog. As of version 1.21.1, there's a new aggregation &lt;code&gt;buttons&lt;/code&gt; created with which more than 2 buttons can be added to the footer area of the Dialog. If the new &lt;code&gt;buttons&lt;/code&gt; aggregation is set, any change made to this aggregation has no effect anymore. When running on a phone, this &lt;code&gt;button&lt;/code&gt; (and the &lt;code&gt;endButton&lt;/code&gt; together when set) is (are) rendered at the center of the footer area. When running on other platforms, this &lt;code&gt;button&lt;/code&gt; (and the &lt;code&gt;endButton&lt;/code&gt; together when set) is (are) rendered at the right side (left side in RTL mode) of the footer area.</xs:documentation>
             </xs:annotation>
             <xs:complexType>
               <xs:sequence>
@@ -1592,7 +1610,7 @@ There are other specialized types of dialogs: &lt;ul&gt; &lt;li&gt;{@link sap.m.
           </xs:element>
           <xs:element minOccurs="0" name="endButton">
             <xs:annotation>
-              <xs:documentation>The button which is rendered to the right side (left side in RTL mode) of the beginButton in the footer area inside the dialog. From UI5 version 1.21.1, there's a new aggregation "buttons" created with which more than 2 buttons can be added to the footer area of dialog. If the new "buttons" aggregation is set, any change made to this aggregation has no effect anymore. When runs on the phone, this button (and the beginButton together when set) is (are) rendered at the center of the footer area. When runs on the other platforms, this button (and the beginButton together when set) is (are) rendered at the right side (left side in RTL mode) of the footer area.</xs:documentation>
+              <xs:documentation>The button which is rendered to the right side (left side in RTL mode) of the &lt;code&gt;beginButton&lt;/code&gt; in the footer area inside the Dialog. As of version 1.21.1, there's a new aggregation &lt;code&gt;buttons&lt;code&gt; created with which more than 2 buttons can be added to the footer area of Dialog. If the new &lt;code&gt;buttons&lt;/code&gt; aggregation is set, any change made to this aggregation has no effect anymore. When running on a phone, this &lt;code&gt;button&lt;/code&gt; (and the &lt;code&gt;beginButton&lt;/code&gt; together when set) is (are) rendered at the center of the footer area. When running on other platforms, this &lt;code&gt;button&lt;/code&gt; (and the &lt;code&gt;beginButton&lt;/code&gt; together when set) is (are) rendered at the right side (left side in RTL mode) of the footer area.</xs:documentation>
             </xs:annotation>
             <xs:complexType>
               <xs:sequence>
@@ -1605,7 +1623,7 @@ There are other specialized types of dialogs: &lt;ul&gt; &lt;li&gt;{@link sap.m.
           </xs:element>
           <xs:element minOccurs="0" name="buttons">
             <xs:annotation>
-              <xs:documentation>Buttons can be added to the footer area of dialog through this aggregation. When this aggregation is set, any change to beginButton and endButton has no effect anymore. Buttons which are inside this aggregation are aligned at the right side (left side in RTL mode) of the footer instead of in the middle of the footer.</xs:documentation>
+              <xs:documentation>Buttons can be added to the footer area of the Dialog through this aggregation. When this aggregation is set, any change to the &lt;code&gt;beginButton&lt;/code&gt; and &lt;code&gt;endButton&lt;/code&gt; has no effect anymore. Buttons which are inside this aggregation are aligned at the right side (left side in RTL mode) of the footer instead of in the middle of the footer.</xs:documentation>
             </xs:annotation>
             <xs:complexType>
               <xs:sequence>
@@ -1619,119 +1637,119 @@ There are other specialized types of dialogs: &lt;ul&gt; &lt;li&gt;{@link sap.m.
         </xs:sequence>
         <xs:attribute name="icon" type="n0:_URIType">
           <xs:annotation>
-            <xs:documentation>Icon displayed in the dialog's header. This icon is invisible on the iOS platform and it's density aware. You can use the density convention (@2, @1.5, etc.) to provide higher resolution image for higher density screen.</xs:documentation>
+            <xs:documentation>Icon displayed in the Dialog header. This &lt;code&gt;icon&lt;/code&gt; is invisible on the iOS platform and it is density-aware. You can use the density convention (@2, @1.5, etc.) to provide higher resolution image for higher density screen.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="title" type="xs:string">
           <xs:annotation>
-            <xs:documentation>Title text appears in the dialog header.</xs:documentation>
+            <xs:documentation>Title text appears in the Dialog header.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="showHeader" type="xs:boolean">
           <xs:annotation>
-            <xs:documentation>Determines whether the header is shown inside the dialog. If this property is set to true, the text and icon property are ignored. This property has a default value true.</xs:documentation>
+            <xs:documentation>Determines whether the header is shown inside the Dialog. If this property is set to &lt;code&gt;true&lt;/code&gt;, the &lt;code&gt;text&lt;/code&gt; and &lt;code&gt;icon&lt;/code&gt; properties are ignored. This property has a default value &lt;code&gt;true&lt;/code&gt;.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="type" type="n6:_DialogTypeType">
           <xs:annotation>
-            <xs:documentation>The type of the dialog. In some themes, the type "message" will limit the dialog's width within 480px on tablet and desktop.</xs:documentation>
+            <xs:documentation>The &lt;code&gt;type&lt;/code&gt; of the Dialog. In some themes, the type Message will limit the Dialog width within 480px on tablet and desktop.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="state" type="n0:_ValueStateType">
           <xs:annotation>
-            <xs:documentation>The state affects the icon and the title color. If other than "None" is set, a predefined icon will be added to the dialog. Setting icon property will overwrite the predefined icon. The default value is "None" which doesn't add any icon to the Dialog control. This property is by now only supported by blue crystal theme.</xs:documentation>
+            <xs:documentation>Affects the &lt;code&gt;icon&lt;/code&gt; and the &lt;code&gt;title&lt;/code&gt; color. If other than &lt;code&gt;none&lt;/code&gt; is set, a predefined icon will be added to the Dialog. Setting the &lt;code&gt;icon&lt;/code&gt; property will overwrite the predefined icon. The default value is &lt;code&gt;none&lt;/code&gt; which doesn't add any icon to the Dialog control. This property is by now only supported by the blue crystal theme.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="stretchOnPhone" type="xs:boolean">
           <xs:annotation>
-            <xs:documentation>Determines whether the dialog will displayed on full screen on a phone.</xs:documentation>
+            <xs:documentation>Determines whether the Dialog will be displayed on full screen on a phone.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="stretch" type="xs:boolean">
           <xs:annotation>
-            <xs:documentation>Determines if the dialog will be stretched to full screen on mobile, when on desktop the dialog will be stretched to 93% of the viewport. This property is only applicable to standard dialog and message type dialog ignores this property.</xs:documentation>
+            <xs:documentation>Determines if the Dialog will be stretched to full screen on mobile. On desktop, the Dialog will be stretched to 93% of the viewport. This property is only applicable to a Standard Dialog. Message-type Dialog ignores it.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="contentWidth" type="n0:_CSSSizeType">
           <xs:annotation>
-            <xs:documentation>Preferred width of content in Dialog. This property affects the width of dialog on phone in landscape mode, tablet or desktop, because the dialog has a fixed width on phone in portrait mode. If the preferred width is less than the minimum width of the dialog or more than the available width of the screen, it will be overwritten by the min or max value. The current mininum value of dialog width on tablet is 400px.</xs:documentation>
+            <xs:documentation>Preferred width of the content in the Dialog. This property affects the width of the Dialog on a phone in landscape mode, a tablet or a desktop, because the Dialog has a fixed width on a phone in portrait mode. If the preferred width is less than the minimum width of the Dialog or more than the available width of the screen, it will be overwritten by the min or max value. The current mininum value of the Dialog width on tablet is 400px.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="contentHeight" type="n0:_CSSSizeType">
           <xs:annotation>
-            <xs:documentation>Preferred height of content in Dialog. If the preferred height is bigger than the available space on screen, it will be overwritten by the maximum available height on screen in order to make sure that dialog isn't cut off.</xs:documentation>
+            <xs:documentation>Preferred height of the content in the Dialog. If the preferred height is bigger than the available space on a screen, it will be overwritten by the maximum available height on a screen in order to make sure that the Dialog isn't cut off.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="horizontalScrolling" type="xs:boolean">
           <xs:annotation>
-            <xs:documentation>Indicates if user can scroll horizontally inside dialog when the content is bigger than the content area. Dialog detects if there's sap.m.NavContainer, sap.m.Page, sap.m.ScrollContainer or sap.m.SplitContainer as direct child added to dialog. If there is, dialog will turn off scrolling by setting this property to false automatically ignoring the existing value of this property.</xs:documentation>
+            <xs:documentation>Indicates if the user can scroll horizontally inside the Dialog when the content is bigger than the content area. The Dialog detects if there's &lt;code&gt;sap.m.NavContainer&lt;/code&gt;, &lt;code&gt;sap.m.Page&lt;/code&gt;, &lt;code&gt;sap.m.ScrollContainer&lt;/code&gt; or &lt;code&gt;sap.m.SplitContainer&lt;/code&gt; as a direct child added to the Dialog. If there is, the Dialog will turn off &lt;code&gt;scrolling&lt;/code&gt; by setting this property to &lt;code&gt;false&lt;/code&gt;, automatically ignoring the existing value of the property.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="verticalScrolling" type="xs:boolean">
           <xs:annotation>
-            <xs:documentation>Indicates if user can scroll vertically inside dialog when the content is bigger than the content area. Dialog detects if there's sap.m.NavContainer, sap.m.Page, sap.m.ScrollContainer or sap.m.SplitContainer as direct child added to dialog. If there is, dialog will turn off scrolling by setting this property to false automatically ignoring the existing value of this property.</xs:documentation>
+            <xs:documentation>Indicates if the user can scroll vertically inside the Dialog when the content is bigger than the content area. The Dialog detects if there's &lt;code&gt;sap.m.NavContainer&lt;/code&gt;, &lt;code&gt;sap.m.Page&lt;/code&gt;, &lt;code&gt;sap.m.ScrollContainer&lt;/code&gt; or &lt;code&gt;sap.m.SplitContainer&lt;/code&gt; as a direct child added to the Dialog. If there is, the Dialog will turn off &lt;code&gt;scrolling&lt;/code&gt; by setting this property to &lt;code&gt;false&lt;/code&gt;, automatically ignoring the existing value of this property.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="resizable" type="xs:boolean">
           <xs:annotation>
-            <xs:documentation>Indicates whether the dialog is resizable. the dialog is resizable. If this property is set to true, the dialog will have a resize handler in it's bottom right corner. This property has a default value false. The Dialog can be resizable only in desktop mode.</xs:documentation>
+            <xs:documentation>Indicates whether the Dialog is resizable. If this property is set to &lt;code&gt;true&lt;/code&gt;, the Dialog will have a resize handler in its bottom right corner. This property has a default value &lt;code&gt;false&lt;/code&gt;. The Dialog can be resizable only in desktop mode.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="draggable" type="xs:boolean">
           <xs:annotation>
-            <xs:documentation>Indicates whether the dialog is draggable. If this property is set to true, the dialog will be draggable by it's header. This property has a default value false. The Dialog can be draggable only in desktop mode.</xs:documentation>
+            <xs:documentation>Indicates whether the Dialog is draggable. If this property is set to &lt;code&gt;true&lt;/code&gt;, the Dialog will be draggable by its header. This property has a default value &lt;code&gt;false&lt;/code&gt;. The Dialog can be draggable only in desktop mode.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="escapeHandler" type="xs:string">
           <xs:annotation>
-            <xs:documentation>This property expects a function with one parameter of type &lt;code&gt;Promise&lt;/code&gt;. In the function you should call either &lt;code&gt;resolve()&lt;/code&gt; or &lt;code&gt;reject()&lt;/code&gt; on the &lt;code&gt;Promise&lt;/code&gt; object.&lt;br/&gt; The function allows you to define custom behaviour which will be executed when the ESCAPE key is pressed. By default when the ESCAPE key is pressed the Dialog is immediately closed.</xs:documentation>
+            <xs:documentation>This property expects a function with one parameter of type Promise. In the function, you should call either &lt;code&gt;resolve()&lt;/code&gt; or &lt;code&gt;reject()&lt;/code&gt; on the Promise object.&lt;br/&gt; The function allows you to define custom behavior which will be executed when the Escape key is pressed. By default, when the Escape key is pressed, the Dialog is immediately closed.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="content" type="xs:string" />
         <xs:attribute name="buttons" type="xs:string" />
         <xs:attribute name="leftButton" type="xs:string">
           <xs:annotation>
-            <xs:documentation>LeftButton is shown at the left edge of the bar in iOS, and at the right side of the bar for the other platforms. Please set this to null if you want to remove the left button from the bar. And the button is only removed from the bar, not destroyed. When showHeader is set to false, this property will be ignored. Setting leftButton will also set the beginButton internally.</xs:documentation>
+            <xs:documentation>&lt;code&gt;LeftButton&lt;/code&gt; is shown at the left edge of the bar in iOS, and at the right side of the bar for the other platforms. Please set this to &lt;code&gt;null&lt;/code&gt; if you want to remove the Left button from the bar. And the button is only removed from the bar, not destroyed. When &lt;code&gt;showHeader&lt;/code&gt; is set to &lt;code&gt;false&lt;/code&gt;, this property will be ignored. Setting &lt;code&gt;leftButton&lt;/code&gt; will also set the &lt;code&gt;beginButton&lt;/code&gt; internally.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="rightButton" type="xs:string">
           <xs:annotation>
-            <xs:documentation>RightButton is always shown at the right edge of the bar. Please set this to null if you want to remove the right button from the bar. And the button is only removed from the bar, not destroyed. When showHeader is set to false, this property will be ignored. Setting rightButton will also set the endButton internally.</xs:documentation>
+            <xs:documentation>&lt;code&gt;RightButton&lt;/code&gt; is always shown at the right edge of the bar. Please set this to null if you want to remove the Right button from the bar. And the button is only removed from the bar, not destroyed. When &lt;code&gt;showHeader&lt;/code&gt; is set to false, this property will be ignored. Setting &lt;code&gt;rightButton&lt;/code&gt; will also set the &lt;code&gt;endButton&lt;/code&gt; internally.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="initialFocus" type="xs:string">
           <xs:annotation>
-            <xs:documentation>Focus is set to the dialog in the sequence of leftButton and rightButton when available. But if some other control needs to get the focus other than one of those two buttons, set the initialFocus with the control which should be focused on. Setting initialFocus to input controls doesn't open the on screen keyboard on mobile device, this is due to the browser limitation that the on screen keyboard can't be opened with javascript code. The opening of on screen keyboard must be triggered by real user action.</xs:documentation>
+            <xs:documentation>In the Dialog focus is set first on the &lt;code&gt;leftButton&lt;/code&gt; and then on &lt;code&gt;rightButton&lt;/code&gt;, when available. If another control needs to get the focus, set the &lt;code&gt;initialFocus&lt;/code&gt; with the control which should be focused on. Setting &lt;code&gt;initialFocus&lt;/code&gt; to input controls doesn't open the On-Screen keyboard on mobile device as, due to browser limitation, the On-Screen keyboard can't be opened with JavaScript code. The opening of On-Screen keyboard must be triggered by real user action.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="ariaDescribedBy" type="xs:string">
           <xs:annotation>
-            <xs:documentation>Association to controls / ids which describe this control (see WAI-ARIA attribute aria-describedby).</xs:documentation>
+            <xs:documentation>Association to controls/IDs which describe this control (see WAI-ARIA attribute aria-describedby).</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="ariaLabelledBy" type="xs:string">
           <xs:annotation>
-            <xs:documentation>Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).</xs:documentation>
+            <xs:documentation>Association to controls/IDs which label this control (see WAI-ARIA attribute aria-labelledby).</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="beforeOpen" type="xs:string">
           <xs:annotation>
-            <xs:documentation>This event will be fired before the dialog is opened.</xs:documentation>
+            <xs:documentation>This event will be fired before the Dialog is opened.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="afterOpen" type="xs:string">
           <xs:annotation>
-            <xs:documentation>This event will be fired after the dialog is opened.</xs:documentation>
+            <xs:documentation>This event will be fired after the Dialog is opened.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="beforeClose" type="xs:string">
           <xs:annotation>
-            <xs:documentation>This event will be fired before the dialog is closed.</xs:documentation>
+            <xs:documentation>This event will be fired before the Dialog is closed.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="afterClose" type="xs:string">
           <xs:annotation>
-            <xs:documentation>This event will be fired after the dialog is closed.</xs:documentation>
+            <xs:documentation>This event will be fired after the Dialog is closed.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
       </xs:extension>
@@ -2311,7 +2329,7 @@ If bandwidth is the key for the application, set this value to false.</xs:docume
         </xs:attribute>
         <xs:attribute name="alignItems" type="n6:_FlexAlignItemsType">
           <xs:annotation>
-            <xs:documentation>Determines the layout behavior of items along the cross-axis. "Baseline" is not supported in Internet Explorer 10.</xs:documentation>
+            <xs:documentation>Determines the layout behavior of items along the cross-axis.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="wrap" type="n6:_FlexWrapType">
@@ -2321,7 +2339,7 @@ If bandwidth is the key for the application, set this value to false.</xs:docume
         </xs:attribute>
         <xs:attribute name="alignContent" type="n6:_FlexAlignContentType">
           <xs:annotation>
-            <xs:documentation>Determines the layout behavior of container lines when there's extra space along the cross-axis. This property has no effect in Internet Explorer 10.</xs:documentation>
+            <xs:documentation>Determines the layout behavior of container lines when there's extra space along the cross-axis.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="backgroundDesign" type="n6:_BackgroundDesignType">
@@ -3789,32 +3807,6 @@ See section "{@link topic:295e44b2d0144318bcb7bdd56bfa5189 List, List Item, and 
             <xs:element ref="n0:Fragment" />
             <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
           </xs:choice>
-          <xs:element minOccurs="0" name="items">
-            <xs:annotation>
-              <xs:documentation>Defines the items contained within this control.</xs:documentation>
-            </xs:annotation>
-            <xs:complexType>
-              <xs:sequence>
-                <xs:choice minOccurs="0" maxOccurs="unbounded">
-                  <xs:element ref="n6:ListItemBase" />
-                  <xs:element ref="n0:Fragment" />
-                </xs:choice>
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
-          <xs:element minOccurs="0" name="swipeContent">
-            <xs:annotation>
-              <xs:documentation>User can swipe to bring in this control on the right hand side of an item. &lt;b&gt;Note:&lt;/b&gt; For non-touch devices, this functionality is ignored.</xs:documentation>
-            </xs:annotation>
-            <xs:complexType>
-              <xs:sequence>
-                <xs:choice minOccurs="0">
-                  <xs:element ref="n0:Control" />
-                  <xs:element ref="n0:Fragment" />
-                </xs:choice>
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
           <xs:element minOccurs="0" name="headerToolbar">
             <xs:annotation>
               <xs:documentation>The header area can be used as a toolbar to add extra controls for user interactions. &lt;b&gt;Note:&lt;/b&gt; When set, this overwrites the &lt;code&gt;headerText&lt;/code&gt; property.</xs:documentation>
@@ -3844,6 +3836,32 @@ See section "{@link topic:295e44b2d0144318bcb7bdd56bfa5189 List, List Item, and 
           <xs:element minOccurs="0" name="contextMenu">
             <xs:annotation>
               <xs:documentation>Defines the context menu of the items.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="items">
+            <xs:annotation>
+              <xs:documentation>Defines the items contained within this control.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n6:ListItemBase" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="swipeContent">
+            <xs:annotation>
+              <xs:documentation>User can swipe to bring in this control on the right hand side of an item. &lt;b&gt;Note:&lt;/b&gt; For non-touch devices, this functionality is ignored.</xs:documentation>
             </xs:annotation>
             <xs:complexType>
               <xs:sequence>
@@ -3958,6 +3976,17 @@ See section "{@link topic:295e44b2d0144318bcb7bdd56bfa5189 List, List Item, and 
         <xs:attribute name="keyboardMode" type="n6:_ListKeyboardModeType">
           <xs:annotation>
             <xs:documentation>Defines keyboard handling behavior of the control.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="sticky" type="n6:_StickyType">
+          <xs:annotation>
+            <xs:documentation>Defines the section of the control that remains fixed at the top of the page during vertical scrolling as long as the control is in the viewport.
+
+&lt;b&gt;Note:&lt;/b&gt; Enabling sticky column headers in List controls will not have any effect.
+
+There is limited browser support. Browsers that do not support this feature are listed below: &lt;ul&gt; &lt;li&gt;IE&lt;/li&gt; &lt;li&gt;Edge lower than version 41 (EdgeHTML 16)&lt;/li&gt; &lt;li&gt;Firefox lower than version 59&lt;/li&gt; &lt;/ul&gt;
+
+There are also some known limitations with respect to the scrolling behavior. A few are given below: &lt;ul&gt; &lt;li&gt;If the control is placed in certain layout containers, for example, the &lt;code&gt;sap.ui.layout.Grid&lt;/code&gt; control, the sticky elements of the control are not fixed at the top of the viewport. The control behaves in a similar way when placed within the &lt;code&gt;sap.m.ObjectPage&lt;/code&gt; control.&lt;/li&gt; &lt;li&gt;If sticky column headers are enabled in the &lt;code&gt;sap.m.Table&lt;/code&gt; control, setting focus on the column headers will let the table scroll to the top.&lt;/li&gt; &lt;/ul&gt;</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="items" type="xs:string" />
@@ -4277,6 +4306,16 @@ See section "{@link topic:295e44b2d0144318bcb7bdd56bfa5189 List, List Item, and 
             <xs:documentation>Controls whether the default action handler is invoked always or it is invoked only until a menu item is selected. Usable only if &lt;code&gt;buttonMode&lt;/code&gt; is set to &lt;code&gt;Split&lt;/code&gt;.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
+        <xs:attribute name="ariaDescribedBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / ids which describe this control (see WAI-ARIA attribute aria-describedby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
         <xs:attribute name="defaultAction" type="xs:string">
           <xs:annotation>
             <xs:documentation>Fired when the &lt;code&gt;buttonMode&lt;/code&gt; is set to &lt;code&gt;Split&lt;/code&gt; and the user presses the main button unless &lt;code&gt;useDefaultActionOnly&lt;/code&gt; is set to &lt;code&gt;false&lt;/code&gt; and another action from the menu has been selected previously.</xs:documentation>
@@ -4415,6 +4454,11 @@ See section "{@link topic:295e44b2d0144318bcb7bdd56bfa5189 List, List Item, and 
             <xs:documentation>Name of a message group the current item belongs to.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
+        <xs:attribute name="activeTitle" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>Defines whether the title of the item will be interactive.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -4537,9 +4581,9 @@ For details regarding supported HTML tags, see {@link sap.m.FormattedText}</xs:d
   </xs:complexType>
   <xs:element name="MessagePopover" substitutionGroup="n0:Control" type="n6:_MessagePopoverType">
     <xs:annotation>
-      <xs:documentation>A summarized list of different types of messages. &lt;h3&gt;Overview&lt;/h3&gt; A message popover is used to display a summarized list of different types of messages (errors, warnings, success and information). It provides a handy and systemized way to navigate and explore details for every message. &lt;h4&gt;Notes:&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; Messages can have descriptions pre-formatted with HTML markup. In this case, the &lt;code&gt;markupDescription&lt;/code&gt; has to be set to &lt;code&gt;true&lt;/code&gt;.&lt;/li&gt; &lt;li&gt; If the message cannot be fully displayed or includes a long description, the message popover provides navigation to the detailed description.&lt;/li&gt; &lt;/ul&gt; &lt;h3&gt;Structure&lt;/h3&gt; The message popover stores all messages in an aggregation of type {@link sap.m.MessageItem} named &lt;code&gt;items&lt;/code&gt;.
+      <xs:documentation>A summarized list of different types of messages. &lt;h3&gt;Overview&lt;/h3&gt; A message popover is used to display a summarized list of different types of messages (errors, warnings, success and information). It provides a handy and systemized way to navigate and explore details for every message. It also exposes an event {@link sap.m.MessagePopover#activeTitlePress}, which can be used for navigation from a message to the source of the issue. &lt;h4&gt;Notes:&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; Messages can have descriptions pre-formatted with HTML markup. In this case, the &lt;code&gt;markupDescription&lt;/code&gt; has to be set to &lt;code&gt;true&lt;/code&gt;.&lt;/li&gt; &lt;li&gt; If the message cannot be fully displayed or includes a long description, the message popover provides navigation to the detailed description.&lt;/li&gt; &lt;/ul&gt; &lt;h3&gt;Structure&lt;/h3&gt; The message popover stores all messages in an aggregation of type {@link sap.m.MessageItem} named &lt;code&gt;items&lt;/code&gt;.
 
-A set of properties determines how the items are rendered: &lt;ul&gt; &lt;li&gt; counter - An integer that is used to indicate the number of errors for each type &lt;/li&gt; &lt;li&gt; type - The type of message &lt;/li&gt; &lt;li&gt; title/subtitle - The title and subtitle of the message&lt;/li&gt; &lt;li&gt; description - The long text description of the message&lt;/li&gt; &lt;/ul&gt; &lt;h3&gt;Usage&lt;/h3&gt; With the message concept, MessagePopover provides a way to centrally manage messages and show them to the user without additional work for the developer. The message popover is triggered from a messaging button in the footer toolbar. If an error has occurred at any validation point, the total number of messages should be incremented, but the user's work shouldn't be interrupted. &lt;h3&gt;Responsive Behavior&lt;/h3&gt; On mobile phones, the message popover is automatically shown in full screen mode.&lt;br&gt; On desktop and tablet, the message popover opens in a popover.&lt;br&gt; On desktop the opened popover is resizable if it is placed in a {@link sap.m.Toolbar}, {@link sap.m.Bar} or used in {@link sap.f.semantic.SemanticPage}</xs:documentation>
+A set of properties determines how the items are rendered: &lt;ul&gt; &lt;li&gt; counter - An integer that is used to indicate the number of errors for each type &lt;/li&gt; &lt;li&gt; type - The type of message &lt;/li&gt; &lt;li&gt; title/subtitle - The title and subtitle of the message&lt;/li&gt; &lt;li&gt; description - The long text description of the message&lt;/li&gt; &lt;li&gt; activeTitle - Determines whether the title of the item is interactive&lt;/li&gt; &lt;/ul&gt; &lt;h3&gt;Usage&lt;/h3&gt; With the message concept, MessagePopover provides a way to centrally manage messages and show them to the user without additional work for the developer. The message popover is triggered from a messaging button in the footer toolbar. If an error has occurred at any validation point, the total number of messages should be incremented, but the user's work shouldn't be interrupted. Navigation between the message item and the source of the error can be created, if needed by the application. This can be done by setting the &lt;code&gt;activeTitle&lt;/code&gt; property to true and providing a handler for the &lt;code&gt;activeTitlePress&lt;/code&gt; event. In addition, you can achieve the same functionality inside a different container using the sap.m.MessageView control. &lt;h3&gt;Responsive Behavior&lt;/h3&gt; On mobile phones, the message popover is automatically shown in full screen mode.&lt;br&gt; On desktop and tablet, the message popover opens in a popover.&lt;br&gt; On desktop the opened popover is resizable if it is placed in a {@link sap.m.Toolbar}, {@link sap.m.Bar} or used in {@link sap.f.semantic.SemanticPage}</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="_MessagePopoverType">
@@ -4639,6 +4683,11 @@ A set of properties determines how the items are rendered: &lt;ul&gt; &lt;li&gt;
             <xs:documentation>This event will be fired when a validation of a URL from long text description is ready</xs:documentation>
           </xs:annotation>
         </xs:attribute>
+        <xs:attribute name="activeTitlePress" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This event will be fired when an active title of a MessageItem is clicked</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -4726,7 +4775,9 @@ With version 1.50 you can use a limited set of formatting tags for the message t
   </xs:complexType>
   <xs:element name="MessageView" substitutionGroup="n0:Control" type="n6:_MessageViewType">
     <xs:annotation>
-      <xs:documentation>&lt;strong&gt;&lt;i&gt;Overview&lt;/i&gt;&lt;/strong&gt; &lt;br&gt;&lt;br&gt; A {@link sap.m.MessageView} is used to display a summarized list of different types of messages (errors, warnings, success and information). It provides a handy and systemized way to navigate and explore details for every message. It is meant to be embedded into container controls. If the MessageView contains only one item, which has either description, markupDescription or longTextUrl, its details page will be displayed initially. &lt;br&gt;&lt;br&gt; &lt;strong&gt;Notes:&lt;/strong&gt; &lt;ul&gt; &lt;li&gt; Messages can have descriptions pre-formatted with HTML markup. In this case, the &lt;code&gt;markupDescription&lt;/code&gt; has to be set to &lt;code&gt;true&lt;/code&gt;. &lt;/li&gt; &lt;li&gt; If the message cannot be fully displayed or includes a long description, the MessageView provides navigation to the detailed description. &lt;/li&gt; &lt;/ul&gt; &lt;strong&gt;&lt;i&gt;Structure&lt;/i&gt;&lt;/strong&gt; &lt;br&gt;&lt;br&gt; The MessageView stores all messages in an association of type {@link sap.m.MessageItem} named &lt;code&gt;items&lt;/code&gt;. &lt;br&gt; A set of properties determines how the items are rendered: &lt;ul&gt; &lt;li&gt; counter - An integer that is used to indicate the number of errors for each type &lt;/li&gt; &lt;li&gt; type - The type of message &lt;/li&gt; &lt;li&gt; title/subtitle - The title and subtitle of the message&lt;/li&gt; &lt;li&gt; description - The long text description of the message&lt;/li&gt; &lt;/ul&gt; &lt;strong&gt;&lt;i&gt;Usage&lt;/i&gt;&lt;/strong&gt; &lt;br&gt;&lt;br&gt; As part of the messaging concept, MessageView provides a way to centrally manage messages and show them to the user without additional work for the developer. &lt;br&gt;&lt;br&gt;</xs:documentation>
+      <xs:documentation>&lt;strong&gt;&lt;i&gt;Overview&lt;/i&gt;&lt;/strong&gt; &lt;br&gt;&lt;br&gt; A {@link sap.m.MessageView} is used to display a summarized list of different types of messages (errors, warnings, success and information). It provides a handy and systemized way to navigate and explore details for every message. It is meant to be embedded into container controls. If the MessageView contains only one item, which has either description, markupDescription or longTextUrl, its details page will be displayed initially. &lt;br&gt;&lt;br&gt; &lt;strong&gt;Notes:&lt;/strong&gt; &lt;ul&gt; &lt;li&gt;If your application changes its model between two interactions with the MessageView, this could lead to outdated messages being shown. To avoid this, you need to call &lt;code&gt;navigateBack&lt;/code&gt; on the MessageView BEFORE opening its container.&lt;/li&gt; &lt;li&gt; Messages can have descriptions pre-formatted with HTML markup. In this case, the &lt;code&gt;markupDescription&lt;/code&gt; has to be set to &lt;code&gt;true&lt;/code&gt;. &lt;/li&gt; &lt;li&gt; If the message cannot be fully displayed or includes a long description, the MessageView provides navigation to the detailed description. &lt;/li&gt; &lt;/ul&gt; &lt;strong&gt;&lt;i&gt;Structure&lt;/i&gt;&lt;/strong&gt; &lt;br&gt;&lt;br&gt; The MessageView stores all messages in an association of type {@link sap.m.MessageItem} named &lt;code&gt;items&lt;/code&gt;. &lt;br&gt; A set of properties determines how the items are rendered: &lt;ul&gt; &lt;li&gt; counter - An integer that is used to indicate the number of errors for each type &lt;/li&gt; &lt;li&gt; type - The type of message &lt;/li&gt; &lt;li&gt; title/subtitle - The title and subtitle of the message&lt;/li&gt; &lt;li&gt; description - The long text description of the message&lt;/li&gt; &lt;li&gt; activeTitle - Determines whether the title of the item is interactive&lt;/li&gt; &lt;/ul&gt; &lt;strong&gt;&lt;i&gt;Usage&lt;/i&gt;&lt;/strong&gt; &lt;br&gt;&lt;br&gt; As part of the messaging concept, MessageView provides a way to centrally manage messages and show them to the user without additional work for the developer.
+
+It also exposes an event {@link sap.m.MessageView#activeTitlePress}, which can be used for navigation from a message to the source of the issue. &lt;br&gt;&lt;br&gt;</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="_MessageViewType">
@@ -4811,6 +4862,11 @@ With version 1.50 you can use a limited set of formatting tags for the message t
             <xs:documentation>This event will be fired when a validation of a URL from long text description is ready</xs:documentation>
           </xs:annotation>
         </xs:attribute>
+        <xs:attribute name="activeTitlePress" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>This event will be fired when an active title of a MessageItem is pressed</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -4847,7 +4903,7 @@ With version 1.50 you can use a limited set of formatting tags for the message t
   </xs:complexType>
   <xs:element name="MultiInput" substitutionGroup="n6:Input" type="n6:_MultiInputType">
     <xs:annotation>
-      <xs:documentation>&lt;h3&gt;Overview&lt;/h3&gt; A multi-input field allows the user to enter multiple values, which are displayed as {@link sap.m.Token tokens}. These can be displayed in single and multi-line mode. You can enable auto-complete suggestions or value help to help the user choose the correct entry. You can define validator functions to define what token values are accepted. &lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt; &lt;li&gt; New valid tokens are created, when the user presses Enter, selects a value from the suggestions drop-down, or when the focus leaves the field.&lt;/li&gt; &lt;li&gt; Provide meaningful labels for all input fields. Do not use the placeholder as a replacement for the label.&lt;/li&gt; &lt;/ul&gt; &lt;h3&gt;Usage&lt;/h3&gt; &lt;h4&gt;When to use:&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; You need to provide the value help option to help users select or search multiple business objects.&lt;/li&gt; &lt;li&gt; The dataset to choose from is expected to increase over time (for example, to more than 200 values).&lt;/li&gt; &lt;/ul&gt; &lt;h4&gt;When not to use:&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; Do not use multi-line inputs in tables and forms.&lt;/li&gt; &lt;li&gt; When you need to select only one value.&lt;/li&gt; &lt;li&gt; When you want the user to select from a predefined set of options. Use {@link sap.m.MultiComboBox} instead.&lt;/li&gt; &lt;/ul&gt; &lt;h3&gt;Responsive Behavior&lt;/h3&gt; &lt;u&gt;On Phones:&lt;/u&gt; &lt;ul&gt; &lt;li&gt; Only the last entered token is displayed.&lt;/li&gt; &lt;li&gt; A new full-screen dialog opens where the auto-complete suggestions can be selected.&lt;/li&gt; &lt;li&gt; You can review the tokens by tapping on the token or the input field.&lt;/li&gt; &lt;/ul&gt; &lt;u&gt; On Tablets:&lt;/u&gt; &lt;ul&gt; &lt;li&gt; The auto-complete suggestions appear below or above the multi-input field.&lt;/li&gt; &lt;li&gt; You can review the tokens by swiping them to the left or right.&lt;/li&gt; &lt;li&gt; (Multi-line Mode) Previously added tokens are visible above the input field.&lt;/li&gt; &lt;/ul&gt; &lt;u&gt;On Desktop:&lt;/u&gt; &lt;ul&gt; &lt;li&gt; The auto-complete suggestions appear below or above the multi-input field.&lt;/li&gt; &lt;li&gt; You can review the tokens by pressing the right or left arrows on the keyboard.&lt;/li&gt; &lt;li&gt; You can select single tokens or a range of tokens and you can copy/cut/delete them.&lt;/ &lt;li&gt; (Multi-line Mode) Previously added tokens are visible above the input field.&lt;/li&gt; &lt;/ul&gt;</xs:documentation>
+      <xs:documentation>&lt;h3&gt;Overview&lt;/h3&gt; A multi-input field allows the user to enter multiple values, which are displayed as {@link sap.m.Token tokens}. You can enable auto-complete suggestions or value help to help the user choose the correct entry. You can define validator functions to define what token values are accepted. &lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt; &lt;li&gt; New valid tokens are created, when the user presses Enter, selects a value from the suggestions drop-down, or when the focus leaves the field.&lt;/li&gt; &lt;li&gt; Provide meaningful labels for all input fields. Do not use the placeholder as a replacement for the label.&lt;/li&gt; &lt;/ul&gt; &lt;h3&gt;Usage&lt;/h3&gt; &lt;h4&gt;When to use:&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; You need to provide the value help option to help users select or search multiple business objects.&lt;/li&gt; &lt;li&gt; The dataset to choose from is expected to increase over time (for example, to more than 200 values).&lt;/li&gt; &lt;/ul&gt; &lt;h4&gt;When not to use:&lt;/h4&gt; &lt;ul&gt; &lt;li&gt; When you need to select only one value.&lt;/li&gt; &lt;li&gt; When you want the user to select from a predefined set of options. Use {@link sap.m.MultiComboBox} instead.&lt;/li&gt; &lt;/ul&gt; &lt;h3&gt;Responsive Behavior&lt;/h3&gt; If there are many tokens, the control shows only the last selected tokens that fit and for the others a label &lt;i&gt;N-more&lt;/i&gt; is provided. In case the length of the last selected token is exceeding the width of the control, only a label &lt;i&gt;N-Items&lt;/i&gt; is shown. In both cases, pressing on the label will show the tokens in a popup. &lt;u&gt;On Phones:&lt;/u&gt; &lt;ul&gt; &lt;li&gt; Only the last entered token is displayed.&lt;/li&gt; &lt;li&gt; A new full-screen dialog opens where the auto-complete suggestions can be selected.&lt;/li&gt; &lt;li&gt; You can review the tokens by tapping on the token or the input field.&lt;/li&gt; &lt;/ul&gt; &lt;u&gt; On Tablets:&lt;/u&gt; &lt;ul&gt; &lt;li&gt; The auto-complete suggestions appear below or above the multi-input field.&lt;/li&gt; &lt;li&gt; You can review the tokens by swiping them to the left or right.&lt;/li&gt; &lt;/ul&gt; &lt;u&gt;On Desktop:&lt;/u&gt; &lt;ul&gt; &lt;li&gt; The auto-complete suggestions appear below or above the multi-input field.&lt;/li&gt; &lt;li&gt; You can review the tokens by pressing the right or left arrows on the keyboard.&lt;/li&gt; &lt;li&gt; You can select single tokens or a range of tokens and you can copy/cut/delete them.&lt;/li&gt; &lt;/ul&gt;</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="_MultiInputType">
@@ -5276,7 +5332,7 @@ The NotificationList controls are designed for the SAP Fiori notification center
         <xs:sequence>
           <xs:element minOccurs="0" name="customContent">
             <xs:annotation>
-              <xs:documentation>When the aggregation is set, it replaces the text, active and textDirection properties. This also ignores the press event. The provided control is displayed as an active link. &lt;b&gt;Note:&lt;/b&gt; It will only allow sap.m.Text and sap.m.Link controls.</xs:documentation>
+              <xs:documentation>When the aggregation is set, it replaces the text, active and textDirection properties. This also ignores the press event. The provided control is displayed as an active link in case it is a sap.m.Link. &lt;b&gt;Note:&lt;/b&gt; It will only allow sap.m.Text and sap.m.Link controls.</xs:documentation>
             </xs:annotation>
             <xs:complexType>
               <xs:sequence>
@@ -5869,6 +5925,16 @@ If bandwidth is key for the application, set this value to false.</xs:documentat
             <xs:documentation>Sets additional information to the displayed &lt;code&gt;type&lt;/code&gt;.
 
 &lt;b&gt;Note:&lt;/b&gt; If no type is set, the additional information will not be displayed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaDescribedBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / ids which describe this control (see WAI-ARIA attribute aria-describedby).</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ariaLabelledBy" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Association to controls / ids which label this control (see WAI-ARIA attribute aria-labelledby).</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="press" type="xs:string">
@@ -6492,6 +6558,11 @@ value='\{&amp;quot;columns&amp;quot;:\{&amp;quot;visible&amp;quot;: true, &amp;q
             <xs:documentation>Event raised if a filter item has been updated.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
+        <xs:attribute name="filterItemChanged" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Event raised if a filter item has been changed. reason can be added, updated or removed.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -6604,6 +6675,11 @@ value='\{&amp;quot;columns&amp;quot;:\{&amp;quot;visible&amp;quot;: true, &amp;q
         <xs:attribute name="type" type="xs:string">
           <xs:annotation>
             <xs:documentation>data type of the column (text, numeric or date is supported)</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="typeInstance" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>data type instance of the column. Can be used instead of the type, precision, scale and formatSettings properties</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="precision" type="xs:string">
@@ -6846,19 +6922,6 @@ value='\{&amp;quot;columns&amp;quot;:\{&amp;quot;visible&amp;quot;: true, &amp;q
             <xs:element ref="n0:Fragment" />
             <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
           </xs:choice>
-          <xs:element minOccurs="0" name="content">
-            <xs:annotation>
-              <xs:documentation>The content of this page</xs:documentation>
-            </xs:annotation>
-            <xs:complexType>
-              <xs:sequence>
-                <xs:choice minOccurs="0" maxOccurs="unbounded">
-                  <xs:element ref="n0:Control" />
-                  <xs:element ref="n0:Fragment" />
-                </xs:choice>
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
           <xs:element minOccurs="0" name="customHeader">
             <xs:annotation>
               <xs:documentation>The (optional) custom header of this page. Use this aggregation only when a custom header is constructed where the default header consisting of title text + nav button is not sufficient. If this aggregation is set, the simple properties "title", "showNavButton", "NavButtonText" and "icon" are not used.</xs:documentation>
@@ -6872,13 +6935,13 @@ value='\{&amp;quot;columns&amp;quot;:\{&amp;quot;visible&amp;quot;: true, &amp;q
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-          <xs:element minOccurs="0" name="footer">
+          <xs:element minOccurs="0" name="headerContent">
             <xs:annotation>
-              <xs:documentation>The (optional) footer of this page. It is always located at the bottom of the page</xs:documentation>
+              <xs:documentation>Controls to be added to the right side of the page header. Usually an application would use Button controls and limit the number to one when the application needs to run on smartphones. There is no automatic overflow handling when the space is insufficient. When a customHeader is used, this aggregation will be ignored.</xs:documentation>
             </xs:annotation>
             <xs:complexType>
               <xs:sequence>
-                <xs:choice minOccurs="0">
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
                   <xs:element ref="n0:Control" />
                   <xs:element ref="n0:Fragment" />
                 </xs:choice>
@@ -6898,13 +6961,26 @@ value='\{&amp;quot;columns&amp;quot;:\{&amp;quot;visible&amp;quot;: true, &amp;q
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-          <xs:element minOccurs="0" name="headerContent">
+          <xs:element minOccurs="0" name="content">
             <xs:annotation>
-              <xs:documentation>Controls to be added to the right side of the page header. Usually an application would use Button controls and limit the number to one when the application needs to run on smartphones. There is no automatic overflow handling when the space is insufficient. When a customHeader is used, this aggregation will be ignored.</xs:documentation>
+              <xs:documentation>The content of this page</xs:documentation>
             </xs:annotation>
             <xs:complexType>
               <xs:sequence>
                 <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="footer">
+            <xs:annotation>
+              <xs:documentation>The (optional) footer of this page. It is always located at the bottom of the page</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
                   <xs:element ref="n0:Control" />
                   <xs:element ref="n0:Fragment" />
                 </xs:choice>
@@ -7149,19 +7225,6 @@ There are two types of panels: fixed and expandable. Expendable panels are enabl
             <xs:element ref="n0:Fragment" />
             <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
           </xs:choice>
-          <xs:element minOccurs="0" name="content">
-            <xs:annotation>
-              <xs:documentation>Determines the content of the Panel. The content will be visible only when the Panel is expanded.</xs:documentation>
-            </xs:annotation>
-            <xs:complexType>
-              <xs:sequence>
-                <xs:choice minOccurs="0" maxOccurs="unbounded">
-                  <xs:element ref="n0:Control" />
-                  <xs:element ref="n0:Fragment" />
-                </xs:choice>
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
           <xs:element minOccurs="0" name="headerToolbar">
             <xs:annotation>
               <xs:documentation>This aggregation allows the use of a custom Toolbar as header for the Panel. The "headerToolbar" is visible in both expanded and collapsed state. Use it when you want to add extra controls for user interactions in the header. Note: This aggregation overwrites "headerText" property.</xs:documentation>
@@ -7183,6 +7246,19 @@ There are two types of panels: fixed and expandable. Expendable panels are enabl
               <xs:sequence>
                 <xs:choice minOccurs="0">
                   <xs:element ref="n6:Toolbar" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="content">
+            <xs:annotation>
+              <xs:documentation>Determines the content of the Panel. The content will be visible only when the Panel is expanded.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
                   <xs:element ref="n0:Fragment" />
                 </xs:choice>
               </xs:sequence>
@@ -7312,6 +7388,11 @@ There are two types of panels: fixed and expandable. Expendable panels are enabl
         <xs:attribute name="showDownloadButton" type="xs:boolean">
           <xs:annotation>
             <xs:documentation>Shows or hides the download button.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="displayType" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Defines how the PDF viewer should be displayed. &lt;ul&gt; &lt;li&gt;If set to &lt;code&gt;Link&lt;/code&gt;, the PDF viewer appears as a toolbar with a download button that can be used to download the PDF file.&lt;br&gt; When the {@link open} method is called, the user can either open the PDF file in a new tab or download it.&lt;/li&gt; &lt;li&gt;If set to &lt;code&gt;Embedded&lt;/code&gt;, the PDF viewer appears embedded in the parent container and displays either the PDF document or the message defined by the &lt;code&gt;errorPlaceholderMessage&lt;/code&gt; property.&lt;/li&gt; &lt;li&gt;If set to &lt;code&gt;Auto&lt;/code&gt;, the appearance of the PDF viewer depends on the device being used: &lt;ul&gt; &lt;li&gt;On mobile devices (phones, tablets), the the PDF viewer appears as a toolbar with a download button.&lt;/li&gt; &lt;li&gt;On desktop devices, the PDF viewer is embedded in its parent container.&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;/ul&gt;</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="popupButtons" type="xs:string" />
@@ -7536,7 +7617,9 @@ There are also some known issues with respect to the scrolling behavior and focu
 
 When the PlanningCalendar is placed in certain layout containers, for example the &lt;code&gt;GridLayout&lt;/code&gt; control, the column headers do not fix at the top of the viewport. Similar behavior is also observed with the &lt;code&gt;ObjectPage&lt;/code&gt; control.
 
-This API should not be used in production environment.</xs:documentation>
+This API should not be used in production environment.
+
+&lt;b&gt;Note:&lt;/b&gt; The &lt;code&gt;stickyHeader&lt;/code&gt; of the &lt;code&gt;PlanningCalendar&lt;/code&gt; uses the &lt;code&gt;sticky&lt;/code&gt; property of &lt;code&gt;sap.m.Table&lt;/code&gt;. Therefore, all features and limitations of the property in &lt;code&gt;sap.m.Table&lt;/code&gt; apply to the &lt;code&gt;PlanningCalendar&lt;/code&gt; as well.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="rows" type="xs:string" />
@@ -7672,7 +7755,7 @@ Keep in mind that the &lt;code&gt;intervalHeaders&lt;/code&gt; should always fil
             <xs:annotation>
               <xs:documentation>Holds the special dates in the context of a row. A single date or a date range can be set.
 
-&lt;b&gt;Note&lt;/&gt; Only date or date ranges of type &lt;code&gt;sap.ui.unified.CalendarDayType.NonWorking&lt;/code&gt; will be visualized in the &lt;code&gt;PlanningCalendarRow&lt;/code&gt;. If the aggregation is set as another type, the date or date range will be ignored and will not be displayed in the control.</xs:documentation>
+&lt;b&gt;Note&lt;/b&gt; Only date or date ranges of type &lt;code&gt;sap.ui.unified.CalendarDayType.NonWorking&lt;/code&gt; will be visualized in the &lt;code&gt;PlanningCalendarRow&lt;/code&gt;. If the aggregation is set as another type, the date or date range will be ignored and will not be displayed in the control.</xs:documentation>
             </xs:annotation>
             <xs:complexType>
               <xs:sequence>
@@ -8019,7 +8102,7 @@ The &lt;code&gt;PlanningCalendarView&lt;/code&gt; defines the type of the interv
         </xs:attribute>
         <xs:attribute name="resizable" type="xs:boolean">
           <xs:annotation>
-            <xs:documentation>Whether resize option is enabled.</xs:documentation>
+            <xs:documentation>Whether resize option is enabled. *Note:* This property is effective only on Desktop</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="content" type="xs:string" />
@@ -8035,7 +8118,7 @@ The &lt;code&gt;PlanningCalendarView&lt;/code&gt; defines the type of the interv
         </xs:attribute>
         <xs:attribute name="initialFocus" type="xs:string">
           <xs:annotation>
-            <xs:documentation>Focus is set to the popover in the sequence of leftButton and rightButton when available. But if some other control neends to get the focus other than one of those two buttons, set the initialFocus with the control which should be focused on.</xs:documentation>
+            <xs:documentation>Focus on the popover is set in the sequence of &lt;code&gt;beginButton&lt;/code&gt; and &lt;code&gt;endButton&lt;/code&gt;, when available. But if a control other than these two buttons needs to get the focus, set the &lt;code&gt;initialFocus&lt;/code&gt; with the control which should be focused on.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="ariaLabelledBy" type="xs:string">
@@ -9049,7 +9132,7 @@ Note that it should be set to "true" when there are no focusable elements inside
         </xs:attribute>
         <xs:attribute name="refreshButtonTooltip" type="xs:string">
           <xs:annotation>
-            <xs:documentation>Tooltip text of the refresh button. If it is not set, the Default placeholder text is the word "Refresh" in the current local language (if supported) or in English. Tooltips are not displayed on touch devices.</xs:documentation>
+            <xs:documentation>Tooltip text of the refresh button. If it is not set, the Default tooltip text is the word "Refresh" in the current local language (if supported) or in English. Tooltips are not displayed on touch devices.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="showSearchButton" type="xs:boolean">
@@ -9278,7 +9361,7 @@ The &lt;code&gt;SegmentedButton&lt;/code&gt; shows a group of buttons. When the 
           <xs:annotation>
             <xs:documentation>Key of the selected item.
 
-&lt;b&gt;Note:&lt;/b&gt; If duplicate keys exist, the first item matching the key is used.</xs:documentation>
+&lt;b&gt;Notes:&lt;/b&gt; &lt;ul&gt; &lt;li&gt; If duplicate keys exist, the first item matching the key is used.&lt;/li&gt; &lt;li&gt; If invalid or none &lt;code&gt;selectedKey&lt;/code&gt; is used, the first item is being selected.&lt;/li&gt; &lt;li&gt; Invalid or missing &lt;code&gt;selectedKey&lt;/code&gt; leads to severe functional issues in &lt;code&gt;sap.m.Table&lt;/code&gt;, when the &lt;code&gt;sap.m.Select&lt;/code&gt; is used inside a &lt;code&gt;sap.m.Table&lt;/code&gt; column.&lt;/li&gt; &lt;/ul&gt;</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="selectedItemId" type="xs:string">
@@ -9418,6 +9501,11 @@ The &lt;code&gt;SegmentedButton&lt;/code&gt; shows a group of buttons. When the 
         <xs:attribute name="contentHeight" type="n0:_CSSSizeType">
           <xs:annotation>
             <xs:documentation>Determines the content height of the inner dialog. For more information, see the dialog documentation.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showClearButton" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>This flag controls whether the Clear button is shown. When set to &lt;code&gt;true&lt;/code&gt;, it provides a way to clear selection mode in Select Dialog. We recommended enabling of the Clear button in the following cases, where a mechanism to clear the value is needed: In case of single selection mode(default mode) for Select Dialog and &lt;code&gt;rememberSelections&lt;/code&gt; is set to &lt;code&gt;true&lt;/code&gt;. Clear button needs to be enabled in order to allow users to clear the selection. In case of using &lt;code&gt;sap.m.Input&lt;/code&gt; with &lt;code&gt;valueHepOnly&lt;/code&gt; set to &lt;code&gt;true&lt;/code&gt;, Clear button could be used for clearing selection. In case the application stores a value and uses only Select Dialog to edit/maintain it. &lt;b&gt;Note:&lt;/b&gt;When used with oData, only the loaded selections will be cleared.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="items" type="xs:string" />
@@ -10503,7 +10591,7 @@ The &lt;code&gt;TabContainer&lt;/code&gt; is a full-page container that takes 10
   </xs:complexType>
   <xs:element name="Table" substitutionGroup="n6:ListBase" type="n6:_TableType">
     <xs:annotation>
-      <xs:documentation>&lt;code&gt;sap.m.Table&lt;/code&gt; control provides a set of sophisticated and convenience functions for responsive table design. To render the &lt;code&gt;sap.m.Table&lt;/code&gt; properly, the order of the &lt;code&gt;columns&lt;/code&gt; aggregation should match with the order of the items &lt;code&gt;cells&lt;/code&gt; aggregation. Also &lt;code&gt;sap.m.Table&lt;/code&gt; requires at least one visible &lt;code&gt;sap.m.Column&lt;/code&gt; in &lt;code&gt;columns&lt;/code&gt; aggregation. For mobile devices, the recommended limit of table rows is 100 (based on 4 columns) to assure proper performance. To improve initial rendering on large tables, use the &lt;code&gt;growing&lt;/code&gt; feature.
+      <xs:documentation>&lt;code&gt;sap.m.Table&lt;/code&gt; control provides a set of sophisticated and convenience functions for responsive table design. To render the &lt;code&gt;sap.m.Table&lt;/code&gt; properly, the order of the &lt;code&gt;columns&lt;/code&gt; aggregation should match with the order of the items &lt;code&gt;cells&lt;/code&gt; aggregation (&lt;code&gt;sap.m.ColumnListItem&lt;/code&gt;). Also &lt;code&gt;sap.m.Table&lt;/code&gt; requires at least one visible &lt;code&gt;sap.m.Column&lt;/code&gt; in &lt;code&gt;columns&lt;/code&gt; aggregation. For mobile devices, the recommended limit of table rows is 100 (based on 4 columns) to assure proper performance. To improve initial rendering on large tables, use the &lt;code&gt;growing&lt;/code&gt; feature.
 
 See section "{@link topic:5eb6f63e0cc547d0bdc934d3652fdc9b Creating Tables}" and "{@link topic:38855e06486f4910bfa6f4485f7c2bac Configuring Responsive Behavior of a Table}" in the documentation for an introduction to &lt;code&gt;sap.m.Table&lt;/code&gt; control.</xs:documentation>
     </xs:annotation>
@@ -10553,15 +10641,6 @@ When this property is set to &lt;code&gt;false&lt;/code&gt;, &lt;code&gt;sap.m.T
             <xs:documentation>Defines the layout in which the table pop-in rows are rendered. &lt;b&gt;Note:&lt;/b&gt; The &lt;code&gt;demandPopin&lt;/code&gt; and &lt;code&gt;minScreenWidth&lt;/code&gt; properties of the &lt;code&gt;Column&lt;/code&gt; control must be configured appropriately.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
-        <xs:attribute name="sticky" type="n6:_StickyType">
-          <xs:annotation>
-            <xs:documentation>Defines the section of the &lt;code&gt;sap.m.Table&lt;/code&gt; control that remains fixed at the top of the page during vertical scrolling as long as the table is in the viewport.
-
-&lt;b&gt;Note:&lt;/b&gt; There is limited browser support. Browsers that do not support this feature are listed below: &lt;ul&gt; &lt;li&gt;IE.&lt;/li&gt; &lt;li&gt;Edge lower than version 41 (EdgeHTML 16).&lt;/li&gt; &lt;li&gt;Firefox lower than version 59.&lt;/li&gt; &lt;/ul&gt;
-
-There are also some known limitations with respect to the scrolling behavior. A few are given below: &lt;ul&gt; &lt;li&gt;If the table is placed in certain layout containers, for example, the &lt;code&gt;sap.ui.layout.Grid&lt;/code&gt; control, the column headers are not fixed at the top of the viewport. The table behaves in a similar way when placed within the &lt;code&gt;sap.m.ObjectPage&lt;/code&gt; control.&lt;/li&gt; &lt;li&gt;If the sticky column headers are enabled in the table, setting focus on the column headers will let the table scroll to the top.&lt;/li&gt; &lt;/ul&gt;</xs:documentation>
-          </xs:annotation>
-        </xs:attribute>
         <xs:attribute name="columns" type="xs:string" />
         <xs:attribute name="beforeOpenContextMenu" type="xs:string">
           <xs:annotation>
@@ -10575,7 +10654,7 @@ There are also some known limitations with respect to the scrolling behavior. A 
     <xs:annotation>
       <xs:documentation>A dialog to select items in a table containing multiple values and attributes. &lt;h3&gt;Overview&lt;/h3&gt; The table select dialog helps users select items in a table-like structure with several attributes and values per item. A search fields helps narrow down the results. &lt;h3&gt;Structure&lt;/h3&gt; The table select dialog consists of the following elements: &lt;ul&gt; &lt;li&gt; Search field - used to search enter search terms for a specific item.&lt;/li&gt; &lt;li&gt; Info toolbar (only in multi-select mode) - displays the number of currently selected items.&lt;/li&gt; &lt;li&gt; Content - the table with the items.&lt;/li&gt; &lt;li&gt; Footer (optional) - a toolbar for actions.&lt;/li&gt; &lt;/ul&gt; Table select dialog supports multi-selection when the &lt;code&gt;multiSelect&lt;/code&gt; property is set.
 
-The selected items can be stored for later editing when the &lt;code&gt;rememberSelections&lt;/code&gt; property is set. &lt;b&gt;Note:&lt;/b&gt; This property has to be set before the dialog is opened. &lt;h3&gt;Usage&lt;/h3&gt; &lt;h4&gt;When to use:&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;You need to select one or more items from a comprehensive list that contains multiple attributes or values.&lt;/li&gt; &lt;/ul&gt; &lt;h4&gt;When not to use:&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;You need to select one item from a predefined set of options that contains only one value. Use a {@link sap.m.Select switch} control instead.&lt;/li&gt; &lt;li&gt;You need to select items within a query-based range. Use a {@link sap.ui.comp.valuehelpdialog.ValueHelpDialog value help} control instead.&lt;/li&gt; &lt;li&gt;You need to only filter a set of items. Use a {@link sap.ui.comp.filterbar.FilterBar filter bar} control instead.&lt;/li&gt; &lt;/ul&gt; &lt;h4&gt;Note:&lt;/h4&gt; The property &lt;code&gt;growing&lt;/code&gt; determines the progressive loading. If it's set to true (the default value), the features &lt;code&gt;selected count&lt;/code&gt; in info bar, &lt;code&gt;search&lt;/code&gt; and &lt;code&gt;select/deselect all&lt;/code&gt;, if present, will work only for the currently loaded items. To make sure that all items in the table are loaded at once and the above features work properly, we recommend setting the &lt;code&gt;growing&lt;/code&gt; property to false. &lt;h3&gt;Responsive Behavior&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;On smaller screens, the columns of the table wrap and build a list that shows all the information.&lt;/li&gt; &lt;/ul&gt;</xs:documentation>
+The selected items can be stored for later editing when the &lt;code&gt;rememberSelections&lt;/code&gt; property is set. &lt;b&gt;Note:&lt;/b&gt; This property has to be set before the dialog is opened. &lt;h3&gt;Usage&lt;/h3&gt; &lt;h4&gt;When to use:&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;You need to select one or more items from a comprehensive list that contains multiple attributes or values.&lt;/li&gt; &lt;/ul&gt; &lt;h4&gt;When not to use:&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;You need to select only one item from a predefined list of single-value options. Use the {@link sap.m.Select Select} control instead.&lt;/li&gt; &lt;li&gt;You need to display complex content without having the user navigate away from the current page or you want to prompt the user for an action. Use the {@link sap.m.Dialog Dialog} control instead.&lt;/li&gt; &lt;li&gt;You need to select items within a query-based range. Use the {@link https://experience.sap.com/fiori-design-web/value-help-dialog/ Value Help Dialog} control instead.&lt;/li&gt; &lt;li&gt;You need to filter a set of items without any selection. Use the {@link https://experience.sap.com/fiori-design-web/filter-bar/ Filter Bar} control instead.&lt;/li&gt; &lt;/ul&gt; &lt;h4&gt;Notes:&lt;/h4&gt; &lt;ul&gt; &lt;li&gt;The property &lt;code&gt;growing&lt;/code&gt; must not be used together with two-way binding. &lt;li&gt;When the property &lt;code&gt;growing&lt;/code&gt; is set to &lt;code&gt;true&lt;/code&gt; (default value), the features &lt;code&gt;selected count&lt;/code&gt; in info bar, &lt;code&gt;search&lt;/code&gt; and &lt;code&gt;select/deselect all&lt;/code&gt;, if present, work only for the currently loaded items. To make sure that all items in the table are loaded at once and the above features work properly, set the property to &lt;code&gt;false&lt;/code&gt;. &lt;li&gt;Since version 1.58, the columns headers and the info toolbar are sticky (remain fixed on top when scrolling). This feature is not supported in all browsers. For more information on browser support limitations, you can refer to the {@link sap.m.ListBase sap.m.ListBase} &lt;code&gt;sticky&lt;/code&gt; property. &lt;/ul&gt; &lt;h3&gt;Responsive Behavior&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;On smaller screens, the columns of the table wrap and build a list that shows all the information.&lt;/li&gt; &lt;/ul&gt;</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="_TableSelectDialogType">
@@ -10631,7 +10710,7 @@ The selected items can be stored for later editing when the &lt;code&gt;remember
         </xs:attribute>
         <xs:attribute name="growing" type="xs:boolean">
           <xs:annotation>
-            <xs:documentation>If set to &lt;code&gt;true&lt;/code&gt;, enables the growing feature of the control to load more items by requesting from the bound model (progressive loading). &lt;b&gt;Note:&lt;/b&gt; This feature only works when an &lt;code&gt;items&lt;/code&gt; aggregation is bound. Growing must not be used together with two-way binding. &lt;b&gt;Note:&lt;/b&gt; If the property is set to true, the features &lt;code&gt;selected count&lt;/code&gt; in info bar, &lt;code&gt;search&lt;/code&gt; and &lt;code&gt;select/deselect all&lt;/code&gt;, if present, will work only for the currently loaded items. To make sure that all items in the table are loaded at once and the above features work properly, we recommend setting the &lt;code&gt;growing&lt;/code&gt; property to false.</xs:documentation>
+            <xs:documentation>Determines the progressive loading. When set to &lt;code&gt;true&lt;/code&gt;, enables the growing feature of the control to load more items by requesting from the bound model. &lt;b&gt;Note:&lt;/b&gt; This feature only works when an &lt;code&gt;items&lt;/code&gt; aggregation is bound. Growing must not be used together with two-way binding. &lt;b&gt;Note:&lt;/b&gt; If the property is set to true, the features &lt;code&gt;selected count&lt;/code&gt; in info bar, &lt;code&gt;search&lt;/code&gt; and &lt;code&gt;select/deselect all&lt;/code&gt;, if present, work only for the currently loaded items. To make sure that all items in the table are loaded at once and the above features work properly, we recommend setting the &lt;code&gt;growing&lt;/code&gt; property to false.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="growingThreshold" type="xs:int">
@@ -10652,6 +10731,17 @@ The selected items can be stored for later editing when the &lt;code&gt;remember
         <xs:attribute name="contentHeight" type="n0:_CSSSizeType">
           <xs:annotation>
             <xs:documentation>Specifies the content height of the inner dialog. For more information, see the Dialog documentation.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="showClearButton" type="xs:boolean">
+          <xs:annotation>
+            <xs:documentation>This flag controls whether the Clear button is shown. When set to &lt;code&gt;true&lt;/code&gt;, it provides a way to clear a selection made in Table Select Dialog.
+
+We recommend enabling of the Clear button in the following cases, where a mechanism to clear the value is needed: In case the Table Select Dialog is in single-selection mode (default mode) and &lt;code&gt;rememberSelections&lt;/code&gt; is set to &lt;code&gt;true&lt;/code&gt;. The Clear button needs to be enabled in order to allow users to clear the selection. In case of using &lt;code&gt;sap.m.Input&lt;/code&gt; with &lt;code&gt;valueHelpOnly&lt;/code&gt; set to &lt;code&gt;true&lt;/code&gt;, the Clear button can be used for clearing the selection. In case the application stores a value and uses only Table Select Dialog to edit/maintain it.
+
+Optional: In case &lt;code&gt;multiSelect&lt;/code&gt; is set to &lt;code&gt;true&lt;/code&gt;, the selection can be easily cleared with one click.
+
+&lt;b&gt;Note:&lt;/b&gt; When used with oData, only the loaded selections will be cleared.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="items" type="xs:string" />
@@ -10957,7 +11047,7 @@ The user can enter a date by:
 
 On app level, there are two options to provide value for the &lt;code&gt;TimePicker&lt;/code&gt; - as a string to the &lt;code&gt;value&lt;/code&gt; property or as a JavaScript Date object to the &lt;code&gt;dateValue&lt;/code&gt; property (only one of these properties should be used at a time):
 
-&lt;ul&gt;&lt;li&gt;Use the &lt;code&gt;value&lt;/code&gt; property if you want to bind the &lt;code&gt;TimePicker&lt;/code&gt; to a model using the &lt;code&gt;sap.ui.model.type.Time&lt;/code&gt;&lt;/li&gt; &lt;li&gt;Use the &lt;code&gt;value&lt;/code&gt; property if the date is provided as a string from the backend or inside the app (for example, as ABAP type DATS field)&lt;/li&gt; &lt;li&gt;Use the &lt;code&gt;dateValue&lt;/code&gt; property if the date is already provided as a JavaScript Date object or you want to work with a JavaScript Date object&lt;/li&gt;&lt;/ul&gt;
+&lt;ul&gt;&lt;li&gt;Use the &lt;code&gt;value&lt;/code&gt; property if you want to bind the &lt;code&gt;TimePicker&lt;/code&gt; to a model using the &lt;code&gt;sap.ui.model.type.Time&lt;/code&gt;&lt;/li&gt; &lt;li&gt;Use the &lt;code&gt;value&lt;/code&gt; property if the date is provided as a string from the backend or inside the app (for example, as ABAP type DATS field)&lt;/li&gt; &lt;li&gt;Use the &lt;code&gt;dateValue&lt;/code&gt; property if the date is already provided as a JavaScript Date object or you want to work with a JavaScript Date object. Use &lt;code&gt;dateValue&lt;/code&gt; as a helper property to easily obtain the hours, minutes and seconds of the chosen time. Although possible to bind it, the recommendation is to not to do it. When binding is needed, use &lt;code&gt;value&lt;/code&gt; property instead&lt;/li&gt;&lt;/ul&gt;
 
 &lt;h3&gt;Formatting&lt;/h3&gt;
 
@@ -11286,6 +11376,11 @@ Clicking or tapping a &lt;code&gt;ToggleButton&lt;/code&gt; changes its state to
         <xs:attribute name="width" type="n0:_CSSSizeType">
           <xs:annotation>
             <xs:documentation>Defines the width of the Tokenizer.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="maxWidth" type="n0:_CSSSizeType">
+          <xs:annotation>
+            <xs:documentation>Defines the maximum width of the Tokenizer.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="tokens" type="xs:string" />
@@ -12030,7 +12125,7 @@ The popover dialog appears as a modal window on desktop and tablet screen sizes,
           </xs:element>
           <xs:element minOccurs="0" name="presetFilterItems">
             <xs:annotation>
-              <xs:documentation>The list of preset filter items that allows the selection of more complex or custom filters. These entries are displayed at the top of the filter tab.</xs:documentation>
+              <xs:documentation>The list of preset filter items with key and value that allows the selection of more complex or custom filters. These entries are displayed at the top of the filter tab.</xs:documentation>
             </xs:annotation>
             <xs:complexType>
               <xs:sequence>
@@ -12129,7 +12224,7 @@ The popover dialog appears as a modal window on desktop and tablet screen sizes,
         <xs:sequence>
           <xs:element minOccurs="0" name="items">
             <xs:annotation>
-              <xs:documentation>Items that are logically grouped under this filter item. They are used to display filter details in the ViewSettingsDialog.</xs:documentation>
+              <xs:documentation>Items with key and value that are logically grouped under this filter item. They are used to display filter details in the ViewSettingsDialog.</xs:documentation>
             </xs:annotation>
             <xs:complexType>
               <xs:sequence>
@@ -12157,7 +12252,7 @@ The popover dialog appears as a modal window on desktop and tablet screen sizes,
   </xs:complexType>
   <xs:element name="ViewSettingsItem" substitutionGroup="n0:Item" type="n6:_ViewSettingsItemType">
     <xs:annotation>
-      <xs:documentation>ViewSettingsItem is used for modelling filter behaviour in the ViewSettingsDialog. It is derived from a core Item, but does not support the base class properties "textDirection" and "enabled", setting these properties will not have any effects.</xs:documentation>
+      <xs:documentation>ViewSettingsItem is used for modelling filter behaviour in the ViewSettingsDialog. It is derived from a core Item, but does not support the base class properties "textDirection" and "enabled", setting these properties will not have any effects. Apps should use the core Item's property &lt;code&gt;key/&lt;/code&gt; and provide a unique value for it. Not providing a key may lead to unexpected behavior of the sap.m.ViewSettingsDialog.</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="_ViewSettingsItemType">
@@ -12471,12 +12566,14 @@ The popover dialog appears as a modal window on desktop and tablet screen sizes,
     <xs:restriction base="xs:string">
       <xs:enumeration value="Message">
         <xs:annotation>
-          <xs:documentation>Dialog with type Message looks the same as the Stardard Dialog in Android. And it puts the left, right buttons to the bottom of the Dialog in iOS.</xs:documentation>
+          <xs:documentation>Dialog with type Message looks the same as the Standard Dialog in Android. It puts the Left and the Right buttons at the bottom of the Dialog in iOS.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="Standard">
         <xs:annotation>
-          <xs:documentation>This is the default value for Dialog type. Stardard dialog in iOS has a header on the top and the left, right buttons are put inside the header. In android, the left, right buttons are put to the bottom of the Dialog.</xs:documentation>
+          <xs:documentation>This is the default value for Dialog type.
+
+The Standard Dialog in iOS has a header on the top. The Left and the Right buttons are put inside the header. In Android, the Left and the Right buttons are put at the bottom of the Dialog.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -12504,7 +12601,7 @@ The popover dialog appears as a modal window on desktop and tablet screen sizes,
     <xs:restriction base="xs:string">
       <xs:enumeration value="Boolean">
         <xs:annotation>
-          <xs:documentation>&gt;An input control for specifying a Boolean value</xs:documentation>
+          <xs:documentation>An input control for specifying a Boolean value</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="Date">
@@ -12519,7 +12616,7 @@ The popover dialog appears as a modal window on desktop and tablet screen sizes,
       </xs:enumeration>
       <xs:enumeration value="Float">
         <xs:annotation>
-          <xs:documentation>&gt;An input control for specifying a Float value</xs:documentation>
+          <xs:documentation>An input control for specifying a Float value</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="Integer">
@@ -12529,7 +12626,7 @@ The popover dialog appears as a modal window on desktop and tablet screen sizes,
       </xs:enumeration>
       <xs:enumeration value="String">
         <xs:annotation>
-          <xs:documentation>&gt;An input control for specifying a String value</xs:documentation>
+          <xs:documentation>An input control for specifying a String value</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="Time">
@@ -12548,7 +12645,9 @@ The popover dialog appears as a modal window on desktop and tablet screen sizes,
       </xs:enumeration>
       <xs:enumeration value="Simple">
         <xs:annotation>
-          <xs:documentation>Forces FacetFilter to display facet lists as a row of buttons, one button per facet. The FacetFilter will automatically adapt to the Light type when it detects smart phone sized displays.</xs:documentation>
+          <xs:documentation>Forces FacetFilter to display facet lists as a row of buttons, one button per facet.
+
+The FacetFilter will automatically adapt to the Light type when it detects smart phone sized displays.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -12596,7 +12695,9 @@ The popover dialog appears as a modal window on desktop and tablet screen sizes,
     <xs:restriction base="xs:string">
       <xs:enumeration value="Baseline">
         <xs:annotation>
-          <xs:documentation>If the flex item's inline axes are the same as the cross axis, this value is identical to "Start". Otherwise, it participates in baseline alignment: all participating box items on the line are aligned such that their baselines align, and the item with the largest distance between its baseline and its cross-start margin edge is placed flush against the cross-start edge of the line.</xs:documentation>
+          <xs:documentation>If the flex item's inline axes are the same as the cross axis, this value is identical to "Start".
+
+Otherwise, it participates in baseline alignment: all participating box items on the line are aligned such that their baselines align, and the item with the largest distance between its baseline and its cross-start margin edge is placed flush against the cross-start edge of the line.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="Center">
@@ -12635,7 +12736,9 @@ The popover dialog appears as a modal window on desktop and tablet screen sizes,
       </xs:enumeration>
       <xs:enumeration value="Baseline">
         <xs:annotation>
-          <xs:documentation>If the flex item's inline axis is the same as the cross axis, this value is identical to "Start". Otherwise, it participates in baseline alignment: all participating box items on the line are aligned such that their baselines align, and the item with the largest distance between its baseline and its cross-start margin edge is placed flush against the cross-start edge of the line.</xs:documentation>
+          <xs:documentation>If the flex item's inline axis is the same as the cross axis, this value is identical to "Start".
+
+Otherwise, it participates in baseline alignment: all participating box items on the line are aligned such that their baselines align, and the item with the largest distance between its baseline and its cross-start margin edge is placed flush against the cross-start edge of the line.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="Center">
@@ -12804,7 +12907,9 @@ The popover dialog appears as a modal window on desktop and tablet screen sizes,
       </xs:enumeration>
       <xs:enumeration value="LineMode">
         <xs:annotation>
-          <xs:documentation>Line mode (Implemented for both, cozy and compact densities. Generic Tile is displayed as in-line element, header and subheader are displayed in one line. In case the texts need more than one line, the representation depends on the used density. &lt;b&gt;Cozy:&lt;/b&gt; The text will be truncated and the full text is shown in a tooltip as soon as the tile is hovered (desktop only). &lt;b&gt;Compact:&lt;/b&gt; Header and subheader are rendered continuously spanning multiple lines, no tooltip is provided).</xs:documentation>
+          <xs:documentation>Line mode (Implemented for both, cozy and compact densities).
+
+Generic Tile is displayed as in-line element, header and subheader are displayed in one line. In case the texts need more than one line, the representation depends on the used density. &lt;b&gt;Cozy:&lt;/b&gt; The text will be truncated and the full text is shown in a tooltip as soon as the tile is hovered (desktop only). &lt;b&gt;Compact:&lt;/b&gt; Header and subheader are rendered continuously spanning multiple lines, no tooltip is provided).</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -13075,7 +13180,9 @@ The popover dialog appears as a modal window on desktop and tablet screen sizes,
       </xs:enumeration>
       <xs:enumeration value="Upwards">
         <xs:annotation>
-          <xs:documentation>User has to scroll up to load more items or the growing button is displayed at the top. &lt;b&gt;Note:&lt;/b&gt; If this option is active, there should not be any other control than &lt;code&gt;sap.m.List&lt;/code&gt; inside its &lt;code&gt;ScollContainer&lt;/code&gt;.</xs:documentation>
+          <xs:documentation>User has to scroll up to load more items or the growing button is displayed at the top.
+
+&lt;b&gt;Note:&lt;/b&gt; If this option is active, there should not be any other control than &lt;code&gt;sap.m.List&lt;/code&gt; inside its &lt;code&gt;ScollContainer&lt;/code&gt;.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -13098,12 +13205,16 @@ The popover dialog appears as a modal window on desktop and tablet screen sizes,
     <xs:restriction base="xs:string">
       <xs:enumeration value="Edit">
         <xs:annotation>
-          <xs:documentation>This mode is suitable if the number of items is limited and if there are editable fields within the item. While the last/first interactive element within an item has the focus, pressing tab/shift+tab moves the focus to the next/previous element in the tab chain after/before the item &lt;/code&gt;.</xs:documentation>
+          <xs:documentation>This mode is suitable if the number of items is limited and if there are editable fields within the item.
+
+While the last/first interactive element within an item has the focus, pressing tab/shift+tab moves the focus to the next/previous element in the tab chain after/before the item &lt;/code&gt;.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="Navigation">
         <xs:annotation>
-          <xs:documentation>This default mode is suitable if the number of items is unlimited or if there is no editable field within the item. While the last/first interactive element within an item has the focus, pressing tab/shift+tab moves the focus to the next/previous element in the tab chain after/before the &lt;code&gt;sap.m.List&lt;/code&gt; or &lt;code&gt;sap.m.Table&lt;/code&gt;.</xs:documentation>
+          <xs:documentation>This default mode is suitable if the number of items is unlimited or if there is no editable field within the item.
+
+While the last/first interactive element within an item has the focus, pressing tab/shift+tab moves the focus to the next/previous element in the tab chain after/before the &lt;code&gt;sap.m.List&lt;/code&gt; or &lt;code&gt;sap.m.Table&lt;/code&gt;.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -13262,7 +13373,7 @@ The popover dialog appears as a modal window on desktop and tablet screen sizes,
       </xs:enumeration>
       <xs:enumeration value="UnsavedBy">
         <xs:annotation>
-          <xs:documentation>UnsavedBy type Use when you need to display the name of the user whos changes were unsaved.</xs:documentation>
+          <xs:documentation>UnsavedBy type Use when you need to display the name of the user whose changes were unsaved.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -13300,7 +13411,7 @@ The popover dialog appears as a modal window on desktop and tablet screen sizes,
       </xs:enumeration>
       <xs:enumeration value="Disappear">
         <xs:annotation>
-          <xs:documentation>Disappear priority OverflowToolbar items overflow before the items with higher priority such as Low and High priority items and remain hidden in the overflow area</xs:documentation>
+          <xs:documentation>Disappear priority OverflowToolbar items overflow before the items with higher priority such as Low and High priority items and remain hidden in the overflow area.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="High">
@@ -13323,30 +13434,6 @@ The popover dialog appears as a modal window on desktop and tablet screen sizes,
           <xs:documentation>NeverOverflow priority forces OverflowToolbar items to remain always in the toolbar</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="_P13nConditionOperationType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Ascending" />
-      <xs:enumeration value="Average" />
-      <xs:enumeration value="BT" />
-      <xs:enumeration value="Contains" />
-      <xs:enumeration value="Descending" />
-      <xs:enumeration value="Empty" />
-      <xs:enumeration value="EndsWith" />
-      <xs:enumeration value="EQ" />
-      <xs:enumeration value="GE" />
-      <xs:enumeration value="GroupAscending" />
-      <xs:enumeration value="GroupDescending" />
-      <xs:enumeration value="GT" />
-      <xs:enumeration value="Initial" />
-      <xs:enumeration value="LE" />
-      <xs:enumeration value="LT" />
-      <xs:enumeration value="Maximum" />
-      <xs:enumeration value="Minimum" />
-      <xs:enumeration value="NotEmpty" />
-      <xs:enumeration value="StartsWith" />
-      <xs:enumeration value="Total" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="_P13nPanelTypeType">
@@ -13417,6 +13504,25 @@ The popover dialog appears as a modal window on desktop and tablet screen sizes,
       <xs:enumeration value="Region">
         <xs:annotation>
           <xs:documentation>Represents the ARIA role &lt;code&gt;Region&lt;/code&gt;. A section of a page, that is important enough to be included in a page summary or table of contents.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="_PDFViewerDisplayTypesType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Auto">
+        <xs:annotation>
+          <xs:documentation>The PDF viewer switches between the &lt;code&gt;Link&lt;/code&gt; display type and the &lt;code&gt;Embedded&lt;/code&gt; display type, depending on the device being used.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Embedded">
+        <xs:annotation>
+          <xs:documentation>The PDF viewer appears embedded in the parent container and displays the PDF file.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Link">
+        <xs:annotation>
+          <xs:documentation>The PDF viewer appears as a toolbar with a download button that can be used to download the PDF file or open it in a new tab.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -13558,7 +13664,7 @@ The popover dialog appears as a modal window on desktop and tablet screen sizes,
       </xs:enumeration>
       <xs:enumeration value="Inline">
         <xs:annotation>
-          <xs:documentation>Inside the table popin, cell content is displayed next to the header in the same line. Note: If there is not enough space for the cell content then it jumps to the next line.</xs:documentation>
+          <xs:documentation>Inside the table popin, cell content is displayed next to the header in the same line. &lt;b&gt;Note:&lt;/b&gt; If there is not enough space for the cell content then it jumps to the next line.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="WithoutHeader">
@@ -13600,7 +13706,7 @@ The popover dialog appears as a modal window on desktop and tablet screen sizes,
       </xs:enumeration>
       <xs:enumeration value="link">
         <xs:annotation>
-          <xs:documentation>Displayes a regular HTML link</xs:documentation>
+          <xs:documentation>Displays a regular HTML link</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="mobile">
@@ -13610,7 +13716,7 @@ The popover dialog appears as a modal window on desktop and tablet screen sizes,
       </xs:enumeration>
       <xs:enumeration value="pageLink">
         <xs:annotation>
-          <xs:documentation>Dislpays a link for navigating to another QuickViewPage</xs:documentation>
+          <xs:documentation>Displays a link for navigating to another QuickViewPage</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="phone">
@@ -13620,7 +13726,7 @@ The popover dialog appears as a modal window on desktop and tablet screen sizes,
       </xs:enumeration>
       <xs:enumeration value="text">
         <xs:annotation>
-          <xs:documentation>Dislpays text</xs:documentation>
+          <xs:documentation>Displays text</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -13759,7 +13865,9 @@ The popover dialog appears as a modal window on desktop and tablet screen sizes,
     <xs:restriction base="xs:string">
       <xs:enumeration value="HideMode">
         <xs:annotation>
-          <xs:documentation>Master area is hidden initially both in portrait and landscape. Master area can be opened by clicking on the top left corner button or swiping right. Swipe is only enabled on mobile devices. Master will keep the open state when changing the orientation of the device.</xs:documentation>
+          <xs:documentation>Master area is hidden initially both in portrait and landscape.
+
+Master area can be opened by clicking on the top left corner button or swiping right. Swipe is only enabled on mobile devices. Master will keep the open state when changing the orientation of the device.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="PopoverMode">

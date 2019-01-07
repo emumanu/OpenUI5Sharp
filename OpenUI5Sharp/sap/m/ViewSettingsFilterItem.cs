@@ -32,7 +32,7 @@ namespace UI5
 					public Union<bool, string, sap.ui.@base.ManagedObject.BindPropertyInfo> multiSelect;
 
 					/// <summary>
-					/// Items that are logically grouped under this filter item. They are used to display filter details in the ViewSettingsDialog.
+					/// Items with key and value that are logically grouped under this filter item. They are used to display filter details in the ViewSettingsDialog.
 					/// </summary>
 					public Union<sap.m.ViewSettingsItem[], string, sap.ui.@base.ManagedObject.BindAggregationInfo> items;
 
@@ -115,7 +115,7 @@ namespace UI5
 				/// <summary>
 				/// Gets content of aggregation {@link #getItems items}.
 				/// 
-				/// Items that are logically grouped under this filter item. They are used to display filter details in the ViewSettingsDialog.
+				/// Items with key and value that are logically grouped under this filter item. They are used to display filter details in the ViewSettingsDialog.
 				/// </summary>
 				/// <returns></returns>
 				public extern virtual sap.m.ViewSettingsItem[] getItems();
@@ -170,7 +170,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oBindingInfo">The binding information</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.ViewSettingsFilterItem bindItems(object oBindingInfo);
+				public extern virtual sap.m.ViewSettingsFilterItem bindItems(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 				/// <summary>
 				/// Unbinds aggregation {@link #getItems items} from model data.
@@ -291,7 +291,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.ViewSettingsFilterItem.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				#endregion
 

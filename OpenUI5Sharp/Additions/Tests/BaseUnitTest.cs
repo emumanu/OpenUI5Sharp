@@ -9,6 +9,7 @@ namespace UI5.Tests
     /// </summary>
     /// <remarks>You should add "sap/ui/thirdparty/sinon" and "sap/ui/thirdparty/sinon-qunit" as a dependency when you inherit from this class</remarks>
     [FileName("openui5sharp-test.js")]
+    [Name("UI5.Tests.BaseUnitTest")]
     public partial class BaseUnitTest
     {
         /// <summary>

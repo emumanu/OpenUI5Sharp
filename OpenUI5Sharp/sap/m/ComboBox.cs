@@ -10,7 +10,7 @@ namespace UI5
 		public static partial class m
 		{
 			/// <summary>
-			/// A drop-down list for selecting and filtering values. <h3>Overview</h3> The control represents a drop-down menu with a list of the available options and a text input field to narrow down the options. <h3>Structure</h3> The combo-box consists of the following elements: <ul> <li> Input field - displays the selected option or a custom user entry. Users can type to narrow down the list or enter their own value.</li> <li> Drop-down arrow - expands\collapses the option list.</li> <li> Option list - the list of available options.</li> </ul> By setting the <code>showSecondaryValues</code> property, the combo box can display an additional value for each option (if there is one). Filtering is done only on the first option. <h3>Usage</h3> <h4>When to use:</h4> <ul> <li>You need to select only one item in a long list of options (between 13 and 200) or your custom user input.</li> </ul> <h4>When not to use:</h4> <ul> <li>You need to select between only two options. Use a {@link sap.m.Switch switch} control instead.</li> <li>You need to select between 12 options. Use a {@link sap.m.Select select} control instead.</li> <li>You need to select between more than 200 options. Use a {@link sap.m.Input input} control with value help instead.</li> </ul> <h3>Responsive Behavior</h3> <ul> <li>The width of the option list adapts to its content. The minimum width is the input field plus the drop-down arrow.</li> <li>There is no horizontal scrolling in the option list. Entries in the list that are too long will be truncated.</li> <li>On phone devices the combo box option list opens a dialog.</li> </ul>
+			/// A drop-down list for selecting and filtering values. <h3>Overview</h3> The control represents a drop-down menu with a list of the available options and a text input field to narrow down the options. <h3>Structure</h3> The combo-box consists of the following elements: <ul> <li> Input field - displays the selected option or a custom user entry. Users can type to narrow down the list or enter their own value.</li> <li> Drop-down arrow - expands\collapses the option list.</li> <li> Option list - the list of available options.</li> </ul> By setting the <code>showSecondaryValues</code> property, the combo box can display an additional value for each option (if there is one). <h3>Usage</h3> <h4>When to use:</h4> <ul> <li>You need to select only one item in a long list of options (between 13 and 200) or your custom user input.</li> </ul> <h4>When not to use:</h4> <ul> <li>You need to select between only two options. Use a {@link sap.m.Switch switch} control instead.</li> <li>You need to select between up to 12 options. Use a {@link sap.m.Select select} control instead.</li> <li>You need to select between more than 200 options. Use a {@link sap.m.Input input} control with value help instead.</li> </ul> <h3>Responsive Behavior</h3> <ul> <li>The width of the option list adapts to its content. The minimum width is the input field plus the drop-down arrow.</li> <li>There is no horizontal scrolling in the option list. Entries in the list that are too long will be truncated.</li> <li>On phone devices the combo box option list opens a dialog.</li> </ul>
 			/// </summary>
 			[External]
 			[Namespace(false)]
@@ -157,7 +157,7 @@ namespace UI5
 				/// 
 				/// Default value is an empty string <code>""</code> or <code>undefined</code>.
 				/// </summary>
-				/// <param name="sKey">New value for property <code>selectedKey</code>. If the provided <code>sKey</code> is an empty string <code>""</code> or <code>undefined</code>, the selection is cleared. If duplicate keys exist, the first item matching the key is selected.</param>
+				/// <param name="sKey">New value for property <code>selectedKey</code>. If the provided <code>sKey</code> is an empty string <code>""</code> or <code>undefined</code>, the selection is cleared. If duplicate keys exist, the first item matching the key is selected. If a key is set and no item exists with that key, the visual selection remains the same.</param>
 				/// <returns><code>this</code> to allow method chaining.</returns>
 				public extern virtual sap.m.ComboBox setSelectedKey(string sKey);
 
@@ -489,7 +489,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.ComboBox.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// This event handler is called before the picker popup is opened.

@@ -316,7 +316,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.Title.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Sets the title for a <code>sap.m.Title</code> or <code>sap.ui.core.Title</code>

@@ -394,7 +394,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.NotificationListGroup.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Sets up the initial values of the control.

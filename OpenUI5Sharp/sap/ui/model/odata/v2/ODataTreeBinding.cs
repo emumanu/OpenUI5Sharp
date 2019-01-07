@@ -74,6 +74,17 @@ namespace UI5
 							#region Methods
 
 							/// <summary>
+							/// Expand a nodes subtree to a given level
+							/// 
+							/// This API is only supported in OperationMode.Server and if the OData service implements the full specification of the "hierarchy-node-for" annotation.
+							/// </summary>
+							/// <param name="iIndex">the absolute row index</param>
+							/// <param name="iLevel">the level to which the data should be expanded</param>
+							/// <param name="bSuppressChange">if set to true, no change event will be fired</param>
+							/// <returns>A promise resolving once the expansion process has been completed</returns>
+							public extern virtual es5.Promise<object> expandNodeToLevel(int iIndex, int iLevel, bool bSuppressChange);
+
+							/// <summary>
 							/// Creates a new subclass of class sap.ui.model.odata.v2.ODataTreeBinding with name <code>sClassName</code> and enriches it with the information contained in <code>oClassInfo</code>.
 							/// 
 							/// <code>oClassInfo</code> might contain the same kind of information as described in {@link sap.ui.model.TreeBinding.extend}.
@@ -133,7 +144,8 @@ namespace UI5
 							/// Returns a metadata object for class sap.ui.model.odata.v2.ODataTreeBinding.
 							/// </summary>
 							/// <returns>Metadata object describing this class</returns>
-							public extern static sap.ui.@base.Metadata getMetadata();
+							[Name("getMetadata")]
+							public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 							/// <summary>
 							/// Returns the contexts of the child nodes for the given context. This function is not available when the annotation "hierarchy-node-descendant-count-for" is exposed on the service.

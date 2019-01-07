@@ -220,7 +220,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.table.TablePersoController.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Opens the personalization dialog for the Table to modify the visibility and the order of the columns.
@@ -234,13 +235,13 @@ namespace UI5
 					/// Refresh the personalizations (reloads data from service).
 					/// </summary>
 					/// <returns><code>jQuery Promise</code> which is resolved once the refresh is finished</returns>
-					public extern virtual jquery.JQueryPromise<object> refresh();
+					public extern virtual es5.Promise<object> refresh();
 
 					/// <summary>
 					/// Saves the current personalization state.
 					/// </summary>
 					/// <returns><code>jQuery Promise</code> which is resolved once the save is finished</returns>
-					public extern virtual jquery.JQueryPromise<object> savePersonalizations();
+					public extern virtual es5.Promise<object> savePersonalizations();
 
 					#endregion
 

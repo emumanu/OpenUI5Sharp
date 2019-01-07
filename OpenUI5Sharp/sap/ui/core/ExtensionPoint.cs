@@ -53,7 +53,7 @@ namespace UI5
 					/// </summary>
 					/// <param name="mOptions">an object map (see below)</param>
 					/// <returns>a Promise, which resolves with an array of 0..n controls created from an <code>ExtensionPoint</code>. If <code>mOptions.createDefaultContent</code> is called and returns a Promise, that Promise is returned by <code>ExtensionPoint.load</code>.</returns>
-					public extern static jquery.JQueryPromise<sap.ui.core.Control[]> load(sap.ui.core.ExtensionPoint.LoadOptions mOptions);
+					public extern static es5.Promise<sap.ui.core.Control[]> load(sap.ui.core.ExtensionPoint.LoadOptions mOptions);
 
 					#endregion
 

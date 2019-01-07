@@ -46,6 +46,44 @@ namespace UI5
 
 					#endregion
 
+					#region Typed Parameters
+
+					/// <summary>
+					/// Parameter to be used as Object Literal
+					/// </summary>
+					[External]
+					[ObjectLiteral]
+					public partial class LoadOptions
+					{
+						/// <summary>
+						/// must be supplied if no "definition" parameter is given. The Fragment name must correspond to an XML Fragment which can be loaded via the module system (fragmentName + suffix ".fragment.[typeextension]") and which contains the Fragment definition. If "mOptions.controller" is supplied, the (event handler-) methods referenced in the Fragment will be called on this Controller. Note that Fragments may require a Controller to be given and certain methods to be implemented by it.
+						/// </summary>
+						public string name;
+
+						/// <summary>
+						/// the Fragment type, e.g. "XML", "JS", or "HTML" (see above). Default is "XML"
+						/// </summary>
+						public string type;
+
+						/// <summary>
+						/// definition of the Fragment content. When this property is supplied, the "name" parameter must not be used. The type of this property depends on the Fragment type, e.g. it could be a string for XML Fragments.
+						/// </summary>
+						public string definition;
+
+						/// <summary>
+						/// the ID of the Fragment
+						/// </summary>
+						public string id;
+
+						/// <summary>
+						/// the Controller which should be used by the controls in the Fragment. Note that some Fragments may not need a Controller while others may need one and certain methods to be implemented by it.
+						/// </summary>
+						public sap.ui.core.mvc.Controller controller;
+
+					}
+
+					#endregion
+
 					#region Constructor
 
 					/// <summary>
@@ -128,7 +166,23 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.core.Fragment.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
+
+					/// <summary>
+					/// Loads and instantiates a Fragment. A Promise is returned, which resolves with the Fragments content.
+					/// 
+					/// The Fragment object itself is not an entity with significance beyond this factory.
+					/// 
+					/// The Fragment types "XML", "JS" and "HTML" are available by default; additional Fragment types can be added using the sap.ui.core.Fragment.registerType() function.
+					/// 
+					/// Further properties may be supported by future or custom Fragment types. Any given properties will be forwarded to the Fragment implementation.
+					/// 
+					/// If no fixed ID is given, the Fragment ID is generated. In any case, the Fragment ID will be used as prefix for the IDs of all contained controls.
+					/// </summary>
+					/// <param name="mOptions">options map</param>
+					/// <returns>resolves with the resulting {sap.ui.core.Control|sap.ui.core.Control[]} after fragment parsing and instantiation</returns>
+					public extern static es5.Promise<object> load(sap.ui.core.Fragment.LoadOptions mOptions);
 
 					/// <summary>
 					/// Registers a new Fragment type

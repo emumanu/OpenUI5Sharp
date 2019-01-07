@@ -39,7 +39,7 @@ namespace UI5
 					public Union<string, sap.ui.@base.ManagedObject.BindPropertyInfo> valueFormat;
 
 					/// <summary>
-					/// Holds a reference to a JavaScript Date Object. The <code>value</code> (string) property will be set according to it. Alternatively, if the <code>value</code> and <code>valueFormat</code> pair properties are supplied instead, the <code>dateValue</code> will be instantiated according to the parsed <code>value</code>.
+					/// Holds a reference to a JavaScript Date Object. The <code>value</code> (string) property will be set according to it. Alternatively, if the <code>value</code> and <code>valueFormat</code> pair properties are supplied instead, the <code>dateValue</code> will be instantiated according to the parsed <code>value</code>. Use <code>dateValue</code> as a helper property to easily obtain the day, month, year, hours, minutes and seconds of the chosen date and time. Although possible to bind it, the recommendation is not to do it. When binding is needed, use <code>value</code> property instead.
 					/// </summary>
 					public Union<object, string, sap.ui.@base.ManagedObject.BindPropertyInfo> dateValue;
 
@@ -143,7 +143,7 @@ namespace UI5
 				/// <summary>
 				/// Gets current value of property {@link #getDateValue dateValue}.
 				/// 
-				/// Holds a reference to a JavaScript Date Object. The <code>value</code> (string) property will be set according to it. Alternatively, if the <code>value</code> and <code>valueFormat</code> pair properties are supplied instead, the <code>dateValue</code> will be instantiated according to the parsed <code>value</code>.
+				/// Holds a reference to a JavaScript Date Object. The <code>value</code> (string) property will be set according to it. Alternatively, if the <code>value</code> and <code>valueFormat</code> pair properties are supplied instead, the <code>dateValue</code> will be instantiated according to the parsed <code>value</code>. Use <code>dateValue</code> as a helper property to easily obtain the day, month, year, hours, minutes and seconds of the chosen date and time. Although possible to bind it, the recommendation is not to do it. When binding is needed, use <code>value</code> property instead.
 				/// </summary>
 				/// <returns>Value of property <code>dateValue</code></returns>
 				public extern virtual object getDateValue();
@@ -151,7 +151,7 @@ namespace UI5
 				/// <summary>
 				/// Sets a new value for property {@link #getDateValue dateValue}.
 				/// 
-				/// Holds a reference to a JavaScript Date Object. The <code>value</code> (string) property will be set according to it. Alternatively, if the <code>value</code> and <code>valueFormat</code> pair properties are supplied instead, the <code>dateValue</code> will be instantiated according to the parsed <code>value</code>.
+				/// Holds a reference to a JavaScript Date Object. The <code>value</code> (string) property will be set according to it. Alternatively, if the <code>value</code> and <code>valueFormat</code> pair properties are supplied instead, the <code>dateValue</code> will be instantiated according to the parsed <code>value</code>. Use <code>dateValue</code> as a helper property to easily obtain the day, month, year, hours, minutes and seconds of the chosen date and time. Although possible to bind it, the recommendation is not to do it. When binding is needed, use <code>value</code> property instead.
 				/// 
 				/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 				/// </summary>
@@ -224,7 +224,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.DateTimeField.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				#endregion
 

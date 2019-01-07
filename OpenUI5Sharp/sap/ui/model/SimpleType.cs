@@ -85,7 +85,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.model.SimpleType.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Returns an object which has <code>format</code> and <code>parse</code> method. These two methods are used for converting between the raw value which is stored in the model and the related primitive type in JavaScript.

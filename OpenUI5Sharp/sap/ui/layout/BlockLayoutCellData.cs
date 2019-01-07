@@ -234,7 +234,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.layout.BlockLayoutCellData.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Sets width of the cell to all sizes if the width is specified.

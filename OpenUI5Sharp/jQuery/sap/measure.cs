@@ -15,6 +15,7 @@ namespace UI5
 			[External]
 			[Namespace(false)]
 			[Name("jQuery.sap.measure")]
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement} or {@link module:sap/ui/performance/Interaction} instead")]
 			public static partial class measure
 			{
 				#region Methods
@@ -30,6 +31,7 @@ namespace UI5
 				/// <param name="iDuration">effective time in milliseconds</param>
 				/// <param name="aCategories">An optional list of categories for the measure</param>
 				/// <returns>[] current measurement containing id, info and start-timestamp, end-timestamp, time, duration, categories (false if error)</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.add} instead")]
 				public extern static object add(string sId, string sInfo, int iStart, int iEnd, int iTime, int iDuration, Union<string, string[]> aCategories);
 
 				/// <summary>
@@ -42,6 +44,7 @@ namespace UI5
 				/// <param name="iTime">time in milliseconds</param>
 				/// <param name="iDuration">effective time in milliseconds</param>
 				/// <returns>[] current measurement containing id, info and start-timestamp, end-timestamp, time, duration, categories (false if error)</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.add} instead")]
 				public extern static object add(string sId, string sInfo, int iStart, int iEnd, int iTime, int iDuration);
 
 				/// <summary>
@@ -51,6 +54,7 @@ namespace UI5
 				/// <param name="sInfo">Info for the measurement</param>
 				/// <param name="aCategories">An optional list of categories for the measure</param>
 				/// <returns>current measurement containing id, info and start-timestamp (false if error)</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.average} instead")]
 				public extern static object average(string sId, string sInfo, Union<string, string[]> aCategories);
 
 				/// <summary>
@@ -59,21 +63,25 @@ namespace UI5
 				/// <param name="sId">ID of the measurement</param>
 				/// <param name="sInfo">Info for the measurement</param>
 				/// <returns>current measurement containing id, info and start-timestamp (false if error)</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.average} instead")]
 				public extern static object average(string sId, string sInfo);
 
 				/// <summary>
 				/// Clears all performance measurements
 				/// </summary>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.clear} instead")]
 				public extern static void clear();
 
 				/// <summary>
 				/// Clears all interaction measurements
 				/// </summary>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Interaction.clear} instead")]
 				public extern static void clearInteractionMeasurements();
 
 				/// <summary>
 				/// Clears all request timings safely.
 				/// </summary>
+				[Obsolete("Deprecated since 1.58. use native function <code>performance.clearResourceTimings()</code> where available")]
 				public extern static void clearRequestTimings();
 
 				/// <summary>
@@ -81,12 +89,14 @@ namespace UI5
 				/// </summary>
 				/// <param name="sId">ID of the measurement</param>
 				/// <returns>current measurement containing id, info and start-timestamp, end-timestamp, time, duration (false if error)</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.end} instead")]
 				public extern static object end(string sId);
 
 				/// <summary>
 				/// End an interaction measurements
 				/// </summary>
 				/// <param name="bForce">forces end of interaction now and ignores further re-renderings</param>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Interaction.end} instead")]
 				public extern static void endInteraction(bool bForce);
 
 				/// <summary>
@@ -94,6 +104,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="fnFilter">a filter function that returns true if the passed measurement should be added to the result</param>
 				/// <returns>all interaction measurements passing the filter function successfully</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Interaction.filter} instead")]
 				public extern static object[] filterInteractionMeasurements(object fnFilter);
 
 				/// <summary>
@@ -103,6 +114,7 @@ namespace UI5
 				/// <param name="bCompleted">Optional parameter to determine if either completed or incomplete measurements should be returned (both if not set or undefined)</param>
 				/// <param name="aCategories">The function returns only measurements which match these specified categories</param>
 				/// <returns>[] filtered array with measurements containing id, info and start-timestamp, end-timestamp, time, duration, categories (false if error)</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.filterMeasurements} instead")]
 				public extern static object filterMeasurements(object fnFilter, bool? bCompleted, string[] aCategories);
 
 				/// <summary>
@@ -112,6 +124,7 @@ namespace UI5
 				/// <param name="bCompleted">Optional parameter to determine if either completed or incomplete measurements should be returned (both if not set or undefined)</param>
 				/// <param name="aCategories">The function returns only measurements which match these specified categories</param>
 				/// <returns>[] filtered array with measurements containing id, info and start-timestamp, end-timestamp, time, duration, categories (false if error)</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.filterMeasurements} instead")]
 				public extern static object filterMeasurements(object fnFilter, bool? bCompleted, object[] aCategories);
 
 				/// <summary>
@@ -120,6 +133,7 @@ namespace UI5
 				/// <param name="fnFilter">a filter function that returns true if the passed measurement should be added to the result</param>
 				/// <param name="bCompleted">Optional parameter to determine if either completed or incomplete measurements should be returned (both if not set or undefined)</param>
 				/// <returns>[] filtered array with measurements containing id, info and start-timestamp, end-timestamp, time, duration, categories (false if error)</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.filterMeasurements} instead")]
 				public extern static object filterMeasurements(object fnFilter, bool? bCompleted);
 
 				/// <summary>
@@ -127,12 +141,14 @@ namespace UI5
 				/// </summary>
 				/// <param name="fnFilter">a filter function that returns true if the passed measurement should be added to the result</param>
 				/// <returns>[] filtered array with measurements containing id, info and start-timestamp, end-timestamp, time, duration, categories (false if error)</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.filterMeasurements} instead")]
 				public extern static object filterMeasurements(object fnFilter);
 
 				/// <summary>
 				/// Gets all performance measurements where a provided filter function returns a truthy value. If neither a filter function nor a category is provided an empty array is returned. To filter for certain properties of measurements a fnFilter can be implemented like this <code> function(oMeasurement) { return oMeasurement.duration > 50; }</code>
 				/// </summary>
 				/// <returns>[] filtered array with measurements containing id, info and start-timestamp, end-timestamp, time, duration, categories (false if error)</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.filterMeasurements} instead")]
 				public extern static object filterMeasurements();
 
 				/// <summary>
@@ -140,6 +156,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="bCompleted">Optional parameter to determine if either completed or incomplete measurements should be returned (both if not set or undefined)</param>
 				/// <returns>[] filtered array with measurements containing id, info and start-timestamp, end-timestamp, time, duration, categories (false if error)</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.filterMeasurements} instead")]
 				public extern static object filterMeasurements(bool? bCompleted);
 
 				/// <summary>
@@ -148,6 +165,7 @@ namespace UI5
 				/// <param name="bCompleted">Optional parameter to determine if either completed or incomplete measurements should be returned (both if not set or undefined)</param>
 				/// <param name="aCategories">The function returns only measurements which match these specified categories</param>
 				/// <returns>[] filtered array with measurements containing id, info and start-timestamp, end-timestamp, time, duration, categories (false if error)</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.filterMeasurements} instead")]
 				public extern static object filterMeasurements(bool? bCompleted, string[] aCategories);
 
 				/// <summary>
@@ -156,6 +174,7 @@ namespace UI5
 				/// <param name="bCompleted">Optional parameter to determine if either completed or incomplete measurements should be returned (both if not set or undefined)</param>
 				/// <param name="aCategories">The function returns only measurements which match these specified categories</param>
 				/// <returns>[] filtered array with measurements containing id, info and start-timestamp, end-timestamp, time, duration, categories (false if error)</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.filterMeasurements} instead")]
 				public extern static object filterMeasurements(bool? bCompleted, object[] aCategories);
 
 				/// <summary>
@@ -163,6 +182,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="aCategories">The function returns only measurements which match these specified categories</param>
 				/// <returns>[] filtered array with measurements containing id, info and start-timestamp, end-timestamp, time, duration, categories (false if error)</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.filterMeasurements} instead")]
 				public extern static object filterMeasurements(string[] aCategories);
 
 				/// <summary>
@@ -170,12 +190,14 @@ namespace UI5
 				/// </summary>
 				/// <param name="aCategories">The function returns only measurements which match these specified categories</param>
 				/// <returns>[] filtered array with measurements containing id, info and start-timestamp, end-timestamp, time, duration, categories (false if error)</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.filterMeasurements} instead")]
 				public extern static object filterMeasurements(object[] aCategories);
 
 				/// <summary>
 				/// Gets the current state of the performance measurement functionality
 				/// </summary>
 				/// <returns>current state of the performance measurement functionality</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.getActive} instead")]
 				public extern static bool getActive();
 
 				/// <summary>
@@ -183,6 +205,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="bFinalize">finalize the current pending interaction so that it is contained in the returned array</param>
 				/// <returns>all interaction measurements</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Interaction.getAll} instead")]
 				public extern static object[] getAllInteractionMeasurements(bool bFinalize);
 
 				/// <summary>
@@ -190,12 +213,14 @@ namespace UI5
 				/// </summary>
 				/// <param name="bCompleted">Whether only completed measurements should be returned, if explicitly set to false only incomplete measurements are returned</param>
 				/// <returns>current array with measurements containing id, info and start-timestamp, end-timestamp, time, duration, categories</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.getAllMeasurements} instead")]
 				public extern static object[] getAllMeasurements(bool bCompleted);
 
 				/// <summary>
 				/// Gets all performance measurements
 				/// </summary>
 				/// <returns>current array with measurements containing id, info and start-timestamp, end-timestamp, time, duration, categories</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.getAllMeasurements} instead")]
 				public extern static object[] getAllMeasurements();
 
 				/// <summary>
@@ -203,12 +228,14 @@ namespace UI5
 				/// </summary>
 				/// <param name="sId">ID of the measurement</param>
 				/// <returns>current measurement containing id, info and start-timestamp, end-timestamp, time, duration (false if error)</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.getMeasurement} instead")]
 				public extern static object getMeasurement(string sId);
 
 				/// <summary>
 				/// Gets the current request timings array for type 'resource' safely
 				/// </summary>
 				/// <returns>array of performance timing objects</returns>
+				[Obsolete("Deprecated since 1.58. use native function <code>performance.getEntriesByType('resource')</code> instead")]
 				public extern static object[] getRequestTimings();
 
 				/// <summary>
@@ -216,6 +243,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="sId">ID of the measurement</param>
 				/// <returns>current measurement containing id, info and start-timestamp, pause-timestamp (false if error)</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.pause} instead")]
 				public extern static object pause(string sId);
 
 				/// <summary>
@@ -226,6 +254,7 @@ namespace UI5
 				/// <param name="sMethod">the name of the method</param>
 				/// <param name="aCategories">An optional categories list for the measurement</param>
 				/// <returns>true if the registration was successful</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.registerMethod} instead")]
 				public extern static bool registerMethod(string sId, object oObject, string sMethod, string[] aCategories);
 
 				/// <summary>
@@ -236,6 +265,7 @@ namespace UI5
 				/// <param name="sMethod">the name of the method</param>
 				/// <param name="aCategories">An optional categories list for the measurement</param>
 				/// <returns>true if the registration was successful</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.registerMethod} instead")]
 				public extern static bool registerMethod(string sId, object oObject, string sMethod, object[] aCategories);
 
 				/// <summary>
@@ -245,12 +275,14 @@ namespace UI5
 				/// <param name="oObject">the object of the method</param>
 				/// <param name="sMethod">the name of the method</param>
 				/// <returns>true if the registration was successful</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.registerMethod} instead")]
 				public extern static bool registerMethod(string sId, object oObject, string sMethod);
 
 				/// <summary>
 				/// Removes a performance measure
 				/// </summary>
 				/// <param name="sId">ID of the measurement</param>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.remove} instead")]
 				public extern static void remove(string sId);
 
 				/// <summary>
@@ -258,6 +290,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="sId">ID of the measurement</param>
 				/// <returns>current measurement containing id, info and start-timestamp, resume-timestamp (false if error)</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.resume} instead")]
 				public extern static object resume(string sId);
 
 				/// <summary>
@@ -266,12 +299,14 @@ namespace UI5
 				/// <param name="bOn">state of the performance measurement functionality to set</param>
 				/// <param name="aCategories">An optional list of categories that should be measured</param>
 				/// <returns>current state of the performance measurement functionality</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.setActive} instead")]
 				public extern static bool setActive(bool bOn, Union<string, string[]> aCategories);
 
 				/// <summary>
 				/// Sets the request buffer size for the measurement safely.
 				/// </summary>
 				/// <param name="iSize">size of the buffer</param>
+				[Obsolete("Deprecated since 1.58. use native function <code>performance.setResourceTimingBufferSize(iSize)</code> where available")]
 				public extern static void setRequestBufferSize(int iSize);
 
 				/// <summary>
@@ -281,6 +316,7 @@ namespace UI5
 				/// <param name="sInfo">Info for the measurement</param>
 				/// <param name="aCategories">An optional list of categories for the measure</param>
 				/// <returns>current measurement containing id, info and start-timestamp (false if error)</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.start} instead")]
 				public extern static object start(string sId, string sInfo, Union<string, string[]> aCategories);
 
 				/// <summary>
@@ -289,6 +325,7 @@ namespace UI5
 				/// <param name="sId">ID of the measurement</param>
 				/// <param name="sInfo">Info for the measurement</param>
 				/// <returns>current measurement containing id, info and start-timestamp (false if error)</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.start} instead")]
 				public extern static object start(string sId, string sInfo);
 
 				/// <summary>
@@ -296,11 +333,13 @@ namespace UI5
 				/// </summary>
 				/// <param name="sType">type of the event which triggered the interaction</param>
 				/// <param name="oSrcElement">the control on which the interaction was triggered</param>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Interaction.start} instead")]
 				public extern static void startInteraction(string sType, object oSrcElement);
 
 				/// <summary>
 				/// Unregisters all average measurements
 				/// </summary>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.unregisterAllMethods} instead")]
 				public extern static void unregisterAllMethods();
 
 				/// <summary>
@@ -310,6 +349,7 @@ namespace UI5
 				/// <param name="oObject">the object of the method</param>
 				/// <param name="sMethod">the name of the method</param>
 				/// <returns>true if the unregistration was successful</returns>
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/performance/Measurement.unregisterMethod} instead")]
 				public extern static bool unregisterMethod(string sId, object oObject, string sMethod);
 
 				#endregion

@@ -421,7 +421,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.TablePersoController.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Returns a _tablePersoDialog instance if available. It can be NULL if the controller has not been activated yet.

@@ -23,6 +23,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("jQuery.sap.util.Properties")]
+				[Obsolete("Deprecated since 1.58. use {@link module:sap/base/util/Properties} instead")]
 				public partial interface Properties
 				{
 					#region Methods

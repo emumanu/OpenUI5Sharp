@@ -13,11 +13,6 @@ namespace UI5
                 {
                     public Assert assert;
                 }
-
-                public partial class Opa5
-                {
-                    public Assert assert;
-                }
             }
         }
     }

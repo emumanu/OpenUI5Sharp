@@ -104,7 +104,7 @@ Use the &lt;code&gt;DynamicPage&lt;/code&gt; if you need to have a title, that i
 
 &lt;h3&gt;Responsive Behavior&lt;/h3&gt;
 
-The responsive behavior of the &lt;code&gt;DynamicPage&lt;/code&gt; depends on the behavior of the content that is displayed.</xs:documentation>
+The responsive behavior of the &lt;code&gt;DynamicPage&lt;/code&gt; depends on the behavior of the content that is displayed. To adjust the &lt;code&gt;DynamicPage&lt;/code&gt; content padding, the &lt;code&gt;sapUiContentPadding&lt;/code&gt;, &lt;code&gt;sapUiNoContentPadding&lt;/code&gt;, and &lt;code&gt;sapUiResponsiveContentPadding&lt;/code&gt; CSS classes can be used.</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="_DynamicPageType">
@@ -141,6 +141,8 @@ The responsive behavior of the &lt;code&gt;DynamicPage&lt;/code&gt; depends on t
             <xs:annotation>
               <xs:documentation>&lt;code&gt;DynamicPage&lt;/code&gt; content.
 
+&lt;b&gt;Note: &lt;/b&gt; You can change the default paddings by adding the following CSS classes: &lt;ul&gt; &lt;li&gt;&lt;code&gt;sapUiContentPadding&lt;/code&gt;&lt;/li&gt; &lt;li&gt;&lt;code&gt;sapUiNoContentPadding&lt;/code&gt;&lt;/li&gt; &lt;li&gt;&lt;code&gt;sapUiResponsiveContentPadding&lt;/code&gt;&lt;/li&gt; &lt;/ul&gt; For more information, see {@link topic:c71f6df62dae47ca8284310a6f5fc80a Using Container Content Padding CSS Classes}.
+
 &lt;b&gt;Note:&lt;/b&gt; The SAP Fiori Design guidelines require that the &lt;code&gt;DynamicPageHeader&lt;/code&gt;'s content and the &lt;code&gt;DynamicPage&lt;/code&gt;'s content are aligned vertically. When using {@link sap.ui.layout.form.Form}, {@link sap.m.Panel}, {@link sap.m.Table} and {@link sap.m.List} in the content area of &lt;code&gt;DynamicPage&lt;/code&gt;, you need to adjust their left text offset to achieve the vertical alignment. To do this, apply the &lt;code&gt;sapFDynamicPageAlignContent&lt;/code&gt; CSS class to them and set their &lt;code&gt;width&lt;/code&gt; property to &lt;code&gt;auto&lt;/code&gt; (if not set by default).
 
 Example:
@@ -149,7 +151,7 @@ Example:
 &lt;code&gt; &amp;lt;Panel class=“sapFDynamicPageAlignContent” width=“auto”&amp;gt;&amp;lt;/Panel&amp;gt; &lt;/code&gt;
 &lt;/pre&gt;
 
-Please keep in mind that the alignment is not possible when the controls are placed in a {@link sap.ui.layout.Grid} or in other layout controls that use &lt;code&gt;overflow:hidden&lt;/code&gt; CSS property.</xs:documentation>
+Please keep in mind that the alignment is not possible in the following cases: &lt;ul&gt; &lt;li&gt; When the controls are placed in an {@link sap.ui.layout.Grid} or other layout controls that use &lt;code&gt;overflow:hidden&lt;/code&gt; CSS property&lt;/li&gt; &lt;li&gt; In case any of the following CSS classes is applied to &lt;code&gt;DynamicPage&lt;/code&gt;: &lt;code&gt;sapUiContentPadding&lt;/code&gt;, &lt;code&gt;sapUiNoContentPadding&lt;/code&gt; or &lt;code&gt;sapUiResponsiveContentPadding&lt;/code&gt;&lt;/li&gt; &lt;/ul&gt;</xs:documentation>
             </xs:annotation>
             <xs:complexType>
               <xs:sequence>
@@ -233,6 +235,11 @@ The responsive behavior of the &lt;code&gt;DynamicPageHeader&lt;/code&gt; depend
     <xs:complexContent mixed="false">
       <xs:extension base="n0:_ControlType">
         <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="n0:Control" />
+            <xs:element ref="n0:Fragment" />
+            <xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax" />
+          </xs:choice>
           <xs:element minOccurs="0" name="content">
             <xs:annotation>
               <xs:documentation>The content of the header.</xs:documentation>
@@ -250,6 +257,13 @@ The responsive behavior of the &lt;code&gt;DynamicPageHeader&lt;/code&gt; depend
         <xs:attribute name="pinnable" type="xs:boolean">
           <xs:annotation>
             <xs:documentation>Determines whether the header is pinnable.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="backgroundDesign" type="n6:_BackgroundDesignType">
+          <xs:annotation>
+            <xs:documentation>Determines the background color of the &lt;code&gt;DynamicPageHeader&lt;/code&gt;.
+
+&lt;b&gt;Note:&lt;/b&gt; The default value of &lt;code&gt;backgroundDesign&lt;/code&gt; property is null. If the property is not set, the color of the background is &lt;code&gt;@sapUiObjectHeaderBackground&lt;/code&gt;, which depends on the specific theme.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="content" type="xs:string" />
@@ -283,6 +297,47 @@ The responsive behavior of the &lt;code&gt;DynamicPageTitle&lt;/code&gt; depends
     <xs:complexContent mixed="false">
       <xs:extension base="n0:_ControlType">
         <xs:sequence>
+          <xs:element minOccurs="0" name="breadcrumbs">
+            <xs:annotation>
+              <xs:documentation>The breadcrumbs displayed in the &lt;code&gt;DynamicPageTitle&lt;/code&gt; top-left area.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="actions">
+            <xs:annotation>
+              <xs:documentation>The &lt;code&gt;DynamicPageTitle&lt;/code&gt; actions. &lt;br&gt;&lt;b&gt;Note:&lt;/b&gt; The &lt;code&gt;actions&lt;/code&gt; aggregation accepts any UI5 control, but it`s recommended to use controls, suitable for {@link sap.m.Toolbar} and {@link sap.m.OverflowToolbar}.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n0:Control" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="navigationActions">
+            <xs:annotation>
+              <xs:documentation>The &lt;code&gt;DynamicPageTitle&lt;/code&gt; navigation actions.
+
+&lt;b&gt;Note:&lt;/b&gt; The &lt;code&gt;navigationActions&lt;/code&gt; position depends on the control size. If the control size is 1280px or bigger, they are rendered right next to the &lt;code&gt;actions&lt;/code&gt;. Otherwise, they are rendered in the top-right area, above the &lt;code&gt;actions&lt;/code&gt;. If a large number of elements(buttons) are used, there could be visual degradations as the space for the &lt;code&gt;navigationActions&lt;/code&gt; is limited.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element ref="n6:Button" />
+                  <xs:element ref="n0:Fragment" />
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
           <xs:element minOccurs="0" name="heading">
             <xs:annotation>
               <xs:documentation>The &lt;code&gt;heading&lt;/code&gt; is positioned in the &lt;code&gt;DynamicPageTitle&lt;/code&gt; left area and is displayed in both expanded and collapsed (snapped) states of the header. Use this aggregation to display a title (or any other UI5 control that serves as a heading) that has to be present in both expanded and collapsed states of the header.
@@ -328,34 +383,6 @@ The responsive behavior of the &lt;code&gt;DynamicPageTitle&lt;/code&gt; depends
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-          <xs:element minOccurs="0" name="actions">
-            <xs:annotation>
-              <xs:documentation>The &lt;code&gt;DynamicPageTitle&lt;/code&gt; actions. &lt;br&gt;&lt;b&gt;Note:&lt;/b&gt; The &lt;code&gt;actions&lt;/code&gt; aggregation accepts any UI5 control, but it`s recommended to use controls, suitable for {@link sap.m.Toolbar} and {@link sap.m.OverflowToolbar}.</xs:documentation>
-            </xs:annotation>
-            <xs:complexType>
-              <xs:sequence>
-                <xs:choice minOccurs="0" maxOccurs="unbounded">
-                  <xs:element ref="n0:Control" />
-                  <xs:element ref="n0:Fragment" />
-                </xs:choice>
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
-          <xs:element minOccurs="0" name="navigationActions">
-            <xs:annotation>
-              <xs:documentation>The &lt;code&gt;DynamicPageTitle&lt;/code&gt; navigation actions.
-
-&lt;b&gt;Note:&lt;/b&gt; The &lt;code&gt;navigationActions&lt;/code&gt; position depends on the control size. If the control size is 1280px or bigger, they are rendered right next to the &lt;code&gt;actions&lt;/code&gt;. Otherwise, they are rendered in the top-right area, above the &lt;code&gt;actions&lt;/code&gt;. If a large number of elements(buttons) are used, there could be visual degradations as the space for the &lt;code&gt;navigationActions&lt;/code&gt; is limited.</xs:documentation>
-            </xs:annotation>
-            <xs:complexType>
-              <xs:sequence>
-                <xs:choice minOccurs="0" maxOccurs="unbounded">
-                  <xs:element ref="n6:Button" />
-                  <xs:element ref="n0:Fragment" />
-                </xs:choice>
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
           <xs:element minOccurs="0" name="content">
             <xs:annotation>
               <xs:documentation>The content is positioned in the &lt;code&gt;DynamicPageTitle&lt;/code&gt; middle area and displayed in both expanded and collapsed (snapped) states.</xs:documentation>
@@ -395,19 +422,6 @@ The responsive behavior of the &lt;code&gt;DynamicPageTitle&lt;/code&gt; depends
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-          <xs:element minOccurs="0" name="breadcrumbs">
-            <xs:annotation>
-              <xs:documentation>The breadcrumbs displayed in the &lt;code&gt;DynamicPageTitle&lt;/code&gt; top-left area.</xs:documentation>
-            </xs:annotation>
-            <xs:complexType>
-              <xs:sequence>
-                <xs:choice minOccurs="0">
-                  <xs:element ref="n0:Control" />
-                  <xs:element ref="n0:Fragment" />
-                </xs:choice>
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
         </xs:sequence>
         <xs:attribute name="primaryArea" type="n12:_DynamicPageTitleAreaType">
           <xs:annotation>
@@ -427,6 +441,13 @@ For example, if &lt;code&gt;2:7:1&lt;/code&gt; is set, the Content area will shr
 If all the areas have assigned values greater than 1, the numbers are scaled so that at least one of them is equal to 1. For example, value of &lt;code&gt;2:4:8&lt;/code&gt; is equal to &lt;code&gt;1:2:4&lt;/code&gt;.
 
 &lt;Note:&gt; When this property is set the &lt;code&gt;primaryArea&lt;/code&gt; property has no effect.</xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="backgroundDesign" type="n6:_BackgroundDesignType">
+          <xs:annotation>
+            <xs:documentation>Determines the background color of the &lt;code&gt;DynamicPageTitle&lt;/code&gt;.
+
+&lt;b&gt;Note:&lt;/b&gt; The default value of &lt;code&gt;backgroundDesign&lt;/code&gt; property is null. If the property is not set, the color of the background is &lt;code&gt;@sapUiObjectHeaderBackground&lt;/code&gt;, which depends on the specific theme.</xs:documentation>
           </xs:annotation>
         </xs:attribute>
         <xs:attribute name="actions" type="xs:string" />

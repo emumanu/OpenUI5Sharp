@@ -14,13 +14,13 @@ namespace UI5
 				/// <summary>
 				/// A string type that represents CSS size values.
 				/// 
-				/// The CSS specifications calls this the <code>'&lt;length&gt; type'</code>. Allowed values are CSS sizes like "1px" or "2em" or "50%". The special values <code>auto</code> and <code>inherit</code> are also accepted as well as mathematical expressions using the CSS3 <code>calc(<i>expression</i>)</code> operator.
+				/// The CSS specifications calls this the <code>'&lt;length&gt; type'</code>. Allowed values are CSS sizes like "1px" or "2em" or "50%". The special values <code>auto</code> and <code>inherit</code> are also accepted as well as mathematical expressions using the CSS3 <code>calc(<i>expression</i>)</code> operator. Furthermore, length units representing a percentage of the current viewport dimensions: width (vw), height (vh), the smaller of the two (vmin), or the larger of the two (vmax) can also be defined as a CSS size.
 				/// 
 				/// Note that CSS does not allow all these values for every CSS property representing a size. E.g. <code>padding-left</code> doesn't allow the value <code>auto</code>. So even if a value is accepted by <code>sap.ui.core.CSSSize</code>, it still might have no effect in a specific context. In other words: UI5 controls usually don't extend the range of allowed values in CSS.
 				/// 
 				/// <b>Units</b>
 				/// 
-				/// Valid font-relative units are <code>em, ex</code> and <code>rem</code>. Supported absolute units are <code>cm, mm, in, pc, pt</code> and <code>px</code>. Other units are not supported yet.
+				/// Valid font-relative units are <code>em, ex</code> and <code>rem</code>. Viewport relative units <code>vw, vh, vmin, vmax</code> are also valid. Supported absolute units are <code>cm, mm, in, pc, pt</code> and <code>px</code>.Other units are not supported yet.
 				/// 
 				/// <b>Mathematical Expressions</b>
 				/// 

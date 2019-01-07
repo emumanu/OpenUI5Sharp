@@ -25,7 +25,7 @@ namespace UI5
 				/// <param name="oTouchList">The list of touch objects to search.</param>
 				/// <param name="vElement">A jQuery element or an element reference or an element id.</param>
 				/// <returns>The number of touches related with the given element.</returns>
-				public extern static int countContained(object[] oTouchList, Union<jQuery, dom.HTMLElement, string> vElement);
+				public extern static int countContained(object[] oTouchList, Union<jQuery, Retyped.dom.HTMLElement, string> vElement);
 
 				/// <summary>
 				/// Given a list of touch objects, find the touch that matches the given one.

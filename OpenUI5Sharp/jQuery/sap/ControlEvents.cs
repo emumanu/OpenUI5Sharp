@@ -21,6 +21,7 @@ namespace UI5
 			[External]
 			[Namespace(false)]
 			[Name("jQuery.sap.ControlEvents")]
+			[Obsolete("Deprecated since 1.58. use {@link module:sap/ui/events/ControlEvents.events} instead")]
 			public static partial class ControlEvents
 			{
 			}

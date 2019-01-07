@@ -46,14 +46,14 @@ namespace UI5
 							/// <summary>
 							/// Default span for labels in large size.
 							/// 
-							/// <b>Note:</b> If <code>adjustLabelSpanThis</code> is set, this property is only used if more than 1 <code>FormContainer</code> is in one line. If only 1 <code>FormContainer</code> is in the line, then the <code>labelSpanM</code> value is used.
+							/// <b>Note:</b> If <code>adjustLabelSpan</code> is set, this property is only used if more than 1 <code>FormContainer</code> is in one line. If only 1 <code>FormContainer</code> is in the line, then the <code>labelSpanM</code> value is used.
 							/// </summary>
 							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> labelSpanL;
 
 							/// <summary>
 							/// Default span for labels in medium size.
 							/// 
-							/// <b>Note:</b> If <code>adjustLabelSpanThis</code> is set this property is used for full-size <code>FormContainers</code>. If more than one <code>FormContainer</code> is in one line, <code>labelSpanL</code> is used.
+							/// <b>Note:</b> If <code>adjustLabelSpan</code> is set this property is used for full-size <code>FormContainers</code>. If more than one <code>FormContainer</code> is in one line, <code>labelSpanL</code> is used.
 							/// </summary>
 							public Union<int, string, sap.ui.@base.ManagedObject.BindPropertyInfo> labelSpanM;
 
@@ -212,7 +212,7 @@ namespace UI5
 						/// 
 						/// Default span for labels in large size.
 						/// 
-						/// <b>Note:</b> If <code>adjustLabelSpanThis</code> is set, this property is only used if more than 1 <code>FormContainer</code> is in one line. If only 1 <code>FormContainer</code> is in the line, then the <code>labelSpanM</code> value is used.
+						/// <b>Note:</b> If <code>adjustLabelSpan</code> is set, this property is only used if more than 1 <code>FormContainer</code> is in one line. If only 1 <code>FormContainer</code> is in the line, then the <code>labelSpanM</code> value is used.
 						/// 
 						/// Default value is <code>4</code>.
 						/// </summary>
@@ -224,7 +224,7 @@ namespace UI5
 						/// 
 						/// Default span for labels in large size.
 						/// 
-						/// <b>Note:</b> If <code>adjustLabelSpanThis</code> is set, this property is only used if more than 1 <code>FormContainer</code> is in one line. If only 1 <code>FormContainer</code> is in the line, then the <code>labelSpanM</code> value is used.
+						/// <b>Note:</b> If <code>adjustLabelSpan</code> is set, this property is only used if more than 1 <code>FormContainer</code> is in one line. If only 1 <code>FormContainer</code> is in the line, then the <code>labelSpanM</code> value is used.
 						/// 
 						/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 						/// 
@@ -243,7 +243,7 @@ namespace UI5
 						/// 
 						/// Default span for labels in medium size.
 						/// 
-						/// <b>Note:</b> If <code>adjustLabelSpanThis</code> is set this property is used for full-size <code>FormContainers</code>. If more than one <code>FormContainer</code> is in one line, <code>labelSpanL</code> is used.
+						/// <b>Note:</b> If <code>adjustLabelSpan</code> is set this property is used for full-size <code>FormContainers</code>. If more than one <code>FormContainer</code> is in one line, <code>labelSpanL</code> is used.
 						/// 
 						/// Default value is <code>2</code>.
 						/// </summary>
@@ -255,7 +255,7 @@ namespace UI5
 						/// 
 						/// Default span for labels in medium size.
 						/// 
-						/// <b>Note:</b> If <code>adjustLabelSpanThis</code> is set this property is used for full-size <code>FormContainers</code>. If more than one <code>FormContainer</code> is in one line, <code>labelSpanL</code> is used.
+						/// <b>Note:</b> If <code>adjustLabelSpan</code> is set this property is used for full-size <code>FormContainers</code>. If more than one <code>FormContainer</code> is in one line, <code>labelSpanL</code> is used.
 						/// 
 						/// When called with a value of <code>null</code> or <code>undefined</code>, the default value of the property will be restored.
 						/// 
@@ -674,7 +674,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.layout.form.ResponsiveGridLayout.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						#endregion
 

@@ -8,7 +8,7 @@ namespace UI5
 	public abstract partial class jQuery
 	{
 		/// <summary>
-		/// Check the jQuery.Event class documentation available under "http://www.jquery.com"<br/> and "http://api.jquery.com/category/events/event-object/" for details.
+		/// Check the jQuery.Event class documentation available under "http://www.jquery.com" and "http://api.jquery.com/category/events/event-object/" for details.
 		/// </summary>
 		[External]
 		[Namespace(false)]
@@ -18,7 +18,9 @@ namespace UI5
 			#region Constructor
 
 			/// <summary>
-			/// Constructor for a jQuery.Event object.<br/> See "http://www.jquery.com" and "http://api.jquery.com/category/events/event-object/".
+			/// Constructor for a jQuery.Event object.
+			/// 
+			/// See "http://www.jquery.com" and "http://api.jquery.com/category/events/event-object/".
 			/// </summary>
 			public extern Event();
 
@@ -39,9 +41,9 @@ namespace UI5
 			public extern virtual int getOffsetY();
 
 			/// <summary>
-			/// Returns an array of names (as strings) identifying {@link jQuery.sap.PseudoEvents} that are fulfilled by this very Event instance.
+			/// Returns an array of names (as strings) identifying {@link sap/ui/events/PseudoEvents} that are fulfilled by this very Event instance.
 			/// </summary>
-			/// <returns>Array of names identifying {@link jQuery.sap.PseudoEvents} that are fulfilled by this very Event instance.</returns>
+			/// <returns>Array of names identifying {@link module:sap/ui/events/PseudoEvents} that are fulfilled by this very Event instance.</returns>
 			public extern virtual string[] getPseudoTypes();
 
 			/// <summary>

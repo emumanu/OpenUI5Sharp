@@ -728,7 +728,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.ux3.ExactBrowser.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Deselects all currently selected attributes and closes all attribute lists.

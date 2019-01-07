@@ -185,7 +185,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.test.OpaPlugin.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Returns the view with a specific name - if there are multiple views with that name only the first one is returned.

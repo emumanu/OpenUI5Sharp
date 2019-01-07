@@ -178,7 +178,7 @@ namespace UI5
 				/// </summary>
 				/// <param name="oBindingInfo">The binding information</param>
 				/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-				public extern virtual sap.m.InputBase bindValue(object oBindingInfo);
+				public extern virtual sap.m.InputBase bindValue(sap.ui.@base.ManagedObject.BindPropertyInfo oBindingInfo);
 
 				/// <summary>
 				/// Unbinds property {@link #getValue value} from model data.
@@ -463,6 +463,14 @@ namespace UI5
 
 				#endregion
 
+				#region Methods for Aggregation _endIcon
+
+				#endregion
+
+				#region Methods for Aggregation _beginIcon
+
+				#endregion
+
 				#region Methods for Association ariaLabelledBy
 
 				/// <summary>
@@ -571,6 +579,20 @@ namespace UI5
 				#region Other methods
 
 				/// <summary>
+				/// Adds an icon to the begining of the input
+				/// </summary>
+				/// <param name="oIconSettings">settings for creating an icon</param>
+				/// <returns></returns>
+				public extern virtual sap.ui.core.Icon addBeginIcon(object oIconSettings);
+
+				/// <summary>
+				/// Adds an icon to the end of the input
+				/// </summary>
+				/// <param name="oIconSettings">settings for creating an icon</param>
+				/// <returns></returns>
+				public extern virtual sap.ui.core.Icon addEndIcon(object oIconSettings);
+
+				/// <summary>
 				/// Applies the focus info. To be overwritten by subclasses.
 				/// </summary>
 				/// <param name="oFocusInfo"></param>
@@ -657,7 +679,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.InputBase.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// Retrieves the selected text. Only supported for input control's type of Text, Url, Tel and Password.

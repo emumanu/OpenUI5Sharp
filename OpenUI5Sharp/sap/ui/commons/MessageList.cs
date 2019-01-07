@@ -197,7 +197,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.commons.MessageList.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Sets the list of Messages to be displayed and re-renders this Control if it is visible.

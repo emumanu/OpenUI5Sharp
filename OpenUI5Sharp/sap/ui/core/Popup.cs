@@ -59,7 +59,7 @@ namespace UI5
 					/// <param name="bModal">whether the popup should be opened in a modal way (i.e. with blocking background). Setting this to "true" effectively blocks all attempts to focus content outside the modal popup. A modal popup also automatically sets the focus back to whatever was focused when the popup opened.</param>
 					/// <param name="bShadow">whether the popup should be have a visual shadow underneath (shadow appearance depends on active theme and browser support)</param>
 					/// <param name="bAutoClose">whether the popup should automatically close when the focus moves out of the popup</param>
-					public extern Popup(Union<sap.ui.core.Control, sap.ui.core.Element, dom.HTMLElement> oContent, bool bModal = false, bool bShadow = true, bool bAutoClose = false);
+					public extern Popup(Union<sap.ui.core.Control, sap.ui.core.Element, Retyped.dom.HTMLElement> oContent, bool bModal = false, bool bShadow = true, bool bAutoClose = false);
 
 					#endregion
 
@@ -270,7 +270,7 @@ namespace UI5
 					/// Returns this Popup's content.
 					/// </summary>
 					/// <returns>the content that has been set previously (if any)</returns>
-					public extern virtual Union<sap.ui.core.Control, dom.HTMLElement> getContent();
+					public extern virtual Union<sap.ui.core.Control, Retyped.dom.HTMLElement> getContent();
 
 					/// <summary>
 					/// This returns true/false if the default followOf method should be used. If a separate followOf-handler was previously added the correspodning function is returned.
@@ -288,7 +288,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.core.Popup.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Returns the value if a Popup is of modal type
@@ -326,7 +327,7 @@ namespace UI5
 					/// <param name="offset">the offset relative to the docking point, specified as a string with space-separated pixel values (e.g. "0 10" to move the popup 10 pixels to the right). If the docking of both "my" and "at" are both RTL-sensitive ("begin" or "end"), this offset is automatically mirrored in the RTL case as well.</param>
 					/// <param name="collision">defines how the position of an element should be adjusted in case it overflows the window in some direction.</param>
 					/// <param name="followOf">defines whether the popup should follow the dock reference when the reference changes its position.</param>
-					public extern virtual void open(int iDuration, sap.ui.core.Popup.Dock my = sap.ui.core.Popup.Dock.CenterCenter, sap.ui.core.Popup.Dock at = sap.ui.core.Popup.Dock.CenterCenter, Union<string, sap.ui.core.Element, dom.HTMLElement, jQuery, jquery.JQuery.Event> of = Globals.document, string offset = "0 0", string collision = "flip", bool followOf = false);
+					public extern virtual void open(int iDuration, sap.ui.core.Popup.Dock my = sap.ui.core.Popup.Dock.CenterCenter, sap.ui.core.Popup.Dock at = sap.ui.core.Popup.Dock.CenterCenter, Union<string, sap.ui.core.Element, Retyped.dom.HTMLElement, jQuery, jquery.JQuery.Event> of = Globals.document, string offset = "0 0", string collision = "flip", bool followOf = false);
 
 					/// <summary>
 					/// Opens the popup's content at the position either specified here or beforehand via {@link #setPosition}. Content must be capable of being positioned via "position:absolute;" All parameters are optional (open() may be called without any parameters). iDuration may just be omitted, but if any of "at", "of", "offset", "collision" is given, also the preceding positioning parameters ("my", at",...) must be given.
@@ -354,7 +355,7 @@ namespace UI5
 					/// <param name="offset">the offset relative to the docking point, specified as a string with space-separated pixel values (e.g. "0 10" to move the popup 10 pixels to the right). If the docking of both "my" and "at" are both RTL-sensitive ("begin" or "end"), this offset is automatically mirrored in the RTL case as well.</param>
 					/// <param name="collision">defines how the position of an element should be adjusted in case it overflows the window in some direction.</param>
 					/// <param name="followOf">defines whether the popup should follow the dock reference when the reference changes its position.</param>
-					public extern virtual void open(sap.ui.core.Popup.Dock my = sap.ui.core.Popup.Dock.CenterCenter, sap.ui.core.Popup.Dock at = sap.ui.core.Popup.Dock.CenterCenter, Union<string, sap.ui.core.Element, dom.HTMLElement, jQuery, jquery.JQuery.Event> of = Globals.document, string offset = "0 0", string collision = "flip", bool followOf = false);
+					public extern virtual void open(sap.ui.core.Popup.Dock my = sap.ui.core.Popup.Dock.CenterCenter, sap.ui.core.Popup.Dock at = sap.ui.core.Popup.Dock.CenterCenter, Union<string, sap.ui.core.Element, Retyped.dom.HTMLElement, jQuery, jquery.JQuery.Event> of = Globals.document, string offset = "0 0", string collision = "flip", bool followOf = false);
 
 					/// <summary>
 					/// Sets the animation functions to use for opening and closing the Popup. Any null value will be ignored and not change the respective animation function. When called, the animation functions receive three parameters: - the jQuery object wrapping the DomRef of the popup - the requested animation duration - a function that MUST be called once the animation has completed
@@ -376,14 +377,14 @@ namespace UI5
 					/// </summary>
 					/// <param name="aAutoCloseAreas">an array containing DOM elements, sap.ui.core.Element or an ID which are considered part of the Popup; a value of null removes all previous areas</param>
 					/// <returns><code>this</code> to allow method chaining</returns>
-					public extern virtual sap.ui.core.Popup setAutoCloseAreas(Union<dom.HTMLElement[], sap.ui.core.Element[], string[]> aAutoCloseAreas);
+					public extern virtual sap.ui.core.Popup setAutoCloseAreas(Union<Retyped.dom.HTMLElement[], sap.ui.core.Element[], string[]> aAutoCloseAreas);
 
 					/// <summary>
 					/// Sets the content this instance of the Popup should render. Content must be capable of being positioned via position:absolute;
 					/// </summary>
 					/// <param name="oContent"></param>
 					/// <returns><code>this</code> to allow method chaining</returns>
-					public extern virtual sap.ui.core.Popup setContent(Union<sap.ui.core.Control, dom.HTMLElement> oContent);
+					public extern virtual sap.ui.core.Popup setContent(Union<sap.ui.core.Control, Retyped.dom.HTMLElement> oContent);
 
 					/// <summary>
 					/// Sets the durations for opening and closing animations. Null values and values < 0 are ignored. A duration of 0 means no animation. Default value is "fast" which is the jQuery constant for "200 ms".
@@ -435,7 +436,7 @@ namespace UI5
 					/// <param name="offset">the offset relative to the docking point, specified as a string with space-separated pixel values (e.g. "0 10" to move the popup 10 pixels to the right). If the docking of both "my" and "at" are both RTL-sensitive ("begin" or "end"), this offset is automatically mirrored in the RTL case as well.</param>
 					/// <param name="collision">defines how the position of an element should be adjusted in case it overflows the window in some direction. The valid values that refer to jQuery-UI's position parameters are "flip", "fit" and "none".</param>
 					/// <returns><code>this</code> to allow method chaining</returns>
-					public extern virtual sap.ui.core.Popup setPosition(sap.ui.core.Popup.Dock my, Union<sap.ui.core.Popup.Dock, object> at, Union<string, sap.ui.core.Element, dom.HTMLElement, jQuery, jquery.JQuery.Event> of, string offset, string collision);
+					public extern virtual sap.ui.core.Popup setPosition(sap.ui.core.Popup.Dock my, Union<sap.ui.core.Popup.Dock, object> at, Union<string, sap.ui.core.Element, Retyped.dom.HTMLElement, jQuery, jquery.JQuery.Event> of, string offset, string collision);
 
 					/// <summary>
 					/// Sets the position of the Popup (if you refer to a Control as anchor then do not use the DOMRef of the control which might change after re-renderings). Optional parameters can only be omitted when all subsequent parameters are omitted as well.
@@ -445,7 +446,7 @@ namespace UI5
 					/// <param name="of">specifies the reference element to which the given content should be aligned as specified in the other parameters</param>
 					/// <param name="offset">the offset relative to the docking point, specified as a string with space-separated pixel values (e.g. "0 10" to move the popup 10 pixels to the right). If the docking of both "my" and "at" are both RTL-sensitive ("begin" or "end"), this offset is automatically mirrored in the RTL case as well.</param>
 					/// <returns><code>this</code> to allow method chaining</returns>
-					public extern virtual sap.ui.core.Popup setPosition(sap.ui.core.Popup.Dock my, Union<sap.ui.core.Popup.Dock, object> at, Union<string, sap.ui.core.Element, dom.HTMLElement, jQuery, jquery.JQuery.Event> of = Globals.document, string offset = "0 0");
+					public extern virtual sap.ui.core.Popup setPosition(sap.ui.core.Popup.Dock my, Union<sap.ui.core.Popup.Dock, object> at, Union<string, sap.ui.core.Element, Retyped.dom.HTMLElement, jQuery, jquery.JQuery.Event> of = Globals.document, string offset = "0 0");
 
 					/// <summary>
 					/// Determines whether the Popup should have a shadow (in supporting browsers). This also affects a currently open popup.

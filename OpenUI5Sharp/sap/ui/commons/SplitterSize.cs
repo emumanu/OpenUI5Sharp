@@ -17,6 +17,7 @@ namespace UI5
 				[External]
 				[Namespace(false)]
 				[Name("sap.ui.commons.SplitterSize")]
+				[Obsolete("Deprecated since 1.38.")]
 				public partial class SplitterSize
 				{
 					public static extern implicit operator string(SplitterSize ts);

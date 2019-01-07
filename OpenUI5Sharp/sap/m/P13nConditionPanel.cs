@@ -545,6 +545,16 @@ namespace UI5
 				public extern virtual object[] getConditions();
 
 				/// <summary>
+				/// creates and returns a formatted text for the specified condition
+				/// </summary>
+				/// <param name="sOperation">the operation type sap.m.P13nConditionOperation</param>
+				/// <param name="sValue1">value of the first range field</param>
+				/// <param name="sValue2">value of the second range field</param>
+				/// <param name="bExclude">indicates if the range is an Exclude range</param>
+				/// <returns>the range token text. An empty string when no operation matches or the values for the operation are wrong</returns>
+				public extern static string getFormatedConditionText(string sOperation, string sValue1, string sValue2, bool bExclude);
+
+				/// <summary>
 				/// getter for KeyFields array
 				/// </summary>
 				/// <returns>array of KeyFields <code>[{key: "CompanyCode", text: "ID"}, {key:"CompanyName", text : "Name"}]</code></returns>
@@ -554,7 +564,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.P13nConditionPanel.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				/// <summary>
 				/// returns the default array of operations

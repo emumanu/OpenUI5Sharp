@@ -69,7 +69,7 @@ namespace UI5
 						/// </summary>
 						/// <param name="mOptions">A map containing the controller configuration options.</param>
 						/// <returns>the Promise resolves with a new instance of the controller</returns>
-						public extern static jquery.JQueryPromise<object> create(sap.ui.core.mvc.Controller.CreateOptions mOptions);
+						public extern static es5.Promise<object> create(sap.ui.core.mvc.Controller.CreateOptions mOptions);
 
 						/// <summary>
 						/// Converts a view local ID to a globally unique one by prepending the view ID.
@@ -114,7 +114,8 @@ namespace UI5
 						/// Returns a metadata object for class sap.ui.core.mvc.Controller.
 						/// </summary>
 						/// <returns>Metadata object describing this class</returns>
-						public extern static sap.ui.@base.Metadata getMetadata();
+						[Name("getMetadata")]
+						public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 						/// <summary>
 						/// Gets the component of the controller's view
@@ -133,19 +134,16 @@ namespace UI5
 						/// <summary>
 						/// This method is called every time the View is rendered, after the HTML is placed in the DOM-Tree. It can be used to apply additional changes to the DOM after the Renderer has finished. (Even though this method is declared as "abstract", it does not need to be defined in controllers, if the method does not exist, it will simply not be called.)
 						/// </summary>
-						/// <remarks>This method is abstract, so it should not be called from subclasses as it is not implemented.</remarks>
 						public extern virtual void onAfterRendering();
 
 						/// <summary>
 						/// This method is called every time the View is rendered, before the Renderer is called and the HTML is placed in the DOM-Tree. It can be used to perform clean-up-tasks before re-rendering. (Even though this method is declared as "abstract", it does not need to be defined in controllers, if the method does not exist, it will simply not be called.)
 						/// </summary>
-						/// <remarks>This method is abstract, so it should not be called from subclasses as it is not implemented.</remarks>
 						public extern virtual void onBeforeRendering();
 
 						/// <summary>
 						/// This method is called upon desctuction of the View. The controller should perform its internal destruction in this hook. It is only called once per View instance, unlike the onBeforeRendering and onAfterRendering hooks. (Even though this method is declared as "abstract", it does not need to be defined in controllers, if the method does not exist, it will simply not be called.)
 						/// </summary>
-						/// <remarks>This method is abstract, so it should not be called from subclasses as it is not implemented.</remarks>
 						public extern virtual void onExit();
 
 						/// <summary>
@@ -153,7 +151,6 @@ namespace UI5
 						/// 
 						/// <b>Note:</b> In component-based apps <code>this.getOwnerComponent().getModel()</code> should be used inside <code>onInit()</code> to get a model assigned to the component instead of using <code>this.getView().getModel()</code>. The latter call might return <code>undefined</code> because the view might not have been attached to a parent yet (i.e. the component), and thus the view can't inherit a model from that parent. You could also attach to the <code>modelContextChange</code> event. The event is fired when either the context or the model changes for the control.
 						/// </summary>
-						/// <remarks>This method is abstract, so it should not be called from subclasses as it is not implemented.</remarks>
 						public extern virtual void onInit();
 
 						/// <summary>

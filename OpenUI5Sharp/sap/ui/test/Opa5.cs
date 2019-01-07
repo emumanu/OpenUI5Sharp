@@ -308,7 +308,7 @@ namespace UI5
 					/// Waits until all waitFor calls are done See {@link sap.ui.test.Opa.emptyQueue} for the description
 					/// </summary>
 					/// <returns>If the waiting was successful, the promise will be resolved. If not it will be rejected</returns>
-					public extern static jquery.JQueryPromise<object> emptyQueue();
+					public extern static es5.Promise<object> emptyQueue();
 
 					/// <summary>
 					/// Extends and overwrites default values of the {@link sap.ui.test.Opa.config}. Most frequent usecase: <pre>
@@ -404,7 +404,7 @@ namespace UI5
 					/// Returns the window object in the current context. If an IFrame is launched, it will return the IFrame's window.
 					/// </summary>
 					/// <returns>The window of the IFrame</returns>
-					public extern static dom.Window getWindow();
+					public extern static Retyped.dom.Window getWindow();
 
 					/// <summary>
 					/// Checks if the application has been started using {@link sap.ui.test.Opa5#iStartMyAppInAFrame} or {@link sap.ui.test.Opa5#iStartMyUIComponent}
@@ -424,70 +424,93 @@ namespace UI5
 					/// <returns>A boolean indicating whether the application has been started as a UIComponent</returns>
 					public extern virtual bool hasUIComponentStarted();
 
-					/// <summary>
-					/// Starts an app in an IFrame. Only works reliably if running on the same server.
-					/// </summary>
-					/// <param name="sSource">The source of the IFrame</param>
-					/// <param name="iTimeout">The timeout for loading the IFrame in seconds - default is 80</param>
-					/// <param name="autoWait">Since 1.53, activates autoWait while the application is starting up. This allows more time for application startup and stabilizes tests for slow-loading applications. This parameter is false by default, regardless of the global autoWait value, to prevent issues in existing tests.</param>
-					/// <param name="oOptions">Since 1.53, you can provide a startup configuration object as an only parameter. oOptions is expected to have the keys: source, timeout and autoWait.</param>
-					/// <returns>A promise that gets resolved on success</returns>
-					public extern virtual jquery.JQueryPromise<object> iStartMyAppInAFrame(string sSource, int iTimeout, bool autoWait, object oOptions);
+                    /// <summary>
+                    /// Starts an app in an IFrame. Only works reliably if running on the same server.
+                    /// </summary>
+                    /// <param name="sSource">The source of the IFrame</param>
+                    /// <param name="iTimeout">The timeout for loading the IFrame in seconds - default is 80</param>
+                    /// <param name="autoWait">Since 1.53, activates autoWait while the application is starting up. This allows more time for application startup and stabilizes tests for slow-loading applications. This parameter is false by default, regardless of the global autoWait value, to prevent issues in existing tests.</param>
+                    /// <param name="width">Since 1.57, sets a fixed width for the iFrame.</param>
+                    /// <param name="height">Since 1.57, sets a fixed height for the iFrame. Setting width and/or height is useful when testing responsive applications on screens of varying sizes. By default, the iFrame dimensions are 60% of the outer window dimensions.</param>
+                    /// <param name="oOptions">Since 1.53, you can provide a startup configuration object as an only parameter. oOptions is expected to have keys among: source, timeout, autoWait, width, height.</param>
+                    /// <returns>A promise that gets resolved on success</returns>
+                    public extern virtual es5.Promise<object> iStartMyAppInAFrame(string sSource, int iTimeout, bool autoWait, Union<string, int> width, Union<string, int> height, object oOptions);
 
-					/// <summary>
-					/// Starts an app in an IFrame. Only works reliably if running on the same server.
-					/// </summary>
-					/// <param name="sSource">The source of the IFrame</param>
-					/// <param name="iTimeout">The timeout for loading the IFrame in seconds - default is 80</param>
-					/// <param name="autoWait">Since 1.53, activates autoWait while the application is starting up. This allows more time for application startup and stabilizes tests for slow-loading applications. This parameter is false by default, regardless of the global autoWait value, to prevent issues in existing tests.</param>
-					/// <returns>A promise that gets resolved on success</returns>
-					public extern virtual jquery.JQueryPromise<object> iStartMyAppInAFrame(string sSource, int iTimeout = 80, bool autoWait = false);
+                    /// <summary>
+                    /// Starts an app in an IFrame. Only works reliably if running on the same server.
+                    /// </summary>
+                    /// <param name="sSource">The source of the IFrame</param>
+                    /// <param name="iTimeout">The timeout for loading the IFrame in seconds - default is 80</param>
+                    /// <param name="autoWait">Since 1.53, activates autoWait while the application is starting up. This allows more time for application startup and stabilizes tests for slow-loading applications. This parameter is false by default, regardless of the global autoWait value, to prevent issues in existing tests.</param>
+                    /// <param name="width">Since 1.57, sets a fixed width for the iFrame.</param>
+                    /// <param name="height">Since 1.57, sets a fixed height for the iFrame. Setting width and/or height is useful when testing responsive applications on screens of varying sizes. By default, the iFrame dimensions are 60% of the outer window dimensions.</param>
+                    /// <returns>A promise that gets resolved on success</returns>
+                    public extern virtual es5.Promise<object> iStartMyAppInAFrame(string sSource, int iTimeout, bool autoWait, Union<string, int> width, Union<string, int> height);
 
-					/// <summary>
-					/// Starts a UIComponent.
-					/// </summary>
-					/// <param name="oOptions">An Object that contains the configuration for starting up a UIComponent.</param>
-					/// <returns>A promise that gets resolved on success.</returns>
-					public extern virtual jquery.JQueryPromise<object> iStartMyUIComponent(sap.ui.test.Opa5.IStartMyUIComponentOptions oOptions);
+                    /// <summary>
+                    /// Starts an app in an IFrame. Only works reliably if running on the same server.
+                    /// </summary>
+                    /// <param name="sSource">The source of the IFrame</param>
+                    /// <param name="iTimeout">The timeout for loading the IFrame in seconds - default is 80</param>
+                    /// <param name="autoWait">Since 1.53, activates autoWait while the application is starting up. This allows more time for application startup and stabilizes tests for slow-loading applications. This parameter is false by default, regardless of the global autoWait value, to prevent issues in existing tests.</param>
+                    /// <param name="width">Since 1.57, sets a fixed width for the iFrame.</param>
+                    /// <returns>A promise that gets resolved on success</returns>
+                    public extern virtual es5.Promise<object> iStartMyAppInAFrame(string sSource, int iTimeout, bool autoWait, Union<string, int> width);
 
-					/// <summary>
-					/// Tears down the started application regardless of how it was started. Removes the IFrame launched by {@link sap.ui.test.Opa5#iStartMyAppInAFrame} or destroys the UIComponent launched by {@link sap.ui.test.Opa5#iStartMyUIComponent}. This function is designed to make the test's teardown independent of the startup. Use {@link sap.ui.test.Opa5#hasAppStarted} to ensure that the application has been started and teardown can be safely performed.
-					/// </summary>
-					/// <returns>A promise that gets resolved on success. If nothing has been started or an error occurs, the promise is rejected with the options object. A detailed error message containing the stack trace and Opa logs is available in options.errorMessage.</returns>
-					public extern virtual jquery.JQueryPromise<object> iTeardownMyApp();
+                    /// <summary>
+                    /// Starts an app in an IFrame. Only works reliably if running on the same server.
+                    /// </summary>
+                    /// <param name="sSource">The source of the IFrame</param>
+                    /// <param name="iTimeout">The timeout for loading the IFrame in seconds - default is 80</param>
+                    /// <param name="autoWait">Since 1.53, activates autoWait while the application is starting up. This allows more time for application startup and stabilizes tests for slow-loading applications. This parameter is false by default, regardless of the global autoWait value, to prevent issues in existing tests.</param>
+                    /// <returns>A promise that gets resolved on success</returns>
+                    public extern virtual es5.Promise<object> iStartMyAppInAFrame(string sSource, int iTimeout = 80, bool autoWait = false);
 
-					/// <summary>
-					/// Removes the IFrame from the DOM and removes all the references to its objects Use {@link sap.ui.test.Opa5#hasAppStartedInAFrame} to ensure that an IFrame has been started and teardown can be safely performed.
-					/// </summary>
-					/// <returns>A promise that gets resolved on success. If no IFrame has been created or an error occurs, the promise is rejected with the options object. A detailed error message containing the stack trace and Opa logs is available in options.errorMessage.</returns>
-					public extern virtual jquery.JQueryPromise<object> iTeardownMyAppFrame();
+                    /// <summary>
+                    /// Starts a UIComponent.
+                    /// </summary>
+                    /// <param name="oOptions">An Object that contains the configuration for starting up a UIComponent.</param>
+                    /// <returns>A promise that gets resolved on success.</returns>
+                    public extern virtual es5.Promise<object> iStartMyUIComponent(sap.ui.test.Opa5.IStartMyUIComponentOptions oOptions);
 
-					/// <summary>
-					/// Destroys the UIComponent and removes the div from the dom like all the references on its objects. Use {@link sap.ui.test.Opa5#hasUIComponentStarted} to ensure that a UIComponent has been started and teardown can be safely performed.
-					/// </summary>
-					/// <returns>a promise that gets resolved on success. If no UIComponent has been started or an error occurs, the promise is rejected with the options object. A detailed error message containing the stack trace and Opa logs is available in options.errorMessage.</returns>
-					public extern virtual jquery.JQueryPromise<object> iTeardownMyUIComponent();
+                    /// <summary>
+                    /// Tears down the started application regardless of how it was started. Removes the IFrame launched by {@link sap.ui.test.Opa5#iStartMyAppInAFrame} or destroys the UIComponent launched by {@link sap.ui.test.Opa5#iStartMyUIComponent}. This function is designed to make the test's teardown independent of the startup. Use {@link sap.ui.test.Opa5#hasAppStarted} to ensure that the application has been started and teardown can be safely performed.
+                    /// </summary>
+                    /// <returns>A promise that gets resolved on success. If nothing has been started or an error occurs, the promise is rejected with the options object. A detailed error message containing the stack trace and Opa logs is available in options.errorMessage.</returns>
+                    public extern virtual es5.Promise<object> iTeardownMyApp();
 
-					/// <summary>
-					/// Resets Opa.config to its default values. See {@link sap.ui.test.Opa5#waitFor} for the description Default values for OPA5 are: <ul> <li>viewNamespace: empty string</li> <li>arrangements: instance of OPA5</li> <li>actions: instance of OPA5</li> <li>assertions: instance of OPA5</li> <li>visible: true</li> <li>timeout : 15 seconds, 0 for infinite timeout</li> <li>pollingInterval: 400 milliseconds</li> <li>debugTimeout: 0 seconds, infinite timeout by default. This will be used instead of timeout if running in debug mode.</li> <li>autoWait: false - since 1.42</li> <li>appParams: object with URI parameters for the tested app - since 1.48</li> </ul>
-					/// </summary>
-					public extern static void resetConfig();
+                    /// <summary>
+                    /// Removes the IFrame from the DOM and removes all the references to its objects Use {@link sap.ui.test.Opa5#hasAppStartedInAFrame} to ensure that an IFrame has been started and teardown can be safely performed.
+                    /// </summary>
+                    /// <returns>A promise that gets resolved on success. If no IFrame has been created or an error occurs, the promise is rejected with the options object. A detailed error message containing the stack trace and Opa logs is available in options.errorMessage.</returns>
+                    public extern virtual es5.Promise<object> iTeardownMyAppFrame();
 
-					/// <summary>
-					/// Clears the queue and stops running tests so that new tests can be run. This means all waitFor statements registered by {@link sap.ui.test.Opa5#waitFor} will not be invoked anymore and the promise returned by {@link sap.ui.test.Opa5.emptyQueue} will be rejected. When its called inside of a check in {@link sap.ui.test.Opa5#waitFor} the success function of this waitFor will not be called.
-					/// </summary>
-					public extern static void stopQueue();
+                    /// <summary>
+                    /// Destroys the UIComponent and removes the div from the dom like all the references on its objects. Use {@link sap.ui.test.Opa5#hasUIComponentStarted} to ensure that a UIComponent has been started and teardown can be safely performed.
+                    /// </summary>
+                    /// <returns>a promise that gets resolved on success. If no UIComponent has been started or an error occurs, the promise is rejected with the options object. A detailed error message containing the stack trace and Opa logs is available in options.errorMessage.</returns>
+                    public extern virtual es5.Promise<object> iTeardownMyUIComponent();
 
-					/// <summary>
-					/// Takes the same parameters as {@link sap.ui.test.Opa#waitFor}. Also allows you to specify additional parameters:
-					/// </summary>
-					/// <param name="options">An Object containing conditions for waiting and callbacks</param>
-					/// <returns>A promise that gets resolved on success. If an error occurs, the promise is rejected with the options object. A detailed error message containing the stack trace and Opa logs is available in options.errorMessage.</returns>
-					public extern virtual jquery.JQueryPromise<object> waitFor(sap.ui.test.Opa5.WaitForOptions options);
+                    /// <summary>
+                    /// Resets Opa.config to its default values. See {@link sap.ui.test.Opa5#waitFor} for the description Default values for OPA5 are: <ul> <li>viewNamespace: empty string</li> <li>arrangements: instance of OPA5</li> <li>actions: instance of OPA5</li> <li>assertions: instance of OPA5</li> <li>visible: true</li> <li>timeout : 15 seconds, 0 for infinite timeout</li> <li>pollingInterval: 400 milliseconds</li> <li>debugTimeout: 0 seconds, infinite timeout by default. This will be used instead of timeout if running in debug mode.</li> <li>autoWait: false - since 1.42</li> <li>appParams: object with URI parameters for the tested app - since 1.48</li> </ul>
+                    /// </summary>
+                    public extern static void resetConfig();
 
-					#endregion
+                    /// <summary>
+                    /// Clears the queue and stops running tests so that new tests can be run. This means all waitFor statements registered by {@link sap.ui.test.Opa5#waitFor} will not be invoked anymore and the promise returned by {@link sap.ui.test.Opa5.emptyQueue} will be rejected. When its called inside of a check in {@link sap.ui.test.Opa5#waitFor} the success function of this waitFor will not be called.
+                    /// </summary>
+                    public extern static void stopQueue();
 
-				}
+                    /// <summary>
+                    /// Takes the same parameters as {@link sap.ui.test.Opa#waitFor}. Also allows you to specify additional parameters:
+                    /// </summary>
+                    /// <param name="options">An Object containing conditions for waiting and callbacks</param>
+                    /// <returns>A promise that gets resolved on success. If an error occurs, the promise is rejected with the options object. A detailed error message containing the stack trace and Opa logs is available in options.errorMessage.</returns>
+                    public extern virtual es5.Promise<object> waitFor(sap.ui.test.Opa5.WaitForOptions options);
+
+                    #endregion
+
+                }
 			}
 		}
 	}

@@ -291,7 +291,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.unified.ContentSwitcher.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Changes the currently active content to the other one. If content 1 is active, content 2 will be activated and the other way around.

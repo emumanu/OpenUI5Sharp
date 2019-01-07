@@ -434,6 +434,10 @@ namespace UI5
 
 				#endregion
 
+				#region Methods for Aggregation _overflowButton
+
+				#endregion
+
 				#region Methods for Event select
 
 				/// <summary>
@@ -545,7 +549,8 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.IconTabHeader.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 				#endregion
 

@@ -180,7 +180,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.core.UIComponent.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Returns the reference to the router instance which has been created by the UIComponent once the routes in the routing metadata has been defined.

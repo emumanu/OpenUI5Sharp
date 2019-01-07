@@ -744,7 +744,7 @@ namespace UI5
 					/// </summary>
 					/// <param name="oBindingInfo">The binding information</param>
 					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-					public extern virtual sap.ui.ux3.FeedChunk bindComments(object oBindingInfo);
+					public extern virtual sap.ui.ux3.FeedChunk bindComments(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 					/// <summary>
 					/// Unbinds aggregation {@link #getComments comments} from model data.
@@ -814,7 +814,7 @@ namespace UI5
 					/// </summary>
 					/// <param name="oBindingInfo">The binding information</param>
 					/// <returns>Reference to <code>this</code> in order to allow method chaining</returns>
-					public extern virtual sap.ui.ux3.FeedChunk bindActionMenuItems(object oBindingInfo);
+					public extern virtual sap.ui.ux3.FeedChunk bindActionMenuItems(sap.ui.@base.ManagedObject.BindAggregationInfo oBindingInfo);
 
 					/// <summary>
 					/// Unbinds aggregation {@link #getActionMenuItems actionMenuItems} from model data.
@@ -1535,7 +1535,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.ux3.FeedChunk.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					#endregion
 

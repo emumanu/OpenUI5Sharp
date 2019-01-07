@@ -61,7 +61,8 @@ namespace UI5
 					/// Returns a metadata object for class sap.ui.core.ResizeHandler.
 					/// </summary>
 					/// <returns>Metadata object describing this class</returns>
-					public extern static sap.ui.@base.Metadata getMetadata();
+					[Name("getMetadata")]
+					public extern static sap.ui.@base.Metadata getMetadataStatic();
 
 					/// <summary>
 					/// Registers the given event handler for resize events on the given DOM element or control.
@@ -75,7 +76,7 @@ namespace UI5
 					/// <param name="oRef">The control or the DOM reference for which the given event handler should be registered (beside the window)</param>
 					/// <param name="fHandler">The event handler which should be called whenever the size of the given reference is changed. The event object is passed as first argument to the event handler. See the description of this function for more details about the available parameters of this event.</param>
 					/// <returns>A registration ID which can be used for deregistering the event handler, see {@link sap.ui.core.ResizeHandler.deregister}. If the UI5 framework is not yet initialized <code>null</code> is returned.</returns>
-					public extern static string register(Union<dom.HTMLElement, sap.ui.core.Control> oRef, object fHandler);
+					public extern static string register(Union<Retyped.dom.HTMLElement, sap.ui.core.Control> oRef, object fHandler);
 
 					#endregion
 

@@ -15,7 +15,7 @@ namespace UI5
 			[External]
 			[Namespace(false)]
 			[Name("sap.m.Switch")]
-			public partial class Switch : sap.ui.core.Control
+			public partial class Switch : sap.ui.core.Control, sap.ui.core.IFormContent
 			{
 				#region Settings
 
@@ -441,7 +441,18 @@ namespace UI5
 				/// Returns a metadata object for class sap.m.Switch.
 				/// </summary>
 				/// <returns>Metadata object describing this class</returns>
-				public extern static sap.ui.@base.Metadata getMetadata();
+				[Name("getMetadata")]
+				public extern static sap.ui.@base.Metadata getMetadataStatic();
+
+				#endregion
+
+				#region Methods of sap.ui.core.IFormContent Interface
+
+				/// <summary>
+				/// In the <code>Form</code> control all content controls are positioned on a grid cell base. By default the controls use the full width of the used grid cell. But for some controls (like image controls), this is not the desired behavior. In this case the control must keep its original width.
+				/// </summary>
+				/// <returns>true if the <code>Form</code> is not allowed to adjust the width of the control to use the cell's width</returns>
+				public extern static bool getFormDoNotAdjustWidth();
 
 				#endregion
 

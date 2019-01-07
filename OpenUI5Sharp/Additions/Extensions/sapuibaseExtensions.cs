@@ -7,6 +7,7 @@ namespace UI5.Extensions
 {
     [Namespace(false)]
     [FileName("openui5sharp.js")]
+    [Name("UI5.Extensions.BaseExtensions")]
     public static class sapuibaseExtensions
     {
         /// <summary>
